@@ -1,3 +1,17 @@
-container: {type: ColumnPanel}
-components: []
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_lotes_existentes
+  layout_properties: {grid_position: 'MIXVBW,KWBDPN'}
+  components:
+  - type: Label
+    properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: LOTES DE PRODUCCIÓN, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_titulo
+    layout_properties: {grid_position: 'WZVHKQ,OXHHYP'}
 is_package: true
