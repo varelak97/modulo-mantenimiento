@@ -1,7 +1,7 @@
-from ._anvil_designer import PRODUCCION_LOTES_EXISTENTESTemplate
+from ._anvil_designer import MANTENIMIENTO_HISTORICOTemplate
 from anvil import *
 
-class PRODUCCION_LOTES_EXISTENTES(PRODUCCION_LOTES_EXISTENTESTemplate):
+class MANTENIMIENTO_HISTORICO(MANTENIMIENTO_HISTORICOTemplate):
   datos = {}
   
   def __init__(self, datos, **properties):

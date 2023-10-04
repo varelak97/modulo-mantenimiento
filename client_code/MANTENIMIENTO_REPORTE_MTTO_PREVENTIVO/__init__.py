@@ -1,7 +1,7 @@
-from ._anvil_designer import PRODUCCION_LOTES_HISTORICOTemplate
+from ._anvil_designer import MANTENIMIENTO_REPORTE_MTTO_PREVENTIVOTemplate
 from anvil import *
 
-class PRODUCCION_LOTES_HISTORICO(PRODUCCION_LOTES_HISTORICOTemplate):
+class MANTENIMIENTO_REPORTE_MTTO_PREVENTIVO(MANTENIMIENTO_REPORTE_MTTO_PREVENTIVOTemplate):
   datos = {}
   def __init__(self,datos, **properties):
     # Set Form properties and Data Bindings.

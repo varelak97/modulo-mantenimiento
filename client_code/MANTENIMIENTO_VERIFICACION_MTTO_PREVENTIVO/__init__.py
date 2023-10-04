@@ -1,7 +1,7 @@
-from ._anvil_designer import PRODUCCCION_LOTESTemplate
+from ._anvil_designer import MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVOTemplate
 from anvil import *
 
-class PRODUCCCION_LOTES(PRODUCCCION_LOTESTemplate):
+class MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO(MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVOTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

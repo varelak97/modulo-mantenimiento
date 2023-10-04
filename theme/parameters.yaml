@@ -307,7 +307,7 @@ color_scheme:
   - {name: Primary, color: '#000080'}
   - {name: Primary Container, color: '#EADDFF'}
   - {name: On Primary, color: '#FFFFFF'}
-  - {name: On Primary Container, color: '#21005E'}
+  - {name: On Primary Container#21005E, color: '#21005E'}
   - {name: Secondary, color: '#625B71'}
   - {name: Secondary Container, color: '#E8DEF8'}
   - {name: On Secondary, color: '#FFFFFF'}
