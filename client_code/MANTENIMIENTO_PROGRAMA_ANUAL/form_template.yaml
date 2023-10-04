@@ -14,4 +14,12 @@ components:
       italic: false, background: 'theme:Primary', bold: true, underline: false, icon: ''}
     name: label_titulo
     layout_properties: {grid_position: 'UQRWPR,WNVFND'}
+- type: Button
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: NUEVO MTTO_PREVENTIVO, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '',
+    bold: false, underline: false, icon: ''}
+  name: button_nuevo
+  layout_properties: {grid_position: 'PQTYFC,VGYEIB'}
+  event_bindings: {click: button_nuevo_click}
 is_package: true

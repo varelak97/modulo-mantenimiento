@@ -26,6 +26,8 @@ class A_main(A_mainTemplate):
   def actualizar_form_activo(self, datos, **event_args):
     if datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
       self.abrir_form(MANTENIMIENTO_PROGRAMA_ANUAL(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO':
+      self.abrir_form(MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO(datos))
 
   def abrir_form(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
