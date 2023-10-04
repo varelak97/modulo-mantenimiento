@@ -61,8 +61,64 @@ components:
       layout_properties: {grid_position: 'NIIBLA,MBTJZB'}
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
-    name: outlined_card_1
+    name: outlined_card_equipo
     layout_properties: {grid_position: 'QDCOWM,WVIZRF'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'AREA Y EQUIPO:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_equipo
+      layout_properties: {grid_position: 'EMBJRS,USEDDE'}
+    - type: DropDown
+      properties:
+        role: outlined
+        align: full
+        tooltip: ''
+        placeholder: -- SELECCIONE EL AREA --
+        border: ''
+        enabled: true
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
+      name: drop_down_1
+      layout_properties: {grid_position: 'JHYLBZ,CGFYES'}
+    - type: Spacer
+      properties: {height: 4}
+      name: spacer_1
+      layout_properties: {grid_position: 'GHDEVB,NNROSY'}
+    - type: DropDown
+      properties:
+        role: outlined
+        align: full
+        tooltip: ''
+        placeholder: -- SELECCIONE EL EQUIPO --
+        border: ''
+        enabled: false
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
+      name: drop_down_2
+      layout_properties: {grid_position: 'HGVSQK,SUPNLH'}
 is_package: true
