@@ -3,6 +3,9 @@ from anvil import *
 
 class MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO(MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVOTemplate):
   datos = {}
+  lista_areas = {
+    
+  }
   def __init__(self,datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
