@@ -1,7 +1,7 @@
-from ._anvil_designer import MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVOTemplate
+from ._anvil_designer import MANTENIMIENTO_PREVENTIVOTemplate
 from anvil import *
 
-class MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO(MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVOTemplate):
+class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
   datos = {}
   lista_areas = {
     
