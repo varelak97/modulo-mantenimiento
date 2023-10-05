@@ -19789,7 +19789,7 @@ https://github.com/agershun/alasql
  * @param {A1:G20} dataAsArray1 Range with first row as unique headers.
  */
 function SUPERSQL(sqlAsString,dataAsArray1,...dataAsArrays) {
-  
+  console.log("ENTRO ###################################################")
   alasql.options.casesensitive = false;
   alasql.fn.sqltodate = function(v) {
       let [year,month,day] = v.split("-");
@@ -19797,6 +19797,8 @@ function SUPERSQL(sqlAsString,dataAsArray1,...dataAsArrays) {
   }  
   
   let sqlData = [arrayToObjectOfArrays(dataAsArray1)];
+
+  console.log("test:" + dataAsArrays);
   
   // If range/array convert to array of objects otherwise keep as is 
   dataAsArrays.forEach(ar => Array.isArray(ar) ? sqlData.push(arrayToObjectOfArrays(ar)) : sqlData.push(ar));
@@ -19829,9 +19831,10 @@ function SUPERSQL(sqlAsString,dataAsArray1,...dataAsArrays) {
 
 // convert array of arrays to array of objects
 let arrayToObjectOfArrays = function(data){
-
+  console.log("antes:" + data);
    //remove blank rows
    data = data.filter(r => !r.every(c => c==""));
+  console.log("despues");
 
    let headers = data.shift();
   
