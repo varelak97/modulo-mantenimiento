@@ -9,6 +9,8 @@ from ..MANTENIMIENTO_PREVENTIVO_HISTORIAL import MANTENIMIENTO_PREVENTIVO_HISTOR
 from ..MANTENIMIENTO_PREVENTIVO_PROGRAMADO_HISTORIAL import MANTENIMIENTO_PREVENTIVO_PROGRAMADO_HISTORIAL
 
 class A_main(A_mainTemplate):
+  ############################### DECLARACIÓN DE VARIABLES GLOBALES #############################
+  ################################# INICIALIZACION DE VARIABLES #################################
   form_activo = None
   datos = {
     'id_usuario_erp': 18,
@@ -22,6 +24,7 @@ class A_main(A_mainTemplate):
     "MANTENIMIENTOS CORRECTIVOS"
   ]
   def __init__(self, **properties):
+    ################################# INICIALIZACION DE VARIABLES #################################
     self.drop_down_mantenimientos.items = self.lista_mttos
     
     self.init_components(**properties)
