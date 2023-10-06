@@ -1,8 +1,12 @@
 from ._anvil_designer import A_mainTemplate
 from anvil import *
-from ..MANTENIMIENTO_HISTORICO import MANTENIMIENTO_HISTORICO
+from ..MANTENIMIENTO_CORRECTIVO import MANTENIMIENTO_CORRECTIVO
+from ..MANTENIMIENTO_PREVENTIVO import MANTENIMIENTO_PREVENTIVO
+from ..MANTENIMIENTO_PREVENTIVO_PROGRAMADO import MANTENIMIENTO_PREVENTIVO_PROGRAMADO
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
-from ..MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO import MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO
+from ..MANTENIMIENTO_CORRECTIVO_HISTORIAL import MANTENIMIENTO_CORRECTIVO_HISTORIAL
+from ..MANTENIMIENTO_PREVENTIVO_HISTORIAL import MANTENIMIENTO_PREVENTIVO_HISTORIAL
+from ..MANTENIMIENTO_PREVENTIVO_PROGRAMADO_HISTORIAL import MANTENIMIENTO_PREVENTIVO_PROGRAMADO_HISTORIAL
 
 class A_main(A_mainTemplate):
   form_activo = None
@@ -11,8 +15,15 @@ class A_main(A_mainTemplate):
     'clave_form':"MANTENIMIENTO_PROGRAMA_ANUAL",
     'test':True
   }
+  lista_mttos = [
+    "PROGRAMA ANUAL DE MANTENIMIENTOS",
+    "MANTENIMIENTOS PREVENTIVOS",
+    "MANTENIMIENTOS PREVENTIVOS PROGRAMADOS",
+    "MANTENIMIENTOS CORRECTIVOS"
+  ]
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+    self.drop_down_mantenimientos.items = self.lista_mttos
+    
     self.init_components(**properties)
   
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
