@@ -15,11 +15,20 @@ components:
     name: label_titulo
     layout_properties: {grid_position: 'UQRWPR,WNVFND'}
   - type: Button
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: NUEVO MTTO_PREVENTIVO, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: button_mtto_preventivo
-    layout_properties: {grid_position: 'AXJPKM,KLEGWN'}
-    event_bindings: {click: button_nuevo_click}
+    properties: {text: button_1}
+    name: button_1
+    layout_properties: {grid_position: 'ZOOIMT,GPZMNU'}
+  - type: DataGrid
+    properties:
+      columns:
+      - {id: OTNAOY, title: Column 1, data_key: column_1}
+      - {id: HTLZSE, title: Column 2, data_key: column_2}
+      - {id: CCDLML, title: Column 3, data_key: column_3}
+    name: data_grid_1
+    layout_properties: {grid_position: 'FASIHH,OQJCRQ'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplate1}
+      name: repeating_panel_1
+      layout_properties: {}
 is_package: true
