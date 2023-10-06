@@ -47,3 +47,8 @@ class A_main(A_mainTemplate):
       pass
     self.form_activo = form_de_interes
     self.add_component(self.form_activo)
+
+  ########################################### EVENTOS ###########################################
+  def drop_down_mantenimientos_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
