@@ -1,0 +1,40 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_actividad
+  layout_properties: {column: YNZXAE}
+  data_bindings:
+  - {property: text, code: 'self.item[''actividad'']'}
+- type: RadioButton
+  properties: {role: null, selected: true, align: center, tooltip: '', border: '',
+    enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+    bold: false, group_name: radioGroupRow, underline: false}
+  name: radio_button_si
+  layout_properties: {column: MQSIVI}
+  data_bindings:
+  - {property: selected, code: 'self.item[''si'']'}
+  - {property: group_name, code: 'self.item[''actividad'']'}
+  event_bindings: {}
+- type: RadioButton
+  properties: {role: null, selected: false, align: center, tooltip: '', border: '',
+    enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+    bold: false, group_name: radioGroupRow, underline: false}
+  name: radio_button_no
+  layout_properties: {column: NGADPT}
+  data_bindings:
+  - {property: selected, code: 'self.item[''no'']'}
+  - {property: group_name, code: 'self.item[''actividad'']'}
+- type: RadioButton
+  properties: {role: null, selected: false, align: center, tooltip: '', border: '',
+    enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+    bold: false, group_name: radioGroupRow, underline: false}
+  name: radio_button_na
+  layout_properties: {column: IHVBVH}
+  data_bindings:
+  - {property: selected, code: 'self.item[''na'']'}
+  - {property: group_name, code: 'self.item[''actividad'']'}
+is_package: true
