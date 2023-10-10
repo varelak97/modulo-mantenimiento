@@ -7,19 +7,19 @@ components:
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: ''}
   name: content_panel
-  layout_properties: {grid_position: 'LMMVXY,HYUNLE', full_width_row: true}
+  layout_properties: {grid_position: 'PFEREP,ZVTADH', full_width_row: true}
   components:
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"RCZANO":5,"VXCMBY":55}',
       spacing_below: small, background: ''}
     name: outlined_card_titulo
-    layout_properties: {grid_position: 'EGPKQD,OVHQQI', full_width_row: true}
+    layout_properties: {grid_position: 'EGPKQD,OVHQQI', full_width_row: false}
     components:
     - type: Button
       properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: VOLVER, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: 'theme:Orange', bold: false, underline: false, icon: 'fa:arrow-circle-left'}
       name: button_volver
       layout_properties: {grid_position: 'LUCKOY,RCZANO'}
@@ -33,126 +33,171 @@ components:
       name: label_titulo
       layout_properties: {grid_position: 'LUCKOY,VXCMBY'}
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"RVBJXW":30,"QPNYZI":30}',
-      spacing_below: small, background: ''}
-    name: outlined_card_datos_generales
-    layout_properties: {grid_position: 'QDCOWM,DEBYBB'}
+    properties: {col_widths: '{}'}
+    name: column_panel_menu_areas
+    layout_properties: {grid_position: 'CKJLQE,YYXOCO'}
     components:
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'FECHA Y HORA DE INICIO:', font_size: null, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: true, underline: false, icon: ''}
-      name: label_fecha
-      layout_properties: {grid_position: 'LTQJTW,RVBJXW'}
-    - type: DatePicker
-      properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
-        placeholder: '', border: '', enabled: true, foreground: '', visible: true,
-        font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-        date: '', min_date: '', background: '', bold: false, underline: false, format: 'dd-mm-Y
-          H:M:S'}
-      name: date_picker_fecha_hora
-      layout_properties: {grid_position: 'LTQJTW,QPNYZI'}
-    - type: Spacer
-      properties: {height: 28}
-      name: spacer_1
-      layout_properties: {grid_position: 'YJOBQC,RCOFBW'}
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'NOMBRE DEL PERSONAL QUE REALIZÓ EL MANTENIMIENTO:',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: true, underline: false, icon: ''}
-      name: label_nombre
-      layout_properties: {grid_position: 'ZBQFFY,VSPULV'}
-    - type: TextBox
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
-      name: text_box_nombre
-      layout_properties: {grid_position: 'NIIBLA,MBTJZB'}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"RVBJXW":30,"QPNYZI":30}',
+        spacing_below: small, background: ''}
+      name: outlined_card_datos_generales
+      layout_properties: {grid_position: 'RLRYYY,QERZPB'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FECHA Y HORA DE INICIO:', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: true, underline: false, icon: ''}
+        name: label_fecha
+        layout_properties: {grid_position: 'LTQJTW,RVBJXW'}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
+          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+          date: '', min_date: '', background: '', bold: false, underline: false, format: 'dd-mm-Y
+            H:M:S'}
+        name: date_picker_fecha_hora
+        layout_properties: {grid_position: 'LTQJTW,QPNYZI'}
+      - type: Spacer
+        properties: {height: 28}
+        name: spacer_1
+        layout_properties: {grid_position: 'YJOBQC,RCOFBW'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'NOMBRE DEL PERSONAL QUE REALIZÓ EL MANTENIMIENTO:',
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: ''}
+        name: label_nombre
+        layout_properties: {grid_position: 'ZBQFFY,VSPULV'}
+      - type: TextBox
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
+        name: text_box_nombre
+        layout_properties: {grid_position: 'NIIBLA,MBTJZB'}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: outlined_card_equipo
+      layout_properties: {grid_position: 'RLRYYY,EZIFCQ'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'AREA:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_area
+        layout_properties: {grid_position: 'DKZRSK,VGUZSA'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'EQUIPO:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_1
+        layout_properties: {grid_position: 'DKZRSK,JGPQCX'}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: -- SELECCIONE EL AREA --
+          border: ''
+          enabled: true
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_area
+        layout_properties: {grid_position: 'JHYLBZ,CGFYES'}
+        event_bindings: {change: drop_down_area_change}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: -- SELECCIONE EL EQUIPO --
+          border: ''
+          enabled: false
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_equipo
+        layout_properties: {grid_position: 'JHYLBZ,KUMBQK'}
+        event_bindings: {change: drop_down_equipo_change}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FRECUENCIA:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_frecuencia
+        layout_properties: {grid_position: 'MKWICH,JTMFNR'}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: ''
+          border: ''
+          enabled: true
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: false
+        name: drop_down_1
+        layout_properties: {grid_position: 'SNXOUC,DEQNYG'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_2
+        layout_properties: {grid_position: 'SNXOUC,VYVUAD'}
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
-    name: outlined_card_equipo
-    layout_properties: {grid_position: 'QDCOWM,WVIZRF'}
+    properties: {col_widths: '{}'}
+    name: content_formularios
+    layout_properties: {grid_position: 'JZFYKC,BQJMNY'}
     components:
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'AREA:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
-      name: label_area
-      layout_properties: {grid_position: 'DKZRSK,VGUZSA'}
-    - type: DropDown
-      properties:
-        role: outlined
-        align: full
-        tooltip: ''
-        placeholder: -- SELECCIONE EL AREA --
-        border: ''
-        enabled: true
-        foreground: ''
-        items: []
-        visible: true
-        font_size: null
-        font: ''
-        spacing_above: small
-        spacing_below: small
-        italic: false
-        background: ''
-        bold: false
-        underline: false
-        include_placeholder: true
-      name: drop_down_area
-      layout_properties: {grid_position: 'JHYLBZ,CGFYES'}
-      event_bindings: {change: drop_down_area_change}
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'EQUIPO:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
-      name: label_1
-      layout_properties: {grid_position: 'WGXTCB,QTNDXX'}
-    - type: DropDown
-      properties:
-        role: outlined
-        align: full
-        tooltip: ''
-        placeholder: -- SELECCIONE EL EQUIPO --
-        border: ''
-        enabled: false
-        foreground: ''
-        items: []
-        visible: true
-        font_size: null
-        font: ''
-        spacing_above: small
-        spacing_below: small
-        italic: false
-        background: ''
-        bold: false
-        underline: false
-        include_placeholder: true
-      name: drop_down_equipo
-      layout_properties: {grid_position: 'HGVSQK,SUPNLH'}
-      event_bindings: {change: drop_down_equipo_change}
-  - type: ColumnPanel
-    properties: {}
-    name: column_panel_equipos_atmasXX
-    layout_properties: {grid_position: 'AOIAWD,BIBHER'}
-  - type: ColumnPanel
-    properties: {}
-    name: column_panel_suajadoras
-    layout_properties: {grid_position: 'AKDASA,TVHFEF'}
-  - type: ColumnPanel
-    properties: {}
-    name: column_panel_embolsadora
-    layout_properties: {grid_position: 'YWSNHO,IXUAJT'}
-  - type: ColumnPanel
-    properties: {}
-    name: column_panel_laser
-    layout_properties: {grid_position: 'GJJNKZ,YPOTDJ'}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: outlined_card_titulo_formulario
+      layout_properties: {grid_position: 'WZLXFG,RPMWML'}
+      components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+            Secondary', visible: true, text: titulo_formulario, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: 'theme:Primary', bold: true, underline: false, icon: ''}
+        name: label_titulo_formulario
+        layout_properties: {grid_position: 'SMGVHZ,RWRJTK'}
+    - type: ColumnPanel
+      properties: {}
+      name: column_panel_equipos_atmasXX
+      layout_properties: {grid_position: 'CIXDJY,LWAXRK'}
 is_package: true
