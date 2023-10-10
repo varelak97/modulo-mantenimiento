@@ -44,6 +44,7 @@ components:
           properties:
             role: wide-tonal-data-grid
             columns:
+            - {id: ORHUMX, title: '#', data_key: id, $$hashKey: 'object:196073'}
             - {id: YNZXAE, title: ACTIVIDAD, data_key: actividad, $$hashKey: 'object:168120'}
             - {id: MQSIVI, title: SI, data_key: si, $$hashKey: 'object:168121'}
             - {id: NGADPT, title: 'NO', data_key: 'no', $$hashKey: 'object:168122'}

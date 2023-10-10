@@ -37,4 +37,10 @@ components:
   data_bindings:
   - {property: selected, code: 'self.item[''na'']'}
   - {property: group_name, code: 'self.item[''actividad'']'}
+- type: Label
+  properties: {}
+  name: label_id
+  layout_properties: {column: ORHUMX}
+  data_bindings:
+  - {property: text, code: 'self.item[''id'']'}
 is_package: true
