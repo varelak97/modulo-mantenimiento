@@ -1,0 +1,36 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_content_panel
+  layout_properties: {grid_position: 'RMCXYP,AFTKPY'}
+  components:
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_titulo
+    layout_properties: {grid_position: 'EIHFNF,QNFLHG'}
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'MANTENIMIENTO TRIMESTRAL ATMA 45, 57, 70, 80, 710',
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: true, underline: false, icon: ''}
+      name: label_titulo
+      layout_properties: {grid_position: 'SMDENY,JHXZIQ'}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_body
+    layout_properties: {grid_position: 'JUYEFA,UTHGXO'}
+    components: []
+  - type: Button
+    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: GUARDAR, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:floppy-o'}
+    name: button_guardar
+    layout_properties: {grid_position: 'DLCUBW,YCWIGB'}
+is_package: true
