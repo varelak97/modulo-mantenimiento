@@ -25,7 +25,7 @@ class A_main(A_mainTemplate):
   ]
   def __init__(self, **properties):
     ################################# INICIALIZACION DE VARIABLES #################################
-    self.drop_down_mantenimientos.items = self.lista_mttos
+    self.drop_down_menu_areas.items = self.lista_mttos
     
     self.init_components(**properties)
   
@@ -66,12 +66,17 @@ class A_main(A_mainTemplate):
 
   def drop_down_menu_areas_change(self, **event_args):
     area_seleccionada = self.drop_down_menu_areas.selected_value
-  
-    "MANTENIMIENTOS PREVENTIVOS",
-    "MANTENIMIENTOS PREVENTIVOS PROGRAMADOS",
-    "MANTENIMIENTOS CORRECTIVOS"
-    if area_seleccionada == ""PROGRAMA ANUAL DE MANTENIMIENTOS"":
-      pass
-    elif 
-      
+
+    if area_seleccionada == "PROGRAMA ANUAL DE MANTENIMIENTOS":
+      self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
+      self.actualizar_form_activo(self.datos)
+    elif area_seleccionada == "MANTENIMIENTOS PREVENTIVOS":
+      self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+      self.actualizar_form_activo(datos=self.datos)
+    elif area_seleccionada == "MANTENIMIENTOS PREVENTIVOS PROGRAMADOS":
+      self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS'
+      self.actualizar_form_activo(self.datos)
+    elif area_seleccionada == "MANTENIMIENTOS CORRECTIVOS":
+      self.datos['clave_form'] = 'MANTENIMIENTO_CORRECTIVO_REGISTROS'
+      self.actualizar_form_activo(self.datos)
 

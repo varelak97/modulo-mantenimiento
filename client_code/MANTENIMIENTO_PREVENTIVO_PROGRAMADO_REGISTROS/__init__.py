@@ -2,8 +2,9 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROSTempla
 from anvil import *
 
 class MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS(MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROSTemplate):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+  datos = {}
+  def __init__(self, datos, **properties):
+    self.datos = datos
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.

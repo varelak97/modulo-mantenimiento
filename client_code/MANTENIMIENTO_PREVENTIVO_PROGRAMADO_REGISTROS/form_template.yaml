@@ -1,3 +1,35 @@
-container: {type: ColumnPanel}
-components: []
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {grid_position: 'SSVFJB,LANHHH'}
+  components:
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_titulo
+    layout_properties: {grid_position: 'PFDIFV,LFKVPN'}
+    components:
+    - type: Label
+      properties: {role: headline, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: MANTENIMIENTO PREVENTIVO PROGRAMADO, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:Primary', bold: true, underline: false, icon: ''}
+      name: label_titulo
+      layout_properties: {grid_position: 'KOEEIG,YVNVFW'}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_body
+    layout_properties: {grid_position: 'MROSNA,FABLQF'}
+    components:
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
+        spacing_below: small, background: ''}
+      name: outlined_card_tabla
+      layout_properties: {grid_position: 'NQTHSW,QNZGME'}
 is_package: true
