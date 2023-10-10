@@ -26,10 +26,26 @@ components:
     name: column_panel_body
     layout_properties: {grid_position: 'ZZZRIC,RRNYAS'}
     components:
+    - type: Button
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: NUEVO REGISTRO, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: 'fa:pencil'}
+      name: button_nuevo
+      layout_properties: {grid_position: 'JBGUCX,MDVRMJ'}
+      event_bindings: {click: button_nuevo_click}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: outlined_card_tabla
       layout_properties: {grid_position: 'QEBOFF,LXAKFN'}
+      components:
+      - type: Button
+        properties: {role: elevated-button, align: center, tooltip: '', border: '',
+          enabled: true, foreground: '', visible: true, text: ACTUALIZAR, font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
+        name: button_actualizar
+        layout_properties: {grid_position: 'YWYCZO,GMZBOL'}
 is_package: true

@@ -8,3 +8,9 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_nuevo_click(self, **event_args):
+    self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO'
+    self.datos['modo'] = 'nuevo'
+    self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)
+
