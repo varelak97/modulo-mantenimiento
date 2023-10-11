@@ -21,7 +21,7 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
     ("ATMA 45",{"EQUIPO":"ATMA45","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
     ("ATMA 710",{"EQUIPO":"ATMA710","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
     ("ATMA 80",{"EQUIPO":"ATMA80","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("HORNO 1",{"EQUIPO":"HORNO1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL"]}),
+    ("HORNO 1",{"EQUIPO":"HORNO1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL","SEMESTRAL"]}),
     ("HORNO 2",{"EQUIPO":"HORNO2","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
     ("HORNO 3",{"EQUIPO":"HORNO3","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
     ("HORNO 4",{"EQUIPO":"HORNO4","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
@@ -378,6 +378,12 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
       self.drop_down_frecuencia.enabled = None
       self.button_abrir.enabled = False
 
+  def drop_down_frecuencia_change(self, **event_args):
+    if self.drop_down_frecuencia.selected_value != None:
+      self.button_abrir.enabled = True
+    else:
+      self.button_abrir.enabled = False
+
   def button_abrir_click(self, **event_args):
     print(f"EQUIPO SELECCIONADO:{self.drop_down_equipo.selected_value}")
     print(f"FRECUENCIA:{self.drop_down_frecuencia.selected_value}")
@@ -409,12 +415,13 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
       elif equipo_seleccionado['EQUIPO'] == "HORNO5":
         actividades = elf.actividades_equipo_horno_5_semestral
       elif equipo_seleccionado['EQUIPO'] == "ATMA80" or equipo_seleccionado['EQUIPO'] == "ATMA710":
-        self.actividades_equipos_atmaXX += self.actividades_equipos_atma80_710
-        self.actividades_equipos_atmaXX = sorted(self.actividades_equipos_atmaXX, key=lambda d: d['id']) 
+        self.actividades_equipos_atma_trimestral += self.actividades_equipos_atma80_710_trimestral
+        self.actividades_equipos_atma_trimestral = sorted(self.actividades_equipos_atma_trimestral, key=lambda d: d['id']) 
+        actividades = self.actividades_equipos_atma_trimestral
       else:
-        for index,actividad in enumerate(self.actividades_equipos_atmaXX):
+        for index,actividad in enumerate(self.actividades_equipos_atma_trimestral):
           actividad['id'] = index + 1
-      actividades = self.actividades_equipos_atmaXX 
+        actividades = self.actividades_equipos_atma_trimestral
     ################################################# SUAJE ########################################################
     elif equipo_seleccionado['AREA'] == "SUAJE":
       if equipo_seleccionado['EQUIPO'] == "EMBOSADORA":
@@ -465,12 +472,14 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
         actividades = self.actividades_equipo_hojeadora_trimestral
       else:
         actividades = self.actividades_equipos_guillotinas_semestral
-    ################################################# EVENTOS ########################################################
-    
+    ################################################# ABRE FORM ESPECIFICO ########################################################
     self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
     self.datos['actividades'] = actividades
     self.datos['frecuencia'] = self.drop_down_frecuencia.selected_value
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)
+
+  
+
 
 
 

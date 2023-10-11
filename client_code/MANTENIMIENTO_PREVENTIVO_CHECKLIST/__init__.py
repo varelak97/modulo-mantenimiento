@@ -8,3 +8,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.init_components(**properties)
     self.datos = datos
     self.repeating_panel_registros.items = datos['actividades']
+
+  def button_regresar_click(self, **event_args):
+    self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO'
+    self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)
+

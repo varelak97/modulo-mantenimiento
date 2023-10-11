@@ -9,11 +9,19 @@ components:
   components:
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"TJCMUY":10,"ZQGKKG":50}',
       spacing_below: small, background: ''}
     name: outlined_card_titulo
     layout_properties: {grid_position: 'TZUALE,NVEKQA'}
     components:
+    - type: Button
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: REGRESAR, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:Orange', bold: false, underline: false, icon: 'fa:arrow-left'}
+      name: button_regresar
+      layout_properties: {grid_position: 'KDVFIC,TJCMUY'}
+      event_bindings: {click: button_regresar_click}
     - type: Label
       properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
           Secondary', visible: true, text: TITULO_MTTO_REVENTIVO_CHECKLIST, font_size: null,
@@ -54,7 +62,7 @@ components:
             tooltip: ''
             border: ''
             foreground: ''
-            rows_per_page: 20
+            rows_per_page: 22
             visible: true
             wrap_on: never
             show_page_controls: true
