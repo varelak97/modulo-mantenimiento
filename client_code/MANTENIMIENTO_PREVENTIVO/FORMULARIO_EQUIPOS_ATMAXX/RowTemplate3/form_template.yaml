@@ -7,7 +7,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''actividad'']'}
 - type: RadioButton
-  properties: {role: null, selected: true, align: center, tooltip: '', border: '',
+  properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
     bold: false, group_name: radioGroupRow, underline: false}
@@ -15,10 +15,10 @@ components:
   layout_properties: {column: MQSIVI}
   data_bindings:
   - {property: selected, code: 'self.item[''si'']'}
-  - {property: group_name, code: 'self.item[''actividad'']'}
+  - {property: group_name, code: 'self.item[''id'']'}
   event_bindings: {}
 - type: RadioButton
-  properties: {role: null, selected: false, align: center, tooltip: '', border: '',
+  properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
     bold: false, group_name: radioGroupRow, underline: false}
@@ -26,9 +26,9 @@ components:
   layout_properties: {column: NGADPT}
   data_bindings:
   - {property: selected, code: 'self.item[''no'']'}
-  - {property: group_name, code: 'self.item[''actividad'']'}
+  - {property: group_name, code: 'self.item[''id'']'}
 - type: RadioButton
-  properties: {role: null, selected: false, align: center, tooltip: '', border: '',
+  properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
     bold: false, group_name: radioGroupRow, underline: false}
@@ -36,9 +36,12 @@ components:
   layout_properties: {column: IHVBVH}
   data_bindings:
   - {property: selected, code: 'self.item[''na'']'}
-  - {property: group_name, code: 'self.item[''actividad'']'}
+  - {property: group_name, code: 'self.item[''id'']'}
 - type: Label
-  properties: {}
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
   name: label_id
   layout_properties: {column: ORHUMX}
   data_bindings:

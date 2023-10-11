@@ -23,7 +23,7 @@ class FORMULARIO_EQUIPOS_ATMAXX(FORMULARIO_EQUIPOS_ATMAXXTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #self.datos = datos
-    self.repeating_panel_1.items = self.items
+    self.repeating_panel_1.items = self.items_actividades_maquinas
     
     
     # Any code you write here will run before the form opens.
