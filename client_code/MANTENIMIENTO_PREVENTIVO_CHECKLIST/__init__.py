@@ -1,7 +1,7 @@
-from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHEKCLISTTemplate
+from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate
 from anvil import *
 
-class MANTENIMIENTO_PREVENTIVO_CHEKCLIST(MANTENIMIENTO_PREVENTIVO_CHEKCLISTTemplate):
+class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
   datos = {}
   items_actividades_maquinas = [
     {"id":1,"actividad":"DESTAPAR Y LIMPIAR INTERIOR DEL EQUIPO"},
@@ -19,8 +19,8 @@ class MANTENIMIENTO_PREVENTIVO_CHEKCLIST(MANTENIMIENTO_PREVENTIVO_CHEKCLISTTempl
     {"id":13,"actividad":"VERIFICAR QUE FUNCIONEN PAROS DE EMERGENCIA"},
     {"id":14,"actividad":"REVISAR QUE INDICADOR DE BATERÍA EN PLC NO ESTÉ ENCENDIDO"}
   ]
-  def __init__(self, **properties):
+  def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    self.datos = datos
     self.repeating_panel_registros.items = self.items_actividades_maquinas

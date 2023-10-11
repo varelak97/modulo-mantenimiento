@@ -7,6 +7,7 @@ from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
 from ..MANTENIMIENTO_CORRECTIVO_REGISTROS import MANTENIMIENTO_CORRECTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS import MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS
+from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
 
 class A_main(A_mainTemplate):
   ############################### DECLARACIÓN DE VARIABLES GLOBALES #############################
@@ -53,6 +54,8 @@ class A_main(A_mainTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMADO(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
 
   def abrir_form(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
