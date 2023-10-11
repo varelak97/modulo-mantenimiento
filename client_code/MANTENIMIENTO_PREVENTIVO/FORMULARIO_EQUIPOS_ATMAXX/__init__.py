@@ -20,7 +20,7 @@ class FORMULARIO_EQUIPOS_ATMAXX(FORMULARIO_EQUIPOS_ATMAXXTemplate):
     {"id":13,"actividad":"VERIFICAR QUE FUNCIONEN PAROS DE EMERGENCIA"},
     {"id":14,"actividad":"REVISAR QUE INDICADOR DE BATERÍA EN PLC NO ESTÉ ENCENDIDO"}
   ]
-  def __init__(self, **properties):
+  def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #self.datos = datos

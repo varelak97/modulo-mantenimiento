@@ -119,8 +119,8 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
 
   def button_abrir_click(self, **event_args):
     print("click")
-    """self.datos['clave_form'] = 'FORMULARIO_EQUIPOS_ATMAXX'
-    self.actualizar_form_activo_equipo(self.datos)"""
+    self.datos['clave_form'] = 'FORMULARIO_EQUIPOS_ATMAXX'
+    self.actualizar_form_activo_equipo(self.datos)
 
 
 
