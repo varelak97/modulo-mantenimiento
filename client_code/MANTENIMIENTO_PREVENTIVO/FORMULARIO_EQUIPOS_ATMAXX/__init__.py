@@ -1,5 +1,6 @@
 from ._anvil_designer import FORMULARIO_EQUIPOS_ATMAXXTemplate
 from anvil import *
+from ..import MANTENIMIENTO_PREVENTIVO
 
 class FORMULARIO_EQUIPOS_ATMAXX(FORMULARIO_EQUIPOS_ATMAXXTemplate):
   datos = {}

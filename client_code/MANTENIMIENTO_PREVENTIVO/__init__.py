@@ -66,10 +66,10 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
 
   ########################################## FUNCIONES PERSONALIZADAS ##############################################
   def actualizar_form_activo_equipo(self, datos, **event_args):
-    if datos['clave_form'] == 'SERVICIO_AL_CLIENTE_ORDENES_COMPRA':
-      self.abrir_form_equipo(FORMULARIO))
-    elif datos['clave_form'] == 'SERVICIO_AL_CLIENTE_ORDENES_COMPRA_REGISTROS':
-      self.abrir_form_equipo(SERVICIO_AL_CLIENTE_ORDENES_COMPRA_REGISTROS(datos))
+    print("test")
+    if datos['clave_form'] == 'FORMULARIO_EQUIPOS_ATMAXX':
+      print("entro")
+      self.abrir_form_equipo(FORMULARIO_EQUIPOS_ATMAXX(datos))
 
   def abrir_form_equipo(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
@@ -116,6 +116,12 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
     else:
       self.drop_down_frecuencia.selected_value = None
       self.drop_down_frecuencia.enabled = None
+
+  def button_abrir_click(self, **event_args):
+    print("click")
+    """self.datos['clave_form'] = 'FORMULARIO_EQUIPOS_ATMAXX'
+    self.actualizar_form_activo_equipo(self.datos)"""
+
 
 
 
