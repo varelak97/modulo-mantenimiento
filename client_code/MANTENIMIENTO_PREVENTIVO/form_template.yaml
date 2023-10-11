@@ -178,7 +178,7 @@ components:
         name: spacer_2
         layout_properties: {grid_position: 'SNXOUC,VYVUAD'}
   - type: Button
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: false,
       foreground: '', visible: true, text: ABRIR, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:search'}
