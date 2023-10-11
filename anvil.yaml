@@ -3,7 +3,7 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: A_main}
+startup: {type: form, module: MANTENIMIENTO_PREVENTIVO}
 package_name: Modulo_Mantenimiento
 allow_embedding: false
 name: Modulo_Mantenimiento

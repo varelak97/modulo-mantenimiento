@@ -1,8 +1,7 @@
-from ._anvil_designer import FORMULARIO_EQUIPOS_ATMAXXTemplate
+from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHEKCLISTTemplate
 from anvil import *
-from ..import MANTENIMIENTO_PREVENTIVO
 
-class FORMULARIO_EQUIPOS_ATMAXX(FORMULARIO_EQUIPOS_ATMAXXTemplate):
+class MANTENIMIENTO_PREVENTIVO_CHEKCLIST(MANTENIMIENTO_PREVENTIVO_CHEKCLISTTemplate):
   datos = {}
   items_actividades_maquinas = [
     {"id":1,"actividad":"DESTAPAR Y LIMPIAR INTERIOR DEL EQUIPO"},
@@ -20,11 +19,8 @@ class FORMULARIO_EQUIPOS_ATMAXX(FORMULARIO_EQUIPOS_ATMAXXTemplate):
     {"id":13,"actividad":"VERIFICAR QUE FUNCIONEN PAROS DE EMERGENCIA"},
     {"id":14,"actividad":"REVISAR QUE INDICADOR DE BATERÍA EN PLC NO ESTÉ ENCENDIDO"}
   ]
-  def __init__(self, datos, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    #self.datos = datos
-    self.repeating_panel_1.items = self.items_actividades_maquinas
-    
-    
-    # Any code you write here will run before the form opens.
+
+    self.repeating_panel_registros.items = self.items_actividades_maquinas

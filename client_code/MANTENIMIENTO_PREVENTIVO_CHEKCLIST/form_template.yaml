@@ -1,0 +1,78 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {grid_position: 'XWQPDK,WDHCVQ'}
+  components:
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_titulo
+    layout_properties: {grid_position: 'TZUALE,NVEKQA'}
+    components:
+    - type: Label
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: TITULO_MTTO_REVENTIVO_CHECKLIST, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:Primary', bold: true, underline: false, icon: ''}
+      name: label_titulo
+      layout_properties: {grid_position: 'KDVFIC,ZQGKKG'}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_body
+    layout_properties: {grid_position: 'KJKXQS,KYYMDG'}
+    components:
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: outlined_card_tabla
+      layout_properties: {grid_position: 'CLTRQC,VGWIZV'}
+      components:
+      - type: FlowPanel
+        properties: {role: null, vertical_align: full, spacing: medium, align: center,
+          tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
+          spacing_below: small, background: ''}
+        name: flow_panel_tabla
+        layout_properties: {grid_position: 'YDVPXP,GNMKUV'}
+        components:
+        - type: DataGrid
+          properties:
+            role: tonal-data-grid
+            columns:
+            - {id: AMSCHA, title: '#', data_key: id, $$hashKey: 'object:25225', width: '50'}
+            - {id: OXHXIX, title: ACTIVIDAD, data_key: actividad, $$hashKey: 'object:25226',
+              width: '500'}
+            - {id: EEMRUC, title: SI, data_key: si, $$hashKey: 'object:25227', width: '50'}
+            - {id: VQHNKV, title: 'NO', data_key: 'no', $$hashKey: 'object:27015'}
+            - {id: VJTNDO, title: NA, data_key: na, $$hashKey: 'object:27017'}
+            auto_header: true
+            tooltip: ''
+            border: ''
+            foreground: ''
+            rows_per_page: 20
+            visible: true
+            wrap_on: never
+            show_page_controls: true
+            spacing_above: small
+            spacing_below: small
+            background: ''
+          name: data_grid_tabla
+          layout_properties: {grid_position: 'RHPRQW,GMHKRH', width: 717.5}
+          components:
+          - type: RepeatingPanel
+            properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CHEKCLIST.RowTemplate3}
+            name: repeating_panel_registros
+            layout_properties: {}
+    - type: Button
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: GUARDAR, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
+      name: button_guardar
+      layout_properties: {grid_position: 'OGDFWR,MZMVQM'}
+is_package: true

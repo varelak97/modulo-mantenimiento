@@ -1,29 +1,37 @@
 container: {type: DataRowPanel}
 components:
 - type: Label
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_id
+  layout_properties: {column: AMSCHA}
+  data_bindings:
+  - {property: text, code: 'self.item[''id'']'}
+- type: Label
   properties: {}
   name: label_actividad
-  layout_properties: {column: YNZXAE}
+  layout_properties: {column: OXHXIX}
   data_bindings:
   - {property: text, code: 'self.item[''actividad'']'}
 - type: RadioButton
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-    bold: false, group_name: radioGroupRow, underline: false}
+    bold: false, group_name: '', underline: false}
   name: radio_button_si
-  layout_properties: {column: MQSIVI}
+  layout_properties: {column: EEMRUC}
   data_bindings:
   - {property: selected, code: 'self.item[''si'']'}
   - {property: group_name, code: 'self.item[''id'']'}
-  event_bindings: {}
 - type: RadioButton
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-    bold: false, group_name: radioGroupRow, underline: false}
+    bold: false, group_name: '', underline: false}
   name: radio_button_no
-  layout_properties: {column: NGADPT}
+  layout_properties: {column: VQHNKV}
   data_bindings:
   - {property: selected, code: 'self.item[''no'']'}
   - {property: group_name, code: 'self.item[''id'']'}
@@ -31,19 +39,10 @@ components:
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-    bold: false, group_name: radioGroupRow, underline: false}
+    bold: false, group_name: '', underline: false}
   name: radio_button_na
-  layout_properties: {column: IHVBVH}
+  layout_properties: {column: VJTNDO}
   data_bindings:
   - {property: selected, code: 'self.item[''na'']'}
   - {property: group_name, code: 'self.item[''id'']'}
-- type: Label
-  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
-  name: label_id
-  layout_properties: {column: ORHUMX}
-  data_bindings:
-  - {property: text, code: 'self.item[''id'']'}
 is_package: true
