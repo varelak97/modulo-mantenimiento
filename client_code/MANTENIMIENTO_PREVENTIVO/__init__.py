@@ -3,6 +3,7 @@ from anvil import *
 
 class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
   datos = {}
+  form_activo = None
   lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
@@ -58,10 +59,27 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
   def __init__(self,datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.set_event_handler('x-actualizar_form_activo_equipo', self.actualizar_form_activo_equipo)
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
 
+  ########################################## FUNCIONES PERSONALIZADAS ##############################################
+  def actualizar_form_activo_equipo(self, datos, **event_args):
+    if datos['clave_form'] == 'SERVICIO_AL_CLIENTE_ORDENES_COMPRA':
+      self.abrir_form_equipo(FORMULARIO))
+    elif datos['clave_form'] == 'SERVICIO_AL_CLIENTE_ORDENES_COMPRA_REGISTROS':
+      self.abrir_form_equipo(SERVICIO_AL_CLIENTE_ORDENES_COMPRA_REGISTROS(datos))
+
+  def abrir_form_equipo(self, form_de_interes):
+    try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
+      self.form_activo.remove_from_parent()
+    except: #no se necesita para manejar el error, pero el 'except' es obligado a estar cuando se usa un try. ¡NO BORRAR!
+      pass
+    self.form_activo = form_de_interes
+    self.content_formularios.add_component(self.form_activo)
+  
+  ################################################# EVENTOS ########################################################
   def button_volver_click(self, **event_args):
     self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)
