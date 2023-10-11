@@ -47,7 +47,7 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
     ("LAMINADORA 2",{"EQUIPO":"LAMINADORA2","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
     ("LAMINADORA 3",{"EQUIPO":"LAMINADOR3","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
     ("PICK&PLACE 2",{"EQUIPO":"PICK_PLACE_2","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
+    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA_MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
     ("DISPENSADORES",{"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
     ("PICK&PLACE 3",{"EQUIPO":"PICK_PLACE_3","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
     ("GUILLOTINA 1",{"EQUIPO":"GUILLOTINA1","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
@@ -294,20 +294,20 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
     {"id":9,"actividad":"VERIFICAR EL ESTADO DE LLAVE ALLEN."},
     {"id":10,"actividad":"(REEMPLAZAR SI REQUIERE)."}
   ]
-  actividades_troqueladora_manual_semestral = [
+  actividades_equipo_troqueladora_manual_semestral = [
     {"id":1,"actividad":"REALIZAR LIMPIEZA GENERAL DEL EQUIPO"},
     {"id":2,"actividad":"ENGRASAR CHUMACERA Y RIEL DE DESPLAZAMIENTO."},
     {"id":3,"actividad":"REVISAR TORNILLERÍA: APRETAR O REEMPLAZAR SI ES NECESARIO."},
     {"id":4,"actividad":"VERIFICAR CORRECTO GRAPADO DE CONECTORES."}
   ]
-  actividades_dispensadores_semestral = [
+  actividades_equipos_dispensadores_semestral = [
     {"id":1,"actividad":"ABRIR TAPA DE EQUIPO Y REALIZAR LIMPIEZA INTERNA."},
     {"id":2,"actividad":"VERIFICAR EL ESTADO DE LAS CONEXIONES."},
     {"id":3,"actividad":"VERIFICAR QUE NO EXISTAN FUGAS DE AIRE."},
     {"id":4,"actividad":"LIMPIAR EXTERIOR DE EQUIPO, CABLES Y MANGUERAS."},
     {"id":5,"actividad":"REALIZAR LIMPIEZA AL PEDAL DEL EQUIPO."}
   ]
-  actividades_guillotinas_semestral = [
+  actividades_equipos_guillotinas_semestral = [
     {"id":1,"actividad":"REALIZAR LIMPIEZA GENERAL DEL EQUIPO."},
     {"id":2,"actividad":"ENGRASAR TORNILLOS DE DESPLAZAMIENTO Y PARTES MOBILES."},
     {"id":3,"actividad":"VERIFICAR EL ESTADO DE LA CUCHILLA."},
@@ -316,7 +316,7 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
     {"id":6,"actividad":"REVISAR EL ESTADO DE LAS CONEXIONES."},
     {"id":7,"actividad":"REVISAR QUE FUNCIONE EL SISTEMA DE BLOQUEO DE LA PALANCA DE ACTIVACIÓN DE LA CUCHILLA"}
   ]
-  actividades_hojeadora_trimestral = [
+  actividades_equipo_hojeadora_trimestral = [
     {"id":1,"actividad":"ASPIRAR Y LIMPIAR INTERIOR DEL EQUIPO."},
     {"id":2,"actividad":"ENGRASAR CHUMACERAS"},
     {"id":3,"actividad":"REVISAR TORNILLERÍA: APRETAR O REEMPLAZAR SI ES NECESARIO."},
@@ -414,26 +414,58 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
       else:
         for index,actividad in enumerate(self.actividades_equipos_atmaXX):
           actividad['id'] = index + 1
-      actividades = self.actividades_equipos_atmaXX
-      
+      actividades = self.actividades_equipos_atmaXX 
     ################################################# SUAJE ########################################################
     elif equipo_seleccionado['AREA'] == "SUAJE":
       if equipo_seleccionado['EQUIPO'] == "EMBOSADORA":
         actividades = self.actividades_equipo_embosadora_trimestral
       else:
         actividades = self.actividades_equipos_suaje_trimestral
+    ################################################# MANUALES ########################################################
     elif equipo_seleccionado['AREA'] == "MANUALES":
       actividades = self.actividades_equipo_embolsadora_trimestral
+    ################################################# LASER ########################################################
     elif equipo_seleccionado['AREA'] == "LÁSER":
       if frecuencia_mtto == "SEMANAL":
         actividades = self.actividades_equipos_laser_semanal
       elif frecuencia_mtto == "MENSUAL":
         actividades = self.actividades_equipos_laser_mensual
-
+    ################################################# CALIDAD ########################################################
+    elif equipo_seleccionado['AREA'] == "CALIDAD":
+      if equipo_seleccionado['EQUIPO'] == "MESA_COORDENADAS_XY":
+        actividades = self.actividades_equipo_mesa_coordenadas_trimestral
+      elif equipo_seleccionado['EQUIPO'] != "PROBADOR_ELECTRICO_2":
+        self.actividades_equipos_probadores_electricos_mensual += self.actividades_equipo_probador_electrico_2_mensual
+        actividades = self.actividades_equipos_probadores_electricos_mensual
+      else:
+        actividades = self.actividades_equipos_probadores_electricos_mensual
+    ################################################# REVELADO ########################################################
+    elif equipo_seleccionado['AREA'] == "REVELADO":
+      if equipo_seleccionado['EQUIPO'] == "INSOLADORA":
+        actividades = self.actividades_equipo_insoladora_semestral
+      elif equipo_seleccionado['EQUIPO'] == "AFILADOR_RASEROS":
+        actividades = self.actividades_equipo_afilador_raseros_trimestral
+    ################################################# ENSAMBLE ########################################################
+    elif equipo_seleccionado['AREA'] == "ENSAMBLE":
+      if equipo_seleccionado['EQUIPO'] == "PICK_PLACE_2":
+        actividades = self.actividades_equipo_pickAndPlace_2_trimestral
+      elif equipo_seleccionado['EQUIPO'] == "PICK_PLACE_3":
+        actividades = self.actividades_equipo_pickAndPlace_3_trimestral
+      elif equipo_seleccionado['EQUIPO'] == "PICK_PLACE_3":
+        actividades = self.actividades_equipo_pickAndPlace_3_trimestral
+      elif equipo_seleccionado['EQUIPO'] == "TROQUELADORA_MANUAL":
+        actividades = self.actividades_equipo_troqueladora_manual_semestral
+      elif equipo_seleccionado['EQUIPO'] == "DISPENSADORES":
+        actividades = self.actividades_equipos_dispensadores_semestral
+      else:
+        actividades = self.actividades_equipos_laminadoras_semestral
+    ################################################# ALMACEN MP ########################################################
+    elif equipo_seleccionado['AREA'] == "ALMACÉN MP":
+      if equipo_seleccionado['EQUIPO'] == "HOJEADORA":
+        actividades = self.actividades_equipo_hojeadora_trimestral
+      else:
+        actividades = self.actividades_equipos_guillotinas_semestral
     ################################################# EVENTOS ########################################################
-    elif equipo_seleccionado['AREA'] == "MANUALES":
-      actividades = self.actividades_Equipo
-      pass
     
     self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
     self.datos['actividades'] = actividades
