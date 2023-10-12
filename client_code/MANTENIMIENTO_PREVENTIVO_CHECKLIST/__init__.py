@@ -1,5 +1,6 @@
 from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate
 from anvil import *
+import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
   datos = {}

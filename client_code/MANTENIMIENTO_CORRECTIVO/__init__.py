@@ -1,5 +1,6 @@
 from ._anvil_designer import MANTENIMIENTO_CORRECTIVOTemplate
 from anvil import *
+import anvil.server
 
 class MANTENIMIENTO_CORRECTIVO(MANTENIMIENTO_CORRECTIVOTemplate):
   def __init__(self, **properties):

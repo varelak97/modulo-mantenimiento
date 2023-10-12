@@ -1,5 +1,6 @@
 from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_REGISTROSTemplate
 from anvil import *
+import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTemplate):
   datos = {}

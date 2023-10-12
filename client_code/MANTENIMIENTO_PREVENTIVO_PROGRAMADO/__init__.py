@@ -1,5 +1,6 @@
 from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_PROGRAMADOTemplate
 from anvil import *
+import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_PROGRAMADO(MANTENIMIENTO_PREVENTIVO_PROGRAMADOTemplate):
   def __init__(self, **properties):
