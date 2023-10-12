@@ -2,19 +2,61 @@ from ._anvil_designer import MANTENIMIENTO_PROGRAMA_ANUALTemplate
 from anvil import *
 import anvil.server
 import anvil.js
+import calendar
+from datetime import datetime, date
 
 class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
+  dias_semana = {
+    "1": "lunes",
+    "2": "martes",
+    "3": "miercoles",
+    "4": "jueves",
+    "5": "viernes",
+    "6": "sabado",
+    "7": "domingo"
+  }
   datos = {}
   def __init__(self, datos, **properties):
+    self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
+    fecha_actual = date.today()
+    self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1]
+    self.drop_down_anio.selected_value = str(fecha_actual.year)
+    self.llenar_calendario()
+    
 
-    self.init_components(**properties)
+  
+  ################################ FUNCIONES PERSONALIZADS ########################################
+  def llenar_calendario(self):
+    self.card_calendario.visible = False
+    for i in range(len(self.drop_down_mes.items)):
+      if self.drop_down_mes.selected_value == self.drop_down_mes.items[i]:
+        int_mes = i + 1
+    
+    mes_calendario = calendar.month(int(self.drop_down_anio.selected_value),int_mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
+    
+    renglones_mes = mes_calendario.split('\n')
+    items = []
+    for i in range(2, len(renglones_mes)):
+      dicc = {}
+      j = 1
+      for k in range(0,len(renglones_mes[i]),3):
+        dicc[self.dias_semana[str(j)]] = {"numero_dia":str(renglones_mes[i][k:k+2]).strip()}
+        j += 1
+      items.append(dicc)
+    self.repeating_panel_mes_calendario.items = items
+    self.card_calendario.visible = True
 
-    self.repeating_panel_1.items = [1,2,3]
+  #################################################### EVENTOS ####################################################
+  def drop_down_mes_change(self, **event_args):
+    self.llenar_calendario()
 
-  def button_nuevo_click(self, **event_args):
+  def drop_down_anio_change(self, **event_args):
+    self.llenar_calendario()
+   
+  ##################################################### PRUEBAS #####################################################
     """self.datos['clave_form'] = 'MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO'
     self.datos['modo'] = 'nuevo'
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)"""

@@ -31,5 +31,8 @@ class RowTemplate1(RowTemplate1Template):
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['actividades'] = self.actividades_equipo_hojeadora_trimestral
       self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_lunes_click(self, **event_args):
+    pass
       
 
