@@ -11,6 +11,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
 
     self.init_components(**properties)
 
+    self.repeating_panel_1.items = [1,2,3]
+
   def button_nuevo_click(self, **event_args):
     """self.datos['clave_form'] = 'MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO'
     self.datos['modo'] = 'nuevo'

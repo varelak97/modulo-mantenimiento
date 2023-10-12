@@ -336,7 +336,7 @@ class MANTENIMIENTO_PREVENTIVO(MANTENIMIENTO_PREVENTIVOTemplate):
   
   ################################################# EVENTOS ########################################################
   def button_volver_click(self, **event_args):
-    self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)
 
   def drop_down_area_change(self, **event_args):
