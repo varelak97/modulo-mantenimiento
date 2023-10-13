@@ -28,7 +28,7 @@ components:
     components:
     - type: Button
       properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: NUEVO REGISTRO, font_size: null,
+        enabled: true, foreground: '', visible: true, text: PROGRAMAR, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: true, underline: false, icon: 'fa:pencil'}
       name: button_nuevo
@@ -48,4 +48,32 @@ components:
           italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
         name: button_actualizar
         layout_properties: {grid_position: 'YWYCZO,GMZBOL'}
+      - type: DataGrid
+        properties:
+          role: null
+          columns:
+          - {id: IZLTZI, title: '', data_key: column_1, $$hashKey: 'object:2618'}
+          - {id: YWSDJV, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:2574'}
+          - {id: JEOEIG, title: AREA, data_key: area, $$hashKey: 'object:2575'}
+          - {id: KAQTHB, title: EQUIPO, data_key: equipo, $$hashKey: 'object:2576'}
+          - {id: BELBDL, title: FRECUENCIA, data_key: frecuecia, $$hashKey: 'object:2614'}
+          - {id: CJCQWT, title: STATUS, data_key: status_mantenimiento, $$hashKey: 'object:2616'}
+          auto_header: true
+          tooltip: ''
+          border: ''
+          foreground: ''
+          rows_per_page: 20
+          visible: true
+          wrap_on: never
+          show_page_controls: true
+          spacing_above: small
+          spacing_below: small
+          background: ''
+        name: data_grid_registros
+        layout_properties: {grid_position: 'BULTXY,XUBQAN'}
+        components:
+        - type: RepeatingPanel
+          properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_REGISTROS.RowTemplate4}
+          name: repeating_panel_1
+          layout_properties: {}
 is_package: true

@@ -1,0 +1,30 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_fecha_programada
+  layout_properties: {column: YWSDJV}
+- type: Label
+  properties: {}
+  name: label_area
+  layout_properties: {column: JEOEIG}
+- type: Label
+  properties: {}
+  name: label_equipo
+  layout_properties: {column: KAQTHB}
+- type: Label
+  properties: {}
+  name: label_frecuencia
+  layout_properties: {column: BELBDL}
+- type: Label
+  properties: {}
+  name: label_status
+  layout_properties: {column: CJCQWT}
+- type: Button
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:pencil'}
+  name: button_editar
+  layout_properties: {column: IZLTZI}
+is_package: true
