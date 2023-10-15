@@ -1,8 +1,9 @@
-from ._anvil_designer import RowTemplate1Template
+from ._anvil_designer import RowTemplateDiasTemplate
 from anvil import *
 import anvil.server
 
-class RowTemplate1(RowTemplate1Template):
+class RowTemplateDias(RowTemplateDiasTemplate):
+  #################################### DEFINICION DE VARIABLES ####################################
   actividades_equipo_hojeadora_trimestral = [
     {"id":1,"actividad":"ASPIRAR Y LIMPIAR INTERIOR DEL EQUIPO."},
     {"id":2,"actividad":"ENGRASAR CHUMACERAS"},
@@ -19,6 +20,7 @@ class RowTemplate1(RowTemplate1Template):
     # Any code you write here will run before the form opens.
 
   def link_click(self, **event_args):
+    #################################################### EVENTOS ####################################################
     respuesta = alert(buttons=[("PROGRAMAR MANTENIMIENTO PREVENTIVO","programar"),("REALIZAR CHECKLIST DE MTTO PREVENTIVO","checklist")])
     #po = self.tag
     
@@ -31,7 +33,8 @@ class RowTemplate1(RowTemplate1Template):
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['actividades'] = self.actividades_equipo_hojeadora_trimestral
       self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
-
+  
+  
   def link_lunes_click(self, **event_args):
     pass
       

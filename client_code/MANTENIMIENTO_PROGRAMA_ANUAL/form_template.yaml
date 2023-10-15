@@ -127,7 +127,7 @@ components:
       layout_properties: {grid_position: 'JVQOET,MPJOOI', full_width_row: true}
       components:
       - type: RepeatingPanel
-        properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplate1}
+        properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplateDias}
         name: repeating_panel_mes_calendario
         layout_properties: {}
 is_package: true
