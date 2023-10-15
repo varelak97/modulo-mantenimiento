@@ -41,6 +41,7 @@ class A_main(A_mainTemplate):
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
+    print("entro")
     if datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
       self.abrir_form(MANTENIMIENTO_PROGRAMA_ANUAL(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO':

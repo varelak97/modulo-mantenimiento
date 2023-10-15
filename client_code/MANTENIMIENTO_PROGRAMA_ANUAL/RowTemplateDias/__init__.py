@@ -25,17 +25,16 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     #po = self.tag
     
     if respuesta == "programar":
+      print("eligio programar")
       datos = {}
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO'
       self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
     elif respuesta == "checklist":
+      print("eligio checklist")
       datos = {}
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['actividades'] = self.actividades_equipo_hojeadora_trimestral
+      print(self.parent.parent.parent.parent.parent)
       self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
-  
-  
-  def link_lunes_click(self, **event_args):
-    pass
       
 
