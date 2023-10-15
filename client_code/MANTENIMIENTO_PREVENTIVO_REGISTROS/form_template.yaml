@@ -31,9 +31,135 @@ components:
         enabled: true, foreground: '', visible: true, text: PROGRAMAR, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: true, underline: false, icon: 'fa:pencil'}
-      name: button_nuevo
+      name: button_programar
       layout_properties: {grid_position: 'JBGUCX,MDVRMJ'}
-      event_bindings: {click: button_nuevo_click}
+      event_bindings: {click: button_programar_click}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: false,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"USZLNA":10,"UMURDD":50}',
+        spacing_below: small, background: ''}
+      name: outlined_card_equipo
+      layout_properties:
+        col_widths: {}
+        grid_position: AQQZQR,XCIHEA
+      components:
+      - type: Button
+        properties: {role: elevated-button, align: right, tooltip: '', border: '',
+          enabled: true, foreground: '', visible: true, text: CANCELAR, font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: 'theme:Orange', bold: true, underline: false,
+          icon: ''}
+        name: button_cancelar
+        layout_properties: {grid_position: 'JWOIXF,USZLNA'}
+        event_bindings: {click: button_cancelar_click}
+      - type: Label
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
+            Secondary', visible: true, text: EQUIPOS, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+          bold: true, underline: false, icon: ''}
+        name: label_titulo_equipo
+        layout_properties: {grid_position: 'JWOIXF,UMURDD'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'AREA:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_area
+        layout_properties: {grid_position: 'DKZRSK,VGUZSA'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'EQUIPO:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_equipo
+        layout_properties: {grid_position: 'DKZRSK,JGPQCX'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FRECUENCIA:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_frecuencia
+        layout_properties: {grid_position: 'DKZRSK,UDSCQL'}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: -- AREA --
+          border: ''
+          enabled: true
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_area
+        layout_properties: {grid_position: 'JHYLBZ,CGFYES'}
+        event_bindings: {change: drop_down_area_change}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: -- EQUIPO --
+          border: ''
+          enabled: false
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_equipo
+        layout_properties: {grid_position: 'JHYLBZ,KUMBQK'}
+        event_bindings: {change: drop_down_equipo_change}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: -- FRECUENCIA --
+          border: ''
+          enabled: false
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_frecuencia
+        layout_properties: {grid_position: 'JHYLBZ,PGFKTA'}
+        event_bindings: {change: drop_down_frecuencia_change}
+      - type: Spacer
+        properties: {height: 19}
+        name: spacer_1
+        layout_properties: {grid_position: 'TJFSHD,WPYIAE'}
+      - type: Button
+        properties: {role: elevated-button, align: center, tooltip: '', border: '',
+          enabled: false, foreground: 'theme:On Secondary', visible: true, text: GUARDAR,
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: 'theme:Blue', bold: true, underline: false, icon: 'fa:floppy-o'}
+        name: button_guardar
+        layout_properties: {grid_position: 'NXLYTE,HBEALZ'}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',

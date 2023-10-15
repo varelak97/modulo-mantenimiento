@@ -4,6 +4,7 @@ import anvil.server
 import anvil.js
 import calendar
 from datetime import datetime, date
+from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
 
 class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -20,6 +21,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.datos = datos
     fecha_actual = date.today()
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1]
@@ -29,6 +31,15 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
 
   
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def actualizar_form_activo(self, datos, **event_args):
+    datos['mes'] = self.drop_down_mes.selected_value
+    datos['anio'] = self.drop_down_anio.selected_value
+    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
+      
+  def abrir_form(self, form_de_interes):
+    alert(content = form_de_interes, large=True)
+    
   def llenar_calendario(self):
     self.card_calendario.visible = False
     for i in range(len(self.drop_down_mes.items)):

@@ -17,24 +17,54 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+  #################################################### EVENTOS ####################################################
+  def link_lunes_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_lunes_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
-  def link_click(self, **event_args):
-    #################################################### EVENTOS ####################################################
-    respuesta = alert(buttons=[("PROGRAMAR MANTENIMIENTO PREVENTIVO","programar"),("REALIZAR CHECKLIST DE MTTO PREVENTIVO","checklist")])
-    #po = self.tag
-    
-    if respuesta == "programar":
-      print("eligio programar")
-      datos = {}
-      datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO'
-      self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
-    elif respuesta == "checklist":
-      print("eligio checklist")
-      datos = {}
-      datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
-      datos['actividades'] = self.actividades_equipo_hojeadora_trimestral
-      print(self.parent.parent.parent.parent.parent)
-      self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+  def link_martes_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_martes_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_miercoles_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_miercoles_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_jueves_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_jueves_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_viernes_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_viernes_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_sabado_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_sabado_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_domingo_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.label_domingo_numero_dia.text
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+
+
+
+
+
+
       
 
