@@ -1,5 +1,7 @@
 from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROSTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS(MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROSTemplate):
