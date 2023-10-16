@@ -420,7 +420,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def button_guardar_click(self, **event_args):
     dict_mtto = {
       "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_consulta_mttos]) + 1) if len(self.registros_consulta_mttos) > 0 else 1,
-      "fecha_programada":f"{self.datos['dia']}-{self.datos['mes']}-{self.datos['anio']}",
+      "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
       "area":self.drop_down_area.selected_value,
       "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
       "frecuencia":self.drop_down_frecuencia.selected_value,
