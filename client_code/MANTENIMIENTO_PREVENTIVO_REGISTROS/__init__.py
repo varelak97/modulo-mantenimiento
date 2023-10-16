@@ -343,6 +343,8 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_mttos = self.libro_mttos['Registros']
     self.registros_mttos = self.ws_mttos.rows
+    print(self.registros_mttos)
+    self.repeating_panel_registros.items = self.registros_mttos
     
 
   ################################ FUNCIONES PERSONALIZADS ########################################
@@ -422,7 +424,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       "id_usuario_registrador":self.datos['id_usuario_erp'],
       "usuario_registrador":"pendiente",
       "operacion":"creacion",
-      "marca_temporal":
+      "marca_temporal":datetime.now()
     }
     self.ws_mttos.add_row(**dict_mtto)
 
