@@ -411,13 +411,17 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def button_guardar_click(self, **event_args):
     dict_mtto = {
-      "id_mtto_preventivo":1,
-      "fecha_programada":"15/10/2023",
+      "id_mtto_preventivo":max([item['id_mtto_preventivo'] for item in self.registros_mttos]),
+      "fecha_programada":f"{self.datos['dia']}/{self.datos['mes']}/{self.datos['anio']}",
       "area":self.drop_down_area.selected_value,
       "equipo":self.drop_down_equipo.selected_value,
       "frecuencia":self.drop_down_frecuencia.selected_value,
       "status_mantenimiento":"PROGRAMADO",
-      "actividades":"pendiente"
+      "actividades":"pendiente",
+      "id_usuario_registrador":self.datos['id_usuario_erp'],
+      "usuario_registrador":"pendiente",
+      "operacion":"creacion",
+      "marca_temporal":
     }
     self.ws_mttos.add_row(**dict_mtto)
 
