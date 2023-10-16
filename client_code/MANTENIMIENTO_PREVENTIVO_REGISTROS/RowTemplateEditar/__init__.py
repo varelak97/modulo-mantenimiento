@@ -11,5 +11,6 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     # Any code you write here will run before the form opens.
 
   def button_editar_click(self, **event_args):
+    alert((""),())
     print(self.tag)
 
