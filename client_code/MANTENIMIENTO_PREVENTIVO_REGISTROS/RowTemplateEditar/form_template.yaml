@@ -40,4 +40,5 @@ components:
     underline: false, icon: 'fa:pencil'}
   name: button_editar
   layout_properties: {column: IZLTZI}
+  event_bindings: {click: button_editar_click}
 is_package: true
