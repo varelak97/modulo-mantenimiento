@@ -7,6 +7,10 @@ import anvil.server
 class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
+  libro_mttos = None
+  ws_mttos = None
+  registros_mttos = None
+  
   lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
@@ -335,6 +339,10 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
+    self.libro_mttos = app_files.mantenimiento_preventivo
+    self.ws_mttos = self.libro_mttos['Registros']
+    self.registros_mttos = self.ws_mttos.rows
+    
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   
@@ -400,5 +408,17 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       self.button_guardar.enabled = True
     else:
       self.button_guardar.enabled = False
+
+  def button_guardar_click(self, **event_args):
+    dict_mtto = {
+      "id_mtto_preventivo":1,
+      "fecha_programada":"15/10/2023",
+      "area":self.drop_down_area.selected_value,
+      "equipo":self.drop_down_equipo.selected_value,
+      "frecuencia":self.drop_down_frecuencia.selected_value,
+      "status_mantenimiento":"PROGRAMADO",
+      "actividades":"pendiente"
+    }
+    self.ws_mttos.add_row(**dict_mtto)
 
 
