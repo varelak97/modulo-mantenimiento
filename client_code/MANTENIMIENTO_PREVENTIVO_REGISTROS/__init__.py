@@ -9,8 +9,9 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
   libro_mttos = None
-  ws_mttos = None
-  registros_mttos = None
+  ws_consulta_mttos = None
+  registros_consulta_mttos = None
+  ws_registros_totales = None
   
   lista_areas = [
     "IMPRESIÓN",
@@ -340,15 +341,19 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
+    
     self.libro_mttos = app_files.mantenimiento_preventivo
-    self.ws_mttos = self.libro_mttos['Consulta']
-    self.registros_mttos = self.ws_mttos.rows
-    print(self.registros_mttos)
-    self.repeating_panel_registros.items = self.registros_mttos
+    
+    self.ws_consulta_mttos = self.libro_mttos['Consulta']
+    self.registros_consulta_mttos = self.ws_consulta_mttos.rows
+    self.repeating_panel_registros.items = self.registros_consulta_mttos
+
+    self.ws_registros_totales = self.libro_mttos['Registros']
     
 
   ################################ FUNCIONES PERSONALIZADS ########################################
-  
+  def get_actividades(self, equipo_seleccionado):
+    return "test"
   
 
   ############################################ EVENTOS ############################################
@@ -414,13 +419,13 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def button_guardar_click(self, **event_args):
     dict_mtto = {
-      "id_mtto_preventivo":max([item['id_mtto_preventivo'] for item in self.registros_mttos]),
-      "fecha_programada":f"{self.datos['dia']}/{self.datos['mes']}/{self.datos['anio']}",
+      "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_consulta_mttos]) + 1) if len(self.registros_consulta_mttos) > 0 else 1,
+      "fecha_programada":f"{self.datos['dia']}-{self.datos['mes']}-{self.datos['anio']}",
       "area":self.drop_down_area.selected_value,
-      "equipo":self.drop_down_equipo.selected_value,
+      "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
       "frecuencia":self.drop_down_frecuencia.selected_value,
       "status_mantenimiento":"PROGRAMADO",
-      "actividades":"pendiente",
+      "actividades":self.get_actividades(self.drop_down_equipo.selected_value),
       "id_usuario_registrador":self.datos['id_usuario_erp'],
       "usuario_registrador":"pendiente",
       "operacion":"creacion",
@@ -428,6 +433,6 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       "comentarios":"",
       "registro_principal": 1
     }
-    self.ws_mttos.add_row(**dict_mtto)
+    self.ws_registros_totales.add_row(**dict_mtto)
 
 

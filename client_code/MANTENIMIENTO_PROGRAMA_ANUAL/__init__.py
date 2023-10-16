@@ -35,6 +35,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
     datos['anio'] = self.drop_down_anio.selected_value
+    datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
       

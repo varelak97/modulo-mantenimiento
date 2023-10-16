@@ -1,25 +1,38 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_mtto_preventivo'']'}
 components:
 - type: Label
   properties: {}
   name: label_fecha_programada
   layout_properties: {column: YWSDJV}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_programada'']'}
 - type: Label
   properties: {}
   name: label_area
   layout_properties: {column: JEOEIG}
+  data_bindings:
+  - {property: text, code: 'self.item[''area'']'}
 - type: Label
   properties: {}
   name: label_equipo
   layout_properties: {column: KAQTHB}
+  data_bindings:
+  - {property: text, code: 'self.item[''equipo'']'}
 - type: Label
   properties: {}
   name: label_frecuencia
   layout_properties: {column: BELBDL}
+  data_bindings:
+  - {property: text, code: 'self.item[''frecuencia'']'}
 - type: Label
   properties: {}
   name: label_status
   layout_properties: {column: CJCQWT}
+  data_bindings:
+  - {property: text, code: 'self.item[''status_mantenimiento'']'}
 - type: Button
   properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,

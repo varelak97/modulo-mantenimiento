@@ -1,9 +1,9 @@
-from ._anvil_designer import RowTemplate1Template
+from ._anvil_designer import RowTemplateNotificacionesTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
-class RowTemplate1(RowTemplate1Template):
+class RowTemplateNotificaciones(RowTemplateNotificacionesTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

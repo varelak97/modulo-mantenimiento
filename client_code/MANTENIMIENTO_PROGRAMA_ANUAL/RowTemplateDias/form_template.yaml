@@ -23,35 +23,35 @@ components:
       - {property: text, code: 'self.item[''lunes''][''numero_dia'']'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: 'PW:23', font_size: 9, font: '', spacing_above: none,
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
         bold: true, underline: false, icon: ''}
       name: label_PW
       layout_properties: {grid_position: 'EGHRDN,WYDZVS'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PM:22', font_size: 9, font: '', spacing_above: none,
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
         bold: true, underline: false, icon: ''}
       name: label_PM
       layout_properties: {grid_position: 'EGHRDN,WBFHEP'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PT:34', font_size: 9, font: '', spacing_above: none,
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
           Container', bold: true, underline: false, icon: ''}
       name: label_PT
       layout_properties: {grid_position: 'IRWDSB,CINKCW'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PS:33', font_size: 9, font: '', spacing_above: none,
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
         bold: true, underline: false, icon: ''}
       name: label_PS
       layout_properties: {grid_position: 'IRWDSB,FWCIIP'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PA:22', font_size: 9, font: '', spacing_above: none,
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
         bold: true, underline: false, icon: ''}
       name: label_PA
