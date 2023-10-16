@@ -55,7 +55,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
       
   def abrir_form(self, form_de_interes):
-    alert(content = form_de_interes, large=True)
+     alert(content = form_de_interes, large=True)
     
   def llenar_calendario(self):
     self.card_calendario.visible = False

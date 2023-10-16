@@ -1,7 +1,7 @@
 container:
   type: DataRowPanel
   data_bindings:
-  - {property: tag, code: 'self.item[''id_actividades'']'}
+  - {property: tag, code: 'self.item[''actividades'']'}
 components:
 - type: Label
   properties: {}
