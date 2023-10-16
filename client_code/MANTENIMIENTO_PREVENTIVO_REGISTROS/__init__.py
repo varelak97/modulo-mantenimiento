@@ -354,7 +354,6 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
         registros_dia_seleccionado.append(item)
         
     self.repeating_panel_registros.items = registros_dia_seleccionado
-    print(registros_dia_seleccionado)
 
     self.ws_registros_totales = self.libro_mttos['Registros']    
 
