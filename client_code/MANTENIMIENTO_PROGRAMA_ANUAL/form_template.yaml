@@ -56,8 +56,7 @@ components:
           border: ''
           enabled: true
           foreground: ''
-          items: [ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO, SEPTIEMBRE,
-            OCTUBRE, NOVIEMBRE, DICIEMBRE]
+          items: ['']
           visible: true
           font_size: null
           font: ''

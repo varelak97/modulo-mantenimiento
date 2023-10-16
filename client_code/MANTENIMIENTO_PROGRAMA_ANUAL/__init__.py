@@ -19,6 +19,20 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     "6": "sabado",
     "7": "domingo"
   }
+  meses = [
+    ("ENERO", 1),
+    ("FEBRERO", 2),
+    ("MARZO", 3),
+    ("ABRIL", 4),
+    ("MAYO", 5),
+    ("JUNIO", 6),
+    ("JULIO", 7),
+    ("AGOSTO", 8),
+    ("SEPTIEMBRE", 9),
+    ("OCTUBRE", 10),
+    ("NOVIEMBRE", 11),
+    ("DICIEMBRE", 12),
+  ]
   datos = {}
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -26,7 +40,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.datos = datos
     fecha_actual = date.today()
-    self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1]
+    self.drop_down_mes.items = self.meses
+    self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
     self.llenar_calendario()
 
@@ -44,11 +59,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     
   def llenar_calendario(self):
     self.card_calendario.visible = False
-    for i in range(len(self.drop_down_mes.items)):
-      if self.drop_down_mes.selected_value == self.drop_down_mes.items[i]:
-        int_mes = i + 1
-    
-    mes_calendario = calendar.month(int(self.drop_down_anio.selected_value),int_mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
+    mes_calendario = calendar.month(int(self.drop_down_anio.selected_value),self.drop_down_mes.selected_value)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
     
     renglones_mes = mes_calendario.split('\n')
     items = []

@@ -29,29 +29,29 @@ components:
       name: label_PW
       layout_properties: {grid_position: 'EGHRDN,WYDZVS'}
     - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
         bold: true, underline: false, icon: ''}
       name: label_PM
       layout_properties: {grid_position: 'EGHRDN,WBFHEP'}
     - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
           Container', bold: true, underline: false, icon: ''}
       name: label_PT
       layout_properties: {grid_position: 'IRWDSB,CINKCW'}
     - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
         bold: true, underline: false, icon: ''}
       name: label_PS
       layout_properties: {grid_position: 'IRWDSB,FWCIIP'}
     - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
         bold: true, underline: false, icon: ''}
       name: label_PA
@@ -88,18 +88,59 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''martes''][''numero_dia'']'}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '
-
-
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: label_martes_items
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
+        bold: true, underline: false, icon: ''}
+      name: label_PW_copy
       layout_properties:
         col_widths: {}
-        grid_position: ELOYWP,IVOQYM
+        grid_position: RMBHGW,LPTFGL
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
+        bold: true, underline: false, icon: ''}
+      name: label_PM_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: RMBHGW,ULNJAG
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
+          Container', bold: true, underline: false, icon: ''}
+      name: label_PT_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: XPDIJA,SVQGIL
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_PS_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: XPDIJA,BMREXG
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
+        bold: true, underline: false, icon: ''}
+      name: label_PA_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: RXSJVE,RZIDOV
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 9, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_3_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: RXSJVE,GRAIMT
   data_bindings:
   - {property: visible, code: 'bool(self.item[''martes''][''numero_dia''])'}
   event_bindings: {click: link_martes_click}
@@ -125,18 +166,59 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''numero_dia'']'}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '
-
-
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: label_miercoles_items
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
+        bold: true, underline: false, icon: ''}
+      name: label_PW_copy_2
       layout_properties:
         col_widths: {}
-        grid_position: SZKHAF,GPNROZ
+        grid_position: BRXOJB,SOWDNT
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
+        bold: true, underline: false, icon: ''}
+      name: label_PM_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: BRXOJB,ZFOKES
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
+          Container', bold: true, underline: false, icon: ''}
+      name: label_PT_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: EJHATM,DLLRCD
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_PS_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: EJHATM,BNSOJK
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
+        bold: true, underline: false, icon: ''}
+      name: label_PA_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: BQNRYJ,VTMLMO
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 9, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_3_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: BQNRYJ,OVRLXA
   data_bindings:
   - {property: visible, code: 'bool(self.item[''miercoles''][''numero_dia''])'}
   event_bindings: {click: link_miercoles_click}
@@ -162,18 +244,59 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''numero_dia'']'}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '
-
-
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: label_jueves_items
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
+        bold: true, underline: false, icon: ''}
+      name: label_PW_copy_3
       layout_properties:
         col_widths: {}
-        grid_position: ANCDKE,JNQVBA
+        grid_position: TMELBX,TEPHEQ
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
+        bold: true, underline: false, icon: ''}
+      name: label_PM_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: TMELBX,NIKLXF
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
+          Container', bold: true, underline: false, icon: ''}
+      name: label_PT_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: KPPWRA,VIZQHM
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_PS_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: KPPWRA,CLCYFU
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
+        bold: true, underline: false, icon: ''}
+      name: label_PA_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: WTNWMR,ZWCMED
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 9, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_3_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: WTNWMR,ZWKXDL
   data_bindings:
   - {property: visible, code: 'bool(self.item[''jueves''][''numero_dia''])'}
   event_bindings: {click: link_jueves_click}
@@ -199,18 +322,59 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''numero_dia'']'}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '
-
-
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: label_viernes_items
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
+        bold: true, underline: false, icon: ''}
+      name: label_PW_copy_4
       layout_properties:
         col_widths: {}
-        grid_position: YNDEZS,JPNQFJ
+        grid_position: VVGZGC,FFISMJ
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
+        bold: true, underline: false, icon: ''}
+      name: label_PM_copy_4
+      layout_properties:
+        col_widths: {}
+        grid_position: VVGZGC,RQZZWY
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
+          Container', bold: true, underline: false, icon: ''}
+      name: label_PT_copy_4
+      layout_properties:
+        col_widths: {}
+        grid_position: JTTBVT,YQNQLG
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_PS_copy_4
+      layout_properties:
+        col_widths: {}
+        grid_position: JTTBVT,XYNIMV
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
+        bold: true, underline: false, icon: ''}
+      name: label_PA_copy_4
+      layout_properties:
+        col_widths: {}
+        grid_position: BYMBCK,RVRLBM
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 9, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_3_copy_4
+      layout_properties:
+        col_widths: {}
+        grid_position: BYMBCK,LKVXAR
   data_bindings:
   - {property: visible, code: 'bool(self.item[''viernes''][''numero_dia''])'}
   event_bindings: {click: link_viernes_click}
@@ -224,7 +388,7 @@ components:
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
     name: card_sabado
-    layout_properties: {grid_position: 'LJWOZC,OOTRCB'}
+    layout_properties: {grid_position: 'WEQHKD,FIDLXH'}
     components:
     - type: Label
       properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
@@ -236,18 +400,59 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''numero_dia'']'}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '
-
-
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: label_sabado_items
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
+        bold: true, underline: false, icon: ''}
+      name: label_PW_copy_5
       layout_properties:
         col_widths: {}
-        grid_position: EQAIJC,KIEGIB
+        grid_position: SSZHKO,KTSESP
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
+        bold: true, underline: false, icon: ''}
+      name: label_PM_copy_5
+      layout_properties:
+        col_widths: {}
+        grid_position: SSZHKO,LMTCBY
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
+          Container', bold: true, underline: false, icon: ''}
+      name: label_PT_copy_5
+      layout_properties:
+        col_widths: {}
+        grid_position: BXLDFB,LNOAHG
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_PS_copy_5
+      layout_properties:
+        col_widths: {}
+        grid_position: BXLDFB,BVNWQZ
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
+        bold: true, underline: false, icon: ''}
+      name: label_PA_copy_5
+      layout_properties:
+        col_widths: {}
+        grid_position: CENCDW,FVSYMQ
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 9, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_3_copy_5
+      layout_properties:
+        col_widths: {}
+        grid_position: CENCDW,RQHRCL
   data_bindings:
   - {property: visible, code: 'bool(self.item[''sabado''][''numero_dia''])'}
   event_bindings: {click: link_sabado_click}
@@ -273,18 +478,59 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''numero_dia'']'}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '
-
-
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: label_domingo_items
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: 'PW:23', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary',
+        bold: true, underline: false, icon: ''}
+      name: label_PW_copy_6
       layout_properties:
         col_widths: {}
-        grid_position: GVOLKH,YJLXYA
+        grid_position: BKYJCZ,LBXJSO
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PM:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Orange',
+        bold: true, underline: false, icon: ''}
+      name: label_PM_copy_6
+      layout_properties:
+        col_widths: {}
+        grid_position: BKYJCZ,DHPZAS
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PT:34', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary
+          Container', bold: true, underline: false, icon: ''}
+      name: label_PT_copy_6
+      layout_properties:
+        col_widths: {}
+        grid_position: URGEML,PJJNRV
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PS:33', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_PS_copy_6
+      layout_properties:
+        col_widths: {}
+        grid_position: URGEML,ZYVHRJ
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'PA:22', font_size: 11, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Green',
+        bold: true, underline: false, icon: ''}
+      name: label_PA_copy_6
+      layout_properties:
+        col_widths: {}
+        grid_position: YZHASB,YMQBOG
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 9, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_3_copy_6
+      layout_properties:
+        col_widths: {}
+        grid_position: YZHASB,ONZIRL
   data_bindings:
   - {property: visible, code: 'bool(self.item[''domingo''][''numero_dia''])'}
   event_bindings: {click: link_domingo_click}
