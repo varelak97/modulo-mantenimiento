@@ -29,7 +29,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
     self.llenar_calendario()
-    
 
   
   ################################ FUNCIONES PERSONALIZADS ########################################

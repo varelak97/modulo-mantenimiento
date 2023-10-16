@@ -1,0 +1,11 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_frecuencia
+  layout_properties: {column: WDQUGJ}
+- type: Label
+  properties: {}
+  name: label_cantidad
+  layout_properties: {column: BTHORK}
+is_package: true
