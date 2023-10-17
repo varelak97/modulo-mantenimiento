@@ -2,6 +2,7 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from datetime import date,datetime
 #import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
@@ -26,7 +27,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
 
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_registros_mttos = self.libro_mttos['Registros']
-    self.datos_mttos = 
+    self.datos_mttos = self.ws_registros_mttos.rows
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def actualizar_checklist(self, fila, **event_args):
@@ -60,6 +61,21 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       alert(title="ERROR!",content="checklist incompleto.")
     else:
       print("guardando...")
+      registro_actualizar = None
+      for registro in self.datos_mttos:
+        if registro['registro_principal'] == '1' and registro['id_mtto_preventivo'] == self.datos['id_mtto_preventivo']:
+          registro['registro_principal'] = 0
+          registro_actualizar = dict(registro).copy()
+          break
+      if registro_actualizar != None:
+        datos_actualizar = {
+          "status_mantenimiento": "REALIZADO",
+          "actividades":respuestas,
+          "operacion":"edicion",
+          "marca_temporal":datetime.now()
+        }
+        registro_actualizar.update(**datos_actualizar)
+        self.ws_registros_mttos.add_row(**registro_actualizar)
       self.raise_event("x-close-alert",value=True)
 
   """def button_regresar_click(self, **event_args):
