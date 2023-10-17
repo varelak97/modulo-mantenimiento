@@ -7,6 +7,10 @@ from anvil.google.drive import app_files
 class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
+  libro_mttos = None
+  ws_registros_mttos = None
+  datos_mttos = None
+  
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -18,8 +22,11 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       item['si'] = False
       item['no'] = False
       item['na'] = False
-    
     self.repeating_panel_registros.items = lista
+
+    self.libro_mttos = app_files.mantenimiento_preventivo
+    self.ws_registros_mttos = self.libro_mttos['Registros']
+    self.datos_mttos = 
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def actualizar_checklist(self, fila, **event_args):
@@ -52,6 +59,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     if respuestas_contestadas < total_respuestas:
       alert(title="ERROR!",content="checklist incompleto.")
     else:
+      print("guardando...")
       self.raise_event("x-close-alert",value=True)
 
   """def button_regresar_click(self, **event_args):

@@ -13,7 +13,7 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
 
   def button_editar_click(self, **event_args):
     datos = {}
-    respuesta = alert(buttons=[("REALIZAR CHECKLIST","checklist"),("REPROGRAMAR","reprogramar")])
+    respuesta = alert(title=self.label_equipo.text,buttons=[("REALIZAR CHECKLIST","checklist"),("REPROGRAMAR","reprogramar")])
     if respuesta == "checklist":
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['id_mtto_preventivo'] = self.button_editar.tag

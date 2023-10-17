@@ -34,6 +34,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     ("DICIEMBRE", 12),
   ]
   datos = {}
+  libro_mttos = None
+  ws_consulta_mttos = None
+  registros_consulta_mttos = None
+  #ws_registros_totales = None
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -43,8 +47,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.drop_down_mes.items = self.meses
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
+    self.libro_mttos = app_files.mantenimiento_preventivo
+    self.ws_consulta_mttos = self.libro_mttos['Consulta']
+    self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     self.llenar_calendario()
-
   
   ################################ FUNCIONES PERSONALIZADS ########################################
   def actualizar_form_activo(self, datos, **event_args):
@@ -58,6 +64,18 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
      alert(content = form_de_interes, large=True)
     
   def llenar_calendario(self):
+    ########### AGREGAR CODIGO PARA MOSTRAR TOTAL Y TIPOS DE MTTOS ############
+    """ int_mes = int(self.drop_down_mes.selected_value)
+    int_anio = int(self.drop_down_anio.selected_value)
+    lista_mttos_registrados = []
+    for item in self.registros_consulta_mttos:
+      fecha_seleccionada = item['fecha_programada'].split('-')
+      if int(fecha_seleccionada[0]) == int_anio and int(fecha_seleccionada[1]) == int_mes:
+        dict_mtto = {}
+        dict_mtto['dia'] = int(fecha_seleccionada[2])
+        dict_mtto['frecuencia'] = item['frecuencia']
+        pass"""
+      
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(self.drop_down_anio.selected_value),self.drop_down_mes.selected_value)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
     
