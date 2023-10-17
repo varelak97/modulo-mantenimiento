@@ -20,7 +20,7 @@ components:
   - {property: text, code: 'self.item[''actividad'']'}
 - type: RadioButton
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
-    enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
+    enabled: true, foreground: '', value: si, visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
     bold: false, group_name: '', underline: false}
   name: radio_button_si
@@ -31,7 +31,7 @@ components:
   event_bindings: {clicked: radio_button_si_clicked}
 - type: RadioButton
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
-    enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
+    enabled: true, foreground: '', value: 'no', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
     bold: false, group_name: '', underline: false}
   name: radio_button_no
@@ -41,7 +41,7 @@ components:
   - {property: group_name, code: 'self.item[''id'']'}
 - type: RadioButton
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
-    enabled: true, foreground: '', value: '', visible: true, text: '', font_size: null,
+    enabled: true, foreground: '', value: na, visible: true, text: '', font_size: null,
     font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
     bold: false, group_name: '', underline: false}
   name: radio_button_na

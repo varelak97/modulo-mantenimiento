@@ -40,12 +40,19 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
 
   ############################################ EVENTOS ############################################
   def button_guardar_click(self, **event_args):
+    respuestas = self.repeating_panel_registros.items
+    total_respuestas = len(respuestas)
+    respuestas_contestadas = 0
     lista_row_panels = self.repeating_panel_registros.get_components()
-    for row_panel in lista_row_panels:
-      print(f"valor:{row_panel.get_components()[2].get_group_value()}")
-      pass
-    #print(self.repeating_panel_registros.items)
-    self.raise_event("x-close-alert",value=True)
+    for index, row_panel in enumerate(lista_row_panels):
+      group_value = row_panel.get_components()[2].get_group_value()
+      if group_value != None:
+        respuestas_contestadas += 1
+        respuestas[index][group_value] = True
+    if respuestas_contestadas < total_respuestas:
+      alert(title="ERROR!",content="checklist incompleto.")
+    else:
+      self.raise_event("x-close-alert",value=True)
 
   """def button_regresar_click(self, **event_args):
     self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'

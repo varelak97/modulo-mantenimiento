@@ -354,13 +354,11 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
         registros_dia_seleccionado.append(item)
         
     self.repeating_panel_registros.items = registros_dia_seleccionado
-
     self.ws_registros_totales = self.libro_mttos['Registros']    
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
-    print(f"el equipo select:{equipo_seleccionado}")
     actividades = None
     if equipo_seleccionado['AREA'] == "IMPRESIÓN":
       if equipo_seleccionado['EQUIPO'] == "IMPRESORA_MIMAKI":

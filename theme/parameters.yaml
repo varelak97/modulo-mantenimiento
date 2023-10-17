@@ -338,3 +338,4 @@ color_scheme:
   - {name: Blue, color: '#1976D2'}
   - {name: Orange, color: '#F57C00'}
   - {name: White, color: '#FFFFFF'}
+  - {name: LightGreen, color: '#ABEBC6 '}
