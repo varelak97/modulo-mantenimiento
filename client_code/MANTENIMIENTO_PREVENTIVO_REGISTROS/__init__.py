@@ -365,18 +365,13 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   ################################ FUNCIONES PERSONALIZADS ########################################
   #####eliminar##############################
   def actualizar_form_activo(self, datos, **event_args):
-    registro_equipo = None
-    for registro in self.registros_totales:
-        if registro['registro_principal'] == '1' and registro['id_mtto_preventivo'] == datos['id_mtto_preventivo']:
-          registro_equipo = registro
-          break
-    datos["modo"] = "nuevo"
-    datos['registro'] = registro_equipo
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
       
   def abrir_form(self, form_de_interes):
-     alert(content = form_de_interes, large=True)
+    respuesta = alert(content = form_de_interes, large=True)
+    if respuesta:
+      print("hecho")
   
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None

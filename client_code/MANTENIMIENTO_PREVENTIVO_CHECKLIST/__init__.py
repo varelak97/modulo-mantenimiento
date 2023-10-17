@@ -11,39 +11,39 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   libro_mttos = None
   ws_registros_mttos = None
   datos_mttos = None
+  registro_equipo = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    self.set_event_handler('x-actualizar_checklist', self.actualizar_checklist)
     self.datos = datos
-    self.label_titulo.text = f"CHECKLIST MTTO PREVENTIVO {datos['equipo']}"
-    lista = list(eval(self.datos['actividades']))
-    print(f"test:{lista}")
-    """for item in lista:
-      item['si'] = False
-      item['no'] = False
-      item['na'] = False"""
-    self.repeating_panel_registros.items = lista
-
+    
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_registros_mttos = self.libro_mttos['Registros']
     self.datos_mttos = self.ws_registros_mttos.rows
-
-  ################################ FUNCIONES PERSONALIZADS ########################################
-  def actualizar_checklist(self, fila, **event_args):
-    pass
-    #print(self.repeating_panel_registros.items)
-    """ lista = self.repeating_panel_registros.items
-    for item in lista:
-      if item['id'] == fila['id']:
-        print("ok")
-        if fila['tipo'] == "si":
-          item['si'] = True
-          break
-    self.repeating_panel_registros.items = lista
-    print(self.repeating_panel_registros.items)"""
     
+    for registro in self.datos_mttos:
+      if registro['registro_principal'] == '1' and registro['id_mtto_preventivo'] == self.datos['id_mtto_preventivo']:
+        self.registro_equipo = registro
+        break
+    self.label_titulo.text = f"CHECKLIST MTTO PREVENTIVO {self.registro_equipo['equipo']}"
+    lista = list(eval(self.registro_equipo['actividades']))
+    if datos['modo'] == "checklist":
+      for item in lista:
+        item['si'] = False
+        item['no'] = False
+        item['na'] = False
+    
+    self.repeating_panel_registros.items = lista
+    
+    if datos['modo'] == "ver_checklist":
+      self.button_guardar.enabled = False
+      for row in self.repeating_panel_registros.get_components():
+        componentes_row = row.get_components()
+        componentes_row[2].enabled = False
+        componentes_row[3].enabled = False
+        componentes_row[4].enabled = False
+  ################################ FUNCIONES PERSONALIZADS ########################################
       
   
 
@@ -62,21 +62,16 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       alert(title="ERROR!",content="checklist incompleto.")
     else:
       print("guardando...")
-      registro_actualizar = None
-      for registro in self.datos_mttos:
-        if registro['registro_principal'] == '1' and registro['id_mtto_preventivo'] == self.datos['id_mtto_preventivo']:
-          registro['registro_principal'] = 0
-          registro_actualizar = dict(registro).copy()
-          break
-      if registro_actualizar != None:
-        datos_actualizar = {
-          "status_mantenimiento": "REALIZADO",
-          "actividades":respuestas,
-          "operacion":"edicion",
-          "marca_temporal":datetime.now()
-        }
-        registro_actualizar.update(**datos_actualizar)
-        self.ws_registros_mttos.add_row(**registro_actualizar)
+      self.registro_equipo['registro_principal'] = 0
+      registro_actualizar = dict(self.registro_equipo).copy()
+      datos_actualizar = {
+        "status_mantenimiento": "REALIZADO",
+        "actividades":respuestas,
+        "operacion":"edicion",
+        "marca_temporal":datetime.now()
+      }
+      registro_actualizar.update(**datos_actualizar)
+      self.ws_registros_mttos.add_row(**registro_actualizar)
       self.raise_event("x-close-alert",value=True)
 
   """def button_regresar_click(self, **event_args):
