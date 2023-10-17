@@ -23,20 +23,27 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def actualizar_checklist(self, fila, **event_args):
-    print(self.repeating_panel_registros.items)
-    lista = self.repeating_panel_registros.items
+    pass
+    #print(self.repeating_panel_registros.items)
+    """ lista = self.repeating_panel_registros.items
     for item in lista:
       if item['id'] == fila['id']:
         print("ok")
         if fila['tipo'] == "si":
           item['si'] = True
           break
+    self.repeating_panel_registros.items = lista
+    print(self.repeating_panel_registros.items)"""
     
       
   
 
   ############################################ EVENTOS ############################################
   def button_guardar_click(self, **event_args):
+    lista_row_panels = self.repeating_panel_registros.get_components()
+    for row_panel in lista_row_panels:
+      print(f"valor:{row_panel.get_components()[2].get_group_value()}")
+      pass
     #print(self.repeating_panel_registros.items)
     self.raise_event("x-close-alert",value=True)
 
