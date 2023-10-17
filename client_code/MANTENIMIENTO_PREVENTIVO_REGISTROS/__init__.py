@@ -4,6 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 from datetime import date,datetime
+from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
 
 class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -12,6 +13,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   ws_consulta_mttos = None
   registros_consulta_mttos = None
   ws_registros_totales = None
+  registros_totales = None
   
   lista_areas = [
     "IMPRESIÓN",
@@ -338,14 +340,18 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def __init__(self,datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    #### borrar evento_handler
+    self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
+    
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
     
     self.libro_mttos = app_files.mantenimiento_preventivo
-    
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
     self.registros_consulta_mttos = self.ws_consulta_mttos.rows
+    self.ws_registros_totales = self.libro_mttos['Registros']
+    self.registros_totales = self.ws_registros_totales.rows
     
     registros_dia_seleccionado = []
     for item in self.registros_consulta_mttos:
@@ -357,6 +363,20 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.ws_registros_totales = self.libro_mttos['Registros']    
 
   ################################ FUNCIONES PERSONALIZADS ########################################
+  #####eliminar##############################
+  def actualizar_form_activo(self, datos, **event_args):
+    registro_equipo = None
+    for registro in self.registros_totales:
+        if registro['registro_principal'] == '1' and registro['id_mtto_preventivo'] == datos['id_mtto_preventivo']:
+          registro_equipo = registro
+          break
+    datos["modo"] = "nuevo"
+    datos['registro'] = registro_equipo
+    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+      
+  def abrir_form(self, form_de_interes):
+     alert(content = form_de_interes, large=True)
   
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None

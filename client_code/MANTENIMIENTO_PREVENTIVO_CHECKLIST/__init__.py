@@ -19,10 +19,11 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.datos = datos
     self.label_titulo.text = f"CHECKLIST MTTO PREVENTIVO {datos['equipo']}"
     lista = list(eval(self.datos['actividades']))
-    for item in lista:
+    print(f"test:{lista}")
+    """for item in lista:
       item['si'] = False
       item['no'] = False
-      item['na'] = False
+      item['na'] = False"""
     self.repeating_panel_registros.items = lista
 
     self.libro_mttos = app_files.mantenimiento_preventivo
