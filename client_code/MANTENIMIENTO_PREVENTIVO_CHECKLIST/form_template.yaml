@@ -30,9 +30,60 @@ components:
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
+      name: outlined_card_inicio
+      layout_properties: {grid_position: 'MXIQUP,RNJWRI'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'NOMBRE DEL PERSONAL QUE REALIZÓ EL MANTENIMIENTO:',
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: ''}
+        name: label_nombre
+        layout_properties: {grid_position: 'DZHBTG,OYOIAC'}
+      - type: TextBox
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
+        name: text_box_nombre
+        layout_properties: {grid_position: 'MGBPXQ,MUTXSK'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FECHA Y HORA DE INICIO:', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: true, underline: false, icon: ''}
+        name: label_fecha_hora_inicio
+        layout_properties: {grid_position: 'DFSEDB,EENTKS'}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
+          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
+            %H:%M:%S'}
+        name: date_picker_fecha_hora_inicio
+        layout_properties: {grid_position: 'KJSSHW,YVWUCJ'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_2
+        layout_properties: {grid_position: 'KJSSHW,CAKQNS'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_1
+        layout_properties: {grid_position: 'KJSSHW,RHSIHM'}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
       name: outlined_card_tabla
       layout_properties: {grid_position: 'CLTRQC,VGWIZV'}
       components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+            Secondary', visible: true, text: ACTIVIDADES, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: 'theme:Green', bold: true, underline: false, icon: ''}
+        name: label_titulo_actividades
+        layout_properties: {grid_position: 'OTRPTE,ALHRNW'}
       - type: FlowPanel
         properties: {role: null, vertical_align: full, spacing: medium, align: center,
           tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
@@ -68,6 +119,50 @@ components:
             properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CHECKLIST.RowTemplateCheck}
             name: repeating_panel_registros
             layout_properties: {}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: outlined_card_termino
+      layout_properties: {grid_position: 'TAYIVJ,BNFDEJ'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FECHA Y HORA DE TÉRMINO:', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: true, underline: false, icon: ''}
+        name: label_fecha_hora_termino
+        layout_properties: {grid_position: 'ATHQTV,OEYVBD'}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
+          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
+            %H:%M:%S'}
+        name: date_picker_fecha_hora_termino
+        layout_properties: {grid_position: 'WVFXGK,WOVKWI'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_4
+        layout_properties: {grid_position: 'WVFXGK,EWLEYZ'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_3
+        layout_properties: {grid_position: 'WVFXGK,WTMDPV'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'COMENTARIOS:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_comentarios
+        layout_properties: {grid_position: 'DRKOSE,KTUAYT'}
+      - type: TextArea
+        properties: {role: outlined, align: left, height: '', tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          auto_expand: false, font: '', spacing_above: small, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false}
+        name: text_area_comentarios
+        layout_properties: {grid_position: 'VKEQHT,QIWZPL'}
     - type: Button
       properties: {role: elevated-button, align: center, tooltip: '', border: '',
         enabled: true, foreground: '', visible: true, text: GUARDAR, font_size: null,

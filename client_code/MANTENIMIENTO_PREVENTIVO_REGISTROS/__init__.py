@@ -540,7 +540,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       }
       self.ws_registros_totales.add_row(**dict_mtto)
       self.repeating_panel_registros.items = self.get_datos_actuales()
-    Notification("Registro guardado correctamente.", title="GUARDADO.", style="Success", timeout=2)
+    Notification("Registro guardado correctamente.", title="GUARDADO.", style="success").show()
     self.button_cancelar_click()
 
   def button_actualizar_click(self, **event_args):

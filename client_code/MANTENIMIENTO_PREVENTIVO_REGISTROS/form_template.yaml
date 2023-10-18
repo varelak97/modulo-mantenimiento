@@ -3,9 +3,11 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
   name: content_panel
-  layout_properties: {grid_position: 'ECVBDS,BOMQWQ'}
+  layout_properties: {grid_position: 'ECVBDS,BOMQWQ', full_width_row: true}
   components:
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
@@ -22,9 +24,11 @@ components:
       name: label_titulo
       layout_properties: {grid_position: 'HJRILU,TSSTZO'}
   - type: ColumnPanel
-    properties: {col_widths: '{}'}
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
     name: column_panel_body
-    layout_properties: {grid_position: 'ZZZRIC,RRNYAS'}
+    layout_properties: {grid_position: 'ZZZRIC,RRNYAS', full_width_row: true}
     components:
     - type: Button
       properties: {role: elevated-button, align: center, tooltip: '', border: '',
@@ -182,7 +186,7 @@ components:
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: outlined_card_tabla
-      layout_properties: {grid_position: 'QEBOFF,LXAKFN'}
+      layout_properties: {grid_position: 'QEBOFF,LXAKFN', full_width_row: true}
       components:
       - type: Button
         properties: {role: elevated-button, align: center, tooltip: '', border: '',
@@ -196,12 +200,16 @@ components:
         properties:
           role: null
           columns:
-          - {id: IZLTZI, title: '', data_key: editar, $$hashKey: 'object:2618'}
-          - {id: YWSDJV, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:2574'}
-          - {id: JEOEIG, title: AREA, data_key: area, $$hashKey: 'object:2575'}
-          - {id: KAQTHB, title: EQUIPO, data_key: equipo, $$hashKey: 'object:2576'}
-          - {id: BELBDL, title: FRECUENCIA, data_key: frecuecia, $$hashKey: 'object:2614'}
-          - {id: CJCQWT, title: STATUS, data_key: status_mantenimiento, $$hashKey: 'object:2616'}
+          - {id: IZLTZI, title: '', data_key: editar, $$hashKey: 'object:2618', width: '80'}
+          - {id: YWSDJV, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:2574',
+            width: '100'}
+          - {id: JEOEIG, title: AREA, data_key: area, $$hashKey: 'object:2575', width: '150'}
+          - {id: KAQTHB, title: EQUIPO, data_key: equipo, $$hashKey: 'object:2576',
+            width: '200'}
+          - {id: BELBDL, title: FRECUENCIA, data_key: frecuecia, $$hashKey: 'object:2614',
+            width: '100'}
+          - {id: CJCQWT, title: STATUS, data_key: status_mantenimiento, $$hashKey: 'object:2616',
+            width: '100'}
           auto_header: true
           tooltip: ''
           border: ''
@@ -214,7 +222,7 @@ components:
           spacing_below: small
           background: ''
         name: data_grid_registros
-        layout_properties: {grid_position: 'BULTXY,XUBQAN'}
+        layout_properties: {grid_position: 'BULTXY,XUBQAN', full_width_row: true}
         components:
         - type: RepeatingPanel
           properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_REGISTROS.RowTemplateEditar}
