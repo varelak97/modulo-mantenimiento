@@ -340,8 +340,8 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def __init__(self,datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    #### borrar evento_handler
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
+    self.set_event_handler('x-editar_registro', self.editar_registro)
     
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
@@ -353,7 +353,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.registros_totales = self.ws_registros_totales.rows
     
     self.repeating_panel_registros.items = self.get_datos_actuales()
-    self.ws_registros_totales = self.libro_mttos['Registros']    
+    #self.ws_registros_totales = self.libro_mttos['Registros'] #revisar si es necesario   
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def get_datos_actuales(self):
@@ -364,10 +364,29 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       if int(fecha_seleccionada[0]) == int(self.datos['anio']) and int(fecha_seleccionada[1]) == int(self.datos['mes']) and int(fecha_seleccionada[2]) == int(self.datos['dia']):
         registros_dia_seleccionado.append(item)
     return registros_dia_seleccionado
-  #####eliminar##############################
+
   def actualizar_form_activo(self, datos, **event_args):
-    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+    if datos['modo'] == "reprogramar":
+      print("ocultado card")
+      self.outlined_card_tabla.visible = False
+    else:
+      if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
+        self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+  
+  def editar_registro(self, datos, **event_args):
+    if datos['modo'] == "reprogramar":
+      self.outlined_card_tabla.visible = False
+      self.button_programar_click()
+      self.column_panel_reprogramar.visible = True
+      registro_seleccionado = None
+      for item in self.registros_totales:
+        if item['id_mtto_preventivo'] == datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
+          registro_seleccionado = item
+          break
+      self.drop_down_area.selected_value = registro_seleccionado['area']
+      self.drop_down_area_change()
+      
+
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
@@ -443,8 +462,6 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
         actividades = self.actividades_equipo_pickAndPlace_2_trimestral
       elif equipo_seleccionado['EQUIPO'] == "PICK_PLACE_3":
         actividades = self.actividades_equipo_pickAndPlace_3_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "PICK_PLACE_3":
-        actividades = self.actividades_equipo_pickAndPlace_3_trimestral
       elif equipo_seleccionado['EQUIPO'] == "TROQUELADORA_MANUAL":
         actividades = self.actividades_equipo_troqueladora_manual_semestral
       elif equipo_seleccionado['EQUIPO'] == "DISPENSADORES":
@@ -464,12 +481,14 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def button_programar_click(self, **event_args):
     self.outlined_card_equipo.visible = True
     self.button_programar.visible = False
+    self.column_panel_reprogramar.visible = False
     """ self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO'
     self.datos['modo'] = 'nuevo'
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)"""
 
   def button_cancelar_click(self, **event_args):
     self.outlined_card_equipo.visible = False
+    self.outlined_card_tabla.visible = True
     self.button_programar.visible = True
     self.button_guardar.enabled = False
     self.drop_down_area.selected_value = None
