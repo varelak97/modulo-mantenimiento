@@ -61,7 +61,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
       
   def abrir_form(self, form_de_interes):
-     alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)])
+     alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
     
   def llenar_calendario(self):
     ########### AGREGAR CODIGO PARA MOSTRAR TOTAL Y TIPOS DE MTTOS ############

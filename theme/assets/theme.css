@@ -1021,8 +1021,27 @@ input[disabled] ~ span {
   border-right: 0;
 }
 
+/*Plots*/
 
+div.plot-container.plotly svg.main-svg {
+  border: 1px solid %color:Surface Variant%;
+  border-radius: 12px;
+}
 
+.plot-container.plotly .main-svg .parcoords .y-axis .axis .tick > text {
+  text-shadow: none !important;
+}
+
+.plot-container.plotly .main-svg .parcoords .y-axis .axis > path.domain {
+  stroke: %color:Outline%;
+}
+
+#loadingSpinner {
+  background-color: %color:Surface Variant%;
+  box-shadow: 0px 0px 100px 100px %color:Surface Variant%;
+}
+
+/*########################################### ESTILOS PERSONALIZADOS ## ###########################################*/
 /* Wide Data Grids */ /* ESTE ES UN TEMA CUSTOMIZADO POR SISTEMAS*/
 .anvil-role-wide-tonal-data-grid.anvil-data-grid > .data-grid-child-panel>div.auto-grid-header {
   background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
@@ -1074,24 +1093,12 @@ input[disabled] ~ span {
   min-width: min-content;
 }
 
-
-/*Plots*/
-
-div.plot-container.plotly svg.main-svg {
-  border: 1px solid %color:Surface Variant%;
-  border-radius: 12px;
+/* Dialogs,alerts */ /* ESTE ES UN TEMA CUSTOMIZADO POR SISTEMAS*/
+/* Component: Dialog (alert), Notification */
+.anvil-role-wide-modal-content, body>div[data-notify="container"] {
+  border-radius: 28px;
+  background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
+  box-shadow: none;
+  border: none;
+  width:150vh
 }
-
-.plot-container.plotly .main-svg .parcoords .y-axis .axis .tick > text {
-  text-shadow: none !important;
-}
-
-.plot-container.plotly .main-svg .parcoords .y-axis .axis > path.domain {
-  stroke: %color:Outline%;
-}
-
-#loadingSpinner {
-  background-color: %color:Surface Variant%;
-  box-shadow: 0px 0px 100px 100px %color:Surface Variant%;
-}
-

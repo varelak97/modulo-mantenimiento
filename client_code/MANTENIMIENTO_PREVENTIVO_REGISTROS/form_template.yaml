@@ -222,14 +222,14 @@ components:
           columns:
           - {id: IZLTZI, title: '', data_key: editar, $$hashKey: 'object:2618', width: '80'}
           - {id: YWSDJV, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:2574',
-            width: '100'}
+            width: '150'}
           - {id: JEOEIG, title: AREA, data_key: area, $$hashKey: 'object:2575', width: '150'}
           - {id: KAQTHB, title: EQUIPO, data_key: equipo, $$hashKey: 'object:2576',
-            width: '200'}
+            width: '250'}
           - {id: BELBDL, title: FRECUENCIA, data_key: frecuecia, $$hashKey: 'object:2614',
-            width: '100'}
+            width: '150'}
           - {id: CJCQWT, title: STATUS, data_key: status_mantenimiento, $$hashKey: 'object:2616',
-            width: '100'}
+            width: '150'}
           auto_header: true
           tooltip: ''
           border: ''
