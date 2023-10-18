@@ -3,14 +3,11 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
-from ..MANTENIMIENTO_CORRECTIVO import MANTENIMIENTO_CORRECTIVO
-from ..MANTENIMIENTO_PREVENTIVO import MANTENIMIENTO_PREVENTIVO
-from ..MANTENIMIENTO_PREVENTIVO_PROGRAMADO import MANTENIMIENTO_PREVENTIVO_PROGRAMADO
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
-from ..MANTENIMIENTO_CORRECTIVO_REGISTROS import MANTENIMIENTO_CORRECTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
-from ..MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS import MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS
 
 class A_main(A_mainTemplate):
   ############################### DECLARACIÓN DE VARIABLES GLOBALES #############################
@@ -23,9 +20,7 @@ class A_main(A_mainTemplate):
   }
   lista_mttos = [
     "PROGRAMA ANUAL DE MANTENIMIENTOS",
-    "MANTENIMIENTOS PREVENTIVOS",
-    "MANTENIMIENTOS PREVENTIVOS PROGRAMADOS",
-    "MANTENIMIENTOS CORRECTIVOS"
+    "MANTENIMIENTOS CORRECTIVOS Y PREVENTIVOS PROGRAMADOS",
   ]
   def __init__(self, **properties):
     ################################# INICIALIZACION DE VARIABLES #################################
@@ -43,23 +38,16 @@ class A_main(A_mainTemplate):
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
-    print("entro")
     if datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
       self.abrir_form(MANTENIMIENTO_PROGRAMA_ANUAL(datos))
-    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
-    elif datos['clave_form'] == 'MANTENIMIENTO_CORRECTIVO':
-      self.abrir_form(MANTENIMIENTO_CORRECTIVO(datos))
-    elif datos['clave_form'] == 'MANTENIMIENTO_CORRECTIVO_REGISTROS':
-      self.abrir_form(MANTENIMIENTO_CORRECTIVO_REGISTROS(datos))
-    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMADO':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMADO(datos))
-    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
 
   def abrir_form(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
@@ -77,13 +65,7 @@ class A_main(A_mainTemplate):
     if area_seleccionada == "PROGRAMA ANUAL DE MANTENIMIENTOS":
       self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
       self.actualizar_form_activo(self.datos)
-    elif area_seleccionada == "MANTENIMIENTOS PREVENTIVOS":
-      self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
-      self.actualizar_form_activo(datos=self.datos)
-    elif area_seleccionada == "MANTENIMIENTOS PREVENTIVOS PROGRAMADOS":
-      self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_PROGRAMADO_REGISTROS'
-      self.actualizar_form_activo(self.datos)
-    elif area_seleccionada == "MANTENIMIENTOS CORRECTIVOS":
-      self.datos['clave_form'] = 'MANTENIMIENTO_CORRECTIVO_REGISTROS'
+    elif area_seleccionada == "MANTENIMIENTOS CORRECTIVOS Y PREVENTIVOS PROGRAMADOS":
+      self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS'
       self.actualizar_form_activo(self.datos)
 
