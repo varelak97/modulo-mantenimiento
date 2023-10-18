@@ -36,22 +36,13 @@ components:
       event_bindings: {click: button_programar_click}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: false,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"USZLNA":10,"UMURDD":50}',
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"UMURDD":50}',
         spacing_below: small, background: ''}
       name: outlined_card_equipo
       layout_properties:
         col_widths: {}
         grid_position: AQQZQR,XCIHEA
       components:
-      - type: Button
-        properties: {role: elevated-button, align: right, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: true, text: CANCELAR, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: 'theme:Orange', bold: true, underline: false,
-          icon: ''}
-        name: button_cancelar
-        layout_properties: {grid_position: 'JWOIXF,USZLNA'}
-        event_bindings: {click: button_cancelar_click}
       - type: Label
         properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
             Secondary', visible: true, text: EQUIPOS, font_size: null, font: '', spacing_above: small,
@@ -149,12 +140,37 @@ components:
         name: drop_down_frecuencia
         layout_properties: {grid_position: 'JHYLBZ,PGFKTA'}
         event_bindings: {change: drop_down_frecuencia_change}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: false,
+          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
+          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
+          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
+          format: ''}
+        name: date_picker_reprogramar
+        layout_properties: {grid_position: 'WBTQDU,JDGGNW'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_2
+        layout_properties: {grid_position: 'WBTQDU,DPIPTD'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_fecha
+        layout_properties: {grid_position: 'WBTQDU,WCZRPK'}
       - type: Spacer
         properties: {height: 19}
         name: spacer_1
         layout_properties: {grid_position: 'TJFSHD,WPYIAE'}
       - type: Button
-        properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        properties: {role: elevated-button, align: right, tooltip: '', border: '',
+          enabled: true, foreground: '', visible: true, text: CANCELAR, font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: 'theme:Orange', bold: true, underline: false,
+          icon: ''}
+        name: button_cancelar
+        layout_properties: {grid_position: 'NXLYTE,MWXZUL'}
+        event_bindings: {click: button_cancelar_click}
+      - type: Button
+        properties: {role: elevated-button, align: left, tooltip: '', border: '',
           enabled: false, foreground: 'theme:On Secondary', visible: true, text: GUARDAR,
           font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: 'theme:Blue', bold: true, underline: false, icon: 'fa:floppy-o'}
@@ -170,7 +186,7 @@ components:
       components:
       - type: Button
         properties: {role: elevated-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: true, text: ACTUALIZAR, font_size: null,
+          enabled: true, foreground: '', visible: false, text: ACTUALIZAR, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
         name: button_actualizar
