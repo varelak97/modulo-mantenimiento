@@ -385,8 +385,18 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
           break
       self.drop_down_area.selected_value = registro_seleccionado['area']
       self.drop_down_area_change()
-      print(self.lista_equipos[0][0])
-
+      item_equipo = None
+      for item in self.lista_equipos:
+        if item[0] == registro_seleccionado['equipo']:
+          item_equipo = item[1]
+          break
+      self.drop_down_equipo.selected_value = item_equipo
+      self.drop_down_equipo_change()
+      self.drop_down_frecuencia.selected_value = registro_seleccionado['frecuencia']
+      
+      self.drop_down_area.enabled = False
+      self.drop_down_equipo.enabled = False
+      self.drop_down_frecuencia.enabled = False
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
@@ -564,6 +574,15 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def button_actualizar_click(self, **event_args):
     self.repeating_panel_registros.items = self.get_datos_actuales()
+
+  def date_picker_reprogramar_change(self, **event_args):
+    if self.date_picker_reprogramar.date != None:
+      print("se habilitar")
+      self.button_guardar.enabled = True
+    else:
+      self.button_guardar.enabled = False
+      
+
 
 
 
