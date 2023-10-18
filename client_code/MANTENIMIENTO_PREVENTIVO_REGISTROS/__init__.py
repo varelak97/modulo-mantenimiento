@@ -26,44 +26,44 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     "ALMACÉN MP"
   ]
   lista_equipos = [
-    ("ATMA 57",{"EQUIPO":"ATMA57","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 71",{"EQUIPO":"ATMA71","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 70",{"EQUIPO":"ATMA70","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 45",{"EQUIPO":"ATMA45","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 710",{"EQUIPO":"ATMA710","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 80",{"EQUIPO":"ATMA80","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("HORNO 1",{"EQUIPO":"HORNO1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL","SEMESTRAL"]}),
-    ("HORNO 2",{"EQUIPO":"HORNO2","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 3",{"EQUIPO":"HORNO3","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 4",{"EQUIPO":"HORNO4","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 5",{"EQUIPO":"HORNO5","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("IMPRESORA MIMAKI",{"EQUIPO":"IMPRESORA_MIMAKI","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
-    ("IMPRESORA OFFSET",{"EQUIPO":"IMPRESORA_OFFSET","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 57",{"EQUIPO":"ATMA 57","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 71",{"EQUIPO":"ATMA 71","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 70",{"EQUIPO":"ATMA 70","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 45",{"EQUIPO":"ATMA 45","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 710",{"EQUIPO":"ATMA 710","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 80",{"EQUIPO":"ATMA 80","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
+    ("HORNO 1",{"EQUIPO":"HORNO 1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL","SEMESTRAL"]}),
+    ("HORNO 2",{"EQUIPO":"HORNO 2","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
+    ("HORNO 3",{"EQUIPO":"HORNO 3","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
+    ("HORNO 4",{"EQUIPO":"HORNO 4","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
+    ("HORNO 5",{"EQUIPO":"HORNO 5","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
+    ("IMPRESORA MIMAKI",{"EQUIPO":"IMPRESORA MIMAKI","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
+    ("IMPRESORA OFFSET",{"EQUIPO":"IMPRESORA OFFSET","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
     ("SPS",{"EQUIPO":"SPS","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
-    ("SUAJADORA 1",{"EQUIPO":"SUAJADORA1","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 2",{"EQUIPO":"SUAJADORA2","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 3",{"EQUIPO":"SUAJADORA3","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 4",{"EQUIPO":"SUAJADORA4","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
+    ("SUAJADORA 1",{"EQUIPO":"SUAJADORA 1","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
+    ("SUAJADORA 2",{"EQUIPO":"SUAJADORA 2","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
+    ("SUAJADORA 3",{"EQUIPO":"SUAJADORA 3","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
+    ("SUAJADORA 4",{"EQUIPO":"SUAJADORA 4","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
     ("EMBOSADORA",{"EQUIPO":"EMBOSADORA","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("LÁSER V-460",{"EQUIPO":"LASER_V-460","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("LÁSER M-300",{"EQUIPO":"LASER_M-300","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("LÁSER VLS-360",{"EQUIPO":"LASER_VLS-360","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("MESA DE COORDENADAS X-Y",{"EQUIPO":"MESA_COORDENADAS_XY","AREA":"CALIDAD","FRECUENCIA":["TRIMESTRAL"]}),
-    ("PROBADOR ELÉCTRICO 2 (CC015)",{"EQUIPO":"PROBADOR_ELECTRICO_2","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("PROBADOR ELÉCTRICO 3 (C0025)",{"EQUIPO":"PROBADOR_ELECTRICO_3","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("PROBADOR ELÉCTRICO 4 (C0028)",{"EQUIPO":"PROBADOR_ELECTRICO_4","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
+    ("LÁSER V-460",{"EQUIPO":"LÁSER V-460","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
+    ("LÁSER M-300",{"EQUIPO":"LÁSER M-300","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
+    ("LÁSER VLS-360",{"EQUIPO":"LÁSER VLS-360","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
+    ("MESA DE COORDENADAS X-Y",{"EQUIPO":"MESA DE COORDENADAS X-Y","AREA":"CALIDAD","FRECUENCIA":["TRIMESTRAL"]}),
+    ("PROBADOR ELÉCTRICO 2 (CC015)",{"EQUIPO":"PROBADOR ELÉCTRICO 2 (CC015)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
+    ("PROBADOR ELÉCTRICO 3 (C0025)",{"EQUIPO":"PROBADOR ELÉCTRICO 3 (C0025)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
+    ("PROBADOR ELÉCTRICO 4 (C0028)",{"EQUIPO":"PROBADOR ELÉCTRICO 4 (C0028)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
     ("INSOLADORA",{"EQUIPO":"INSOLADORA","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
-    ("AFILADOR DE RASEROS",{"EQUIPO":"AFILADOR_RASEROS","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
-    ("LAMINADORA 1",{"EQUIPO":"LAMINADORA1","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("LAMINADORA 2",{"EQUIPO":"LAMINADORA2","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("LAMINADORA 3",{"EQUIPO":"LAMINADOR3","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("PICK&PLACE 2",{"EQUIPO":"PICK_PLACE_2","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA_MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
+    ("AFILADOR DE RASEROS",{"EQUIPO":"AFILADOR DE RASEROS","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
+    ("LAMINADORA 1",{"EQUIPO":"LAMINADORA 1","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
+    ("LAMINADORA 2",{"EQUIPO":"LAMINADORA 2","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
+    ("LAMINADORA 3",{"EQUIPO":"LAMINADOR 3","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
+    ("PICK&PLACE 2",{"EQUIPO":"PICK&PLACE 2","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
+    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
     ("DISPENSADORES",{"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("PICK&PLACE 3",{"EQUIPO":"PICK_PLACE_3","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("GUILLOTINA 1",{"EQUIPO":"GUILLOTINA1","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("GUILLOTINA 2",{"EQUIPO":"GUILLOTINA2","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA3","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
+    ("PICK&PLACE 3",{"EQUIPO":"PICK&PLACE 3","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
+    ("GUILLOTINA 1",{"EQUIPO":"GUILLOTINA 1","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
+    ("GUILLOTINA 2",{"EQUIPO":"GUILLOTINA 2","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
+    ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
   ]
@@ -385,7 +385,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
           break
       self.drop_down_area.selected_value = registro_seleccionado['area']
       self.drop_down_area_change()
-      
+      print(self.lista_equipos[0][0])
 
       
   def abrir_form(self, form_de_interes):
@@ -397,28 +397,28 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None
     if equipo_seleccionado['AREA'] == "IMPRESIÓN":
-      if equipo_seleccionado['EQUIPO'] == "IMPRESORA_MIMAKI":
+      if equipo_seleccionado['EQUIPO'] == "IMPRESORA MIMAKI":
         actividades = self.actividades_equipo_mimaki_mensual
       elif equipo_seleccionado['EQUIPO'] == "SPS":
         actividades = self.actividades_equipo_sps_mensual
-      elif equipo_seleccionado['EQUIPO'] == "IMPRESORA_OFFSET":
+      elif equipo_seleccionado['EQUIPO'] == "IMPRESORA OFFSET":
         actividades = self.actividades_equipo_offset_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO1":
+      elif equipo_seleccionado['EQUIPO'] == "HORNO 1":
         if frecuencia_mtto == "SEMANAL":
           actividades = self.actividades_equipo_horno_1_semanal
         elif frecuencia_mtto == "MENSUAL":
           actividades = self.actividades_equipo_horno_1_mensual
         elif frecuencia_mtto == "SEMESTRAL":
           actividades = self.actividades_equipo_horno_1_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO2":
+      elif equipo_seleccionado['EQUIPO'] == "HORNO 2":
         actividades = self.actividades_equipo_horno_2_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO3":
+      elif equipo_seleccionado['EQUIPO'] == "HORNO 3":
         actividades = self.actividades_equipo_horno_3_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO4":
+      elif equipo_seleccionado['EQUIPO'] == "HORNO 4":
         actividades = self.actividades_equipo_horno_4_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO5":
+      elif equipo_seleccionado['EQUIPO'] == "HORNO 5":
         actividades = elf.actividades_equipo_horno_5_semestral
-      elif equipo_seleccionado['EQUIPO'] == "ATMA80" or equipo_seleccionado['EQUIPO'] == "ATMA710":
+      elif equipo_seleccionado['EQUIPO'] == "ATMA 80" or equipo_seleccionado['EQUIPO'] == "ATMA 710":
         self.actividades_equipos_atma_trimestral += self.actividades_equipos_atma80_710_trimestral
         self.actividades_equipos_atma_trimestral = sorted(self.actividades_equipos_atma_trimestral, key=lambda d: d['id']) 
         actividades = self.actividades_equipos_atma_trimestral
@@ -443,9 +443,9 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
         actividades = self.actividades_equipos_laser_mensual
     ################################################# CALIDAD ########################################################
     elif equipo_seleccionado['AREA'] == "CALIDAD":
-      if equipo_seleccionado['EQUIPO'] == "MESA_COORDENADAS_XY":
+      if equipo_seleccionado['EQUIPO'] == "MESA DE COORDENADAS X-Y":
         actividades = self.actividades_equipo_mesa_coordenadas_trimestral
-      elif equipo_seleccionado['EQUIPO'] != "PROBADOR_ELECTRICO_2":
+      elif equipo_seleccionado['EQUIPO'] != "PROBADOR ELÉCTRICO 2 (CC015)":
         self.actividades_equipos_probadores_electricos_mensual += self.actividades_equipo_probador_electrico_2_mensual
         actividades = self.actividades_equipos_probadores_electricos_mensual
       else:
@@ -454,15 +454,15 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     elif equipo_seleccionado['AREA'] == "REVELADO":
       if equipo_seleccionado['EQUIPO'] == "INSOLADORA":
         actividades = self.actividades_equipo_insoladora_semestral
-      elif equipo_seleccionado['EQUIPO'] == "AFILADOR_RASEROS":
+      elif equipo_seleccionado['EQUIPO'] == "AFILADOR DE RASEROS":
         actividades = self.actividades_equipo_afilador_raseros_trimestral
     ################################################# ENSAMBLE ########################################################
     elif equipo_seleccionado['AREA'] == "ENSAMBLE":
-      if equipo_seleccionado['EQUIPO'] == "PICK_PLACE_2":
+      if equipo_seleccionado['EQUIPO'] == "PICK&PLACE 2":
         actividades = self.actividades_equipo_pickAndPlace_2_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "PICK_PLACE_3":
+      elif equipo_seleccionado['EQUIPO'] == "PICK&PLACE 3":
         actividades = self.actividades_equipo_pickAndPlace_3_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "TROQUELADORA_MANUAL":
+      elif equipo_seleccionado['EQUIPO'] == "TROQUELADORA MANUAL":
         actividades = self.actividades_equipo_troqueladora_manual_semestral
       elif equipo_seleccionado['EQUIPO'] == "DISPENSADORES":
         actividades = self.actividades_equipos_dispensadores_semestral
