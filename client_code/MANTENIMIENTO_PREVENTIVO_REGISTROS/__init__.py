@@ -537,6 +537,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       "registro_principal": 1
     }
     self.ws_registros_totales.add_row(**dict_mtto)
+    self.repeating_panel_registros.items = self.get_datos_actuales()
 
   def button_actualizar_click(self, **event_args):
     self.repeating_panel_registros.items = self.get_datos_actuales()
