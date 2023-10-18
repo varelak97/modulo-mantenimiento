@@ -367,20 +367,21 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     return registros_dia_seleccionado
 
   def actualizar_form_activo(self, datos, **event_args):
-    if datos['modo'] == "reprogramar":
-      print("ocultado card")
+    self.datos.update(datos)
+    if self.datos['modo'] == "reprogramar":
       self.outlined_card_tabla.visible = False
     else:
-      if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
+      if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
         self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
   
   def editar_registro(self, datos, **event_args):
-    if datos['modo'] == "reprogramar":
+    self.datos.update(datos)
+    if self.datos['modo'] == "reprogramar":
       self.outlined_card_tabla.visible = False
       self.button_programar_click()
       self.column_panel_reprogramar.visible = True
       for item in self.registros_totales:
-        if item['id_mtto_preventivo'] == datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
+        if item['id_mtto_preventivo'] == self.datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
           self.registro_seleccionado = item
           break
       self.drop_down_area.selected_value = self.registro_seleccionado['area']
@@ -493,9 +494,8 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.outlined_card_equipo.visible = True
     self.button_programar.visible = False
     self.column_panel_reprogramar.visible = False
-    """ self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO'
     self.datos['modo'] = 'nuevo'
-    self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)"""
+
 
   def button_cancelar_click(self, **event_args):
     self.outlined_card_equipo.visible = False
@@ -552,25 +552,36 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       self.button_guardar.enabled = False
 
   def button_guardar_click(self, **event_args):
-    with Notification("Registrando en la base de datos...",title="GUARDANDO."):
-      dict_mtto = {
-        "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_consulta_mttos]) + 1) if len(self.registros_consulta_mttos) > 0 else 1,
-        "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
-        "area":self.drop_down_area.selected_value,
-        "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
-        "frecuencia":self.drop_down_frecuencia.selected_value,
-        "status_mantenimiento":"PROGRAMADO",
-        "actividades":self.get_actividades(self.drop_down_equipo.selected_value, self.drop_down_frecuencia.selected_value),
-        "id_usuario_registrador":self.datos['id_usuario_erp'],
-        "usuario_registrador":"pendiente",
-        "operacion":"creacion",
-        "marca_temporal":datetime.now(),
-        "comentarios":"",
-        "registro_principal": 1
-      }
-      self.ws_registros_totales.add_row(**dict_mtto)
-      self.repeating_panel_registros.items = self.get_datos_actuales()
+    if self.datos['modo'] == "reprogramar":
+      with Notification("Actualizando registro...",title="GUARDANDO."):
+        registro_nuevo = dict(self.registro_seleccionado).copy()
+        self.registro_seleccionado['registro_principal'] = 0
+        registro_nuevo['fecha_programada'] = self.date_picker_reprogramar.date
+        registro_nuevo['status_mantenimiento'] = "REPROGRAMADO"
+        registro_nuevo['operacion'] = "edicion"
+        registro_nuevo['marca_temporal'] = datetime.now()
+        self.ws_registros_totales.add_row(**registro_nuevo)
+    else:
+      with Notification("Registrando en la base de datos...",title="GUARDANDO."):
+        dict_mtto = {
+          "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_consulta_mttos]) + 1) if len(self.registros_consulta_mttos) > 0 else 1,
+          "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
+          "area":self.drop_down_area.selected_value,
+          "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
+          "frecuencia":self.drop_down_frecuencia.selected_value,
+          "status_mantenimiento":"PROGRAMADO",
+          "actividades":self.get_actividades(self.drop_down_equipo.selected_value, self.drop_down_frecuencia.selected_value),
+          "id_usuario_registrador":self.datos['id_usuario_erp'],
+          "usuario_registrador":"pendiente",
+          "operacion":"creacion",
+          "marca_temporal":datetime.now(),
+          "comentarios":"",
+          "registro_principal": 1
+        }
+        self.ws_registros_totales.add_row(**dict_mtto)
     Notification("Registro guardado correctamente.", title="GUARDADO.", style="success").show()
+    with Notification("Actualizando tabla", title="ACTUALIZANDO."):
+      self.repeating_panel_registros.items = self.get_datos_actuales()
     self.button_cancelar_click()
 
   def button_actualizar_click(self, **event_args):
