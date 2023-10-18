@@ -349,20 +349,21 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
-    self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.registros_totales = self.ws_registros_totales.rows
     
+    self.repeating_panel_registros.items = self.get_datos_actuales()
+    self.ws_registros_totales = self.libro_mttos['Registros']    
+
+  ################################ FUNCIONES PERSONALIZADS ########################################
+  def get_datos_actuales(self):
+    self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     registros_dia_seleccionado = []
     for item in self.registros_consulta_mttos:
       fecha_seleccionada = item['fecha_programada'].split('-')
       if int(fecha_seleccionada[0]) == int(self.datos['anio']) and int(fecha_seleccionada[1]) == int(self.datos['mes']) and int(fecha_seleccionada[2]) == int(self.datos['dia']):
         registros_dia_seleccionado.append(item)
-        
-    self.repeating_panel_registros.items = registros_dia_seleccionado
-    self.ws_registros_totales = self.libro_mttos['Registros']    
-
-  ################################ FUNCIONES PERSONALIZADS ########################################
+    return registros_dia_seleccionado
   #####eliminar##############################
   def actualizar_form_activo(self, datos, **event_args):
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
@@ -370,7 +371,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True)
-    if respuesta:
+    if respuesta == "registro_guardado":
       print("hecho")
   
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
@@ -536,5 +537,9 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       "registro_principal": 1
     }
     self.ws_registros_totales.add_row(**dict_mtto)
+
+  def button_actualizar_click(self, **event_args):
+    self.repeating_panel_registros.items = self.get_datos_actuales()
+
 
 

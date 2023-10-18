@@ -72,7 +72,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       }
       registro_actualizar.update(**datos_actualizar)
       self.ws_registros_mttos.add_row(**registro_actualizar)
-      self.raise_event("x-close-alert",value=True)
+      self.raise_event("x-close-alert",value="registro_guardado")
 
   """def button_regresar_click(self, **event_args):
     self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
