@@ -14,6 +14,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   registros_consulta_mttos = None
   ws_registros_totales = None
   registros_totales = None
+  registro_seleccionado = None
   
   lista_areas = [
     "IMPRESIÓN",
@@ -378,25 +379,25 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       self.outlined_card_tabla.visible = False
       self.button_programar_click()
       self.column_panel_reprogramar.visible = True
-      registro_seleccionado = None
       for item in self.registros_totales:
         if item['id_mtto_preventivo'] == datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
-          registro_seleccionado = item
+          self.registro_seleccionado = item
           break
-      self.drop_down_area.selected_value = registro_seleccionado['area']
+      self.drop_down_area.selected_value = self.registro_seleccionado['area']
       self.drop_down_area_change()
       item_equipo = None
       for item in self.lista_equipos:
-        if item[0] == registro_seleccionado['equipo']:
+        if item[0] == self.registro_seleccionado['equipo']:
           item_equipo = item[1]
           break
       self.drop_down_equipo.selected_value = item_equipo
       self.drop_down_equipo_change()
-      self.drop_down_frecuencia.selected_value = registro_seleccionado['frecuencia']
+      self.drop_down_frecuencia.selected_value = self.registro_seleccionado['frecuencia']
       
       self.drop_down_area.enabled = False
       self.drop_down_equipo.enabled = False
       self.drop_down_frecuencia.enabled = False
+      self.button_guardar.enabled = False
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
@@ -577,7 +578,6 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def date_picker_reprogramar_change(self, **event_args):
     if self.date_picker_reprogramar.date != None:
-      print("se habilitar")
       self.button_guardar.enabled = True
     else:
       self.button_guardar.enabled = False
