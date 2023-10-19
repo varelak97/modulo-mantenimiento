@@ -1,0 +1,185 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"XPSTML":40,"EOELRO":15,"LCFMHZ":15}',
+    spacing_below: small, background: ''}
+  name: content_panel
+  layout_properties: {grid_position: 'SZCIOG,DAIQFY'}
+  components:
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_titulo
+    layout_properties: {grid_position: 'KAJUER,OGUZBF'}
+    components:
+    - type: Label
+      properties: {role: headline, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Primary', visible: true, text: FOR-MAN-038 SOLICITUD DE MANTENIMIENTO CORRECTIVO O PREVENTIVO PROGRAMADO,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: 'theme:Primary', bold: true, underline: false,
+        icon: ''}
+      name: label_titulo
+      layout_properties: {grid_position: 'JYSEVY,PJRKEW'}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_1
+    layout_properties: {grid_position: 'IUCWHE,LCFMHZ'}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_body
+    layout_properties: {grid_position: 'IUCWHE,XPSTML'}
+    components:
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"WBEBZE":25,"OLJCRP":40,"RDWHVJ":20,"JYXTGN":40,"PZEPYB":20}',
+        spacing_below: small, background: ''}
+      name: outlined_card_general
+      layout_properties: {grid_position: 'AHVLSA,FKMLGI'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'NOMBRE DEL PERSONAL QUE REPORTA:', font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: ''}
+        name: label_nombre
+        layout_properties: {grid_position: 'UBNREW,QNXUGQ'}
+      - type: TextBox
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
+        name: text_box_nombre
+        layout_properties: {grid_position: 'AKZUSZ,OCWWLT'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FECHA EN QUE DETECTÓ Y REPORTA LA ANOMALÍA DEL EQUIPO:',
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: ''}
+        name: label_fecha_reporte
+        layout_properties: {grid_position: 'LTGFCO,WBEBZE'}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: false,
+          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
+          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
+          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
+          format: ''}
+        name: date_picker_1
+        layout_properties: {grid_position: 'XSUJAW,OLJCRP'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_3
+        layout_properties: {grid_position: 'XSUJAW,RDWHVJ'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'ÁREA:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_1
+        layout_properties: {grid_position: 'UOCGHM,IWWXLL'}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: ''
+          border: ''
+          enabled: true
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: false
+        name: drop_down_1
+        layout_properties: {grid_position: 'HVSIMD,JYXTGN'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_4
+        layout_properties: {grid_position: 'HVSIMD,PZEPYB'}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_2
+    layout_properties: {grid_position: 'IUCWHE,EOELRO'}
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_equipo
+    layout_properties: {grid_position: 'ZUFBXK,DASTTX'}
+    components:
+    - type: Label
+      properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Primary', visible: true, text: TITULO_AREA, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
+        bold: true, underline: false, icon: ''}
+      name: label_titulo_area
+      layout_properties: {grid_position: 'OWHSBE,QTUBSB'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'SELECCIONE EL EQUIPO:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_equipo
+      layout_properties: {grid_position: 'LVCBWW,HGJVNU'}
+    - type: DropDown
+      properties:
+        role: outlined
+        align: full
+        tooltip: ''
+        placeholder: ''
+        border: ''
+        enabled: true
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: false
+      name: drop_down_equipo
+      layout_properties: {grid_position: 'KSWNUB,NKMWUR'}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_5
+      layout_properties: {grid_position: 'KSWNUB,UBTQUL'}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_6
+      layout_properties: {grid_position: 'KSWNUB,FBHLIN'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'DESCRIBE LA ANOMALÍA:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_anomalia
+      layout_properties: {grid_position: 'DJUSQT,SRRMOC'}
+    - type: TextArea
+      properties: {role: outlined, align: left, height: 135.6953, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        auto_expand: false, font: '', spacing_above: small, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false}
+      name: text_area_anomalia
+      layout_properties: {grid_position: 'GQJQUS,XVNXYP'}
+  - type: Button
+    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: ENVIAR, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:cloud-upload'}
+    name: button_enviar
+    layout_properties: {grid_position: 'LCULSO,SMKWXY'}
+is_package: true

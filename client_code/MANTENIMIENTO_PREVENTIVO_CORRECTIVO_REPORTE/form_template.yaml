@@ -36,10 +36,10 @@ components:
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'FECHA Y HORA INICIAL:', font_size: null, font: '',
+          visible: true, text: 'FECHA Y HORA DE SOLICITUD:', font_size: null, font: '',
           spacing_above: small, icon_align: left, spacing_below: small, italic: false,
           background: '', bold: true, underline: false, icon: ''}
-        name: label_fecha_hora_inicial
+        name: label_fecha_hora_solicitud
         layout_properties: {grid_position: 'YNRMXP,BTVGEH'}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -54,7 +54,7 @@ components:
           visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
           italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
           format: ''}
-        name: date_picker_fecha_hora_inicial
+        name: date_picker_fecha_hora_solicitud
         layout_properties: {grid_position: 'CSUHCU,IGIDLV'}
       - type: DropDown
         properties:
@@ -230,39 +230,146 @@ components:
       layout_properties: {grid_position: 'UUGIOC,SFIHGV'}
       components:
       - type: Label
-        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-          visible: true, text: REPORTE DE MANTENIMIENTO PREVENTIVO CORRECTIVO, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: true, underline: false, icon: ''}
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
+            Primary', visible: true, text: TITULO_PREVENTIVO_O_CORRECTIVO_PROGRAMADO,
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: 'theme:Tertiary', bold: true, underline: false,
+          icon: ''}
         name: label_titulo_mtto_preventivo_correctivo
         layout_properties: {grid_position: 'BLJVSH,LCRJKN'}
+      - type: ColumnPanel
+        properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+          spacing_below: small, background: ''}
+        name: column_panel_clasificacion
+        layout_properties: {grid_position: 'SPBSEK,DEQTKQ'}
+        components:
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: 'CLASIFICACIÓN DEL MANTENIMIENTO:', font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: true, underline: false, icon: ''}
+          name: label_clasifiacacion
+          layout_properties: {grid_position: 'AWSGVP,RCXAHM'}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: ''
+            border: ''
+            enabled: true
+            foreground: ''
+            items: []
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: ''
+            bold: false
+            underline: false
+            include_placeholder: false
+          name: drop_down_clasificacion
+          layout_properties: {grid_position: 'LZYNXL,NNQMSR'}
+        - type: Spacer
+          properties: {height: 32}
+          name: spacer_clasificacion
+          layout_properties: {grid_position: 'EYJEZH,CYTXUU'}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'CLASIFICACIÓN DEL MANTENIMIENTO:', font_size: null,
+          visible: true, text: 'FECHA Y HORA INICIAL:', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: true, underline: false, icon: ''}
+        name: label_fecha_hora_inicial
+        layout_properties: {grid_position: 'JOSEKI,MXVPJL'}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: false,
+          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
+          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
+          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
+          format: ''}
+        name: date_picker_fecha_hora_inicial
+        layout_properties: {grid_position: 'RFURYW,ULLDSU'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_2
+        layout_properties: {grid_position: 'RFURYW,IQFOCT'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_1
+        layout_properties: {grid_position: 'RFURYW,PRKWKX'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'ACTIVIDADES DEL MANTENIMIENTO:', font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '', bold: true, underline: false, icon: ''}
-        name: label_clasifiacacion
-        layout_properties: {grid_position: 'URGKGD,GUTRMQ'}
-      - type: DropDown
-        properties:
-          role: outlined
-          align: full
-          tooltip: ''
-          placeholder: ''
-          border: ''
-          enabled: true
-          foreground: ''
-          items: []
-          visible: true
-          font_size: null
-          font: ''
-          spacing_above: small
-          spacing_below: small
-          italic: false
-          background: ''
-          bold: false
-          underline: false
-          include_placeholder: false
-        name: drop_down_clasificacion
-        layout_properties: {grid_position: 'QFLEBO,VDFTHQ'}
+        name: label_actividades_mantenimiento
+        layout_properties: {grid_position: 'KFLVAQ,PUGRHX'}
+      - type: TextArea
+        properties: {role: outlined, align: left, height: 197.1953, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          auto_expand: false, font: '', spacing_above: small, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false}
+        name: text_area_1
+        layout_properties: {grid_position: 'WZGJVD,ZSLKCH'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'FECHA Y HORA FINAL:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_fecha_hora_final
+        layout_properties: {grid_position: 'SQGQSF,YSJSVE'}
+      - type: DatePicker
+        properties: {role: outlined, align: left, max_date: '', pick_time: false,
+          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
+          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
+          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
+          format: ''}
+        name: date_picker_fecha_hora_final
+        layout_properties: {grid_position: 'TCLADT,XDDPWG'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_3
+        layout_properties: {grid_position: 'TCLADT,JQNEAV'}
+      - type: Spacer
+        properties: {height: 32}
+        name: spacer_4
+        layout_properties: {grid_position: 'TCLADT,BAXKKZ'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'PERSONA QUE REALIZÓ EL MANTENIMIENTO:', font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: ''}
+        name: label_persona_ejecuta_mtto
+        layout_properties: {grid_position: 'AYXXEM,LUDOKW'}
+      - type: TextBox
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
+        name: text_box_persona_ejecuta_mtto
+        layout_properties: {grid_position: 'QDXPNE,CAIIWG'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'PERSONA QUE RECIBE DE CONFORMIDAD:', font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: true, underline: false, icon: ''}
+        name: label_persona_recibe_conformidad
+        layout_properties: {grid_position: 'YMMQCT,FUKKTM'}
+      - type: TextBox
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
+        name: text_box_persona_recibe_conformidad
+        layout_properties: {grid_position: 'XGFLMI,BDXUAN'}
+    - type: Button
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: GUARDAR, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
+      name: button_guardar
+      layout_properties: {grid_position: 'IYJJXM,YVYVHG'}
 is_package: true

@@ -1,0 +1,14 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {grid_position: 'NVRXHZ,JFJVPF'}
+  components:
+  - type: ColumnPanel
+    properties: {role: outlined-card}
+    name: outlined_card_title
+    layout_properties: {grid_position: 'BMTUJT,EVXHVT'}
+is_package: true
