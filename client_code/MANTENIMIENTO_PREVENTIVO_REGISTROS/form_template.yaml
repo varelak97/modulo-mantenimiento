@@ -45,7 +45,7 @@ components:
       name: outlined_card_equipo
       layout_properties:
         col_widths: {}
-        grid_position: AQQZQR,XCIHEA
+        grid_position: AQQZQR,CHPDXT
       components:
       - type: Label
         properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On

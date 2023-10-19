@@ -11,28 +11,42 @@ components:
   properties: {}
   name: label_folio
   layout_properties: {column: CKNHIZ}
+  data_bindings:
+  - {property: text, code: 'self.item[''folio'']'}
 - type: Label
   properties: {}
   name: label_area
   layout_properties: {column: YSYCQI}
+  data_bindings:
+  - {property: text, code: 'self.item[''area'']'}
 - type: Label
   properties: {}
   name: label_equipo
   layout_properties: {column: YCKOVR}
+  data_bindings:
+  - {property: text, code: 'self.item[''equipo'']'}
 - type: Label
   properties: {}
   name: label_realizado
   layout_properties: {column: SMZSVD}
+  data_bindings:
+  - {property: text, code: 'self.item[''mtto_realizado'']'}
 - type: Label
   properties: {}
   name: label_fecha_reporte
   layout_properties: {column: PWKCNJ}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_reporte'']'}
 - type: Label
   properties: {}
   name: label_descripcion_anomalia
   layout_properties: {column: DILUZT}
+  data_bindings:
+  - {property: text, code: 'self.item[''descripcion_anomalia'']'}
 - type: Label
   properties: {}
   name: label_nombre_persona_reporta
   layout_properties: {column: JXBYZX}
+  data_bindings:
+  - {property: text, code: 'self.item[''persona_reporta'']'}
 is_package: true

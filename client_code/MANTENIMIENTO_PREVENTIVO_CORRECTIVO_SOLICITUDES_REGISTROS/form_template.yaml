@@ -72,6 +72,6 @@ components:
         components:
         - type: RepeatingPanel
           properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS.RowTemplateEditar}
-          name: repeating_panel_1
+          name: repeating_panel_registros
           layout_properties: {}
 is_package: true

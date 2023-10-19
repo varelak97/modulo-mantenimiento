@@ -58,10 +58,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
   ]
-  def __init__(self, **properties):
+  def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    #self.datos = datos
+    self.datos = datos
     self.drop_down_area.items = self.lista_areas
 
   #################################### FUNCIONES PERSONALIZADS ####################################
@@ -76,7 +76,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       status_validacion = False 
     else: 
       dict_solicitud['fecha_solicitud'] = self.date_picker_fecha_solicitud.date 
-    if  
+    if self.text_box_nombre.text == "":
       status_validacion = False 
     else: 
       dict_solicitud['persona_reporta'] = self.text_box_nombre.text 
