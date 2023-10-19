@@ -54,7 +54,7 @@ components:
             $$hashKey: 'object:234238'}
           - {id: DILUZT, title: DESCRIPCIÓN DE LA ANOMALÍA, data_key: descripcion_anomalia,
             $$hashKey: 'object:234242'}
-          - {id: JXBYZX, title: NOMBRE PERSONAL QUE REPORTA, data_key: nombre_personal_reporta,
+          - {id: JXBYZX, title: NOMBRE PERSONAL QUE REPORTA, data_key: persona_reporta,
             $$hashKey: 'object:234240'}
           auto_header: true
           tooltip: ''
