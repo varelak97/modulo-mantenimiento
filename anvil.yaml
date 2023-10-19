@@ -181,7 +181,7 @@ services:
       thumbnailLink: https://docs.google.com/feeds/vt?gd=true&id=1h0gJegX46xLmIdagPaJ9_3s30lKdmRG7GeeLQ1_XDyA&v=3&s=AMedNnoAAAAAZSzpmqj5NpsfxfTvnD_ARBdXAB0tnfpx&sz=s220
       ownerNames: [ERP ENSEL]
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
-startup: {type: form, module: A_main}
+startup: {type: form, module: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE}
 package_name: Modulo_Mantenimiento
 allow_embedding: false
 name: Modulo_Mantenimiento
