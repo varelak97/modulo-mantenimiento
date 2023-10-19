@@ -49,7 +49,7 @@ components:
           - {id: CKNHIZ, title: FOLIO, data_key: folio, $$hashKey: 'object:234087'}
           - {id: YSYCQI, title: AREA, data_key: area, $$hashKey: 'object:234088'}
           - {id: YCKOVR, title: EQUIPO, data_key: equipo, $$hashKey: 'object:234089'}
-          - {id: SMZSVD, title: REALIZADO, data_key: realizado, $$hashKey: 'object:234128'}
+          - {id: SMZSVD, title: REALIZADO, data_key: mtto_realizado, $$hashKey: 'object:234128'}
           - {id: PWKCNJ, title: FECHA DE REPORTE DE ANOMALÍA, data_key: fecha_reporte,
             $$hashKey: 'object:234238'}
           - {id: DILUZT, title: DESCRIPCIÓN DE LA ANOMALÍA, data_key: descripcion_anomalia,
