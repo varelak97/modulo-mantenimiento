@@ -1,0 +1,38 @@
+container: {type: DataRowPanel}
+components:
+- type: Button
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:pencil'}
+  name: button_1
+  layout_properties: {column: XMXXEM}
+- type: Label
+  properties: {}
+  name: label_folio
+  layout_properties: {column: CKNHIZ}
+- type: Label
+  properties: {}
+  name: label_area
+  layout_properties: {column: YSYCQI}
+- type: Label
+  properties: {}
+  name: label_equipo
+  layout_properties: {column: YCKOVR}
+- type: Label
+  properties: {}
+  name: label_realizado
+  layout_properties: {column: SMZSVD}
+- type: Label
+  properties: {}
+  name: label_fecha_reporte
+  layout_properties: {column: PWKCNJ}
+- type: Label
+  properties: {}
+  name: label_descripcion_anomalia
+  layout_properties: {column: DILUZT}
+- type: Label
+  properties: {}
+  name: label_nombre_persona_reporta
+  layout_properties: {column: JXBYZX}
+is_package: true

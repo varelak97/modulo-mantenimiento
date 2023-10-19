@@ -8,7 +8,70 @@ components:
   layout_properties: {grid_position: 'NVRXHZ,JFJVPF'}
   components:
   - type: ColumnPanel
-    properties: {role: outlined-card}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
     name: outlined_card_title
     layout_properties: {grid_position: 'BMTUJT,EVXHVT'}
+    components:
+    - type: Label
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Primary', visible: true, text: SOLICITUD DE MANTENIMIENTO CORRECTIVO Y PREVENTIVO PROGRAMADO,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: 'theme:Primary', bold: true, underline: false,
+        icon: ''}
+      name: label_titulo
+      layout_properties: {grid_position: 'HLPQRA,LFZMPT'}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_body
+    layout_properties: {grid_position: 'ITMSGI,HIJDEB'}
+    components:
+    - type: Button
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: ACTUALIZAR, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: 'fa:refresh'}
+      name: button_actualizar
+      layout_properties: {grid_position: 'PXXHKU,IHJPJZ'}
+    - type: ColumnPanel
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: outlined_card_tabla
+      layout_properties: {grid_position: 'UOWEAJ,GWFMCN'}
+      components:
+      - type: DataGrid
+        properties:
+          role: wide-tonal-data-grid
+          columns:
+          - {id: XMXXEM, title: '', data_key: id, $$hashKey: 'object:234583'}
+          - {id: CKNHIZ, title: FOLIO, data_key: folio, $$hashKey: 'object:234087'}
+          - {id: YSYCQI, title: AREA, data_key: area, $$hashKey: 'object:234088'}
+          - {id: YCKOVR, title: EQUIPO, data_key: equipo, $$hashKey: 'object:234089'}
+          - {id: SMZSVD, title: REALIZADO, data_key: realizado, $$hashKey: 'object:234128'}
+          - {id: PWKCNJ, title: FECHA DE REPORTE DE ANOMALÍA, data_key: fecha_reporte,
+            $$hashKey: 'object:234238'}
+          - {id: DILUZT, title: DESCRIPCIÓN DE LA ANOMALÍA, data_key: descripcion_anomalia,
+            $$hashKey: 'object:234242'}
+          - {id: JXBYZX, title: NOMBRE PERSONAL QUE REPORTA, data_key: nombre_personal_reporta,
+            $$hashKey: 'object:234240'}
+          auto_header: true
+          tooltip: ''
+          border: ''
+          foreground: ''
+          rows_per_page: 20
+          visible: true
+          wrap_on: never
+          show_page_controls: true
+          spacing_above: small
+          spacing_below: small
+          background: ''
+        name: data_grid_registros
+        layout_properties: {grid_position: 'VJGODR,FPUMOI'}
+        components:
+        - type: RepeatingPanel
+          properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS.RowTemplateEditar}
+          name: repeating_panel_1
+          layout_properties: {}
 is_package: true

@@ -111,7 +111,7 @@ components:
     name: spacer_2
     layout_properties: {grid_position: 'IUCWHE,EOELRO'}
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: false,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
     name: outlined_card_equipo
@@ -175,11 +175,11 @@ components:
         italic: false, background: '', bold: false, underline: false}
       name: text_area_anomalia
       layout_properties: {grid_position: 'GQJQUS,XVNXYP'}
-  - type: Button
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: ENVIAR, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:cloud-upload'}
-    name: button_enviar
-    layout_properties: {grid_position: 'LCULSO,SMKWXY'}
+    - type: Button
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: '', visible: true, text: ENVIAR, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:cloud-upload'}
+      name: button_enviar
+      layout_properties: {grid_position: 'NSFJYV,DKPRZM'}
 is_package: true
