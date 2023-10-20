@@ -58,11 +58,18 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
   ]
+  libro_solicitudes = None
+  ws_solicitudes = None
+  registros_solicitudes = None
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
+    self.libro_solicitudes = app_files.mantenimiento_correctivo_preventivo_programado
+    self.ws_solicitudes = self.libro_solicitudes['Registros']
+    self.registros_solicitudes = self.ws_solicitudes.rows
+    print(f"al inicio:{self.registros_solicitudes}")
 
   #################################### FUNCIONES PERSONALIZADS ####################################
   def validar_campos(self):
@@ -75,11 +82,19 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if self.date_picker_fecha_solicitud.date == None: 
       status_validacion = False 
     else: 
-      dict_solicitud['fecha_solicitud'] = self.date_picker_fecha_solicitud.date 
-    if self.text_box_nombre.text == "":
+      dict_solicitud['fecha_reporte'] = self.date_picker_fecha_solicitud.date 
+    if self.drop_down_area.selected_value == None:
       status_validacion = False 
     else: 
-      dict_solicitud['persona_reporta'] = self.text_box_nombre.text 
+      dict_solicitud['area'] = self.drop_down_area.selected_value 
+    if self.text_area_anomalia.text == "":
+      status_validacion = False 
+    else: 
+      dict_solicitud['anomalia'] = self.text_area_anomalia.text
+
+    if not status_validacion:
+      return status_validacion
+    return dict_solicitud
   
   ############################################ EVENTOS ############################################
 
@@ -100,10 +115,21 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       
 
   def button_enviar_click(self, **event_args):
-    if self.validar_campos():
-      alert("aqui se guardara la info")
-    else:
+    respuesta = self.validar_campos()
+    if respuesta == False:
       alert(title="ERROR!", content="Faltan campos por llenar!")
+    else:
+      dict_datos = {
+        "id_solicitud_mtto":(max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1,
+        "folio":"",
+        "id_usuario_registrador":"4",
+        "usuario_registrador":"test",
+        "operacion":"creacion",
+        "marca_temporal":"",
+        "registro_principal":1
+      }
+      respuesta.update(dict_datos)
+      print(respuesta)
 
   def drop_down_equipo_change(self, **event_args):
     if self.drop_down_equipo.selected_value != None:
