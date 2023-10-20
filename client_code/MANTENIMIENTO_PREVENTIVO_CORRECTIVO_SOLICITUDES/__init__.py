@@ -2,6 +2,7 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDESTemp
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from datetime import datetime, date
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDESTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -66,10 +67,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
-    self.libro_solicitudes = app_files.mantenimiento_correctivo_preventivo_programado
+    self.libro_solicitudes = app_files.mantenimiento_solicitudes
     self.ws_solicitudes = self.libro_solicitudes['Registros']
     self.registros_solicitudes = self.ws_solicitudes.rows
-    print(f"al inicio:{self.registros_solicitudes}")
 
   #################################### FUNCIONES PERSONALIZADS ####################################
   def validar_campos(self):
@@ -95,7 +95,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if not status_validacion:
       return status_validacion
     return dict_solicitud
-  
+
+  def get_folio(self, fecha, equipo, consecutivo):
+    temp = dt.datetime(1899, 12, 30)    # Note, not 31st Dec but 30th!
+    delta = fecha - temp
+    return float(delta.days) + (float(delta.seconds) / 86400)
   ############################################ EVENTOS ############################################
 
   def drop_down_area_change(self, **event_args):
@@ -125,7 +129,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         "id_usuario_registrador":"4",
         "usuario_registrador":"test",
         "operacion":"creacion",
-        "marca_temporal":"",
+        "marca_temporal":datetime.now(),
         "registro_principal":1
       }
       respuesta.update(dict_datos)
