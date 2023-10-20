@@ -91,10 +91,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         if item[1]["AREA"] == area_seleccionada:
           equipos_area.append(item)
       self.drop_down_equipo.items = equipos_area
-      self.outlined_card_equipo.visible = True
+      self.drop_down_equipo.enabled = True
       self.label_titulo_area.text = area_seleccionada
     else:
-      self.outlined_card_equipo.visible = False
+      self.drop_down_equipo.enabled = False
+      self.label_titulo_area.text = "AREA"
+      self.button_enviar.enabled = False
+      
 
   def button_enviar_click(self, **event_args):
     if self.validar_campos():

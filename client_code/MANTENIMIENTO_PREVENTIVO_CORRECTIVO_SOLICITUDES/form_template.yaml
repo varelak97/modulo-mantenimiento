@@ -78,7 +78,7 @@ components:
           visible: true, text: 'ÁREA:', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: false, icon: ''}
-        name: label_1
+        name: label_area
         layout_properties: {grid_position: 'UOCGHM,IWWXLL'}
       - type: DropDown
         properties:
@@ -112,7 +112,7 @@ components:
     name: spacer_2
     layout_properties: {grid_position: 'IUCWHE,EOELRO'}
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: false,
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
     name: outlined_card_equipo
@@ -120,7 +120,7 @@ components:
     components:
     - type: Label
       properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Primary', visible: true, text: TITULO_AREA, font_size: null, font: '', spacing_above: small,
+          Primary', visible: true, text: AREA, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
         bold: true, underline: false, icon: ''}
       name: label_titulo_area
@@ -151,7 +151,7 @@ components:
         tooltip: ''
         placeholder: -- SELECCIONE EQUIPO --
         border: ''
-        enabled: true
+        enabled: false
         foreground: ''
         items: []
         visible: true
