@@ -42,6 +42,7 @@ class A_main(A_mainTemplate):
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
+    print(f"entro con clave{datos['clave_form']}")
     if datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
       self.abrir_form(MANTENIMIENTO_PROGRAMA_ANUAL(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
@@ -50,6 +51,8 @@ class A_main(A_mainTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS':

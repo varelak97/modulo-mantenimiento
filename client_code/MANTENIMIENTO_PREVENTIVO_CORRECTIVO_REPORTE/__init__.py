@@ -5,8 +5,13 @@ from anvil.google.drive import app_files
 import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTETemplate):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+  ################################### DEFINICION DE VARIABLES ####################################
+  datos = {}
+  def __init__(self, datos, **properties):
     self.init_components(**properties)
+    ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.datos = datos
 
-    # Any code you write here will run before the form opens.
+  ################################ FUNCIONES PERSONALIZADS ########################################
+
+  ############################################ EVENTOS ############################################

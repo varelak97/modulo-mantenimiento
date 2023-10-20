@@ -88,10 +88,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       status_validacion = False 
     else: 
       dict_solicitud['area'] = self.drop_down_area.selected_value 
+    if self.drop_down_equipo.selected_value == None:
+      status_validacion = False 
+    else: 
+      dict_solicitud['equipo'] = self.drop_down_equipo.selected_value['EQUIPO']
     if self.text_area_anomalia.text == "":
       status_validacion = False 
     else: 
-      dict_solicitud['anomalia'] = self.text_area_anomalia.text
+      dict_solicitud['descripcion_anomalia'] = self.text_area_anomalia.text
 
     if not status_validacion:
       return status_validacion
@@ -104,7 +108,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     str_consecutivo = str(consecutivo)
     str_consecutivo = "0"*(3 - len(str_consecutivo)) + str_consecutivo
     return f"{fecha_numero}-{equipo}-{str_consecutivo}"
-    
+
+  def limpiar_campos(self):
+    self.text_box_nombre.text = ""
+    self.date_picker_fecha_solicitud.date = None
+    self.drop_down_area.selected_value = None
+    self.drop_down_equipo.selected_value = None
+    self.text_area_anomalia.text = None
+    self.label_titulo_area.text = "AREA"
   ############################################ EVENTOS ############################################
 
   def drop_down_area_change(self, **event_args):
@@ -119,8 +130,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       self.label_titulo_area.text = area_seleccionada
     else:
       self.drop_down_equipo.enabled = False
+      self.drop_down_equipo.selected_value = None
       self.label_titulo_area.text = "AREA"
       self.button_enviar.enabled = False
+      self.text_area_anomalia.enabled = False
       
 
   def button_enviar_click(self, **event_args):
@@ -128,11 +141,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if respuesta == False:
       alert(title="ERROR!", content="Faltan campos por llenar!")
     else:
-      with Notification("Generando registro",title="REGISTRO.", style="info"):
+      with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
         id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
         dict_datos = {
           "id_solicitud_mtto":id_nuevo_solicitud_mtto,
-          "folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto),
+          "mtto_realizado": 0,
+          "folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
           "id_usuario_registrador":"4",
           "usuario_registrador":"test",
           "operacion":"creacion",
@@ -140,9 +154,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           "registro_principal":1
         }
         respuesta.update(dict_datos)
-      with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
         self.ws_solicitudes.add_row(**respuesta)
-      Notification("Registro de solicitud guardada correctamente.",title="GUARDADO.", style="success")
+        self.limpiar_campos()
+        self.drop_down_area_change()
+      with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
+        self.registros_solicitudes = self.ws_solicitudes.rows
+      Notification("Registro de solicitud guardada correctamente.",title="GUARDADO.", style="success").show()
+      
 
   def drop_down_equipo_change(self, **event_args):
     if self.drop_down_equipo.selected_value != None:
