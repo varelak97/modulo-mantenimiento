@@ -14,6 +14,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
     self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
@@ -23,5 +24,23 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.repeating_panel_registros.items = self.registros_consulta_mtto
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
-
+  def programar_mantenimiento(self, datos, **event_args):
+    with Notification("Gurdando registro en la base de datos...",title="GUARDANDO.", style="info"):
+      registro_actual = None
+      for item in self.registros_mtto:
+        if item['id_solicitud_mtto'] == datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
+          registro_actual = item
+          break
+      nuevo_registro = dict(registro_actual).copy()
+      nuevo_registro['fecha_programada'] = datos['fecha_programada']
+      registro_actual['registro_principal'] = 0
+      self.ws_solicitudes_mtto.add_row(**nuevo_registro)
+    Notification("Registro guardando correctamente!", title="ÉXITO!.", style="success").show()
+    self.button_actualizar_click()
+    
   ############################################ EVENTOS ############################################
+  def button_actualizar_click(self, **event_args):
+    with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
+      self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+      self.registros_mtto = self.ws_solicitudes_mtto.rows
+      self.repeating_panel_registros.items = self.registros_consulta_mtto

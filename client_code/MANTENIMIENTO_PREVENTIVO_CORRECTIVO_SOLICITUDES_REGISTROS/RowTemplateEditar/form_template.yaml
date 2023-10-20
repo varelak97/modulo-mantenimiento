@@ -57,4 +57,10 @@ components:
   layout_properties: {column: SMZSVD}
   data_bindings:
   - {property: checked, code: 'bool(int(self.item[''mtto_realizado'']))', writeback: false}
+- type: Label
+  properties: {}
+  name: label_fecha_programada
+  layout_properties: {column: NZNCXN}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_programada'']'}
 is_package: true

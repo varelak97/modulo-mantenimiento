@@ -63,11 +63,11 @@ components:
         name: label_fecha_reporte
         layout_properties: {grid_position: 'LTGFCO,WBEBZE'}
       - type: DatePicker
-        properties: {role: outlined, align: left, max_date: '', pick_time: false,
-          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
-          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
-          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
-          format: '%Y-%m-%d %H:%M:%S'}
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
+          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
+            %H:%M:%S'}
         name: date_picker_fecha_solicitud
         layout_properties: {grid_position: 'XSUJAW,OLJCRP'}
       - type: Spacer

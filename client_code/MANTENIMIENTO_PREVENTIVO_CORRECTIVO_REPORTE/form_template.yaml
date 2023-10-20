@@ -29,7 +29,7 @@ components:
     components:
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"BTVGEH":25,"LEMXXN":35,"IGIDLV":25,"YVEUIP":35,"PJDBYM":25,"GSMLBN":35,"UPLWNL":25,"QSIOPU":35}',
         spacing_below: small, background: ''}
       name: outlined_card_equipo
       layout_properties: {grid_position: 'IOMSGE,FIKYFX'}
@@ -49,11 +49,11 @@ components:
         name: label_area
         layout_properties: {grid_position: 'YNRMXP,LEMXXN'}
       - type: DatePicker
-        properties: {role: outlined, align: left, max_date: '', pick_time: false,
-          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
-          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
-          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
-          format: '%Y-%m-%d %H:%M:%S'}
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
+          placeholder: '', border: '', enabled: false, foreground: '', visible: true,
+          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
+            %H:%M:%S'}
         name: date_picker_fecha_hora_solicitud
         layout_properties: {grid_position: 'CSUHCU,IGIDLV'}
       - type: DropDown
@@ -94,7 +94,7 @@ components:
         layout_properties: {grid_position: 'JCDEKV,QSIOPU'}
       - type: TextBox
         properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
           font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
           background: '', bold: false, underline: false}
         name: text_box_folio
@@ -222,6 +222,7 @@ components:
           include_placeholder: true
         name: drop_down_tipo_mantenimiento
         layout_properties: {grid_position: 'EJAQQL,FZMDQG'}
+        event_bindings: {change: drop_down_tipo_mantenimiento_change}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -231,8 +232,8 @@ components:
       components:
       - type: Label
         properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
-            Primary', visible: true, text: TITULO_PREVENTIVO_O_CORRECTIVO_PROGRAMADO,
-          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            Primary', visible: true, text: TIPO DE MANTENIMIENTO, font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: 'theme:Tertiary', bold: true, underline: false,
           icon: ''}
         name: label_titulo_mtto_preventivo_correctivo
@@ -285,11 +286,11 @@ components:
         name: label_fecha_hora_inicial
         layout_properties: {grid_position: 'JOSEKI,MXVPJL'}
       - type: DatePicker
-        properties: {role: outlined, align: left, max_date: '', pick_time: false,
-          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
-          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
-          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
-          format: '%Y-%m-%d %H:%M:%S'}
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
+          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
+            %H:%M:%S'}
         name: date_picker_fecha_hora_inicial
         layout_properties: {grid_position: 'RFURYW,ULLDSU'}
       - type: Spacer

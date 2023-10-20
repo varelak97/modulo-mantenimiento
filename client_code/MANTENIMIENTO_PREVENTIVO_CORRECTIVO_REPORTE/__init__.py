@@ -15,3 +15,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   ################################ FUNCIONES PERSONALIZADS ########################################
 
   ############################################ EVENTOS ############################################
+
+  def drop_down_tipo_mantenimiento_change(self, **event_args):
+    if self.drop_down_clasificacion.selected_value == "PREVENT"
+
