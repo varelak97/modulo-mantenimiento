@@ -61,9 +61,9 @@ components:
           role: outlined
           align: full
           tooltip: ''
-          placeholder: ''
+          placeholder: -- SELECCIONE ÁREA --
           border: ''
-          enabled: true
+          enabled: false
           foreground: ''
           items: []
           visible: true
@@ -75,9 +75,10 @@ components:
           background: ''
           bold: false
           underline: false
-          include_placeholder: false
+          include_placeholder: true
         name: drop_down_area
         layout_properties: {grid_position: 'CSUHCU,YVEUIP'}
+        event_bindings: {change: drop_down_area_change}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: 'NÚMERO DE FOLIO:', font_size: null, font: '', spacing_above: small,
@@ -104,9 +105,9 @@ components:
           role: outlined
           align: full
           tooltip: ''
-          placeholder: ''
+          placeholder: -- SELECCIONE EQUIPO --
           border: ''
-          enabled: true
+          enabled: false
           foreground: ''
           items: []
           visible: true
@@ -118,7 +119,7 @@ components:
           background: ''
           bold: false
           underline: false
-          include_placeholder: false
+          include_placeholder: true
         name: drop_down_equipo
         layout_properties: {grid_position: 'EDLJTM,GSMLBN'}
       - type: Label
@@ -287,7 +288,7 @@ components:
         layout_properties: {grid_position: 'JOSEKI,MXVPJL'}
       - type: DatePicker
         properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
-          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+          placeholder: '', border: '', enabled: false, foreground: '', visible: true,
           font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
           date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
             %H:%M:%S'}
@@ -310,10 +311,10 @@ components:
         layout_properties: {grid_position: 'KFLVAQ,PUGRHX'}
       - type: TextArea
         properties: {role: outlined, align: left, height: 197.1953, tooltip: '', placeholder: '',
-          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
           auto_expand: false, font: '', spacing_above: small, spacing_below: small,
           italic: false, background: '', bold: false, underline: false}
-        name: text_area_1
+        name: text_area_actividades
         layout_properties: {grid_position: 'WZGJVD,ZSLKCH'}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -324,7 +325,7 @@ components:
         layout_properties: {grid_position: 'SQGQSF,YSJSVE'}
       - type: DatePicker
         properties: {role: outlined, align: left, max_date: '', pick_time: false,
-          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
+          tooltip: '', placeholder: '', border: '', enabled: false, foreground: '',
           visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
           italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
           format: '%Y-%m-%d %H:%M:%S'}
@@ -347,7 +348,7 @@ components:
         layout_properties: {grid_position: 'AYXXEM,LUDOKW'}
       - type: TextBox
         properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
           font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
           background: '', bold: false, underline: false}
         name: text_box_persona_ejecuta_mtto
@@ -361,7 +362,7 @@ components:
         layout_properties: {grid_position: 'YMMQCT,FUKKTM'}
       - type: TextBox
         properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
           font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
           background: '', bold: false, underline: false}
         name: text_box_persona_recibe_conformidad

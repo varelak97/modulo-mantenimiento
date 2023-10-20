@@ -58,7 +58,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     ("GUILLOTINA 2",{"EQUIPO":"GUILLOTINA 2","AREA":"ALMACÉN MP"}),
     ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP"}),
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP"}),
-    ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"}),
+    ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"})
   ]
   libro_solicitudes = None
   ws_solicitudes = None
@@ -151,7 +151,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           "usuario_registrador":"test",
           "operacion":"creacion",
           "marca_temporal":datetime.now(),
-          "registro_principal":1
+          "registro_principal":1,
+          "id_renglon":len(self.registros_solicitudes)
         }
         respuesta.update(dict_datos)
         self.ws_solicitudes.add_row(**respuesta)
