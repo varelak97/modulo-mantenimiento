@@ -81,19 +81,33 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.text_box_folio.text = self.registro_actual['folio']
     self.drop_down_area.selected_value = self.registro_actual['area']
     self.drop_down_area_change()
-    print(f"equipo:{self.registro_actual['equipo']}")
-    self.drop_down_equipo.selected_value = self.registro_actual['equipo']
+    for item in self.drop_down_equipo.items:
+      if item[1]['EQUIPO'] == self.registro_actual['equipo']:
+        self.drop_down_equipo.selected_value = item[1]
+        break
+      pass
     
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def valida_campos(self):
+    respuesta = None
+    return True
 
 
   ############################################ EVENTOS ############################################
 
   def drop_down_tipo_mantenimiento_change(self, **event_args):
     if self.drop_down_tipo_mantenimiento.selected_value == "CORRECTIVO":
+      self.column_panel_tipo_mtto.visible = True
       self.column_panel_clasificacion.visible = True
-    else:
+      self.label_titulo_mtto_preventivo_correctivo.text = "MANTENIMIENTO PREVENTIVO CORRECTIVO"
+    elif self.drop_down_tipo_mantenimiento.selected_value == "PREVENTIVO PROGRAMADO":
+      self.column_panel_tipo_mtto.visible = True
       self.column_panel_clasificacion.visible = False
+      self.label_titulo_mtto_preventivo_correctivo.text = "MANTENIMIENTO PREVENTIVO PROGRAMADO"
+    else:
+      self.column_panel_tipo_mtto.visible = False
+      self.column_panel_clasificacion.visible = False
+      self.label_titulo_mtto_preventivo_correctivo.text = "TIPO DE MANTENIMIENTO"
 
   def drop_down_area_change(self, **event_args):
     area_seleccionada = self.drop_down_area.selected_value
@@ -103,7 +117,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         if item[1]["AREA"] == area_seleccionada:
           equipos_area.append(item)
       self.drop_down_equipo.items = equipos_area
-      self.drop_down_equipo.enabled = True
       #self.label_titulo_area.text = area_seleccionada
     else:
       self.drop_down_equipo.enabled = False
@@ -111,5 +124,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       #self.label_titulo_area.text = "AREA"
       #self.button_enviar.enabled = False
       #self.text_area_anomalia.enabled = False
+
+  def button_guardar_click(self, **event_args):
+    respuesta = self.valida_campos()
+    if respuesta == False:
+      alert("Por favor, llene todos los campos!",title="ERROR!")
+    else:
+      alert(f"valor del grupo:{self.radio_button_1.get_group_value()}")
+
 
 
