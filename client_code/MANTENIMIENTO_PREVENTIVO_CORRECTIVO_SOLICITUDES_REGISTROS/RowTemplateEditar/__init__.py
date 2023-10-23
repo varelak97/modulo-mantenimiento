@@ -24,7 +24,7 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       datos['id_solicitud_mtto'] = self.tag
       datos['modo'] = "nuevo"
       datos['id_renglon'] = self.tag
-      self.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo',datos=datos)
+      self.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo',datos=datos)
     elif respuesta == "programar":
       botones = [("PROGRAMAR", True)]
       dp = DatePicker(format='%Y-%m-%d')

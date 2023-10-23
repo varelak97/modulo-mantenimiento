@@ -135,11 +135,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         status = False
       else:
         respuesta[item.tag] = item.text
-    for item in self.lista_drop_downs:
+    for index,item in enumerate(self.lista_drop_downs):
       if item.selected_value == None:
         status = False
       else:
-        respuesta[item.tag] = item.selected_value
+        if index == 1:
+          respuesta[item.tag] = item.selected_value['EQUIPO']
+        else:
+          respuesta[item.tag] = item.selected_value
     for item in self.lista_date_pickers:
       if item.date == None:
         status = False
@@ -197,11 +200,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
         respuesta['usuario_registrador'] = "falta"
         respuesta['operacion'] = "creacion"
-        respuesta['marca_temporal'] = date.now()
+        respuesta['marca_temporal'] = datetime.now()
         respuesta['comentarios'] = ""
-        respuesta['registro_pricipal'] = 1
+        respuesta['registro_principal'] = 1
         self.ws_mtto_corr_prev.add_row(**respuesta)
-      Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success")
+      Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
       
 
 

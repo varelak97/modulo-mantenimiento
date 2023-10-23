@@ -2,6 +2,7 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REG
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -14,6 +15,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
@@ -24,6 +26,19 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.repeating_panel_registros.items = self.registros_consulta_mtto
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
+  def actualizar_form_activo(self, datos, **event_args):
+    datos['mes'] = self.drop_down_mes.selected_value
+    datos['anio'] = self.drop_down_anio.selected_value
+    datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
+      
+  def abrir_form(self, form_de_interes):
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
+    if respuesta == "registro_guardado":
+      with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
+        self.button_actualizar_click()
+    
   def programar_mantenimiento(self, datos, **event_args):
     with Notification("Gurdando registro en la base de datos...",title="GUARDANDO.", style="info"):
       registro_actual = None
