@@ -23,7 +23,6 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE'
       datos['id_solicitud_mtto'] = self.tag
       datos['modo'] = "nuevo"
-      datos['id_renglon'] = self.tag
       self.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo',datos=datos)
     elif respuesta == "programar":
       botones = [("PROGRAMAR", True)]
@@ -31,6 +30,7 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
       if status:
         datos['fecha_programada'] = dp.date
+        datos['id_solicitud_mtto'] = self.tag
         self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
     elif respuesta == "ver_reporte":
       alert("Aqui va el reporte...",title="FORMULARIO REPORTE")

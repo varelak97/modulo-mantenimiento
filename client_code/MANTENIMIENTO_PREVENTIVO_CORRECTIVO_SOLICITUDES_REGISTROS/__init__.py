@@ -27,8 +27,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
   def actualizar_form_activo(self, datos, **event_args):
-    datos['mes'] = self.drop_down_mes.selected_value
-    datos['anio'] = self.drop_down_anio.selected_value
     datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
@@ -36,11 +34,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
     if respuesta == "registro_guardado":
-      with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
         self.button_actualizar_click()
     
   def programar_mantenimiento(self, datos, **event_args):
-    with Notification("Gurdando registro en la base de datos...",title="GUARDANDO.", style="info"):
+    with Notification("Registrando fecha en la base de datos...",title="GUARDANDO.", style="info"):
       registro_actual = None
       for item in self.registros_mtto:
         if item['id_solicitud_mtto'] == datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
@@ -48,9 +45,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
           break
       nuevo_registro = dict(registro_actual).copy()
       nuevo_registro['fecha_programada'] = datos['fecha_programada']
+      nuevo_registro['operacion'] = "edicion"
+      nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0
       self.ws_solicitudes_mtto.add_row(**nuevo_registro)
-    Notification("Registro guardando correctamente!", title="ÉXITO!.", style="success").show()
+    Notification("Fecha registrada correctamente!", title="ÉXITO!.", style="success").show()
     self.button_actualizar_click()
     
   ############################################ EVENTOS ############################################

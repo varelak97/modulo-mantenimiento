@@ -60,7 +60,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ("AFILADOR DE RASEROS",{"EQUIPO":"AFILADOR DE RASEROS","AREA":"REVELADO"}),
     ("LAMINADORA 1",{"EQUIPO":"LAMINADORA 1","AREA":"ENSAMBLE"}),
     ("LAMINADORA 2",{"EQUIPO":"LAMINADORA 2","AREA":"ENSAMBLE"}),
-    ("LAMINADORA 3",{"EQUIPO":"LAMINADOR 3","AREA":"ENSAMBLE"}),
+    ("LAMINADORA 3",{"EQUIPO":"LAMINADORA 3","AREA":"ENSAMBLE"}),
     ("PICK&PLACE 2",{"EQUIPO":"PICK&PLACE 2","AREA":"ENSAMBLE"}),
     ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE"}),
     ("DISPENSADORES",{"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE"}),
@@ -76,9 +76,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   lista_drop_downs = None
   lista_date_pickers = None
 
-  test = "hola"
-  
-
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -86,7 +83,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
     self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
     self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
-    self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
+    #self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
+    for item in self.solicitudes_mtto:
+      if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto']:
+        self.solicitud_registro_actual = item
+        break
 
     self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
@@ -204,7 +205,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         respuesta['comentarios'] = ""
         respuesta['registro_principal'] = 1
         self.ws_mtto_corr_prev.add_row(**respuesta)
+        self.solicitud_registro_actual['mtto_realizado'] = 1 
       Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
+      self.raise_event("x-close-alert",value="registro_guardado")
       
 
 
