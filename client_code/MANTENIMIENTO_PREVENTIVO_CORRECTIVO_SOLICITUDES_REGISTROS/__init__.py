@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
+from datetime import datetime, date
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################

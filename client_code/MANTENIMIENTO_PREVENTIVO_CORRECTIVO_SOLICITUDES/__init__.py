@@ -151,8 +151,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           "usuario_registrador":"test",
           "operacion":"creacion",
           "marca_temporal":datetime.now(),
-          "registro_principal":1,
-          "id_renglon":len(self.registros_solicitudes)
+          "registro_principal":1
         }
         respuesta.update(dict_datos)
         self.ws_solicitudes.add_row(**respuesta)

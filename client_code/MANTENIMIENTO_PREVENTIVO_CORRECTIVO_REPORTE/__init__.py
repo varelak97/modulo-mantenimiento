@@ -205,7 +205,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         respuesta['comentarios'] = ""
         respuesta['registro_principal'] = 1
         self.ws_mtto_corr_prev.add_row(**respuesta)
-        self.solicitud_registro_actual['mtto_realizado'] = 1 
+        
+        registro_solicitud_editado = self.solicitud_registro_actual.copy()#self.solicitud_registro_actual['mtto_realizado'] = 1 
+
+        ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
+        
       Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
       
