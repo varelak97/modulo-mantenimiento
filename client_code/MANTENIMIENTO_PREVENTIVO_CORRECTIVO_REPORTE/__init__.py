@@ -66,6 +66,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"})
   ]
 
+  lista_text_boxes = None
+  lista_drop_downs = None
+  lista_date_pickers = None
+  
+
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -86,10 +91,29 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         self.drop_down_equipo.selected_value = item[1]
         break
       pass
+
+    self.lista_drop_downs = [
+      self.drop_down_area,
+      self.drop_down_equipo,
+      self.drop_down_refaccion,
+      self.drop_down_servicio,
+      self.drop_down_tipo_mantenimiento
+    ]
+    self.lista_text_components = [
+      self.text_box_folio,
+      self.text_box_persona_ejecuta_mtto,
+      self.text_box_persona_recibe_conformidad,
+      self.text_area_descripcion_falla,
+      self.text_area_actividades
+    ]
+    self.lista_date_pickers = [
+      self.date_picker_fecha_hora_solicitud,
+      self.date_picker_fecha_hora_inicial,
+      self.date_picker_fecha_hora_final
+    ]
     
   ################################ FUNCIONES PERSONALIZADS ########################################
   def valida_campos(self):
-    respuesta = None
     return True
 
 
@@ -126,11 +150,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       #self.text_area_anomalia.enabled = False
 
   def button_guardar_click(self, **event_args):
-    respuesta = self.valida_campos()
+    print(self.date_picker_fecha_hora_solicitud.)
+    """respuesta = self.valida_campos()
     if respuesta == False:
       alert("Por favor, llene todos los campos!",title="ERROR!")
     else:
-      alert(f"valor del grupo:{self.radio_button_1.get_group_value()}")
+      alert(f"valor del grupo:{self.radio_button_1.get_group_value()}")"""
 
 
 
