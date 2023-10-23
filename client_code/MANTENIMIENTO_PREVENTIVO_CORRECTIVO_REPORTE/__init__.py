@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
+from datetime import datetime, date
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTETemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -10,7 +11,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   libro_solicitudes_mtto = None
   ws_solicitudes_mtto = None
   solicitudes_mtto = None
-  registro_actual = None
+  solicitud_registro_actual = None
+  
+  libro_mtto_corr_prev = None
+  ws_mtto_corr_prev = None
+  mtto_corr_prev_todos = None
+  mtto_corr_prev_reporte = None
 
   lista_areas = [
     "IMPRESIÓN",
@@ -66,9 +72,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"})
   ]
 
-  lista_text_boxes = None
+  lista_text_components = None
   lista_drop_downs = None
   lista_date_pickers = None
+
+  test = "hola"
   
 
   def __init__(self, datos, **properties):
@@ -78,16 +86,20 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
     self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
     self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
-    self.registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
+    self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
+
+    self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
+    self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
+    self.mtto_corr_prev_todos = self.ws_mtto_corr_prev.rows
 
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
-    self.date_picker_fecha_hora_solicitud.date = self.registro_actual['fecha_reporte']
-    self.text_box_folio.text = self.registro_actual['folio']
-    self.drop_down_area.selected_value = self.registro_actual['area']
+    self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
+    self.text_box_folio.text = self.solicitud_registro_actual['folio']
+    self.drop_down_area.selected_value = self.solicitud_registro_actual['area']
     self.drop_down_area_change()
     for item in self.drop_down_equipo.items:
-      if item[1]['EQUIPO'] == self.registro_actual['equipo']:
+      if item[1]['EQUIPO'] == self.solicitud_registro_actual['equipo']:
         self.drop_down_equipo.selected_value = item[1]
         break
       pass
@@ -111,11 +123,36 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.date_picker_fecha_hora_inicial,
       self.date_picker_fecha_hora_final
     ]
+
+    
     
   ################################ FUNCIONES PERSONALIZADS ########################################
   def valida_campos(self):
-    return True
+    status = True
+    respuesta = {}
+    for item in self.lista_text_components:
+      if item.text == "":
+        status = False
+      else:
+        respuesta[item.tag] = item.text
+    for item in self.lista_drop_downs:
+      if item.selected_value == None:
+        status = False
+      else:
+        respuesta[item.tag] = item.selected_value
+    for item in self.lista_date_pickers:
+      if item.date == None:
+        status = False
+      else:
+        respuesta[item.tag] = item.date
+    if self.radio_button_mal_uso.get_group_value() == None:
+      status = False
+    else:
+      respuesta['clasificacion_mtto'] = self.radio_button_mal_uso.get_group_value()
 
+    if not status:
+      return status
+    return respuesta
 
   ############################################ EVENTOS ############################################
 
@@ -150,12 +187,22 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       #self.text_area_anomalia.enabled = False
 
   def button_guardar_click(self, **event_args):
-    print(self.date_picker_fecha_hora_solicitud.)
-    """respuesta = self.valida_campos()
+    respuesta = self.valida_campos()
     if respuesta == False:
       alert("Por favor, llene todos los campos!",title="ERROR!")
     else:
-      alert(f"valor del grupo:{self.radio_button_1.get_group_value()}")"""
+      with Notification("Guardando reporte...", title="GUARDANDO.", style="info"):
+        respuesta['id_mtto_preventivo_correctivo'] = (max([int(item['id_mtto_preventivo_correctivo']) for item in self.mtto_corr_prev_todos]) + 1) if len(self.mtto_corr_prev_todos) > 0 else 1
+        respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
+        respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
+        respuesta['usuario_registrador'] = "falta"
+        respuesta['operacion'] = "creacion"
+        respuesta['marca_temporal'] = date.now()
+        respuesta['comentarios'] = ""
+        respuesta['registro_pricipal'] = 1
+        self.ws_mtto_corr_prev.add_row(**respuesta)
+      Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success")
+      
 
 
 
