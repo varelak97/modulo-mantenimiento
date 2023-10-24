@@ -30,7 +30,9 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       datos['modo'] = "ver_checklist"
       self.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo',datos=datos)
     elif respuesta == "reprogramar":
-      datos['id_mtto_preventivo'] = self.button_editar.tag
+      datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION'
       datos['modo'] = "reprogramar"
-      self.parent.parent.parent.parent.parent.parent.raise_event('x-editar_registro',datos=datos)
+      
+    datos['id_mtto_preventivo'] = self.button_editar.tag
+    self.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo',datos=datos)
 

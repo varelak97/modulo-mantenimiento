@@ -5,6 +5,7 @@ from anvil.google.drive import app_files
 import anvil.server
 from datetime import date,datetime
 from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
+from ..MANTENIMIENTO_PREVENTIVO_PROGRAMACION import MANTENIMIENTO_PREVENTIVO_PROGRAMACION
 
 class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -287,7 +288,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
-    self.set_event_handler('x-editar_registro', self.editar_registro)
+   #self.set_event_handler('x-editar_registro', self.editar_registro)
     
     self.datos = datos
     
@@ -311,20 +312,20 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
-    if self.datos['modo'] == "reprogramar":
-      #self.button editar tag, recibe: id_mtto_preventivo
-      alert("AQUI VA FORM POPUP DE FECHA")
-    else:
-      if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
-        self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+    if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+    elif self.datos['clave_form'] == 'MANTENIEMIENTO_PREVENTIVO_PROGRAMACION':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos))
   
   def editar_registro(self, datos, **event_args):
     self.datos.update(datos)
     if self.datos['modo'] == "reprogramar":
       #self.outlined_card_tabla.visible = False regresar
-      self.button_programar_click()
+      #self.button_programar_click() #regresar
       #self.column_panel_reprogramar.visible = True
-      for item in self.registros_totales:
+
+      
+      """for item in self.registros_totales:
         if item['id_mtto_preventivo'] == self.datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
           self.registro_seleccionado = item
           break
@@ -342,96 +343,13 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       self.drop_down_area.enabled = False
       self.drop_down_equipo.enabled = False
       self.drop_down_frecuencia.enabled = False
-      self.button_guardar.enabled = False
+      self.button_guardar.enabled = False"""
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
     if respuesta == "registro_guardado":
       with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
         self.button_actualizar_click()
-  
-  def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
-    actividades = None
-    if equipo_seleccionado['AREA'] == "IMPRESIÓN":
-      if equipo_seleccionado['EQUIPO'] == "IMPRESORA MIMAKI":
-        actividades = self.actividades_equipo_mimaki_mensual
-      elif equipo_seleccionado['EQUIPO'] == "SPS":
-        actividades = self.actividades_equipo_sps_mensual
-      elif equipo_seleccionado['EQUIPO'] == "IMPRESORA OFFSET":
-        actividades = self.actividades_equipo_offset_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 1":
-        if frecuencia_mtto == "SEMANAL":
-          actividades = self.actividades_equipo_horno_1_semanal
-        elif frecuencia_mtto == "MENSUAL":
-          actividades = self.actividades_equipo_horno_1_mensual
-        elif frecuencia_mtto == "SEMESTRAL":
-          actividades = self.actividades_equipo_horno_1_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 2":
-        actividades = self.actividades_equipo_horno_2_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 3":
-        actividades = self.actividades_equipo_horno_3_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 4":
-        actividades = self.actividades_equipo_horno_4_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 5":
-        actividades = elf.actividades_equipo_horno_5_semestral
-      elif equipo_seleccionado['EQUIPO'] == "ATMA 80" or equipo_seleccionado['EQUIPO'] == "ATMA 710":
-        self.actividades_equipos_atma_trimestral += self.actividades_equipos_atma80_710_trimestral
-        self.actividades_equipos_atma_trimestral = sorted(self.actividades_equipos_atma_trimestral, key=lambda d: d['id']) 
-        actividades = self.actividades_equipos_atma_trimestral
-      else:
-        for index,actividad in enumerate(self.actividades_equipos_atma_trimestral):
-          actividad['id'] = index + 1
-        actividades = self.actividades_equipos_atma_trimestral
-    ################################################# SUAJE ########################################################
-    elif equipo_seleccionado['AREA'] == "SUAJE":
-      if equipo_seleccionado['EQUIPO'] == "EMBOSADORA":
-        actividades = self.actividades_equipo_embosadora_trimestral
-      else:
-        actividades = self.actividades_equipos_suaje_trimestral
-    ################################################# MANUALES ########################################################
-    elif equipo_seleccionado['AREA'] == "MANUALES":
-      actividades = self.actividades_equipo_embolsadora_trimestral
-    ################################################# LASER ########################################################
-    elif equipo_seleccionado['AREA'] == "LÁSER":
-      if frecuencia_mtto == "SEMANAL":
-        actividades = self.actividades_equipos_laser_semanal
-      elif frecuencia_mtto == "MENSUAL":
-        actividades = self.actividades_equipos_laser_mensual
-    ################################################# CALIDAD ########################################################
-    elif equipo_seleccionado['AREA'] == "CALIDAD":
-      if equipo_seleccionado['EQUIPO'] == "MESA DE COORDENADAS X-Y":
-        actividades = self.actividades_equipo_mesa_coordenadas_trimestral
-      elif equipo_seleccionado['EQUIPO'] != "PROBADOR ELÉCTRICO 2 (CC015)":
-        self.actividades_equipos_probadores_electricos_mensual += self.actividades_equipo_probador_electrico_2_mensual
-        actividades = self.actividades_equipos_probadores_electricos_mensual
-      else:
-        actividades = self.actividades_equipos_probadores_electricos_mensual
-    ################################################# REVELADO ########################################################
-    elif equipo_seleccionado['AREA'] == "REVELADO":
-      if equipo_seleccionado['EQUIPO'] == "INSOLADORA":
-        actividades = self.actividades_equipo_insoladora_semestral
-      elif equipo_seleccionado['EQUIPO'] == "AFILADOR DE RASEROS":
-        actividades = self.actividades_equipo_afilador_raseros_trimestral
-    ################################################# ENSAMBLE ########################################################
-    elif equipo_seleccionado['AREA'] == "ENSAMBLE":
-      if equipo_seleccionado['EQUIPO'] == "PICK&PLACE 2":
-        actividades = self.actividades_equipo_pickAndPlace_2_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "PICK&PLACE 3":
-        actividades = self.actividades_equipo_pickAndPlace_3_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "TROQUELADORA MANUAL":
-        actividades = self.actividades_equipo_troqueladora_manual_semestral
-      elif equipo_seleccionado['EQUIPO'] == "DISPENSADORES":
-        actividades = self.actividades_equipos_dispensadores_semestral
-      else:
-        actividades = self.actividades_equipos_laminadoras_semestral
-    ################################################# ALMACEN MP ########################################################
-    elif equipo_seleccionado['AREA'] == "ALMACÉN MP":
-      if equipo_seleccionado['EQUIPO'] == "HOJEADORA":
-        actividades = self.actividades_equipo_hojeadora_trimestral
-      else:
-        actividades = self.actividades_equipos_guillotinas_semestral
-    return actividades
-  
   
   ############################################ EVENTOS ############################################
   def button_programar_click(self, **event_args):
