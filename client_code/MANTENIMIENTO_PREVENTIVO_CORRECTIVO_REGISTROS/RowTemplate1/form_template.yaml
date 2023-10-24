@@ -1,3 +1,69 @@
 container: {type: DataRowPanel}
-components: []
+components:
+- type: Label
+  properties: {}
+  name: label_folio
+  layout_properties: {column: POIVGQ}
+  data_bindings:
+  - {property: text, code: 'self.item[''folio'']'}
+- type: Label
+  properties: {}
+  name: label_area
+  layout_properties: {column: QJQSHC}
+  data_bindings:
+  - {property: text, code: 'self.item[''area'']'}
+- type: Label
+  properties: {}
+  name: label_equipo
+  layout_properties: {column: UMPPDH}
+  data_bindings:
+  - {property: text, code: 'self.item[''equipo'']'}
+- type: Label
+  properties: {}
+  name: label_refaccion
+  layout_properties: {column: AKUIUI}
+  data_bindings:
+  - {property: text, code: 'self.item[''requiere_refaccion'']'}
+- type: Label
+  properties: {}
+  name: label_servicio
+  layout_properties: {column: JEKZQH}
+  data_bindings:
+  - {property: text, code: 'self.item[''requiere_servicio'']'}
+- type: Label
+  properties: {}
+  name: label_tipo_mantenimiento
+  layout_properties: {column: GBJDGR}
+  data_bindings:
+  - {property: text, code: 'self.item[''tipo_mantenimiento'']'}
+- type: Label
+  properties: {}
+  name: label_descripcion_falla
+  layout_properties: {column: GBXTQF}
+  data_bindings:
+  - {property: text, code: 'self.item[''descripcion_falla'']'}
+- type: Label
+  properties: {}
+  name: label_descripcion_problema
+  layout_properties: {column: BETFFO}
+  data_bindings:
+  - {property: text, code: 'self.item[''descripcion_problema'']'}
+- type: Label
+  properties: {}
+  name: label_fecha_hora_inicial
+  layout_properties: {column: GGGTRK}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_hora_inicial'']'}
+- type: Label
+  properties: {}
+  name: label_actividades_mtto
+  layout_properties: {column: MRYLSD}
+  data_bindings:
+  - {property: text, code: 'self.item[''actividades_mtto'']'}
+- type: Label
+  properties: {}
+  name: label_fecha_hora_final
+  layout_properties: {column: POAEJM}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_hora_final'']'}
 is_package: true

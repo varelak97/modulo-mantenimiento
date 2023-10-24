@@ -30,13 +30,6 @@ components:
     name: column_panel_body
     layout_properties: {grid_position: 'AGQQOQ,YRZTEQ', full_width_row: true}
     components:
-    - type: Button
-      properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: NUEVO REGISTRO, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: true, underline: false, icon: 'fa:pencil'}
-      name: button_nuevo
-      layout_properties: {grid_position: 'EKMKOX,RGMKLC'}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -83,11 +76,11 @@ components:
           spacing_above: small
           spacing_below: small
           background: ''
-        name: data_grid_1
+        name: data_grid_reportes
         layout_properties: {grid_position: 'ELVNAC,RYLNMU', full_width_row: true}
         components:
         - type: RepeatingPanel
           properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS.RowTemplate1}
-          name: repeating_panel_1
+          name: repeating_panel_registros
           layout_properties: {}
 is_package: true

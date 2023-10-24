@@ -108,7 +108,7 @@ components:
             rows_per_page: 22
             visible: true
             wrap_on: never
-            show_page_controls: true
+            show_page_controls: false
             spacing_above: small
             spacing_below: small
             background: ''
