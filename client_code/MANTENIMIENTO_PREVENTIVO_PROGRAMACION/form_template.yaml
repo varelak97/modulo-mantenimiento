@@ -9,24 +9,30 @@ components:
   components:
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"UMURDD":50}',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"BLPTVJ":30,"VXLPPG":15,"GNTLMC":30,"URVOQI":15}',
       spacing_below: small, background: ''}
     name: outlined_card_equipo
     layout_properties:
       col_widths: {}
       grid_position: RJKAIR,QNGRLI
     components:
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_4
+      layout_properties: {grid_position: 'ANKVAB,VXLPPG', full_width_row: false}
     - type: Label
       properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
           Secondary', visible: true, text: EQUIPOS, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
         bold: true, underline: false, icon: ''}
       name: label_titulo_equipo
-      layout_properties: {grid_position: 'JWOIXF,UMURDD'}
+      layout_properties: {grid_position: 'ANKVAB,GNTLMC YEAPGS,UUMFVU'}
     - type: ColumnPanel
-      properties: {col_widths: '{}'}
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
       name: column_panel_equipos
-      layout_properties: {grid_position: 'SNVDQC,BLPTVJ'}
+      layout_properties: {grid_position: 'ANKVAB,GNTLMC SNVDQC,BLPTVJ', full_width_row: false}
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -123,7 +129,7 @@ components:
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: column_panel_reprogramar
-      layout_properties: {grid_position: 'DCIEBX,NPXUBO'}
+      layout_properties: {grid_position: 'ANKVAB,GNTLMC DCIEBX,NPXUBO'}
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -152,14 +158,14 @@ components:
     - type: Spacer
       properties: {height: 19}
       name: spacer_1
-      layout_properties: {grid_position: 'TJFSHD,WPYIAE'}
+      layout_properties: {grid_position: 'ANKVAB,GNTLMC TJFSHD,WPYIAE'}
     - type: Button
       properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: CANCELAR, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: 'theme:Orange', bold: true, underline: false, icon: ''}
       name: button_cancelar
-      layout_properties: {grid_position: 'NXLYTE,MWXZUL'}
+      layout_properties: {grid_position: 'ANKVAB,GNTLMC NXLYTE,MWXZUL'}
       event_bindings: {click: button_cancelar_click}
     - type: Button
       properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: false,
@@ -167,6 +173,10 @@ components:
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: 'theme:Blue', bold: true, underline: false, icon: 'fa:floppy-o'}
       name: button_guardar
-      layout_properties: {grid_position: 'NXLYTE,HBEALZ'}
+      layout_properties: {grid_position: 'ANKVAB,GNTLMC NXLYTE,HBEALZ'}
       event_bindings: {click: button_guardar_click}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_3
+      layout_properties: {grid_position: 'ANKVAB,URVOQI', full_width_row: false}
 is_package: true

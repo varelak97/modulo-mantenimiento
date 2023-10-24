@@ -282,13 +282,13 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   registros_consulta_mttos = None
   ws_registros_totales = None
   registros_totales = None
-  registro_seleccionado = None
+  #registro_seleccionado = None
   
   def __init__(self,datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
-   #self.set_event_handler('x-editar_registro', self.editar_registro)
+    self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     
     self.datos = datos
     
@@ -310,11 +310,25 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
         registros_dia_seleccionado.append(item)
     return registros_dia_seleccionado
 
+  def programar_mantenimiento(self, datos, **events_args):
+    with Notification("Registrando fecha en la base de datos...",title="GUARDANDO.", style="info"):
+      registro_actual = None
+      for item in self.registros_totales:
+        if item['id_mtto_preventivo'] == datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
+          registro_actual = item
+          break
+      nuevo_registro = dict(registro_actual).copy()
+      nuevo_registro['fecha_programada'] = datos['fecha_programada']
+      nuevo_registro['operacion'] = "edicion"
+      nuevo_registro['marca_temporal'] = datetime.now()
+      registro_actual['registro_principal'] = 0
+      self.ws_solicitudes_mtto.add_row(**nuevo_registro)
+
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
     if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
-    elif self.datos['clave_form'] == 'MANTENIEMIENTO_PREVENTIVO_PROGRAMACION':
+    elif self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos))
   
   def editar_registro(self, datos, **event_args):

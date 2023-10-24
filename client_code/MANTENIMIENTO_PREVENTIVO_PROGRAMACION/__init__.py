@@ -6,6 +6,7 @@ from anvil.google.drive import app_files
 class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIONTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
   datos = {}
+  
   lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
@@ -58,19 +59,25 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
   ]
+
+  libro_mttos = None
+  ws_registros_totales = None
+  registros_totales = None
+  registro_seleccionado = None
   
-  def __init__(self, **properties):
+  def __init__(self, datos, **properties):
     self.init_components(**properties)
   ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    datos = None
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
-    if datos['modo'] == 'reprogramar':
-      self.rellenar_campos()
+
+    self.libro_mttos = app_files.mantenimiento_preventivo
+    self.ws_registros_totales = self.libro_mttos['Registros']
+    self.registros_totales = self.ws_registros_totales.rows
 
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def rellenar_campos(self):
+  """def rellenar_campos(self):
     if self.datos['modo'] == "reprogramar":
       for item in self.registros_totales:
         if item['id_mtto_preventivo'] == self.datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
@@ -91,7 +98,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.drop_down_equipo.enabled = False
       self.drop_down_frecuencia.enabled = False
       self.button_guardar.enabled = False
-    pass
+    pass"""
     
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None
@@ -222,7 +229,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.button_guardar.enabled = False
 
   def button_guardar_click(self, **event_args):
-    if self.datos['modo'] == "reprogramar":
+    """if self.datos['modo'] == "reprogramar":
       with Notification("Actualizando registro...",title="GUARDANDO."):
         registro_nuevo = dict(self.registro_seleccionado).copy()
         self.registro_seleccionado['registro_principal'] = 0
@@ -231,28 +238,28 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         registro_nuevo['operacion'] = "edicion"
         registro_nuevo['marca_temporal'] = datetime.now()
         self.ws_registros_totales.add_row(**registro_nuevo)
-    else:
-      with Notification("Registrando en la base de datos...",title="GUARDANDO."):
-        dict_mtto = {
-          "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_consulta_mttos]) + 1) if len(self.registros_consulta_mttos) > 0 else 1,
-          "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
-          "area":self.drop_down_area.selected_value,
-          "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
-          "frecuencia":self.drop_down_frecuencia.selected_value,
-          "status_mantenimiento":"PROGRAMADO",
-          "actividades":self.get_actividades(self.drop_down_equipo.selected_value, self.drop_down_frecuencia.selected_value),
-          "id_usuario_registrador":self.datos['id_usuario_erp'],
-          "usuario_registrador":"pendiente",
-          "operacion":"creacion",
-          "marca_temporal":datetime.now(),
-          "comentarios":"",
-          "registro_principal": 1
-        }
-        self.ws_registros_totales.add_row(**dict_mtto)
+    else:"""
+    with Notification("Registrando en la base de datos...",title="GUARDANDO."):
+      dict_mtto = {
+        "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_consulta_mttos]) + 1) if len(self.registros_consulta_mttos) > 0 else 1,
+        "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
+        "area":self.drop_down_area.selected_value,
+        "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
+        "frecuencia":self.drop_down_frecuencia.selected_value,
+        "status_mantenimiento":"PROGRAMADO",
+        "actividades":self.get_actividades(self.drop_down_equipo.selected_value, self.drop_down_frecuencia.selected_value),
+        "id_usuario_registrador":self.datos['id_usuario_erp'],
+        "usuario_registrador":"pendiente",
+        "operacion":"creacion",
+        "marca_temporal":datetime.now(),
+        "comentarios":"",
+        "registro_principal": 1
+      }
+      self.ws_registros_totales.add_row(**dict_mtto)
     Notification("Registro guardado correctamente.", title="GUARDADO.", style="success").show()
     with Notification("Actualizando tabla", title="ACTUALIZANDO."):
       self.repeating_panel_registros.items = self.get_datos_actuales()
-    self.button_cancelar_click()
+    self.raise_event("x-close-alert",value="registro_guardado")
 
   def date_picker_reprogramar_change(self, **event_args):
     if self.date_picker_reprogramar.date != None:
