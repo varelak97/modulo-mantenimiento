@@ -46,7 +46,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
     if self.datos['modo'] == "reprogramar":
-      self.outlined_card_tabla.visible = False
+      alert("AQUI VA FORM POPUP DE FECHA")
     else:
       if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
         self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
