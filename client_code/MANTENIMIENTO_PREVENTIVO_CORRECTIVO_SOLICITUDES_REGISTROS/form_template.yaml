@@ -46,13 +46,28 @@ components:
       name: outlined_card_tabla
       layout_properties: {grid_position: 'UOWEAJ,GWFMCN', full_width_row: true}
       components:
-      - type: Label
-        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:LightGray',
-          visible: true, text: NO EXISTEN REGISTROS EN LA BASE DE DATOS, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: true, underline: false, icon: ''}
-        name: label_db_empty
-        layout_properties: {grid_position: 'MMILOX,HKGPWB'}
+      - type: ColumnPanel
+        properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+          spacing_below: small, background: ''}
+        name: column_panel_empty_db
+        layout_properties: {grid_position: 'TYLHRB,TCEFSS'}
+        components:
+        - type: Spacer
+          properties: {height: 163}
+          name: spacer_1
+          layout_properties: {grid_position: 'ANDJFI,KWFJNI'}
+        - type: Label
+          properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:LightGray',
+            visible: true, text: NO EXISTEN REGISTROS EN LA BASE DE DATOS, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: true, underline: false, icon: ''}
+          name: label_db_empty
+          layout_properties: {grid_position: 'WXAJZT,DYKTVM'}
+        - type: Spacer
+          properties: {height: 156}
+          name: spacer_2
+          layout_properties: {grid_position: 'MTGVRN,WARUQB'}
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid
