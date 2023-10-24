@@ -206,7 +206,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         respuesta['registro_principal'] = 1
         self.ws_mtto_corr_prev.add_row(**respuesta)
         
-        registro_solicitud_editado = self.solicitud_registro_actual.copy()#self.solicitud_registro_actual['mtto_realizado'] = 1 
+        registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
+        self.solicitud_registro_actual['registro_principal'] = 0
+        registro_solicitud_editado['operacion'] = "edicion"
+        registro_solicitud_editado['marca_temporal'] = datetime.now()
+        registro_solicitud_editado['mtto_realizado'] = 1
+        self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
 
         ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
         
