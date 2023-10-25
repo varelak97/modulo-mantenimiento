@@ -70,11 +70,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
     indicadores_mtto_mes = []
+    for dia in range(31):
+      indicadores_mtto_mes.append({'pw':0,'pm':0,'pt':0,'ps':0,'pa':0})
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
       if mes_prog == mes:
-        indicadores_mtto_mes.append([dia_prog,item['frecuencia']])
+        indicadores_mtto_mes.append({str(dia_prog),item['frecuencia']})
     print(indicadores_mtto_mes)
     
     #for indicador in indicadores_mtto_mes:
