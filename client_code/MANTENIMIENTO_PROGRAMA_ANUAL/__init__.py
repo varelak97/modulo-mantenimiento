@@ -53,6 +53,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.llenar_calendario()
   
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def get_total_PW(self, dia):
+    return f"dia:{dia}"
+  
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
     datos['anio'] = self.drop_down_anio.selected_value
@@ -66,8 +69,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def llenar_calendario(self):
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
-    indicadores_mtto_mes = []
-    for item in self.registros_consulta_mttos:
+    """for item in self.registros_consulta_mttos:
+      dia_prog = int(item['fecha_programada'].split('-')[2])
+      mes_prog = int(item['fecha_programada'].split('-')[1])
+      if mes_prog == mes:
+        indicadores_mtto_mes.append([dia_prog,item['frecuencia']])
+    print(indicadores_mtto_mes)"""
+    #for indicador in indicadores_mtto_mes:
       
     ########### AGREGAR CODIGO PARA MOSTRAR TOTAL Y TIPOS DE MTTOS ############
     """ int_mes = int(self.drop_down_mes.selected_value)

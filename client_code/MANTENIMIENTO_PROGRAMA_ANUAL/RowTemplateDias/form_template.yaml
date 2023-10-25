@@ -7,7 +7,7 @@ components:
   components:
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"EVIDQA":30,"NAQGPN":30}',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"EVIDQA":30,"NAQGPN":30,"PMGUTO":30,"CEQDHX":30}',
       spacing_below: small, background: ''}
     name: card_lunes
     layout_properties: {grid_position: 'LGFJTN,YVZBBI'}
@@ -28,6 +28,8 @@ components:
         icon: ''}
       name: label_lunes_pw
       layout_properties: {grid_position: 'WFFQIT,PMGUTO'}
+      data_bindings:
+      - {property: text, code: self.get_PW(self.label_lunes_numero_dia)}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -63,6 +65,16 @@ components:
         icon: ''}
       name: label_lunes_na
       layout_properties: {grid_position: 'YAAUDT,NAQGPN'}
+    - type: FlowPanel
+      properties: {}
+      name: flow_panel_1
+      layout_properties: {grid_position: 'JNPOFO,YFAUPG'}
+      components:
+      - type: Button
+        properties: {text: button_1}
+        name: button_1
+        layout_properties: {grid_position: 'LSHJIW,TFXBEX'}
+        event_bindings: {click: button_1_click}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''lunes''][''numero_dia''])'}
   event_bindings: {click: link_lunes_click}

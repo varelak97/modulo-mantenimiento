@@ -18,9 +18,16 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    
+  ######################################## FUNCIONES PERSONALIZADS ################################################
+  def get_PW(self, label):
+    element = label.parent.parent.parent
+    print(element.parent)
+    return "hola"
+    #return label.parent.parent.parent.get_total_PW(label.text)
   #################################################### EVENTOS ####################################################
   def link_lunes_click(self, **event_args):
+    print(f"lunes:{self.parent}")
     datos = {}
     datos['dia'] = self.label_lunes_numero_dia.text
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
@@ -61,6 +68,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos['dia'] = self.label_domingo_numero_dia.text
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def button_1_click(self, **event_args):
+    self.test()
+
 
 
 

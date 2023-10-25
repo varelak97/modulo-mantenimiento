@@ -10,11 +10,11 @@ class RowTemplateCheck(RowTemplateCheckTemplate):
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
 
-  def radio_button_si_clicked(self, **event_args):
+  """def radio_button_si_clicked(self, **event_args):
     #print(self.parent.parent.parent.parent.parent.parent.parent.repeating_panel_registros.items)
     fila = {}
     fila['id'] = self.tag
     fila['tipo'] = "si"
     fila['check'] = self.radio_button_si.selected
-    self.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_checklist',fila=fila)
+    self.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_checklist',fila=fila)"""
 
