@@ -69,12 +69,20 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def llenar_calendario(self):
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
-    """for item in self.registros_consulta_mttos:
+    indicadores_mtto_mes = []
+    for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
       if mes_prog == mes:
         indicadores_mtto_mes.append([dia_prog,item['frecuencia']])
-    print(indicadores_mtto_mes)"""
+    
+
+    """for rowpanel in self.repeating_panel_mes_calendario.get_components():
+      for link in rowpanel.get_components():
+        for column in link.get_components():
+          for label in column.get_components():
+            print(label)"""
+    
     #for indicador in indicadores_mtto_mes:
       
     ########### AGREGAR CODIGO PARA MOSTRAR TOTAL Y TIPOS DE MTTOS ############
@@ -99,6 +107,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       j = 1
       for k in range(0,len(renglones_mes[i]),3):
         dicc[self.dias_semana[str(j)]] = {"numero_dia":str(renglones_mes[i][k:k+2]).strip()}
+        #print(dicc[self.dias_semana[str(j)]])
+        print(f"dia:{renglones_mes[i][k:k+2]}")
         j += 1
       items.append(dicc)
     self.repeating_panel_mes_calendario.items = items
