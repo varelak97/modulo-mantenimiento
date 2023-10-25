@@ -6,20 +6,76 @@ import anvil.server
 
 class RowTemplateDias(RowTemplateDiasTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
-  actividades_equipo_hojeadora_trimestral = [
-    {"id":1,"actividad":"ASPIRAR Y LIMPIAR INTERIOR DEL EQUIPO."},
-    {"id":2,"actividad":"ENGRASAR CHUMACERAS"},
-    {"id":3,"actividad":"REVISAR TORNILLERÍA: APRETAR O REEMPLAZAR SI ES NECESARIO."},
-    {"id":4,"actividad":"LIMPIAR Y ASPIRAR PANEL DE CONTROL."},
-    {"id":5,"actividad":"REVISAR CONEXIONES EN EL PANEL DE CONTROL."},
-    {"id":6,"actividad":"REVISAR PRESIÓN DE SUMINISTRO (RANGO ENTRE 0.4 Y 0.6 MPA)"}
-  ]
-  
+  lista_labels = None
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.lista_labels = [
+      self.label_lunes_pw,
+      self.label_lunes_pm,
+      self.label_lunes_pt,
+      self.label_lunes_ps,
+      self.label_lunes_pa,
+      self.label_martes_pw,
+      self.label_martes_pm,
+      self.label_martes_pt,
+      self.label_martes_ps,
+      self.label_martes_pa,
+      self.label_miercoles_pw,
+      self.label_miercoles_pm,
+      self.label_miercoles_pt,
+      self.label_miercoles_ps,
+      self.label_miercoles_pa,
+      self.label_jueves_pw,
+      self.label_jueves_pm,
+      self.label_jueves_pt,
+      self.label_jueves_ps,
+      self.label_jueves_pa,
+      self.label_viernes_pw,
+      self.label_viernes_pm,
+      self.label_viernes_pt,
+      self.label_viernes_ps,
+      self.label_viernes_pa,
+      self.label_sabado_pw,
+      self.label_sabado_pm,
+      self.label_sabado_pt,
+      self.label_sabado_ps,
+      self.label_sabado_pa,
+      self.label_domingo_pw,
+      self.label_domingo_pm,
+      self.label_domingo_pt,
+      self.label_domingo_ps,
+      self.label_domingo_pa,
+    ]
+    self.set_color_indicadores()
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
+  def set_color_indicadores(self):
+
+    for label in self.lista_labels:
+      if label.text != None:
+        print(f"valor:{label.text.split(': ')[1]}")
+        indicador = label.text.split(': ')
+        if indicador[1] != '0':
+          if indicador[0] == "PW":
+            label.background = app.theme_colors['Primary']
+            label.foreground = app.theme_colors['White']
+          if indicador[0] == "PM":
+            label.background = app.theme_colors['Orange']
+            label.foreground = app.theme_colors['White']
+          if indicador[0] == "PT":
+            label.background = app.theme_colors['Tertiary Container']
+            label.foreground = app.theme_colors['Blue']
+          if indicador[0] == "PS":
+            label.background = app.theme_colors['Tertiary']
+            label.foreground = app.theme_colors['White']
+          if indicador[0] == "PA":
+            label.background = app.theme_colors['Green']
+            label.foreground = app.theme_colors['White']
+        else:
+          label.background = "#FFFFFF"
+          label.foreground = "#FFFFFF"
+    
+    
   #################################################### EVENTOS ####################################################
   def link_lunes_click(self, **event_args):
     datos = {}

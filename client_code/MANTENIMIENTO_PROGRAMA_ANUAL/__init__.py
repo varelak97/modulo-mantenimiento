@@ -53,9 +53,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.llenar_calendario()
   
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def get_total_PW(self, dia):
-    return f"dia:{dia}"
-  
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
     datos['anio'] = self.drop_down_anio.selected_value
@@ -69,29 +66,16 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def llenar_calendario(self):
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
+    
     indicadores_mtto_mes = []
     for dia in range(31):
-      indicadores_mtto_mes.append({'pw':0,'pm':0,'pt':0,'ps':0,'pa':0})
+      indicadores_mtto_mes.append({'SEMANAL':0,'MENSUAL':0,'TRIMESTRAL':0,'SEMESTRAL':0,'ANUAL':0})
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
       if mes_prog == mes:
-        indicadores_mtto_mes.append({str(dia_prog),item['frecuencia']})
-    print(indicadores_mtto_mes)
-    
-    #for indicador in indicadores_mtto_mes:
-      
-    ########### AGREGAR CODIGO PARA MOSTRAR TOTAL Y TIPOS DE MTTOS ############
-    """ int_mes = int(self.drop_down_mes.selected_value)
-    int_anio = int(self.drop_down_anio.selected_value)
-    lista_mttos_registrados = []
-    for item in self.registros_consulta_mttos:
-      fecha_seleccionada = item['fecha_programada'].split('-')
-      if int(fecha_seleccionada[0]) == int_anio and int(fecha_seleccionada[1]) == int_mes:
-        dict_mtto = {}
-        dict_mtto['dia'] = int(fecha_seleccionada[2])
-        dict_mtto['frecuencia'] = item['frecuencia']
-        pass"""
+        suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
+        indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1
       
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(self.drop_down_anio.selected_value),self.drop_down_mes.selected_value)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
@@ -103,7 +87,15 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       j = 1
       for k in range(0,len(renglones_mes[i]),3):
         numero_dia = str(renglones_mes[i][k:k+2]).strip()
-        dicc[self.dias_semana[str(j)]] = {"numero_dia":numero_dia,"pw":3,"pm":2,"pt":4,"pa":5}
+        if numero_dia != "":
+          dicc[self.dias_semana[str(j)]] = {
+            "numero_dia":numero_dia,
+            "SEMANAL":indicadores_mtto_mes[int(numero_dia) -1]['SEMANAL'],
+            "MENSUAL":indicadores_mtto_mes[int(numero_dia) -1]['MENSUAL'],
+            "TRIMESTRAL":indicadores_mtto_mes[int(numero_dia) -1]['TRIMESTRAL'],
+            "SEMESTRAL":indicadores_mtto_mes[int(numero_dia) -1]['SEMESTRAL'],
+            "ANUAL":indicadores_mtto_mes[int(numero_dia) -1]['ANUAL']
+          }
         j += 1
       items.append(dicc)
     self.repeating_panel_mes_calendario.items = items
