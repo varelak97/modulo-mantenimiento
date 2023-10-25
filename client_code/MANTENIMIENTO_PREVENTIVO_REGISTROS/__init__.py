@@ -372,6 +372,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.button_programar.visible = False
     self.column_panel_reprogramar.visible = False"""
     self.datos['modo'] = 'nuevo'
+    self.actualizar_form_activo(mant)
 
 
     #regresar
