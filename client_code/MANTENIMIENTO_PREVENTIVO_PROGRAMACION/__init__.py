@@ -533,7 +533,4 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.button_guardar.enabled = True
     else:
       self.button_guardar.enabled = False
-
-  def button_cancelar_click(self, **event_args):
-    alert("cerrar ventana")
     

@@ -57,44 +57,18 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0
       self.ws_registros_totales.add_row(**nuevo_registro)
+    with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
+      self.button_actualizar_click()
 
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
     if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos), True)
     elif self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos))
-  
-  def editar_registro(self, datos, **event_args):
-    self.datos.update(datos)
-    if self.datos['modo'] == "reprogramar":
-      #self.outlined_card_tabla.visible = False regresar
-      #self.button_programar_click() #regresar
-      #self.column_panel_reprogramar.visible = True
-
+      respuesta = self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos), False)
       
-      """for item in self.registros_totales:
-        if item['id_mtto_preventivo'] == self.datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
-          self.registro_seleccionado = item
-          break
-      self.drop_down_area.selected_value = self.registro_seleccionado['area']
-      self.drop_down_area_change()
-      item_equipo = None
-      for item in self.lista_equipos:
-        if item[0] == self.registro_seleccionado['equipo']:
-          item_equipo = item[1]
-          break
-      self.drop_down_equipo.selected_value = item_equipo
-      self.drop_down_equipo_change()
-      self.drop_down_frecuencia.selected_value = self.registro_seleccionado['frecuencia']
-      
-      self.drop_down_area.enabled = False
-      self.drop_down_equipo.enabled = False
-      self.drop_down_frecuencia.enabled = False
-      self.button_guardar.enabled = False"""
-      
-  def abrir_form(self, form_de_interes):
-    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
+  def abrir_form(self, form_de_interes, windows_size):
+    respuesta = alert(content = form_de_interes, large=windows_size, dismissible=False, buttons=[("REGRESAR", True)], role='wide-modal-content_small')
     if respuesta == "registro_guardado":
       with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
         self.button_actualizar_click()

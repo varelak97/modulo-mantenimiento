@@ -64,6 +64,11 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
      alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
     
   def llenar_calendario(self):
+    anio = self.drop_down_anio.selected_value
+    mes = self.drop_down_mes.selected_value
+    indicadores_mtto_mes = []
+    for item in self.registros_consulta_mttos:
+      
     ########### AGREGAR CODIGO PARA MOSTRAR TOTAL Y TIPOS DE MTTOS ############
     """ int_mes = int(self.drop_down_mes.selected_value)
     int_anio = int(self.drop_down_anio.selected_value)
