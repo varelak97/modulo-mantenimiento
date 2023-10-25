@@ -35,7 +35,7 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
       if status:
         datos['fecha_programada'] = dp.date
-        datos['id_mtto_preventivo'] = self.tag
+        datos['id_mtto_preventivo'] = self.button_editar.tag
         self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
       
     

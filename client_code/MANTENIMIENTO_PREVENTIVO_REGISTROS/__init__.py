@@ -322,7 +322,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       nuevo_registro['operacion'] = "edicion"
       nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0
-      self.ws_solicitudes_mtto.add_row(**nuevo_registro)
+      self.ws_registros_totales.add_row(**nuevo_registro)
 
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
