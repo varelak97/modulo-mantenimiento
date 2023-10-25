@@ -75,13 +75,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       mes_prog = int(item['fecha_programada'].split('-')[1])
       if mes_prog == mes:
         indicadores_mtto_mes.append([dia_prog,item['frecuencia']])
-    
-
-    """for rowpanel in self.repeating_panel_mes_calendario.get_components():
-      for link in rowpanel.get_components():
-        for column in link.get_components():
-          for label in column.get_components():
-            print(label)"""
+    print(indicadores_mtto_mes)
     
     #for indicador in indicadores_mtto_mes:
       
@@ -107,9 +101,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       j = 1
       for k in range(0,len(renglones_mes[i]),3):
         numero_dia = str(renglones_mes[i][k:k+2]).strip()
-        dicc[self.dias_semana[str(j)]] = {"numero_dia":numero_dia,numero_dia:{'pw':'test'}}
-        #print(dicc[self.dias_semana[str(j)]])
-        print(f"dia:{renglones_mes[i][k:k+2]}")
+        dicc[self.dias_semana[str(j)]] = {"numero_dia":numero_dia,"pw":3,"pm":2,"pt":4,"pa":5}
         j += 1
       items.append(dicc)
     self.repeating_panel_mes_calendario.items = items

@@ -24,44 +24,52 @@ components:
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_lunes_pw
       layout_properties: {grid_position: 'WFFQIT,PMGUTO'}
       data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''numero_dia'']'}
+      - {property: text, code: 'f"PW: {self.item[''lunes''][''pw'']}"'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_lunes_pm
       layout_properties: {grid_position: 'WFFQIT,CEQDHX'}
+      data_bindings:
+      - {property: text, code: 'f"PM: {self.item[''lunes''][''pm'']}"'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_lunes_pt
       layout_properties: {grid_position: 'DKXXSI,ZIBVHI'}
+      data_bindings:
+      - {property: text, code: 'f"PT: {self.item[''lunes''][''pt'']}"'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_ps
       layout_properties: {grid_position: 'DKXXSI,CQQWHX'}
+      data_bindings:
+      - {property: text, code: 'f"PS: {self.item[''lunes''][''ps'']}"'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_pa
       layout_properties: {grid_position: 'YAAUDT,EVIDQA'}
+      data_bindings:
+      - {property: text, code: 'F"PA: {self.item[''lunes''][''pa'']}"'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_lunes_na
       layout_properties: {grid_position: 'YAAUDT,NAQGPN'}
@@ -97,7 +105,7 @@ components:
       name: label_martes_pw
       layout_properties: {grid_position: 'SLUEXY,KBQJMQ'}
       data_bindings:
-      - {property: text, code: 'self.item[''martes''][''numero_dia'']'}
+      - {property: text, code: 'self.item[''martes''][''pw'']'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
