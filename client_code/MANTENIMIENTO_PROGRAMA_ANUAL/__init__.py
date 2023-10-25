@@ -106,7 +106,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       dicc = {}
       j = 1
       for k in range(0,len(renglones_mes[i]),3):
-        dicc[self.dias_semana[str(j)]] = {"numero_dia":str(renglones_mes[i][k:k+2]).strip()}
+        numero_dia = str(renglones_mes[i][k:k+2]).strip()
+        dicc[self.dias_semana[str(j)]] = {"numero_dia":numero_dia,numero_dia:{'pw':'test'}}
         #print(dicc[self.dias_semana[str(j)]])
         print(f"dia:{renglones_mes[i][k:k+2]}")
         j += 1
