@@ -62,9 +62,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
-    print(f"padre datos recibidos:{self.datos}")
     if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
-      print("entro desde padre a cheklist")
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos), True)
     elif self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION':
       respuesta = self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos), False)
@@ -78,28 +76,14 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     if respuesta == "registro_guardado":
       with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
         self.button_actualizar_click()
-  
+      #with Notification("Actualizando calendario...",title="ACTUALIZANDO."):
+        
+        
   ############################################ EVENTOS ############################################
   def button_programar_click(self, **event_args):
-    #regresar
-    """self.outlined_card_equipo.visible = True
-    self.button_programar.visible = False
-    self.column_panel_reprogramar.visible = False"""
     self.datos['modo'] = 'nuevo'
     self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION'
     self.actualizar_form_activo(self.datos)
-
-
-    #regresar
-    """def button_cancelar_click(self, **event_args):
-    self.outlined_card_equipo.visible = False
-    self.outlined_card_tabla.visible = True
-    self.button_programar.visible = True
-    self.button_guardar.enabled = False
-    self.drop_down_area.selected_value = None
-    self.drop_down_equipo.selected_value = None
-    self.drop_down_frecuencia.selected_value = None"""
-
 
   def button_actualizar_click(self, **event_args):
     self.repeating_panel_registros.items = self.get_datos_actuales()

@@ -475,16 +475,6 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.button_guardar.enabled = False
 
   def button_guardar_click(self, **event_args):
-    """if self.datos['modo'] == "reprogramar":
-      with Notification("Actualizando registro...",title="GUARDANDO."):
-        registro_nuevo = dict(self.registro_seleccionado).copy()
-        self.registro_seleccionado['registro_principal'] = 0
-        registro_nuevo['fecha_programada'] = self.date_picker_reprogramar.date
-        registro_nuevo['status_mantenimiento'] = "REPROGRAMADO"
-        registro_nuevo['operacion'] = "edicion"
-        registro_nuevo['marca_temporal'] = datetime.now()
-        self.ws_registros_totales.add_row(**registro_nuevo)
-    else:"""
     with Notification("Registrando en la base de datos...",title="GUARDANDO."):
       dict_mtto = {
         "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_totales]) + 1) if len(self.registros_totales) > 0 else 1,

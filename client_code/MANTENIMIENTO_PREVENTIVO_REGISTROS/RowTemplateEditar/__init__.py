@@ -19,7 +19,6 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     else:
       botones = [("REALIZAR CHECKLIST","checklist"),("REPROGRAMAR","reprogramar")]
     respuesta = alert(title=self.label_equipo.text,buttons=botones)
-    print(f"la respuesta:{respuesta}")
     if respuesta == "checklist":
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['modo'] = "checklist"

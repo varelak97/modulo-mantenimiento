@@ -37,11 +37,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   libro_mttos = None
   ws_consulta_mttos = None
   registros_consulta_mttos = None
-  #ws_registros_totales = None
+  ws_registros_totales = None
+  numero_registros = None
+  
   def __init__(self, datos, **properties):
-    self.init_components(**properties)
-    ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.datos = datos
     fecha_actual = date.today()
     self.drop_down_mes.items = self.meses
@@ -49,8 +48,14 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.drop_down_anio.selected_value = str(fecha_actual.year)
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
-    self.registros_consulta_mttos = self.ws_consulta_mttos.rows
+    self.ws_registros_totales = self.libro_mttos['Registros']
     self.llenar_calendario()
+    
+    self.init_components(**properties)
+    ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
+    self.set_event_handler('x-actualizar_calendario', self.llenar_calendario)
+    
   
   ################################ FUNCIONES PERSONALIZADS ########################################
   def actualizar_form_activo(self, datos, **event_args):
@@ -61,13 +66,16 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
       
   def abrir_form(self, form_de_interes):
-     alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
+    if respuesta:
+      self.llenar_calendario()
     
   def llenar_calendario(self):
+    self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
-    
     indicadores_mtto_mes = []
+    
     for dia in range(31):
       indicadores_mtto_mes.append({'SEMANAL':0,'MENSUAL':0,'TRIMESTRAL':0,'SEMESTRAL':0,'ANUAL':0})
     for item in self.registros_consulta_mttos:
@@ -120,5 +128,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     print(datos)""""
 
     #print(anvil.js.call('prueba',lista))
+
     
 
