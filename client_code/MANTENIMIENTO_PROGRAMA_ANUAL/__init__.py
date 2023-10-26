@@ -78,7 +78,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1
       
     self.card_calendario.visible = False
-    mes_calendario = calendar.month(int(self.drop_down_anio.selected_value),self.drop_down_mes.selected_value)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
+    mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
     
     renglones_mes = mes_calendario.split('\n')
     items = []

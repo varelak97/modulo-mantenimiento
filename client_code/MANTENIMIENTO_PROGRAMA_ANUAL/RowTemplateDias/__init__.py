@@ -53,7 +53,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
 
     for label in self.lista_labels:
       if label.text != None:
-        print(f"valor:{label.text.split(': ')[1]}")
         indicador = label.text.split(': ')
         if indicador[1] != '0':
           if indicador[0] == "PW":
