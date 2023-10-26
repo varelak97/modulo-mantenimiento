@@ -10,7 +10,8 @@ components:
     underline: false, icon: 'fa:pencil'}
   name: button_editar
   layout_properties: {column: XMXXEM}
-  data_bindings: []
+  data_bindings:
+  - {property: visible, code: 'not bool(int(self.item[''mtto_realizado'']))'}
   event_bindings: {click: button_editar_click}
 - type: Label
   properties: {}

@@ -30,7 +30,6 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.registros_totales = self.ws_registros_totales.rows
-    
     self.repeating_panel_registros.items = self.get_datos_actuales()
     #self.ws_registros_totales = self.libro_mttos['Registros'] #revisar si es necesario   
 
@@ -42,6 +41,12 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       fecha_seleccionada = item['fecha_programada'].split('-')
       if int(fecha_seleccionada[0]) == int(self.datos['anio']) and int(fecha_seleccionada[1]) == int(self.datos['mes']) and int(fecha_seleccionada[2]) == int(self.datos['dia']):
         registros_dia_seleccionado.append(item)
+    if len(registros_dia_seleccionado) > 0:
+      self.data_grid_registros.visible = True
+      self.column_panel_empty_db.visible = False
+    else:
+      self.data_grid_registros.visible = False
+      self.column_panel_empty_db.visible = True
     return registros_dia_seleccionado
 
   def programar_mantenimiento(self, datos, **events_args):
