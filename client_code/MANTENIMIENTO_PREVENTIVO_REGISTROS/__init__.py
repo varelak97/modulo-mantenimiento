@@ -43,11 +43,13 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def filtros(self):
     items = self.registros_consulta_mttos.copy()
     if self.date_picker_filtro_fecha_programada.date != None:
-      items = [item for item in items if (self.date_picker_filtro_fecha_programada.date).strftime("%d/%m/%Y") in str(item['fecha_programada'])]
+      items = [item for item in items if (self.date_picker_filtro_fecha_programada.date).strftime("%Y-%m-%d") in str(item['fecha_programada'])]
     if len(self.text_box_filtro_area.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_area.text).upper() in str(item['area'])]
     if len(self.text_box_filtro_equipo.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_equipo.text).upper() in str(item['equipo'])]
+    if len(self.text_box_filtro_status.text) > 0:
+      items = [item for item in items if str(self.text_box_filtro_status.text).upper() in str(item['status_mantenimiento']).upper()]
     
     if self.drop_down_filtro_frecuencia.selected_value != None:
       items = [item for item in items if item['frecuencia'] == self.drop_down_filtro_frecuencia.selected_value]

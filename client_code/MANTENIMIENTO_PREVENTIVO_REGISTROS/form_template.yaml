@@ -87,7 +87,7 @@ components:
             spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
             bold: false, underline: false}
           name: data_row_panel_filtros
-          layout_properties: {}
+          layout_properties: {pinned: true}
           components:
           - type: Button
             properties: {role: elevated-button, align: center, tooltip: '', border: '',
@@ -102,7 +102,7 @@ components:
               tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
               visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
               italic: false, date: '', min_date: '', background: 'theme:White', bold: false,
-              underline: false, format: ''}
+              underline: false, format: '%Y-%m-%d'}
             name: date_picker_filtro_fecha_programada
             layout_properties: {column: YWSDJV}
             event_bindings: {change: date_picker_filtro_fecha_programada_change}
@@ -123,7 +123,7 @@ components:
               border: ''
               enabled: true
               foreground: ''
-              items: [SEMANAL, MENSUAL, TRIMESTRAL, ANUAL]
+              items: [SEMANAL, MENSUAL, TRIMESTRAL, SEMESTRAL, ANUAL]
               visible: true
               font_size: null
               font: ''
@@ -142,7 +142,7 @@ components:
               border: '', enabled: true, foreground: '', visible: true, text: '',
               font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
               italic: false, background: 'theme:White', bold: false, underline: false}
-            name: text_box_fitro_status
+            name: text_box_filtro_status
             layout_properties: {column: CJCQWT}
             event_bindings: {change: text_box_fitro_status_change}
           - type: TextBox
