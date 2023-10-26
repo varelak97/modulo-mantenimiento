@@ -18,9 +18,10 @@ components:
     components:
     - type: Label
       properties: {role: headline, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: REPORTE DE MANTENIMIENTO CORRECTIVO, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: 'theme:Primary', bold: true, underline: false, icon: ''}
+          Secondary', visible: true, text: MANTENIMIENTOS CORRECTIVOS Y PREVENTIVOS PROGRAMADOS,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: 'theme:Primary', bold: true, underline: false,
+        icon: ''}
       name: label_titulo
       layout_properties: {grid_position: 'BIMPJE,EHOXCL'}
   - type: ColumnPanel
@@ -79,6 +80,131 @@ components:
         name: data_grid_reportes
         layout_properties: {grid_position: 'ELVNAC,RYLNMU', full_width_row: true}
         components:
+        - type: DataRowPanel
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            auto_display_data: true, visible: true, item: null, font_size: null, font: '',
+            spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
+            bold: false, underline: false}
+          name: data_row_panel_filtros
+          layout_properties: {}
+          components:
+          - type: TextBox
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+              border: '', enabled: true, foreground: '', visible: true, text: '',
+              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+              italic: false, background: 'theme:White', bold: false, underline: false}
+            name: text_box_filtro_folio
+            layout_properties: {column: POIVGQ}
+            event_bindings: {change: text_box_filtro_folio_change}
+          - type: TextBox
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+              border: '', enabled: true, foreground: '', visible: true, text: '',
+              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+              italic: false, background: 'theme:White', bold: false, underline: false}
+            name: text_box_filtro_area
+            layout_properties: {column: QJQSHC}
+            event_bindings: {change: text_box_filtro_area_change}
+          - type: TextBox
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+              border: '', enabled: true, foreground: '', visible: true, text: '',
+              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+              italic: false, background: 'theme:White', bold: false, underline: false}
+            name: text_box_filtro_equipo
+            layout_properties: {column: UMPPDH}
+            event_bindings: {change: text_box_filtro_equipo_change}
+          - type: DropDown
+            properties:
+              role: null
+              align: full
+              tooltip: ''
+              placeholder: -- TODOS --
+              border: ''
+              enabled: true
+              foreground: ''
+              items: [SI, 'NO']
+              visible: true
+              font_size: null
+              font: ''
+              spacing_above: small
+              spacing_below: small
+              italic: false
+              background: theme:White
+              bold: false
+              underline: false
+              include_placeholder: true
+            name: drop_down_filtro_refaccion
+            layout_properties: {column: AKUIUI}
+            event_bindings: {change: drop_down_filtro_refaccion_change}
+          - type: DropDown
+            properties:
+              role: null
+              align: full
+              tooltip: ''
+              placeholder: -- TODOS --
+              border: ''
+              enabled: true
+              foreground: ''
+              items: [SI, 'NO']
+              visible: true
+              font_size: null
+              font: ''
+              spacing_above: small
+              spacing_below: small
+              italic: false
+              background: theme:White
+              bold: false
+              underline: false
+              include_placeholder: true
+            name: drop_down_filtro_servicio
+            layout_properties: {column: JEKZQH}
+            event_bindings: {change: drop_down_filtro_servicio_change}
+          - type: DropDown
+            properties:
+              role: null
+              align: full
+              tooltip: ''
+              placeholder: -- TODOS --
+              border: ''
+              enabled: true
+              foreground: ''
+              items: [PREVENTIVO PROGRAMADO, CORRECTUIVO]
+              visible: true
+              font_size: null
+              font: ''
+              spacing_above: small
+              spacing_below: small
+              italic: false
+              background: theme:White
+              bold: false
+              underline: false
+              include_placeholder: true
+            name: drop_down_filtro_mantenimiento
+            layout_properties: {column: GBJDGR}
+            event_bindings: {change: drop_down_filtro_mantenimiento_change}
+          - type: TextBox
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+              border: '', enabled: true, foreground: '', visible: true, text: '',
+              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+              italic: false, background: 'theme:White', bold: false, underline: false}
+            name: text_box_filtro_falla
+            layout_properties: {column: GBXTQF}
+            event_bindings: {change: text_box_filtro_falla_change}
+          - type: TextBox
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+              border: '', enabled: true, foreground: '', visible: true, text: '',
+              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+              italic: false, background: 'theme:White', bold: false, underline: false}
+            name: text_box_filtro_problema
+            layout_properties: {column: BETFFO}
+            event_bindings: {change: text_box_filtro_problema_change}
+          - type: TextBox
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+              border: '', enabled: true, foreground: '', visible: true, text: '',
+              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+              italic: false, background: 'theme:White', bold: false, underline: false}
+            name: text_box_filtro_actividades_mtto
+            layout_properties: {column: MRYLSD}
+            event_bindings: {change: text_box_filtro_actividades_mtto_change}
         - type: RepeatingPanel
           properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS.RowTemplate1}
           name: repeating_panel_registros

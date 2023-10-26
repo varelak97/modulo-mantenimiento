@@ -80,6 +80,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.label_lunes_numero_dia.text
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_martes_click(self, **event_args):

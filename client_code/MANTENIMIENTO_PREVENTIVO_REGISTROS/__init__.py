@@ -30,10 +30,30 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.registros_totales = self.ws_registros_totales.rows
-    self.repeating_panel_registros.items = self.get_datos_actuales()
+    if self.datos['modo'] == "dia":
+      self.data_row_panel_filtros.visible = False
+      self.repeating_panel_registros.items = self.get_datos_actuales()
+    elif self.datos['modo'] == "todos":
+      self.button_programar.visible = False
+      self.registros_consulta_mttos = self.ws_consulta_mttos.rows
+      self.repeating_panel_registros.items = self.registros_consulta_mttos
     #self.ws_registros_totales = self.libro_mttos['Registros'] #revisar si es necesario   
 
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def filtros(self):
+    items = self.registros_consulta_mttos.copy()
+    if self.date_picker_filtro_fecha_programada.date != None:
+      items = [item for item in items if (self.date_picker_filtro_fecha_programada.date).strftime("%d/%m/%Y") in str(item['fecha_programada'])]
+    if len(self.text_box_filtro_area.text) > 0:
+      items = [item for item in items if str(self.text_box_filtro_area.text).upper() in str(item['area'])]
+    if len(self.text_box_filtro_equipo.text) > 0:
+      items = [item for item in items if str(self.text_box_filtro_equipo.text).upper() in str(item['equipo'])]
+    
+    if self.drop_down_filtro_frecuencia.selected_value != None:
+      items = [item for item in items if item['frecuencia'] == self.drop_down_filtro_frecuencia.selected_value]
+    
+    self.repeating_panel_registros.items = items
+    
   def get_datos_actuales(self):
     self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     registros_dia_seleccionado = []
@@ -92,6 +112,37 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def button_actualizar_click(self, **event_args):
     self.repeating_panel_registros.items = self.get_datos_actuales()
+
+  def button_borrar_filtros_click(self, **event_args):
+    self.text_box_filtro_area.text = ""
+    self.text_box_filtro_equipo.text =""
+    self.text_box_fitro_status.text = ""
+    self.drop_down_filtro_frecuencia.selected_value = None
+    self.date_picker_filtro_fecha_programada.date = None
+    self.filtros()
+
+  def date_picker_filtro_fecha_programada_change(self, **event_args):
+    self.filtros()
+
+  def text_box_filtro_area_change(self, **event_args):
+    self.filtros()
+
+  def text_box_filtro_equipo_change(self, **event_args):
+    self.filtros()
+
+  def drop_down_filtro_frecuencia_change(self, **event_args):
+    self.filtros()
+
+  def text_box_fitro_status_change(self, **event_args):
+    self.filtros()
+
+
+
+
+
+
+
+  
 
       
 

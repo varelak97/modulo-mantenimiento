@@ -22,6 +22,7 @@ class A_main(A_mainTemplate):
   }
   lista_mttos = [
     "PROGRAMA ANUAL DE MANTENIMIENTOS",
+    "REPORTE DE MTTOS PREVENTIVOS",
     "REPORTES DE MTTOS PREVENTIVOS CORRECTIVOS PROGRAMADOS",
     "SOLICITUDES DE MANTENIMIENTO PREVENTIVO CORRECTIVO",
     "LLENAR SOLICITUD DE MTTO PREVENTIVO CORRECTIVO" ############ BORRAR ###########
@@ -73,6 +74,10 @@ class A_main(A_mainTemplate):
 
     if area_seleccionada == "PROGRAMA ANUAL DE MANTENIMIENTOS":
       self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
+      self.actualizar_form_activo(self.datos)
+    elif area_seleccionada == "REPORTE DE MTTOS PREVENTIVOS":
+      self.datos['modo'] = "todos"
+      self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
       self.actualizar_form_activo(self.datos)
     elif area_seleccionada == "REPORTES DE MTTOS PREVENTIVOS CORRECTIVOS PROGRAMADOS":
       self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS'
