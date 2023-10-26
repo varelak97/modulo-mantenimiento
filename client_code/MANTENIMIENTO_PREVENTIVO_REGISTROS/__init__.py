@@ -62,13 +62,19 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
+    print(f"padre datos recibidos:{self.datos}")
     if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
+      print("entro desde padre a cheklist")
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos), True)
     elif self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION':
       respuesta = self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos), False)
       
   def abrir_form(self, form_de_interes, windows_size):
-    respuesta = alert(content = form_de_interes, large=windows_size, dismissible=False, buttons=[("REGRESAR", True)], role='wide-modal-content_small')
+    respuesta = None
+    if windows_size:
+      respuesta = alert(content = form_de_interes, large=windows_size, dismissible=False, buttons=[("REGRESAR", True)], role='wide-modal-content')
+    else:
+      respuesta = alert(content = form_de_interes, large=windows_size, dismissible=False, buttons=[("REGRESAR", True)], role='wide-modal-content_small')
     if respuesta == "registro_guardado":
       with Notification("Actualizando tabla...",title="ACTUALIZANDO."):
         self.button_actualizar_click()

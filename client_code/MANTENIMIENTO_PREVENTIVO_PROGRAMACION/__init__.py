@@ -346,29 +346,6 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.registros_totales = self.ws_registros_totales.rows
 
   ################################ FUNCIONES PERSONALIZADS ########################################
-  """def rellenar_campos(self):
-    if self.datos['modo'] == "reprogramar":
-      for item in self.registros_totales:
-        if item['id_mtto_preventivo'] == self.datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
-          self.registro_seleccionado = item
-          break
-      self.drop_down_area.selected_value = self.registro_seleccionado['area']
-      self.drop_down_area_change()
-      item_equipo = None
-      for item in self.lista_equipos:
-        if item[0] == self.registro_seleccionado['equipo']:
-          item_equipo = item[1]
-          break
-      self.drop_down_equipo.selected_value = item_equipo
-      self.drop_down_equipo_change()
-      self.drop_down_frecuencia.selected_value = self.registro_seleccionado['frecuencia']
-      
-      self.drop_down_area.enabled = False
-      self.drop_down_equipo.enabled = False
-      self.drop_down_frecuencia.enabled = False
-      self.button_guardar.enabled = False
-    pass"""
-    
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None
     if equipo_seleccionado['AREA'] == "IMPRESIÓN":

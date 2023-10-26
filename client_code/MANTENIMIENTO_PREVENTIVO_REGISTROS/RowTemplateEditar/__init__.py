@@ -19,9 +19,13 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     else:
       botones = [("REALIZAR CHECKLIST","checklist"),("REPROGRAMAR","reprogramar")]
     respuesta = alert(title=self.label_equipo.text,buttons=botones)
+    print(f"la respuesta:{respuesta}")
     if respuesta == "checklist":
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['modo'] = "checklist"
+      datos['id_mtto_preventivo'] = self.button_editar.tag
+      print("entra a menu checklist")
+      self.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo',datos=datos)
     elif respuesta == "ver_checklist":
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
       datos['id_mtto_preventivo'] = self.button_editar.tag
