@@ -1,0 +1,148 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: content_panel
+  layout_properties: {grid_position: 'HWJACB,NIILZD', full_width_row: true}
+  components:
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_titulo
+    layout_properties:
+      col_widths: {}
+      grid_position: HVDUVV,MZKGNT
+    components:
+    - type: Label
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Secondary', visible: true, text: FOR-MAN-001 PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: 'theme:Primary', bold: true, underline: false,
+        icon: ''}
+      name: label_titulo
+      layout_properties: {grid_position: 'NXWQIQ,LZPNWC'}
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_1
+    layout_properties: {grid_position: 'IOOMHG,MPYEDC', full_width_row: true}
+    components:
+    - type: FlowPanel
+      properties: {role: null, vertical_align: full, spacing: medium, align: center,
+        tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
+        spacing_below: small, background: 'theme:Outline'}
+      name: flow_panel_componentes_busqueda
+      layout_properties:
+        col_widths: {}
+        grid_position: ANAZYM,DHBXAV
+      components:
+      - type: Label
+        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
+            Primary', visible: true, text: CALENDARIO, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: none, italic: false,
+          background: '', bold: true, underline: false, icon: ''}
+        name: label_calendario_mantenimiento
+        layout_properties: {grid_position: 'GGLLJE,VNRYTO'}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: center
+          tooltip: ''
+          placeholder: -- MES --
+          border: ''
+          enabled: true
+          foreground: ''
+          items: ['']
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: none
+          italic: false
+          background: theme:On Primary
+          bold: false
+          underline: false
+          include_placeholder: false
+        name: drop_down_mes
+        layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
+        event_bindings: {change: drop_down_mes_change}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: center
+          tooltip: ''
+          placeholder: -- AÑO --
+          border: ''
+          enabled: true
+          foreground: ''
+          items: ['2020', '2021', '2022', '2023', '2024', '2025', '2026']
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: none
+          italic: false
+          background: theme:On Primary
+          bold: false
+          underline: false
+          include_placeholder: false
+        name: drop_down_anio
+        layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
+        event_bindings: {change: drop_down_anio_change}
+    - type: DataGrid
+      properties:
+        role: wide-tonal-data-grid
+        columns:
+        - {id: SGPAWA, title: HORNO 1, data_key: column_1, $$hashKey: 'object:3063'}
+        - {id: IQXDSU, title: ATMA 57, data_key: column_2, $$hashKey: 'object:3064'}
+        - {id: OSKZLD, title: ATMA 71, data_key: column_3, $$hashKey: 'object:3065'}
+        - {id: MONZGC, title: HORNO 2, data_key: column_4, $$hashKey: 'object:3104'}
+        - {id: FACQXE, title: ATMA 710, data_key: column_5, $$hashKey: 'object:3106'}
+        - {id: GQDFYN, title: HORNO 5, data_key: column_6, $$hashKey: 'object:3108'}
+        - {id: JHKUHH, title: ATMA 70, data_key: column_7, $$hashKey: 'object:3110'}
+        - {id: HTAROL, title: ATMA 80, data_key: column_8, $$hashKey: 'object:3112'}
+        - {id: BLBXYL, title: AFILADOR DE RASEROS, data_key: column_9, $$hashKey: 'object:3114'}
+        - {id: RTOUEG, title: IMPRESORA MIMAKI, data_key: column_10, $$hashKey: 'object:3116'}
+        - {id: QLOLKO, title: INSOLADORA, data_key: column_11, $$hashKey: 'object:3782'}
+        - {id: ERTAKA, title: LAMINADORA 1, data_key: column_12, $$hashKey: 'object:3784'}
+        - {id: POTZXP, title: LAMINADORA 2, data_key: column_13, $$hashKey: 'object:3786'}
+        - {id: AOXHKX, title: LAMINADORA 3, data_key: column_14, $$hashKey: 'object:3788'}
+        - {id: UBKFWV, title: TROQUELADORA MANUAL, data_key: column_15, $$hashKey: 'object:4334'}
+        - {id: ODJHHK, title: HORNO 4, data_key: column_16, $$hashKey: 'object:4336'}
+        - {id: JVZNDP, title: PICK & PLACE 2, data_key: column_17, $$hashKey: 'object:4338'}
+        - {id: FPGQED, title: PICK & PLACE 3, data_key: column_18, $$hashKey: 'object:4340'}
+        - {id: FYHDPM, title: DISPENSADORES, data_key: column_19, $$hashKey: 'object:4342'}
+        - {id: ZQLUUA, title: ATMA 45, data_key: column_20, $$hashKey: 'object:4344'}
+        - {id: ANSDEP, title: HORNO 3, data_key: column_21, $$hashKey: 'object:4346'}
+        - {id: SHTPLG, title: SUAJADORA 2, data_key: column_22, $$hashKey: 'object:4348'}
+        - {id: VPUDTJ, title: SUAJADORA 3, data_key: column_23, $$hashKey: 'object:4350'}
+        - {id: PNMVJO, title: SUAJADORA 4, data_key: column_24, $$hashKey: 'object:4352'}
+        - {id: HQYJRE, title: EMBOSADORA, data_key: column_25, $$hashKey: 'object:4354'}
+        - {id: LXXYPQ, title: LASER V-460, data_key: column_26, $$hashKey: 'object:4356'}
+        - {id: IECJOR, title: LASER M-300, data_key: column_27, $$hashKey: 'object:4358'}
+        - {id: ZVOYCA, title: LASER VLS-360, data_key: column_28, $$hashKey: 'object:4360'}
+        auto_header: true
+        tooltip: ''
+        border: ''
+        foreground: ''
+        rows_per_page: 20
+        visible: true
+        wrap_on: never
+        show_page_controls: true
+        spacing_above: small
+        spacing_below: small
+        background: ''
+      name: data_grid_1
+      layout_properties: {grid_position: 'TEWHAS,VDLMXR', full_width_row: true}
+      components:
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL_V2.RowTemplate2}
+        name: repeating_panel_1
+        layout_properties: {}
+is_package: true
