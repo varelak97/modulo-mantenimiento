@@ -1054,8 +1054,8 @@ div.plot-container.plotly svg.main-svg {
 }
 
 .anvil-role-wide-tonal-data-grid.anvil-data-grid > .data-grid-child-panel>div.auto-grid-header div.data-row-col > div {
-  padding: 12px;
-  text-align: center !important; /*era center*/
+  padding: 0;
+  text-align: left !important; /*era center*/
   height: 400px; /*quitar*/
   transform: rotate(90deg); /*quitar*/
   vertical-align:left; /*quitar*/
