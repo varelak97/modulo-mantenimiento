@@ -127,6 +127,70 @@ components:
         - {id: LXXYPQ, title: LASER V-460, data_key: column_26, $$hashKey: 'object:4356'}
         - {id: IECJOR, title: LASER M-300, data_key: column_27, $$hashKey: 'object:4358'}
         - {id: ZVOYCA, title: LASER VLS-360, data_key: column_28, $$hashKey: 'object:4360'}
+        - {id: SGIIPG, title: Column 29, data_key: column_29, $$hashKey: 'object:11406'}
+        - {id: GXXRWS, title: PROBADOR ELECTRICO 3 Mistral (C0025), data_key: column_30,
+          $$hashKey: 'object:11408'}
+        - {id: UVMNUN, title: PROBADOR ELECTRICO 2 (CC015), data_key: column_31, $$hashKey: 'object:11410'}
+        - {id: SJLCYU, title: PROBADOR ELECTRICO 4 Mistral (C0028), data_key: column_32,
+          $$hashKey: 'object:11412'}
+        - {id: DLYIKD, title: MESA DE COORDENADAS X-Y, data_key: column_33, $$hashKey: 'object:11414'}
+        - {id: BBCLZT, title: GUILLOTINA 1, data_key: column_34, $$hashKey: 'object:11416'}
+        - {id: YQNWJV, title: GUILLOTINA 2, data_key: column_35, $$hashKey: 'object:11418'}
+        - {id: UTHDUL, title: GUILLOTINA 3, data_key: column_36, $$hashKey: 'object:11420'}
+        - {id: BDEMQD, title: HOJEADORA, data_key: column_37, $$hashKey: 'object:11422'}
+        - {id: YQOJLH, title: EMBOLSADORA, data_key: column_38, $$hashKey: 'object:11424'}
+        - {id: ZAKPHK, title: COMPRESOR ITSA, data_key: column_39, $$hashKey: 'object:11426'}
+        - {id: YSSVSZ, title: COMPRESOR QUINCY, data_key: column_40, $$hashKey: 'object:11428'}
+        - {id: DDFRTJ, title: CLIMA 01 RECEPCION, data_key: column_41, $$hashKey: 'object:11430'}
+        - {id: ZUZNPU, title: CLIMA 02 DIRECCION, data_key: column_42, $$hashKey: 'object:11432'}
+        - {id: GMDNPB, title: CLIMA 03 SALA DE JUNTAS, data_key: column_43, $$hashKey: 'object:11434'}
+        - {id: TWRGTV, title: CLIMA 33 SERVIDOR, data_key: column_44, $$hashKey: 'object:11436'}
+        - {id: OAHPCW, title: CLIMA 04 GERENTE ADMINISTRATIVO, data_key: column_45,
+          $$hashKey: 'object:11438'}
+        - {id: ZNXJYV, title: CLIMA 05 ESCRITORIO 1, data_key: column_46, $$hashKey: 'object:11440'}
+        - {id: KWXHNK, title: CLIMA 06 GERENTE DE OPERACIONES, data_key: column_47,
+          $$hashKey: 'object:11442'}
+        - {id: XYBUYS, title: CLIMA 07 ESCRIOTIRO 2, data_key: column_48, $$hashKey: 'object:11444'}
+        - {id: WZLOLX, title: CLIMA 08 ALMACEN PT, data_key: column_49, $$hashKey: 'object:11446'}
+        - {id: CQBLJO, title: CLIMA 09 SUAJE 1, data_key: column_50, $$hashKey: 'object:11448'}
+        - {id: JARRBQ, title: CLIMA 10 SUAJE 2, data_key: column_51, $$hashKey: 'object:11450'}
+        - {id: SLZAHX, title: CLIMA 11 MANTENIMIENTO 1, data_key: column_52, $$hashKey: 'object:11452'}
+        - {id: QDLMHD, title: CLIMA 12 MANTENIMIENTO 2, data_key: column_53, $$hashKey: 'object:11454'}
+        - {id: BAORQY, title: CLIMA 13 ALMACEN MP 1, data_key: column_54, $$hashKey: 'object:11456'}
+        - {id: EAKTJE, title: CLIMA 14 ALMACEN MP 2, data_key: column_55, $$hashKey: 'object:11458'}
+        - {id: OZQWDA, title: CLIMA 15 COMEDOR 1, data_key: column_56, $$hashKey: 'object:11460'}
+        - {id: RIEOBN, title: CLIMA 16 COMEDOR 2, data_key: column_57, $$hashKey: 'object:11462'}
+        - {id: YQJLIV, title: CLIMA 17 REVELADO 1, data_key: column_58, $$hashKey: 'object:11464'}
+        - {id: XRUDWA, title: CLIMA 18 REVELADO 2, data_key: column_59, $$hashKey: 'object:11466'}
+        - {id: NKKQZO, title: CLIMA 19 IMPRESION 1, data_key: column_60, $$hashKey: 'object:11468'}
+        - {id: AQGHYU, title: CLIMA 20 IMPRESION 2, data_key: column_61, $$hashKey: 'object:11470'}
+        - {id: VKKZAZ, title: CLIMA 21 IMPRESION 3, data_key: column_62, $$hashKey: 'object:11472'}
+        - {id: JZXGIN, title: CLIMA 22 IMPRESION 4, data_key: column_63, $$hashKey: 'object:11474'}
+        - {id: EZERZN, title: CLIMA 23 IMPRESION 5, data_key: column_64, $$hashKey: 'object:11476'}
+        - {id: VXAHOE, title: CLIMA 24 IMPRESION 6, data_key: column_65, $$hashKey: 'object:11478'}
+        - {id: YOULUI, title: CLIMA 25 IMPRESION 7, data_key: column_66, $$hashKey: 'object:11480'}
+        - {id: WUVGKT, title: CLIMA 26 CALIDAD 1, data_key: column_67, $$hashKey: 'object:11482'}
+        - {id: ILDDVS, title: CLIMA 27 CALIDAD 2, data_key: column_68, $$hashKey: 'object:11484'}
+        - {id: AKTUCI, title: CLIMA 28 LASER, data_key: column_69, $$hashKey: 'object:11486'}
+        - {id: KTKKJC, title: CLIMA 29 ENSAMBLE 1, data_key: column_70, $$hashKey: 'object:11488'}
+        - {id: GDVYPF, title: CLIMA 30 ENSAMBLE 2, data_key: column_71, $$hashKey: 'object:11490'}
+        - {id: MBXHWS, title: CLIMA 31 ENSAMBLE 3, data_key: column_72, $$hashKey: 'object:11492'}
+        - {id: YOYCUW, title: CLIMA 32 OFICINA PLANTA, data_key: column_73, $$hashKey: 'object:11494'}
+        - {id: FMVLVW, title: BAÑOS OFICINA, data_key: column_74, $$hashKey: 'object:11496'}
+        - {id: PRWASN, title: BAÑOS DE HOMBRE COMEDOR, data_key: column_75, $$hashKey: 'object:11498'}
+        - {id: RLIQGV, title: BAÑOS DE MUJERES COMEDOR, data_key: column_76, $$hashKey: 'object:11500'}
+        - {id: UZFLKL, title: INSTALACION ELECTRICA, data_key: column_77, $$hashKey: 'object:11502'}
+        - {id: FATNSR, title: CONDICIONES GENERALES, data_key: column_78, $$hashKey: 'object:11504'}
+        - {id: WSKXEN, title: SUBESTACION ELECTRICA 1 (JESUS M. GARZA), data_key: column_79,
+          $$hashKey: 'object:11506'}
+        - {id: HSKZTL, title: SUBESTACION ELECTRICA 2 (CONSTITUYENTES DEL 57), data_key: column_80,
+          $$hashKey: 'object:11508'}
+        - {id: AOQXKK, title: RAM PROMASTER 2500, data_key: column_81, $$hashKey: 'object:11510'}
+        - {id: YSRNPK, title: MONTACARGAS, data_key: column_82, $$hashKey: 'object:11512'}
+        - {id: JUMQMZ, title: PATIN HIDRAULICO, data_key: column_83, $$hashKey: 'object:11514'}
+        - {id: UWTHIT, title: CARROS DE TRANSPORTE, data_key: column_84, $$hashKey: 'object:11516'}
+        - {id: PYXECK, title: 'DISPENSADORES DE AGUA 1, 2 Y 3', data_key: column_85,
+          $$hashKey: 'object:11518'}
         auto_header: true
         tooltip: ''
         border: ''
@@ -138,7 +202,7 @@ components:
         spacing_above: small
         spacing_below: small
         background: ''
-      name: data_grid_1
+      name: data_grid_mes
       layout_properties: {grid_position: 'TEWHAS,VDLMXR', full_width_row: true}
       components:
       - type: RepeatingPanel
