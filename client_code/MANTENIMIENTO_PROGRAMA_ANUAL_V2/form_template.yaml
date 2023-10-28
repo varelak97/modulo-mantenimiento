@@ -1,6 +1,8 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: none, spacing_above: small, col_widths: '{}', spacing_below: small,
+    background: ''}
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
@@ -170,7 +172,8 @@ components:
         - {id: VXAHOE, title: CLIMA 24 IMPRESION 6, data_key: column_65, $$hashKey: 'object:11478'}
         - {id: YOULUI, title: CLIMA 25 IMPRESION 7, data_key: column_66, $$hashKey: 'object:11480'}
         - {id: WUVGKT, title: CLIMA 26 CALIDAD 1, data_key: column_67, $$hashKey: 'object:11482'}
-        - {id: ILDDVS, title: CLIMA 27 CALIDAD 2, data_key: column_68, $$hashKey: 'object:11484'}
+        - {id: ILDDVS, title: CLIMA 27 CALIDAD 2, data_key: column_68, $$hashKey: 'object:11484',
+          width: 15, expand: false}
         - {id: AKTUCI, title: CLIMA 28 LASER, data_key: column_69, $$hashKey: 'object:11486'}
         - {id: KTKKJC, title: CLIMA 29 ENSAMBLE 1, data_key: column_70, $$hashKey: 'object:11488'}
         - {id: GDVYPF, title: CLIMA 30 ENSAMBLE 2, data_key: column_71, $$hashKey: 'object:11490'}
