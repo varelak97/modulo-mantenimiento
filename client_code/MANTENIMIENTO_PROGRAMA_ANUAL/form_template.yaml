@@ -1,21 +1,24 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
-  event_bindings: {}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small,
+    background: ''}
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: ''}
   name: content_panel
-  layout_properties: {grid_position: 'ODKQYG,DVKRFX', full_width_row: true}
+  layout_properties: {grid_position: 'HWJACB,NIILZD', full_width_row: true}
   components:
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
     name: outlined_card_titulo
-    layout_properties: {grid_position: 'HVIYWO,NYUOFN'}
+    layout_properties:
+      col_widths: {}
+      grid_position: HVDUVV,MZKGNT
     components:
     - type: Label
       properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
@@ -29,8 +32,8 @@ components:
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
-    name: card_calendario
-    layout_properties: {grid_position: 'MRPKLW,HJQETC', full_width_row: true}
+    name: outlined_card_1
+    layout_properties: {grid_position: 'IBDBNK,RHPUGA', full_width_row: true}
     components:
     - type: FlowPanel
       properties: {role: null, vertical_align: full, spacing: medium, align: center,
@@ -39,7 +42,7 @@ components:
       name: flow_panel_componentes_busqueda
       layout_properties:
         col_widths: {}
-        grid_position: NCNSYW,YWDAWJ
+        grid_position: ANAZYM,DHBXAV
       components:
       - type: Label
         properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
@@ -94,40 +97,58 @@ components:
         name: drop_down_anio
         layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
         event_bindings: {change: drop_down_anio_change}
-    - type: DataGrid
-      properties:
-        role: tonal-data-grid
-        columns:
-        - {id: OTNAOY, title: LUNES, data_key: column_1, $$hashKey: 'object:30719',
-          width: ''}
-        - {id: HTLZSE, title: MARTES, data_key: column_2, $$hashKey: 'object:30720',
-          width: ''}
-        - {id: CCDLML, title: MIÉRCOLES, data_key: column_3, $$hashKey: 'object:30721',
-          width: ''}
-        - {id: OTSFPZ, title: JUEVES, data_key: column_4, $$hashKey: 'object:30759',
-          width: ''}
-        - {id: UJXKHF, title: VIERNES, data_key: column_5, $$hashKey: 'object:30761',
-          width: ''}
-        - {id: MVWUVE, title: SÁBADO, data_key: column_6, $$hashKey: 'object:30763',
-          width: ''}
-        - {id: XMAFNF, title: DOMINGO, data_key: column_7, $$hashKey: 'object:30765',
-          width: ''}
-        auto_header: true
-        tooltip: ''
-        border: ''
-        foreground: ''
-        rows_per_page: 20
-        visible: true
-        wrap_on: never
-        show_page_controls: true
-        spacing_above: small
-        spacing_below: small
-        background: ''
-      name: data_grid_calendario
-      layout_properties: {grid_position: 'JVQOET,MPJOOI', full_width_row: true}
-      components:
-      - type: RepeatingPanel
-        properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplateDias}
-        name: repeating_panel_mes_calendario
-        layout_properties: {}
+  - type: DataGrid
+    properties:
+      role: wide-tonal-data-grid
+      columns:
+      - {id: KKYZMV, title: EQUIPO, data_key: equipo, $$hashKey: 'object:7975', width: '100'}
+      - {id: EUFNYA, title: '1', data_key: column_2, $$hashKey: 'object:7976'}
+      - {id: NHEGJZ, title: '2', data_key: column_3, $$hashKey: 'object:7977'}
+      - {id: LHXGPL, title: '3', data_key: column_1, $$hashKey: 'object:7981'}
+      - {id: VCFZJS, title: '4', data_key: column_4, $$hashKey: 'object:7983'}
+      - {id: TGLJHT, title: '5', data_key: column_5, $$hashKey: 'object:7985'}
+      - {id: WREKRZ, title: '6', data_key: column_6, $$hashKey: 'object:7987'}
+      - {id: APQOHU, title: '7', data_key: column_7, $$hashKey: 'object:7989'}
+      - {id: UJEQCE, title: '8', data_key: column_8, $$hashKey: 'object:7991'}
+      - {id: CMZNBF, title: '9', data_key: column_9, $$hashKey: 'object:7993'}
+      - {id: OGGBLZ, title: '10', data_key: column_10, $$hashKey: 'object:7995'}
+      - {id: AVPAHK, title: '11', data_key: column_11, $$hashKey: 'object:7997'}
+      - {id: VCALAJ, title: '12', data_key: column_12, $$hashKey: 'object:7999'}
+      - {id: BVJMEU, title: '13', data_key: column_13, $$hashKey: 'object:8001'}
+      - {id: GKNOBN, title: '14', data_key: column_14, $$hashKey: 'object:8003'}
+      - {id: VZHLPA, title: '15', data_key: column_15, $$hashKey: 'object:8005'}
+      - {id: VZKDVG, title: '16', data_key: column_16, $$hashKey: 'object:8007'}
+      - {id: VJEWWO, title: '17', data_key: column_17, $$hashKey: 'object:8009'}
+      - {id: NSAFZH, title: '18', data_key: column_18, $$hashKey: 'object:8011'}
+      - {id: PWPNOX, title: '19', data_key: column_19, $$hashKey: 'object:8013'}
+      - {id: FKLNWZ, title: '20', data_key: column_20, $$hashKey: 'object:8015'}
+      - {id: NKXXUN, title: '21', data_key: column_21, $$hashKey: 'object:8017'}
+      - {id: GGLCLS, title: '22', data_key: column_22, $$hashKey: 'object:8019'}
+      - {id: FGCYTD, title: '23', data_key: column_23, $$hashKey: 'object:8021'}
+      - {id: RATUAJ, title: '24', data_key: column_24, $$hashKey: 'object:8023'}
+      - {id: HUZKVR, title: '25', data_key: column_25, $$hashKey: 'object:8025'}
+      - {id: IDFLCK, title: '26', data_key: column_26, $$hashKey: 'object:8027'}
+      - {id: WJYLVI, title: '27', data_key: column_27, $$hashKey: 'object:8029'}
+      - {id: WLWLKI, title: '28', data_key: column_28, $$hashKey: 'object:8031'}
+      - {id: YBTGRY, title: '29', data_key: column_29, $$hashKey: 'object:8033'}
+      - {id: NIHYUY, title: '30', data_key: column_30, $$hashKey: 'object:8035'}
+      - {id: LJCLCZ, title: '31', data_key: column_31, $$hashKey: 'object:8037'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_mes
+    layout_properties: {grid_position: 'BYQKFK,TMCOTQ', full_width_row: true}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplate3}
+      name: repeating_panel_mes
+      layout_properties: {}
 is_package: true
