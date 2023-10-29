@@ -10,6 +10,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.init_components(**properties)
     self.datos = datos
+    self.test()
     # Any code you write here will run before the form opens.
   ################################ FUNCIONES PERSONALIZADS ########################################
   def test(self):
