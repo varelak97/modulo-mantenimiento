@@ -1050,11 +1050,10 @@ div.plot-container.plotly svg.main-svg {
   position: sticky; top: 0; /*agregado por sistemas*/
   z-index: 1; /*agregado por sistemas*/
   /*height:80px;*/
-  vertical-align: left;
 }
 
 .anvil-role-wide-tonal-data-grid.anvil-data-grid > .data-grid-child-panel>div.auto-grid-header div.data-row-col > div {
-  padding: 100px;
+  padding: 12px;
   text-align: center !important;
   height: 400px; /*quitar*/
   transform: rotate(90deg); /*quitar*/
@@ -1069,6 +1068,8 @@ div.plot-container.plotly svg.main-svg {
   border-left: 1px solid %color:Surface Variant%;
   border-bottom: 1px solid %color:Surface Variant%;
   /*recorre por columna podria ser*/
+  background-color:red
+  tex-align:left
 }
 
 .anvil-role-wide-tonal-data-grid.anvil-data-grid .data-grid-child-panel div.data-row-col:first-child {

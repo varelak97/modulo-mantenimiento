@@ -1,7 +1,7 @@
 container:
   type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: none, spacing_above: small, col_widths: '{}', spacing_below: small,
+    wrap_on: mobile, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small,
     background: ''}
 components:
 - type: ColumnPanel
@@ -209,7 +209,9 @@ components:
       layout_properties: {grid_position: 'TEWHAS,VDLMXR', full_width_row: true}
       components:
       - type: RepeatingPanel
-        properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL_V2.RowTemplate2}
+        properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+          visible: true, spacing_above: small, spacing_below: small, item_template: MANTENIMIENTO_PROGRAMA_ANUAL_V2.RowTemplate2,
+          background: ''}
         name: repeating_panel_1
         layout_properties: {}
 is_package: true
