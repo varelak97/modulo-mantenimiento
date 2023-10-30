@@ -7,6 +7,7 @@ components:
     italic: false, background: '', bold: true, underline: false, icon: ''}
   name: link_1
   layout_properties: {column: EUFNYA}
+  event_bindings: {click: link_1_click}
 - type: Link
   properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: PM, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
