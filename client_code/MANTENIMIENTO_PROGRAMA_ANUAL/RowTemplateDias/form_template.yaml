@@ -73,6 +73,14 @@ components:
         icon: ''}
       name: label_lunes_pg
       layout_properties: {grid_position: 'YAAUDT,NAQGPN'}
+    - name: label_1
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'QEDOKQ,NXKORP'}
+    - name: label_2
+      properties: {align: left, font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'QEDOKQ,WFYNJB'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''lunes''][''numero_dia''])'}
   event_bindings: {click: link_lunes_click}
@@ -149,6 +157,14 @@ components:
         icon: ''}
       name: label_martes_pg
       layout_properties: {grid_position: 'BSKSAN,UXRQFA'}
+    - name: label_4
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'DYWKRF,PTLXWZ'}
+    - name: label_3
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'DYWKRF,RSPHWA'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''martes''][''numero_dia''])'}
   event_bindings: {click: link_martes_click}
@@ -222,6 +238,14 @@ components:
       properties: {font_size: 11, spacing_below: none}
       type: Label
       layout_properties: {grid_position: 'LPBXJL,GRPESC'}
+    - name: label_6
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'IGBTPK,LVTZCA'}
+    - name: label_7
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'IGBTPK,NWKFLB'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''miercoles''][''numero_dia''])'}
   event_bindings: {click: link_miercoles_click}
@@ -298,6 +322,14 @@ components:
         icon: ''}
       name: label_jueves_pg
       layout_properties: {grid_position: 'SHALNI,RUPFJU'}
+    - name: label_7_copy_1
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'GESVBE,BKUVMX'}
+    - name: label_6_copy_1
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'GESVBE,IQMFHV'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''jueves''][''numero_dia''])'}
   event_bindings: {click: link_jueves_click}
@@ -374,6 +406,14 @@ components:
         icon: ''}
       name: label_viernes_na
       layout_properties: {grid_position: 'UOSLXO,RDKSQK'}
+    - name: label_6_copy_2
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'ADWJJI,KUQVXK'}
+    - name: label_7_copy_2
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'ADWJJI,ZYSIVF'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''viernes''][''numero_dia''])'}
   event_bindings: {click: link_viernes_click}
@@ -450,6 +490,14 @@ components:
         icon: ''}
       name: label_sabado_na
       layout_properties: {grid_position: 'TNXRSG,PDBHLX'}
+    - name: label_6_copy_3
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'ZIIHHC,GVRVUI'}
+    - name: label_7_copy_3
+      properties: {font_size: 11}
+      type: Label
+      layout_properties: {grid_position: 'ZIIHHC,OTEPYW'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''sabado''][''numero_dia''])'}
   event_bindings: {click: link_sabado_click}
