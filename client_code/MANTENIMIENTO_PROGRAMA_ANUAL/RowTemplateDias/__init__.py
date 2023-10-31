@@ -7,6 +7,7 @@ import anvil.server
 class RowTemplateDias(RowTemplateDiasTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   lista_labels = None
+  lista_labels_generales = None
   def __init__(self, **properties):
     self.init_components(**properties)
     self.lista_labels = [
@@ -55,21 +56,30 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       if label.text != None:
         indicador = label.text.split(': ')
         if indicador[1] != '0':
-          if indicador[0] == "PW" or indicador[0] == "P":
+          if indicador[0] == "PW":
             label.background = app.theme_colors['Primary']
             label.foreground = app.theme_colors['White']
-          if indicador[0] == "PM":
+          elif indicador[0] == "PM":
             label.background = app.theme_colors['Orange']
             label.foreground = app.theme_colors['White']
-          if indicador[0] == "PT":
+          elif indicador[0] == "PT":
             label.background = app.theme_colors['Tertiary Container']
             label.foreground = app.theme_colors['Blue']
-          if indicador[0] == "PS":
+          elif indicador[0] == "PS":
             label.background = app.theme_colors['Tertiary']
             label.foreground = app.theme_colors['White']
-          if indicador[0] == "PA":
+          elif indicador[0] == "PA":
             label.background = app.theme_colors['Green']
             label.foreground = app.theme_colors['White']
+          elif indicador[0] == "P":
+            label.background = app.theme_colors['Primary']
+            label.foreground = app.theme_colors['White']
+          elif indicador[0] == "R":
+            label.background = app.theme_colors['Red']
+            label.foreground = app.theme_colors['Blue']
+          elif indicador[0] == "OK":
+            label.background = app.theme_colors['Green']
+            label.foreground = app.theme_colors['Blue']
         else:
           label.background = "#FFFFFF"
           label.foreground = "#FFFFFF"

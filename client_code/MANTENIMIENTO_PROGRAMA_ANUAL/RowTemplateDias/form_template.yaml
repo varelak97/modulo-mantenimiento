@@ -68,10 +68,10 @@ components:
       - {property: text, code: 'F"PA: {self.item[''lunes''][''ANUAL'']}"'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
+        visible: false, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
         spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
-      name: label_lunes_na
+      name: label_lunes_pg
       layout_properties: {grid_position: 'YAAUDT,NAQGPN'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''lunes''][''numero_dia''])'}
@@ -147,7 +147,7 @@ components:
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
         spacing_below: none, italic: false, background: '', bold: false, underline: false,
         icon: ''}
-      name: label_martes_na
+      name: label_martes_pg
       layout_properties: {grid_position: 'BSKSAN,UXRQFA'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''martes''][''numero_dia''])'}
@@ -215,16 +215,13 @@ components:
         spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_miercoles_pa
-      layout_properties: {grid_position: 'LPBXJL,OBBAEH'}
+      layout_properties: {grid_position: 'LPBXJL,VHRMXY'}
       data_bindings:
       - {property: text, code: 'f"PA: {self.item[''miercoles''][''ANUAL'']}"'}
-    - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
-        icon: ''}
-      name: label_miercoles_na
-      layout_properties: {grid_position: 'LPBXJL,RFKCMM'}
+    - name: label_miercoles_pg
+      properties: {font_size: 11, spacing_below: none}
+      type: Label
+      layout_properties: {grid_position: 'LPBXJL,GRPESC'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''miercoles''][''numero_dia''])'}
   event_bindings: {click: link_miercoles_click}
@@ -288,19 +285,19 @@ components:
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
-        icon: ''}
-      name: label_jueves_na
-      layout_properties: {grid_position: 'SHALNI,RUPFJU'}
-    - type: Label
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
         spacing_below: none, italic: false, background: '', bold: true, underline: false,
         icon: ''}
       name: label_jueves_pa
-      layout_properties: {grid_position: 'SHALNI,UGQFVN'}
+      layout_properties: {grid_position: 'SHALNI,NUIIWD'}
       data_bindings:
       - {property: text, code: 'f"PA: {self.item[''jueves''][''ANUAL'']}"'}
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
+        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_jueves_pg
+      layout_properties: {grid_position: 'SHALNI,RUPFJU'}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''jueves''][''numero_dia''])'}
   event_bindings: {click: link_jueves_click}
