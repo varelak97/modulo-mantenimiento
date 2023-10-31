@@ -29,7 +29,7 @@ components:
       name: label_lunes_pw
       layout_properties: {grid_position: 'WFFQIT,PMGUTO'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''lunes''][''PW'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''W'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -38,7 +38,7 @@ components:
       name: label_lunes_pm
       layout_properties: {grid_position: 'WFFQIT,CEQDHX'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''lunes''][''PM'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -47,7 +47,7 @@ components:
       name: label_lunes_pt
       layout_properties: {grid_position: 'DKXXSI,ZIBVHI'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''lunes''][''PT'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -56,7 +56,7 @@ components:
       name: label_lunes_ps
       layout_properties: {grid_position: 'DKXXSI,CQQWHX'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''lunes''][''PS'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -65,7 +65,7 @@ components:
       name: label_lunes_pa
       layout_properties: {grid_position: 'YAAUDT,EVIDQA'}
       data_bindings:
-      - {property: text, code: 'F"PA: {self.item[''lunes''][''PA'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''A'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -74,20 +74,20 @@ components:
       name: label_lunes_pg
       layout_properties: {grid_position: 'YAAUDT,NAQGPN'}
       data_bindings:
-      - {property: text, code: 'f"P: {self.item[''lunes''][''P'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''P'']', writeback: false}
     - name: label_lunes_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true,
         text: ''}
       type: Label
       layout_properties: {grid_position: 'QEDOKQ,NXKORP'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''lunes''][''R'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''R'']', writeback: false}
     - name: label_lunes_okg
       properties: {align: center, font_size: 11, spacing_below: none, bold: true}
       type: Label
       layout_properties: {grid_position: 'QEDOKQ,WFYNJB'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''lunes''][''OK'']}"', writeback: false}
+      - {property: text, code: 'self.item[''lunes''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''lunes''][''numero_dia''])'}
   event_bindings: {click: link_lunes_click}
@@ -120,7 +120,7 @@ components:
       name: label_martes_pw
       layout_properties: {grid_position: 'SLUEXY,KBQJMQ'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''martes''][''SEMANAL'']}"'}
+      - {property: text, code: 'self.item[''martes''][''PW'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -129,7 +129,7 @@ components:
       name: label_martes_pm
       layout_properties: {grid_position: 'SLUEXY,GPJFOA'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''martes''][''MENSUAL'']}"'}
+      - {property: text, code: 'self.item[''martes''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -138,7 +138,7 @@ components:
       name: label_martes_pt
       layout_properties: {grid_position: 'XBQWLN,YVBZXJ'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''martes''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''martes''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -147,7 +147,7 @@ components:
       name: label_martes_ps
       layout_properties: {grid_position: 'XBQWLN,NGXNUM'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''martes''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''martes''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -156,7 +156,7 @@ components:
       name: label_martes_pa
       layout_properties: {grid_position: 'BSKSAN,MBJPDN'}
       data_bindings:
-      - {property: text, code: 'f"PA: {self.item[''martes''][''ANUAL'']}"'}
+      - {property: text, code: 'self.item[''martes''][''A'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -164,14 +164,20 @@ components:
         icon: ''}
       name: label_martes_pg
       layout_properties: {grid_position: 'BSKSAN,UXRQFA'}
+      data_bindings:
+      - {property: text, code: 'self.item[''martes''][''P'']', writeback: false}
     - name: label_martes_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'DYWKRF,PTLXWZ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''martes''][''R'']', writeback: false}
     - name: label_martes_okg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'DYWKRF,RSPHWA'}
+      data_bindings:
+      - {property: text, code: 'self.item[''martes''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''martes''][''numero_dia''])'}
   event_bindings: {click: link_martes_click}
@@ -204,7 +210,7 @@ components:
       name: label_miercoles_pw
       layout_properties: {grid_position: 'WNKPJU,RSHEBP'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''miercoles''][''SEMANAL'']}"'}
+      - {property: text, code: 'self.item[''miercoles''][''W'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -213,7 +219,7 @@ components:
       name: label_miercoles_pm
       layout_properties: {grid_position: 'WNKPJU,ZWNUIR'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''miercoles''][''MENSUAL'']}"'}
+      - {property: text, code: 'self.item[''miercoles''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -222,7 +228,7 @@ components:
       name: label_miercoles_pt
       layout_properties: {grid_position: 'TBPBNW,COHDAE'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''miercoles''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''miercoles''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -231,7 +237,7 @@ components:
       name: label_miercoles_ps
       layout_properties: {grid_position: 'TBPBNW,LQZRZV'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''miercoles''][''SEMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''miercoles''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -240,19 +246,25 @@ components:
       name: label_miercoles_pa
       layout_properties: {grid_position: 'LPBXJL,VHRMXY'}
       data_bindings:
-      - {property: text, code: 'f"PA: {self.item[''miercoles''][''ANUAL'']}"'}
+      - {property: text, code: 'self.item[''miercoles''][''A'']', writeback: false}
     - name: label_miercoles_pg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'LPBXJL,GRPESC'}
+      data_bindings:
+      - {property: text, code: 'self.item[''miercoles''][''P'']', writeback: false}
     - name: label_miercoles_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'IGBTPK,LVTZCA'}
+      data_bindings:
+      - {property: text, code: 'self.item[''miercoles''][''R'']', writeback: false}
     - name: label_miercoles_okg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'IGBTPK,NWKFLB'}
+      data_bindings:
+      - {property: text, code: 'self.item[''miercoles''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''miercoles''][''numero_dia''])'}
   event_bindings: {click: link_miercoles_click}
@@ -285,7 +297,7 @@ components:
       name: label_jueves_pw
       layout_properties: {grid_position: 'TZLUWR,IYDTFR'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''jueves''][''SEMANAL'']}"'}
+      - {property: text, code: 'self.item[''jueves''][''W'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -294,7 +306,7 @@ components:
       name: label_jueves_pm
       layout_properties: {grid_position: 'TZLUWR,NNCOQL'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''jueves''][''MENSUAL'']}"'}
+      - {property: text, code: 'self.item[''jueves''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -303,7 +315,7 @@ components:
       name: label_jueves_pt
       layout_properties: {grid_position: 'FISWLD,DQWLRK'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''jueves''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''jueves''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -312,7 +324,7 @@ components:
       name: label_jueves_ps
       layout_properties: {grid_position: 'FISWLD,ZXIXZF'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''jueves''][''SEMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''jueves''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -321,7 +333,7 @@ components:
       name: label_jueves_pa
       layout_properties: {grid_position: 'SHALNI,NUIIWD'}
       data_bindings:
-      - {property: text, code: 'f"PA: {self.item[''jueves''][''ANUAL'']}"'}
+      - {property: text, code: 'self.item[''jueves''][''A'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -329,14 +341,20 @@ components:
         icon: ''}
       name: label_jueves_pg
       layout_properties: {grid_position: 'SHALNI,RUPFJU'}
+      data_bindings:
+      - {property: text, code: 'self.item[''jueves''][''P'']', writeback: false}
     - name: label_jueves_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'GESVBE,BKUVMX'}
+      data_bindings:
+      - {property: text, code: 'self.item[''jueves''][''R'']', writeback: false}
     - name: label_jueves_okg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'GESVBE,IQMFHV'}
+      data_bindings:
+      - {property: text, code: 'self.item[''jueves''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''jueves''][''numero_dia''])'}
   event_bindings: {click: link_jueves_click}
@@ -369,7 +387,7 @@ components:
       name: label_viernes_pw
       layout_properties: {grid_position: 'KSPTSU,RLRXIE'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''viernes''][''SEMANAL'']}"'}
+      - {property: text, code: 'self.item[''viernes''][''W'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -378,7 +396,7 @@ components:
       name: label_viernes_pm
       layout_properties: {grid_position: 'KSPTSU,YGVUIU'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''viernes''][''MENSUAL'']}"'}
+      - {property: text, code: 'self.item[''viernes''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -387,7 +405,7 @@ components:
       name: label_viernes_pt
       layout_properties: {grid_position: 'KCISLQ,VZUXPM'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''viernes''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''viernes''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -396,7 +414,7 @@ components:
       name: label_viernes_ps
       layout_properties: {grid_position: 'KCISLQ,ZCUWZI'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''viernes''][''SEMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''viernes''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -405,7 +423,7 @@ components:
       name: label_viernes_pa
       layout_properties: {grid_position: 'UOSLXO,ISJXNE'}
       data_bindings:
-      - {property: text, code: 'f"PA: {self.item[''viernes''][''ANUAL'']}"'}
+      - {property: text, code: 'self.item[''viernes''][''A'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -413,14 +431,20 @@ components:
         icon: ''}
       name: label_viernes_pg
       layout_properties: {grid_position: 'UOSLXO,RDKSQK'}
+      data_bindings:
+      - {property: text, code: 'self.item[''viernes''][''P'']', writeback: false}
     - name: label_viernes_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'ADWJJI,KUQVXK'}
+      data_bindings:
+      - {property: text, code: 'self.item[''viernes''][''R'']', writeback: false}
     - name: label_viernes_okg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'ADWJJI,ZYSIVF'}
+      data_bindings:
+      - {property: text, code: 'self.item[''viernes''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''viernes''][''numero_dia''])'}
   event_bindings: {click: link_viernes_click}
@@ -453,7 +477,7 @@ components:
       name: label_sabado_pw
       layout_properties: {grid_position: 'PJSFBK,YHSMQX'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''sabado''][''SEMANAL'']}"'}
+      - {property: text, code: 'self.item[''sabado''][''W'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -462,7 +486,7 @@ components:
       name: label_sabado_pm
       layout_properties: {grid_position: 'PJSFBK,ULSHSM'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''sabado''][''MENSUAL'']}"'}
+      - {property: text, code: 'self.item[''sabado''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -471,7 +495,7 @@ components:
       name: label_sabado_pt
       layout_properties: {grid_position: 'QBVKWT,KELIXU'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''sabado''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''sabado''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -480,7 +504,7 @@ components:
       name: label_sabado_ps
       layout_properties: {grid_position: 'QBVKWT,ZSOZPH'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''sabado''][''SEMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''sabado''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -489,7 +513,7 @@ components:
       name: label_sabado_pa
       layout_properties: {grid_position: 'TNXRSG,DVJTBM'}
       data_bindings:
-      - {property: text, code: 'f"PA: {self.item[''sabado''][''ANUAL'']}"'}
+      - {property: text, code: 'self.item[''sabado''][''A'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -497,14 +521,20 @@ components:
         icon: ''}
       name: label_sabado_pg
       layout_properties: {grid_position: 'TNXRSG,PDBHLX'}
+      data_bindings:
+      - {property: text, code: 'self.item[''sabado''][''P'']', writeback: false}
     - name: label_sabado_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'ZIIHHC,GVRVUI'}
+      data_bindings:
+      - {property: text, code: 'self.item[''sabado''][''R'']', writeback: false}
     - name: label_sabado_okg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'ZIIHHC,OTEPYW'}
+      data_bindings:
+      - {property: text, code: 'self.item[''sabado''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''sabado''][''numero_dia''])'}
   event_bindings: {click: link_sabado_click}
@@ -537,7 +567,7 @@ components:
       name: label_domingo_pw
       layout_properties: {grid_position: 'UZFHZF,MVNMXH'}
       data_bindings:
-      - {property: text, code: 'f"PW: {self.item[''domingo''][''SEMANAL'']}"'}
+      - {property: text, code: 'self.item[''domingo''][''W'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -546,7 +576,7 @@ components:
       name: label_domingo_pm
       layout_properties: {grid_position: 'UZFHZF,RQSOBE'}
       data_bindings:
-      - {property: text, code: 'f"PM: {self.item[''domingo''][''MENSUAL'']}"'}
+      - {property: text, code: 'self.item[''domingo''][''M'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -555,7 +585,7 @@ components:
       name: label_domingo_pt
       layout_properties: {grid_position: 'UMCDHE,TQPPIX'}
       data_bindings:
-      - {property: text, code: 'f"PT: {self.item[''domingo''][''TRIMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''domingo''][''T'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -564,7 +594,7 @@ components:
       name: label_domingo_ps
       layout_properties: {grid_position: 'UMCDHE,UMKBLK'}
       data_bindings:
-      - {property: text, code: 'f"PS: {self.item[''domingo''][''SEMESTRAL'']}"'}
+      - {property: text, code: 'self.item[''domingo''][''S'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -573,7 +603,7 @@ components:
       name: label_domingo_pa
       layout_properties: {grid_position: 'JLFCJJ,NXJPRY'}
       data_bindings:
-      - {property: text, code: 'f"PA: {self.item[''domingo''][''ANUAL'']}"'}
+      - {property: text, code: 'self.item[''domingo''][''A'']', writeback: false}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: 11, font: '', spacing_above: small, icon_align: left,
@@ -581,14 +611,20 @@ components:
         icon: ''}
       name: label_domingo_pg
       layout_properties: {grid_position: 'JLFCJJ,SCDSMC'}
+      data_bindings:
+      - {property: text, code: 'self.item[''domingo''][''P'']', writeback: false}
     - name: label_domingo_rg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'RSFAWS,WCPTDP'}
+      data_bindings:
+      - {property: text, code: 'self.item[''domingo''][''R'']', writeback: false}
     - name: label_domingo_okg
       properties: {font_size: 11, spacing_below: none, align: center, bold: true}
       type: Label
       layout_properties: {grid_position: 'RSFAWS,QSYQQZ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''domingo''][''OK'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''domingo''][''numero_dia''])'}
   event_bindings: {click: link_domingo_click}

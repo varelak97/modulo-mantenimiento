@@ -16,36 +16,57 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       self.label_lunes_pt,
       self.label_lunes_ps,
       self.label_lunes_pa,
+      self.label_lunes_rg,
+      self.label_lunes_pg,
+      self.label_lunes_okg,
       self.label_martes_pw,
       self.label_martes_pm,
       self.label_martes_pt,
       self.label_martes_ps,
       self.label_martes_pa,
+      self.label_martes_rg,
+      self.label_martes_pg,
+      self.label_martes_okg,
       self.label_miercoles_pw,
       self.label_miercoles_pm,
       self.label_miercoles_pt,
       self.label_miercoles_ps,
       self.label_miercoles_pa,
+      self.label_miercoles_rg,
+      self.label_miercoles_pg,
+      self.label_miercoles_okg,
       self.label_jueves_pw,
       self.label_jueves_pm,
       self.label_jueves_pt,
       self.label_jueves_ps,
       self.label_jueves_pa,
+      self.label_jueves_rg,
+      self.label_jueves_pg,
+      self.label_jueves_okg,
       self.label_viernes_pw,
       self.label_viernes_pm,
       self.label_viernes_pt,
       self.label_viernes_ps,
       self.label_viernes_pa,
+      self.label_viernes_rg,
+      self.label_viernes_pg,
+      self.label_viernes_okg,
       self.label_sabado_pw,
       self.label_sabado_pm,
       self.label_sabado_pt,
       self.label_sabado_ps,
       self.label_sabado_pa,
+      self.label_sabado_rg,
+      self.label_sabado_pg,
+      self.label_sabado_okg,
       self.label_domingo_pw,
       self.label_domingo_pm,
       self.label_domingo_pt,
       self.label_domingo_ps,
       self.label_domingo_pa,
+      self.label_domingo_rg,
+      self.label_domingo_pg,
+      self.label_domingo_okg
     ]
     self.set_color_indicadores()
     
@@ -53,7 +74,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def set_color_indicadores(self):
 
     for label in self.lista_labels:
-      if label.text != None:
+      if label.text != None or label.text != "":
         indicador = label.text.split(': ')
         if indicador[1] != '0':
           if indicador[0] == "PW":
@@ -83,6 +104,9 @@ class RowTemplateDias(RowTemplateDiasTemplate):
         else:
           label.background = "#FFFFFF"
           label.foreground = "#FFFFFF"
+      else:
+        label.background = "#FFFFFF"
+        label.foreground = "#FFFFFF"
     
     
   #################################################### EVENTOS ####################################################
