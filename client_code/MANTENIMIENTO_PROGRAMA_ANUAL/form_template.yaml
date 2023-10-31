@@ -102,6 +102,9 @@ components:
       role: wide-tonal-data-grid
       columns:
       - {id: KKYZMV, title: EQUIPO, data_key: equipo, $$hashKey: 'object:7975', width: '100'}
+      - {id: SOPIFW, data_key: column_1, title: P}
+      - {id: JNZIBK, data_key: column_2, title: R}
+      - {id: XQCDWF, data_key: column_3, title: OK, width: '40'}
       - {id: EUFNYA, title: '1', data_key: column_2, $$hashKey: 'object:7976'}
       - {id: NHEGJZ, title: '2', data_key: column_3, $$hashKey: 'object:7977'}
       - {id: LHXGPL, title: '3', data_key: column_1, $$hashKey: 'object:7981'}
