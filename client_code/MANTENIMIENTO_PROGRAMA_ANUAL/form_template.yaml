@@ -94,6 +94,33 @@ components:
         name: drop_down_anio
         layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
         event_bindings: {change: drop_down_anio_change}
+    - name: flow_panel_1
+      properties: {align: center, background: 'theme:LightGreen'}
+      type: FlowPanel
+      layout_properties: {grid_position: 'ASVUGV,HNZMYC'}
+      components:
+      - name: label_1
+        properties: {text: 'EQUIPO:', bold: true}
+        type: Label
+        layout_properties: {}
+      - name: drop_down_equipos
+        properties: {include_placeholder: true, placeholder: -- TODOS --, role: outlined,
+          background: 'theme:White'}
+        type: DropDown
+        layout_properties: {width: 194}
+      - name: label_2
+        properties: {text: 'FRECUENCIA:', align: left, bold: true}
+        type: Label
+        layout_properties: {}
+      - name: drop_down_frecuencia
+        properties:
+          include_placeholder: false
+          placeholder: ''
+          role: outlined
+          background: theme:White
+          items: [PROGRAMADOS, REPROGRAMADOS, TERMINADOS]
+        type: DropDown
+        layout_properties: {width: 194}
     - type: DataGrid
       properties:
         role: tonal-data-grid
