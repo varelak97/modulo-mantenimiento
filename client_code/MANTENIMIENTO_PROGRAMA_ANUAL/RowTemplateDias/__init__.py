@@ -55,7 +55,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       if label.text != None:
         indicador = label.text.split(': ')
         if indicador[1] != '0':
-          if indicador[0] == "PW":
+          if indicador[0] == "PW" or indicador[0] == "P":
             label.background = app.theme_colors['Primary']
             label.foreground = app.theme_colors['White']
           if indicador[0] == "PM":

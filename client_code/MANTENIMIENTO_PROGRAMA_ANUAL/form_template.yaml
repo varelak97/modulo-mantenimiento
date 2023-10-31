@@ -105,22 +105,24 @@ components:
         layout_properties: {}
       - name: drop_down_equipos
         properties: {include_placeholder: true, placeholder: -- TODOS --, role: outlined,
-          background: 'theme:White'}
+          background: 'theme:White', align: full}
         type: DropDown
-        layout_properties: {width: 194}
+        layout_properties: {width: 233.667}
+        event_bindings: {change: drop_down_equipos_change}
       - name: label_2
-        properties: {text: 'FRECUENCIA:', align: left, bold: true}
+        properties: {text: 'TIPO:', align: left, bold: true}
         type: Label
         layout_properties: {}
       - name: drop_down_frecuencia
         properties:
-          include_placeholder: false
-          placeholder: ''
+          include_placeholder: true
+          placeholder: -- TODOS --
           role: outlined
           background: theme:White
           items: [PROGRAMADOS, REPROGRAMADOS, TERMINADOS]
         type: DropDown
-        layout_properties: {width: 194}
+        layout_properties: {width: 193}
+        event_bindings: {change: drop_down_frecuencia_change}
     - type: DataGrid
       properties:
         role: tonal-data-grid

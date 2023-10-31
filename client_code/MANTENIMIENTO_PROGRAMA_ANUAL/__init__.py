@@ -33,6 +33,48 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     ("NOVIEMBRE", 11),
     ("DICIEMBRE", 12),
   ]
+  lista_equipos = [
+    "ATMA 57",
+    "ATMA 71",
+    "ATMA 70",
+    "ATMA 45",
+    "ATMA 710",
+    "ATMA 80",
+    "HORNO 1",
+    "HORNO 2",
+    "HORNO 3",
+    "HORNO 4",
+    "HORNO 5",
+    "IMPRESORA MIMAKI",
+    "IMPRESORA OFFSET",
+    "SPS",
+    "SUAJADORA 1",
+    "SUAJADORA 2",
+    "SUAJADORA 3",
+    "SUAJADORA 4",
+    "EMBOSADORA",
+    "LÁSER V-460",
+    "LÁSER M-300",
+    "LÁSER VLS-360",
+    "MESA DE COORDENADAS X-Y",
+    "PROBADOR ELÉCTRICO 2 (CC015)",
+    "PROBADOR ELÉCTRICO 3 (C0025)",
+    "PROBADOR ELÉCTRICO 4 (C0028)",
+    "INSOLADORA",
+    "AFILADOR DE RASEROS",
+    "LAMINADORA 1",
+    "LAMINADORA 2",
+    "LAMINADORA 3",
+    "PICK&PLACE 2",
+    "TROQUELADORA MANUAL",
+    "DISPENSADORES",
+    "PICK&PLACE 3",
+    "GUILLOTINA 1",
+    "GUILLOTINA 2",
+    "GUILLOTINA 3",
+    "HOJEADORA",
+    "EMBOLSADORA"
+  ]
   datos = {}
   libro_mttos = None
   ws_consulta_mttos = None
@@ -46,6 +88,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.drop_down_mes.items = self.meses
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
+    self.drop_down_equipos.items = self.lista_equipos
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
     self.ws_registros_totales = self.libro_mttos['Registros']
@@ -83,8 +126,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
       if mes_prog == mes:
-        suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
-        indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1
+        if self.drop_down_equipos.selected_value == None:
+          suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
+          indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1
+        else:
+          if item['equipo'] == self.drop_down_equipos.selected_value:
+            suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
+            indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1
       
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
@@ -116,6 +164,15 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
 
   def drop_down_anio_change(self, **event_args):
     self.llenar_calendario()
+
+  def drop_down_equipos_change(self, **event_args):
+    self.llenar_calendario()
+
+  def drop_down_frecuencia_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
+
+  
    
   ##################################################### PRUEBAS #####################################################
     """self.datos['clave_form'] = 'MANTENIMIENTO_VERIFICACION_MTTO_PREVENTIVO'
