@@ -119,9 +119,29 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
     indicadores_mtto_mes = []
-    
+
+    #genera acumuladores
     for dia in range(31):
-      indicadores_mtto_mes.append({'SEMANAL':0,'MENSUAL':0,'TRIMESTRAL':0,'SEMESTRAL':0,'ANUAL':0})
+      indicadores_mtto_mes.append({
+        'P-SEMANAL':0,
+        'P-MENSUAL':0,
+        'P-TRIMESTRAL':0,
+        'P-SEMESTRAL':0,
+        'P-ANUAL':0,
+        'R-SEMANAL':0,
+        'R-MENSUAL':0,
+        'R-TRIMESTRAL':0,
+        'R-SEMESTRAL':0,
+        'R-ANUAL':0,
+        'OK-SEMANAL':0,
+        'OK-MENSUAL':0,
+        'OK-TRIMESTRAL':0,
+        'OK-SEMESTRAL':0,
+        'OK-ANUAL':0,
+        'PROGRAMADO':0,
+        'REPROGRAMADO':0,
+        'REALIZADO':0
+      })
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
@@ -129,6 +149,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         if self.drop_down_equipos.selected_value == None:
           suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
           indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1
+          suma_actual = indicadores_mtto_mes[dia_prog-1]['status_mantenimiento']
         else:
           if item['equipo'] == self.drop_down_equipos.selected_value:
             suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
