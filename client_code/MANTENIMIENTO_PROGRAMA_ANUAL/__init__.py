@@ -123,7 +123,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     #genera acumuladores
     for dia in range(31):
       indicadores_mtto_mes.append({
-        'P-SEMANAL':0,
+        """'P-SEMANAL':0,
         'P-MENSUAL':0,
         'P-TRIMESTRAL':0,
         'P-SEMESTRAL':0,
@@ -140,7 +140,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         'OK-ANUAL':0,
         'PROGRAMADO':0,
         'REPROGRAMADO':0,
-        'REALIZADO':0
+        'REALIZADO':0"""
       })
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
@@ -150,13 +150,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         if self.drop_down_equipos.selected_value == None:
           #todos los tipos programados, reprogramados, realizados
           if self.drop_down_tipo.selected_value == None:
-            suma_actual = indicadores_mtto_mes[dia_prog-1]['status_mantenimiento']
-            indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] = suma_actual + 1
+            #suma_actual = indicadores_mtto_mes[dia_prog-1]['status_mantenimiento']
+            indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] = indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] + 1 if item['status_mantenimiento'] in indicadores_mtto_mes[dia_prog-1].keys() else 0  
           #programados o reprogramados o realizados
           elif self.drop_down_tipo.selected_value == item['status_mantenimiento']:
             prefijos = [{"PROGRAMADOS":"P","REPROGRAMADOS":"R","REALIZADOS":"OK"}]
-            prefijo_item = prefijos[self.drop_down_tipo.selected_value]
             if item['status_mantenimiento'] == self.drop_down_tipo.selected_value:
+              prefijo_item = prefijos[self.drop_down_tipo.selected_value]
               #mttos programados semanal, mensual, trimestral, semestral, anual
               suma_actual = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"]
               indicadores_mtto_mes[dia_prog-1][f"P-{item['frecuencia']}"] = suma_actual + 1
