@@ -74,8 +74,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def set_color_indicadores(self):
 
     for label in self.lista_labels:
+      print(f"label:{label.text}")
       if label.text != None or label.text != "":
         indicador = label.text.split(': ')
+        print(f"el indicador:{indicador}")
         if indicador[1] != '0':
           if indicador[0] == "PW":
             label.background = app.theme_colors['Primary']

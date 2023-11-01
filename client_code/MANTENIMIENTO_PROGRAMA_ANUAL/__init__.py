@@ -121,7 +121,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     mes = self.drop_down_mes.selected_value
     indicadores_mtto_mes = []
 
-    """'P-SEMANAL':0,
+    #genera acumuladores
+    for dia in range(31):
+      indicadores_mtto_mes.append({
+        'P-SEMANAL':0,
         'P-MENSUAL':0,
         'P-TRIMESTRAL':0,
         'P-SEMESTRAL':0,
@@ -138,10 +141,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         'OK-ANUAL':0,
         'PROGRAMADO':0,
         'REPROGRAMADO':0,
-        'REALIZADO':0"""
-    #genera acumuladores
-    for dia in range(31):
-      indicadores_mtto_mes.append({})
+        'REALIZADO':0
+      })
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
@@ -152,16 +153,18 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         if self.drop_down_equipos.selected_value == None:
           #todos los tipos programados, reprogramados, realizados
           if self.drop_down_tipo.selected_value == None:
+            indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] = indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] + 1
             #suma_actual = indicadores_mtto_mes[dia_prog-1]['status_mantenimiento']
-            indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] = indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] + 1 if item['status_mantenimiento'] in indicadores_mtto_mes[dia_prog-1].keys() else 0  
+            #indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] = indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] + 1 if item['status_mantenimiento'] in indicadores_mtto_mes[dia_prog-1].keys() else 1  
           #programados o reprogramados o realizados
           elif self.drop_down_tipo.selected_value == item['status_mantenimiento']:
-            prefijos = [{"PROGRAMADOS":"P","REPROGRAMADOS":"R","REALIZADOS":"OK"}]
+            prefijos = [{"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}]
             if item['status_mantenimiento'] == self.drop_down_tipo.selected_value:
               prefijo_item = prefijos[self.drop_down_tipo.selected_value]
               #mttos programados semanal, mensual, trimestral, semestral, anual
+              indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] + 1
               #suma_actual = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"]
-              indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] + 1 if f"{prefijo_item}-item['frecuencia']" in indicadores_mtto_mes[dia_prog-1].keys() else 0
+              indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] + 1 if f"{prefijo_item}-item['frecuencia']" in indicadores_mtto_mes[dia_prog-1].keys() else 1
               
         
               """#mttos reprogramados semanal, mensual, trimestral, semestral, anual
@@ -184,7 +187,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             #mttos realizados semanal, mensual, semestral, anual
             suma_actual = indicadores_mtto_mes[dia_prog-1][f"OK-{item['frecuencia']}"]
             indicadores_mtto_mes[dia_prog-1][f"OK-{item['frecuencia']}"] = suma_actual + 1"""
-          print(indicadores_mtto_mes)
         else:
           pass
           """if item['equipo'] == self.drop_down_equipos.selected_value:
@@ -203,15 +205,14 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         numero_dia = str(renglones_mes[i][k:k+2]).strip()
         if numero_dia != "":
           dicc[self.dias_semana[str(j)]] = {
-            "numero_dia":numero_dia
-            #"W":indicadores_mtto_mes[int(numero_dia) -1]['SEMANAL'],
-            #"M":indicadores_mtto_mes[int(numero_dia) -1]['MENSUAL'],
-            #"T":indicadores_mtto_mes[int(numero_dia) -1]['TRIMESTRAL'],
-            #"S":indicadores_mtto_mes[int(numero_dia) -1]['SEMESTRAL'],
-            #"A":indicadores_mtto_mes[int(numero_dia) -1]['ANUAL']
+            "numero_dia":numero_dia,
+            "P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
+            "R":f"R: {indicadores_mtto_mes[int(numero_dia) -1]['REPROGRAMADO']}",
+            "OK":f"OK: {indicadores_mtto_mes[int(numero_dia) -1]['REALIZADO']}",
           }
         j += 1
       items.append(dicc)
+    print(items)
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 
