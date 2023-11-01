@@ -68,14 +68,15 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       self.label_domingo_pg,
       self.label_domingo_okg
     ]
-    #self.set_color_indicadores()
+    self.set_color_indicadores()
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
 
     for label in self.lista_labels:
       print(f"label:{label.text}")
-      if label.text != None or label.text != "":
+      if label.text != None:
+        print(f"antes de split:{label.text}")
         indicador = label.text.split(': ')
         print(f"el indicador:{indicador}")
         if indicador[1] != '0':
@@ -102,7 +103,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             label.foreground = app.theme_colors['Blue']
           elif indicador[0] == "OK":
             label.background = app.theme_colors['Green']
-            label.foreground = app.theme_colors['Blue']
+            label.foreground = app.theme_colors['White']
         else:
           label.background = "#FFFFFF"
           label.foreground = "#FFFFFF"

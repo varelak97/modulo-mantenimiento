@@ -146,9 +146,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
-      #print(f"{mes_prog}:{mes}")
+      print(f"{mes_prog}:{mes}")
       if mes_prog == mes:
-        print("entro")
         #todos los equipos
         if self.drop_down_equipos.selected_value == None:
           #todos los tipos programados, reprogramados, realizados
@@ -164,7 +163,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
               #mttos programados semanal, mensual, trimestral, semestral, anual
               indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] + 1
               #suma_actual = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"]
-              indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] + 1 if f"{prefijo_item}-item['frecuencia']" in indicadores_mtto_mes[dia_prog-1].keys() else 1
+              #indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_item}-{item['frecuencia']}"] + 1 if f"{prefijo_item}-item['frecuencia']" in indicadores_mtto_mes[dia_prog-1].keys() else 1
               
         
               """#mttos reprogramados semanal, mensual, trimestral, semestral, anual
@@ -209,6 +208,11 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             "P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
             "R":f"R: {indicadores_mtto_mes[int(numero_dia) -1]['REPROGRAMADO']}",
             "OK":f"OK: {indicadores_mtto_mes[int(numero_dia) -1]['REALIZADO']}",
+            "W":f"PW: {indicadores_mtto_mes[int(numero_dia) -1]['P-SEMANAL']}",
+            "M":f"PM: {indicadores_mtto_mes[int(numero_dia) -1]['P-MENSUAL']}",
+            "T":f"PT: {indicadores_mtto_mes[int(numero_dia) -1]['P-TRIMESTRAL']}",
+            "S":f"PS: {indicadores_mtto_mes[int(numero_dia) -1]['P-SEMESTRAL']}",
+            "A":f"PA: {indicadores_mtto_mes[int(numero_dia) -1]['P-ANUAL']}"
           }
         j += 1
       items.append(dicc)
@@ -227,8 +231,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.llenar_calendario()
 
   def drop_down_tipo_change(self, **event_args):
-    """This method is called when an item is selected"""
-    pass
+    self.llenar_calendario()
 
   
    
