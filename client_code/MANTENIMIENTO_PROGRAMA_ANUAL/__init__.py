@@ -147,11 +147,11 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         if numero_dia != "":
           dicc[self.dias_semana[str(j)]] = {
             "numero_dia":numero_dia,
-            "PW":indicadores_mtto_mes[int(numero_dia) -1]['SEMANAL'],
-            "PM":indicadores_mtto_mes[int(numero_dia) -1]['MENSUAL'],
-            "PT":indicadores_mtto_mes[int(numero_dia) -1]['TRIMESTRAL'],
-            "PS":indicadores_mtto_mes[int(numero_dia) -1]['SEMESTRAL'],
-            "PA":indicadores_mtto_mes[int(numero_dia) -1]['ANUAL']
+            "W":indicadores_mtto_mes[int(numero_dia) -1]['SEMANAL'],
+            "M":indicadores_mtto_mes[int(numero_dia) -1]['MENSUAL'],
+            "T":indicadores_mtto_mes[int(numero_dia) -1]['TRIMESTRAL'],
+            "S":indicadores_mtto_mes[int(numero_dia) -1]['SEMESTRAL'],
+            "A":indicadores_mtto_mes[int(numero_dia) -1]['ANUAL']
           }
         j += 1
       items.append(dicc)
