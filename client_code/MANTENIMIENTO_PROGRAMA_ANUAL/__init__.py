@@ -159,7 +159,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
-      print(f"{mes_prog}:{mes}")
+      #filtra por datos del mes
       if mes_prog == mes:
         self.get_indicadores(self.drop_down_areas.selected_value, self.drop_down_equipos.selected_value, self.drop_down_tipo.selected_value, dia_prog,item['frecuencia'],item['status_mantenimiento'], indicadores_mtto_mes)
       
@@ -192,12 +192,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.card_calendario.visible = True
 
   def get_indicadores(self, area, equipo, tipo, dia_prog, frecuencia, status_mtto, indicadores_mtto_mes):
+    prefijos = [{"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}]
+    
     if area == None: #AREA: TODAS
       if equipo == None: #EQUIPOS: TODOS
         if tipo == None: #TIPO: TODOS (programados, reprogramados y realizados)
           indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1  
         elif tipo == status_mtto: # TIPO:ESPECIFICO (programados o reprogramados o realizados)
-          prefijos = [{"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}]
           if status_mtto == tipo:
             prefijo_item = prefijos[tipo]
             #mttos programados semanal, mensual, trimestral, semestral, anual

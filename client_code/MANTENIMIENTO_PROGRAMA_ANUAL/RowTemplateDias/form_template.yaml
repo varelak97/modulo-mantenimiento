@@ -12,6 +12,13 @@ components:
     name: card_lunes
     layout_properties: {grid_position: 'LGFJTN,YVZBBI'}
     components:
+    - name: link_lunes_t
+      properties: {align: right, bold: true}
+      type: Link
+      layout_properties: {grid_position: 'DAHIIJ,BBTXJF'}
+      data_bindings:
+      - {property: text, code: 'self.item[''lunes''][''numero_dia'']', writeback: false}
+      event_bindings: {click: link_lunes_t_click}
     - type: Label
       properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: null, font: '', spacing_above: small,
