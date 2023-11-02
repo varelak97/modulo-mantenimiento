@@ -10,7 +10,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   lista_labels_generales = None
   def __init__(self, **properties):
     self.init_components(**properties)
-    self.lista_labels = [
+    """self.lista_labels = [
       self.label_lunes_pw,
       self.label_lunes_pm,
       self.label_lunes_pt,
@@ -68,7 +68,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       self.label_domingo_pg,
       self.label_domingo_okg
     ]
-    self.set_color_indicadores()
+    self.set_color_indicadores()"""
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
