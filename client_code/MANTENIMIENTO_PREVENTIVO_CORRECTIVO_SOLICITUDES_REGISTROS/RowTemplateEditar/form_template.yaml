@@ -65,3 +65,4 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''fecha_programada'']'}
 is_package: true
+data_bindings: []

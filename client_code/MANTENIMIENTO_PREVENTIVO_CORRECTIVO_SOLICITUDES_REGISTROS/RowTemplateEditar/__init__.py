@@ -20,6 +20,7 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       botones = [("GENERAR REPORTE","generar_reporte"),("PROGRAMAR MTTO","programar")]
     respuesta = alert(title=self.label_equipo.text,buttons=botones)
     if respuesta == "generar_reporte":
+      print(self.tag)
       datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE'
       datos['id_solicitud_mtto'] = self.tag
       datos['modo'] = "nuevo"
