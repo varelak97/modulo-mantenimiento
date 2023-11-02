@@ -218,7 +218,22 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def drop_down_anio_change(self, **event_args):
     self.llenar_calendario()
 
+  def drop_down_areas_change(self, **event_args):
+    self.drop_down_equipos.selected_value = None
+    self.drop_down_tipo.selected_value = None
+    if self.drop_down_areas.selected_value != None:
+      lista_filtrada = []
+      for equipo in self.lista_equipos:
+        if self.drop_down_areas.selected_value == equipo[1]['AREA']:
+          lista_filtrada.append(equipo)
+      self.drop_down_equipos.items = lista_filtrada
+    else:
+      self.drop_down_equipos.items = self.lista_equipos
+    self.llenar_calendario()
+        
+
   def drop_down_equipos_change(self, **event_args):
+    self.drop_down_tipo.selected_value = None
     self.llenar_calendario()
 
   def drop_down_tipo_change(self, **event_args):

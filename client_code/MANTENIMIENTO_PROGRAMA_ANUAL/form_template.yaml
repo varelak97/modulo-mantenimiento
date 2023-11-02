@@ -114,6 +114,7 @@ components:
           background: 'theme:White'}
         type: DropDown
         layout_properties: {width: 181}
+        event_bindings: {change: drop_down_areas_change}
       - name: label_1
         properties: {text: 'EQUIPO:', bold: true}
         type: Label
