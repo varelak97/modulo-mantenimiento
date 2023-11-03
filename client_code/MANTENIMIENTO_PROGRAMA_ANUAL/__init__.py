@@ -192,14 +192,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
           indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos"
         elif tipo == status_mtto: # TIPO:ESPECIFICO (programados o reprogramados o realizados)
-          if status_mtto == tipo:
-            prefijo_tipo = prefijos_tipo[tipo]
-            prefijo_frecuencia = prefijos_frecuencia[frecuencia]
-            #mttos programados semanal, mensual, trimestral, semestral, anual
-            indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] + 1  
-            indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
-            indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
-            indicadores_mtto_mes[dia_prog-1]['tipo'] = status_mtto
+          prefijo_tipo = prefijos_tipo[tipo]
+          prefijo_frecuencia = prefijos_frecuencia[frecuencia]
+          #mttos programados semanal, mensual, trimestral, semestral, anual
+          indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] + 1  
+          indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
+          indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
+          indicadores_mtto_mes[dia_prog-1]['tipo'] = status_mtto
         
       #equipo en específico
       elif self.drop_down_equipos.selected_value['EQUIPO'] == item['equipo']:
