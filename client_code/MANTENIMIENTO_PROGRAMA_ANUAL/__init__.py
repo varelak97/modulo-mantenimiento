@@ -151,7 +151,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       #filtra por datos del mes
       if mes_prog == mes:
         self.fill_indicadores(self.drop_down_areas.selected_value, self.drop_down_equipos.selected_value, self.drop_down_tipo.selected_value, dia_prog,item['frecuencia'],item['status_mantenimiento'], indicadores_mtto_mes)
-      
+    print(indicadores_mtto_mes)
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
     
@@ -164,17 +164,18 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         numero_dia = str(renglones_mes[i][k:k+2]).strip()
         if numero_dia != "":
           dicc[self.dias_semana[str(j)]] = {
-            "numero_dia":numero_dia,
-            "P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
+            "numero_dia":numero_dia
+            
+          }
+        j += 1
+        """"P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
             "R":f"R: {indicadores_mtto_mes[int(numero_dia) -1]['REPROGRAMADO']}",
             "OK":f"OK: {indicadores_mtto_mes[int(numero_dia) -1]['REALIZADO']}",
             "W":f"PW: {indicadores_mtto_mes[int(numero_dia) -1]['P-SEMANAL']}",
             "M":f"PM: {indicadores_mtto_mes[int(numero_dia) -1]['P-MENSUAL']}",
             "T":f"PT: {indicadores_mtto_mes[int(numero_dia) -1]['P-TRIMESTRAL']}",
             "S":f"PS: {indicadores_mtto_mes[int(numero_dia) -1]['P-SEMESTRAL']}",
-            "A":f"PA: {indicadores_mtto_mes[int(numero_dia) -1]['P-ANUAL']}"
-          }
-        j += 1
+            "A":f"PA: {indicadores_mtto_mes[int(numero_dia) -1]['P-ANUAL']}""""
       items.append(dicc)
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
@@ -187,18 +188,27 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       if equipo == None: #EQUIPOS: TODOS
         if tipo == None: #TIPO: TODOS (programados, reprogramados y realizados)
           indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
+          indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
+          indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
+          indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos"
         elif tipo == status_mtto: # TIPO:ESPECIFICO (programados o reprogramados o realizados)
           if status_mtto == tipo:
             prefijo_tipo = prefijos_tipo[tipo]
             prefijo_frecuencia = prefijos_frecuencia[frecuencia]
             #mttos programados semanal, mensual, trimestral, semestral, anual
-            indicadores_mtto_mes[dia_prog-1][f"{prefijo_tipo}{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_tipo}{prefijo_frecuencia}"] + 1     
+            indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] + 1  
+            indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
+            indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
+            indicadores_mtto_mes[dia_prog-1]['tipo'] = status_mtto
         
       #equipo en específico
       elif self.drop_down_equipos.selected_value['EQUIPO'] == item['equipo']:
         #todos los tipos programados, reprogramados, realizados
         if self.drop_down_tipo.selected_value == None:
           indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
+          indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
+          indicadores_mtto_mes[dia_prog-1]['equipo'] = item['equipo']
+          indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos"
         """if item['equipo'] == self.drop_down_equipos.selected_value:
           suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
           indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1"""
