@@ -133,25 +133,17 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
     indicadores_mtto_mes = []
-    #genera acumuladores
-    """'PW':0,
-    'PM':0,
-    'PT':0,
-    'PS':0,
-    'PA':0,
-    'RW':0,
-    'RM':0,
-    'RT':0,
-    'RS':0,
-    'RA':0,
-    'OKW':0,
-    'OKM':0,
-    'OKT':0,
-    'OKS':0,
-    'OKA':0,"""
     for dia in range(31):
       indicadores_mtto_mes.append({
-        
+        #genera acumuladores
+        'W':0,
+        'M':0,
+        'T':0,
+        'S':0,
+        'A':0,
+        'area':'',
+        'tipo':'',
+        'id_mtto_preventivo':None
       })
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
