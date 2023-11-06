@@ -134,6 +134,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     mes = self.drop_down_mes.selected_value
     indicadores_mtto_mes = []
     for dia in range(31):
+      area = "todas" if self.drop_down_areas.selected_value == None else self.drop_down_areas.selected_value
+      tipo = "todos" if self.drop_down_tipo.selected_value == None else self.drop_down_tipo.selected_value
+      equipo = "todos" if self.drop_down_equipos.selected_value == None else self.drop_down_equipos.selected_value['equipo']
       indicadores_mtto_mes.append({
         #genera acumuladores
         'W':0,
@@ -144,10 +147,12 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         'P':0,
         'R':0,
         'OK':0,
-        'area':'',
-        'tipo':'',
+        'area':area,
+        'tipo':tipo,
+        'equipo':equipo,
         'id_mtto_preventivo':None
       })
+      
     for item in self.registros_consulta_mttos:
       dia_prog = int(item['fecha_programada'].split('-')[2])
       mes_prog = int(item['fecha_programada'].split('-')[1])
@@ -185,22 +190,18 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def fill_indicadores(self, area, equipo, tipo, dia_prog, frecuencia, status_mtto, indicadores_mtto_mes):
     prefijos_tipo = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}
     prefijos_frecuencia = {"SEMANAL":"S", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}
+
     
-    if area == None: #AREA: TODAS
+    
+    """if area == None: #AREA: TODAS
       if equipo == None: #EQUIPOS: TODOS
         if tipo == None: #TIPO: TODOS (programados, reprogramados y realizados)
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[status_mtto]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[status_mtto]] + 1
-          indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
-          indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
-          indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos"
         elif tipo == status_mtto: # TIPO:ESPECIFICO (programados o reprogramados o realizados)
           prefijo_tipo = prefijos_tipo[tipo]
           prefijo_frecuencia = prefijos_frecuencia[frecuencia]
           #mttos programados semanal, mensual, trimestral, semestral, anual
           indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] + 1  
-          indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
-          indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
-          indicadores_mtto_mes[dia_prog-1]['tipo'] = status_mtto
         
       #equipo en específico
       elif self.drop_down_equipos.selected_value['EQUIPO'] == item['equipo']:
@@ -209,7 +210,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
           indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
           indicadores_mtto_mes[dia_prog-1]['equipo'] = item['equipo']
-          indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos"
+          indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos""""
+          
         """if item['equipo'] == self.drop_down_equipos.selected_value:
           suma_actual = indicadores_mtto_mes[dia_prog-1][item['frecuencia']]
           indicadores_mtto_mes[dia_prog-1][item['frecuencia']] = suma_actual + 1"""
