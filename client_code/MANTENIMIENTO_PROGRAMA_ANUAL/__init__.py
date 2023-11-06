@@ -136,7 +136,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     for dia in range(31):
       area = "todas" if self.drop_down_areas.selected_value == None else self.drop_down_areas.selected_value
       tipo = "todos" if self.drop_down_tipo.selected_value == None else self.drop_down_tipo.selected_value
-      equipo = "todos" if self.drop_down_equipos.selected_value == None else self.drop_down_equipos.selected_value['equipo']
+      equipo = "todos" if self.drop_down_equipos.selected_value == None else self.drop_down_equipos.selected_value['EQUIPO']
       indicadores_mtto_mes.append({
         #genera acumuladores
         'W':0,
@@ -159,7 +159,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       #filtra por datos del mes
       if mes_prog == mes:
         self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
-    print(indicadores_mtto_mes)
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
     
@@ -174,6 +173,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           dicc[self.dias_semana[str(j)]] = {
             "numero_dia":numero_dia
           }
+          dicc[self.dias_semana[str(j)]].update(indicadores_mtto_mes[int(numero_dia)-1])
         j += 1
         """"P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
             "R":f"R: {indicadores_mtto_mes[int(numero_dia) -1]['REPROGRAMADO']}",
@@ -184,6 +184,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             "S":f"PS: {indicadores_mtto_mes[int(numero_dia) -1]['P-SEMESTRAL']}",
             "A":f"PA: {indicadores_mtto_mes[int(numero_dia) -1]['P-ANUAL']}""""
       items.append(dicc)
+    print(items)
+    """for index,item in enumerate(items):
+      print(f"dia:{index+1} --- {item}\n")"""
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 
@@ -200,23 +203,24 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
         elif tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
-          #indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] + 1
-      else: #equipo:selected
+      elif equipo == item['equipo']: #equipo:selected
         if tipo == "todos":
-          pass
-        else: #tipo:selected
-          pass
-    else: #area:selected
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
+        elif tipo == item['status_mantenimiento']: #tipo:selected
+          indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
+          indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo']
+    elif area == item['area']: #area:selected
       if equipo == "todos":
         if tipo == "todos":
-          pass
-        else: #tipo:selected
-          pass
-      else: #equipo:selected
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
+        elif tipo == item['status_mantenimiento']: #tipo:selected
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
+      elif equipo == item['equipo']: #equipo:selected
         if tipo == "todos":
-          pass
-        else: #tipo:selected
-          pass
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
+        elif tipo == item['status_mantenimiento']: #tipo:selected
+          indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] + 1
+          indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo']
       
     
    
