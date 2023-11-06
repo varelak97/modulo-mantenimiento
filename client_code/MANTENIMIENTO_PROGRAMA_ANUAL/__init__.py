@@ -141,6 +141,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         'T':0,
         'S':0,
         'A':0,
+        'P':0,
+        'R':0,
+        'OK':0,
         'area':'',
         'tipo':'',
         'id_mtto_preventivo':None
@@ -180,13 +183,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.card_calendario.visible = True
 
   def fill_indicadores(self, area, equipo, tipo, dia_prog, frecuencia, status_mtto, indicadores_mtto_mes):
-    prefijos_tipo = [{"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}]
-    prefijos_frecuencia = [{"SEMANAL":"S", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}]
+    prefijos_tipo = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}
+    prefijos_frecuencia = {"SEMANAL":"S", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}
     
     if area == None: #AREA: TODAS
       if equipo == None: #EQUIPOS: TODOS
         if tipo == None: #TIPO: TODOS (programados, reprogramados y realizados)
-          indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[status_mtto]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[status_mtto]] + 1
           indicadores_mtto_mes[dia_prog-1]['area'] = "todas"
           indicadores_mtto_mes[dia_prog-1]['equipo'] = "todos"
           indicadores_mtto_mes[dia_prog-1]['tipo'] = "todos"
