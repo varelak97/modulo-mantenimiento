@@ -171,9 +171,17 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         numero_dia = str(renglones_mes[i][k:k+2]).strip()
         if numero_dia != "":
           dicc[self.dias_semana[str(j)]] = {
-            "numero_dia":numero_dia
+            "numero_dia":numero_dia,
+            'P':f"P:{indicadores_mtto_mes[int(numero_dia)-1]['P']}",
+            'R':f"R:{indicadores_mtto_mes[int(numero_dia)-1]['R']}",
+            'OK':f"OK:{indicadores_mtto_mes[int(numero_dia)-1]['OK']}",
+            'W':f"PW:{indicadores_mtto_mes[int(numero_dia)-1]['W']}",
+            'M':f"",
+            'T':,
+            'S':,
+            'A':
           }
-          dicc[self.dias_semana[str(j)]].update(indicadores_mtto_mes[int(numero_dia)-1])
+          #dicc[self.dias_semana[str(j)]].update(indicadores_mtto_mes[int(numero_dia)-1])
         j += 1
         """"P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
             "R":f"R: {indicadores_mtto_mes[int(numero_dia) -1]['REPROGRAMADO']}",
