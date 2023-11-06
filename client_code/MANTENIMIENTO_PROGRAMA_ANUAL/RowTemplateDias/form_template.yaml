@@ -67,6 +67,8 @@ components:
       layout_properties: {grid_position: 'QEDOKQ,TPBEBD'}
       data_bindings:
       - {property: text, code: 'self.item[''lunes''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''lunes'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''lunes''][''numero_dia''])'}
   event_bindings: {click: link_lunes_click}
@@ -134,6 +136,8 @@ components:
       layout_properties: {grid_position: 'DYWKRF,EIFOWO'}
       data_bindings:
       - {property: text, code: 'self.item[''martes''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''martes'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''martes''][''numero_dia''])'}
   event_bindings: {click: link_martes_click}
@@ -203,6 +207,8 @@ components:
       layout_properties: {grid_position: 'IGBTPK,NBJZXF'}
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''miercoles'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''miercoles''][''numero_dia''])'}
   event_bindings: {click: link_miercoles_click}
@@ -272,6 +278,8 @@ components:
       layout_properties: {grid_position: 'GESVBE,EPOPWE'}
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''jueves'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''jueves''][''numero_dia''])'}
   event_bindings: {click: link_jueves_click}
@@ -341,6 +349,8 @@ components:
       layout_properties: {grid_position: 'ADWJJI,TXUSMA'}
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''viernes'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''viernes''][''numero_dia''])'}
   event_bindings: {click: link_viernes_click}
@@ -410,6 +420,8 @@ components:
       layout_properties: {grid_position: 'ZIIHHC,AMPKXG'}
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''sabado'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''sabado''][''numero_dia''])'}
   event_bindings: {click: link_sabado_click}
@@ -479,6 +491,8 @@ components:
       layout_properties: {grid_position: 'RSFAWS,UNCXYA'}
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''OK'']', writeback: false}
+    data_bindings:
+    - {property: tag, code: 'self.item[''domingo'']', writeback: false}
   data_bindings:
   - {property: visible, code: 'bool(self.item[''domingo''][''numero_dia''])'}
   event_bindings: {click: link_domingo_click}

@@ -72,7 +72,8 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
-    for link in self.lista_links:
+    
+    """for link in self.lista_links:
       if link.text != None and link.text != "":
         #print(f"es diferente de none:{link.text}")
         indicador = link.text.split(': ')
@@ -107,7 +108,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           link.foreground = "#FFFFFF"
       else:
         link.background = "#FFFFFF"
-        link.foreground = "#FFFFFF"
+        link.foreground = "#FFFFFF""""
     
     
   #################################################### EVENTOS ####################################################
