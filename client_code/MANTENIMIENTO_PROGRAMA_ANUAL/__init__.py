@@ -194,7 +194,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     if indicadores_mtto_mes[dia_prog-1]['equipo'] == item['equipo']:
       indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] + 1
     else:
-      indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
+      indicadores_mtto_mes[dia_prog-1][item['status_mantenimiento']] = indicadores_mtto_mes[dia_prog-1][item[status_mantenimiento]] + 1
     """if area == None: #AREA: TODAS
       if equipo == None: #EQUIPOS: TODOS
         if tipo == None: #TIPO: TODOS (programados, reprogramados y realizados)
