@@ -158,7 +158,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       mes_prog = int(item['fecha_programada'].split('-')[1])
       #filtra por datos del mes
       if mes_prog == mes:
-        self.fill_indicadores(self.drop_down_areas.selected_value, self.drop_down_equipos.selected_value, self.drop_down_tipo.selected_value, dia_prog,item['frecuencia'],item['status_mantenimiento'], indicadores_mtto_mes)
+        self.fill_indicador(self.drop_down_areas.selected_value, self.drop_down_equipos.selected_value, self.drop_down_tipo.selected_value, dia_prog,item['frecuencia'],item['status_mantenimiento'], indicadores_mtto_mes, item)
     print(indicadores_mtto_mes)
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
@@ -187,12 +187,14 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 
-  def fill_indicadores(self, area, equipo, tipo, dia_prog, frecuencia, status_mtto, indicadores_mtto_mes):
+  def fill_indicador(self, area, equipo, tipo, dia_prog, frecuencia, status_mtto, indicadores_mtto_mes, item):
     prefijos_tipo = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}
     prefijos_frecuencia = {"SEMANAL":"S", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}
 
-    
-    
+    if indicadores_mtto_mes[dia_prog-1]['equipo'] == item['equipo']:
+      indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] + 1
+    else:
+      indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
     """if area == None: #AREA: TODAS
       if equipo == None: #EQUIPOS: TODOS
         if tipo == None: #TIPO: TODOS (programados, reprogramados y realizados)
