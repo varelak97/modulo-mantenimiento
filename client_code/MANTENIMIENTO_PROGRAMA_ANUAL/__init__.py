@@ -198,8 +198,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       if equipo == "todos":
         if tipo == "todos":
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
-        else: #tipo:selected
-          indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] + 1
+        elif tipo == item['status_mantenimiento']: #tipo:selected
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
+          #indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] + 1
       else: #equipo:selected
         if tipo == "todos":
           pass
