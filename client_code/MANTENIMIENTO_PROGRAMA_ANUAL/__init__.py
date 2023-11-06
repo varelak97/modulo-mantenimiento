@@ -165,7 +165,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         if numero_dia != "":
           dicc[self.dias_semana[str(j)]] = {
             "numero_dia":numero_dia
-            
           }
         j += 1
         """"P":f"P: {indicadores_mtto_mes[int(numero_dia) -1]['PROGRAMADO']}",
