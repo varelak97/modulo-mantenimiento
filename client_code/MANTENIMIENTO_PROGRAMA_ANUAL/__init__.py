@@ -192,7 +192,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     prefijos_frecuencia = {"SEMANAL":"S", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}
 
     if indicadores_mtto_mes[dia_prog-1]['equipo'] == item['equipo']:
-      indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia}"] + 1
+      indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijo_frecuencia[item['frecuencia']]}"] + 1
     else:
       indicadores_mtto_mes[dia_prog-1][status_mtto] = indicadores_mtto_mes[dia_prog-1][status_mtto] + 1
     """if area == None: #AREA: TODAS
