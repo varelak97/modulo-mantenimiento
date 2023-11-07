@@ -340,3 +340,4 @@ color_scheme:
   - {name: White, color: '#FFFFFF'}
   - {name: LightGreen, color: '#ABEBC6 '}
   - {name: LightGray, color: '#DDE0DE'}
+  - {name: Red, color: '#DC2802'}

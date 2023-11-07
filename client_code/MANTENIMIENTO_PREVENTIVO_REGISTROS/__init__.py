@@ -81,6 +81,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
       nuevo_registro = dict(registro_actual).copy()
       nuevo_registro['fecha_programada'] = datos['fecha_programada']
       nuevo_registro['operacion'] = "edicion"
+      nuevo_registro['status_mantenimiento'] = "REPROGRAMADO"
       nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0
       self.ws_registros_totales.add_row(**nuevo_registro)

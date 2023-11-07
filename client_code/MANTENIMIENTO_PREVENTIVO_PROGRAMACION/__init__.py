@@ -369,7 +369,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       elif equipo_seleccionado['EQUIPO'] == "HORNO 4":
         actividades = self.actividades_equipo_horno_4_semestral
       elif equipo_seleccionado['EQUIPO'] == "HORNO 5":
-        actividades = elf.actividades_equipo_horno_5_semestral
+        actividades = self.actividades_equipo_horno_5_semestral
       elif equipo_seleccionado['EQUIPO'] == "ATMA 80" or equipo_seleccionado['EQUIPO'] == "ATMA 710":
         self.actividades_equipos_atma_trimestral += self.actividades_equipos_atma80_710_trimestral
         self.actividades_equipos_atma_trimestral = sorted(self.actividades_equipos_atma_trimestral, key=lambda d: d['id']) 

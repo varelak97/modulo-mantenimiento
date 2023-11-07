@@ -75,9 +75,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     
     for link in self.lista_links:
       if link.text != None and link.text != "":
-        #print(f"es diferente de none:{link.text}")
         indicador = link.text.split(': ')
-        print(f"el indicador:{indicador}")
         if indicador[1] != '0':
           if indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
@@ -94,12 +92,14 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           elif indicador[0] == "PA":
             link.background = app.theme_colors['Green']
             link.foreground = app.theme_colors['White']
+            
+          elif indicador[0] in ["R","RW","RM","RT","RS","RA"]:
+            link.background = app.theme_colors['Red']
+            link.foreground = app.theme_colors['White']
+            
           elif indicador[0] == "P":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
-          elif indicador[0] == "R":
-            link.background = app.theme_colors['Red']
-            link.foreground = app.theme_colors['Blue']
           elif indicador[0] == "OK":
             link.background = app.theme_colors['Green']
             link.foreground = app.theme_colors['White']
