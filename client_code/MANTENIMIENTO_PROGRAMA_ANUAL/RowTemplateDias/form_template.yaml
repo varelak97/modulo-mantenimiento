@@ -99,30 +99,35 @@ components:
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
       layout_properties: {grid_position: 'SLUEXY,AWVFVX'}
+      event_bindings: {click: link_martes_w_click}
     - name: link_martes_m
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
       layout_properties: {grid_position: 'SLUEXY,CFLOLW'}
       data_bindings:
       - {property: text, code: 'self.item[''martes''][''M'']', writeback: false}
+      event_bindings: {click: link_martes_m_click}
     - name: link_martes_t
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
       layout_properties: {grid_position: 'XBQWLN,GVQWST'}
       data_bindings:
       - {property: text, code: 'self.item[''martes''][''T'']', writeback: false}
+      event_bindings: {click: link_martes_t_click}
     - name: link_martes_s
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
       layout_properties: {grid_position: 'XBQWLN,KOPSCU'}
       data_bindings:
       - {property: text, code: 'self.item[''martes''][''S'']', writeback: false}
+      event_bindings: {click: link_martes_s_click}
     - name: link_martes_a
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
       layout_properties: {grid_position: 'BSKSAN,LAOFLQ'}
       data_bindings:
       - {property: text, code: 'self.item[''martes''][''A'']', writeback: false}
+      event_bindings: {click: link_martes_a_click}
     - name: link_martes_p
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
@@ -170,30 +175,35 @@ components:
       layout_properties: {grid_position: 'WNKPJU,VLSPJD'}
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''W'']', writeback: false}
+      event_bindings: {click: link_miercoles_w_click}
     - name: link_miercoles_m
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'WNKPJU,LBUXOD'}
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''M'']', writeback: false}
+      event_bindings: {click: link_miercoles_m_click}
     - name: link_miercoles_t
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'TBPBNW,QZBXKQ'}
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''T'']', writeback: false}
+      event_bindings: {click: link_miercoles_t_click}
     - name: link_miercoles_s
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'TBPBNW,PTPAJU'}
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''S'']', writeback: false}
+      event_bindings: {click: link_miercoles_s_click}
     - name: link_miercoles_a
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'LPBXJL,AUPMJP'}
       data_bindings:
       - {property: text, code: 'self.item[''miercoles''][''A'']', writeback: false}
+      event_bindings: {click: link_miercoles_a_click}
     - name: link_miercoles_p
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
@@ -241,30 +251,35 @@ components:
       layout_properties: {grid_position: 'TZLUWR,NVQUNM'}
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''W'']', writeback: false}
+      event_bindings: {click: link_jueves_w_click}
     - name: link_jueves_m
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'TZLUWR,XOEXMG'}
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''M'']', writeback: false}
+      event_bindings: {click: link_jueves_m_click}
     - name: link_jueves_t
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'FISWLD,DEEFFG'}
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''T'']', writeback: false}
+      event_bindings: {click: link_jueves_t_click}
     - name: link_jueves_s
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'FISWLD,CHNSKG'}
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''S'']', writeback: false}
+      event_bindings: {click: link_jueves_s_click}
     - name: link_jueves_a
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'SHALNI,CSRCWD'}
       data_bindings:
       - {property: text, code: 'self.item[''jueves''][''A'']', writeback: false}
+      event_bindings: {click: link_jueves_a_click}
     - name: link_jueves_p
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link

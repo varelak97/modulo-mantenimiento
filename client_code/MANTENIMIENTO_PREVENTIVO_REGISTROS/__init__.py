@@ -32,7 +32,7 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.registros_totales = self.ws_registros_totales.rows
     if self.datos['modo'] == "dia":
       self.data_row_panel_filtros.visible = False
-      self.repeating_panel_registros.items = self.get_datos_actuales(self.datos['tipo'])
+      self.repeating_panel_registros.items = self.get_datos_actuales(self.datos['tipo'], self.datos['frecuencia'])
     elif self.datos['modo'] == "todos":
       self.button_programar.visible = False
       self.registros_consulta_mttos = self.ws_consulta_mttos.rows
@@ -56,17 +56,22 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     
     self.repeating_panel_registros.items = items
     
-  def get_datos_actuales(self, tipo):
+  def get_datos_actuales(self, tipo, frecuencia):
     print(f"fecha:{self.datos['anio']}/{self.datos['mes']}/{self.datos['dia']}")
     print(f"tipo:{tipo}")
+    
     self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     registros_dia_seleccionado = []
     for item in self.registros_consulta_mttos:
       fecha_seleccionada = item['fecha_programada'].split('-')
       if int(fecha_seleccionada[0]) == int(self.datos['anio']) and int(fecha_seleccionada[1]) == int(self.datos['mes']) and int(fecha_seleccionada[2]) == int(self.datos['dia']):
-        if tipo == "todos":
-          registros_dia_seleccionado.append(item)
-        elif tipo == item['status_mantenimiento']:
+        print(f"lo que hay:{item['frecuencia']}")
+        if tipo == item['status_mantenimiento']:
+          if frecuencia == item['frecuencia']:
+            registros_dia_seleccionado.append(item)
+          elif tipo == "todas":
+            registros_dia_seleccionado.append(item)
+        elif tipo == "todos":
           registros_dia_seleccionado.append(item)
     if len(registros_dia_seleccionado) > 0:
       self.data_grid_registros.visible = True

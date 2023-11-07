@@ -189,15 +189,12 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           }
         j += 1
       items.append(dicc)
-    print(items)
-    """for index,item in enumerate(items):
-      print(f"dia:{index+1} --- {item}\n")"""
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 
   def fill_indicador(self, dia_prog, indicadores_mtto_mes, item):
     prefijos_tipo = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK"}
-    prefijos_frecuencia = {"SEMANAL":"S", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}
+    prefijos_frecuencia = {"SEMANAL":"W", "MENSUAL":"M", "TRIMESTRAL":"T", "SEMESTRAL":"S","ANUAL":"A"}
     area = indicadores_mtto_mes[dia_prog-1]['area']
     equipo = indicadores_mtto_mes[dia_prog-1]['equipo']
     tipo = indicadores_mtto_mes[dia_prog-1]['tipo']

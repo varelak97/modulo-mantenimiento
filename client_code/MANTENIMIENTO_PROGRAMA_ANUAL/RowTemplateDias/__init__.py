@@ -109,6 +109,15 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       else:
         link.background = "#FFFFFF"
         link.foreground = "#FFFFFF"
+
+  def open_registros(self, frecuencia, card_dia, link_dia):
+    datos = {}
+    datos['dia'] = link_dia.text
+    datos['tipo'] = card_dia.tag['tipo']
+    datos['frecuencia'] = frecuencia
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    print(f"enviando datos:{datos}")
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
     
     
   #################################################### EVENTOS ####################################################
@@ -116,6 +125,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_lunes_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
@@ -124,6 +134,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_martes_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
@@ -131,6 +142,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_miercoles_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
@@ -138,6 +150,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_jueves_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
@@ -145,6 +158,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_viernes_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
@@ -152,6 +166,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_sabado_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
@@ -159,6 +174,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos = {}
     datos['dia'] = self.link_domingo_numero_dia.text
     datos['tipo'] = "todos"
+    datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
@@ -166,24 +182,48 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     print("test")
 
   def link_lunes_w_click(self, **event_args):
-    #indicador = link.text.split(': ')
-    alert(f"indicador W:{dict(self.card_lunes.tag)['PW']}")
-
+    self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_m_click(self, **event_args):
-    alert(self.card_lunes.tag['M'])
-
+    self.open_registros('MENSUAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_t_click(self, **event_args):
-    datos = {}
-    datos['dia'] = self.link_domingo_numero_dia.text
-    datos['tipo'] = self.card_lunes.tag['tipo']
-    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
-    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
-
+    self.open_registros('TRIMESTRAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_s_click(self, **event_args):
-    alert(self.card_lunes.tag)
-
+    self.open_registros('SEMESTRAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_a_click(self, **event_args):
-    alert(self.card_lunes.tag)
+    self.open_registros('ANUAL',self.card_lunes,self.link_lunes_numero_dia)
+
+  def link_martes_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_martes,self.link_martes_numero_dia)
+  def link_martes_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_martes,self.link_martes_numero_dia)
+  def link_martes_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_martes,self.link_martes_numero_dia)
+  def link_martes_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_martes,self.link_martes_numero_dia)
+  def link_martes_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_martes,self.link_martes_numero_dia)
+
+  def link_miercoles_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_miercoles,self.link_martes_numero_dia)
+  def link_miercoles_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_miercoles,self.link_martes_numero_dia)
+  def link_miercoles_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_miercoles,self.link_martes_numero_dia)
+  def link_miercoles_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_miercoles,self.link_martes_numero_dia)
+  def link_miercoles_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_miercoles,self.link_martes_numero_dia)
+
+  def link_jueves_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_jueves,self.link_jueves_numero_dia)
+  def link_jueves_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_jueves,self.link_jueves_numero_dia)
+  def link_jueves_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_jueves,self.link_jueves_numero_dia)
+  def link_jueves_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_jueves,self.link_jueves_numero_dia)
+  def link_jueves_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_jueves,self.link_jueves_numero_dia)
 
 
 
