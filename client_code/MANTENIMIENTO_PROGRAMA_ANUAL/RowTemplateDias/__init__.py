@@ -84,10 +84,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.background = app.theme_colors['Orange']
             link.foreground = app.theme_colors['White']
           elif indicador[0] == "PT":
-            link.background = app.theme_colors['Tertiary Container']
-            link.foreground = app.theme_colors['Blue']
-          elif indicador[0] == "PS":
             link.background = app.theme_colors['Tertiary']
+            link.foreground = app.theme_colors['White']
+          elif indicador[0] == "PS":
+            link.background = app.theme_colors['On Tertiary Container']
             link.foreground = app.theme_colors['White']
           elif indicador[0] == "PA":
             link.background = app.theme_colors['Green']
@@ -157,6 +157,26 @@ class RowTemplateDias(RowTemplateDiasTemplate):
 
   def link_lunes_numero_dia_click(self, **event_args):
     print("test")
+
+  def link_lunes_w_click(self, **event_args):
+    #indicador = link.text.split(': ')
+    alert(f"indicador W:{dict(self.card_lunes.tag)['PW']}")
+
+  def link_lunes_m_click(self, **event_args):
+    alert(self.card_lunes.tag['M'])
+
+  def link_lunes_t_click(self, **event_args):
+    datos = {}
+    datos['dia'] = self.link_domingo_numero_dia.text
+    datos['tipo'] = self.card_lunes.tag['tipo']
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def link_lunes_s_click(self, **event_args):
+    alert(self.card_lunes.tag)
+
+  def link_lunes_a_click(self, **event_args):
+    alert(self.card_lunes.tag)
 
 
 

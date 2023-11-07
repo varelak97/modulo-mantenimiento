@@ -131,7 +131,7 @@ components:
         layout_properties: {}
       - name: drop_down_tipo
         properties:
-          include_placeholder: true
+          include_placeholder: false
           placeholder: -- TODOS --
           role: outlined
           background: theme:White

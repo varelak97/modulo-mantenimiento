@@ -25,30 +25,35 @@ components:
       layout_properties: {grid_position: 'WFFQIT,OZXULN'}
       data_bindings:
       - {property: text, code: 'self.item[''lunes''][''W'']', writeback: false}
+      event_bindings: {click: link_lunes_w_click}
     - name: link_lunes_m
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'WFFQIT,MRLIJF'}
       data_bindings:
       - {property: text, code: 'self.item[''lunes''][''M'']', writeback: false}
+      event_bindings: {click: link_lunes_m_click}
     - name: link_lunes_t
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'DKXXSI,CNBBPU'}
       data_bindings:
       - {property: text, code: 'self.item[''lunes''][''T'']', writeback: false}
+      event_bindings: {click: link_lunes_t_click}
     - name: link_lunes_s
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'DKXXSI,HRPWQI'}
       data_bindings:
       - {property: text, code: 'self.item[''lunes''][''S'']', writeback: false}
+      event_bindings: {click: link_lunes_s_click}
     - name: link_lunes_a
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
       layout_properties: {grid_position: 'YAAUDT,EZQCTW'}
       data_bindings:
       - {property: text, code: 'self.item[''lunes''][''A'']', writeback: false}
+      event_bindings: {click: link_lunes_a_click}
     - name: link_lunes_p
       properties: {bold: true, font_size: 11, spacing_below: none, align: center}
       type: Link
