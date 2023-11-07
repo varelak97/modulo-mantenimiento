@@ -115,6 +115,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def link_lunes_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_lunes_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
@@ -122,36 +123,42 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def link_martes_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_martes_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_miercoles_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_miercoles_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_jueves_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_jueves_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_viernes_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_viernes_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_sabado_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_sabado_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_domingo_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_domingo_numero_dia.text
+    datos['tipo'] = "todos"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
