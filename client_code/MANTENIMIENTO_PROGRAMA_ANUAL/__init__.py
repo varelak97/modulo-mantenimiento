@@ -161,7 +161,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
-    
+
+    prefijos = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK", "todos":"P"}
     renglones_mes = mes_calendario.split('\n')
     items = []
     for i in range(2, len(renglones_mes)):
@@ -170,16 +171,17 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       for k in range(0,len(renglones_mes[i]),3):
         numero_dia = str(renglones_mes[i][k:k+2]).strip()
         if numero_dia != "":
+          prefijo = prefijos[indicadores_mtto_mes[int(numero_dia)-1]['tipo']]
           dicc[self.dias_semana[str(j)]] = {
             "numero_dia":numero_dia,
-            'P':f"P:{indicadores_mtto_mes[int(numero_dia)-1]['P']}",
-            'R':f"R:{indicadores_mtto_mes[int(numero_dia)-1]['R']}",
-            'OK':f"OK:{indicadores_mtto_mes[int(numero_dia)-1]['OK']}",
-            'W':f"PW:{indicadores_mtto_mes[int(numero_dia)-1]['W']}",
-            'M':f"",
-            'T':,
-            'S':,
-            'A':
+            'P':f"P: {indicadores_mtto_mes[int(numero_dia)-1]['P']}",
+            'R':f"R: {indicadores_mtto_mes[int(numero_dia)-1]['R']}",
+            'OK':f"OK: {indicadores_mtto_mes[int(numero_dia)-1]['OK']}",
+            'W':f"{prefijo}W: {indicadores_mtto_mes[int(numero_dia)-1]['W']}",
+            'M':f"{prefijo}M: {indicadores_mtto_mes[int(numero_dia)-1]['M']}",
+            'T':f"{prefijo}T: {indicadores_mtto_mes[int(numero_dia)-1]['T']}",
+            'S':f"{prefijo}S: {indicadores_mtto_mes[int(numero_dia)-1]['S']}",
+            'A':f"{prefijo}A: {indicadores_mtto_mes[int(numero_dia)-1]['A']}"
           }
           #dicc[self.dias_semana[str(j)]].update(indicadores_mtto_mes[int(numero_dia)-1])
         j += 1

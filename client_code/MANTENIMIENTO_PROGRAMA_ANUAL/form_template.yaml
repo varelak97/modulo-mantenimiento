@@ -19,7 +19,7 @@ components:
     components:
     - type: Label
       properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: FOR-MAN-001 PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA,
+          Secondary', visible: true, text: PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA,
         font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
         italic: false, background: 'theme:Primary', bold: true, underline: false,
         icon: ''}
