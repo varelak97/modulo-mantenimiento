@@ -15,28 +15,28 @@ components:
         background: 'theme:Primary', foreground: 'theme:White'}
       type: Label
       layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
-  - name: outlined_card_body
+  - name: outlined_card_filtros
     properties: {role: elevated-card}
     type: ColumnPanel
     layout_properties: {grid_position: 'DIGXGU,TLLETO'}
     components:
-    - name: label_2
+    - name: label_area
       properties: {text: 'AREA:', bold: true}
       type: Label
       layout_properties: {grid_position: 'RQBDLC,IEDKFC'}
-    - name: label_1
+    - name: label_equipo
       properties: {text: 'EQUIPO:', bold: true}
       type: Label
       layout_properties: {grid_position: 'RQBDLC,ACHXWY'}
-    - name: drop_down_2
+    - name: drop_down_area
       properties: {role: outlined}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL BLDTME,OEACHC'}
-    - name: label_3
+    - name: label_tipo_mantenimiento
       properties: {text: 'TIPO DE MANTENIMIENTO:', bold: true}
       type: Label
       layout_properties: {grid_position: 'BYEIUP,OBMHLL LOJDAZ,EKHZMU'}
-    - name: drop_down_3
+    - name: drop_down_tipo_mtto
       properties:
         role: outlined
         items: [PREVENTIVO, ' CORRECTIVO', PREVENTIVO/CORERCTIVO PROGRAMADO, AUTÓNOMO]
@@ -45,11 +45,11 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL BFWZTR,HLRJJD'}
       data_bindings: []
-    - name: drop_down_1
+    - name: drop_down_equipo
       properties: {role: outlined}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,KXQJIC'}
-  - name: outlined_card_1
+  - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel
     layout_properties: {grid_position: 'MQLZLM,XDFKLY'}

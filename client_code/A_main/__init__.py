@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
+from ..MANTENIMIENTO_LISTA_EQUIPOS import MANTENIMIENTO_LISTA_EQUIPOS
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
@@ -37,14 +38,16 @@ class A_main(A_mainTemplate):
     self.content_panel.visible = True
 
     if self.datos['id_usuario_erp'] == 18:
-      self.datos['clave_form'] = "MANTENIMIENTO_PROGRAMA_ANUAL"
+      self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
       self.datos['test'] = True
       self.actualizar_form_activo(self.datos)
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
     datos['id_usuario_erp'] = 18
-    if datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
+    if datos['clave_form'] == "MANTENIMIENTO_LISTA_EQUIPOS":
+      self.abrir_form(MANTENIMIENTO_LISTA_EQUIPOS(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
       self.abrir_form(MANTENIMIENTO_PROGRAMA_ANUAL(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
