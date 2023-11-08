@@ -204,15 +204,15 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     self.open_registros('ANUAL',self.card_martes,self.link_martes_numero_dia)
 
   def link_miercoles_w_click(self, **event_args):
-    self.open_registros('SEMANAL',self.card_miercoles,self.link_martes_numero_dia)
+    self.open_registros('SEMANAL',self.card_miercoles,self.link_miercoles_numero_dia)
   def link_miercoles_m_click(self, **event_args):
-    self.open_registros('MENSUAL',self.card_miercoles,self.link_martes_numero_dia)
+    self.open_registros('MENSUAL',self.card_miercoles,self.link_miercoles_numero_dia)
   def link_miercoles_t_click(self, **event_args):
-    self.open_registros('TRIMESTRAL',self.card_miercoles,self.link_martes_numero_dia)
+    self.open_registros('TRIMESTRAL',self.card_miercoles,self.link_miercoles_numero_dia)
   def link_miercoles_s_click(self, **event_args):
-    self.open_registros('SEMESTRAL',self.card_miercoles,self.link_martes_numero_dia)
+    self.open_registros('SEMESTRAL',self.card_miercoles,self.link_miercoles_numero_dia)
   def link_miercoles_a_click(self, **event_args):
-    self.open_registros('ANUAL',self.card_miercoles,self.link_martes_numero_dia)
+    self.open_registros('ANUAL',self.card_miercoles,self.link_miercoles_numero_dia)
 
   def link_jueves_w_click(self, **event_args):
     self.open_registros('SEMANAL',self.card_jueves,self.link_jueves_numero_dia)
@@ -224,6 +224,39 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     self.open_registros('SEMESTRAL',self.card_jueves,self.link_jueves_numero_dia)
   def link_jueves_a_click(self, **event_args):
     self.open_registros('ANUAL',self.card_jueves,self.link_jueves_numero_dia)
+
+  def link_viernes_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_viernes,self.link_viernes_numero_dia)
+
+  def link_viernes_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
+  def link_viernes_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_viernes,self.link_sabado_numero_dia)
+
+  def link_sabado_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_sabado,self.link_sabado_numero_dia)
+  def link_sabado_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_sabado,self.link_sabado_numero_dia)
+  def link_sabado_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_sabado,self.link_sabado_numero_dia)
+  def link_sabado_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_sabado,self.link_sabado_numero_dia)
+  def link_sabado_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_sabado,self.link_sabado_numero_dia)
 
 
 
