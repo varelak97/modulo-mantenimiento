@@ -71,7 +71,6 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     area_seleccionada = self.drop_down_area.selected_value
     if area_seleccionada != None:
       equipos_area = []
-      frecuencias = []
       self.drop_down_equipo.enabled = True
       
       for item in self.lista_equipos:
@@ -79,12 +78,11 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
           equipos_area.append(item)
       
       self.drop_down_equipo.items = equipos_area
-      self.button_guardar.enabled = False
-      self.drop_down_frecuencia.selected_value = None
-      self.drop_down_frecuencia.enabled = False
     else:
       self.drop_down_equipo.enabled = False
       self.drop_down_equipo.selected_value = None
-      self.drop_down_frecuencia.enabled = False
-      self.drop_down_frecuencia.selected_value = None
-      self.button_guardar.enabled = False
+
+  def drop_down_tipo_mtto_change(self, **event_args):
+    if self.drop_down_tipo_mtto.selected_value != None:
+      
+      pass
