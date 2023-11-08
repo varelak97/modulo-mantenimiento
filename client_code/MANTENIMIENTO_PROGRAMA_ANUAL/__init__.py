@@ -162,7 +162,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
 
-    prefijos = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK", "todos":"P"}
+    prefijos = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK-", "todos":"P"}
     renglones_mes = mes_calendario.split('\n')
     items = []
     for i in range(2, len(renglones_mes)):

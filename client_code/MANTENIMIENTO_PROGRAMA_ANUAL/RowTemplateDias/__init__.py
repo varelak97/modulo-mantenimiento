@@ -96,6 +96,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           elif indicador[0] in ["R","RW","RM","RT","RS","RA"]:
             link.background = app.theme_colors['Red']
             link.foreground = app.theme_colors['White']
+
+          elif indicador[0] in ["OK-W","OK-M","OK-T","OK-S","OK-A"]:
+            link.background = app.theme_colors['SecondaryGreen']
+            link.foreground = app.theme_colors['Blue']
             
           elif indicador[0] == "P":
             link.background = app.theme_colors['Primary']
@@ -236,17 +240,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def link_viernes_a_click(self, **event_args):
     self.open_registros('ANUAL',self.card_viernes,self.link_viernes_numero_dia)
 
-  def link_viernes_w_click(self, **event_args):
-    self.open_registros('SEMANAL',self.card_viernes,self.link_viernes_numero_dia)
-  def link_viernes_m_click(self, **event_args):
-    self.open_registros('MENSUAL',self.card_viernes,self.link_viernes_numero_dia)
-  def link_viernes_t_click(self, **event_args):
-    self.open_registros('TRIMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
-  def link_viernes_s_click(self, **event_args):
-    self.open_registros('SEMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
-  def link_viernes_a_click(self, **event_args):
-    self.open_registros('ANUAL',self.card_viernes,self.link_viernes_numero_dia)
-
   def link_sabado_w_click(self, **event_args):
     self.open_registros('SEMANAL',self.card_sabado,self.link_sabado_numero_dia)
   def link_sabado_m_click(self, **event_args):
@@ -257,6 +250,17 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     self.open_registros('SEMESTRAL',self.card_sabado,self.link_sabado_numero_dia)
   def link_sabado_a_click(self, **event_args):
     self.open_registros('ANUAL',self.card_sabado,self.link_sabado_numero_dia)
+
+  def link_domingo_w_click(self, **event_args):
+    self.open_registros('SEMANAL',self.card_domingo,self.link_domingo_numero_dia)
+  def link_domingo_m_click(self, **event_args):
+    self.open_registros('MENSUAL',self.card_domingo,self.link_domingo_numero_dia)
+  def link_domingo_t_click(self, **event_args):
+    self.open_registros('TRIMESTRAL',self.card_domingo,self.link_domingo_numero_dia)
+  def link_domingo_s_click(self, **event_args):
+    self.open_registros('SEMESTRAL',self.card_domingo,self.link_domingo_numero_dia)
+  def link_domingo_a_click(self, **event_args):
+    self.open_registros('ANUAL',self.card_domingo,self.link_domingo_numero_dia)
 
 
 

@@ -341,3 +341,5 @@ color_scheme:
   - {name: LightGreen, color: '#ABEBC6 '}
   - {name: LightGray, color: '#DDE0DE'}
   - {name: Red, color: '#DC2802'}
+  - {name: SecondaryGreen, color: '#60F50A'}
+  - {name: TertiaryGreen, color: '#F9FCF8'}

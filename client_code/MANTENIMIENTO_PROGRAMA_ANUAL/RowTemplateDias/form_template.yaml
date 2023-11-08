@@ -327,30 +327,35 @@ components:
       layout_properties: {grid_position: 'KSPTSU,KHHIBL'}
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''W'']', writeback: false}
+      event_bindings: {click: link_viernes_w_click}
     - name: link_viernes_m
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'KSPTSU,HFUSAX'}
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''M'']', writeback: false}
+      event_bindings: {click: link_viernes_m_click}
     - name: link_viernes_t
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'KCISLQ,SHZCXP'}
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''T'']', writeback: false}
+      event_bindings: {click: link_viernes_t_click}
     - name: link_viernes_s
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'KCISLQ,HHPQBG'}
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''S'']', writeback: false}
+      event_bindings: {click: link_viernes_s_click}
     - name: link_viernes_a
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'UOSLXO,SSEWOE'}
       data_bindings:
       - {property: text, code: 'self.item[''viernes''][''A'']', writeback: false}
+      event_bindings: {click: link_viernes_a_click}
     - name: link_viernes_p
       properties: {font_size: 11, spacing_below: none, bold: true, align: center}
       type: Link
@@ -398,30 +403,35 @@ components:
       layout_properties: {grid_position: 'PJSFBK,FPDDGR'}
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''W'']', writeback: false}
+      event_bindings: {click: link_sabado_w_click}
     - name: link_sabado_m
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'PJSFBK,UNBBTO'}
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''M'']', writeback: false}
+      event_bindings: {click: link_sabado_m_click}
     - name: link_sabado_t
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'QBVKWT,XAPFJI'}
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''T'']', writeback: false}
+      event_bindings: {click: link_sabado_t_click}
     - name: link_sabado_s
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'QBVKWT,WBGYPF'}
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''S'']', writeback: false}
+      event_bindings: {click: link_sabado_s_click}
     - name: link_sabado_a
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'TNXRSG,LYHDNC'}
       data_bindings:
       - {property: text, code: 'self.item[''sabado''][''A'']', writeback: false}
+      event_bindings: {click: link_sabado_a_click}
     - name: link_sabado_p
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
@@ -469,30 +479,35 @@ components:
       layout_properties: {grid_position: 'UZFHZF,QTJCWF'}
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''W'']', writeback: false}
+      event_bindings: {click: link_domingo_w_click}
     - name: link_domingo_m
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'UZFHZF,YCSPJH'}
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''M'']', writeback: false}
+      event_bindings: {click: link_domingo_m_click}
     - name: link_domingo_t
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'UMCDHE,FRPGGD'}
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''T'']', writeback: false}
+      event_bindings: {click: link_domingo_t_click}
     - name: link_domingo_s
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'UMCDHE,EVRAOP'}
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''S'']', writeback: false}
+      event_bindings: {click: link_domingo_s_click}
     - name: link_domingo_a
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link
       layout_properties: {grid_position: 'JLFCJJ,VRBCMQ'}
       data_bindings:
       - {property: text, code: 'self.item[''domingo''][''A'']', writeback: false}
+      event_bindings: {click: link_domingo_a_click}
     - name: link_domingo_p
       properties: {spacing_below: none, font_size: 11, bold: true, align: center}
       type: Link

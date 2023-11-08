@@ -167,7 +167,7 @@ components:
         show_page_controls: true
         spacing_above: small
         spacing_below: small
-        background: ''
+        background: theme:TertiaryGreen
       name: data_grid_calendario
       layout_properties: {grid_position: 'JVQOET,MPJOOI', full_width_row: true}
       components:
