@@ -245,7 +245,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def link_viernes_s_click(self, **event_args):
     self.open_registros('SEMESTRAL',self.card_viernes,self.link_viernes_numero_dia)
   def link_viernes_a_click(self, **event_args):
-    self.open_registros('ANUAL',self.card_viernes,self.link_sabado_numero_dia)
+    self.open_registros('ANUAL',self.card_viernes,self.link_viernes_numero_dia)
 
   def link_sabado_w_click(self, **event_args):
     self.open_registros('SEMANAL',self.card_sabado,self.link_sabado_numero_dia)
