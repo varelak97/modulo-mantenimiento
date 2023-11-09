@@ -82,8 +82,8 @@ components:
         components:
         - type: DataRowPanel
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            auto_display_data: true, visible: true, item: null, font_size: null, font: '',
-            spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
+            auto_display_data: true, visible: false, item: null, font_size: null,
+            font: '', spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
             bold: false, underline: false}
           name: data_row_panel_filtros
           layout_properties: {}
