@@ -66,6 +66,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos  
+    self.label_titulo.popover("HOLAAAAA")
 
   ##################################### FUNCIONES PERSONALIZADS #####################################
     
