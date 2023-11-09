@@ -65,7 +65,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     self.init_components(**properties)
     ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.drop_down_area.items = self.lista_areas
-    self.drop_down_equipo.items = self.lista_equipos    
+    self.drop_down_equipo.items = self.lista_equipos  
 
   ##################################### FUNCIONES PERSONALIZADS #####################################
     
