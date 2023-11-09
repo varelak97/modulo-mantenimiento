@@ -2,9 +2,12 @@ from ._anvil_designer import MANTENIMIENTO_LISTA_EQUIPOSTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS
+from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
 
 class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
+  form_activo = None
   datos = {}
   lista_areas = [
     "IMPRESIÓN",
@@ -84,5 +87,15 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
 
   def drop_down_tipo_mtto_change(self, **event_args):
     if self.drop_down_tipo_mtto.selected_value != None:
-      
-      pass
+      tipo_mtto = self.drop_down_tipo_mtto.selected_value
+      try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
+        self.form_activo.remove_from_parent()
+      except: #no se necesita para manejar el error, pero el 'except' es obligado a estar cuando se usa un try. ¡NO BORRAR!
+        pass
+
+      if tipo_mtto == "PREVENTIVO":
+        self.datos['modo'] = "todos"
+        self.form_activo = MANTENIMIENTO_PREVENTIVO_REGISTROS(self.datos)
+      elif tipo_mtto == "PREVENTIVO/CORRECTIVO PROGRAMADO":
+        self.form_activo = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos)
+      self.add_component(self.form_activo)
