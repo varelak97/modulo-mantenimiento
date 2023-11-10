@@ -32,7 +32,6 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       for item in lista:
         item['si'] = False
         item['no'] = False
-        item['na'] = False
     
     self.repeating_panel_registros.items = lista
     
@@ -50,7 +49,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
         componentes_row = row.get_components()
         componentes_row[2].enabled = False
         componentes_row[3].enabled = False
-        componentes_row[4].enabled = False
+        #componentes_row[4].enabled = False
   ################################ FUNCIONES PERSONALIZADS ########################################
   def validar_campos(self):
     validacion = True

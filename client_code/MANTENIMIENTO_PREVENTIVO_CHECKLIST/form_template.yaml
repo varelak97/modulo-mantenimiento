@@ -98,9 +98,9 @@ components:
             - {id: AMSCHA, title: '#', data_key: id, $$hashKey: 'object:25225', width: '50'}
             - {id: OXHXIX, title: ACTIVIDAD, data_key: actividad, $$hashKey: 'object:25226',
               width: '500'}
-            - {id: EEMRUC, title: SI, data_key: si, $$hashKey: 'object:25227', width: '50'}
-            - {id: VQHNKV, title: 'NO', data_key: 'no', $$hashKey: 'object:27015'}
-            - {id: VJTNDO, title: NA, data_key: na, $$hashKey: 'object:27017'}
+            - {id: EEMRUC, title: SI, data_key: si, $$hashKey: 'object:25227', width: ''}
+            - {id: VQHNKV, title: 'NO', data_key: 'no', $$hashKey: 'object:27015',
+              width: ''}
             auto_header: true
             tooltip: ''
             border: ''

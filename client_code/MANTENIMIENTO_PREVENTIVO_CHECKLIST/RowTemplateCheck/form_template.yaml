@@ -39,14 +39,4 @@ components:
   data_bindings:
   - {property: selected, code: 'self.item[''no'']'}
   - {property: group_name, code: 'self.item[''id'']'}
-- type: RadioButton
-  properties: {role: null, selected: false, align: right, tooltip: '', border: '',
-    enabled: true, foreground: '', value: na, visible: true, text: '', font_size: null,
-    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-    bold: false, group_name: '', underline: false}
-  name: radio_button_na
-  layout_properties: {column: VJTNDO}
-  data_bindings:
-  - {property: selected, code: 'self.item[''na'']'}
-  - {property: group_name, code: 'self.item[''id'']'}
 is_package: true
