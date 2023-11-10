@@ -64,6 +64,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos  
     self.label_titulo.popover("HOLAAAAA")
@@ -100,3 +101,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       elif tipo_mtto == "PREVENTIVO/CORRECTIVO PROGRAMADO":
         self.form_activo = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos)
       self.add_component(self.form_activo)
+
+  def link_calendario_click(self, **event_args):
+    self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
+    self.parent.raise_event('x-actualizar_form_activo',datos=self.datos)
