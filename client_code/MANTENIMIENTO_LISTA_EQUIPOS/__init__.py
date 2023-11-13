@@ -72,7 +72,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     self.drop_down_equipo.items = self.lista_equipos  
     #popovers
     self.boton = Button(text="prueba")
-    self.outlined_card_calendario_mttos.popover(self.boton, title="TITULO DE PRUEBA", trigger="manual")
+    self.outlined_card_calendario_mttos.popover(content=MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos), title="TITULO DE PRUEBA", trigger="manual")
 
     #set color when mouseevent(leave,enter) occurs
     augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseenter',self.set_color)
