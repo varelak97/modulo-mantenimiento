@@ -70,7 +70,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos  
     #popovers
-    self.outlined_card_calendario_mttos.popover(Button(text="prueba"), title="TITULO DE PRUEBA")
+    self.outlined_card_calendario_mttos.popover(buttons=("CALENDARIO","HOLA"), title="TITULO DE PRUEBA", trigger="manual")
 
     #set color when mouseevent(leave,enter) occurs
     augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseenter',self.set_color)
@@ -88,7 +88,6 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       card.background = app.theme_colors['LightBlue']
     else:
       card.background = app.theme_colors['White']
-      
     
   ############################################# EVENTOS #############################################
   def drop_down_area_change(self, **event_args):
@@ -122,5 +121,6 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.add_component(self.form_activo)
 
   def link_calendario_mttos_click(self, **event_args):
-    self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
-    self.parent.raise_event('x-actualizar_form_activo',datos=self.datos)
+    self.outlined_card_calendario_mttos.pop("show")
+    """self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
+    self.parent.raise_event('x-actualizar_form_activo',datos=self.datos)"""

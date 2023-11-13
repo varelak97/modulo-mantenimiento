@@ -60,6 +60,7 @@ components:
           type: Label
           layout_properties: {grid_position: 'PIOVLG,UOKKGE'}
       event_bindings: {click: link_calendario_mttos_click}
+      data_bindings: []
     - name: link_mtto_preventivo_programado
       properties: {}
       type: Link
