@@ -11,7 +11,7 @@ components:
     layout_properties: {grid_position: 'ASKKYO,BCQQDD'}
     components:
     - name: label_titulo
-      properties: {text: LISTADO DE EQUIPOS, align: center, bold: true, role: title,
+      properties: {text: LISTA GENERAL DE EQUIPOS, align: center, bold: true, role: title,
         background: 'theme:Primary', foreground: 'theme:White'}
       type: Label
       layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
@@ -33,95 +33,85 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL BLDTME,OEACHC'}
       event_bindings: {change: drop_down_area_change}
-    - name: label_tipo_mantenimiento
-      properties: {text: 'TIPO DE MANTENIMIENTO:', bold: true}
-      type: Label
-      layout_properties: {grid_position: 'BYEIUP,OBMHLL LOJDAZ,EKHZMU'}
-    - name: drop_down_tipo_mtto
-      properties:
-        role: outlined
-        items: [PREVENTIVO, PREVENTIVO/CORRECTIVO PROGRAMADO, AUTÓNOMO]
-        placeholder: -- SELECCIONE MANTENIMIENTO --
-        include_placeholder: true
-      type: DropDown
-      layout_properties: {grid_position: 'BYEIUP,OBMHLL BFWZTR,HLRJJD'}
-      data_bindings: []
-      event_bindings: {change: drop_down_tipo_mtto_change}
     - name: drop_down_equipo
       properties: {role: outlined, include_placeholder: true, placeholder: -- EQUIPO --}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,KXQJIC'}
-    - name: link_calendario
-      properties: {role: null}
+    - name: label_tipo_mtto
+      properties: {text: 'TIPO DE MANTENIMIENTO:', bold: true, align: center}
+      type: Label
+      layout_properties: {grid_position: 'AYTBUP,DUPRFA'}
+    - name: link_calendario_mttos
+      properties: {role: null, visible: true}
       type: Link
       layout_properties: {grid_position: 'TUODEU,QGEHYN'}
       components:
-      - name: outlined_card_calendario_mtto_preventivo
+      - name: outlined_card_calendario_mttos
         properties: {role: elevated-card}
         type: ColumnPanel
         layout_properties: {grid_position: 'OUMSPT,TFNMKP'}
         components:
-        - name: image_1
-          properties: {source: _/theme/mtto_preventivo.jpg}
+        - name: image_calendario_mttos
+          properties: {source: _/theme/preventivo.png, height: '100'}
           type: Image
           layout_properties: {grid_position: 'YTZQGB,FZGRNH'}
-        - name: label_calendario
-          properties: {text: CALENDARIO DE MANTENIMIENTOS PREVENTIVOS, bold: true}
+        - name: label_calendario_mttos
+          properties: {text: CALENDARIO ANUAL DE MANTENIMIENTOS, bold: true, align: center}
           type: Label
-          layout_properties: {grid_position: 'VRHEYI,CGRBFS'}
-      event_bindings: {click: link_calendario_click}
-    - name: link_2
+          layout_properties: {grid_position: 'PIOVLG,UOKKGE'}
+      event_bindings: {click: link_calendario_mttos_click}
+    - name: link_mtto_preventivo_programado
       properties: {}
       type: Link
       layout_properties: {grid_position: 'TUODEU,KSGOCH'}
       components:
-      - name: outlined_card_2
+      - name: outlined_card_mtto_preventivo_programado
         properties: {role: elevated-card}
         type: ColumnPanel
         layout_properties: {grid_position: 'IIEWAV,GGWONO'}
         components:
-        - name: image_2
-          properties: {source: _/theme/mtto_programado.png}
+        - name: image_mtto_preventivo_programado
+          properties: {source: _/theme/pngegg.png, height: 100}
           type: Image
           layout_properties: {grid_position: 'GELVWU,FVUQRY'}
         - name: label_mtto_preventivo_programado
-          properties: {text: MANTENIMIENTO PREVENTIVO PROGRAMADO, bold: true}
+          properties: {text: MANTENIMIENTO PREVENTIVO PROGRAMADO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
-    - name: link_3
+    - name: link_mtto_correctivo_programado
       properties: {}
       type: Link
       layout_properties: {grid_position: 'TUODEU,ACSBOA'}
       components:
-      - name: outlined_card_3
+      - name: outlined_card_mtto_correctivo_programado
         properties: {role: elevated-card}
         type: ColumnPanel
         layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
         components:
-        - name: image_3
-          properties: {source: _/theme/mtto_correctivo.png}
+        - name: image_mtto_correctivo_programado
+          properties: {source: _/theme/correctivo.png, height: '100'}
           type: Image
           layout_properties: {grid_position: 'BFWXHA,FNARLB'}
         - name: label_mtto_correctivo_programado
-          properties: {text: MANTENIMIENTO CORRECTIVO PROGRAMADO, bold: true}
+          properties: {text: MANTENIMIENTO CORRECTIVO PROGRAMADO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'FXVIML,KCAEXH'}
-    - name: link_4
+    - name: link_mtto_autonomo
       properties: {}
       type: Link
       layout_properties: {grid_position: 'TUODEU,XAIAWO'}
       components:
-      - name: outlined_card_4
+      - name: outlined_card_mtto_autonomo
         properties: {role: elevated-card}
         type: ColumnPanel
         layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
         components:
-        - name: image_4
-          properties: {}
+        - name: image_mtto_autonomo
+          properties: {height: '100', source: _/theme/mtto_programado.png}
           type: Image
           layout_properties: {grid_position: 'WOVRWL,GKJKNO'}
         - name: label_mtto_autonomo
-          properties: {text: MANTENIMIENTO AUTÓNOMO, bold: true}
+          properties: {text: MANTENIMIENTO AUTÓNOMO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'WMORHY,OYPKVW'}
   - name: outlined_card_body

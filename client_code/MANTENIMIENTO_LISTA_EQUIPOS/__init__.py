@@ -2,6 +2,8 @@ from ._anvil_designer import MANTENIMIENTO_LISTA_EQUIPOSTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from anvil_extras import augment
+from anvil_extras import popover
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
 
@@ -67,9 +69,26 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     self.datos = datos
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos  
-    self.label_titulo.popover("HOLAAAAA")
+    #popovers
+    self.outlined_card_calendario_mttos.popover(Button(text="prueba"), title="TITULO DE PRUEBA")
 
+    #set color when mouseevent(leave,enter) occurs
+    augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_preventivo_programado,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_preventivo_programado,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_correctivo_programado,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_correctivo_programado,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseleave',self.set_color)
   ##################################### FUNCIONES PERSONALIZADS #####################################
+  def set_color(self,**event_args):
+    card = event_args['sender']
+    if 'enter' in event_args['event_type']:
+      card.background = app.theme_colors['LightBlue']
+    else:
+      card.background = app.theme_colors['White']
+      
     
   ############################################# EVENTOS #############################################
   def drop_down_area_change(self, **event_args):
@@ -102,6 +121,6 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
         self.form_activo = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos)
       self.add_component(self.form_activo)
 
-  def link_calendario_click(self, **event_args):
+  def link_calendario_mttos_click(self, **event_args):
     self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
     self.parent.raise_event('x-actualizar_form_activo',datos=self.datos)
