@@ -2,6 +2,8 @@ from ._anvil_designer import RowTemplateDiasTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from anvil_extras import popover
+from ..lista_equipos import lista_equipos
 import anvil.server
 
 class RowTemplateDias(RowTemplateDiasTemplate):
@@ -68,7 +70,12 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       self.link_domingo_p,
       self.link_domingo_ok
     ]
+    #self.link_lunes_w.popover("HOLAAAA!!!!!", trigger="manual")
     self.set_color_indicadores()
+    #self.link_lunes_w.popover(content = self.show_lista_equipos('SEMANAL',self.card_lunes,self.link_lunes_numero_dia))
+    self.link_lunes_w.popover("test")
+    #self.link_lunes_w.pop("show")
+    #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
@@ -120,8 +127,14 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos['tipo'] = card_dia.tag['tipo']
     datos['frecuencia'] = frecuencia
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
-    print(f"enviando datos:{datos}")
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def show_lista_equipos(self, frecuencia, card_dia, link_dia):
+    datos = {}
+    datos['dia'] = link_dia.text
+    datos['tipo'] = card_dia.tag['tipo']
+    datos['frecuencia'] = frecuencia
+    items = self.parent.parent.parent.parent.parent.raise_event('x-show_lista_equipos', datos=datos)
     
     
   #################################################### EVENTOS ####################################################
@@ -183,10 +196,11 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_lunes_numero_dia_click(self, **event_args):
-    print("test")
+    self.link_lunes_w.popover(content = self.show_lista_equipos('SEMANAL',self.card_lunes,self.link_lunes_numero_dia))
 
   def link_lunes_w_click(self, **event_args):
-    self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
+    self.link_lunes_w.pop("show")
+    #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_m_click(self, **event_args):
     self.open_registros('MENSUAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_t_click(self, **event_args):

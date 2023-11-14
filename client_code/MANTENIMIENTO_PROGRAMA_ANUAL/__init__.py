@@ -113,9 +113,32 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.set_event_handler('x-actualizar_calendario', self.llenar_calendario)
+    self.set_event_handler('x-show_lista_equipos', self.llenar_calendario)
     
   
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def show_lista_equipos(self, datos):
+    items = None
+    if self.datos['modo'] == "dia":
+      items = self.get_datos_actuales(self.datos['tipo'], self.datos['frecuencia'])
+    elif self.datos['modo'] == "todos":
+      items = self.registros_consulta_mttos
+    return items
+
+  def get_datos_actuales(self, tipo, frecuencia):
+    registros_dia_seleccionado = []
+    for item in self.registros_consulta_mttos:
+      fecha_seleccionada = item['fecha_programada'].split('-')
+      if int(fecha_seleccionada[0]) == int(self.datos['anio']) and int(fecha_seleccionada[1]) == int(self.datos['mes']) and int(fecha_seleccionada[2]) == int(self.datos['dia']):
+        if tipo == item['status_mantenimiento']:
+          if frecuencia == item['frecuencia']:
+            registros_dia_seleccionado.append(item)
+          elif tipo == "todas":
+            registros_dia_seleccionado.append(item)
+        elif tipo == "todos":
+          registros_dia_seleccionado.append(item)
+    return registros_dia_seleccionado
+    
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
     datos['anio'] = self.drop_down_anio.selected_value
