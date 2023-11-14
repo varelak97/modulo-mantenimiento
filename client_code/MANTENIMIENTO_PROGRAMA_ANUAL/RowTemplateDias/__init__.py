@@ -93,6 +93,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             items = self.show_lista_equipos('SEMANAL',link)
             print(f"antes:{items}")
             link.popover(content=lista_equipos(items), trigger="click")
+            self.link_lunes_numero_dia_click()
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
             link.foreground = app.theme_colors['White']
@@ -205,10 +206,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_lunes_numero_dia_click(self, **event_args):
-   print("test")
+    print(f"test")
 
   def link_lunes_w_click(self, **event_args):
-    pass
+    print(f"el tag de lunes:{self.card_lunes.tag}")
     #self.link_lunes_w.pop("show")
     #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_m_click(self, **event_args):

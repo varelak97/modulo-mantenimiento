@@ -3,6 +3,10 @@ container:
   properties: {col_widths: '{}'}
   event_bindings: {}
 components:
+- name: label_4
+  properties: {background: 'theme:Tertiary'}
+  type: Label
+  layout_properties: {grid_position: 'HABLPL,LRTSEO'}
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
