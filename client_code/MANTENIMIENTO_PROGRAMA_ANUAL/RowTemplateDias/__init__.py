@@ -73,20 +73,27 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     #self.link_lunes_w.popover("HOLAAAA!!!!!", trigger="manual")
     self.set_color_indicadores()
     #self.link_lunes_w.popover(content = self.show_lista_equipos('SEMANAL',self.card_lunes,self.link_lunes_numero_dia))
-    self.link_lunes_w.popover("test")
+    #self.link_lunes_w.popover("test")
     #self.link_lunes_w.pop("show")
     #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
+    
+  ####probando popopver
+    #self.link_lunes_w.popover(content=lista_equipos(self.show_lista_equipos('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)))
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
     
     for link in self.lista_links:
+      print(f"el padre:{link.parent.parent.parent}")
       if link.text != None and link.text != "":
         indicador = link.text.split(': ')
         if indicador[1] != '0':
           if indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
+            
+            items = self.show_lista_equipos('SEMANAL',link)
+            link.popover(content=lista_equipos(items))
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
             link.foreground = app.theme_colors['White']
@@ -129,13 +136,14 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
-  def show_lista_equipos(self, frecuencia, card_dia, link_dia):
+  def show_lista_equipos(self, frecuencia, link):
     datos = {}
-    datos['dia'] = link_dia.text
-    datos['tipo'] = card_dia.tag['tipo']
+    datos['modo'] = "dia"
+    datos['dia'] = link.parent.tag['numero_dia']
+    datos['tipo'] = link.parent.tag['tipo']
     datos['frecuencia'] = frecuencia
-    items = self.parent.parent.parent.parent.parent.raise_event('x-show_lista_equipos', datos=datos)
-    
+    items = link.parent.parent.parent.raise_event('x-show_lista_equipos', datos=datos)
+    return items
     
   #################################################### EVENTOS ####################################################
   def link_lunes_click(self, **event_args):
@@ -196,7 +204,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def link_lunes_numero_dia_click(self, **event_args):
-    self.link_lunes_w.popover(content = self.show_lista_equipos('SEMANAL',self.card_lunes,self.link_lunes_numero_dia))
+   print("test")
 
   def link_lunes_w_click(self, **event_args):
     self.link_lunes_w.pop("show")
