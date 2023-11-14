@@ -118,6 +118,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   
   ################################ FUNCIONES PERSONALIZADS ########################################
   def show_lista_equipos(self, datos, **event_args):
+    print(f"datos recibidos:{datos}")
     mes = self.drop_down_mes.selected_value
     anio = self.drop_down_anio.selected_value
     items = None

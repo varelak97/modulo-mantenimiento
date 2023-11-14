@@ -1,3 +1,14 @@
 is_package: true
 container: {type: DataRowPanel}
-components: []
+components:
+- name: label_equipo
+  properties: {}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''equipo'']', writeback: false}
+- name: link_1
+  properties: {}
+  type: Link
+  layout_properties: {column: VJQQOR}
+  event_bindings: {}

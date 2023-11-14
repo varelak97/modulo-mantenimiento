@@ -84,16 +84,15 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def set_color_indicadores(self):
     
     for link in self.lista_links:
-      print(f"el padre:{link.parent.parent.parent}")
       if link.text != None and link.text != "":
         indicador = link.text.split(': ')
         if indicador[1] != '0':
           if indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
-            
             items = self.show_lista_equipos('SEMANAL',link)
-            link.popover(content=lista_equipos(items), trigger="manual")
+            print(f"antes:{items}")
+            link.popover(content=lista_equipos(items), trigger="click")
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
             link.foreground = app.theme_colors['White']
@@ -142,6 +141,8 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos['dia'] = link.parent.tag['numero_dia']
     datos['tipo'] = link.parent.tag['tipo']
     datos['frecuencia'] = frecuencia
+    print(f"datos a enviar:{datos}")
+    print(self.parent)
     items = link.parent.parent.parent.raise_event('x-show_lista_equipos', datos=datos)
     return items
     
@@ -207,7 +208,8 @@ class RowTemplateDias(RowTemplateDiasTemplate):
    print("test")
 
   def link_lunes_w_click(self, **event_args):
-    self.link_lunes_w.pop("show")
+    pass
+    #self.link_lunes_w.pop("show")
     #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
   def link_lunes_m_click(self, **event_args):
     self.open_registros('MENSUAL',self.card_lunes,self.link_lunes_numero_dia)
