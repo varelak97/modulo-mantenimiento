@@ -6,6 +6,7 @@ from anvil_extras import augment
 from anvil_extras import popover
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
+from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
 
 class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -123,6 +124,30 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.add_component(self.form_activo)
 
   def link_calendario_mttos_click(self, **event_args):
-    print(self.outlined_card_calendario_mttos.pop("show"))
-    """self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
-    self.parent.raise_event('x-actualizar_form_activo',datos=self.datos)"""
+    datos = self.datos
+    respuesta = alert(content = MANTENIMIENTO_PROGRAMA_ANUAL(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+
+  def link_mtto_preventivo_programado_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def link_mtto_correctivo_programado_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def link_mtto_autonomo_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def actualizar_form_activo(self, datos, **event_args):
+    datos['mes'] = self.drop_down_mes.selected_value
+    datos['anio'] = self.drop_down_anio.selected_value
+    datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+    datos['modo'] = "dia"
+    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
+      
+  def abrir_form(self, form_de_interes):
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
+    if respuesta:
+      self.llenar_calendario()

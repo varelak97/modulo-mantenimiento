@@ -79,6 +79,7 @@ components:
           properties: {text: MANTENIMIENTO PREVENTIVO PROGRAMADO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
+      event_bindings: {click: link_mtto_preventivo_programado_click}
     - name: link_mtto_correctivo_programado
       properties: {}
       type: Link
@@ -97,6 +98,7 @@ components:
           properties: {text: MANTENIMIENTO CORRECTIVO PROGRAMADO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'FXVIML,KCAEXH'}
+      event_bindings: {click: link_mtto_correctivo_programado_click}
     - name: link_mtto_autonomo
       properties: {}
       type: Link
@@ -115,6 +117,7 @@ components:
           properties: {text: MANTENIMIENTO AUTÓNOMO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'WMORHY,OYPKVW'}
+      event_bindings: {click: link_mtto_autonomo_click}
   - name: outlined_card_body
     properties: {role: elevated-card, visible: false}
     type: ColumnPanel
