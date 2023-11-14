@@ -90,9 +90,9 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           if indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
-            items = self.show_lista_equipos('SEMANAL',link)
+            items = link.parent.tag#self.show_lista_equipos('SEMANAL',link)
             print(f"antes:{items}")
-            link.popover(content=lista_equipos(items), trigger="click")
+            link.popover(str(items))#content=lista_equipos(items), trigger="click")
             self.link_lunes_numero_dia_click()
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
@@ -209,6 +209,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     print(f"test")
 
   def link_lunes_w_click(self, **event_args):
+    print(f"el padre:{self.parent.parent.parent.parent.parent}")
     print(f"el tag de lunes:{self.card_lunes.tag}")
     #self.link_lunes_w.pop("show")
     #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)

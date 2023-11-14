@@ -177,7 +177,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         'area':area,
         'tipo':tipo,
         'equipo':equipo,
-        'equipos':[],
+        'lista_equipos':[],
         'id_mtto_preventivo':None
       })
       
@@ -212,7 +212,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             'A':f"{prefijo}A: {indicadores_mtto_mes[int(numero_dia)-1]['A']}",
             'area':indicadores_mtto_mes[int(numero_dia)-1]['area'],
             'equipo':indicadores_mtto_mes[int(numero_dia)-1]['equipo'],
-            'equipos':indicadores_mtto_mes[int(numero_dia)-1]['equipos'],
+            'lista_equipos':indicadores_mtto_mes[int(numero_dia)-1]['lista_equipos'],
             'tipo':indicadores_mtto_mes[int(numero_dia)-1]['tipo'],
             'id_mtto_preventivo':indicadores_mtto_mes[int(numero_dia)-1]['id_mtto_preventivo']
           }
@@ -234,7 +234,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
         elif tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
-          indicadores_mtto_mes[dia_prog-1]["equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo']})
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo']})
           #indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
       elif equipo == item['equipo']: #equipo:selected
         if tipo == "todos":
