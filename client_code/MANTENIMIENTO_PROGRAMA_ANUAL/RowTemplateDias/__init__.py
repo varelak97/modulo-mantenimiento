@@ -93,7 +93,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.foreground = app.theme_colors['White']
             
             items = self.show_lista_equipos('SEMANAL',link)
-            link.popover(content=lista_equipos(items))
+            link.popover(content=lista_equipos(items), trigger="manual")
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
             link.foreground = app.theme_colors['White']
