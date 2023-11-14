@@ -1117,3 +1117,9 @@ div.plot-container.plotly svg.main-svg {
   border: none;
   width:60vh
 }
+
+/*Fija rowPanel en el top del DataGridPanel*/
+.anvil-role-fijar-rowpanel{
+  position: sticky; top: 89px;
+  z-index:1;
+}
