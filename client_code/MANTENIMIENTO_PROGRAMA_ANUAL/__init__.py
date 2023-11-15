@@ -8,6 +8,7 @@ import anvil.js
 import calendar
 from datetime import datetime, date
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
+from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
 
 class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -113,10 +114,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.set_event_handler('x-actualizar_calendario', self.llenar_calendario)
-    self.set_event_handler('x-show_lista_equipos', self.show_lista_equipos)
+    #self.set_event_handler('x-show_lista_equipos', self.show_lista_equipos)
   
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def show_lista_equipos(self, datos, **event_args):
+  """def show_lista_equipos(self, datos, **event_args):
     print(f"datos recibidos:{datos}")
     mes = self.drop_down_mes.selected_value
     anio = self.drop_down_anio.selected_value
@@ -139,15 +140,25 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             registros_dia_seleccionado.append(item)
         elif tipo == "todos":
           registros_dia_seleccionado.append(item)
-    return registros_dia_seleccionado
+    return registros_dia_seleccionado"""
     
   def actualizar_form_activo(self, datos, **event_args):
-    datos['mes'] = self.drop_down_mes.selected_value
+    
+    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
+      datos['mes'] = self.drop_down_mes.selected_value
+      datos['anio'] = self.drop_down_anio.selected_value
+      datos.update(self.datos)
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
+    elif datos['clave_form'] == "MANTENIMIENTO_PREVENTIVO_CHECKLIST":
+      datos.update(self.datos)
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+    
+    #estaba asi:
+    """datos['mes'] = self.drop_down_mes.selected_value
     datos['anio'] = self.drop_down_anio.selected_value
     datos['id_usuario_erp'] = self.datos['id_usuario_erp']
-    datos['modo'] = "dia"
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))"""
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")

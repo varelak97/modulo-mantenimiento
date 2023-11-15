@@ -9,15 +9,46 @@ class lista_equipos(lista_equiposTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.datos = datos
-    #fill_lista(self.datos)
+    print(f"los datos:{self.datos}")
     self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos)
 
   def fill_lista(self, datos):
     items = []
-    if datos['frecuencia'] == "SEMANAL":
+    if datos['tipo'] == "PROGRAMADO":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == datos['frecuencia']:
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+      
+    
+    #estaba asi
+    """if datos['frecuencia'] == "SEMANAL":
       for equipo in datos['lista_equipos']:
         if equipo['frecuencia'] == "SEMANAL" and datos['tipo'] == "PROGRAMADO":
-          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False})
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+    
+    
+    if datos['frecuencia'] == "MENSUAL":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == "MENSUAL" and datos['tipo'] == "PROGRAMADO":
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+    
+    
+    if datos['frecuencia'] == "TRIMESTRAL":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == "TRIMESTRAL" and datos['tipo'] == "PROGRAMADO":
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+    
+    
+    if datos['frecuencia'] == "SEMESTRAL":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == "SEMESTRAL" and datos['tipo'] == "PROGRAMADO":
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+    
+    
+    if datos['frecuencia'] == "ANUAL":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == "ANUAL" and datos['tipo'] == "PROGRAMADO":
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})"""
     return items
 
     

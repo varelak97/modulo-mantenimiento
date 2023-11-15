@@ -7,15 +7,18 @@ components:
   layout_properties: {column: JKSDUP}
   data_bindings:
   - {property: text, code: 'self.item[''equipo'']', writeback: false}
+  - {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}
 - name: button_ver_checklist
-  properties: {text: '', icon: 'fa:eye'}
+  properties: {text: '', icon: 'fa:eye', align: left}
   type: Button
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: enabled, code: 'self.item[''ver_checlist'']', writeback: false}
   event_bindings: {click: button_ver_checklist_click}
 - name: button_llenar_checklist
-  properties: {text: '', icon: 'fa:pencil', align: center}
+  properties: {text: '', icon: 'fa:pencil', align: left}
   type: Button
   layout_properties: {column: GNNYVV}
   event_bindings: {click: button_llenar_checklist_click}
+data_bindings:
+- {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}

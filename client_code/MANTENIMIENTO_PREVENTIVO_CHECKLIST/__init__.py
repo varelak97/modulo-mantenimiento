@@ -17,6 +17,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
+
+    print(f"recibo estos datos:{self.datos}")
     
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_registros_mttos = self.libro_mttos['Registros']

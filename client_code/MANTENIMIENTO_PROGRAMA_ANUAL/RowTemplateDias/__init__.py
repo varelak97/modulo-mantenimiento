@@ -90,31 +90,62 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           if indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
-            items = link.parent.tag#self.show_lista_equipos('SEMANAL',link)
+            items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMANAL"
-            link.popover(content=lista_equipos(items), title="EQUIPOS", trigger="click",max_width="350px")
-            self.link_lunes_numero_dia_click()
+            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMANAL", trigger="click",max_width="350px")
+            #self.link_lunes_numero_dia_click()
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
             link.foreground = app.theme_colors['White']
+            items = link.parent.tag
+            items['tipo'] = "PROGRAMADO"
+            items['frecuencia'] = "MENSUAL"
+            link.popover(content=lista_equipos(items), title="PROGRAMADO MENSUAL", trigger="click",max_width="350px")
           elif indicador[0] == "PT":
             link.background = app.theme_colors['Tertiary']
             link.foreground = app.theme_colors['White']
+            items = link.parent.tag
+            items['tipo'] = "PROGRAMADO"
+            items['frecuencia'] = "TRIMESTRAL"
+            link.popover(content=lista_equipos(items), title="PROGRAMADO TRIMESTRAL", trigger="click",max_width="350px")
           elif indicador[0] == "PS":
             link.background = app.theme_colors['On Tertiary Container']
             link.foreground = app.theme_colors['White']
+            items = link.parent.tag
+            items['tipo'] = "PROGRAMADO"
+            items['frecuencia'] = "SEMESTRAL"
+            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMESTRAL", trigger="click",max_width="350px")
           elif indicador[0] == "PA":
             link.background = app.theme_colors['Green']
             link.foreground = app.theme_colors['White']
-            
+            items = link.parent.tag
+            items['tipo'] = "PROGRAMADO"
+            items['frecuencia'] = "ANUAL"
+            link.popover(content=lista_equipos(items), title="PROGRAMADO ANUAL", trigger="click",max_width="350px")
           elif indicador[0] in ["R","RW","RM","RT","RS","RA"]:
             link.background = app.theme_colors['Red']
             link.foreground = app.theme_colors['White']
+            #FALTA AGREGAR EVENTO POPOVER ########################## *************************************
 
           elif indicador[0] in ["OK-W","OK-M","OK-T","OK-S","OK-A"]:
             link.background = app.theme_colors['SecondaryGreen']
             link.foreground = app.theme_colors['Blue']
+            items = link.parent.tag
+            items['tipo'] = "PROGRAMADO"
+            items['frecuencia'] = "ANUAL"
+            titulo = ""
+            if indicador[0] == "OK-W":
+              titulo = "REALIZADOS SEMANALES"
+            elif indicador[0] == "OK-M":
+              titulo = "REALIZADOS MENSUALES"
+            elif indicador[0] == "OK-T":
+              titulo = "REALIZADOS TRIMESTRALES"
+            elif indicador[0] == "OK-S":
+              titulo = "REALIZADOS SEMESTRALES"
+            elif indicador[0] == "OK-A":
+              titulo = "REALIZADOS ANUALES"
+            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="350px")
             
           elif indicador[0] == "P":
             link.background = app.theme_colors['Primary']
@@ -209,7 +240,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def link_lunes_numero_dia_click(self, **event_args):
     print(f"test")
 
-  def link_lunes_w_click(self, **event_args):
+  """def link_lunes_w_click(self, **event_args):
     pass
     #self.link_lunes_w.pop("show")
     #self.open_registros('SEMANAL',self.card_lunes,self.link_lunes_numero_dia)
@@ -286,7 +317,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   def link_domingo_s_click(self, **event_args):
     self.open_registros('SEMESTRAL',self.card_domingo,self.link_domingo_numero_dia)
   def link_domingo_a_click(self, **event_args):
-    self.open_registros('ANUAL',self.card_domingo,self.link_domingo_numero_dia)
+    self.open_registros('ANUAL',self.card_domingo,self.link_domingo_numero_dia)"""
 
 
 
