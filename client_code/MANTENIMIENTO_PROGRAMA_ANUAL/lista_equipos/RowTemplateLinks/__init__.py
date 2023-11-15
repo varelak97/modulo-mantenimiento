@@ -2,6 +2,7 @@ from ._anvil_designer import RowTemplateLinksTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from anvil_extras import popover
 
 class RowTemplateLinks(RowTemplateLinksTemplate):
   def __init__(self, **properties):
@@ -12,6 +13,7 @@ class RowTemplateLinks(RowTemplateLinksTemplate):
 
   def button_llenar_checklist_click(self, **event_args):
     print(self.parent.parent.parent.parent.parent)
+    print(self.popper)
 
   def button_ver_checklist_click(self, **event_args):
-    alert(self.parent.parent.parent.parent)
+    pass
