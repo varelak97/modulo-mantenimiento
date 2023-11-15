@@ -12,8 +12,7 @@ class RowTemplateLinks(RowTemplateLinksTemplate):
     # Any code you write here will run before the form opens.
 
   def button_llenar_checklist_click(self, **event_args):
-    print(self.parent.parent.parent.parent.parent)
-    print(self.popper)
+    print(self.parent.parent.parent.popper)
 
   def button_ver_checklist_click(self, **event_args):
     pass
