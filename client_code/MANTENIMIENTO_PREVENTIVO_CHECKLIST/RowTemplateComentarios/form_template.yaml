@@ -13,3 +13,8 @@ components:
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: text, code: 'self.item[''comentario'']', writeback: false}
+- name: button_editar
+  properties: {text: '', icon: 'fa:pencil', role: filled-button, background: 'theme:Green',
+    foreground: 'theme:White'}
+  type: Button
+  layout_properties: {column: HRNGNU}

@@ -17,8 +17,6 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
-
-    print(f"recibo estos datos:{self.datos}")
     
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_registros_mttos = self.libro_mttos['Registros']
@@ -41,18 +39,23 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       self.text_box_nombre.enabled = False
       self.date_picker_fecha_hora_inicio.enabled = False
       self.date_picker_fecha_hora_termino.enabled = False
-      self.text_area_comentarios.enabled = False
       self.button_guardar.enabled = False
       self.text_box_nombre.text = self.registro_equipo['persona_ejecuta_mtto']
       self.date_picker_fecha_hora_inicio.date = self.registro_equipo['fecha_hora_inicio']
       self.date_picker_fecha_hora_termino.date = self.registro_equipo['fecha_hora_final']
-      self.text_area_comentarios.text = self.registro_equipo['comentarios_mantenimiento']
+      self.repeating_panel_comentarios.items = self.get_comentarios(self.registro_equipo['comentarios_mantenimiento'])
       for row in self.repeating_panel_registros.get_components():
         componentes_row = row.get_components()
         componentes_row[2].enabled = False
         componentes_row[3].enabled = False
         #componentes_row[4].enabled = False
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def get_comentarios(self, comentarios):
+    dict_comentarios = eval(comentarios)
+    for index,comentario in enumerate(dict_comentarios):
+      comentario['index'] = index + 1
+    return dict_comentarios
+    
   def validar_campos(self):
     validacion = True
     if self.text_box_nombre.text == None or self.text_box_nombre.text == "":
