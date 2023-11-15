@@ -5,17 +5,20 @@ components:
 - name: data_grid_lista_equipos
   properties:
     columns:
-    - {id: JKSDUP, title: equipo, data_key: equipo, width: '150'}
+    - {id: JKSDUP, title: equipo, data_key: equipo, width: '250'}
     - {id: GNNYVV, data_key: llenar_checklist, title: llenar_check, width: '50'}
     - {id: VJQQOR, title: ver_checlist, data_key: ver_checlist, width: '50'}
     auto_header: false
     show_page_controls: false
     rows_per_page: 200
+    role: null
   type: DataGrid
   components:
   - name: repeating_panel_lista_equipos
-    properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplateLinks}
+    properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplateLinks,
+      role: null}
     type: RepeatingPanel
+    layout_properties: {}
   layout_properties: {grid_position: 'JPJFEP,KHEVXI'}
 is_package: true
 data_bindings: []

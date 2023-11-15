@@ -18,7 +18,10 @@ class lista_equipos(lista_equiposTemplate):
       for equipo in datos['lista_equipos']:
         if equipo['frecuencia'] == datos['frecuencia']:
           items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
-      
+    elif datos['tipo'] == "REALIZADO":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == datos['frecuencia']:
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
     
     #estaba asi
     """if datos['frecuencia'] == "SEMANAL":

@@ -93,7 +93,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMANAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMANAL", trigger="click",max_width="350px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMANAL", trigger="click",max_width="450px")
             #self.link_lunes_numero_dia_click()
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
@@ -101,28 +101,28 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "MENSUAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO MENSUAL", trigger="click",max_width="350px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO MENSUAL", trigger="click",max_width="600px")
           elif indicador[0] == "PT":
             link.background = app.theme_colors['Tertiary']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "TRIMESTRAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO TRIMESTRAL", trigger="click",max_width="350px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO TRIMESTRAL", trigger="click",max_width="450px")
           elif indicador[0] == "PS":
             link.background = app.theme_colors['On Tertiary Container']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMESTRAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMESTRAL", trigger="click",max_width="350px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMESTRAL", trigger="click",max_width="450px")
           elif indicador[0] == "PA":
             link.background = app.theme_colors['Green']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "ANUAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO ANUAL", trigger="click",max_width="350px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO ANUAL", trigger="click",max_width="450px")
           elif indicador[0] in ["R","RW","RM","RT","RS","RA"]:
             link.background = app.theme_colors['Red']
             link.foreground = app.theme_colors['White']
@@ -132,20 +132,24 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.background = app.theme_colors['SecondaryGreen']
             link.foreground = app.theme_colors['Blue']
             items = link.parent.tag
-            items['tipo'] = "PROGRAMADO"
-            items['frecuencia'] = "ANUAL"
+            items['tipo'] = "REALIZADO"
             titulo = ""
             if indicador[0] == "OK-W":
               titulo = "REALIZADOS SEMANALES"
+              items['frecuencia'] = "SEMANAL"
             elif indicador[0] == "OK-M":
               titulo = "REALIZADOS MENSUALES"
+              items['frecuencia'] = "MENSUAL"
             elif indicador[0] == "OK-T":
               titulo = "REALIZADOS TRIMESTRALES"
+              items['frecuencia'] = "TRIMESTRAL"
             elif indicador[0] == "OK-S":
               titulo = "REALIZADOS SEMESTRALES"
+              items['frecuencia'] = "SEMESTRAL"
             elif indicador[0] == "OK-A":
               titulo = "REALIZADOS ANUALES"
-            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="350px")
+              items['frecuencia'] = "ANUAL"
+            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="450px")
             
           elif indicador[0] == "P":
             link.background = app.theme_colors['Primary']
