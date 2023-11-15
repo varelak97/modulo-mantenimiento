@@ -1,0 +1,21 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: label_equipo
+  properties: {spacing_below: none, spacing_above: none, bold: true}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''equipo'']', writeback: false}
+- name: button_ver_checklist
+  properties: {text: '', icon: 'fa:eye'}
+  type: Button
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: enabled, code: 'self.item[''ver_checlist'']', writeback: false}
+  event_bindings: {click: button_ver_checklist_click}
+- name: button_llenar_checklist
+  properties: {text: '', icon: 'fa:pencil', align: center}
+  type: Button
+  layout_properties: {column: GNNYVV}
+  event_bindings: {click: button_llenar_checklist_click}

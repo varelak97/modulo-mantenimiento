@@ -8,10 +8,16 @@ class lista_equipos(lista_equiposTemplate):
   def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    print("entro")
+    self.datos = datos
+    #fill_lista(self.datos)
+    self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos)
 
-    # Any code you write here will run before the form opens.
+  def fill_lista(self, datos):
+    items = []
+    if datos['frecuencia'] == "SEMANAL":
+      for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == "SEMANAL" and datos['tipo'] == "PROGRAMADO":
+          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False})
+    return items
 
-  def button_1_click(self, **event_args):
-    print(self.datos)
-    self.repeating_panel_lista_equipos.items = self.datos
+    

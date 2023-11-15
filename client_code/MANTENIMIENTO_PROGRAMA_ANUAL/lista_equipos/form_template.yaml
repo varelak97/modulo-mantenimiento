@@ -1,21 +1,21 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {background: '', spacing_above: small, spacing_below: small}
 components:
 - name: data_grid_lista_equipos
   properties:
     columns:
-    - {id: JKSDUP, title: Column 1, data_key: equipo}
-    - {id: VJQQOR, title: Column 2, data_key: liga}
+    - {id: JKSDUP, title: equipo, data_key: equipo, width: '150'}
+    - {id: GNNYVV, data_key: llenar_checklist, title: llenar_check, width: '50'}
+    - {id: VJQQOR, title: ver_checlist, data_key: ver_checlist, width: '50'}
     auto_header: false
     show_page_controls: false
+    rows_per_page: 200
   type: DataGrid
   components:
   - name: repeating_panel_lista_equipos
-    properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplate4}
+    properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplateLinks}
     type: RepeatingPanel
   layout_properties: {grid_position: 'JPJFEP,KHEVXI'}
-- name: button_1
-  properties: {text: button_1}
-  type: Button
-  layout_properties: {grid_position: 'STKXUT,QMBFJR'}
-  event_bindings: {click: button_1_click}
 is_package: true
+data_bindings: []
