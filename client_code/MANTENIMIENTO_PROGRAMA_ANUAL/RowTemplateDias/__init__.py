@@ -172,7 +172,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
     self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
-  def show_lista_equipos(self, frecuencia, link):
+  """def show_lista_equipos(self, frecuencia, link):
     datos = {}
     datos['modo'] = "dia"
     datos['dia'] = link.parent.tag['numero_dia']
@@ -181,7 +181,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     print(f"datos a enviar:{datos}")
     print(self.parent)
     items = link.parent.parent.parent.raise_event('x-show_lista_equipos', datos=datos)
-    return items
+    return items"""
     
   #################################################### EVENTOS ####################################################
   def link_lunes_click(self, **event_args):
