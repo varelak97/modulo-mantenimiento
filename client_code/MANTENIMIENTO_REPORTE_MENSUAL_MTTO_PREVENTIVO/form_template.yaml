@@ -3,7 +3,7 @@ components:
 - name: content_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'ELHTNI,MTCFJI'}
+  layout_properties: {grid_position: 'ELHTNI,MTCFJI', full_width_row: true}
   components:
   - name: outlined_card_titulo
     properties: {role: elevated-card}
@@ -15,4 +15,53 @@ components:
         role: headline, foreground: 'theme:On Primary', background: 'theme:Primary'}
       type: Label
       layout_properties: {grid_position: 'XFAJTI,ZSKSSS'}
+  - name: column_panel_body
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'NVADLO,OHBQTO', full_width_row: true}
+    components:
+    - name: outlined_card_reporte
+      properties: {role: elevated-card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'YCPUIR,JYAXJU'}
+      components:
+      - name: data_grid_reporte
+        properties:
+          columns:
+          - {id: JKSDUP, title: FRECUENCIA, data_key: frecuencia}
+          - {id: VJQQOR, title: MANTENIMIENTROS PROGRAMADOS, data_key: mttos_programados}
+          - {id: OJLQEN, title: MANTENIMIENTOS REALIZADOS EN FECHA, data_key: mttos_realizados}
+          - {id: LSYEDG, data_key: mttos_reprogramados, title: MANTENIMIENTOS REPROGRAMADOS}
+          - {id: TIAIOE, data_key: mttos_pendientes, title: MANTENIMIENTOS PENDIENTES}
+          - {id: VRTRKW, data_key: observaciones, title: OBSERVACIONES}
+          - {id: ZFQQNA, data_key: '', title: ''}
+          role: tonal-data-grid
+          show_page_controls: false
+        type: DataGrid
+        components:
+        - name: repeating_panel_reporte
+          properties: {item_template: MANTENIMIENTO_REPORTE_MENSUAL_MTTO_PREVENTIVO.RowTemplate5}
+          type: RepeatingPanel
+        layout_properties: {grid_position: 'FCSHHT,MZTTXV'}
+    - name: outlined_card_cumplimiento
+      properties: {role: elevated-card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'PXIOPS,CCXUJL', full_width_row: true}
+      components:
+      - name: data_grid_1
+        properties:
+          columns:
+          - {id: JKSDUP, title: Column 1, data_key: column_1}
+          - {id: VJQQOR, title: Column 2, data_key: column_2}
+          - {id: OJLQEN, title: Column 3, data_key: column_3}
+        type: DataGrid
+        components:
+        - name: repeating_panel_1
+          properties: {item_template: MANTENIMIENTO_REPORTE_MENSUAL_MTTO_PREVENTIVO.RowTemplate6}
+          type: RepeatingPanel
+        layout_properties: {grid_position: 'MALETI,TKGHNV'}
+      - name: plot_1
+        properties: {}
+        type: Plot
+        layout_properties: {grid_position: 'MALETI,ZWCBIP'}
 is_package: true
