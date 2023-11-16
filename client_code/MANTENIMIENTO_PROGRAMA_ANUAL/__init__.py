@@ -151,6 +151,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
     elif datos['clave_form'] == "MANTENIMIENTO_PREVENTIVO_CHECKLIST":
       datos.update(self.datos)
+      print(f"abriendo checklist:{self}")
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
     
     #estaba asi:
