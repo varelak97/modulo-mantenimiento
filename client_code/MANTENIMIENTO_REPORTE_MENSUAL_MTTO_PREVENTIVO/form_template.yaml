@@ -1,0 +1,18 @@
+container: {type: ColumnPanel}
+components:
+- name: content_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'ELHTNI,MTCFJI'}
+  components:
+  - name: outlined_card_titulo
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'PCHKFB,VKUYHZ'}
+    components:
+    - name: label_titulo
+      properties: {text: TITULO_CUMPLIMIENTO_MANTENIMIENTO, align: center, bold: true,
+        role: headline, foreground: 'theme:On Primary', background: 'theme:Primary'}
+      type: Label
+      layout_properties: {grid_position: 'XFAJTI,ZSKSSS'}
+is_package: true
