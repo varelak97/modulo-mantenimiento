@@ -9,7 +9,6 @@ class lista_equipos(lista_equiposTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.datos = datos
-    print(f"los datos:{self.datos}")
     self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos)
 
   def fill_lista(self, datos):

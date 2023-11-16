@@ -37,20 +37,27 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.repeating_panel_registros.items = lista
     
     if datos['modo'] == "ver_checklist":
-      self.text_box_nombre.enabled = False
-      self.date_picker_fecha_hora_inicio.enabled = False
-      self.date_picker_fecha_hora_termino.enabled = False
-      self.button_guardar.enabled = False
       self.text_box_nombre.text = self.registro_equipo['persona_ejecuta_mtto']
       self.date_picker_fecha_hora_inicio.date = self.registro_equipo['fecha_hora_inicio']
       self.date_picker_fecha_hora_termino.date = self.registro_equipo['fecha_hora_final']
       self.repeating_panel_comentarios.items = self.get_comentarios(self.registro_equipo['comentarios_mantenimiento'])
-      for row in self.repeating_panel_registros.get_components():
-        componentes_row = row.get_components()
-        componentes_row[2].enabled = False
-        componentes_row[3].enabled = False
+      self.disable_componentes_form()
         #componentes_row[4].enabled = False
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def disable_componentes_form(self):
+    self.data_row_panel_input.visible = False
+    self.text_box_nombre.enabled = False
+    self.date_picker_fecha_hora_inicio.enabled = False
+    self.date_picker_fecha_hora_termino.enabled = False
+    self.button_guardar.enabled = False
+    for row in self.repeating_panel_registros.get_components():
+      componentes_row = row.get_components()
+      componentes_row[2].enabled = False
+      componentes_row[3].enabled = False
+    for row in self.repeating_panel_comentarios.get_components():
+      componentes_row = row.get_components()
+      componentes_row[2].enabled = False
+      
   def editar_comentario(self, indice, **event_args):
     items = self.repeating_panel_comentarios.items
     self.text_area_comentario.text = items[indice-1]['comentario']
@@ -72,8 +79,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       validacion = False
     if self.date_picker_fecha_hora_termino.date == None:
       validacion = False
-    if self.text_area_comentarios.text == None or self.text_area_comentarios.text == "":
-      validacion = False
+    """if self.text_area_comentarios.text == None or self.text_area_comentarios.text == "":
+      validacion = False"""
     respuestas = self.repeating_panel_registros.items
     total_respuestas = len(respuestas)
     respuestas_contestadas = 0
@@ -105,7 +112,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
           "status_mantenimiento": "REALIZADO",
           "actividades":respuesta,
           "fecha_hora_final":self.date_picker_fecha_hora_termino.date,
-          "comentarios_mantenimiento":self.text_area_comentarios.text,
+          "comentarios_mantenimiento":self.repeating_panel_comentarios.items,
           "operacion":"edicion",
           "marca_temporal":datetime.now()
         }
@@ -133,6 +140,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     if comentarios != None:
       self.repeating_panel_comentarios.items = comentarios
       self.text_area_comentario.text = ""
+      self.button_add.enabled = False
 
   def text_area_comentario_change(self, **event_args):
     if self.text_area_comentario.text == "":

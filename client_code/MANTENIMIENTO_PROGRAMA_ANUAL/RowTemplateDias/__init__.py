@@ -184,7 +184,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     return items"""
     
   #################################################### EVENTOS ####################################################
-  def link_lunes_click(self, **event_args):
+  """def link_lunes_click(self, **event_args):
     datos = {}
     datos['dia'] = self.link_lunes_numero_dia.text
     datos['tipo'] = "todos"
@@ -239,10 +239,18 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     datos['tipo'] = "todos"
     datos['frecuencia'] = "todas"
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
-    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)"""
 
   def link_lunes_numero_dia_click(self, **event_args):
-    print(f"test")
+    pass
+    #regresar si es necesario
+    """datos = {}
+    datos['dia'] = self.link_lunes_numero_dia.text
+    datos['tipo'] = "todos"
+    datos['modo'] = "dia" 
+    datos['frecuencia'] = "todas"
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_REGISTROS'
+    self.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)"""
 
   """def link_lunes_w_click(self, **event_args):
     pass
