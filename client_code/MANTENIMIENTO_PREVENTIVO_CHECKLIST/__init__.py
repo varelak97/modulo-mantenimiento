@@ -40,7 +40,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       self.text_box_nombre.text = self.registro_equipo['persona_ejecuta_mtto']
       self.date_picker_fecha_hora_inicio.date = self.registro_equipo['fecha_hora_inicio']
       self.date_picker_fecha_hora_termino.date = self.registro_equipo['fecha_hora_final']
-      self.repeating_panel_comentarios.items = self.get_comentarios(self.registro_equipo['comentarios_mantenimiento'])
+      self.repeating_panel_comentarios.items = eval(self.registro_equipo['comentarios_mantenimiento'])#self.get_comentarios(self.registro_equipo['comentarios_mantenimiento'])
       self.disable_componentes_form()
         #componentes_row[4].enabled = False
   ################################ FUNCIONES PERSONALIZADS ########################################
@@ -65,11 +65,11 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.button_add.tag = indice
     self.button_add.enabled = True
     
-  def get_comentarios(self, comentarios):
+  """def get_comentarios(self, comentarios):
     dict_comentarios = eval(comentarios)
     for index,comentario in enumerate(dict_comentarios):
       comentario['index'] = index + 1
-    return dict_comentarios
+    return dict_comentarios"""
     
   def validar_campos(self):
     validacion = True
