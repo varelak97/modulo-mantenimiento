@@ -11,7 +11,7 @@ components:
     layout_properties: {grid_position: 'ASKKYO,BCQQDD'}
     components:
     - name: label_titulo
-      properties: {text: LISTA GENERAL DE EQUIPOS, align: center, bold: true, role: title,
+      properties: {text: LISTADO GENERAL DE EQUIPOS, align: center, bold: true, role: title,
         background: 'theme:Primary', foreground: 'theme:White'}
       type: Label
       layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
@@ -24,19 +24,28 @@ components:
       properties: {text: 'AREA:', bold: true}
       type: Label
       layout_properties: {grid_position: 'RQBDLC,IEDKFC'}
-    - name: label_equipo
-      properties: {text: 'EQUIPO:', bold: true}
-      type: Label
-      layout_properties: {grid_position: 'RQBDLC,ACHXWY'}
     - name: drop_down_area
       properties: {role: outlined, include_placeholder: true, placeholder: -- AREA --}
       type: DropDown
-      layout_properties: {grid_position: 'BYEIUP,OBMHLL BLDTME,OEACHC'}
+      layout_properties: {grid_position: 'BYEIUP,OBMHLL YQYWEE,SLNJSE'}
       event_bindings: {change: drop_down_area_change}
+    - name: label_equipo
+      properties: {text: 'EQUIPO:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'BYEIUP,OBMHLL CAXHCI,IVYFYN'}
     - name: drop_down_equipo
       properties: {role: outlined, include_placeholder: true, placeholder: -- EQUIPO --}
       type: DropDown
-      layout_properties: {grid_position: 'BYEIUP,KXQJIC'}
+      layout_properties: {grid_position: 'BYEIUP,OBMHLL KOJEJI,ZKEIQM'}
+    - name: outlined_card_1
+      properties: {role: outlined-card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'BYEIUP,HPLOGN'}
+      components:
+      - name: image_1
+        properties: {}
+        type: Image
+        layout_properties: {grid_position: 'YNNDXD,DFPJWM'}
     - name: label_tipo_mtto
       properties: {text: 'TIPO DE MANTENIMIENTO:', bold: true, align: center}
       type: Label
