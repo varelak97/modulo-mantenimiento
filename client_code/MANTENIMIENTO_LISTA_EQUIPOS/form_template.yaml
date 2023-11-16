@@ -43,7 +43,7 @@ components:
       layout_properties: {grid_position: 'BYEIUP,HPLOGN'}
       components:
       - name: image_1
-        properties: {}
+        properties: {source: _/theme/engranes.png}
         type: Image
         layout_properties: {grid_position: 'TEWUZM,OHQRLD'}
     - name: label_tipo_mtto
