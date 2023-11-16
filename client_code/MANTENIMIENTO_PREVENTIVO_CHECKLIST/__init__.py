@@ -3,7 +3,6 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from datetime import date,datetime
-#import anvil.server
 
 class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -16,6 +15,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.set_event_handler('x-editar_comentario', self.editar_comentario)
+    
     self.datos = datos
     
     self.libro_mttos = app_files.mantenimiento_preventivo
@@ -50,6 +51,13 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
         componentes_row[3].enabled = False
         #componentes_row[4].enabled = False
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def editar_comentario(self, indice, **event_args):
+    items = self.repeating_panel_comentarios.items
+    self.text_area_comentario.text = items[indice-1]['comentario']
+    self.button_add.icon = "fa:save"
+    self.button_add.tag = indice
+    self.button_add.enabled = True
+    
   def get_comentarios(self, comentarios):
     dict_comentarios = eval(comentarios)
     for index,comentario in enumerate(dict_comentarios):
@@ -109,5 +117,28 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   """def button_regresar_click(self, **event_args):
     self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)"""
+
+  def button_add_click(self, **event_args):
+    comentarios = None
+    if self.button_add.icon == "fa:plus":
+      if self.text_area_comentario.text != "":
+        comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
+        comentarios.append({'index':len(comentarios)+1,'comentario':self.text_area_comentario.text})
+    else:
+      if self.text_area_comentario.text != "":
+        comentarios = self.repeating_panel_comentarios.items
+        comentarios[self.button_add.tag-1]['comentario'] = self.text_area_comentario.text
+        self.button_add.icon = "fa:plus"
+    
+    if comentarios != None:
+      self.repeating_panel_comentarios.items = comentarios
+      self.text_area_comentario.text = ""
+
+  def text_area_comentario_change(self, **event_args):
+    if self.text_area_comentario.text == "":
+      self.button_add.enabled = False
+    else:
+      self.button_add.enabled = True
+    
 
 

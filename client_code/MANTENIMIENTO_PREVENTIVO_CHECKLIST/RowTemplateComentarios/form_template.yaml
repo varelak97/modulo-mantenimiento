@@ -18,3 +18,4 @@ components:
     foreground: 'theme:White'}
   type: Button
   layout_properties: {column: HRNGNU}
+  event_bindings: {click: button_editar_click}

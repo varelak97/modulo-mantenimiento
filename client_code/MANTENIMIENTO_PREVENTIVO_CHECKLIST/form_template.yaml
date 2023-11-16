@@ -171,12 +171,15 @@ components:
             properties: {role: outlined, background: 'theme:White'}
             type: TextArea
             layout_properties: {column: VJQQOR}
+            event_bindings: {change: text_area_comentario_change}
           - name: button_add
             properties: {text: '', icon: 'fa:plus', align: center, icon_align: left,
-              role: filled-button, background: 'theme:Orange', foreground: 'theme:Primary'}
+              role: filled-button, background: 'theme:Orange', foreground: 'theme:Primary',
+              enabled: false}
             type: Button
             layout_properties: {column: HRNGNU}
             data_bindings: []
+            event_bindings: {click: button_add_click}
           layout_properties: {}
         - name: repeating_panel_comentarios
           properties: {item_template: MANTENIMIENTO_PREVENTIVO_CHECKLIST.RowTemplateComentarios}

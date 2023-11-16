@@ -28,7 +28,7 @@ components:
   data_bindings:
   - {property: selected, code: 'self.item[''si'']'}
   - {property: group_name, code: 'self.item[''id'']'}
-  event_bindings: {clicked: radio_button_si_clicked}
+  event_bindings: {}
 - type: RadioButton
   properties: {role: null, selected: false, align: right, tooltip: '', border: '',
     enabled: true, foreground: '', value: 'no', visible: true, text: '', font_size: null,
