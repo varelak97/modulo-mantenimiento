@@ -164,7 +164,7 @@ components:
         type: DataGrid
         components:
         - name: data_row_panel_input
-          properties: {background: 'theme:Secondary'}
+          properties: {background: 'theme:LightBlue'}
           type: DataRowPanel
           components:
           - name: text_area_comentario
@@ -173,7 +173,7 @@ components:
             layout_properties: {column: VJQQOR}
           - name: button_add
             properties: {text: '', icon: 'fa:plus', align: center, icon_align: left,
-              role: filled-button, background: 'theme:Blue', foreground: 'theme:Primary'}
+              role: filled-button, background: 'theme:Orange', foreground: 'theme:Primary'}
             type: Button
             layout_properties: {column: HRNGNU}
             data_bindings: []
