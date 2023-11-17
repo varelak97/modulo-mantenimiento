@@ -25,19 +25,25 @@ components:
   layout_properties: {column: VJQQOR}
   components:
   - name: text_area_comentario
-    properties: {role: outlined, height: 90}
+    properties: {role: outlined, height: 70}
     type: TextArea
     layout_properties: {grid_position: 'EJJKCF,VUOBAB'}
     data_bindings:
     - {property: text, code: 'self.item[''comentario'']', writeback: false}
+  - name: spacer_1
+    properties: {height: 5}
+    type: Spacer
+    layout_properties: {grid_position: 'EJJKCF,QPMBBW OCQPXQ,OCJIRU'}
   - name: button_guardar
-    properties: {text: '', icon: 'fa:save', role: filled-button, background: 'theme:Green',
+    properties: {text: '', icon: 'fa:check', role: filled-button, background: 'theme:Green',
       foreground: 'theme:White'}
     type: Button
     layout_properties: {grid_position: 'EJJKCF,QPMBBW FSCCXM,JBQLWB'}
     event_bindings: {click: button_guardar_click}
-  - name: button_eliminar
-    properties: {text: '', role: filled-button, icon: 'fa:times', background: 'theme:Red'}
-    type: Button
-    layout_properties: {grid_position: 'EJJKCF,QPMBBW CXFDQA,KGMNNE'}
-    event_bindings: {click: button_eliminar_click}
+- name: button_borrar
+  properties: {text: '', role: filled-button, foreground: 'theme:On Primary', icon: 'fa:times',
+    background: 'theme:Red'}
+  type: Button
+  layout_properties: {column: QJEQAZ}
+  data_bindings: []
+  event_bindings: {click: button_borrar_click}

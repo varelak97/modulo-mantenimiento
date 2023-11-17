@@ -159,6 +159,7 @@ components:
           - {id: JKSDUP, title: '#', data_key: id, width: '80'}
           - {id: VJQQOR, title: COMENTARIOS, data_key: comentario}
           - {id: HRNGNU, data_key: editar, title: '', width: '80'}
+          - {id: QJEQAZ, data_key: delete, title: '', width: '80'}
           role: tonal-data-grid
           show_page_controls: false
         type: DataGrid

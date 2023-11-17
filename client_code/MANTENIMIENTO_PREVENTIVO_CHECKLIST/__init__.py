@@ -17,6 +17,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     #self.set_event_handler('x-editar_comentario', self.editar_comentario)
     self.set_event_handler('x-guardar_comentario', self.guardar_comentario)
+    self.set_event_handler('x-eliminar_comentario', self.eliminar_comentario)
     
     self.datos = datos
     
@@ -66,9 +67,17 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.button_add.tag = indice
     self.button_add.enabled = True"""
   
-  def guardar_comentario(self, indice, **event_args):
-    comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
-    comentarios.append({'index':len(comentarios)+1,'comentario':self.text_area_comentario.text})
+  def guardar_comentario(self, datos, **event_args):
+    comentarios = self.repeating_panel_comentarios.items
+    comentarios[datos['indice']]['comentario'] = datos['comentario']
+    self.repeating_panel_comentarios.items = comentarios
+    self.button_agregar_comentario.enabled = True
+    
+  def eliminar_comentario(self, indice, **event_args):
+    comentarios = self.repeating_panel_comentarios.items
+    comentarios.pop(indice)
+    self.repeating_panel_comentarios.items = comentarios
+    self.button_agregar_comentario.enabled = True
     
   """def get_comentarios(self, comentarios):
     dict_comentarios = eval(comentarios)
@@ -103,6 +112,22 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     return validacion
 
   ############################################ EVENTOS ############################################
+  def button_agregar_comentario_click(self, **event_args):
+    self.button_agregar_comentario.enabled = False
+    comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
+    indice = len(comentarios)
+    comentarios.append({'index':indice + 1,'comentario':""})
+    self.repeating_panel_comentarios.items = comentarios
+    filas = self.repeating_panel_comentarios.get_components()
+    for fila in filas:
+      componentes_fila = fila.get_components()
+      label_indice = int(componentes_fila[0].text) - 1
+      componentes_fila[2].enabled = False #boton editsr
+      componentes_fila[4].enabled = False #boton borrar
+      if label_indice == indice:
+        componentes_fila[3].visible = True #column panel de textbox y su boton
+
+    
   def button_guardar_click(self, **event_args):
     respuesta = self.validar_campos()
     if respuesta == False:
@@ -153,9 +178,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     else:
       self.button_add.enabled = True"""
 
-  def button_agregar_comentario_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  
+    
     
 
 
