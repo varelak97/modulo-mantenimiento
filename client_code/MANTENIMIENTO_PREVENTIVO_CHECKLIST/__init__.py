@@ -15,7 +15,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    self.set_event_handler('x-editar_comentario', self.editar_comentario)
+    #self.set_event_handler('x-editar_comentario', self.editar_comentario)
+    self.set_event_handler('x-guardar_comentario', self.guardar_comentario)
     
     self.datos = datos
     
@@ -58,12 +59,16 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       componentes_row = row.get_components()
       componentes_row[2].enabled = False
       
-  def editar_comentario(self, indice, **event_args):
+  """def editar_comentario(self, indice, **event_args):
     items = self.repeating_panel_comentarios.items
     self.text_area_comentario.text = items[indice-1]['comentario']
     self.button_add.icon = "fa:save"
     self.button_add.tag = indice
-    self.button_add.enabled = True
+    self.button_add.enabled = True"""
+  
+  def guardar_comentario(self, indice, **event_args):
+    comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
+    comentarios.append({'index':len(comentarios)+1,'comentario':self.text_area_comentario.text})
     
   """def get_comentarios(self, comentarios):
     dict_comentarios = eval(comentarios)
@@ -125,7 +130,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
     self.parent.raise_event('x-actualizar_form_activo', datos=self.datos)"""
 
-  def button_add_click(self, **event_args):
+  """def button_add_click(self, **event_args):
     comentarios = None
     if self.button_add.icon == "fa:plus":
       if self.text_area_comentario.text != "":
@@ -146,7 +151,11 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     if self.text_area_comentario.text == "":
       self.button_add.enabled = False
     else:
-      self.button_add.enabled = True
+      self.button_add.enabled = True"""
+
+  def button_agregar_comentario_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
     
 
 
