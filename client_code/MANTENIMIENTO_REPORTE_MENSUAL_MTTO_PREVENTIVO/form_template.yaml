@@ -48,20 +48,22 @@ components:
       type: ColumnPanel
       layout_properties: {grid_position: 'PXIOPS,CCXUJL', full_width_row: true}
       components:
-      - name: data_grid_1
+      - name: data_grid_objetivos
         properties:
           columns:
-          - {id: JKSDUP, title: Column 1, data_key: column_1}
-          - {id: VJQQOR, title: Column 2, data_key: column_2}
-          - {id: OJLQEN, title: Column 3, data_key: column_3}
+          - {id: JKSDUP, title: MES, data_key: mes}
+          - {id: VJQQOR, title: OBJETIVO 95%, data_key: objetivo}
+          - {id: OJLQEN, title: '% DE CUMPLIMIENTO', data_key: cumplimiento}
+          show_page_controls: false
+          role: tonal-data-grid
         type: DataGrid
         components:
         - name: repeating_panel_1
           properties: {item_template: MANTENIMIENTO_REPORTE_MENSUAL_MTTO_PREVENTIVO.RowTemplate6}
           type: RepeatingPanel
         layout_properties: {grid_position: 'MALETI,TKGHNV'}
-      - name: plot_1
-        properties: {}
+      - name: plot_cumplimiento
+        properties: {height: 418}
         type: Plot
         layout_properties: {grid_position: 'MALETI,ZWCBIP'}
 is_package: true
