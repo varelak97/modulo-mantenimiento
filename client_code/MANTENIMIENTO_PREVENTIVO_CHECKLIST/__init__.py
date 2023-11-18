@@ -18,6 +18,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     #self.set_event_handler('x-editar_comentario', self.editar_comentario)
     self.set_event_handler('x-guardar_comentario', self.guardar_comentario)
     self.set_event_handler('x-eliminar_comentario', self.eliminar_comentario)
+    #self.set_event_handler('x-deshabilitar_botones_grid', self.deshabilitar_botones_grid)
     
     self.datos = datos
     
@@ -122,7 +123,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     for fila in filas:
       componentes_fila = fila.get_components()
       label_indice = int(componentes_fila[0].text) - 1
-      componentes_fila[2].enabled = False #boton editsr
+      componentes_fila[2].enabled = False #boton editar
       componentes_fila[4].enabled = False #boton borrar
       if label_indice == indice:
         componentes_fila[3].visible = True #column panel de textbox y su boton
