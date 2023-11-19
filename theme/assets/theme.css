@@ -1107,7 +1107,10 @@ div.plot-container.plotly svg.main-svg {
   background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
   box-shadow: none;
   border: none;
-  width:230vh
+  width:800px;
+  /*width:230vh*/
+  overflow-x: auto;
+  
 }
 
 .anvil-role-wide-modal-content_small, body>div[data-notify="container"] {
