@@ -13,13 +13,7 @@ class RowTemplateComentarios(RowTemplateComentariosTemplate):
   def button_editar_click(self, **event_args):
     self.column_panel_comentario.visible = True
     self.label_comentario.visible = False
-    self.button_borrar.enabled = False
-    self.button_editar.enabled = False
-    self.parent.parent.parent.parent.parent.parent.button_agregar_comentario.enabled = False
-    #self.parent.parent.parent.parent.parent.parent.raise_event('x-deshabilitar_botones_comentarios', indice = indice)
-    
-    """indice = int(self.label_index.text)
-    self.parent.parent.parent.parent.parent.parent.raise_event('x-editar_comentario', indice = indice)"""
+    self.parent.parent.parent.parent.parent.parent.raise_event('x-editar_comentario')
 
   def button_guardar_click(self, **event_args):
     datos = {}

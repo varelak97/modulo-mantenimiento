@@ -18,6 +18,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     #self.set_event_handler('x-editar_comentario', self.editar_comentario)
     self.set_event_handler('x-guardar_comentario', self.guardar_comentario)
     self.set_event_handler('x-eliminar_comentario', self.eliminar_comentario)
+    self.set_event_handler('x-editar_comentario', self.editar_comentario)
     #self.set_event_handler('x-deshabilitar_botones_grid', self.deshabilitar_botones_grid)
     
     self.datos = datos
@@ -47,6 +48,14 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       self.disable_componentes_form()
         #componentes_row[4].enabled = False
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def editar_comentario(self, **event_args):
+    self.button_agregar_comentario.enabled = False
+    filas = self.repeating_panel_comentarios.get_components()
+    for fila in filas:
+      componentes_fila = fila.get_components()
+      componentes_fila[2].enabled = False #boton editar
+      componentes_fila[4].enabled = False #boton borrar
+        
   def disable_componentes_form(self):
     self.data_row_panel_input.visible = False
     self.text_box_nombre.enabled = False
@@ -77,6 +86,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   def eliminar_comentario(self, indice, **event_args):
     comentarios = self.repeating_panel_comentarios.items
     comentarios.pop(indice)
+    for index, comentario in enumerate(comentarios):
+      comentario['index'] = index + 1
     self.repeating_panel_comentarios.items = comentarios
     self.button_agregar_comentario.enabled = True
     
