@@ -296,7 +296,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def button_borrar_click(self, **event_args):
     self.drop_down_areas.selected_value = None
     self.drop_down_equipos.selected_value = None
-    self.drop_down_tipo.selected_value = None
+    self.drop_down_tipo.selected_value = "PROGRAMADO"
     self.llenar_calendario()
 
   

@@ -17,8 +17,8 @@ components:
   - {property: visible, code: 'self.item[''ver_checklist'']', writeback: false}
   event_bindings: {click: button_ver_checklist_click}
 - name: button_llenar_checklist
-  properties: {text: '', icon: 'fa:check', align: center, spacing_below: none, spacing_above: none,
-    icon_align: left, bold: false}
+  properties: {text: '', icon: 'fa:pencil-square-o', align: center, spacing_below: none,
+    spacing_above: none, icon_align: left, bold: false}
   type: Button
   layout_properties: {column: GNNYVV}
   event_bindings: {click: button_llenar_checklist_click}
