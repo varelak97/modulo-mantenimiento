@@ -128,8 +128,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     respuesta = alert(content = MANTENIMIENTO_PROGRAMA_ANUAL(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_mtto_preventivo_programado_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    datos = self.datos
 
   def link_mtto_correctivo_programado_click(self, **event_args):
     """This method is called when the link is clicked"""
