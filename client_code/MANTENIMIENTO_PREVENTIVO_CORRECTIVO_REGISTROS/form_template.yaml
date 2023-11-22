@@ -49,6 +49,7 @@ components:
         properties:
           role: wide-tonal-data-grid
           columns:
+          - {id: OIYETW, data_key: editar, title: '', width: '80'}
           - {id: POIVGQ, title: FOLIO, data_key: folio, $$hashKey: 'object:25130'}
           - {id: QJQSHC, title: ÁREA, data_key: area, $$hashKey: 'object:25131'}
           - {id: UMPPDH, title: EQUIPO, data_key: equipo, $$hashKey: 'object:25132'}
@@ -82,8 +83,8 @@ components:
         components:
         - type: DataRowPanel
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            auto_display_data: true, visible: false, item: null, font_size: null,
-            font: '', spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
+            auto_display_data: true, visible: true, item: null, font_size: null, font: '',
+            spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
             bold: false, underline: false}
           name: data_row_panel_filtros
           layout_properties: {}
@@ -167,7 +168,7 @@ components:
               border: ''
               enabled: true
               foreground: ''
-              items: [PREVENTIVO PROGRAMADO, CORRECTUIVO]
+              items: [PREVENTIVO, CORRECTIVO]
               visible: true
               font_size: null
               font: ''

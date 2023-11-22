@@ -25,6 +25,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.registros_mtto = self.ws_solicitudes_mtto.rows
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
     self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+
+    
     if len(self.registros_mtto) > 0:
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True

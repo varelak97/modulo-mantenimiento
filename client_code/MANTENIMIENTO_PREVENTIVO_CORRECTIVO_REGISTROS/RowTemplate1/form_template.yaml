@@ -66,4 +66,8 @@ components:
   layout_properties: {column: POAEJM}
   data_bindings:
   - {property: text, code: 'self.item[''fecha_hora_final'']'}
+- name: button_editar
+  properties: {text: '', role: elevated-button, icon: 'fa:edit'}
+  type: Button
+  layout_properties: {column: OIYETW}
 is_package: true

@@ -72,8 +72,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos  
     #popovers
-    self.boton = Button(text="prueba")
-    self.outlined_card_calendario_mttos.popover(content=MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos), title="TITULO DE PRUEBA", trigger="manual")
+    """self.boton = Button(text="prueba")
+    self.outlined_card_calendario_mttos.popover(content=MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos), title="TITULO DE PRUEBA", trigger="manual")"""
 
     #set color when mouseevent(leave,enter) occurs
     augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseenter',self.set_color)
@@ -129,10 +129,15 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
 
   def link_mtto_preventivo_programado_click(self, **event_args):
     datos = self.datos
+    datos['tipo'] = "PREVENTIVO" 
+    datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_mtto_correctivo_programado_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    datos = self.datos
+    datos['tipo'] = "CORRECTIVO" 
+    datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_mtto_autonomo_click(self, **event_args):
     """This method is called when the link is clicked"""
