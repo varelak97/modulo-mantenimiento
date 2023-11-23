@@ -78,10 +78,10 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     #set color when mouseevent(leave,enter) occurs
     augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_calendario_mttos,'mouseleave',self.set_color)
-    augment.set_event_handler(self.outlined_card_mtto_preventivo_programado,'mouseenter',self.set_color)
-    augment.set_event_handler(self.outlined_card_mtto_preventivo_programado,'mouseleave',self.set_color)
-    augment.set_event_handler(self.outlined_card_mtto_correctivo_programado,'mouseenter',self.set_color)
-    augment.set_event_handler(self.outlined_card_mtto_correctivo_programado,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_preventivo_correctivo,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_preventivo_correctivo,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_solicitudes_mtto,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_solicitudes_mtto,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseleave',self.set_color)
   ##################################### FUNCIONES PERSONALIZADS #####################################
@@ -132,11 +132,10 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
-  def link_mtto_correctivo_programado_click(self, **event_args):
+  def link_solicitudes_mtto_click(self, **event_args):
     datos = self.datos
-    datos['tipo'] = "CORRECTIVO" 
     datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
-    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    respuesta = alert(content = , large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_mtto_autonomo_click(self, **event_args):
     """This method is called when the link is clicked"""

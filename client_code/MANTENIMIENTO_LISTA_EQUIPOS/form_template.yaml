@@ -37,12 +37,12 @@ components:
       properties: {role: outlined, include_placeholder: true, placeholder: -- EQUIPO --}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL KOJEJI,ZKEIQM'}
-    - name: outlined_card_1
+    - name: outlined_card_img_equipo
       properties: {role: elevated-card}
       type: ColumnPanel
       layout_properties: {grid_position: 'BYEIUP,HPLOGN'}
       components:
-      - name: image_1
+      - name: image_equipo
         properties: {source: _/theme/default.png, display_mode: shrink_to_fit}
         type: Image
         layout_properties: {grid_position: 'OYEKRJ,GUGRDB'}
@@ -90,25 +90,25 @@ components:
           type: Label
           layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
       event_bindings: {click: link_mtto_preventivo_correctivo_click}
-    - name: link_mtto_correctivo_programado
+    - name: link_solicitudes_mtto
       properties: {}
       type: Link
       layout_properties: {grid_position: 'TUODEU,ACSBOA'}
       components:
-      - name: outlined_card_mtto_correctivo_programado
+      - name: outlined_card_solicitudes_mtto
         properties: {role: elevated-card}
         type: ColumnPanel
         layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
         components:
-        - name: image_mtto_correctivo_programado
+        - name: image_solicitudes_mtto
           properties: {source: _/theme/correctivo.png, height: '100'}
           type: Image
           layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-        - name: label_mtto_correctivo_programado
+        - name: label_solicitudes_mtto
           properties: {text: SOLICITUDES DE MANTENIMIENTO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'FXVIML,KCAEXH'}
-      event_bindings: {click: link_mtto_correctivo_programado_click}
+      event_bindings: {click: link_solicitudes_mtto_click}
     - name: link_mtto_autonomo
       properties: {}
       type: Link

@@ -20,7 +20,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.libro_reportes = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_reportes = self.libro_reportes['Registros']
     self.registros_reportes = []
-    if self.datos['tipo'] == "todos":
+
+    if self.datos['equipo'] == "todos":
+      self.registros_reportes = self.ws_reportes.rows
+    else:
+      for row in self.ws_reportes.rows:
+        if row['equipo'] == self.datos['equipo']:
+          self.registros_reportes.append(row)
+    
+    """if self.datos['tipo'] == "todos":
       if self.datos['equipo'] == "todos":
         self.registros_reportes = self.ws_reportes.rows
       else:
@@ -35,7 +43,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
       else:
         for row in self.ws_reportes.rows:
           if row['tipo_mantenimiento'] == self.datos['tipo'] and row['equipo'] == self.datos['equipo']:
-            self.registros_reportes.append(row)
+            self.registros_reportes.append(row)"""
         
     
     self.repeating_panel_registros.items = self.registros_reportes
