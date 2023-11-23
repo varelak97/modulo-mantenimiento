@@ -79,34 +79,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    self.datos = datos
-    self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
-    self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
-
-    self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
-    self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
-    self.mtto_corr_prev_todos = self.ws_mtto_corr_prev.rows
-
-    self.drop_down_area.items = self.lista_areas
-    self.drop_down_equipo.items = self.lista_equipos
-
-    self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
-    #self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
-    for item in self.solicitudes_mtto:
-      if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
-        self.solicitud_registro_actual = item
-        break
-    
-    self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
-    self.text_box_folio.text = self.solicitud_registro_actual['folio']
-    self.drop_down_area.selected_value = self.solicitud_registro_actual['area']
-    self.drop_down_area_change()
-    for item in self.drop_down_equipo.items:
-      if item[1]['EQUIPO'] == self.solicitud_registro_actual['equipo']:
-        self.drop_down_equipo.selected_value = item[1]
-        break
-      pass
-
     self.lista_drop_downs = [
       self.drop_down_area,
       self.drop_down_equipo,
@@ -126,7 +98,39 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.date_picker_fecha_hora_inicial,
       self.date_picker_fecha_hora_final
     ]
+    
+    self.datos = datos
+    print(f"lo quellega:{self.datos}")
+    self.drop_down_area.items = self.lista_areas
+    self.drop_down_equipo.items = self.lista_equipos
 
+    self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
+    self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
+    self.mtto_corr_prev_todos = self.ws_mtto_corr_prev.rows
+
+    if self.datos['modo'] == "nuevo":
+      self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
+      self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
+      self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
+      #self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
+      for item in self.solicitudes_mtto:
+        if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
+          self.solicitud_registro_actual = item
+          break
+      
+      self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
+      self.text_box_folio.text = self.solicitud_registro_actual['folio']
+      self.drop_down_area.selected_value = self.solicitud_registro_actual['area']
+      self.drop_down_area_change()
+      for item in self.drop_down_equipo.items:
+        if item[1]['EQUIPO'] == self.solicitud_registro_actual['equipo']:
+          self.drop_down_equipo.selected_value = item[1]
+          break
+    elif self.datos['modo'] == "edicion":
+      pass
+    elif self.datos['modo'] == "visor":
+      pass
+    
     
     
   ################################ FUNCIONES PERSONALIZADS ########################################

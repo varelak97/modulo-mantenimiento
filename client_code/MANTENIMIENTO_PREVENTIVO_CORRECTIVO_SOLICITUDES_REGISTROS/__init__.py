@@ -51,6 +51,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
   def actualizar_form_activo(self, datos, **event_args):
+    print(f"lo que recibe:{datos}")
     datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
