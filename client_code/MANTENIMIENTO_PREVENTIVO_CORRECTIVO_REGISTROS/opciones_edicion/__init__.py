@@ -12,9 +12,15 @@ class opciones_edicion(opciones_edicionTemplate):
   def button_ver_reporte_click(self, **event_args):
     datos = {}
     datos['id_mtto_preventivo_correctivo'] = self.id_mtto
+    datos['modo'] = "visor"
+    self.popper.pop("hide")
     self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)
 
   def button_editar_reporte_click(self, **event_args):
-    alert(f"id:{self.id_mtto}")
+    datos = {}
+    datos['id_mtto_preventivo_correctivo'] = self.id_mtto
+    datos['modo'] = "editor"
+    self.popper.pop("hide")
+    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)
     
 

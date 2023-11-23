@@ -100,7 +100,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ]
     
     self.datos = datos
-    print(f"lo quellega:{self.datos}")
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
 
@@ -126,10 +125,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         if item[1]['EQUIPO'] == self.solicitud_registro_actual['equipo']:
           self.drop_down_equipo.selected_value = item[1]
           break
-    elif self.datos['modo'] == "edicion":
-      pass
+    elif self.datos['modo'] == "editor":
+      self.outlined_card_mtto_preventivo_correctivo.visible = True
     elif self.datos['modo'] == "visor":
-      pass
+      alert("entro en modo visor")
     
     
     
