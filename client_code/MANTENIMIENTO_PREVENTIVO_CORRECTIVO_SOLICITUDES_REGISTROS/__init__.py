@@ -11,8 +11,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
   libro_solicitudes_mtto = None
   ws_consulta_solicitudes_mtto = None
   registros_consulta_mtto = None
-  ws_solicitudes_mtto = None
-  registros_mtto = None
+  #ws_solicitudes_mtto = None
+  #registros_mtto = None
   items_drop_down_status = [("REALIZADO", True),("PENDIENTE", False)]
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -21,20 +21,29 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
-    self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
-    self.registros_mtto = self.ws_solicitudes_mtto.rows
+    #self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
+    #self.registros_mtto = self.ws_solicitudes_mtto.rows
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
-    self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+    #self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
 
+    self.registros_consulta_mtto = []
+
+    if self.datos['equipo'] == "todos":
+      self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+    else:
+      for row in self.ws_consulta_solicitudes_mtto.rows:
+        if row['equipo'] == self.datos['equipo']:
+          self.registros_consulta_mtto.append(row)
     
-    if len(self.registros_mtto) > 0:
+    if len(self.registros_consulta_mtto) > 0:
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True
+      self.repeating_panel_registros.items = self.registros_consulta_mtto
+      self.drop_down_status.items = self.items_drop_down_status
+      
     else:
       self.column_panel_empty_db.visible = True
       self.data_grid_registros.visible = False
-    self.repeating_panel_registros.items = self.registros_consulta_mtto
-    self.drop_down_status.items = self.items_drop_down_status
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
   def actualizar_form_activo(self, datos, **event_args):

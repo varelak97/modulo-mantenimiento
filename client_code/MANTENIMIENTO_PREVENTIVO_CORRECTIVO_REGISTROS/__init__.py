@@ -15,8 +15,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.datos = datos
     self.init_components(**properties)
 
-    print(f"datos:{self.datos}")
-
     self.libro_reportes = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_reportes = self.libro_reportes['Registros']
     self.registros_reportes = []

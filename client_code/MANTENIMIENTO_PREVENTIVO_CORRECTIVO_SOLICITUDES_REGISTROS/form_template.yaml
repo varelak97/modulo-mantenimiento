@@ -160,7 +160,7 @@ components:
               role: outlined
               align: full
               tooltip: ''
-              placeholder: -- STATUS--
+              placeholder: -- TODOS--
               border: ''
               enabled: true
               foreground: ''
