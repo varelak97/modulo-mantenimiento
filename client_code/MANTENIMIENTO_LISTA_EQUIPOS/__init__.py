@@ -127,9 +127,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos = self.datos
     respuesta = alert(content = MANTENIMIENTO_PROGRAMA_ANUAL(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
-  def link_mtto_preventivo_programado_click(self, **event_args):
+  def link_mtto_preventivo_correctivo_click(self, **event_args):
     datos = self.datos
-    datos['tipo'] = "PREVENTIVO" 
     datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 

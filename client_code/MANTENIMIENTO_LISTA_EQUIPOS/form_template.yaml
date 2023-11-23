@@ -70,26 +70,26 @@ components:
           layout_properties: {grid_position: 'PIOVLG,UOKKGE'}
       event_bindings: {click: link_calendario_mttos_click}
       data_bindings: []
-    - name: link_mtto_preventivo_programado
+    - name: link_mtto_preventivo_correctivo
       properties: {}
       type: Link
       layout_properties: {grid_position: 'TUODEU,KSGOCH'}
       components:
-      - name: outlined_card_mtto_preventivo_programado
+      - name: outlined_card_mtto_preventivo_correctivo
         properties: {role: elevated-card}
         type: ColumnPanel
         layout_properties: {grid_position: 'IIEWAV,GGWONO'}
         components:
-        - name: image_mtto_preventivo_programado
+        - name: image_mtto_preventivo_correctivo
           properties: {source: _/theme/pngegg.png, height: 100}
           type: Image
           layout_properties: {grid_position: 'GELVWU,FVUQRY'}
-        - name: label_mtto_preventivo_programado
+        - name: label_mtto_preventivo_correctivo
           properties: {text: MANTENIMIENTO PREVENTIVO /CORRECTIVO PROGRAMADO, bold: true,
             align: center}
           type: Label
           layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
-      event_bindings: {click: link_mtto_preventivo_programado_click}
+      event_bindings: {click: link_mtto_preventivo_correctivo_click}
     - name: link_mtto_correctivo_programado
       properties: {}
       type: Link
