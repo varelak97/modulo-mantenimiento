@@ -29,13 +29,17 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.registros_consulta_mtto = []
 
     if self.datos['equipo'] == "todos":
+      print("entro todos")
       self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
     else:
+      print("entro specific")
       for row in self.ws_consulta_solicitudes_mtto.rows:
         if row['equipo'] == self.datos['equipo']:
           self.registros_consulta_mtto.append(row)
     
     if len(self.registros_consulta_mtto) > 0:
+      print("elements mayor a cero")
+      print(self.registros_consulta_mtto)
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True
       self.repeating_panel_registros.items = self.registros_consulta_mtto

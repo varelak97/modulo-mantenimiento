@@ -179,9 +179,11 @@ components:
             layout_properties: {column: SMZSVD}
             event_bindings: {change: drop_down_status_change}
         - type: RepeatingPanel
-          properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS.RowTemplateEditar}
+          properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS.RowTemplateEditar,
+            visible: true}
           name: repeating_panel_registros
           layout_properties: {}
+          data_bindings: []
       - type: ColumnPanel
         properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
           wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
