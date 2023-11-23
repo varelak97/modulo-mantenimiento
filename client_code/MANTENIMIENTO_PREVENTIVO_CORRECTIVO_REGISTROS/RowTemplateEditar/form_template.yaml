@@ -70,4 +70,6 @@ components:
   properties: {text: '', role: elevated-button, icon: 'fa:edit'}
   type: Button
   layout_properties: {column: OIYETW}
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_mtto_preventivo_correctivo'']', writeback: false}
 is_package: true

@@ -3,6 +3,8 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
+from anvil_extras import popover
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -15,8 +17,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.datos = datos
     self.init_components(**properties)
 
+    self.set_event_handler('x-abrir_reporte', self.abrir_reporte)
+
     self.libro_reportes = app_files.mantenimiento_correctivo_preventivo_programado
-    self.ws_reportes = self.libro_reportes['Registros']
+    self.ws_reportes = self.libro_reportes['Consulta']
     self.registros_reportes = []
 
     if self.datos['equipo'] == "todos":
@@ -25,28 +29,16 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
       for row in self.ws_reportes.rows:
         if row['equipo'] == self.datos['equipo']:
           self.registros_reportes.append(row)
-    
-    """if self.datos['tipo'] == "todos":
-      if self.datos['equipo'] == "todos":
-        self.registros_reportes = self.ws_reportes.rows
-      else:
-        for row in self.ws_reportes.rows:
-          if row['equipo'] == self.datos['equipo']:
-            self.registros_reportes.append(row)
-    else:
-      if self.datos['equipo'] == "todos":
-        for row in self.ws_reportes.rows:
-          if row['tipo_mantenimiento'] == self.datos['tipo']:
-            self.registros_reportes.append(row)
-      else:
-        for row in self.ws_reportes.rows:
-          if row['tipo_mantenimiento'] == self.datos['tipo'] and row['equipo'] == self.datos['equipo']:
-            self.registros_reportes.append(row)"""
-        
-    
+          
     self.repeating_panel_registros.items = self.registros_reportes
 
   ################################ FUNCIONES PERSONALIZADS #######################################
+  def abrir_reporte(self, datos, **event_args):
+    datos.update(self.datos)
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    
+    
+    
   def filtros(self):
     items = self.registros_reportes.copy()
     if len(self.text_box_filtro_folio.text) > 0:

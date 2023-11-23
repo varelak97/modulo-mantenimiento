@@ -207,7 +207,7 @@ components:
             layout_properties: {column: MRYLSD}
             event_bindings: {change: text_box_filtro_actividades_mtto_change}
         - type: RepeatingPanel
-          properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS.RowTemplate1}
+          properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS.RowTemplateEditar}
           name: repeating_panel_registros
           layout_properties: {}
 is_package: true
