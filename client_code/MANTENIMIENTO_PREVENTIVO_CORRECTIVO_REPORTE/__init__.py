@@ -82,12 +82,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
     self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
-    self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
-    #self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
-    for item in self.solicitudes_mtto:
-      if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
-        self.solicitud_registro_actual = item
-        break
 
     self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
@@ -95,6 +89,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
 
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
+
+    self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
+    #self.solicitud_registro_actual = self.solicitudes_mtto[int(datos['id_renglon'])]
+    for item in self.solicitudes_mtto:
+      if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
+        self.solicitud_registro_actual = item
+        break
+    
     self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
     self.text_box_folio.text = self.solicitud_registro_actual['folio']
     self.drop_down_area.selected_value = self.solicitud_registro_actual['area']
