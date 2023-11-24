@@ -127,8 +127,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           break
     elif self.datos['modo'] == "editor":
       self.column_panel_tipo_mtto.visible = True
+      print(self.datos)
     elif self.datos['modo'] == "visor":
       self.column_panel_tipo_mtto.visible = True
+      print(self.datos)
     
     
     
