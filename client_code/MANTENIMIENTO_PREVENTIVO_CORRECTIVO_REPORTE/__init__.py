@@ -126,9 +126,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.drop_down_equipo.selected_value = item[1]
           break
     elif self.datos['modo'] == "editor":
-      self.outlined_card_mtto_preventivo_correctivo.visible = True
+      self.column_panel_tipo_mtto.visible = True
     elif self.datos['modo'] == "visor":
-      alert("entro en modo visor")
+      self.column_panel_tipo_mtto.visible = True
     
     
     
