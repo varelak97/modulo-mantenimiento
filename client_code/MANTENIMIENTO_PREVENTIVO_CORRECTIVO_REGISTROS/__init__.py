@@ -23,19 +23,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.ws_reportes = self.libro_reportes['Consulta']
     self.registros_reportes = []
 
-    if self.datos['equipo'] == "todos":
-      self.registros_reportes = self.ws_reportes.rows
-    else:
-      for row in self.ws_reportes.rows:
-        if row['equipo'] == self.datos['equipo']:
-          self.registros_reportes.append(row)
-          
-    self.repeating_panel_registros.items = self.registros_reportes
+    self.button_actualizar_click()
 
   ################################ FUNCIONES PERSONALIZADS #######################################
   def abrir_reporte(self, datos, **event_args):
     datos.update(self.datos)
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    if respuesta == "registro_guardado":
+      with Notification("Actualizando tabla...", title="ACTUALIZANDO", style="success"):
+        self.button_actualizar_click()
     
     
     
@@ -63,7 +59,16 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.repeating_panel_registros.items = items
 
     ########################################### EVENTOS ###########################################
+  def button_actualizar_click(self, **event_args):
+    if self.datos['equipo'] == "todos":
+      self.registros_reportes = self.ws_reportes.rows
+    else:
+      for row in self.ws_reportes.rows:
+        if row['equipo'] == self.datos['equipo']:
+          self.registros_reportes.append(row)
 
+    self.repeating_panel_registros.items = self.registros_reportes
+    
   def text_box_filtro_folio_change(self, **event_args):
     self.filtros()
 
@@ -90,6 +95,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
   def text_box_filtro_actividades_mtto_change(self, **event_args):
     self.filtros()
+
 
 
 
