@@ -75,6 +75,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   lista_text_components = None
   lista_drop_downs = None
   lista_date_pickers = None
+  lista_radio_buttons = None
 
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -97,6 +98,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.date_picker_fecha_hora_solicitud,
       self.date_picker_fecha_hora_inicial,
       self.date_picker_fecha_hora_final
+    ]
+
+    self.lista_radio_buttons = [
+      self.radio_button_deterioro,
+      self.radio_button_incumplimiento,
+      self.radio_button_mal_uso,
+      self.radio_button_omision
     ]
     
     self.datos = datos
@@ -132,24 +140,41 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.drop_down_equipo.selected_value = item[1]
           break
     elif self.datos['modo'] == "editor":
-      self.column_panel_tipo_mtto.visible = True
-      print(f"el id de mtto:{self.datos['id_mtto_preventivo_correctivo']}")
       for reg in self.mtto_corr_prev_todos:
         if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
           self.mtto_corr_prev_reporte = reg
           break
       self.llenar_campos(self.mtto_corr_prev_reporte)
     elif self.datos['modo'] == "visor":
-      self.column_panel_tipo_mtto.visible = True
-      print(self.datos)
+      for reg in self.mtto_corr_prev_todos:
+        if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
+          self.mtto_corr_prev_reporte = reg
+          break
+      self.llenar_campos(self.mtto_corr_prev_reporte)
+      self.habilitar_deshabilitar_campos(False)
+      self.button_guardar.enabled = False
+      
 
   def llenar_campos(self, registro):
     self.date_picker_fecha_hora_solicitud.date = registro['fecha_hora_solicitud']
     self.drop_down_area.selected_value = registro['area']
     self.drop_down_area_change()
-    self.drop_down_equipo.selected_value = registro['equipo']
+    equipo_seleccionado = [equipo[1] for equipo in self.lista_equipos if registro['equipo'] in equipo]
+    self.drop_down_equipo.selected_value = equipo_seleccionado[0]
     self.text_box_folio.text = registro['folio']
-    
+    self.text_area_descripcion_falla.text = registro['descripcion_falla']
+    self.drop_down_refaccion.selected_value = registro['requiere_refaccion']
+    self.drop_down_servicio.selected_value = registro['requiere_servicio']
+    self.drop_down_tipo_mantenimiento.selected_value = registro['tipo_mantenimiento']
+    self.drop_down_tipo_mantenimiento_change()
+    for radio in self.lista_radio_buttons:
+      if radio.text == registro['clasificacion_mtto']:
+        radio.selected = True
+    self.date_picker_fecha_hora_inicial.date = registro['fecha_hora_inicial']
+    self.text_area_actividades.text = registro['actividades_mtto']
+    self.date_picker_fecha_hora_final.date = registro['fecha_hora_final']
+    self.text_box_persona_ejecuta_mtto.text = registro['persona_ejecuta_mtto']
+    self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']    
 
   def valida_campos(self):
     status = True
@@ -181,6 +206,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       return status
     return respuesta
 
+  def habilitar_deshabilitar_campos(self, estado):
+    for item in self.lista_date_pickers:
+      item.enabled = estado
+    for item in self.lista_drop_downs:
+      item.enabled = estado
+    for item in self.lista_radio_buttons:
+      item.enabled = estado
+    for item in self.lista_text_components:
+      item.enabled = estado
   ############################################ EVENTOS ############################################
 
   def drop_down_tipo_mantenimiento_change(self, **event_args):
