@@ -252,25 +252,30 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     if respuesta == False:
       alert("Por favor, llene todos los campos!",title="ERROR!")
     else:
-      with Notification("Guardando reporte...", title="GUARDANDO.", style="info"):
-        respuesta['id_mtto_preventivo_correctivo'] = (max([int(item['id_mtto_preventivo_correctivo']) for item in self.mtto_corr_prev_todos]) + 1) if len(self.mtto_corr_prev_todos) > 0 else 1
-        respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
-        respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
-        respuesta['usuario_registrador'] = "falta"
-        respuesta['operacion'] = "creacion"
-        respuesta['marca_temporal'] = datetime.now()
-        respuesta['comentarios'] = ""
-        respuesta['registro_principal'] = 1
-        self.ws_mtto_corr_prev.add_row(**respuesta)
-        
-        registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
-        self.solicitud_registro_actual['registro_principal'] = 0
-        registro_solicitud_editado['operacion'] = "edicion"
-        registro_solicitud_editado['marca_temporal'] = datetime.now()
-        registro_solicitud_editado['mtto_realizado'] = 1
-        self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
-
-        ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
+      if self.datos['modo'] == "nuevo":
+        with Notification("Guardando reporte...", title="GUARDANDO.", style="info"):
+          respuesta['id_mtto_preventivo_correctivo'] = (max([int(item['id_mtto_preventivo_correctivo']) for item in self.mtto_corr_prev_todos]) + 1) if len(self.mtto_corr_prev_todos) > 0 else 1
+          respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
+          respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
+          respuesta['usuario_registrador'] = "falta"
+          respuesta['operacion'] = "creacion"
+          respuesta['marca_temporal'] = datetime.now()
+          respuesta['comentarios'] = ""
+          respuesta['registro_principal'] = 1
+          self.ws_mtto_corr_prev.add_row(**respuesta)
+          
+          registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
+          self.solicitud_registro_actual['registro_principal'] = 0
+          registro_solicitud_editado['operacion'] = "edicion"
+          registro_solicitud_editado['marca_temporal'] = datetime.now()
+          registro_solicitud_editado['mtto_realizado'] = 1
+          self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
+          ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
+      elif self.datos['modo'] == "editor":  
+        registro_edicion = dict(self.mtto_corr_prev_reporte.copy()) 
+        registro_edicion.update(respuesta)
+        print(f"lo que se va a guardar:\n{registro_edicion}")
+      
         
       Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
