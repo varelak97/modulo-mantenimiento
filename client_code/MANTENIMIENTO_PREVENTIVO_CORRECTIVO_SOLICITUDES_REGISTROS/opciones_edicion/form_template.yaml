@@ -1,0 +1,15 @@
+container: {type: ColumnPanel}
+components:
+- name: button_ver_reporte
+  properties: {text: VER REPORTE, bold: true, icon: 'fa:eye', align: left}
+  type: Button
+  layout_properties: {grid_position: 'ABVCAG,MIVMRK'}
+  data_bindings: []
+  event_bindings: {click: button_ver_reporte_click}
+- name: button_editar_reporte
+  properties: {text: EDITAR REPORTE, bold: true, icon: 'fa:edit', align: left}
+  type: Button
+  layout_properties: {grid_position: 'ABVCAG,MIVMRK'}
+  data_bindings: []
+  event_bindings: {click: button_editar_reporte_click}
+is_package: true
