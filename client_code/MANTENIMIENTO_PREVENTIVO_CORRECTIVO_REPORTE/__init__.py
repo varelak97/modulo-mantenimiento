@@ -100,6 +100,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ]
     
     self.datos = datos
+    print(f"datos recibidos:{self.datos}")
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
 
