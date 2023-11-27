@@ -107,6 +107,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
     self.mtto_corr_prev_todos = self.ws_mtto_corr_prev.rows
 
+    self.llenar_reporte()
+    
+    
+    
+  ################################ FUNCIONES PERSONALIZADS ########################################
+  def llenar_reporte(self):
     if self.datos['modo'] == "nuevo":
       self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
       self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
@@ -130,15 +136,21 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       print(f"el id de mtto:{self.datos['id_mtto_preventivo_correctivo']}")
       for reg in self.mtto_corr_prev_todos:
         if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
-          print(f"lo encontro:{reg}")
+          self.mtto_corr_prev_reporte = reg
           break
+      self.llenar_campos(self.mtto_corr_prev_reporte)
     elif self.datos['modo'] == "visor":
       self.column_panel_tipo_mtto.visible = True
       print(self.datos)
+
+  def llenar_campos(self, registro):
+    self.date_picker_fecha_hora_solicitud.date = registro['fecha_hora_solicitud']
+    self.drop_down_area.selected_value = registro['area']
+    self.drop_down_area_change()
+    self.drop_down_equipo.selected_value = registro['equipo']
+    self.text_box_folio.text = registro['folio']
     
-    
-    
-  ################################ FUNCIONES PERSONALIZADS ########################################
+
   def valida_campos(self):
     status = True
     respuesta = {}
