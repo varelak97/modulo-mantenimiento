@@ -272,10 +272,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
           ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
       elif self.datos['modo'] == "editor":  
-        registro_edicion = dict(self.mtto_corr_prev_reporte.copy()) 
-        registro_edicion.update(respuesta)
-        print(f"lo que se va a guardar:\n{registro_edicion}")
-      
+        with Notification("Actualizando reporte...", title="GUARDANDO.", style="info"):
+          registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
+          self.mtto_corr_prev_reporte['registro_principal'] = 0
+          registro_edicion.update(respuesta)
+          registro_edicion['id_usuario_registrador'] = 18
+          registro_edicion['usuario_registrador'] = "el que modifica"
+          registro_edicion['operacion'] = "edicion"
+          self.ws_mtto_corr_prev.add_row(**registro_edicion)
         
       Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
