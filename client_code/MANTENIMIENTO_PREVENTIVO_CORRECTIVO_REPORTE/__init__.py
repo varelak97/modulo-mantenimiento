@@ -100,7 +100,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ]
     
     self.datos = datos
-    print(f"datos recibidos:{self.datos}")
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
 
@@ -128,7 +127,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           break
     elif self.datos['modo'] == "editor":
       self.column_panel_tipo_mtto.visible = True
-      print(self.datos)
+      print(f"el id de mtto:{self.datos['id_mtto_preventivo_correctivo']}")
+      for reg in self.mtto_corr_prev_todos:
+        if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
+          print(f"lo encontro:{reg}")
+          break
     elif self.datos['modo'] == "visor":
       self.column_panel_tipo_mtto.visible = True
       print(self.datos)
