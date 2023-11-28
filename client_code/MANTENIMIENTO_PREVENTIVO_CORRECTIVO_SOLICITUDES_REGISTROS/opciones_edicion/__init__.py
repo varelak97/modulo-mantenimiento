@@ -44,7 +44,7 @@ class opciones_edicion(opciones_edicionTemplate):
     if status:
       datos['fecha_programada'] = dp.date
       datos['id_solicitud_mtto'] = self.popper.tag
-      print(f"datos:{datos}")
+      self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
       #self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
 
 
