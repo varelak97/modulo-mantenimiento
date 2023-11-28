@@ -4,22 +4,32 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
 class opciones_edicion(opciones_edicionTemplate):
-  def __init__(self, **properties):
+  id_solicitud = None
+  def __init__(self, id_solicitud, status, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.id_solicitud = id_solicitud
+    if status:
+      self.button_editar_solicitud.visible = False
+      self.button_generar_reporte.visible = False
 
-  def button_ver_reporte_click(self, **event_args):
-    alert("click en ver reporte")
-    """datos = {}
-    datos['id_mtto_preventivo_correctivo'] = self.id_mtto
+  def button_ver_solicitud_click(self, **event_args):
+    datos = {}
+    datos['id_solicitud_mtto'] = self.id_solicitud
     datos['modo'] = "visor"
     self.popper.pop("hide")
-    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)"""
+    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)
 
-  def button_editar_reporte_click(self, **event_args):
-    alert("click en editar reporte")
-    """datos = {}
-    datos['id_mtto_preventivo_correctivo'] = self.id_mtto
+  def button_editar_solicitud_click(self, **event_args):
+    datos = {}
+    datos['id_solicitud_mtto'] = self.id_solicitud
     datos['modo'] = "editor"
     self.popper.pop("hide")
-    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)"""
+    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)
+
+  def button_generar_reporte_click(self, **event_args):
+    datos = {}
+    datos['id_solicitud_mtto'] = self.id_solicitud
+    datos['modo'] = "reporte"
+    self.popper.pop("hide")
+    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)

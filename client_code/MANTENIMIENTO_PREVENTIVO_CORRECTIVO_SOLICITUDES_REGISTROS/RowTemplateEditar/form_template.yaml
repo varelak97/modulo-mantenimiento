@@ -7,10 +7,11 @@ components:
   properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:pencil'}
+    underline: false, icon: 'fa:edit'}
   name: button_editar
   layout_properties: {column: XMXXEM}
-  data_bindings: []
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_solicitud_mtto'']', writeback: false}
   event_bindings: {click: button_editar_click}
 - type: Label
   properties: {}

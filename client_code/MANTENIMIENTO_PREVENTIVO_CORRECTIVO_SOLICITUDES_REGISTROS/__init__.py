@@ -2,7 +2,7 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REG
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
-from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from anvil_extras import popover
 from datetime import datetime, date
 
@@ -20,6 +20,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
+    self.set_event_handler('x-abrir_solicitud', self.abrir_solicitud)
+    
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
     #self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
@@ -30,27 +32,31 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.registros_consulta_mtto = []
 
     if self.datos['equipo'] == "todos":
-      print("entro todos")
       self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
     else:
-      print("entro specific")
       for row in self.ws_consulta_solicitudes_mtto.rows:
         if row['equipo'] == self.datos['equipo']:
           self.registros_consulta_mtto.append(row)
     
     if len(self.registros_consulta_mtto) > 0:
-      print("elements mayor a cero")
       print(self.registros_consulta_mtto)
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True
       self.repeating_panel_registros.items = self.registros_consulta_mtto
       self.drop_down_status.items = self.items_drop_down_status
-      
     else:
       self.column_panel_empty_db.visible = True
       self.data_grid_registros.visible = False
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
+  def abrir_solicitud(self, datos, **event_args):
+    print("entra a abrir solicitud!")
+    datos.update(self.datos)
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    if respuesta == "registro_guardado":
+      with Notification("Actualizando tabla...", title="ACTUALIZANDO", style="success"):
+        self.button_actualizar_click()
+        
   def actualizar_form_activo(self, datos, **event_args):
     print(f"lo que recibe:{datos}")
     datos['id_usuario_erp'] = self.datos['id_usuario_erp']

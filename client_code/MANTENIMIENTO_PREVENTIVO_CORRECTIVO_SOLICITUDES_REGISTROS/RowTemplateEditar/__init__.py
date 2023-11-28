@@ -2,17 +2,19 @@ from ._anvil_designer import RowTemplateEditarTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from ..opciones_edicion import opciones_edicion
 
 class RowTemplateEditar(RowTemplateEditarTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   def __init__(self, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.check_box_status.checked),title=self.label_equipo.text, trigger="click",max_width="450px")
 
   ############################### FUNCIONES PERSONALIZADAS ########################################
 
   ############################################ EVENTOS ############################################
-  def button_editar_click(self, **event_args):
+  """def button_editar_click(self, **event_args):
     datos = {}
     if self.check_box_status.checked:
       botones = [("VER REPORTE","ver_reporte")]
@@ -34,5 +36,5 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
         datos['id_solicitud_mtto'] = self.tag
         self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
     elif respuesta == "ver_reporte":
-      alert("Aqui va el reporte...",title="FORMULARIO REPORTE")
+      alert("Aqui va el reporte...",title="FORMULARIO REPORTE")"""
 
