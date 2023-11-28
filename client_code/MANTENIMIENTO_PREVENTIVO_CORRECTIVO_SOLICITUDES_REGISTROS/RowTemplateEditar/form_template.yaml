@@ -12,7 +12,7 @@ components:
   layout_properties: {column: XMXXEM}
   data_bindings:
   - {property: tag, code: 'self.item[''id_solicitud_mtto'']', writeback: false}
-  event_bindings: {click: button_editar_click}
+  event_bindings: {}
 - type: Label
   properties: {}
   name: label_folio

@@ -36,17 +36,14 @@ class opciones_edicion(opciones_edicionTemplate):
     self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)
 
   def button_programar_click(self, **event_args):
+    self.popper.pop("hide")
     datos = {}
-    botones = [("GENERAR REPORTE","generar_reporte"),("PROGRAMAR MTTO","programar")]
-    respuesta = alert(title=self.label_equipo.text,buttons=botones)
-    if respuesta == "programar":
-      botones = [("PROGRAMAR", True)]
-      dp = DatePicker(format='%Y-%m-%d')
-      status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
-      if status:
-        datos['fecha_programada'] = dp.date
-        datos['id_solicitud_mtto'] = self.tag
-        print(f"solicitud mtto:{datos['id_solicitud_mtto']}")
-        #self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
+    botones = [("PROGRAMAR", True)]
+    dp = DatePicker(format='%Y-%m-%d')
+    status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
+    if status:
+      datos['fecha_programada'] = dp.date
+      datos['id_solicitud_mtto'] = self.tag
+      #self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
 
 
