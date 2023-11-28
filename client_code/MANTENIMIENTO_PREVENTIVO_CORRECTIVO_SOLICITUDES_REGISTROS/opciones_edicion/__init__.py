@@ -43,7 +43,7 @@ class opciones_edicion(opciones_edicionTemplate):
     status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
     if status:
       datos['fecha_programada'] = dp.date
-      datos['id_solicitud_mtto'] = self.button_editar_solicitud.tag
+      datos['id_solicitud_mtto'] = self.popper.tag
       print(f"datos:{datos}")
       #self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
 
