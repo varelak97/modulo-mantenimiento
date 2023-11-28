@@ -63,6 +63,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   libro_solicitudes = None
   ws_solicitudes = None
   registros_solicitudes = None
+  registro_actual = None
+  
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -72,7 +74,26 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     self.ws_solicitudes = self.libro_solicitudes['Registros']
     self.registros_solicitudes = self.ws_solicitudes.rows
 
+    if self.datos['modo'] == "editor":
+      self.text_box_nombre.enabled = False
+      self.date_picker_fecha_solicitud.enabled = False
+      self.text_area_anomalia.enabled = False
+      self.llenar_campos()
+
   #################################### FUNCIONES PERSONALIZADS ####################################
+  def llenar_campos(self):
+    for registro in self.registros_solicitudes:
+      if registro['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and registro['registro_principal'] == '1':
+        self.registro_actual = registro
+        break
+    self.text_box_nombre.text = self.registro_actual['persona_reporta']
+    self.date_picker_fecha_solicitud.date = self.registro_actual['fecha_reporte']
+    self.drop_down_area.selected_value = self.registro_actual['area']
+    self.drop_down_area_change()
+    self.drop_down_equipo.selected_value = self.registro_actual['equipo']
+    self.text_area_anomalia.text = self.registro_actual['descripcion_anomalia']
+    
+
   def validar_campos(self):
     dict_solicitud = {}
     status_validacion = True
