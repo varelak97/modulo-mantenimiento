@@ -78,6 +78,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       self.text_box_nombre.enabled = False
       self.date_picker_fecha_solicitud.enabled = False
       self.text_area_anomalia.enabled = False
+      self.button_enviar.text = "GUARDAR"
+      self.button_enviar.icon = "fa:save"
+      self.button_enviar.enabled = True
       self.llenar_campos()
 
   #################################### FUNCIONES PERSONALIZADS ####################################
@@ -90,9 +93,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     self.date_picker_fecha_solicitud.date = self.registro_actual['fecha_reporte']
     self.drop_down_area.selected_value = self.registro_actual['area']
     self.drop_down_area_change()
-    self.drop_down_equipo.selected_value = self.registro_actual['equipo']
     self.text_area_anomalia.text = self.registro_actual['descripcion_anomalia']
-    
+    self.drop_down_equipo.selected_value = [equipo[1] for equipo in self.lista_equipos if self.registro_actual['equipo'] in equipo][0]
 
   def validar_campos(self):
     dict_solicitud = {}

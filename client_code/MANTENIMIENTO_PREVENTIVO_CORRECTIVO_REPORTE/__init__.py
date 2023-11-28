@@ -159,8 +159,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.date_picker_fecha_hora_solicitud.date = registro['fecha_hora_solicitud']
     self.drop_down_area.selected_value = registro['area']
     self.drop_down_area_change()
-    equipo_seleccionado = [equipo[1] for equipo in self.lista_equipos if registro['equipo'] in equipo]
-    self.drop_down_equipo.selected_value = equipo_seleccionado[0]
+    self.drop_down_equipo.selected_value = [equipo[1] for equipo in self.lista_equipos if registro['equipo'] in equipo][0]
     self.text_box_folio.text = registro['folio']
     self.text_area_descripcion_falla.text = registro['descripcion_falla']
     self.drop_down_refaccion.selected_value = registro['requiere_refaccion']

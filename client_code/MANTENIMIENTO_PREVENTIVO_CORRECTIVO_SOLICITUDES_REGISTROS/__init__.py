@@ -24,8 +24,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
-    #self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
-    #self.registros_mtto = self.ws_solicitudes_mtto.rows
+    self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
+    self.registros_mtto = self.ws_solicitudes_mtto.rows
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
     #self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
 
@@ -49,7 +49,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
   def abrir_solicitud(self, datos, **event_args):
-    print("entra a abrir solicitud!")
     datos.update(self.datos)
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     if respuesta == "registro_guardado":
