@@ -12,6 +12,11 @@ components:
   layout_properties: {grid_position: 'ABVCAG,MIVMRK'}
   data_bindings: []
   event_bindings: {click: button_editar_solicitud_click}
+- name: button_programar
+  properties: {text: PROGRAMAR, bold: true, align: left, icon: 'fa:calendar'}
+  type: Button
+  layout_properties: {grid_position: 'TJIGGU,XUIGIC'}
+  event_bindings: {click: button_programar_click}
 - name: button_generar_reporte
   properties: {text: GENERAR REPORTE, icon: 'fa:file', align: left, bold: true}
   type: Button

@@ -12,6 +12,7 @@ class opciones_edicion(opciones_edicionTemplate):
     if status:
       self.button_editar_solicitud.visible = False
       self.button_generar_reporte.visible = False
+      self.button_programar.visible = False
 
   def button_ver_solicitud_click(self, **event_args):
     datos = {}
@@ -33,3 +34,19 @@ class opciones_edicion(opciones_edicionTemplate):
     datos['modo'] = "reporte"
     self.popper.pop("hide")
     self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)
+
+  def button_programar_click(self, **event_args):
+    datos = {}
+    botones = [("GENERAR REPORTE","generar_reporte"),("PROGRAMAR MTTO","programar")]
+    respuesta = alert(title=self.label_equipo.text,buttons=botones)
+    if respuesta == "programar":
+      botones = [("PROGRAMAR", True)]
+      dp = DatePicker(format='%Y-%m-%d')
+      status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
+      if status:
+        datos['fecha_programada'] = dp.date
+        datos['id_solicitud_mtto'] = self.tag
+        print(f"solicitud mtto:{datos['id_solicitud_mtto']}")
+        #self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
+
+
