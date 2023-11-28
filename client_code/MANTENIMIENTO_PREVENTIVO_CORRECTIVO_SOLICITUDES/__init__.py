@@ -164,12 +164,18 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if respuesta == False:
       alert(title="ERROR!", content="Faltan campos por llenar!")
     else:
+      if self.datos['modo'] == "nuevo":
+        id_nuevo_solicitud_mtto = id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
+        folio = self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1)
+      else:
+        #AQUIIII ME QUEDE!!!!!!!!!!!!!!!!!
+        pass
       with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
-        id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
+        #id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
         dict_datos = {
           "id_solicitud_mtto":id_nuevo_solicitud_mtto,
           "mtto_realizado": 0,
-          "folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
+          "folio":folio,#self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
           "id_usuario_registrador":"4",
           "usuario_registrador":"test",
           "operacion":"creacion",
