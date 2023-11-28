@@ -39,7 +39,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
           self.registros_consulta_mtto.append(row)
     
     if len(self.registros_consulta_mtto) > 0:
-      print(self.registros_consulta_mtto)
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True
       self.repeating_panel_registros.items = self.registros_consulta_mtto
@@ -104,16 +103,23 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.repeating_panel_registros.items = items
     
   ############################################ EVENTOS ############################################
+  """if self.datos['equipo'] == "todos":
+      self.registros_reportes = self.ws_reportes.rows
+    else:
+      for row in self.ws_reportes.rows:
+        if row['equipo'] == self.datos['equipo']:
+          self.registros_reportes.append(row)"""
   def button_actualizar_click(self, **event_args):
     with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
-      self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
-      self.registros_mtto = self.ws_solicitudes_mtto.rows
-      if len(self.registros_mtto) > 0:
-        self.column_panel_empty_db.visible = False
-        self.data_grid_registros.visible = True
-      else:
-        self.column_panel_empty_db.visible = True
-        self.data_grid_registros.visible = False
+      if self.datos['equipo'] == "todos":
+        self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+        self.registros_mtto = self.ws_solicitudes_mtto.rows
+        if len(self.registros_mtto) > 0:
+          self.column_panel_empty_db.visible = False
+          self.data_grid_registros.visible = True
+        else:
+          self.column_panel_empty_db.visible = True
+          self.data_grid_registros.visible = False
         
       self.repeating_panel_registros.items = self.registros_consulta_mtto
 
