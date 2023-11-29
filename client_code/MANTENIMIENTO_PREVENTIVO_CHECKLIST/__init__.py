@@ -160,7 +160,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
         }
         registro_actualizar.update(**datos_actualizar)
         self.ws_registros_mttos.add_row(**registro_actualizar)
-      Notification("Registro guardao correctamente.",title="ÉXITO", style="success").show()
+      Notification("Registro guardado correctamente.",title="ÉXITO", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
 
   """def button_regresar_click(self, **event_args):

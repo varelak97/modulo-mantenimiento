@@ -183,6 +183,55 @@ services:
         vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1h0gJegX46xLmIdagPaJ9_3s30lKdmRG7GeeLQ1_XDyA&exportFormat=ods'}
       thumbnailLink: https://docs.google.com/feeds/vt?gd=true&id=1h0gJegX46xLmIdagPaJ9_3s30lKdmRG7GeeLQ1_XDyA&v=4&s=AMedNnoAAAAAZTHGkQE2vFMkYOZCiAYVhN15NbupHtvm&sz=s220
       ownerNames: [ERP ENSEL]
+    - capabilities: {canEdit: true, canCopy: false}
+      editable: true
+      copyable: false
+      embedLink: https://drive.google.com/embeddedfolderview?id=1B2t2b7U1CoUDYRqiia6N1tdjKAnYPuj1
+      copyRequiresWriterPermission: false
+      python_name: imagenes
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      shared: true
+      createdDate: '2023-11-29T21:24:02.269Z'
+      id: 1B2t2b7U1CoUDYRqiia6N1tdjKAnYPuj1
+      owners:
+      - displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1B2t2b7U1CoUDYRqiia6N1tdjKAnYPuj1/parents/18hNnqwWhLeG7K3jn-ylB4qe7T25ROs7I',
+        id: 18hNnqwWhLeG7K3jn-ylB4qe7T25ROs7I, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/18hNnqwWhLeG7K3jn-ylB4qe7T25ROs7I'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.folder+shared
+      selfLink: https://www.googleapis.com/drive/v2/files/1B2t2b7U1CoUDYRqiia6N1tdjKAnYPuj1
+      lastViewedByMeDate: '2023-11-29T21:24:33.030Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1B2t2b7U1CoUDYRqiia6N1tdjKAnYPuj1/permissions/me',
+        etag: '"alibPk95RuXKQm31YHsA56-uMKI"', pendingOwner: false}
+      lastModifyingUserName: ERP ENSEL
+      etag: '"MTcwMTI5MzA0MjI2OQ"'
+      kind: drive#file
+      modifiedByMeDate: '2023-11-29T21:24:02.269Z'
+      title: IMAGENES
+      version: '2'
+      appDataContents: false
+      writersCanShare: true
+      alternateLink: https://drive.google.com/drive/folders/1B2t2b7U1CoUDYRqiia6N1tdjKAnYPuj1
+      mimeType: application/vnd.google-apps.folder
+      modifiedDate: '2023-11-29T21:24:02.269Z'
+      quotaBytesUsed: '0'
+      ownerNames: [ERP ENSEL]
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
 startup: {type: form, module: A_main}
 package_name: Modulo_Mantenimiento
