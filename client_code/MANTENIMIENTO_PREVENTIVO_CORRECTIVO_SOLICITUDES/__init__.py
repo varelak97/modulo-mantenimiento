@@ -184,17 +184,17 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       else:
         nuevo_registro = dict(self.registro_actual).copy()
         dict_datos = {
-          "folio": self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],),
+          "folio": self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],self.registro_actual['id_solicitud_mtto']),
           "id_usuario_registrador": "6",
           "usuario_registrador": "otro usuario",
           "operacion": "edicion",
           "marca_temporal": datetime.now()
         }
-        
+        nuevo_registro.update(dict_datos)
+        nuevo_registro.update(respuesta)
+        print(f"viejo registro:{self.registro_actual}")
         print(f"nuevo registro:{nuevo_registro}")
-        print(f"respuestas:{respuesta}")
-        print(f"dict datos:{dict_datos}")
-        self.registro_actual['registro_principal'] = '0'
+        #self.registro_actual['registro_principal'] = '0'
       
       with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
         self.registros_solicitudes = self.ws_solicitudes.rows
