@@ -154,3 +154,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
     if respuesta:
       self.llenar_calendario()
+
+  def drop_down_equipo_change(self, **event_args):
+    imagen = app_files.imagenes.get("SPS.png")
+    self.image_equipo.source = imagen

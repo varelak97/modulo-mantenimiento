@@ -37,6 +37,7 @@ components:
       properties: {role: outlined, include_placeholder: true, placeholder: -- EQUIPO --}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL KOJEJI,ZKEIQM'}
+      event_bindings: {change: drop_down_equipo_change}
     - name: outlined_card_img_equipo
       properties: {role: elevated-card}
       type: ColumnPanel
