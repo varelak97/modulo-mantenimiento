@@ -182,10 +182,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           self.limpiar_campos()
           self.drop_down_area_change()
       else:
-        #self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto)
         nuevo_registro = dict(self.registro_actual).copy()
+        dict_datos = {
+          "folio": self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto),
+          "id_usuario_registrador":,
+        }
+        print(f"nuevo registro:{nuevo_registro}")
+        print(f"respuestas:{respuesta}")
         self.registro_actual['registro_principal'] = '0'
-        print("nuevo registro:{}")
       
       with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
         self.registros_solicitudes = self.ws_solicitudes.rows
