@@ -163,10 +163,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     respuesta = self.validar_campos()
     if respuesta == False:
       alert(title="ERROR!", content="Faltan campos por llenar!")
-      print("esto sera una prueba de de mantenimiento preventivo")
-      print(f"los datos recibidos a este punto son:{dict_datos}")
-      print(f"el diccionario a recibir es:{respuesta}")
-      print(f"{respuesta} mas datos")
     else:
       if self.datos['modo'] == "nuevo":
         with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
@@ -186,8 +182,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           self.limpiar_campos()
           self.drop_down_area_change()
       else:
-        #AQUIIII ME QUEDE!!!!!!!!!!!!!!!!!
-        pass
+        alert(f"el registro actual:{self.registro_actual} y las respuesta son:{respuesta}")
       
       with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
         self.registros_solicitudes = self.ws_solicitudes.rows
