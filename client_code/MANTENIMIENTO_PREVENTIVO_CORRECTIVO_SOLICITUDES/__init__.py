@@ -161,11 +161,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
 
   def button_enviar_click(self, **event_args):
     respuesta = self.validar_campos()
+    print(f"respuesta:{respuesta}")
     if respuesta == False:
       alert(title="ERROR!", content="Faltan campos por llenar!")
     else:
       if self.datos['modo'] == "nuevo":
-        id_nuevo_solicitud_mtto = id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
+        alert(f"datos:{self.datos}")
+        
+        """id_nuevo_solicitud_mtto = id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
         folio = self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1)
       else:
         #AQUIIII ME QUEDE!!!!!!!!!!!!!!!!!
@@ -188,7 +191,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         self.drop_down_area_change()
       with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
         self.registros_solicitudes = self.ws_solicitudes.rows
-      Notification("Registro de solicitud guardada correctamente.",title="GUARDADO.", style="success").show()
+      Notification("Registro de solicitud guardada correctamente.",title="GUARDADO.", style="success").show()"""
       
 
   def drop_down_equipo_change(self, **event_args):
