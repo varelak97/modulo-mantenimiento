@@ -82,6 +82,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       self.button_enviar.icon = "fa:save"
       self.button_enviar.enabled = True
       self.llenar_campos()
+    elif self.datos['modo'] == "visor":
+      self.llenar_campos()
+      self.text_box_nombre.enabled = False
+      self.date_picker_fecha_solicitud.enabled = False
+      self.text_area_anomalia.enabled = False
+      self.drop_down_area.enabled = False
+      self.drop_down_equipo.enabled = False
+      self.text_area_anomalia.enabled = False
+      self.button_enviar.enabled = False
 
   #################################### FUNCIONES PERSONALIZADS ####################################
   def llenar_campos(self):
@@ -202,10 +211,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       
 
   def drop_down_equipo_change(self, **event_args):
-    if self.drop_down_equipo.selected_value != None:
-      self.text_area_anomalia.enabled = True
-    else:
-      self.text_area_anomalia.enabled = False
+    if self.datos['modo'] != "editor":
+      if self.drop_down_equipo.selected_value != None:
+        self.text_area_anomalia.enabled = True
+      else:
+        self.text_area_anomalia.enabled = False
 
   def text_area_anomalia_change(self, **event_args):
     if self.text_area_anomalia.text == None or self.text_area_anomalia.text == "":
