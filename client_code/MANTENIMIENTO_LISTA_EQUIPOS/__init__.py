@@ -14,6 +14,15 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   form_activo = None
   datos = {}
   boton = None
+  url_imagenes_equipos ={
+    "ATMA 70":"_/theme/equipos/ATMA70.jpg",
+    "LÁSER M-300":"_/theme/equipos/M300.jpg",
+    "LÁSER VLS-360":"_/theme/equipos/VLS360.jpg",
+    "PICK&PLACE 2":"_/theme/equipos/pnp2.jpg",
+    "SPS":"_/theme/equipos/sps.jpg",
+    "IMPRESORA MIMAKI":"_/theme/equipos/mimaki.jpg",
+    "default":"_/theme/equipos/default.png"
+  }
   lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
@@ -156,5 +165,9 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.llenar_calendario()
 
   def drop_down_equipo_change(self, **event_args):
-    imagen = app_files.imagenes.get("SPS.png")
-    self.image_equipo.source = imagen
+    equipo_seleccionado = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "default"
+    if equipo_seleccionado in self.url_imagenes_equipos:
+      self.image_equipo.source = self.url_imagenes_equipos[equipo_seleccionado]
+    else:
+      self.image_equipo.source = self.url_imagenes_equipos["default"]
+      

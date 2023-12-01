@@ -31,9 +31,10 @@ class opciones_edicion(opciones_edicionTemplate):
   def button_generar_reporte_click(self, **event_args):
     datos = {}
     datos['id_solicitud_mtto'] = self.id_solicitud
-    datos['modo'] = "reporte"
+    datos['modo'] = "nuevo"
+    datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE'
     self.popper.pop("hide")
-    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)
+    self.popper.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
 
   def button_programar_click(self, **event_args):
     self.popper.pop("hide")
