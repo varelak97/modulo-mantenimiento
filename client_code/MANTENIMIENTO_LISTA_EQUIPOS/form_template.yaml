@@ -88,8 +88,7 @@ components:
           type: Image
           layout_properties: {grid_position: 'GELVWU,FVUQRY'}
         - name: label_mtto_preventivo_correctivo
-          properties: {text: MANTENIMIENTO PREVENTIVO /CORRECTIVO PROGRAMADO, bold: true,
-            align: center}
+          properties: {text: MANTENIMIENTO PREVENTIVO/CORRECTIVO, bold: true, align: center}
           type: Label
           layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
       event_bindings: {click: link_mtto_preventivo_correctivo_click}
