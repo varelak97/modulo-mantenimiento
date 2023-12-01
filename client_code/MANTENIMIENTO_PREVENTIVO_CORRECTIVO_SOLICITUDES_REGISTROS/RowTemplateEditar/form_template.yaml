@@ -12,7 +12,7 @@ components:
   layout_properties: {column: XMXXEM}
   data_bindings:
   - {property: tag, code: 'self.item[''id_solicitud_mtto'']', writeback: false}
-  event_bindings: {}
+  event_bindings: {click: button_editar_click}
 - type: Label
   properties: {}
   name: label_folio
@@ -58,6 +58,8 @@ components:
   layout_properties: {column: SMZSVD}
   data_bindings:
   - {property: checked, code: 'bool(int(self.item[''mtto_realizado'']))', writeback: false}
+  - {property: background, code: '"theme:SecondaryGreen" if bool(int(self.item[''mtto_realizado'']))
+      else "theme:Yellow"', writeback: false}
 - type: Label
   properties: {}
   name: label_fecha_programada
