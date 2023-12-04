@@ -2,7 +2,7 @@ is_package: true
 container: {type: DataRowPanel}
 components:
 - name: label_index
-  properties: {align: center}
+  properties: {align: center, bold: true}
   type: Label
   layout_properties: {column: JKSDUP}
   data_bindings:

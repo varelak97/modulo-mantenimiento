@@ -9,16 +9,16 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
-    if self.check_box_status.checked:
+    if self.label_status.tag:
       self.button_editar.icon = "fa:eye"
     else:
-      self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.check_box_status.checked),title=self.label_equipo.text, trigger="click",max_width="450px")
+      self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.label_status.tag),title=self.label_equipo.text, trigger="click",max_width="450px")
 
   ############################### FUNCIONES PERSONALIZADAS ########################################
 
   ############################################ EVENTOS ############################################
   def button_editar_click(self, **event_args):
-    if self.check_box_status.checked:
+    if self.label_status.tag:
       datos = {}
       datos['id_solicitud_mtto'] = self.button_editar.tag
       datos['modo'] = "visor"

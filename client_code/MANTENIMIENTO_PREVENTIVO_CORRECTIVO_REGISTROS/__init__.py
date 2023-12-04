@@ -26,14 +26,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.button_actualizar_click()
 
   ################################ FUNCIONES PERSONALIZADS #######################################
+    
   def abrir_reporte(self, datos, **event_args):
     datos.update(self.datos)
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     if respuesta == "registro_guardado":
       with Notification("Actualizando tabla...", title="ACTUALIZANDO", style="success"):
         self.button_actualizar_click()
-    
-    
     
   def filtros(self):
     items = self.registros_reportes.copy()

@@ -9,3 +9,11 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.button_editar.popover(content=opciones_edicion(self.button_editar.tag),title=self.label_equipo.text, trigger="click",max_width="450px")
+
+  def llena_comentarios(self, comentarios):
+    texto = ""
+    if comentarios != "":
+      for comentario in eval(comentarios):
+        texto += comentario['comentario']
+        texto += '\n'
+    return texto

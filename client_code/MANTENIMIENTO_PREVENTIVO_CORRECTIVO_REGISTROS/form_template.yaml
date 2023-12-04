@@ -67,6 +67,7 @@ components:
             $$hashKey: 'object:25270'}
           - {id: MRYLSD, title: ACTIVIDADES DEL MANTENIMIENTO, data_key: actividades_mantenimiento,
             $$hashKey: 'object:25272'}
+          - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO}
           - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274'}
           auto_header: true
           tooltip: ''

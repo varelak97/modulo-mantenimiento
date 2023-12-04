@@ -424,7 +424,7 @@ components:
             role: tonal-data-grid
           type: DataGrid
           components:
-          - name: data_row_panel_1
+          - name: data_row_panel_comentarios
             properties: {}
             type: DataRowPanel
             components:

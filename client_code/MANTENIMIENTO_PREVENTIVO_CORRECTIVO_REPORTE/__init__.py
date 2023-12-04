@@ -243,6 +243,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       item.enabled = estado
     for item in self.lista_text_components:
       item.enabled = estado
+    self.data_row_panel_comentarios.visible = estado
+    for row in self.repeating_panel_comentarios.get_components():
+      componentes_row = row.get_components()
+      componentes_row[1].enabled = estado
+      componentes_row[2].enabled = estado
   ############################################ EVENTOS ############################################
 
   def drop_down_tipo_mantenimiento_change(self, **event_args):
@@ -284,7 +289,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         with Notification("Guardando reporte...", title="GUARDANDO.", style="info"):
           respuesta['id_mtto_preventivo_correctivo'] = (max([int(item['id_mtto_preventivo_correctivo']) for item in self.mtto_corr_prev_todos]) + 1) if len(self.mtto_corr_prev_todos) > 0 else 1
           respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
-          respuesta['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items
+          respuesta['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
           respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
           respuesta['usuario_registrador'] = "falta"
           respuesta['operacion'] = "creacion"
@@ -305,7 +310,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
           self.mtto_corr_prev_reporte['registro_principal'] = 0
           registro_edicion.update(respuesta)
-          registro_edicion['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items
+          registro_edicion['marca_temporal'] = datetime.now()
+          registro_edicion['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
           registro_edicion['id_usuario_registrador'] = 18
           registro_edicion['usuario_registrador'] = "el que modifica"
           registro_edicion['operacion'] = "edicion"

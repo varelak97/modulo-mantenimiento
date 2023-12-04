@@ -83,6 +83,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     for row in self.repeating_panel_comentarios.get_components():
       componentes_row = row.get_components()
       componentes_row[2].enabled = False
+      componentes_row[4].enabled = False
       
   """def editar_comentario(self, indice, **event_args):
     items = self.repeating_panel_comentarios.items
