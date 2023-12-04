@@ -201,7 +201,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.date_picker_fecha_hora_final.date = registro['fecha_hora_final']
     self.text_box_persona_ejecuta_mtto.text = registro['persona_ejecuta_mtto']
     self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']
-    self.repeating_panel_comentarios.items = eval(registro['comentarios_mantenimiento'])
+    print(f"comentarios:{registro['comentarios_mantenimiento']}")
+    self.repeating_panel_comentarios.items = eval(registro['comentarios_mantenimiento']) if registro['comentarios_mantenimiento'] != "" else None
 
   def valida_campos(self):
     status = True
