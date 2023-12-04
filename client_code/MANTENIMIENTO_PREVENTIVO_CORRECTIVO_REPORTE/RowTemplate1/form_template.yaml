@@ -1,0 +1,19 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: label_index
+  properties: {}
+  type: Label
+  layout_properties: {column: JKSDUP}
+- name: text_area_comentario
+  properties: {role: outlined}
+  type: TextArea
+  layout_properties: {column: VJQQOR}
+- name: button_editar
+  properties: {text: '', icon: 'fa:edit', role: filled-button, background: 'theme:Green'}
+  type: Button
+  layout_properties: {column: OJLQEN}
+- name: button_borrar
+  properties: {text: '', icon: 'fa:times', role: filled-button, background: 'theme:Red'}
+  type: Button
+  layout_properties: {column: RERGBB}

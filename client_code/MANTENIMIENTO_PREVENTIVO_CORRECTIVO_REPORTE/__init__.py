@@ -282,6 +282,23 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         
       Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
+
+  def button_agregar_comentario_click(self, **event_args):
+    self.button_agregar_comentario.enabled = False
+    comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
+    indice = len(comentarios)
+    comentarios.append({'index':indice + 1,'comentario':""})
+    self.repeating_panel_comentarios.items = comentarios
+    filas = self.repeating_panel_comentarios.get_components()
+    for fila in filas:
+      componentes_fila = fila.get_components()
+      label_indice = int(componentes_fila[0].text) - 1
+      componentes_fila[2].enabled = False #boton editar
+      componentes_fila[4].enabled = False #boton borrar
+      if label_indice == indice:
+        componentes_fila[3].visible = True #column panel de textbox y su boton
+
+
       
 
 
