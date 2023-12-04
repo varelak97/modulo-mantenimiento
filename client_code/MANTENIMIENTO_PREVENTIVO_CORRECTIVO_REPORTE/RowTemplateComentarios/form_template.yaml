@@ -1,0 +1,45 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: label_index
+  properties: {align: center}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''index'']', writeback: false}
+- name: button_editar
+  properties: {text: '', icon: 'fa:edit', role: filled-button, background: 'theme:Green'}
+  type: Button
+  layout_properties: {column: OJLQEN}
+  event_bindings: {click: button_editar_click}
+- name: button_borrar
+  properties: {text: '', icon: 'fa:times', role: filled-button, background: 'theme:Red'}
+  type: Button
+  layout_properties: {column: RERGBB}
+  event_bindings: {click: button_borrar_click}
+- name: column_panel_comentario
+  properties: {col_widths: '{"ENIVAE":45,"XUNOYB":15}', visible: false}
+  type: ColumnPanel
+  layout_properties: {column: VJQQOR}
+  components:
+  - name: text_area_comentario
+    properties: {role: outlined}
+    type: TextArea
+    layout_properties: {grid_position: 'SXEVFB,ENIVAE'}
+    data_bindings:
+    - {property: text, code: 'self.item[''comentario'']', writeback: false}
+  - name: spacer_1
+    properties: {height: 5}
+    type: Spacer
+    layout_properties: {grid_position: 'SXEVFB,XUNOYB CBQYRS,YIJADB'}
+  - name: button_guardar
+    properties: {text: '', role: filled-button, icon: 'fa:check', background: 'theme:Green'}
+    type: Button
+    layout_properties: {grid_position: 'SXEVFB,XUNOYB BSQIDQ,RJQSRJ'}
+    event_bindings: {click: button_guardar_click}
+- name: label_comentario
+  properties: {}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''comentario'']', writeback: false}

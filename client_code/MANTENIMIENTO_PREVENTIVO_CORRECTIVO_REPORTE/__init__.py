@@ -80,6 +80,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
+    self.set_event_handler('x-guardar_comentario', self.guardar_comentario)
+    self.set_event_handler('x-eliminar_comentario', self.eliminar_comentario)
+    self.set_event_handler('x-editar_comentario', self.editar_comentario)
+    
     self.lista_drop_downs = [
       self.drop_down_area,
       self.drop_down_equipo,
@@ -120,6 +124,29 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     
     
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def editar_comentario(self, **event_args):
+    self.button_agregar_comentario.enabled = False
+    filas = self.repeating_panel_comentarios.get_components()
+    for fila in filas:
+      componentes_fila = fila.get_components()
+      componentes_fila[2].enabled = False #boton editar
+      componentes_fila[4].enabled = False #boton borrar
+  
+  def guardar_comentario(self, datos, **event_args):
+    print("entro a guardar comentario")
+    comentarios = self.repeating_panel_comentarios.items
+    comentarios[datos['indice']]['comentario'] = datos['comentario']
+    self.repeating_panel_comentarios.items = comentarios
+    self.button_agregar_comentario.enabled = True
+    
+  def eliminar_comentario(self, indice, **event_args):
+    comentarios = self.repeating_panel_comentarios.items
+    comentarios.pop(indice)
+    for index, comentario in enumerate(comentarios):
+      comentario['index'] = index + 1
+    self.repeating_panel_comentarios.items = comentarios
+    self.button_agregar_comentario.enabled = True
+    
   def llenar_reporte(self):
     if self.datos['modo'] == "nuevo":
       self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
@@ -293,8 +320,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     for fila in filas:
       componentes_fila = fila.get_components()
       label_indice = int(componentes_fila[0].text) - 1
-      componentes_fila[2].enabled = False #boton editar
-      componentes_fila[4].enabled = False #boton borrar
+      componentes_fila[1].enabled = False #boton editar
+      componentes_fila[2].enabled = False #boton borrar
       if label_indice == indice:
         componentes_fila[3].visible = True #column panel de textbox y su boton
 

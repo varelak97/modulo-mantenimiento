@@ -55,6 +55,20 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       componentes_fila = fila.get_components()
       componentes_fila[2].enabled = False #boton editar
       componentes_fila[4].enabled = False #boton borrar
+  
+  def guardar_comentario(self, datos, **event_args):
+    comentarios = self.repeating_panel_comentarios.items
+    comentarios[datos['indice']]['comentario'] = datos['comentario']
+    self.repeating_panel_comentarios.items = comentarios
+    self.button_agregar_comentario.enabled = True
+    
+  def eliminar_comentario(self, indice, **event_args):
+    comentarios = self.repeating_panel_comentarios.items
+    comentarios.pop(indice)
+    for index, comentario in enumerate(comentarios):
+      comentario['index'] = index + 1
+    self.repeating_panel_comentarios.items = comentarios
+    self.button_agregar_comentario.enabled = True
         
   def disable_componentes_form(self):
     self.data_row_panel_input.visible = False
@@ -77,19 +91,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.button_add.tag = indice
     self.button_add.enabled = True"""
   
-  def guardar_comentario(self, datos, **event_args):
-    comentarios = self.repeating_panel_comentarios.items
-    comentarios[datos['indice']]['comentario'] = datos['comentario']
-    self.repeating_panel_comentarios.items = comentarios
-    self.button_agregar_comentario.enabled = True
-    
-  def eliminar_comentario(self, indice, **event_args):
-    comentarios = self.repeating_panel_comentarios.items
-    comentarios.pop(indice)
-    for index, comentario in enumerate(comentarios):
-      comentario['index'] = index + 1
-    self.repeating_panel_comentarios.items = comentarios
-    self.button_agregar_comentario.enabled = True
+  
     
   """def get_comentarios(self, comentarios):
     dict_comentarios = eval(comentarios)

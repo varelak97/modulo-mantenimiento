@@ -429,11 +429,13 @@ components:
             type: DataRowPanel
             components:
             - name: button_agregar_comentario
-              properties: {text: AGREGAR COMENTARIO, icon: 'fa:plus-circle', background: 'theme:Orange'}
+              properties: {text: AGREGAR COMENTARIO, icon: 'fa:plus-circle', background: 'theme:Orange',
+                foreground: 'theme:White', bold: true}
               type: Button
               layout_properties: {column: VJQQOR}
+              event_bindings: {click: button_agregar_comentario_click}
           - name: repeating_panel_comentarios
-            properties: {item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE.RowTemplate1}
+            properties: {item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE.RowTemplateComentarios}
             type: RepeatingPanel
           layout_properties: {grid_position: 'MLVMVA,BVBGWH'}
       - type: Button
