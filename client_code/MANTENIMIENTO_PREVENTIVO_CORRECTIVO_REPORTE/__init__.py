@@ -200,7 +200,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.text_area_actividades.text = registro['actividades_mtto']
     self.date_picker_fecha_hora_final.date = registro['fecha_hora_final']
     self.text_box_persona_ejecuta_mtto.text = registro['persona_ejecuta_mtto']
-    self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']    
+    self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']
+    self.repeating_panel_comentarios.items = eval(registro['comentarios_mantenimiento'])
 
   def valida_campos(self):
     status = True
@@ -282,6 +283,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         with Notification("Guardando reporte...", title="GUARDANDO.", style="info"):
           respuesta['id_mtto_preventivo_correctivo'] = (max([int(item['id_mtto_preventivo_correctivo']) for item in self.mtto_corr_prev_todos]) + 1) if len(self.mtto_corr_prev_todos) > 0 else 1
           respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
+          respuesta['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items
           respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
           respuesta['usuario_registrador'] = "falta"
           respuesta['operacion'] = "creacion"
@@ -302,6 +304,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
           self.mtto_corr_prev_reporte['registro_principal'] = 0
           registro_edicion.update(respuesta)
+          registro_edicion['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items
           registro_edicion['id_usuario_registrador'] = 18
           registro_edicion['usuario_registrador'] = "el que modifica"
           registro_edicion['operacion'] = "edicion"
