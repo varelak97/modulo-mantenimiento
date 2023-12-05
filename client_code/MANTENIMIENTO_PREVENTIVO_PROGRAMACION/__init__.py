@@ -2,7 +2,7 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_PROGRAMACIONTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIONTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -474,10 +474,13 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
+    dias_fin_semana = [5,6]
     lista_mttos_programados = []
     index = 1
     for equipo in self.lista_equipos:
       for frecuencia in equipo['FRECUENCIA']:
+        if frecuencia == "SEMANAL":
+          pass
         dict_mtto = {
           "id_mtto_preventivo": index,
           "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
