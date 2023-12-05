@@ -2,168 +2,65 @@ container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
 components:
-- type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
-  name: content_panel
-  layout_properties: {grid_position: 'SJLMYW,VLRLBD', full_width_row: true}
+- name: content_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'PKWEYG,WBCCKR'}
   components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"BLPTVJ":30,"GNTLMC":30}',
-      spacing_below: small, background: ''}
-    name: outlined_card_equipo
-    layout_properties:
-      col_widths: {}
-      grid_position: RJKAIR,QNGRLI
-      full_width_row: true
+  - name: outlined_card_titulo
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'QPSVNO,JOACMD'}
     components:
-    - type: Label
-      properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: EQUIPOS, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: 'theme:Tertiary',
-        bold: true, underline: false, icon: ''}
-      name: label_titulo_equipo
-      layout_properties: {grid_position: 'YEAPGS,UUMFVU'}
-    - type: ColumnPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
-      name: column_panel_equipos
-      layout_properties: {grid_position: 'SNVDQC,BLPTVJ', full_width_row: true}
+    - name: label_1
+      properties: {text: PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO, bold: true,
+        role: headline, background: 'theme:Primary', foreground: 'theme:White', align: center}
+      type: Label
+      layout_properties: {grid_position: 'RBFHGX,CMFZXY'}
+  - name: outlined_card_body
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'XPHNCL,SYFQUW'}
+    components:
+    - name: label_calendario
+      properties: {text: TITULO_ANIO_CALENDARIO, background: 'theme:Tertiary', bold: true,
+        foreground: 'theme:White', align: center, role: title}
+      type: Label
+      layout_properties: {grid_position: 'NKBZAF,DXRSCI'}
+    - name: label_excluir
+      properties: {text: '* Ingrese las fechas a excluir en la generación del calendario
+          anual de mantenimiento (opcional):', bold: true, italic: true}
+      type: Label
+      layout_properties: {grid_position: 'WFFDAX,BDEKOB'}
+    - name: data_grid_fechas_excluidas
+      properties:
+        columns:
+        - {id: JKSDUP, title: '#', data_key: index, width: '80'}
+        - {id: VJQQOR, title: FECHA INICIAL, data_key: fecha_inicial}
+        - {id: OJLQEN, title: FECHA FINAL, data_key: fecha_final}
+        - {id: LEJPEQ, data_key: editar, title: '', width: '80'}
+        - {id: RPPGHT, data_key: eliminar, title: '', width: '80'}
+        role: tonal-data-grid
+        show_page_controls: true
+        rows_per_page: 100
+      type: DataGrid
       components:
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'AREA:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
-        name: label_area
-        layout_properties: {grid_position: 'MXAQWV,XOAJUB'}
-      - type: DropDown
-        properties:
-          role: outlined
-          align: full
-          tooltip: ''
-          placeholder: -- AREA --
-          border: ''
-          enabled: true
-          foreground: ''
-          items: []
-          visible: true
-          font_size: null
-          font: ''
-          spacing_above: small
-          spacing_below: small
-          italic: false
-          background: ''
-          bold: false
-          underline: false
-          include_placeholder: true
-        name: drop_down_area
-        layout_properties: {grid_position: 'JTKEOE,QOAFLA'}
-        event_bindings: {change: drop_down_area_change}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'EQUIPO:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
-        name: label_equipo
-        layout_properties: {grid_position: 'SWUCRX,SOIHDG'}
-      - type: DropDown
-        properties:
-          role: outlined
-          align: full
-          tooltip: ''
-          placeholder: -- EQUIPO --
-          border: ''
-          enabled: false
-          foreground: ''
-          items: []
-          visible: true
-          font_size: null
-          font: ''
-          spacing_above: small
-          spacing_below: small
-          italic: false
-          background: ''
-          bold: false
-          underline: false
-          include_placeholder: true
-        name: drop_down_equipo
-        layout_properties: {grid_position: 'RSSTHH,WIGGXF'}
-        event_bindings: {change: drop_down_equipo_change}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'FRECUENCIA:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
-        name: label_frecuencia
-        layout_properties: {grid_position: 'WROPRD,SVCYCI'}
-      - type: DropDown
-        properties:
-          role: outlined
-          align: full
-          tooltip: ''
-          placeholder: -- FRECUENCIA --
-          border: ''
-          enabled: false
-          foreground: ''
-          items: []
-          visible: true
-          font_size: null
-          font: ''
-          spacing_above: small
-          spacing_below: small
-          italic: false
-          background: ''
-          bold: false
-          underline: false
-          include_placeholder: true
-        name: drop_down_frecuencia
-        layout_properties: {grid_position: 'CYOMFE,MDERRF'}
-        event_bindings: {change: drop_down_frecuencia_change}
-    - type: ColumnPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
-      name: column_panel_reprogramar
-      layout_properties: {grid_position: 'DCIEBX,NPXUBO'}
-      components:
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'REPROGRAMAR PARA FECHA:', font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: true, underline: false, icon: ''}
-        name: label_fecha_reprogramar
-        layout_properties: {grid_position: 'ETTYBD,YCFBPA'}
-      - type: DatePicker
-        properties: {role: outlined, align: left, max_date: '', pick_time: false,
-          tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
-          visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
-          italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
-          format: '%Y-%m-%d %H:%M:%S'}
-        name: date_picker_reprogramar
-        layout_properties: {grid_position: 'JBBVES,XTAVJK'}
-        event_bindings: {change: date_picker_reprogramar_change}
-      - type: Spacer
-        properties: {height: 32}
-        name: spacer_2
-        layout_properties: {grid_position: 'JBBVES,FFEKIB'}
-      - type: Spacer
-        properties: {height: 32}
-        name: spacer_fecha
-        layout_properties: {grid_position: 'JBBVES,XNEGFA'}
-    - type: Spacer
-      properties: {height: 19}
-      name: spacer_1
-      layout_properties: {grid_position: 'TJFSHD,WPYIAE'}
-    - type: Button
-      properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: false, foreground: 'theme:On Secondary', visible: true, text: GUARDAR,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: 'theme:Blue', bold: true, underline: false, icon: 'fa:floppy-o'}
-      name: button_guardar
-      layout_properties: {grid_position: 'NXLYTE,HBEALZ'}
-      event_bindings: {click: button_guardar_click}
+      - name: data_row_panel_agregar_fecha
+        properties: {}
+        type: DataRowPanel
+        components:
+        - name: button_1
+          properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button,
+            bold: true, icon: 'fa:plus-circle'}
+          type: Button
+          layout_properties: {column: VJQQOR}
+      - name: repeating_panel_1
+        properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate1}
+        type: RepeatingPanel
+      layout_properties: {grid_position: 'HEHOUK,ASFZFF'}
+    - name: button_generar_calendario
+      properties: {text: GENERAR CALENDARIO, bold: true, background: 'theme:Blue',
+        foreground: 'theme:White', icon: 'fa:calendar-check-o'}
+      type: Button
+      layout_properties: {grid_position: 'AHGKRS,QVUZOL'}
 is_package: true

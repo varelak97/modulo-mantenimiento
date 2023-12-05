@@ -1,0 +1,47 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: label_index
+  properties: {}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''index'']', writeback: false}
+- name: label_fecha_inicla
+  properties: {}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_inicial'']', writeback: false}
+- name: label_fecha_final
+  properties: {}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_final'']', writeback: false}
+- name: button_editar
+  properties: {text: '', role: filled-button, background: 'theme:Green', icon: 'fa:edit'}
+  type: Button
+  layout_properties: {column: LEJPEQ}
+- name: button_borrar
+  properties: {text: '', role: filled-button, background: 'theme:Red', icon: 'fa:times'}
+  type: Button
+  layout_properties: {column: RPPGHT}
+- name: column_panel_fecha
+  properties: {col_widths: '{"BQOHWS":40,"QWDLKT":20}'}
+  type: ColumnPanel
+  layout_properties: {column: OJLQEN}
+  components:
+  - name: date_picker_fecha_final
+    properties: {role: outlined, visible: false}
+    type: DatePicker
+    layout_properties: {grid_position: 'XNRVFU,BQOHWS'}
+- name: column_panel_1
+  properties: {col_widths: '{"RCMHMH":40,"JWUAPF":20}'}
+  type: ColumnPanel
+  layout_properties: {column: VJQQOR}
+  components:
+  - name: date_picker_fecha_inicial
+    properties: {role: outlined, visible: false}
+    type: DatePicker
+    layout_properties: {grid_position: 'KTZRDG,RCMHMH'}
