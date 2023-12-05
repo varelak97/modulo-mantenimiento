@@ -387,7 +387,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.registros_totales = self.ws_registros_totales.rows
 
-    self.label_calendario.text = f"CALENDARIO {self.datos['anio']}"
+    self.label_calendario.text = f"CALENDARIO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
@@ -486,8 +486,14 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
-    anio_actual = datetime.today().year
-    dias_fin_semana = [5,6]
+    numero_anio = datetime.today().year
+    total_dias = 366 if self.anio_bisiesto(anio_actual) else 365
+
+    for numero_dia in range(2,total_dias + 1):
+      fecha_dia = date(numero_anio,numero_mes,numero_dia)
+      pass
+      
+    """dias_fin_semana = [5,6]
     lista_mttos_programados = []
     index = 1
     for equipo in self.lista_equipos:
@@ -511,7 +517,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         }
         index += 1
         lista_mttos_programados.append(dict_mtto)
-    print(lista_mttos_programados)
+    print(lista_mttos_programados)"""
     
   """def button_guardar_click(self, **event_args):
     with Notification("Registrando en la base de datos...",title="GUARDANDO."):
