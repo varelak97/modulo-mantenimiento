@@ -338,12 +338,12 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.init_components(**properties)
   ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
-    self.drop_down_area.items = self.lista_areas
-    self.drop_down_equipo.items = self.lista_equipos
 
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.registros_totales = self.ws_registros_totales.rows
+
+    self.label_calendario.text = f"CALENDARIO {self.datos['anio']}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
@@ -429,7 +429,54 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     return actividades
     
   ############################################ EVENTOS ############################################
-  def drop_down_area_change(self, **event_args):
+  def button_generar_calendario_click(self, **event_args):
+    lista_mttos_programados = []
+    index = 1
+    for equipo in self.lista_equipos:
+      for frecuencia in equipo['FRECUENCIA']:
+        dict_mtto = {
+          "id_mtto_preventivo": index,
+          "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
+          "area":equipo['AREA'],
+          "equipo":equipo['EQUIPO'],
+          "frecuencia":frecuencia,
+          "status_mantenimiento":"PROGRAMADO",
+          "actividades":self.get_actividades(equipo, frecuencia),
+          "id_usuario_registrador":self.datos['id_usuario_erp'],
+          "usuario_registrador":"pendiente",
+          "operacion":"creacion",
+          "marca_temporal":datetime.now(),
+          "comentarios":"",
+          "registro_principal": 1
+        }
+        index += 1
+        lista_mttos_programados.append(dict_mtto)
+    print(lista_mttos_programados)
+    
+  """def button_guardar_click(self, **event_args):
+    with Notification("Registrando en la base de datos...",title="GUARDANDO."):
+      dict_mtto = {
+        "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_totales]) + 1) if len(self.registros_totales) > 0 else 1,
+        "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
+        "area":self.drop_down_area.selected_value,
+        "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
+        "frecuencia":self.drop_down_frecuencia.selected_value,
+        "status_mantenimiento":"PROGRAMADO",
+        "actividades":self.get_actividades(self.drop_down_equipo.selected_value, self.drop_down_frecuencia.selected_value),
+        "id_usuario_registrador":self.datos['id_usuario_erp'],
+        "usuario_registrador":"pendiente",
+        "operacion":"creacion",
+        "marca_temporal":datetime.now(),
+        "comentarios":"",
+        "registro_principal": 1
+      }
+      self.ws_registros_totales.add_row(**dict_mtto)
+    Notification("Registro guardado correctamente.", title="GUARDADO.", style="success").show()
+    self.raise_event("x-close-alert",value="registro_guardado")"""
+
+  
+
+  """def drop_down_area_change(self, **event_args):
     area_seleccionada = self.drop_down_area.selected_value
     if area_seleccionada != None:
       equipos_area = []
@@ -472,32 +519,5 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     if self.drop_down_frecuencia.selected_value != None:
       self.button_guardar.enabled = True
     else:
-      self.button_guardar.enabled = False
-
-  def button_guardar_click(self, **event_args):
-    with Notification("Registrando en la base de datos...",title="GUARDANDO."):
-      dict_mtto = {
-        "id_mtto_preventivo":(max([int(item['id_mtto_preventivo']) for item in self.registros_totales]) + 1) if len(self.registros_totales) > 0 else 1,
-        "fecha_programada":f"{self.datos['anio']}-{self.datos['mes']}-{self.datos['dia']}",
-        "area":self.drop_down_area.selected_value,
-        "equipo":self.drop_down_equipo.selected_value['EQUIPO'],
-        "frecuencia":self.drop_down_frecuencia.selected_value,
-        "status_mantenimiento":"PROGRAMADO",
-        "actividades":self.get_actividades(self.drop_down_equipo.selected_value, self.drop_down_frecuencia.selected_value),
-        "id_usuario_registrador":self.datos['id_usuario_erp'],
-        "usuario_registrador":"pendiente",
-        "operacion":"creacion",
-        "marca_temporal":datetime.now(),
-        "comentarios":"",
-        "registro_principal": 1
-      }
-      self.ws_registros_totales.add_row(**dict_mtto)
-    Notification("Registro guardado correctamente.", title="GUARDADO.", style="success").show()
-    self.raise_event("x-close-alert",value="registro_guardado")
-
-  def date_picker_reprogramar_change(self, **event_args):
-    if self.date_picker_reprogramar.date != None:
-      self.button_guardar.enabled = True
-    else:
-      self.button_guardar.enabled = False
+      self.button_guardar.enabled = False"""
     
