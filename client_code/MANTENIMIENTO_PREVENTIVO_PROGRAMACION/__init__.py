@@ -471,9 +471,22 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       else:
         actividades = self.actividades_equipos_guillotinas_semestral
     return actividades
+
+  def anio_bisiesto(self, anio):
+    if anio % 4 == 0:
+      if anio % 100 == 0:
+        if anio % 400 == 0:
+          return True
+        else:
+          return False
+      else:
+        return True
+    else:
+      return False
     
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
+    anio_actual = datetime.today().year
     dias_fin_semana = [5,6]
     lista_mttos_programados = []
     index = 1

@@ -303,7 +303,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
 
   def button_programar_click(self, **event_args):
     datos = {}
-    datos['anio'] = datetime.today().year
     datos.update(self.datos)
     self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos))
     """for equipo in self.lista_equipos:
