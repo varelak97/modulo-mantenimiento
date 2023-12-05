@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from datetime import datetime, date, timedelta
+import calendar
 
 class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIONTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -472,7 +473,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         actividades = self.actividades_equipos_guillotinas_semestral
     return actividades
 
-  def anio_bisiesto(self, anio):
+  """def anio_bisiesto(self, anio):
     if anio % 4 == 0:
       if anio % 100 == 0:
         if anio % 400 == 0:
@@ -482,16 +483,25 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       else:
         return True
     else:
-      return False
+      return False"""
     
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
-    numero_anio = datetime.today().year
+    lista_mttos_programados = []
+    index = 1
+    for equipo in self.lista_equipos:
+      for frecuencia in equipo['FRECUENCIA']:
+        if frecuencia == "SEMANAL":
+          pass
+    
+    """numero_anio = datetime.today().year
     total_dias = 366 if self.anio_bisiesto(anio_actual) else 365
 
-    for numero_dia in range(2,total_dias + 1):
-      fecha_dia = date(numero_anio,numero_mes,numero_dia)
-      pass
+    for numero_mes in range(1, 4):
+      inicio_mes = 1 if numero_mes != 1 else 2
+      total_dias_mes = calendar.monthrange(numero_anio, numero_mes)[1]
+      for numero_dia in range(inicio_mes, int(total_dias_mes) + 1):
+        fecha_dia = date(numero_anio,numero_mes,numero_dia)"""
       
     """dias_fin_semana = [5,6]
     lista_mttos_programados = []
