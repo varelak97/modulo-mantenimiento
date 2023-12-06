@@ -5,7 +5,7 @@ components:
 - name: content_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'PKWEYG,WBCCKR'}
+  layout_properties: {grid_position: 'PKWEYG,WBCCKR', full_width_row: true}
   components:
   - name: outlined_card_titulo
     properties: {role: elevated-card}
@@ -20,7 +20,7 @@ components:
   - name: outlined_card_equipos
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'TFYNWU,BPTEAC'}
+    layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
     components:
     - name: label_equipos
       properties: {text: EQUIPOS, background: 'theme:Tertiary', bold: true, foreground: 'theme:White',
@@ -44,7 +44,7 @@ components:
       - name: repeating_panel_equipos
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7}
         type: RepeatingPanel
-      layout_properties: {grid_position: 'DYHQXF,GGFCBE'}
+      layout_properties: {grid_position: 'DYHQXF,GGFCBE', full_width_row: true}
     - name: button_2
       properties: {text: AGREGAR EQUIPO}
       type: Button
