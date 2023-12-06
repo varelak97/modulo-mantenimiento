@@ -1,3 +1,7 @@
 is_package: true
 container: {type: DataRowPanel}
-components: []
+components:
+- name: button_editar
+  properties: {text: '', background: 'theme:Green', icon: 'fa:edit', foreground: 'theme:White'}
+  type: Button
+  layout_properties: {column: KXABMA}
