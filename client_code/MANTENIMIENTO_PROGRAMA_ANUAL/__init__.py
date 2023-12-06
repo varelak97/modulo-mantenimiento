@@ -304,6 +304,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def button_programar_click(self, **event_args):
     datos = {}
     datos.update(self.datos)
+    self.actualizar_form_activo()
     self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos))
     """for equipo in self.lista_equipos:
       nombre_equipo = equipo['EQUIPO']
