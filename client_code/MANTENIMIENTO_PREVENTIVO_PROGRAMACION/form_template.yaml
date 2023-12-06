@@ -44,6 +44,10 @@ components:
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7}
         type: RepeatingPanel
       layout_properties: {grid_position: 'DYHQXF,GGFCBE'}
+    - name: button_2
+      properties: {text: AGREGAR EQUIPO}
+      type: Button
+      layout_properties: {grid_position: 'HMMQDV,PGYPRW'}
   - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel
