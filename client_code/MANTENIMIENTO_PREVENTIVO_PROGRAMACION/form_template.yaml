@@ -17,6 +17,16 @@ components:
         role: headline, background: 'theme:Primary', foreground: 'theme:White', align: center}
       type: Label
       layout_properties: {grid_position: 'RBFHGX,CMFZXY'}
+  - name: outlined_card_equipos
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'TFYNWU,BPTEAC'}
+    components:
+    - name: label_equipos
+      properties: {text: EQUIPOS, background: 'theme:Tertiary', bold: true, foreground: 'theme:White',
+        align: center, role: title}
+      type: Label
+      layout_properties: {grid_position: 'RLGVYW,BDZUMF'}
   - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel
