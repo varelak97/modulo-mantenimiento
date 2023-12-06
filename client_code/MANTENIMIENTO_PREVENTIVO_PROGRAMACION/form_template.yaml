@@ -37,10 +37,11 @@ components:
         - {id: BZILCF, data_key: semestral, title: SEMESTRAL}
         - {id: GXQNNV, data_key: anual, title: ANUAL}
         - {id: KXABMA, data_key: editar, title: ''}
+        - {id: GWTVLR, data_key: eliminar, title: ''}
         role: tonal-data-grid
       type: DataGrid
       components:
-      - name: repeating_panel_2
+      - name: repeating_panel_equipos
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7}
         type: RepeatingPanel
       layout_properties: {grid_position: 'DYHQXF,GGFCBE'}

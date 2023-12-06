@@ -5,3 +5,51 @@ components:
   properties: {text: '', background: 'theme:Green', icon: 'fa:edit', foreground: 'theme:White'}
   type: Button
   layout_properties: {column: KXABMA}
+- name: button_eliminar
+  properties: {text: '', role: filled-button, icon: 'fa:times', background: 'theme:Red'}
+  type: Button
+  layout_properties: {column: GWTVLR}
+- name: label_equipo
+  properties: {}
+  type: Label
+  layout_properties: {column: JKSDUP}
+- name: label_semanal
+  properties: {}
+  type: Label
+  layout_properties: {column: VJQQOR}
+- name: date_picker_semanal
+  properties: {role: outlined, visible: false}
+  type: DatePicker
+  layout_properties: {column: VJQQOR}
+- name: label_mensual
+  properties: {}
+  type: Label
+  layout_properties: {column: OJLQEN}
+- name: date_picker_mensual
+  properties: {role: outlined, visible: false}
+  type: DatePicker
+  layout_properties: {column: OJLQEN}
+- name: label_trimestral
+  properties: {}
+  type: Label
+  layout_properties: {column: GCFZRN}
+- name: date_picker_trimestral
+  properties: {role: outlined, visible: false}
+  type: DatePicker
+  layout_properties: {column: GCFZRN}
+- name: label_semestral
+  properties: {}
+  type: Label
+  layout_properties: {column: BZILCF}
+- name: date_picker_semestral
+  properties: {role: outlined, visible: false}
+  type: DatePicker
+  layout_properties: {column: BZILCF}
+- name: label_anual
+  properties: {}
+  type: Label
+  layout_properties: {column: GXQNNV}
+- name: date_picker_anual
+  properties: {role: outlined, visible: false}
+  type: DatePicker
+  layout_properties: {column: GXQNNV}
