@@ -30,14 +30,14 @@ components:
     - name: data_grid_equipos
       properties:
         columns:
-        - {id: JKSDUP, title: EQUIPO, data_key: equipo}
+        - {id: JKSDUP, title: EQUIPO, data_key: equipo, width: '500'}
         - {id: VJQQOR, title: SEMANAL, data_key: semanal}
         - {id: OJLQEN, title: MENSUAL, data_key: mensual}
         - {id: GCFZRN, data_key: trimestral, title: TRIMESTRAL}
         - {id: BZILCF, data_key: semestral, title: SEMESTRAL}
         - {id: GXQNNV, data_key: anual, title: ANUAL}
-        - {id: KXABMA, data_key: editar, title: ''}
-        - {id: GWTVLR, data_key: eliminar, title: ''}
+        - {id: KXABMA, data_key: editar, title: '', width: '80', expand: false}
+        - {id: GWTVLR, data_key: eliminar, title: '', width: '80'}
         role: tonal-data-grid
       type: DataGrid
       components:

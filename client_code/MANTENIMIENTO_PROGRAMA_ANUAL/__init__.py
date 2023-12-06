@@ -149,11 +149,11 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       datos['mes'] = self.drop_down_mes.selected_value
       datos['anio'] = self.drop_down_anio.selected_value
       datos.update(self.datos)
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos), "normal")
     elif datos['clave_form'] == "MANTENIMIENTO_PREVENTIVO_CHECKLIST":
       datos.update(self.datos)
       print(f"abriendo checklist:{self}")
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos))
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos), "normal")
     
     #estaba asi:
     """datos['mes'] = self.drop_down_mes.selected_value
@@ -162,8 +162,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))"""
       
-  def abrir_form(self, form_de_interes):
-    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",False)], role="wide-modal-content")
+  def abrir_form(self, form_de_interes, modo):
+    role = "wide-modal-content" if modo == "normal" else "wide-modal-content-bigger"
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",False)], role=role)
     if respuesta:
       self.llenar_calendario()
     
@@ -304,8 +305,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   def button_programar_click(self, **event_args):
     datos = {}
     datos.update(self.datos)
-    self.actualizar_form_activo()
-    self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos))
+    #self.actualizar_form_activo()
+    self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos), "bigger")
     """for equipo in self.lista_equipos:
       nombre_equipo = equipo['EQUIPO']
       area = equipo['AREA']
