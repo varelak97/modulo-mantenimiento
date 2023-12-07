@@ -388,7 +388,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.registros_totales = self.ws_registros_totales.rows
 
-    self.label_calendario.text = f"CALENDARIO {datetime.today().year}"
+    self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
@@ -493,6 +493,14 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       for frecuencia in equipo['FRECUENCIA']:
         if frecuencia == "SEMANAL":
           pass
+
+  def button_copiar_lista_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_agregar_equipo_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
     
     """numero_anio = datetime.today().year
     total_dias = 366 if self.anio_bisiesto(anio_actual) else 365
@@ -596,4 +604,5 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.button_guardar.enabled = True
     else:
       self.button_guardar.enabled = False"""
+
     

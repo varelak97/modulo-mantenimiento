@@ -232,6 +232,122 @@ services:
       modifiedDate: '2023-11-29T21:24:02.269Z'
       quotaBytesUsed: '0'
       ownerNames: [ERP ENSEL]
+    - capabilities: {canEdit: true, canCopy: true}
+      editable: true
+      copyable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA/htmlembed?ouid=111452219040835203177
+      copyRequiresWriterPermission: false
+      python_name: mantenimiento_lista_equipos
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      shared: true
+      createdDate: '2023-12-07T12:48:44.201Z'
+      id: 1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA
+      owners:
+      - displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA/parents/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n',
+        id: 1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      selfLink: https://www.googleapis.com/drive/v2/files/1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA
+      lastViewedByMeDate: '2023-12-07T13:24:56.051Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA/permissions/me',
+        etag: '"2TATo-D6j97ZSlnFcPEso9CcSKQ"', pendingOwner: false}
+      lastModifyingUserName: ERP ENSEL
+      etag: '"MTcwMTk1NTQ5NjA1MQ"'
+      kind: drive#file
+      modifiedByMeDate: '2023-12-07T13:24:56.051Z'
+      title: MANTENIMIENTO_LISTA_EQUIPOS
+      version: '24'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '1024'
+      alternateLink: https://docs.google.com/spreadsheets/d/1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA/edit?usp=drivesdk
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2023-12-07T13:24:56.051Z'
+      quotaBytesUsed: '1024'
+      exportLinks: {x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=ods',
+        tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=tsv',
+        pdf: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=pdf',
+        vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=xlsx',
+        csv: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=csv',
+        zip: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=zip',
+        vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1v-zxjYuc5FgVIWfPDQlwDb8qWOtP5EgZHguCuMd1-LA&exportFormat=ods'}
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AKHj6E5Z8tlzxdSAB8oVpCRWeQC7pG8cUiYXPv4yrJVJkb6TSLillvF_L2XP3UavlNygPHFqu6NTVsk0rQvZuMz4UnVA43xs7yv8W0MV3ZFZTxsfbsNXgSWe7b8=s220
+      ownerNames: [ERP ENSEL]
+    - capabilities: {canEdit: true, canCopy: true}
+      editable: true
+      copyable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc/htmlembed?ouid=111452219040835203177
+      copyRequiresWriterPermission: false
+      python_name: usuarios_erp
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      shared: true
+      createdDate: '2023-12-07T13:19:09.950Z'
+      id: 1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc
+      owners:
+      - displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc/parents/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n',
+        id: 1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      selfLink: https://www.googleapis.com/drive/v2/files/1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc
+      lastViewedByMeDate: '2023-12-07T13:19:52.286Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc/permissions/me',
+        etag: '"D2dj5LWzycWTzR9n2WpxrMnKtgc"', pendingOwner: false}
+      lastModifyingUserName: ERP ENSEL
+      etag: '"MTcwMTk1NTE5MDE4OQ"'
+      kind: drive#file
+      modifiedByMeDate: '2023-12-07T13:19:50.189Z'
+      title: USUARIOS_ERP
+      version: '12'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '1244'
+      alternateLink: https://docs.google.com/spreadsheets/d/1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc/edit?usp=drivesdk
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2023-12-07T13:19:50.189Z'
+      quotaBytesUsed: '1244'
+      exportLinks: {x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=ods',
+        tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=tsv',
+        pdf: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=pdf',
+        vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=xlsx',
+        csv: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=csv',
+        zip: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=zip',
+        vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1wxEMKJM-9hc70gdm97_S9MeY_q5TOSTzZxjT5P7CyRc&exportFormat=ods'}
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AKHj6E7kh0skFYCRDA4ghBjdjUGIznFD07iozw5GJTY4RK4wmhN_34OAWEqSNkgcGBZofTEA3rp-uyEbv8AGPyPtnpoVsNWyeCirV6va75gqOdFyWk3xBbwHRO8=s220
+      ownerNames: [ERP ENSEL]
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
 startup: {type: form, module: A_main}
 package_name: Modulo_Mantenimiento
