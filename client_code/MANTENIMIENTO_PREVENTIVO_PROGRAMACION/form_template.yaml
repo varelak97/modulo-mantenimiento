@@ -22,12 +22,6 @@ components:
     type: ColumnPanel
     layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
     components:
-    - name: button_copiar_lista
-      properties: {text: IMPORTAR LISTA DE EQUIPOS DE AÑO ANTERIOR, icon: 'fa:copy',
-        role: filled-button, background: 'theme:Green', bold: true}
-      type: Button
-      layout_properties: {grid_position: 'VANQRE,QSEBXD'}
-      event_bindings: {click: button_copiar_lista_click}
     - name: label_equipos
       properties: {text: EQUIPOS, background: 'theme:Tertiary', bold: true, foreground: 'theme:White',
         align: center, role: title}
@@ -48,7 +42,7 @@ components:
       type: DataGrid
       components:
       - name: data_row_panel_equipos
-        properties: {}
+        properties: {visible: false}
         type: DataRowPanel
         components:
         - name: button_agregar_equipo
@@ -57,6 +51,7 @@ components:
           type: Button
           layout_properties: {column: JKSDUP}
           event_bindings: {click: button_agregar_equipo_click}
+        layout_properties: {}
       - name: repeating_panel_equipos
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7,
           role: null}
