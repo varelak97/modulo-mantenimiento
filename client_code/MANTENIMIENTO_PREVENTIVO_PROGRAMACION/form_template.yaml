@@ -23,7 +23,7 @@ components:
     layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
     components:
     - name: button_copiar_lista
-      properties: {text: COPIAR LISTA DE EQUIPOS DE AÑO ANTERIOR, icon: 'fa:copy',
+      properties: {text: IMPORTAR LISTA DE EQUIPOS DE AÑO ANTERIOR, icon: 'fa:copy',
         role: filled-button, background: 'theme:Green', bold: true}
       type: Button
       layout_properties: {grid_position: 'VANQRE,QSEBXD'}
