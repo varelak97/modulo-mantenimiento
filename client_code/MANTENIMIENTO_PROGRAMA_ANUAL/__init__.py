@@ -49,50 +49,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     "SERVICIOS GENERALES"
   ]
 
-  lista_equipos = [
-    {"EQUIPO":"ATMA 57","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"ATMA 71","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"ATMA 70","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"ATMA 45","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"ATMA 710","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"ATMA 80","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"HORNO 1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL","SEMESTRAL"]},
-    {"EQUIPO":"HORNO 2","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"HORNO 3","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"HORNO 4","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"HORNO 5","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"IMPRESORA MIMAKI","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]},
-    {"EQUIPO":"IMPRESORA OFFSET","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"SPS","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]},
-    {"EQUIPO":"SUAJADORA 1","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"SUAJADORA 2","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"SUAJADORA 3","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"SUAJADORA 4","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"EMBOSADORA","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"LÁSER V-460","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]},
-    {"EQUIPO":"LÁSER M-300","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]},
-    {"EQUIPO":"LÁSER VLS-360","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]},
-    {"EQUIPO":"MESA DE COORDENADAS X-Y","AREA":"CALIDAD","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"PROBADOR ELÉCTRICO 2 (CC015)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]},
-    {"EQUIPO":"PROBADOR ELÉCTRICO 3 (C0025)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]},
-    {"EQUIPO":"PROBADOR ELÉCTRICO 4 (C0028)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]},
-    {"EQUIPO":"INSOLADORA","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"AFILADOR DE RASEROS","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"LAMINADORA 1","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"LAMINADORA 2","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"LAMINADOR 3","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"PICK&PLACE 2","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"PICK&PLACE 3","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"GUILLOTINA 1","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"GUILLOTINA 2","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]},
-    {"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]},
-    {"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}
-  ]
-  
-  #lista_equipos = None
+  lista_equipos = None
 
   datos = {}
   libro_mttos = None
@@ -111,7 +68,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.drop_down_mes.items = self.meses
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
-    self.drop_down_equipos.items = self.lista_equipos#self.get_lista_equipos()
+    self.drop_down_equipos.items = self.get_lista_equipos()
     self.drop_down_areas.items = self.lista_areas
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
@@ -270,7 +227,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
         elif tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
-          indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo']
+          #indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo'] #estaba
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo'],'operacion':item['operacion']}) #agregado
     elif area == item['area']: #area:selected
       if equipo == "todos":
         if tipo == "todos":
