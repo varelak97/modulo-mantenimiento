@@ -45,66 +45,28 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     "CALIDAD",
     "REVELADO",
     "ENSAMBLE",
-    "ALMACÉN MP"
+    "ALMACÉN MP",
+    "SERVICIOS GENERALES"
   ]
   
-  lista_equipos = [
-    ("ATMA 57",{"equipo":"ATMA 57","area":"IMPRESIÓN"}),
-    ("ATMA 71",{"equipo":"ATMA 71","area":"IMPRESIÓN"}),
-    ("ATMA 70",{"equipo":"ATMA 70","area":"IMPRESIÓN"}),
-    ("ATMA 45",{"equipo":"ATMA 45","area":"IMPRESIÓN"}),
-    ("ATMA 710",{"equipo":"ATMA 710","area":"IMPRESIÓN"}),
-    ("ATMA 80",{"equipo":"ATMA 80","area":"IMPRESIÓN"}),
-    ("HORNO 1",{"equipo":"HORNO 1","area":"IMPRESIÓN"}),
-    ("HORNO 2",{"equipo":"HORNO 2","area":"IMPRESIÓN"}),
-    ("HORNO 3",{"equipo":"HORNO 3","area":"IMPRESIÓN"}),
-    ("HORNO 4",{"equipo":"HORNO 4","area":"IMPRESIÓN"}),
-    ("HORNO 5",{"equipo":"HORNO 5","area":"IMPRESIÓN"}),
-    ("IMPRESORA MIMAKI",{"equipo":"IMPRESORA MIMAKI","area":"IMPRESIÓN"}),
-    ("IMPRESORA OFFSET",{"equipo":"IMPRESORA OFFSET","area":"IMPRESIÓN"}),
-    ("SPS",{"equipo":"SPS","area":"IMPRESIÓN"}),
-    ("SUAJADORA 1",{"equipo":"SUAJADORA 1","area":"SUAJE"}),
-    ("SUAJADORA 2",{"equipo":"SUAJADORA 2","area":"SUAJE"}),
-    ("SUAJADORA 3",{"equipo":"SUAJADORA 3","area":"SUAJE"}),
-    ("SUAJADORA 4",{"equipo":"SUAJADORA 4","area":"SUAJE"}),
-    ("EMBOSADORA",{"equipo":"EMBOSADORA","area":"SUAJE"}),
-    ("LÁSER V-460",{"equipo":"LÁSER V-460","area":"LÁSER"}),
-    ("LÁSER M-300",{"equipo":"LÁSER M-300","area":"LÁSER"}),
-    ("LÁSER VLS-360",{"equipo":"LÁSER VLS-360","area":"LÁSER"}),
-    ("MESA DE COORDENADAS X-Y",{"equipo":"MESA DE COORDENADAS X-Y","area":"CALIDAD"}),
-    ("PROBADOR ELÉCTRICO 2 (CC015)",{"equipo":"PROBADOR ELÉCTRICO 2 (CC015)","area":"CALIDAD"}),
-    ("PROBADOR ELÉCTRICO 3 (C0025)",{"equipo":"PROBADOR ELÉCTRICO 3 (C0025)","area":"CALIDAD"}),
-    ("PROBADOR ELÉCTRICO 4 (C0028)",{"equipo":"PROBADOR ELÉCTRICO 4 (C0028)","area":"CALIDAD"}),
-    ("INSOLADORA",{"equipo":"INSOLADORA","area":"REVELADO"}),
-    ("AFILADOR DE RASEROS",{"equipo":"AFILADOR DE RASEROS","area":"REVELADO"}),
-    ("LAMINADORA 1",{"equipo":"LAMINADORA 1","area":"ENSAMBLE"}),
-    ("LAMINADORA 2",{"equipo":"LAMINADORA 2","area":"ENSAMBLE"}),
-    ("LAMINADORA 3",{"equipo":"LAMINADOR 3","area":"ENSAMBLE"}),
-    ("PICK&PLACE 2",{"equipo":"PICK&PLACE 2","area":"ENSAMBLE"}),
-    ("TROQUELADORA MANUAL",{"equipo":"TROQUELADORA MANUAL","area":"ENSAMBLE"}),
-    ("DISPENSADORES",{"equipo":"DISPENSADORES","area":"ENSAMBLE"}),
-    ("PICK&PLACE 3",{"equipo":"PICK&PLACE 3","area":"ENSAMBLE"}),
-    ("GUILLOTINA 1",{"equipo":"GUILLOTINA 1","area":"ALMACÉN MP"}),
-    ("GUILLOTINA 2",{"equipo":"GUILLOTINA 2","area":"ALMACÉN MP"}),
-    ("GUILLOTINA 3",{"equipo":"GUILLOTINA 3","area":"ALMACÉN MP"}),
-    ("HOJEADORA",{"equipo":"HOJEADORA","area":"ALMACÉN MP"}),
-    ("EMBOLSADORA",{"equipo":"EMBOLSADORA","area":"MANUALES"}),
-  ]
+  lista_equipos = None
 
   datos = {}
   libro_mttos = None
   ws_consulta_mttos = None
   registros_consulta_mttos = None
   ws_registros_totales = None
-  numero_registros = None
+  ws_equipos = None
+  #numero_registros = None
   
   def __init__(self, datos, **properties):
     self.datos = datos
+    self.lista_equipos = self.get_lista_equipos()
     fecha_actual = date.today()
     self.drop_down_mes.items = self.meses
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
-    self.drop_down_equipos.items = self.lista_equipos
+    self.drop_down_equipos.items = self.get_lista_equipos()#self.lista_equipos
     self.drop_down_areas.items = self.lista_areas
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
@@ -142,6 +104,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         elif tipo == "todos":
           registros_dia_seleccionado.append(item)
     return registros_dia_seleccionado"""
+
+  def get_lista_equipos(self):
+    self.ws_equipos = app_files.mantenimiento_lista_equipos
+    return self.ws_equipos['']
     
   def actualizar_form_activo(self, datos, **event_args):
     
