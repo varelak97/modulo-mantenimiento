@@ -49,46 +49,46 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   ]
   
   lista_equipos = [
-    ("ATMA 57",{"EQUIPO":"ATMA 57","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 71",{"EQUIPO":"ATMA 71","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 70",{"EQUIPO":"ATMA 70","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 45",{"EQUIPO":"ATMA 45","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 710",{"EQUIPO":"ATMA 710","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 80",{"EQUIPO":"ATMA 80","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("HORNO 1",{"EQUIPO":"HORNO 1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL","SEMESTRAL"]}),
-    ("HORNO 2",{"EQUIPO":"HORNO 2","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 3",{"EQUIPO":"HORNO 3","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 4",{"EQUIPO":"HORNO 4","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 5",{"EQUIPO":"HORNO 5","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("IMPRESORA MIMAKI",{"EQUIPO":"IMPRESORA MIMAKI","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
-    ("IMPRESORA OFFSET",{"EQUIPO":"IMPRESORA OFFSET","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SPS",{"EQUIPO":"SPS","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
-    ("SUAJADORA 1",{"EQUIPO":"SUAJADORA 1","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 2",{"EQUIPO":"SUAJADORA 2","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 3",{"EQUIPO":"SUAJADORA 3","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 4",{"EQUIPO":"SUAJADORA 4","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("EMBOSADORA",{"EQUIPO":"EMBOSADORA","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("LÁSER V-460",{"EQUIPO":"LÁSER V-460","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("LÁSER M-300",{"EQUIPO":"LÁSER M-300","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("LÁSER VLS-360",{"EQUIPO":"LÁSER VLS-360","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("MESA DE COORDENADAS X-Y",{"EQUIPO":"MESA DE COORDENADAS X-Y","AREA":"CALIDAD","FRECUENCIA":["TRIMESTRAL"]}),
-    ("PROBADOR ELÉCTRICO 2 (CC015)",{"EQUIPO":"PROBADOR ELÉCTRICO 2 (CC015)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("PROBADOR ELÉCTRICO 3 (C0025)",{"EQUIPO":"PROBADOR ELÉCTRICO 3 (C0025)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("PROBADOR ELÉCTRICO 4 (C0028)",{"EQUIPO":"PROBADOR ELÉCTRICO 4 (C0028)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("INSOLADORA",{"EQUIPO":"INSOLADORA","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
-    ("AFILADOR DE RASEROS",{"EQUIPO":"AFILADOR DE RASEROS","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
-    ("LAMINADORA 1",{"EQUIPO":"LAMINADORA 1","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("LAMINADORA 2",{"EQUIPO":"LAMINADORA 2","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("LAMINADORA 3",{"EQUIPO":"LAMINADOR 3","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("PICK&PLACE 2",{"EQUIPO":"PICK&PLACE 2","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("DISPENSADORES",{"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("PICK&PLACE 3",{"EQUIPO":"PICK&PLACE 3","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("GUILLOTINA 1",{"EQUIPO":"GUILLOTINA 1","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("GUILLOTINA 2",{"EQUIPO":"GUILLOTINA 2","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
-    ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
+    ("ATMA 57",{"equipo":"ATMA 57","area":"IMPRESIÓN"}),
+    ("ATMA 71",{"equipo":"ATMA 71","area":"IMPRESIÓN"}),
+    ("ATMA 70",{"equipo":"ATMA 70","area":"IMPRESIÓN"}),
+    ("ATMA 45",{"equipo":"ATMA 45","area":"IMPRESIÓN"}),
+    ("ATMA 710",{"equipo":"ATMA 710","area":"IMPRESIÓN"}),
+    ("ATMA 80",{"equipo":"ATMA 80","area":"IMPRESIÓN"}),
+    ("HORNO 1",{"equipo":"HORNO 1","area":"IMPRESIÓN"}),
+    ("HORNO 2",{"equipo":"HORNO 2","area":"IMPRESIÓN"}),
+    ("HORNO 3",{"equipo":"HORNO 3","area":"IMPRESIÓN"}),
+    ("HORNO 4",{"equipo":"HORNO 4","area":"IMPRESIÓN"}),
+    ("HORNO 5",{"equipo":"HORNO 5","area":"IMPRESIÓN"}),
+    ("IMPRESORA MIMAKI",{"equipo":"IMPRESORA MIMAKI","area":"IMPRESIÓN"}),
+    ("IMPRESORA OFFSET",{"equipo":"IMPRESORA OFFSET","area":"IMPRESIÓN"}),
+    ("SPS",{"equipo":"SPS","area":"IMPRESIÓN"}),
+    ("SUAJADORA 1",{"equipo":"SUAJADORA 1","area":"SUAJE"}),
+    ("SUAJADORA 2",{"equipo":"SUAJADORA 2","area":"SUAJE"}),
+    ("SUAJADORA 3",{"equipo":"SUAJADORA 3","area":"SUAJE"}),
+    ("SUAJADORA 4",{"equipo":"SUAJADORA 4","area":"SUAJE"}),
+    ("EMBOSADORA",{"equipo":"EMBOSADORA","area":"SUAJE"}),
+    ("LÁSER V-460",{"equipo":"LÁSER V-460","area":"LÁSER"}),
+    ("LÁSER M-300",{"equipo":"LÁSER M-300","area":"LÁSER"}),
+    ("LÁSER VLS-360",{"equipo":"LÁSER VLS-360","area":"LÁSER"}),
+    ("MESA DE COORDENADAS X-Y",{"equipo":"MESA DE COORDENADAS X-Y","area":"CALIDAD"}),
+    ("PROBADOR ELÉCTRICO 2 (CC015)",{"equipo":"PROBADOR ELÉCTRICO 2 (CC015)","area":"CALIDAD"}),
+    ("PROBADOR ELÉCTRICO 3 (C0025)",{"equipo":"PROBADOR ELÉCTRICO 3 (C0025)","area":"CALIDAD"}),
+    ("PROBADOR ELÉCTRICO 4 (C0028)",{"equipo":"PROBADOR ELÉCTRICO 4 (C0028)","area":"CALIDAD"}),
+    ("INSOLADORA",{"equipo":"INSOLADORA","area":"REVELADO"}),
+    ("AFILADOR DE RASEROS",{"equipo":"AFILADOR DE RASEROS","area":"REVELADO"}),
+    ("LAMINADORA 1",{"equipo":"LAMINADORA 1","area":"ENSAMBLE"}),
+    ("LAMINADORA 2",{"equipo":"LAMINADORA 2","area":"ENSAMBLE"}),
+    ("LAMINADORA 3",{"equipo":"LAMINADOR 3","area":"ENSAMBLE"}),
+    ("PICK&PLACE 2",{"equipo":"PICK&PLACE 2","area":"ENSAMBLE"}),
+    ("TROQUELADORA MANUAL",{"equipo":"TROQUELADORA MANUAL","area":"ENSAMBLE"}),
+    ("DISPENSADORES",{"equipo":"DISPENSADORES","area":"ENSAMBLE"}),
+    ("PICK&PLACE 3",{"equipo":"PICK&PLACE 3","area":"ENSAMBLE"}),
+    ("GUILLOTINA 1",{"equipo":"GUILLOTINA 1","area":"ALMACÉN MP"}),
+    ("GUILLOTINA 2",{"equipo":"GUILLOTINA 2","area":"ALMACÉN MP"}),
+    ("GUILLOTINA 3",{"equipo":"GUILLOTINA 3","area":"ALMACÉN MP"}),
+    ("HOJEADORA",{"equipo":"HOJEADORA","area":"ALMACÉN MP"}),
+    ("EMBOLSADORA",{"equipo":"EMBOLSADORA","area":"MANUALES"}),
   ]
 
   datos = {}
@@ -176,7 +176,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     for dia in range(31):
       area = "todas" if self.drop_down_areas.selected_value == None else self.drop_down_areas.selected_value
       tipo = "todos" if self.drop_down_tipo.selected_value == None else self.drop_down_tipo.selected_value
-      equipo = "todos" if self.drop_down_equipos.selected_value == None else self.drop_down_equipos.selected_value['EQUIPO']
+      equipo = "todos" if self.drop_down_equipos.selected_value == None else self.drop_down_equipos.selected_value['equipo']
       indicadores_mtto_mes.append({
         #genera acumuladores
         'W':0,
@@ -277,11 +277,11 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
 
   def drop_down_areas_change(self, **event_args):
     self.drop_down_equipos.selected_value = None
-    self.drop_down_tipo.selected_value = None
+    self.drop_down_tipo.selected_value = "PROGRAMADO"
     if self.drop_down_areas.selected_value != None:
       lista_filtrada = []
       for equipo in self.lista_equipos:
-        if self.drop_down_areas.selected_value == equipo[1]['AREA']:
+        if self.drop_down_areas.selected_value == equipo[1]['area']:
           lista_filtrada.append(equipo)
       self.drop_down_equipos.items = lista_filtrada
     else:
@@ -290,7 +290,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         
 
   def drop_down_equipos_change(self, **event_args):
-    self.drop_down_tipo.selected_value = None
+    self.drop_down_tipo.selected_value = "PROGRAMADO"
     self.llenar_calendario()
 
   def drop_down_tipo_change(self, **event_args):
