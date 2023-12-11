@@ -240,7 +240,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
         elif tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
-          indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo']
+          #indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo'] #estaba
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo'],'operacion':item['operacion']}) #agregado
+          
 
   #################################################### EVENTOS ####################################################
   def drop_down_mes_change(self, **event_args):
