@@ -329,31 +329,31 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     print(lista_equipos)
     return lista_equipos
 
-  def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
+  def get_actividades(self, equipo, area, frecuencia_mtto):
     actividades = None
-    if equipo_seleccionado['AREA'] == "IMPRESIÓN":
-      if equipo_seleccionado['EQUIPO'] == "IMPRESORA MIMAKI":
+    if area == "IMPRESIÓN":
+      if equipo == "IMPRESORA MIMAKI":
         actividades = self.actividades_equipo_mimaki_mensual
-      elif equipo_seleccionado['EQUIPO'] == "SPS":
+      elif equipo == "SPS":
         actividades = self.actividades_equipo_sps_mensual
-      elif equipo_seleccionado['EQUIPO'] == "IMPRESORA OFFSET":
+      elif equipo == "IMPRESORA OFFSET":
         actividades = self.actividades_equipo_offset_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 1":
+      elif equipo == "HORNO 1":
         if frecuencia_mtto == "SEMANAL":
           actividades = self.actividades_equipo_horno_1_semanal
         elif frecuencia_mtto == "MENSUAL":
           actividades = self.actividades_equipo_horno_1_mensual
         elif frecuencia_mtto == "SEMESTRAL":
           actividades = self.actividades_equipo_horno_1_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 2":
+      elif equipo == "HORNO 2":
         actividades = self.actividades_equipo_horno_2_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 3":
+      elif equipo == "HORNO 3":
         actividades = self.actividades_equipo_horno_3_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 4":
+      elif equipo == "HORNO 4":
         actividades = self.actividades_equipo_horno_4_semestral
-      elif equipo_seleccionado['EQUIPO'] == "HORNO 5":
+      elif equipo == "HORNO 5":
         actividades = self.actividades_equipo_horno_5_semestral
-      elif equipo_seleccionado['EQUIPO'] == "ATMA 80" or equipo_seleccionado['EQUIPO'] == "ATMA 710":
+      elif equipo == "ATMA 80" or equipo == "ATMA 710":
         self.actividades_equipos_atma_trimestral += self.actividades_equipos_atma80_710_trimestral
         self.actividades_equipos_atma_trimestral = sorted(self.actividades_equipos_atma_trimestral, key=lambda d: d['id']) 
         actividades = self.actividades_equipos_atma_trimestral
@@ -362,50 +362,50 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
           actividad['id'] = index + 1
         actividades = self.actividades_equipos_atma_trimestral
     ################################################# SUAJE ########################################################
-    elif equipo_seleccionado['AREA'] == "SUAJE":
-      if equipo_seleccionado['EQUIPO'] == "EMBOSADORA":
+    elif area == "SUAJE":
+      if equipo == "EMBOSADORA":
         actividades = self.actividades_equipo_embosadora_trimestral
       else:
         actividades = self.actividades_equipos_suaje_trimestral
     ################################################# MANUALES ########################################################
-    elif equipo_seleccionado['AREA'] == "MANUALES":
+    elif area == "MANUALES":
       actividades = self.actividades_equipo_embolsadora_trimestral
     ################################################# LASER ########################################################
-    elif equipo_seleccionado['AREA'] == "LÁSER":
+    elif area == "LÁSER":
       if frecuencia_mtto == "SEMANAL":
         actividades = self.actividades_equipos_laser_semanal
       elif frecuencia_mtto == "MENSUAL":
         actividades = self.actividades_equipos_laser_mensual
     ################################################# CALIDAD ########################################################
-    elif equipo_seleccionado['AREA'] == "CALIDAD":
-      if equipo_seleccionado['EQUIPO'] == "MESA DE COORDENADAS X-Y":
+    elif area == "CALIDAD":
+      if equipo == "MESA DE COORDENADAS X-Y":
         actividades = self.actividades_equipo_mesa_coordenadas_trimestral
-      elif equipo_seleccionado['EQUIPO'] != "PROBADOR ELÉCTRICO 2 (CC015)":
+      elif equipo != "PROBADOR ELÉCTRICO 2 (CC015)":
         self.actividades_equipos_probadores_electricos_mensual += self.actividades_equipo_probador_electrico_2_mensual
         actividades = self.actividades_equipos_probadores_electricos_mensual
       else:
         actividades = self.actividades_equipos_probadores_electricos_mensual
     ################################################# REVELADO ########################################################
-    elif equipo_seleccionado['AREA'] == "REVELADO":
-      if equipo_seleccionado['EQUIPO'] == "INSOLADORA":
+    elif area == "REVELADO":
+      if equipo == "INSOLADORA":
         actividades = self.actividades_equipo_insoladora_semestral
-      elif equipo_seleccionado['EQUIPO'] == "AFILADOR DE RASEROS":
+      elif equipo == "AFILADOR DE RASEROS":
         actividades = self.actividades_equipo_afilador_raseros_trimestral
     ################################################# ENSAMBLE ########################################################
-    elif equipo_seleccionado['AREA'] == "ENSAMBLE":
-      if equipo_seleccionado['EQUIPO'] == "PICK&PLACE 2":
+    elif area == "ENSAMBLE":
+      if equipo == "PICK&PLACE 2":
         actividades = self.actividades_equipo_pickAndPlace_2_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "PICK&PLACE 3":
+      elif equipo == "PICK&PLACE 3":
         actividades = self.actividades_equipo_pickAndPlace_3_trimestral
-      elif equipo_seleccionado['EQUIPO'] == "TROQUELADORA MANUAL":
+      elif equipo == "TROQUELADORA MANUAL":
         actividades = self.actividades_equipo_troqueladora_manual_semestral
-      elif equipo_seleccionado['EQUIPO'] == "DISPENSADORES":
+      elif equipo == "DISPENSADORES":
         actividades = self.actividades_equipos_dispensadores_semestral
       else:
         actividades = self.actividades_equipos_laminadoras_semestral
     ################################################# ALMACEN MP ########################################################
-    elif equipo_seleccionado['AREA'] == "ALMACÉN MP":
-      if equipo_seleccionado['EQUIPO'] == "HOJEADORA":
+    elif area == "ALMACÉN MP":
+      if equipo == "HOJEADORA":
         actividades = self.actividades_equipo_hojeadora_trimestral
       else:
         actividades = self.actividades_equipos_guillotinas_semestral
@@ -426,9 +426,38 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
     equipos_programados = self.repeating_panel_equipos.items
-    for equipo in equipos_programados:
-      if equipo['trimestral'] != "":
-        fecha = equipo['trimestral']
+    anio_actual = datetime.today().year
+    id_mtto_preventivo = 1
+    with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
+      for equipo in equipos_programados:
+        if equipo['trimestral'] != "":
+          fecha = equipo['trimestral']
+          while fecha.year == anio_actual:
+            temp = fecha
+            if fecha.weekday() == 5:
+              fecha += timedelta(days = 2)
+            elif fecha.weekday() == 6:
+              fecha += timedelta(days = 1)
+            dict_mtto = {
+              "id_mtto_preventivo": id_mtto_preventivo,
+              "fecha_programada":fecha,
+              "area":equipo['area'],
+              "equipo":equipo['equipo'],
+              "frecuencia":"TRIMESTRAL",
+              "status_mantenimiento":"PROGRAMADO",
+              "actividades":self.get_actividades(equipo['equipo'], equipo['area'], "TRIMESTRAL"),
+              "id_usuario_registrador":self.datos['id_usuario_erp'],
+              "usuario_registrador":"pendiente",
+              "operacion":"creacion",
+              "marca_temporal":datetime.now(),
+              "comentarios":"",
+              "registro_principal": 1
+            }
+            id_mtto_preventivo += 1
+            self.ws_mtto_preventivos.add_row(**dict_mtto)
+            fecha += timedelta(days = 30)
+            
+    Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
         #self.programa_mtto_anual("TRIMESTRAL", equipo['trimestral'], equipo['area'])
         
     """lista_mttos_programados = []
