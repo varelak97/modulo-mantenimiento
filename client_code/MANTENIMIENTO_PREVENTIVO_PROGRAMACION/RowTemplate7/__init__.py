@@ -4,8 +4,13 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
 class RowTemplate7(RowTemplate7Template):
+  #################################### DEFINICION DE VARIABLES ####################################
+  
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    ################################# CARGA DE DATOS E INICIALIZACION DE VARIABLES ################################
 
-    # Any code you write here will run before the form opens.
+    
+  ########################################### FUNCIONES PERSONALIZADS #############################################
+
+  #################################################### EVENTOS ####################################################
