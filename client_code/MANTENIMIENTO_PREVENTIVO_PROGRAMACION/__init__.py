@@ -288,23 +288,35 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     {"id":6,"actividad":"REVISAR PRESIÓN DE SUMINISTRO (RANGO ENTRE 0.4 Y 0.6 MPA)"}
   ]
 
-  libro_mttos = None
-  ws_registros_totales = None
-  registros_totales = None
-  registro_seleccionado = None
+  libro_mttos_preventivos = None
+  ws_mtto_preventivos = None
+  #mttos_preventivos_registros = None
+  #registro_seleccionado = None
+
+  libro_equipos = None
+  ws_equipos_vista = None
+  
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
   ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
 
-    self.libro_mttos = app_files.mantenimiento_preventivo
-    self.ws_registros_totales = self.libro_mttos['Registros']
-    self.registros_totales = self.ws_registros_totales.rows
+    self.libro_mttos_preventivos = app_files.mantenimiento_preventivo
+    self.ws_mtto_preventivos = self.libro_mttos_preventivos['Registros']
+    #self.registros_totales = self.ws_registros_totales.rows
+
+    self.libro_equipos = app_files.mantenimiento_lista_equipos
+    self.ws_equipos_vista = self.libro_equipos['Vista']
+
+    self.repeating_panel_equipos.items = self.get_lista_equipos()
 
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def get_lista_equipos(self):
+    
+    pass
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None
     if equipo_seleccionado['AREA'] == "IMPRESIÓN":

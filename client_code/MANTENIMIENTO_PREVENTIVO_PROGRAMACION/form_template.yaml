@@ -95,7 +95,7 @@ components:
             bold: true, icon: 'fa:plus-circle'}
           type: Button
           layout_properties: {column: VJQQOR}
-      - name: repeating_panel_1
+      - name: repeating_panel_fechas_excluidas
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate1}
         type: RepeatingPanel
       layout_properties: {grid_position: 'HEHOUK,ASFZFF'}
