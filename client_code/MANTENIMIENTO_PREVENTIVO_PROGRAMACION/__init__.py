@@ -428,7 +428,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     equipos_programados = self.repeating_panel_equipos.items
     for equipo in equipos_programados:
       if equipo['trimestral'] != "":
-        
+        fecha = equipo['trimestral']
+        #self.programa_mtto_anual("TRIMESTRAL", equipo['trimestral'], equipo['area'])
         
     """lista_mttos_programados = []
     index = 1
