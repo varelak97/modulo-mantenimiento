@@ -295,6 +295,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
   libro_equipos = None
   ws_equipos_vista = None
+  ws_equipos_registros = None
   
   
   def __init__(self, datos, **properties):
@@ -308,15 +309,26 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
     self.libro_equipos = app_files.mantenimiento_lista_equipos
     self.ws_equipos_vista = self.libro_equipos['Vista']
+    self.ws_equipos_registros = self.libro_equipos['Registros']
 
-    self.repeating_panel_equipos.items = self.get_lista_equipos()
+    self.repeating_panel_equipos.items = self.get_lista_equipos(self.ws_equipos_vista.rows)
 
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def get_lista_equipos(self):
-    
-    pass
+  def get_lista_equipos(self, equipos):
+    lista_equipos = []
+    for equipo in list(equipos).copy():
+      temp = dict(equipo)
+      temp['semanal'] = ""
+      temp['mensual'] = ""
+      temp['trimestral'] = ""
+      temp['semestral'] = ""
+      temp['anual'] = ""
+      lista_equipos.append(temp)
+    print(lista_equipos)
+    return lista_equipos
+
   def get_actividades(self, equipo_seleccionado, frecuencia_mtto):
     actividades = None
     if equipo_seleccionado['AREA'] == "IMPRESIÓN":
@@ -413,12 +425,16 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
-    lista_mttos_programados = []
+    equipos_programados = self.repeating_panel_equipos.items
+    for equipo in equipos_programados:
+      if equipo['trimestral'] != "":
+        
+    """lista_mttos_programados = []
     index = 1
     for equipo in self.lista_equipos:
       for frecuencia in equipo['FRECUENCIA']:
         if frecuencia == "SEMANAL":
-          pass
+          pass"""
 
   def button_copiar_lista_click(self, **event_args):
     """This method is called when the button is clicked"""

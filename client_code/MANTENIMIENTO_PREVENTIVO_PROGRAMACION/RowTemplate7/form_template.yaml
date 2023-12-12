@@ -5,73 +5,81 @@ components:
   properties: {text: '', background: 'theme:Green', icon: 'fa:edit', foreground: 'theme:White'}
   type: Button
   layout_properties: {column: KXABMA}
+  event_bindings: {click: button_editar_click}
 - name: button_eliminar
   properties: {text: '', role: filled-button, icon: 'fa:times', background: 'theme:Red'}
   type: Button
   layout_properties: {column: GWTVLR}
 - name: label_equipo
-  properties: {}
+  properties: {bold: true}
   type: Label
   layout_properties: {column: JKSDUP}
   data_bindings:
   - {property: text, code: 'self.item[''equipo'']', writeback: false}
 - name: label_semanal
-  properties: {}
+  properties: {align: center, bold: true, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: text, code: 'self.item[''semanal'']', writeback: false}
 - name: date_picker_semanal
-  properties: {role: outlined, visible: false}
+  properties: {role: outlined, visible: false, format: '%Y-%m-%d'}
   type: DatePicker
   layout_properties: {column: VJQQOR}
   data_bindings:
-  - {property: date, code: 'self.item[''semanal'']', writeback: false}
+  - {property: date, code: 'self.item[''semanal'']', writeback: true}
+  - {property: pick_time, code: 'self.item[''semanal'']', writeback: false}
 - name: label_mensual
-  properties: {}
+  properties: {align: center, bold: true, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {column: OJLQEN}
   data_bindings:
   - {property: text, code: 'self.item[''mensual'']', writeback: false}
 - name: date_picker_mensual
-  properties: {role: outlined, visible: false}
+  properties: {role: outlined, visible: false, format: '%Y-%m-%d'}
   type: DatePicker
   layout_properties: {column: OJLQEN}
   data_bindings:
-  - {property: date, code: 'self.item[''mensual'']', writeback: false}
+  - {property: date, code: 'self.item[''mensual'']', writeback: true}
 - name: label_trimestral
-  properties: {}
+  properties: {align: center, bold: true, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {column: GCFZRN}
   data_bindings:
   - {property: text, code: 'self.item[''trimestral'']', writeback: false}
 - name: date_picker_trimestral
-  properties: {role: outlined, visible: false}
+  properties: {role: outlined, visible: false, format: '%Y-%m-%d'}
   type: DatePicker
   layout_properties: {column: GCFZRN}
   data_bindings:
-  - {property: date, code: 'self.item[''trimestral'']', writeback: false}
+  - {property: date, code: 'self.item[''trimestral'']', writeback: true}
 - name: label_semestral
-  properties: {}
+  properties: {align: center, bold: true, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {column: BZILCF}
   data_bindings:
   - {property: text, code: 'self.item[''semestral'']', writeback: false}
 - name: date_picker_semestral
-  properties: {role: outlined, visible: false}
+  properties: {role: outlined, visible: false, format: '%Y-%m-%d'}
   type: DatePicker
   layout_properties: {column: BZILCF}
   data_bindings:
-  - {property: date, code: 'self.item[''semestral'']', writeback: false}
+  - {property: date, code: 'self.item[''semestral'']', writeback: true}
 - name: label_anual
-  properties: {}
+  properties: {align: center, bold: true, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {column: GXQNNV}
   data_bindings:
   - {property: text, code: 'self.item[''anual'']', writeback: false}
 - name: date_picker_anual
-  properties: {role: outlined, visible: false}
+  properties: {role: outlined, visible: false, format: '%Y-%m-%d'}
   type: DatePicker
   layout_properties: {column: GXQNNV}
   data_bindings:
-  - {property: date, code: 'self.item[''anual'']', writeback: false}
+  - {property: date, code: 'self.item[''anual'']', writeback: true}
+- name: label_id_equipo
+  properties: {align: center, bold: true}
+  type: Label
+  layout_properties: {column: BYJQCL}
+  data_bindings:
+  - {property: text, code: 'self.item[''id_equipo'']', writeback: false}

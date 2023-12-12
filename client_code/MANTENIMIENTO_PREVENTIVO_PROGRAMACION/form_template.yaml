@@ -23,13 +23,19 @@ components:
     layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
     components:
     - name: label_equipos
-      properties: {text: EQUIPOS, background: 'theme:Tertiary', bold: true, foreground: 'theme:White',
-        align: center, role: title}
+      properties: {text: FECHA INCIAL DE PROGRAMACIÓN ANUAL DE EQUIPOS, background: 'theme:Tertiary',
+        bold: true, foreground: 'theme:White', align: center, role: title}
       type: Label
       layout_properties: {grid_position: 'RLGVYW,BDZUMF', full_width_row: true}
+    - name: label_1
+      properties: {text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento
+          para cada equipo según corresponda:', bold: true, italic: true}
+      type: Label
+      layout_properties: {grid_position: 'XBEGXN,HGMKQR'}
     - name: data_grid_equipos
       properties:
         columns:
+        - {id: BYJQCL, data_key: id_equipo, title: '', width: '80'}
         - {id: JKSDUP, title: EQUIPO, data_key: equipo, width: '500'}
         - {id: VJQQOR, title: SEMANAL, data_key: semanal}
         - {id: OJLQEN, title: MENSUAL, data_key: mensual}
