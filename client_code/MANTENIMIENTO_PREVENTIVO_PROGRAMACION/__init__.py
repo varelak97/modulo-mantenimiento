@@ -429,6 +429,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     for equipo in equipos_programados:
       if equipo['trimestral'] != "":
         
+        
     """lista_mttos_programados = []
     index = 1
     for equipo in self.lista_equipos:
