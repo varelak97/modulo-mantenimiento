@@ -51,24 +51,29 @@ components:
           role: wide-tonal-data-grid
           columns:
           - {id: OIYETW, data_key: editar, title: '', width: '80'}
-          - {id: POIVGQ, title: FOLIO, data_key: folio, $$hashKey: 'object:25130'}
-          - {id: QJQSHC, title: ÁREA, data_key: area, $$hashKey: 'object:25131'}
-          - {id: UMPPDH, title: EQUIPO, data_key: equipo, $$hashKey: 'object:25132'}
+          - {id: POIVGQ, title: FOLIO, data_key: folio, $$hashKey: 'object:25130',
+            width: '200'}
+          - {id: QJQSHC, title: ÁREA, data_key: area, $$hashKey: 'object:25131', width: '150'}
+          - {id: UMPPDH, title: EQUIPO, data_key: equipo, $$hashKey: 'object:25132',
+            width: '250'}
           - {id: AKUIUI, title: REQUIERE REFACCIÓN, data_key: requiere_refaccion,
-            $$hashKey: 'object:25171'}
-          - {id: JEKZQH, title: REQUIERE SERVICIO, data_key: requiere_servicio, $$hashKey: 'object:25173'}
+            $$hashKey: 'object:25171', width: '150'}
+          - {id: JEKZQH, title: REQUIERE SERVICIO, data_key: requiere_servicio, $$hashKey: 'object:25173',
+            width: '150'}
           - {id: GBJDGR, title: TIPO DE MANTENIMIENTO, data_key: tipo_mantenimiento,
-            $$hashKey: 'object:25175'}
+            $$hashKey: 'object:25175', width: '150'}
           - {id: GBXTQF, title: DESCRIPCIÓN DE LA FALLA O POSIBLE RIESGO, data_key: descripcion_falla_riesgo,
-            $$hashKey: 'object:25177'}
+            $$hashKey: 'object:25177', width: '200'}
           - {id: BETFFO, title: DESCRIPCIÓN DEL PROBLEMA, data_key: descripcion_problema,
-            $$hashKey: 'object:25268'}
+            $$hashKey: 'object:25268', width: '200'}
           - {id: GGGTRK, title: FECHA Y HORA INICIAL, data_key: fecha_hora_inicial,
-            $$hashKey: 'object:25270'}
+            $$hashKey: 'object:25270', width: '150'}
           - {id: MRYLSD, title: ACTIVIDADES DEL MANTENIMIENTO, data_key: actividades_mantenimiento,
-            $$hashKey: 'object:25272'}
-          - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO}
-          - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274'}
+            $$hashKey: 'object:25272', width: '200'}
+          - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO,
+            width: '200'}
+          - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274',
+            width: '150'}
           auto_header: true
           tooltip: ''
           border: ''

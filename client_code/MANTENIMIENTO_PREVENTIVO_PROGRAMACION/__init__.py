@@ -419,8 +419,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     dias_offset = {
       "SEMANAL":7,
       "MENSUAL":31,
-      "TRIMESTRAL":90,
-      "SEMESTRAL":180,
+      "TRIMESTRAL":93,
+      "SEMESTRAL":186,
       "ANUAL":365
     }
     fecha = fecha_inicial
@@ -459,8 +459,14 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in self.ws_mttos_preventivos_vista.rows]) + 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
       for equipo in equipos_programados:
+        if equipo['semanal'] != "":
+          id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semanal'], "SEMANAL", id_mtto_preventivo)
+        if equipo['mensual'] != "":
+          id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['mensual'], "MENSUAL", id_mtto_preventivo)
         if equipo['trimestral'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['trimestral'], "TRIMESTRAL", id_mtto_preventivo)
+        if equipo['semestral'] != "":
+          id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semestral'], "SEMESTRAL", id_mtto_preventivo)
     Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
 
   def button_copiar_lista_click(self, **event_args):

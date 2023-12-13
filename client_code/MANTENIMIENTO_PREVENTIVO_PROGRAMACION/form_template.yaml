@@ -23,8 +23,8 @@ components:
     layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
     components:
     - name: label_equipos
-      properties: {text: FECHA INCIAL DE PROGRAMACIÓN ANUAL DE EQUIPOS, background: 'theme:Tertiary',
-        bold: true, foreground: 'theme:White', align: center, role: title}
+      properties: {text: EQUIPOS FECHA DE INICIO, background: 'theme:Tertiary', bold: true,
+        foreground: 'theme:White', align: center, role: title}
       type: Label
       layout_properties: {grid_position: 'RLGVYW,BDZUMF', full_width_row: true}
     - name: label_1
@@ -105,10 +105,10 @@ components:
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate1}
         type: RepeatingPanel
       layout_properties: {grid_position: 'HEHOUK,ASFZFF'}
-    - name: button_generar_calendario
-      properties: {text: GENERAR CALENDARIO, bold: true, background: 'theme:Blue',
-        foreground: 'theme:White', icon: 'fa:calendar-check-o'}
-      type: Button
-      layout_properties: {grid_position: 'AHGKRS,QVUZOL'}
-      event_bindings: {click: button_generar_calendario_click}
+  - name: button_generar_calendario
+    properties: {text: GENERAR CALENDARIO, bold: true, background: 'theme:Blue', foreground: 'theme:White',
+      icon: 'fa:calendar-check-o'}
+    type: Button
+    layout_properties: {grid_position: 'CTVMXS,RIEGGP'}
+    event_bindings: {click: button_generar_calendario_click}
 is_package: true

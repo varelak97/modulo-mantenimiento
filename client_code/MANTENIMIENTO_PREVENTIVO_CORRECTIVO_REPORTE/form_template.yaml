@@ -387,8 +387,9 @@ components:
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
             placeholder: '', border: '', enabled: true, foreground: '', visible: true,
-            text: '', font_size: null, font: '', spacing_above: small, type: text,
-            spacing_below: small, italic: false, background: '', bold: false, underline: false}
+            text: MARIO ALBERTO GONZALEZ SANCHEZ, font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: '', bold: false,
+            underline: false}
           name: text_box_persona_ejecuta_mtto
           layout_properties: {grid_position: 'QDXPNE,CAIIWG'}
           data_bindings:
