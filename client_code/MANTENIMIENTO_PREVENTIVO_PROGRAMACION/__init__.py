@@ -411,33 +411,55 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         actividades = self.actividades_equipos_guillotinas_semestral
     return actividades
 
-  """def anio_bisiesto(self, anio):
-    if anio % 4 == 0:
-      if anio % 100 == 0:
-        if anio % 400 == 0:
-          return True
-        else:
-          return False
-      else:
-        return True
-    else:
-      return False"""
-    
+  def generar_programa_anual(self, equipo, area, fecha_inicial, frecuencia, id_mtto_preventivo):
+    fecha = fecha_inicial
+    anio_actual = datetime.today().year
+    while fecha.year == anio_actual:
+      temp = fecha
+      #agrega offset si dia cae en sabado o domingo
+      if fecha.weekday() == 5:
+        fecha += timedelta(days = 2)
+      elif fecha.weekday() == 6:
+        fecha += timedelta(days = 1)
+        
+      dict_mtto = {
+        "id_mtto_preventivo": id_mtto_preventivo,
+        "fecha_programada":fecha,
+        "area":area,
+        "equipo":equipo,
+        "frecuencia":frecuencia,
+        "status_mantenimiento":"PROGRAMADO",
+        "actividades":self.get_actividades(equipo, area, frecuencia),
+        "id_usuario_registrador":self.datos['id_usuario_erp'],
+        "usuario_registrador":"ALFREDO VARELA CELESTINO",
+        "operacion":"creacion",
+        "marca_temporal":datetime.now(),
+        "comentarios":"",
+        "registro_principal": 1
+      }
+      id_mtto_preventivo += 1
+      self.ws_mtto_preventivos.add_row(**dict_mtto)
+      fecha = temp
+      fecha += timedelta(days = 31)
+    return id_mtto_preventivo
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
     equipos_programados = self.repeating_panel_equipos.items
-    anio_actual = datetime.today().year
     id_mtto_preventivo = 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
       for equipo in equipos_programados:
         if equipo['trimestral'] != "":
-          fecha = equipo['trimestral']
+          id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['trimestral'], "TRIMESTRAL", id_mtto_preventivo)
+          print(f"actual id:{id_mtto_preventivo}")
+          """fecha = equipo['trimestral']
           while fecha.year == anio_actual:
             temp = fecha
+            #agrega offset si dia cae en sabado o domingo
             if fecha.weekday() == 5:
               fecha += timedelta(days = 2)
             elif fecha.weekday() == 6:
               fecha += timedelta(days = 1)
+              
             dict_mtto = {
               "id_mtto_preventivo": id_mtto_preventivo,
               "fecha_programada":fecha,
@@ -456,7 +478,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
             id_mtto_preventivo += 1
             self.ws_mtto_preventivos.add_row(**dict_mtto)
             fecha = temp
-            fecha += timedelta(days = 30)
+            fecha += timedelta(days = 31)"""
             
     Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
         #self.programa_mtto_anual("TRIMESTRAL", equipo['trimestral'], equipo['area'])
