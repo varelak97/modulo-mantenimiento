@@ -455,6 +455,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
             }
             id_mtto_preventivo += 1
             self.ws_mtto_preventivos.add_row(**dict_mtto)
+            fecha = temp
             fecha += timedelta(days = 30)
             
     Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
