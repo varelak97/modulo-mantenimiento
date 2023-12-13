@@ -50,18 +50,23 @@ components:
         properties:
           role: wide-tonal-data-grid
           columns:
-          - {id: XMXXEM, title: '', data_key: id, $$hashKey: 'object:234583'}
-          - {id: CKNHIZ, title: FOLIO, data_key: folio, $$hashKey: 'object:234087'}
-          - {id: NZNCXN, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:28465'}
-          - {id: YSYCQI, title: AREA, data_key: area, $$hashKey: 'object:234088'}
-          - {id: YCKOVR, title: EQUIPO, data_key: equipo, $$hashKey: 'object:234089'}
-          - {id: SMZSVD, title: STATUS, data_key: mtto_realizado, $$hashKey: 'object:234128'}
+          - {id: XMXXEM, title: '', data_key: id, $$hashKey: 'object:234583', width: '80'}
+          - {id: CKNHIZ, title: FOLIO, data_key: folio, $$hashKey: 'object:234087',
+            width: '200'}
+          - {id: NZNCXN, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:28465',
+            width: '200'}
+          - {id: YSYCQI, title: AREA, data_key: area, $$hashKey: 'object:234088',
+            width: '200'}
+          - {id: YCKOVR, title: EQUIPO, data_key: equipo, $$hashKey: 'object:234089',
+            width: '250'}
+          - {id: SMZSVD, title: STATUS, data_key: mtto_realizado, $$hashKey: 'object:234128',
+            width: '150'}
           - {id: PWKCNJ, title: FECHA DE REPORTE DE ANOMALÍA, data_key: fecha_reporte,
-            $$hashKey: 'object:234238'}
+            $$hashKey: 'object:234238', width: '150'}
           - {id: DILUZT, title: DESCRIPCIÓN DE LA ANOMALÍA, data_key: descripcion_anomalia,
-            $$hashKey: 'object:234242'}
+            $$hashKey: 'object:234242', width: ''}
           - {id: JXBYZX, title: NOMBRE PERSONAL QUE REPORTA, data_key: persona_reporta,
-            $$hashKey: 'object:234240'}
+            $$hashKey: 'object:234240', width: '250'}
           auto_header: true
           tooltip: ''
           border: ''
