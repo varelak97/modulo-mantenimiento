@@ -304,6 +304,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
   ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
 
+    self.set_event_handler('x-enable_disable_guardar', self.enable_disable_guardar)
+
     self.libro_mttos_preventivos = app_files.mantenimiento_preventivo
     self.ws_mtto_preventivos = self.libro_mttos_preventivos['Registros']
     self.ws_mttos_preventivos_vista = self.libro_mttos_preventivos['Consulta']
@@ -320,6 +322,11 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def enable_disable_guardar(self):
+    for fila in self.repeating_panel_equipos:
+      componentes_fila = fila.get_components()
+      print(componentes_fila)
+    
   def get_lista_equipos(self, equipos):
     lista_equipos = []
     for equipo in list(equipos).copy():
