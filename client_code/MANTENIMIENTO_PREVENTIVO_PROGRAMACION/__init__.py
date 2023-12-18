@@ -322,8 +322,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def enable_disable_guardar(self):
-    for fila in self.repeating_panel_equipos:
+  def enable_disable_guardar(self, **event_args):
+    for fila in self.repeating_panel_equipos.get_components():
       componentes_fila = fila.get_components()
       print(componentes_fila)
     
