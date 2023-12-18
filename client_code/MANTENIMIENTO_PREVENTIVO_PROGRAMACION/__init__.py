@@ -323,14 +323,11 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def enable_disable_guardar(self, id_equipo, **event_args):
-    
+    print(f"el id que llega:{id_equipo}")
     for fila in self.repeating_panel_equipos.get_components():
       componentes_fila = fila.get_components()
-      for componente in componentes_fila:
-        if componente.type == "DatePicker":
-          print("fecha")
-        else:
-          print(componente.text)
+      if componentes_fila[10].text != id_equipo:
+        componentes_fila[0].enabled = False
     
   def get_lista_equipos(self, equipos):
     lista_equipos = []
