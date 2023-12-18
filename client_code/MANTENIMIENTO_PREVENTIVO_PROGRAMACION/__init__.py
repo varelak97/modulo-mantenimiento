@@ -478,6 +478,13 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semestral'], "SEMESTRAL", id_mtto_preventivo)
     Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
 
+  def data_grid_equipos_show(self, **event_args):
+    print("evento show")
+
+  def button_agregar_fecha_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
   def button_copiar_lista_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
@@ -588,8 +595,5 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.button_guardar.enabled = True
     else:
       self.button_guardar.enabled = False"""
-
-  def data_grid_equipos_show(self, **event_args):
-    print("evento show")
 
     

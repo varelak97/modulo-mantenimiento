@@ -96,6 +96,7 @@ components:
         properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button,
           bold: true, icon: 'fa:plus-circle'}
         type: Button
+        event_bindings: {click: button_agregar_fecha_click}
       - name: data_row_panel_agregar_fecha
         properties: {visible: true}
         type: DataRowPanel
