@@ -589,4 +589,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     else:
       self.button_guardar.enabled = False"""
 
+  def data_grid_equipos_show(self, **event_args):
+    print("evento show")
+
     

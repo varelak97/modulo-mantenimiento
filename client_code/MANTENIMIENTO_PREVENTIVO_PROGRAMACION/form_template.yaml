@@ -63,6 +63,7 @@ components:
         type: RepeatingPanel
         layout_properties: {}
       layout_properties: {grid_position: 'DYHQXF,GGFCBE', full_width_row: true}
+      event_bindings: {show: data_grid_equipos_show}
   - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel
