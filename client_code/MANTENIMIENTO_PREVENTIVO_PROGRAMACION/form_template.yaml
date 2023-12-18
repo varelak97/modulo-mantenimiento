@@ -43,7 +43,6 @@ components:
         - {id: BZILCF, data_key: semestral, title: SEMESTRAL}
         - {id: GXQNNV, data_key: anual, title: ANUAL}
         - {id: KXABMA, data_key: editar, title: '', width: '80', expand: false}
-        - {id: GWTVLR, data_key: eliminar, title: '', width: '80'}
         role: tonal-data-grid
       type: DataGrid
       components:
@@ -92,15 +91,15 @@ components:
         rows_per_page: 100
       type: DataGrid
       components:
+      - name: button_1
+        properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button,
+          bold: true, icon: 'fa:plus-circle'}
+        type: Button
       - name: data_row_panel_agregar_fecha
-        properties: {}
+        properties: {visible: true}
         type: DataRowPanel
-        components:
-        - name: button_1
-          properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button,
-            bold: true, icon: 'fa:plus-circle'}
-          type: Button
-          layout_properties: {column: VJQQOR}
+        components: []
+        layout_properties: {}
       - name: repeating_panel_fechas_excluidas
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate1}
         type: RepeatingPanel

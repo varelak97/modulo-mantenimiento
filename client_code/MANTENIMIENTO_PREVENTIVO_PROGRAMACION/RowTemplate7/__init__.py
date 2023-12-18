@@ -33,6 +33,7 @@ class RowTemplate7(RowTemplate7Template):
       self.date_picker_trimestral.visible = False
       self.date_picker_semestral.visible = False
       self.date_picker_anual.visible = False
+      self.parent.parent.parent.parent.parent.button_generar_calendario.enabled = True
     else:
       self.button_editar.icon = "fa:check"
       self.label_semanal.visible = False
@@ -45,3 +46,4 @@ class RowTemplate7(RowTemplate7Template):
       self.date_picker_trimestral.visible = True
       self.date_picker_semestral.visible = True
       self.date_picker_anual.visible = True
+      self.parent.parent.parent.parent.parent.button_generar_calendario.enabled = False

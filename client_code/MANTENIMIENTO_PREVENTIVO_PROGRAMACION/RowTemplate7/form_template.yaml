@@ -6,10 +6,6 @@ components:
   type: Button
   layout_properties: {column: KXABMA}
   event_bindings: {click: button_editar_click}
-- name: button_eliminar
-  properties: {text: '', role: filled-button, icon: 'fa:times', background: 'theme:Red'}
-  type: Button
-  layout_properties: {column: GWTVLR}
 - name: label_equipo
   properties: {bold: true}
   type: Label
