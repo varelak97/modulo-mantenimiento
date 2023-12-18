@@ -322,10 +322,15 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def enable_disable_guardar(self, **event_args):
+  def enable_disable_guardar(self, id_equipo, **event_args):
+    
     for fila in self.repeating_panel_equipos.get_components():
       componentes_fila = fila.get_components()
-      print(componentes_fila)
+      for componente in componentes_fila:
+        if componente.type == "DatePicker":
+          print("fecha")
+        else:
+          print(componente.text)
     
   def get_lista_equipos(self, equipos):
     lista_equipos = []

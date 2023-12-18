@@ -91,7 +91,7 @@ components:
         rows_per_page: 100
       type: DataGrid
       components:
-      - name: button_1
+      - name: button_agregar_fecha
         properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button,
           bold: true, icon: 'fa:plus-circle'}
         type: Button
