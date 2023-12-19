@@ -366,7 +366,6 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       temp['semestral'] = ""
       temp['anual'] = ""
       lista_equipos.append(temp)
-    print(lista_equipos)
     return lista_equipos
 
   def get_actividades(self, equipo, area, frecuencia_mtto):
@@ -468,7 +467,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         fecha += timedelta(days = 2)
       elif fecha.weekday() == 6:
         fecha += timedelta(days = 1)
-        
+      
       dict_mtto = {
         "id_mtto_preventivo": id_mtto_preventivo,
         "fecha_programada":fecha,
@@ -492,18 +491,26 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
     equipos_programados = self.repeating_panel_equipos.items
+    status = True
     id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in self.ws_mttos_preventivos_vista.rows]) + 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
       for equipo in equipos_programados:
         if equipo['semanal'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semanal'], "SEMANAL", id_mtto_preventivo)
+        else: status = False
         if equipo['mensual'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['mensual'], "MENSUAL", id_mtto_preventivo)
+        else: status = False
         if equipo['trimestral'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['trimestral'], "TRIMESTRAL", id_mtto_preventivo)
+        else: status = False
         if equipo['semestral'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semestral'], "SEMESTRAL", id_mtto_preventivo)
-    Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
+        else: status = False
+    if status: 
+      Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")
+    else: 
+      alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])
 
   def button_agregar_fecha_click(self, **event_args):
     self.button_agregar_fecha.enabled = False
@@ -515,7 +522,6 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     filas = self.repeating_panel_fechas_excluidas.get_components()
     for fila in filas:
       componentes_fila = fila.get_components()
-      print(componentes_fila)
       label_indice = int(componentes_fila[0].text) - 1
       datepicker_fecha_1 = componentes_fila[5].get_components()[0]
       datepicker_fecha_2 = componentes_fila[6].get_components()[0]
