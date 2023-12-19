@@ -11,9 +11,22 @@ class RowTemplate1(RowTemplate1Template):
     # Any code you write here will run before the form opens.
 
   def button_editar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    if self.button_editar.icon == "fa:edit":
+      self.label_fecha_inicial.visible = False
+      self.label_fecha_final.visible = False
+      self.date_picker_fecha_inicial.visible = True
+      self.date_picker_fecha_final.visible = True
+      self.parent.parent.parent.parent.parent.raise_event('x-editar_fecha_excluida')
+      self.button_editar.enabled = True
+      self.button_editar.icon = "fa:check"
+    else:
+      self.label_fecha_inicial.visible = True
+      self.label_fecha_final.visible = True
+      self.date_picker_fecha_inicial.visible = False
+      self.date_picker_fecha_final.visible = False
+      self.button_editar.icon = "fa:edit"
+      self.parent.parent.parent.parent.parent.raise_event('x-guardar_fecha_excluida')
 
   def button_borrar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    indice = int(self.label_index.text) - 1
+    self.parent.parent.parent.parent.parent.raise_event('x-borrar_fecha_excluida')

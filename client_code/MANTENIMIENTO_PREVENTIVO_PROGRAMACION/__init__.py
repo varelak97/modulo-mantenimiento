@@ -304,6 +304,10 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
   ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
 
+    self.set_event_handler('x-guardar_fecha_excluida', self.guardar_fecha_excluida)
+    self.set_event_handler('x-eliminar_fecha_excluida', self.eliminar_fecha_excluida)
+    self.set_event_handler('x-editar_fecha_excluida', self.editar_fecha_excluida)
+
     self.set_event_handler('x-enable_disable_guardar', self.enable_disable_guardar)
 
     self.libro_mttos_preventivos = app_files.mantenimiento_preventivo
@@ -322,6 +326,29 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def editar_fecha_excluida(self, **event_args):
+    self.button_agregar_fecha.enabled = False
+    self.button_generar_calendario.enabled = False
+    filas = self.repeating_panel_fechas_excluidas.get_components()
+    for fila in filas:
+      componentes_fila = fila.get_components()
+      componentes_fila[3].enabled = False #boton editar
+      componentes_fila[4].enabled = False #boton borrar
+  
+  def guardar_fecha_excluida(self, **event_args):
+    fechas_excluidas = self.repeating_panel_fechas_excluidas.items
+    self.repeating_panel_fechas_excluidas.items = fechas_excluidas
+    self.button_agregar_fecha.enabled = True
+    self.button_generar_calendario.enabled = True
+    
+  def eliminar_fecha_excluida(self, indice, **event_args):
+    fechas_excluidas = self.repeating_panel_fechas_excluidas.items
+    fechas_excluidas.pop(indice)
+    for index, fecha in enumerate(fechas_excluidas):
+      fecha['index'] = index + 1
+    self.repeating_panel_fechas_excluidas.items = fechas_excluidas
+    #self.button_agregar_fecha.enabled = True
+    
   def enable_disable_guardar(self, id_equipo, status, **event_args):
     self.button_generar_calendario.enabled = status
     for fila in self.repeating_panel_equipos.get_components():
@@ -480,20 +507,18 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
   def button_agregar_fecha_click(self, **event_args):
     self.button_agregar_fecha.enabled = False
+    self.button_generar_calendario.enabled = False
     fechas_excluidas = self.repeating_panel_fechas_excluidas.items if self.repeating_panel_fechas_excluidas.items != None else []
     indice = len(fechas_excluidas)
     fechas_excluidas.append({'index':indice + 1,'fecha_inicial':"", 'fecha_final':""})
     self.repeating_panel_fechas_excluidas.items = fechas_excluidas
     filas = self.repeating_panel_fechas_excluidas.get_components()
     for fila in filas:
-      
       componentes_fila = fila.get_components()
       print(componentes_fila)
       label_indice = int(componentes_fila[0].text) - 1
       datepicker_fecha_1 = componentes_fila[5].get_components()[0]
       datepicker_fecha_2 = componentes_fila[6].get_components()[0]
-      """test = componentes_fila[6].get_components()[1]
-      print(test)"""
       label_fecha_1 = componentes_fila[1]
       label_fecha_2 = componentes_fila[2]
       boton_editar = componentes_fila[3]
@@ -503,13 +528,13 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       if label_indice == indice:
         datepicker_fecha_1.visible = True
         datepicker_fecha_2.visible = True
+        label_fecha_1.visible = False
+        label_fecha_2.visible = False
         boton_editar.icon = "fa:check"
       else:
-        boton_editar.enable = False
+        boton_editar.enabled = False
       
       boton_eliminiar.enabled = False
-      label_fecha_1.visible = False
-      label_fecha_2.visible = False
       
       #label_indice = int(componentes_fila[0].text) - 1
       #componentes_fila[2].enabled = False #boton editar
