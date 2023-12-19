@@ -29,4 +29,4 @@ class RowTemplate1(RowTemplate1Template):
 
   def button_borrar_click(self, **event_args):
     indice = int(self.label_index.text) - 1
-    self.parent.parent.parent.parent.parent.raise_event('x-borrar_fecha_excluida')
+    self.parent.parent.parent.parent.parent.raise_event('x-eliminar_fecha_excluida', indice = indice)
