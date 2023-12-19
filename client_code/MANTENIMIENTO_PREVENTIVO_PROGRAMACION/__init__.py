@@ -486,8 +486,9 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.repeating_panel_fechas_excluidas.items = fechas_excluidas
     filas = self.repeating_panel_fechas_excluidas.get_components()
     for fila in filas:
-      print(componentes_fila)
+      
       componentes_fila = fila.get_components()
+      print(componentes_fila)
       label_indice = int(componentes_fila[0].text) - 1
       datepicker_fecha_1 = componentes_fila[5].get_components()[0]
       datepicker_fecha_2 = componentes_fila[6].get_components()[0]
@@ -508,7 +509,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       
       boton_eliminiar.enabled = False
       label_fecha_1.visible = False
-      label_fecha_2.visble = False
+      label_fecha_2.visible = False
       
       #label_indice = int(componentes_fila[0].text) - 1
       #componentes_fila[2].enabled = False #boton editar

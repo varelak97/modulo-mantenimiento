@@ -23,10 +23,12 @@ components:
   properties: {text: '', role: filled-button, background: 'theme:Green', icon: 'fa:edit'}
   type: Button
   layout_properties: {column: LEJPEQ}
+  event_bindings: {click: button_editar_click}
 - name: button_borrar
   properties: {text: '', role: filled-button, background: 'theme:Red', icon: 'fa:times'}
   type: Button
   layout_properties: {column: RPPGHT}
+  event_bindings: {click: button_borrar_click}
 - name: column_panel_fecha
   properties: {col_widths: '{"BQOHWS":40,"QWDLKT":20}'}
   type: ColumnPanel

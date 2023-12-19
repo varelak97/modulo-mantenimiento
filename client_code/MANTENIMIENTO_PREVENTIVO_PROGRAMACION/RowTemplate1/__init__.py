@@ -9,3 +9,11 @@ class RowTemplate1(RowTemplate1Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_editar_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_borrar_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
