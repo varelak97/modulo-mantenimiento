@@ -479,16 +479,43 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
 
   def button_agregar_fecha_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    self.button_agregar_fecha.enabled = False
+    fechas_excluidas = self.repeating_panel_fechas_excluidas.items if self.repeating_panel_fechas_excluidas.items != None else []
+    indice = len(fechas_excluidas)
+    fechas_excluidas.append({'index':indice + 1,'fecha_inicial':"", 'fecha_final':""})
+    self.repeating_panel_fechas_excluidas.items = fechas_excluidas
+    filas = self.repeating_panel_fechas_excluidas.get_components()
+    for fila in filas:
+      print(componentes_fila)
+      componentes_fila = fila.get_components()
+      label_indice = int(componentes_fila[0].text) - 1
+      datepicker_fecha_1 = componentes_fila[5].get_components()[0]
+      datepicker_fecha_2 = componentes_fila[6].get_components()[0]
+      """test = componentes_fila[6].get_components()[1]
+      print(test)"""
+      label_fecha_1 = componentes_fila[1]
+      label_fecha_2 = componentes_fila[2]
+      boton_editar = componentes_fila[3]
+      boton_eliminiar = componentes_fila[4]
 
-  def button_copiar_lista_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
 
-  def button_agregar_equipo_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+      if label_indice == indice:
+        datepicker_fecha_1.visible = True
+        datepicker_fecha_2.visible = True
+        boton_editar.icon = "fa:check"
+      else:
+        boton_editar.enable = False
+      
+      boton_eliminiar.enabled = False
+      label_fecha_1.visible = False
+      label_fecha_2.visble = False
+      
+      #label_indice = int(componentes_fila[0].text) - 1
+      #componentes_fila[2].enabled = False #boton editar
+      #componentes_fila[4].enabled = False #boton borrar
+      #if label_indice == indice:
+      #  componentes_fila[3].visible = True #column panel de textbox y su boton"""
+    
     
     """numero_anio = datetime.today().year
     total_dias = 366 if self.anio_bisiesto(anio_actual) else 365

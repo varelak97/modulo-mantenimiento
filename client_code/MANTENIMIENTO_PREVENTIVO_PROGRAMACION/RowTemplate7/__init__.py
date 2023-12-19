@@ -14,7 +14,6 @@ class RowTemplate7(RowTemplate7Template):
   ########################################### FUNCIONES PERSONALIZADS #############################################
 
   #################################################### EVENTOS ####################################################
-
   def button_editar_click(self, **event_args):
     if self.button_editar.icon == "fa:check":
       self.button_editar.icon = "fa:edit"

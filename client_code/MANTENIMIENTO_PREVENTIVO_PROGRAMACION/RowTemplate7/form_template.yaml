@@ -6,6 +6,7 @@ components:
   type: Button
   layout_properties: {column: KXABMA}
   event_bindings: {click: button_editar_click}
+  data_bindings: []
 - name: label_equipo
   properties: {bold: true}
   type: Label
