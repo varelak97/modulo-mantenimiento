@@ -458,11 +458,24 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       "SEMESTRAL":186,
       "ANUAL":365
     }
+    fechas_excluir = self.repeating_panel_fechas_excluidas.items
     fecha = fecha_inicial
     anio_actual = datetime.today().year
     while fecha.year == anio_actual:
       temp = fecha
       #agrega offset si dia cae en sabado o domingo
+      if fechas_excluir != None:
+        for fecha_excluir in fechas_excluir:
+          fecha_inicial = fecha_excluir['fecha_inicial']
+          fecha_final = fecha_excluir['fecha_final']
+          if fecha_inicial != "":
+            if fecha_final != "":
+              if fecha > fecha_inicial and fecha < fecha_final:
+                resta_lim_inferior = fecha - fecha_inicial
+                resta_lim_superior = fecha_final - fecha_inicial
+                if resta_lim_inferior > resta_lim_superior:
+                  fecha = fecha_inicial - timedelta(days)
+
       if fecha.weekday() == 5:
         fecha += timedelta(days = 2)
       elif fecha.weekday() == 6:
@@ -484,29 +497,29 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         "registro_principal": 1
       }
       id_mtto_preventivo += 1
-      self.ws_mtto_preventivos.add_row(**dict_mtto)
+      #self.ws_mtto_preventivos.add_row(**dict_mtto)
       fecha = temp
       fecha += timedelta(days = dias_offset[frecuencia])
     return id_mtto_preventivo
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
     equipos_programados = self.repeating_panel_equipos.items
-    status = True
+    status = False
     id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in self.ws_mttos_preventivos_vista.rows]) + 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
       for equipo in equipos_programados:
         if equipo['semanal'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semanal'], "SEMANAL", id_mtto_preventivo)
-        else: status = False
+          status = True
         if equipo['mensual'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['mensual'], "MENSUAL", id_mtto_preventivo)
-        else: status = False
+          status = True
         if equipo['trimestral'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['trimestral'], "TRIMESTRAL", id_mtto_preventivo)
-        else: status = False
+          status = True
         if equipo['semestral'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semestral'], "SEMESTRAL", id_mtto_preventivo)
-        else: status = False
+          status = True
     if status: 
       Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")
     else: 
