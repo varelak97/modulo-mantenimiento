@@ -479,7 +479,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")  
 
   def data_grid_equipos_show(self, **event_args):
-    print("evento show")
+    alert("cambio de repeating panel")
 
   def button_agregar_fecha_click(self, **event_args):
     """This method is called when the button is clicked"""

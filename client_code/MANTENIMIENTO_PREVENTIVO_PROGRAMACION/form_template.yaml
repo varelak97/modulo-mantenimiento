@@ -44,6 +44,7 @@ components:
         - {id: GXQNNV, data_key: anual, title: ANUAL}
         - {id: KXABMA, data_key: editar, title: '', width: '80', expand: false}
         role: tonal-data-grid
+        show_page_controls: true
       type: DataGrid
       components:
       - name: data_row_panel_equipos
@@ -62,8 +63,9 @@ components:
           role: null}
         type: RepeatingPanel
         layout_properties: {}
+        event_bindings: {}
       layout_properties: {grid_position: 'DYHQXF,GGFCBE', full_width_row: true}
-      event_bindings: {show: data_grid_equipos_show}
+      event_bindings: {}
   - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel
