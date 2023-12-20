@@ -14,14 +14,25 @@ class lista_equipos(lista_equiposTemplate):
 
   def fill_lista(self, datos):
     items = []
-    if datos['tipo'] == "PROGRAMADO":
+    for equipo in datos['lista_equipos']:
+        if equipo['frecuencia'] == datos['frecuencia']:
+          datos_equipo = {
+            "equipo":equipo['equipo'],
+            "fecha_programada":equipo['fecha_programada'],
+            "fecha_realizada":equipo['fecha_hora_final'],
+            "ver_checklist":True if equipo['operacion'] == "edicion" else False,
+            "id_mtto_preventivo":equipo['id_mtto']
+          }
+          items.append(datos_equipo)
+    
+    """if datos['tipo'] == "PROGRAMADO":
       for equipo in datos['lista_equipos']:
         if equipo['frecuencia'] == datos['frecuencia']:
-          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+          items.append({"equipo":equipo['equipo'],"fecha_programada":equipo['fecha_programada'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
     elif datos['tipo'] == "REALIZADO":
       for equipo in datos['lista_equipos']:
         if equipo['frecuencia'] == datos['frecuencia']:
-          items.append({"equipo":equipo['equipo'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})
+          items.append({"equipo":equipo['equipo'],"fecha_programada":equipo['fecha_programada'],"fecha_realizada":equipo['fecha_hora_final'],"ver_checklist":True if equipo['operacion'] == "edicion" else False,"id_mtto_preventivo":equipo['id_mtto']})"""
     
     #estaba asi
     """if datos['frecuencia'] == "SEMANAL":

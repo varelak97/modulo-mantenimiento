@@ -214,34 +214,44 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     equipo = indicadores_mtto_mes[dia_prog-1]['equipo']
     tipo = indicadores_mtto_mes[dia_prog-1]['tipo']
 
+    datos_equipo = {
+      'equipo':item['equipo'],
+      'frecuencia':item['frecuencia'],
+      'id_mtto':item['id_mtto_preventivo'],
+      'operacion':item['operacion'],
+      'fecha_programada':item['fecha_programada'],
+      'fecha_hora_final':item['fecha_hora_final']
+    }
+
     if area == "todas":
       if equipo == "todos":
-        if tipo == "todos":
-          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
-        elif tipo == item['status_mantenimiento']: #tipo:selected
+        """if tipo == "todos": #YA NO SE USA ESTA CONDICION
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1"""
+        if tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
-          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo'],'operacion':item['operacion']})
+
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append(datos_equipo)
           #indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
       elif equipo == item['equipo']: #equipo:selected
-        if tipo == "todos":
-          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
-        elif tipo == item['status_mantenimiento']: #tipo:selected
+        """if tipo == "todos": #YA NO SE USA ESTA CONFICION
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1"""
+        if tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
           #indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo'] #estaba
-          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo'],'operacion':item['operacion']}) #agregado
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append(datos_equipo) #agregado
     elif area == item['area']: #area:selected
       if equipo == "todos":
-        if tipo == "todos":
-          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
-        elif tipo == item['status_mantenimiento']: #tipo:selected
+        """if tipo == "todos": #YA NO SE USA ESTA CONDICION
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1"""
+        if tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
       elif equipo == item['equipo']: #equipo:selected
-        if tipo == "todos":
-          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1
-        elif tipo == item['status_mantenimiento']: #tipo:selected
+        """if tipo == "todos": #YA NO SE USA ESTA CONDICIÓN
+          indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1"""
+        if tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
           #indicadores_mtto_mes[dia_prog-1]['id_mtto_preventivo'] = item['id_mtto_preventivo'] #estaba
-          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append({'equipo':item['equipo'],'frecuencia':item['frecuencia'],'id_mtto':item['id_mtto_preventivo'],'operacion':item['operacion']}) #agregado
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append(datos_equipo) #agregado
           
 
   #################################################### EVENTOS ####################################################
