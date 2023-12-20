@@ -91,9 +91,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
+            print(f"el parent tag:{link.parent.tag}")
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMANAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMANAL", trigger="click",max_width="450px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMANAL", trigger="click",max_width="600px")
             #self.link_lunes_numero_dia_click()
           elif indicador[0] == "PM":
             link.background = app.theme_colors['Orange']
@@ -108,21 +109,21 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "TRIMESTRAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO TRIMESTRAL", trigger="click",max_width="450px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO TRIMESTRAL", trigger="click",max_width="600px")
           elif indicador[0] == "PS":
             link.background = app.theme_colors['On Tertiary Container']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMESTRAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMESTRAL", trigger="click",max_width="450px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO SEMESTRAL", trigger="click",max_width="600px")
           elif indicador[0] == "PA":
             link.background = app.theme_colors['Green']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "ANUAL"
-            link.popover(content=lista_equipos(items), title="PROGRAMADO ANUAL", trigger="click",max_width="450px")
+            link.popover(content=lista_equipos(items), title="PROGRAMADO ANUAL", trigger="click",max_width="600px")
           elif indicador[0] in ["R","RW","RM","RT","RS","RA"]:
             link.background = app.theme_colors['Red']
             link.foreground = app.theme_colors['White']
@@ -149,7 +150,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             elif indicador[0] == "OK-A":
               titulo = "REALIZADOS ANUALES"
               items['frecuencia'] = "ANUAL"
-            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="450px")
+            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="850px")
             
           elif indicador[0] == "P":
             link.background = app.theme_colors['Primary']
