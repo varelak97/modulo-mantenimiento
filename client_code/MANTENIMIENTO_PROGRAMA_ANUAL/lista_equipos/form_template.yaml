@@ -6,10 +6,12 @@ components:
   properties:
     columns:
     - {id: JKSDUP, title: EQUIPO, data_key: equipo, width: '250'}
-    - {id: LEHODC, data_key: fecha_programada, title: FECHA PROGRAMADA, width: '150'}
+    - {id: LEHODC, data_key: fecha_programada, title: FECHA PROGRAMADA, width: '200',
+      expand: false}
     - {id: INWVXD, data_key: fecha_realizada, title: FECHA REALIZADA, width: '150'}
     - {id: GNNYVV, data_key: llenar_checklist, title: '', width: '50'}
     - {id: VJQQOR, title: '', data_key: ver_checlist, width: '50'}
+    - {id: YSEHUK, data_key: reprogramar, title: '', width: '5'}
     auto_header: true
     show_page_controls: false
     rows_per_page: 200

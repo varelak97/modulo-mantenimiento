@@ -2,7 +2,7 @@ is_package: true
 container: {type: DataRowPanel}
 components:
 - name: label_equipo
-  properties: {spacing_below: none, spacing_above: none, bold: true}
+  properties: {spacing_below: none, spacing_above: none, bold: true, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {column: JKSDUP}
   data_bindings:
@@ -22,5 +22,22 @@ components:
   type: Button
   layout_properties: {column: GNNYVV}
   event_bindings: {click: button_llenar_checklist_click}
+- name: label_fecha_programada
+  properties: {align: center, bold: true, foreground: 'theme:Tertiary'}
+  type: Label
+  layout_properties: {column: LEHODC}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_programada'']', writeback: false}
+- name: label_fecha_realizada
+  properties: {bold: true, align: center, foreground: 'theme:Green'}
+  type: Label
+  layout_properties: {column: INWVXD}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_realizada'']', writeback: false}
+- name: button_reprogramar
+  properties: {text: '', icon: 'fa:floppy-o', align: left}
+  type: Button
+  layout_properties: {column: YSEHUK}
+  data_bindings: []
 data_bindings:
 - {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}

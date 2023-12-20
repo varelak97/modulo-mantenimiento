@@ -11,6 +11,11 @@ class lista_equipos(lista_equiposTemplate):
     self.datos = datos
     #print(f"los datos:{self.datos}")
     self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos)
+    if self.datos['tipo'] == "PROGRAMADO":
+      lista_columnas = self.data_grid_lista_equipos.columns
+      lista_columnas.pop(2)
+      self.data_grid_lista_equipos.columns = lista_columnas
+
 
   def fill_lista(self, datos):
     items = []
