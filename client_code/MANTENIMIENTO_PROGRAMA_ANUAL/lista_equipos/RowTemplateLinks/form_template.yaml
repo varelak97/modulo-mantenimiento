@@ -35,7 +35,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''fecha_realizada'']', writeback: false}
 - name: button_reprogramar
-  properties: {text: '', icon: 'fa:floppy-o', align: left}
+  properties: {text: '', icon: 'fa:floppy-o', align: left, spacing_above: none, spacing_below: none}
   type: Button
   layout_properties: {column: YSEHUK}
   data_bindings: []
