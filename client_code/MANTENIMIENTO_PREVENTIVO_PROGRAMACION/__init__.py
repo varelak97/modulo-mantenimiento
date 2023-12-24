@@ -463,7 +463,6 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     anio_actual = datetime.today().year
     while fecha.year == anio_actual:
       temp = fecha
-      #agrega offset si dia cae en sabado o domingo
       if fechas_excluir != None:
         for fecha_excluir in fechas_excluir:
           fecha_inicial = fecha_excluir['fecha_inicial']
@@ -475,7 +474,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
                 resta_lim_superior = fecha_final - fecha_inicial
                 if resta_lim_inferior > resta_lim_superior:
                   fecha = fecha_inicial - timedelta(days)
-
+      #agrega offset si dia cae en sabado o domingo
       if fecha.weekday() == 5:
         fecha += timedelta(days = 2)
       elif fecha.weekday() == 6:
