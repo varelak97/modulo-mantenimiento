@@ -473,7 +473,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
                 resta_lim_inferior = fecha - fecha_inicial
                 resta_lim_superior = fecha_final - fecha_inicial
                 if resta_lim_inferior > resta_lim_superior:
-                  fecha = fecha_inicial - timedelta(days)
+                  fecha = fecha_inicial - timedelta(days=1)
+                elif 
       #agrega offset si dia cae en sabado o domingo
       if fecha.weekday() == 5:
         fecha += timedelta(days = 2)
