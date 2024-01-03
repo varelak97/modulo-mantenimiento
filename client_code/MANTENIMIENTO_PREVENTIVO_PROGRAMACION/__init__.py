@@ -506,7 +506,11 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     return id_mtto_preventivo
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
-    equipos_programados = self.repeating_panel_equipos.items
+    fechas_excluir = self.repeating_panel_fechas_excluidas.items
+    for fecha in fechas_excluir:
+      print(f"fechas inicial:{fecha['fecha_inicial']}")
+      print(f"fechas final:{fecha['fecha_final']}")
+    """equipos_programados = self.repeating_panel_equipos.items
     status = False
     id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in self.ws_mttos_preventivos_vista.rows]) + 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
@@ -526,7 +530,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     if status: 
       Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")
     else: 
-      alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])
+      alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])"""
 
   def button_agregar_fecha_click(self, **event_args):
     self.button_agregar_fecha.enabled = False
