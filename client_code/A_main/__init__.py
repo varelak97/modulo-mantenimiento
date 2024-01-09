@@ -41,9 +41,6 @@ class A_main(A_mainTemplate):
       self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
       self.datos['test'] = True
       self.actualizar_form_activo(self.datos)
-
-    imagen = app_files.imagenes.get('SPS.png')
-    print(imagen)
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
