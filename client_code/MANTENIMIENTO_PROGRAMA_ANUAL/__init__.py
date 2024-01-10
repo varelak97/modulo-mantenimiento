@@ -179,7 +179,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
 
-    prefijos = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK-", "todos":"P"}
+    prefijos = {"PROGRAMADO":"P","REPROGRAMADO":"R","REALIZADO":"OK-", "ATRASADO":"P", "todos":"P"}
     renglones_mes = mes_calendario.split('\n')
     items = []
     for i in range(2, len(renglones_mes)):
@@ -232,8 +232,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1"""
         #CODIGO NUEVO PARA MATTOS ATRASADOS
         if tipo == "ATRASADO" and item['status_mantenimiento'] == "PROGRAMADO":
-          
-          pass
+          indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
+          indicadores_mtto_mes[dia_prog-1]["lista_equipos"].append(datos_equipo)
+          print(f"los indicadores de mtto:{indicadores_mtto_mes}")
         #END
         
         if tipo == item['status_mantenimiento']: #tipo:selected
