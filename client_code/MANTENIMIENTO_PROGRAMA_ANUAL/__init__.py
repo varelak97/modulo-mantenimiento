@@ -230,6 +230,12 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       if equipo == "todos":
         """if tipo == "todos": #YA NO SE USA ESTA CONDICION
           indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] = indicadores_mtto_mes[dia_prog-1][prefijos_tipo[item['status_mantenimiento']]] + 1"""
+        #CODIGO NUEVO PARA MATTOS ATRASADOS
+        if tipo == "ATRASADO" and item['status_mantenimiento'] == "PROGRAMADO":
+          
+          pass
+        #END
+        
         if tipo == item['status_mantenimiento']: #tipo:selected
           indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] = indicadores_mtto_mes[dia_prog-1][f"{prefijos_frecuencia[item['frecuencia']]}"] + 1
 
