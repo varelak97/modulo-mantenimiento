@@ -140,7 +140,7 @@ components:
           placeholder: -- TODOS --
           role: outlined
           background: theme:White
-          items: [PROGRAMADO, REPROGRAMADO, REALIZADO]
+          items: [PROGRAMADO, REPROGRAMADO, ATRASADOS, REALIZADO]
         type: DropDown
         layout_properties: {width: 193}
         event_bindings: {change: drop_down_tipo_change}

@@ -24,7 +24,7 @@ class lista_equipos(lista_equiposTemplate):
           datos_equipo = {
             "equipo":equipo['equipo'],
             "fecha_programada":equipo['fecha_programada'],
-            "fecha_realizada":equipo['fecha_hora_final'],
+            "fecha_realizada":equipo['fecha_hora_final'].split(" ")[0],
             "ver_checklist":True if equipo['operacion'] == "edicion" else False,
             "id_mtto_preventivo":equipo['id_mtto']
           }
