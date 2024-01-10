@@ -91,7 +91,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
-            print(f"el parent tag:{link.parent.tag}")
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMANAL"
             link.popover(content=lista_equipos(items), title="PROGRAMADO SEMANAL", trigger="click",max_width="600px")
