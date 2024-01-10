@@ -168,8 +168,11 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       })
       
     for item in self.registros_consulta_mttos:
-      dia_prog = int(item['fecha_programada'].split('-')[2])
-      mes_prog = int(item['fecha_programada'].split('-')[1])
+      fecha = datetime.strptime(item['fecha_hora_final'].split(' ')[0],'%Y-%m-%d') if item['status_mantenimiento'] == 'REALIZADO' else datetime.strptime(item['fecha_programada'],"%Y-%m-%d")
+      dia_prog = fecha.day
+      mes_prog = fecha.month
+      """dia_prog = int(item['fecha_programada'].split('-')[2]) 
+      mes_prog = int(item['fecha_programada'].split('-')[1])"""
       #filtra por datos del mes
       if mes_prog == mes:
         self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
