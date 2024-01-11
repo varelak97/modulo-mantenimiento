@@ -18,9 +18,9 @@ class lista_equipos(lista_equiposTemplate):
       print(lista_columnas[4])
       if self.datos['tipo'] != "ATRASADO":
         lista_columnas.pop(4)
-    else:
+    elif self.datos['tipo'] == "REPROGRAMADO":
       lista_columnas[2]['title'] = "FECHA REPROGRAMADA"
-      self.data_grid_lista_equipos.columns = lista_columnas
+    self.data_grid_lista_equipos.columns = lista_columnas
 
 
   def fill_lista(self, datos):
