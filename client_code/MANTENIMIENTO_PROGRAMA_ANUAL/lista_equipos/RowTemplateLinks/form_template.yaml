@@ -33,7 +33,8 @@ components:
   type: Label
   layout_properties: {column: INWVXD}
   data_bindings:
-  - {property: text, code: 'self.item[''fecha_realizada'']', writeback: false}
+  - {property: text, code: 'self.item[''fecha_reprogramada''] if self.item[''tipo'']
+      == "REPROGRAMADO" else self.item[''fecha_realizada'']', writeback: false}
 - name: button_reprogramar
   properties: {text: '', icon: 'fa:calendar', align: left, spacing_above: none, spacing_below: none}
   type: Button
