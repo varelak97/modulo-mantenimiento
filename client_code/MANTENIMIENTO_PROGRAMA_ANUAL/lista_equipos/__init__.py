@@ -30,7 +30,8 @@ class lista_equipos(lista_equiposTemplate):
           datos_equipo = {
             "equipo":equipo['equipo'],
             "fecha_programada":equipo['fecha_programada'],
-            "fecha_realizada":equipo['fecha_hora_final'].split(" ")[0],
+            "fecha_realizada": equipo['fecha_reprogramada'] if datos['tipo'] == "REPROGRAMADO" else equipo['fecha_hora_final'].split(" ")[0],
+            #"fecha_realizada":equipo['fecha_hora_final'].split(" ")[0], #ASI ESTABA ANTES
             "ver_checklist":True if datos['tipo'] == "REALIZADO" else False,
             #"ver_checklist":True if equipo['operacion'] == "edicion" else False, #ASI ESTABA ANTES
             "programar": True if datos['tipo'] == "ATRASADO" else False,
