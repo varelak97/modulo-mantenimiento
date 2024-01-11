@@ -38,6 +38,7 @@ components:
   properties: {text: '', icon: 'fa:calendar', align: left, spacing_above: none, spacing_below: none}
   type: Button
   layout_properties: {column: YSEHUK}
-  data_bindings: []
+  data_bindings:
+  - {property: visible, code: 'self.item[''programar'']', writeback: false}
 data_bindings:
 - {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}

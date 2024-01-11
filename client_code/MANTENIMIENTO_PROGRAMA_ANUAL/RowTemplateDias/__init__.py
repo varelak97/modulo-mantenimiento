@@ -87,7 +87,30 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       if link.text != None and link.text != "":
         indicador = link.text.split(': ')
         if indicador[1] != '0':
-          if indicador[0] == "PW":
+          items_test = link.parent.tag
+          if items_test['tipo'] == "ATRASADO":
+            link.background = app.theme_colors['Outline']
+            link.foreground = app.theme_colors['White']
+            items = link.parent.tag
+            items['tipo'] = "ATRASADO"
+            titulo = ""
+            if indicador[0] == "PW":
+              titulo = "ATRASADOS SEMANALES"
+              items['frecuencia'] = "SEMANAL"
+            elif indicador[0] == "PM":
+              titulo = "ATRASADOS MENSUALES"
+              items['frecuencia'] = "MENSUAL"
+            elif indicador[0] == "PT":
+              titulo = "ATRASADOS TRIMESTRALES"
+              items['frecuencia'] = "TRIMESTRAL"
+            elif indicador[0] == "PS":
+              titulo = "ATRASADOS SEMESTRALES"
+              items['frecuencia'] = "SEMESTRAL"
+            elif indicador[0] == "PA":
+              titulo = "ATRASADOS ANUALES"
+              items['frecuencia'] = "ANUAL"
+            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="850px")
+          elif indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
@@ -126,7 +149,25 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           elif indicador[0] in ["R","RW","RM","RT","RS","RA"]:
             link.background = app.theme_colors['Red']
             link.foreground = app.theme_colors['White']
-            #FALTA AGREGAR EVENTO POPOVER ########################## *************************************
+            items = link.parent.tag
+            items['tipo'] = "REPROGRAMADO"
+            titulo = ""
+            if indicador[0] == "RW":
+              titulo = "REPROGRAMADOS SEMANALES"
+              items['frecuencia'] = "SEMANAL"
+            elif indicador[0] == "RM":
+              titulo = "REPROGRAMADOS MENSUALES"
+              items['frecuencia'] = "MENSUAL"
+            elif indicador[0] == "RT":
+              titulo = "REPROGRAMADOS TRIMESTRALES"
+              items['frecuencia'] = "TRIMESTRAL"
+            elif indicador[0] == "RS":
+              titulo = "REPROGRAMADOS SEMESTRALES"
+              items['frecuencia'] = "SEMESTRAL"
+            elif indicador[0] == "RA":
+              titulo = "REPROGRAMADOS ANUALES"
+              items['frecuencia'] = "ANUAL"
+            link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="850px")
 
           elif indicador[0] in ["OK-W","OK-M","OK-T","OK-S","OK-A"]:
             link.background = app.theme_colors['SecondaryGreen']

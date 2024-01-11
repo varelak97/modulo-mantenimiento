@@ -10,10 +10,15 @@ class lista_equipos(lista_equiposTemplate):
     self.init_components(**properties)
     self.datos = datos
     #print(f"los datos:{self.datos}")
-    self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos)
-    if self.datos['tipo'] == "PROGRAMADO":
+    self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos) 
+    #if self.datos['tipo'] == "PROGRAMADO" or self.datos['tipo'] == "REPROGRAMADO" or self.datos['tipo'] == "ATRASADO": #antes
+    if self.datos['tipo'] != "REALIZADO":
       lista_columnas = self.data_grid_lista_equipos.columns
       lista_columnas.pop(2)
+      print(lista_columnas[4])
+      if self.datos['tipo'] != "ATRASADO":
+        lista_columnas.pop(4)
+      
       self.data_grid_lista_equipos.columns = lista_columnas
 
 
@@ -25,7 +30,9 @@ class lista_equipos(lista_equiposTemplate):
             "equipo":equipo['equipo'],
             "fecha_programada":equipo['fecha_programada'],
             "fecha_realizada":equipo['fecha_hora_final'].split(" ")[0],
-            "ver_checklist":True if equipo['operacion'] == "edicion" else False,
+            "ver_checklist":True if datos['tipo'] == "REALIZADO" else False,
+            #"ver_checklist":True if equipo['operacion'] == "edicion" else False, #ASI ESTABA ANTES
+            "programar": True if datos['tipo'] == "ATRASADO" else False,
             "id_mtto_preventivo":equipo['id_mtto']
           }
           items.append(datos_equipo)
