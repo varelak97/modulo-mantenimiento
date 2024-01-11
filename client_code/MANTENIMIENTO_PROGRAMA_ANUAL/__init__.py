@@ -174,7 +174,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       """dia_prog = int(item['fecha_programada'].split('-')[2]) 
       mes_prog = int(item['fecha_programada'].split('-')[1])"""
       #filtra por datos del mes
-      if mes_prog == mes:
+      if mes_prog == mes and  int(fecha.year) == int(anio):
         self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
     print(f"los indicadores de mtto:{indicadores_mtto_mes}")
     self.card_calendario.visible = False
