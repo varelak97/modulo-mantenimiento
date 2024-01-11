@@ -224,6 +224,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       'id_mtto':item['id_mtto_preventivo'],
       'operacion':item['operacion'],
       'fecha_programada':item['fecha_programada'],
+      'fecha_reprogramada':item['fecha_reprogramada'],
       'fecha_hora_final':item['fecha_hora_final']
     }
 
