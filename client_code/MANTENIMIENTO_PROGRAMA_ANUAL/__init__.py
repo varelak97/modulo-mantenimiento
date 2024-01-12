@@ -120,7 +120,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       nuevo_registro['operacion'] = "edicion"
       nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0
-      self.ws_solicitudes_mtto.add_row(**nuevo_registro)
+      self.ws_registros_totales.add_row(**nuevo_registro)
     Notification("Fecha reprogramada correctamente!", title="ÉXITO!.", style="success").show()
     #self.button_actualizar_click()
     self.llenar_calendario()
