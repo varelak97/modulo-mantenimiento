@@ -168,7 +168,14 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       })
       
     for item in self.registros_consulta_mttos:
-      fecha = datetime.strptime(item['fecha_hora_final'].split(' ')[0],'%Y-%m-%d') if item['status_mantenimiento'] == 'REALIZADO' else datetime.strptime(item['fecha_programada'],"%Y-%m-%d")
+      fecha = None
+      if item['status_mantenimiento'] == "REALIZADO":
+          fecha = datetime.strptime(item['fecha_hora_final'].split(' ')[0],'%Y-%m-%d')
+      elif item['status_mantenimiento'] == "REPROGRAMADO":
+        fecha = datetime.strptime(item['fecha_reprogramada'],"%Y-%m-%d")
+      else:
+        fecha = datetime.strptime(item['fecha_programada'],"%Y-%m-%d")
+      #fecha = datetime.strptime(item['fecha_hora_final'].split(' ')[0],'%Y-%m-%d') if item['status_mantenimiento'] == 'REALIZADO' else datetime.strptime(item['fecha_programada'],"%Y-%m-%d")
       dia_prog = fecha.day
       mes_prog = fecha.month
       """dia_prog = int(item['fecha_programada'].split('-')[2]) 

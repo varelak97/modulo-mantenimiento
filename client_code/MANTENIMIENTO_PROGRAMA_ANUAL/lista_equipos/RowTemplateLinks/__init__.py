@@ -32,3 +32,7 @@ class RowTemplateLinks(RowTemplateLinksTemplate):
     datos['id_mtto_preventivo'] = self.label_equipo.tag
     self.parent.parent.parent.popper.pop("hide")
     self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)
+
+  def button_reprogramar_click(self, **event_args):
+    datos = {}
+    self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-reprogramar_mtto_preventivo', datos=datos)
