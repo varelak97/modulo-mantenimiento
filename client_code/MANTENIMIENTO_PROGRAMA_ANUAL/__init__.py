@@ -79,6 +79,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.set_event_handler('x-actualizar_calendario', self.llenar_calendario)
+    self.set_event_handler('x-reprogramar_mantenimiento', self.reprogramar_mantenimiento)
     #self.set_event_handler('x-show_lista_equipos', self.show_lista_equipos)
   
   ################################ FUNCIONES PERSONALIZADS ########################################
@@ -106,6 +107,22 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
         elif tipo == "todos":
           registros_dia_seleccionado.append(item)
     return registros_dia_seleccionado"""
+  def reprogramar_mantenimiento(self, datos, **event_args):
+    with Notification("Registrando fecha en el calendario de mantenimiento...",title="GUARDANDO.", style="info"):
+      registro_actual = None
+      for item in self.ws_registros_totales.rows:
+        if item['id_mtto_preventivo'] == datos['id_mtto_preventivo'] and item['registro_principal'] == '1':
+          registro_actual = item
+          break
+      nuevo_registro = dict(registro_actual).copy()
+      nuevo_registro['fecha_reprogramada'] = datos['fecha_reprogramada']
+      nuevo_registro['operacion'] = "edicion"
+      nuevo_registro['marca_temporal'] = datetime.now()
+      registro_actual['registro_principal'] = 0
+      self.ws_solicitudes_mtto.add_row(**nuevo_registro)
+    Notification("Fecha reprogramada correctamente!", title="ÉXITO!.", style="success").show()
+    #self.button_actualizar_click()
+    self.llenar_calendario()
 
   def get_lista_equipos(self):
     self.libro_equipos = app_files.mantenimiento_lista_equipos
