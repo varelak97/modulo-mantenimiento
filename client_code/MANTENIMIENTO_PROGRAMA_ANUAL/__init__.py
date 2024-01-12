@@ -116,6 +116,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           break
       nuevo_registro = dict(registro_actual).copy()
       nuevo_registro['fecha_reprogramada'] = datos['fecha_reprogramada']
+      nuevo_registro['status_mantenimiento'] = "REPROGRAMADO"
       nuevo_registro['operacion'] = "edicion"
       nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0

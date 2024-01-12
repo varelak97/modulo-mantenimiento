@@ -35,4 +35,11 @@ class RowTemplateLinks(RowTemplateLinksTemplate):
 
   def button_reprogramar_click(self, **event_args):
     datos = {}
-    self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-reprogramar_mtto_preventivo', datos=datos)
+    self.parent.parent.parent.popper.pop("hide")
+    botones = [("REPROGRAMAR", True)]
+    dp = DatePicker(format='%Y-%m-%d')
+    status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
+    if status:
+      datos['fecha_reprogramada'] = dp.date
+      datos['id_mtto_preventivo'] = self.label_equipo.tag
+    self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-reprogramar_mantenimiento', datos=datos)
