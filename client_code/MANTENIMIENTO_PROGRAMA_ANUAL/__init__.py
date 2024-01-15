@@ -203,8 +203,17 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       #codigo para filtrar los mttos atrasados
       if tipo == "ATRASADO": 
         self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
-        if self.fecha_actual - fecha > 3:
-          if self.fecha_actual.weekday() !=5 and self.fecha_actual.weekday() != 6:
+        dia_actual_semana = self.fecha_actual.weekday()
+        delta = None
+        #fecha actual de consulta se cambia a viernes cuando la consulta se hace en fin de semana
+        if dia_semana_actual == 5:
+          self.fecha_actual = self.fecha_actual + timedelta(days=-1)
+        elif dia_actual_semana == 6:
+          self.fecha_actual = self.fecha_actual + timedelta(days=-2)
+       
+        if self.fecha_actual - fecha > 3: #verifica si la fecha programada ha caducado(caduca si sobrepasa los tres dias de su fecha programada)
+          
+          
             pass
       #end
       if mes_prog == mes and  int(fecha.year) == int(anio):
