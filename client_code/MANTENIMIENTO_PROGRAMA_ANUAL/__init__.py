@@ -215,7 +215,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
         else:
           self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
-    print(f"los indicadores de mtto:{indicadores_mtto_mes}")
+    
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
 
@@ -247,7 +247,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           }
         j += 1
       items.append(dicc)
-    #print(f"indicadores:{items}")
+    print(f"#########indicadores items:{items}")
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 
