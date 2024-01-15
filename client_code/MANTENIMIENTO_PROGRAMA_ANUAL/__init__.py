@@ -247,7 +247,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           }
         j += 1
       items.append(dicc)
-    print(f"#########indicadores items:{items}")
+    print(f"los items:{items}")
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 
