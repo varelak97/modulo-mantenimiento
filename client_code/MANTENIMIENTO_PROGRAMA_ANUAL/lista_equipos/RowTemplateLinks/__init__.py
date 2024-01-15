@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from anvil_extras import popover
+from datetime import date
 
 class RowTemplateLinks(RowTemplateLinksTemplate):
   ###################################################### VARIABLES GLOBALES #####################################################
@@ -39,7 +40,11 @@ class RowTemplateLinks(RowTemplateLinksTemplate):
     botones = [("REPROGRAMAR", True)]
     dp = DatePicker(format='%Y-%m-%d')
     status = alert(title="SELECCIONE FECHA:",content=dp, buttons=botones)
-    if status:
-      datos['fecha_reprogramada'] = dp.date
-      datos['id_mtto_preventivo'] = self.label_equipo.tag
-    self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-reprogramar_mantenimiento', datos=datos)
+    if status != None:
+      if dp.date < date.today():
+        alert(title="ERROR!",content="La fecha a programar debe ser mayor o igual a la fecha actual!")
+      else:
+        alert("programando...")
+        datos['fecha_reprogramada'] = dp.date
+        datos['id_mtto_preventivo'] = self.label_equipo.tag
+        self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-reprogramar_mantenimiento', datos=datos)

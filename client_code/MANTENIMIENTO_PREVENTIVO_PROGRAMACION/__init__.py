@@ -500,7 +500,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         "registro_principal": 1
       }
       id_mtto_preventivo += 1
-      #self.ws_mtto_preventivos.add_row(**dict_mtto)
+      self.ws_mtto_preventivos.add_row(**dict_mtto)
       fecha = temp
       fecha += timedelta(days = dias_offset[frecuencia])
     return id_mtto_preventivo
@@ -508,7 +508,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
   def button_generar_calendario_click(self, **event_args):
     equipos_programados = self.repeating_panel_equipos.items
     status = False
-    id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in self.ws_mttos_preventivos_vista.rows]) + 1
+    registros_vista_mttos = self.ws_mttos_preventivos_vista.rows
+    id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in registros_vista_mttos]) + 1 if len(registros_vista_mttos) > 0 else 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
       for equipo in equipos_programados:
         if equipo['semanal'] != "":

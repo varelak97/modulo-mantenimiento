@@ -67,8 +67,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.lista_equipos = self.get_lista_equipos()
     self.fecha_actual = datetime.today()
     self.drop_down_mes.items = self.meses
-    self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
-    self.drop_down_anio.selected_value = str(fecha_actual.year)
+    self.drop_down_mes.selected_value = self.drop_down_mes.items[self.fecha_actual.month - 1][1]
+    self.drop_down_anio.selected_value = str(self.fecha_actual.year)
     self.drop_down_equipos.items = self.get_lista_equipos()
     self.drop_down_areas.items = self.lista_areas
     self.libro_mttos = app_files.mantenimiento_preventivo
@@ -199,25 +199,22 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       mes_prog = fecha.month
       """dia_prog = int(item['fecha_programada'].split('-')[2]) 
       mes_prog = int(item['fecha_programada'].split('-')[1])"""
-      #filtra por datos del mes
-      #codigo para filtrar los mttos atrasados
-      if tipo == "ATRASADO": 
-        self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
-        dia_actual_semana = self.fecha_actual.weekday()
-        delta = None
-        #fecha actual de consulta se cambia a viernes cuando la consulta se hace en fin de semana
-        if dia_semana_actual == 5:
-          self.fecha_actual = self.fecha_actual + timedelta(days=-1)
-        elif dia_actual_semana == 6:
-          self.fecha_actual = self.fecha_actual + timedelta(days=-2)
-       
-        if self.fecha_actual - fecha > 3: #verifica si la fecha programada ha caducado(caduca si sobrepasa los tres dias de su fecha programada)
-          
-          
-            pass
-      #end
       if mes_prog == mes and  int(fecha.year) == int(anio):
-        self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
+        if tipo == "ATRASADO": #muestra mantenimientos atrasados respecto a fecha actual
+          self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
+          dia_actual_semana = self.fecha_actual.weekday()
+          delta = None
+          #fecha actual de consulta se cambia a viernes cuando la consulta se hace en fin de semana
+          if dia_actual_semana == 5:
+            self.fecha_actual = self.fecha_actual + timedelta(days=-1)
+          elif dia_actual_semana == 6:
+            self.fecha_actual = self.fecha_actual + timedelta(days=-2)
+          diferencia_dias = self.fecha_actual - fecha 
+          #print(f"fecha actual:{self.fecha_actual} ---- fecha del registro:{fecha} ---- diferencia:{diferencia_dias}")
+          if diferencia_dias.days > 3: #verifica si la fecha programada ha caducado(caduca si sobrepasa los tres dias de su fecha programada)
+            self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
+        else:
+          self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
     #print(f"los indicadores de mtto:{indicadores_mtto_mes}")
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
