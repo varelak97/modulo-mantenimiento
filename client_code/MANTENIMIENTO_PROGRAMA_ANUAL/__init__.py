@@ -204,8 +204,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       if tipo == "ATRASADO": 
         self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
         if self.fecha_actual - fecha > 3:
-          
-          pass
+          if self.fecha_actual.weekday() !=5 and self.fecha_actual.weekday() != 6:
+            pass
       #end
       if mes_prog == mes and  int(fecha.year) == int(anio):
         self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
