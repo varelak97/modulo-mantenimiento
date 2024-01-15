@@ -215,7 +215,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
         else:
           self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
-    #print(f"los indicadores de mtto:{indicadores_mtto_mes}")
+    print(f"los indicadores de mtto:{indicadores_mtto_mes}")
     self.card_calendario.visible = False
     mes_calendario = calendar.month(int(anio),mes)[0:-1] #Se descarta el último salto de línea, pues en caso de haber 6 semanas, se toma una 7a inexistente
 
