@@ -59,12 +59,13 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   libro_equipos = None
   ws_vista_equipos = None
   ws_registros_equipos = None
+  fecha_actual = None
   #numero_registros = None
   
   def __init__(self, datos, **properties):
     self.datos = datos
     self.lista_equipos = self.get_lista_equipos()
-    fecha_actual = datetime.today()
+    self.fecha_actual = datetime.today()
     self.drop_down_mes.items = self.meses
     self.drop_down_mes.selected_value = self.drop_down_mes.items[fecha_actual.month - 1][1]
     self.drop_down_anio.selected_value = str(fecha_actual.year)
@@ -201,7 +202,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       #filtra por datos del mes
       #codigo para filtrar los mttos atrasados
       if tipo == "ATRASADO": 
-        pass
+        self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
+        if self.fecha_actual - fecha > 3:
+          
+          pass
       #end
       if mes_prog == mes and  int(fecha.year) == int(anio):
         self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
