@@ -34,7 +34,8 @@ unique_ids:
     MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplateDias.RowTemplateNotificaciones: '169746142685451730894992.073395'
     MANTENIMIENTO_INICIO_SESION: '1705436093687966984278319.5128'
   modules: {}
-  server_modules: {}
+  server_modules:
+    ServerModuleInicioSesion: '1705442207204351781687381.626'
   assets:
     superSQL.js: '169652555421390924609262.9088'
     iconos/.gitkeep: '1701444163116343583155654.36206'
