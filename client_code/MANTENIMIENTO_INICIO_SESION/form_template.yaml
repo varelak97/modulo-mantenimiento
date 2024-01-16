@@ -1,0 +1,17 @@
+container: {type: ColumnPanel}
+components:
+- name: content_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'XKJVHL,TPVHJS'}
+  components:
+  - name: outlined_card_inicio_sesion
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'NEMXNC,ZMHJNX'}
+    components:
+    - name: image_1
+      properties: {}
+      type: Image
+      layout_properties: {grid_position: 'GKCNWC,HJEHEN'}
+is_package: true
