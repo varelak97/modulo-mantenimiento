@@ -20,9 +20,7 @@ components:
       components:
       - name: label_titulo_mantenimiento
         properties: {role: headline, align: center, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'CONTROL DE DOCUMENTOS
-
-            ENSEL TECHNOLOGIES', font_size: null, font: '', spacing_above: small,
+          visible: true, text: MANTENIMIENTO, font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: false, icon: ''}
         type: Label

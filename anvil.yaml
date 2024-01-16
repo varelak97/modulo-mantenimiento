@@ -349,10 +349,17 @@ services:
       thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AKHj6E7kh0skFYCRDA4ghBjdjUGIznFD07iozw5GJTY4RK4wmhN_34OAWEqSNkgcGBZofTEA3rp-uyEbv8AGPyPtnpoVsNWyeCirV6va75gqOdFyWk3xBbwHRO8=s220
       ownerNames: [ERP ENSEL]
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
+- source: /runtime/services/anvil/secrets.yml
+  client_config: {}
+  server_config: {}
 startup: {type: form, module: A_main}
 package_name: Modulo_Mantenimiento
 allow_embedding: false
 name: Modulo_Mantenimiento
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 startup_form: null
+secrets:
+  usuarios_ensel:
+    type: key
+    value: {FPUULCRFEIZKXCBY: QwEX9a03Rjkr3impV7vChrA/JaoTDT5CLfiD4k053xM+GR5uQooEvwJ24PtBrWGdKwDfFyym+dBfB+Jsf2SNkVVdRnlbu5OgdreP8F19VuTPIsGUzArj8BIVFucSea0ig/HI+HWXlZJpzSRlejVbpGkPrjFQtuY=}
 renamed: true
