@@ -1,0 +1,33 @@
+container: {type: ColumnPanel}
+components:
+- name: content_panel
+  properties: {align: center}
+  type: FlowPanel
+  layout_properties: {grid_position: 'GMTJJG,AZDBYK'}
+  components:
+  - name: outlined_card_asignacion_password
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {width: 465}
+    components:
+    - name: label_titulo
+      properties: {text: BIENVENIDO/A, role: title, align: center, bold: true}
+      type: Label
+      layout_properties: {grid_position: 'LSKXUO,MXWFSD'}
+    - name: label_
+      properties: {text: 'Usuario:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'ZHKFEH,KRROCU'}
+    - name: text_box_password
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'WOPWRR,FWKZDX'}
+    - name: text_box_confirmacion
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'MIQDTF,EKFANR'}
+    - name: button_guardar
+      properties: {text: GUARDAR}
+      type: Button
+      layout_properties: {grid_position: 'KMDUKQ,UQFYRG'}
+is_package: true
