@@ -587,6 +587,9 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         if equipo['semestral'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semestral'], "SEMESTRAL", id_mtto_preventivo)
           status = True
+        if equipo['anual'] != "":
+          id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['anual'], "ANUAL", id_mtto_preventivo)
+          status = True
     if status: 
       Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")
     else: 
