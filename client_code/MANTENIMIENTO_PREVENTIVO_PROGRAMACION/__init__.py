@@ -461,6 +461,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     }
     fechas_excluir = self.repeating_panel_fechas_excluidas.items
     fecha = fecha_inicial
+    temp = fecha_inicial
     anio_actual = datetime.today().year
     
     while fecha.year == anio_actual:
@@ -481,6 +482,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       }
       id_mtto_preventivo += 1
       self.ws_mtto_preventivos.add_row(**dict_mtto)
+
+      fecha = temp
 
       #siguiente fecha
       if frecuencia == "SEMANAL":
@@ -539,7 +542,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       elif fecha.weekday() == 6: #domingo
         fecha += timedelta(days = 1)
 
-      fecha = temp
+      #fecha = temp
       
     return id_mtto_preventivo
   ############################################ EVENTOS ############################################
