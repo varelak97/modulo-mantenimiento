@@ -488,7 +488,29 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       #siguiente fecha
       if frecuencia == "SEMANAL":
         fecha += timedelta(days=7)
-
+      elif frecuencia == "MENSUAL":
+        mes_siguiente = fecha.month + 1 
+        if mes_siguiente > 12:
+          fecha = fecha.replace(month=1, year = anio_actual + 1)
+        else:
+          fecha = fecha.replace(month=mes_siguiente)
+      elif frecuencia == "TRIMESTRAL":
+        trimestre_siguiente = fecha.month + 3
+        if trimestre_siguiente > 12:
+          fecha = fecha.replace(month=1, year = anio_actual + 1)
+        else:
+          fecha = fecha.replace(month=trimestre_siguiente)
+      elif frecuencia == "SEMESTRAL":
+        semestre_siguiente = fecha.month + 6
+        if semestre_siguiente > 12:
+          fecha = fecha.replace(month=1, year = anio_actual + 1)
+        else:
+          fecha = fecha.replace(month=semestre_siguiente)
+      elif frecuencia == "ANUAL":
+        mes_anio_siguiente = fecha.month + 12
+        if mes_anio_siguiente > 12:
+          fecha = fecha.replace(month=1, year = anio_actual + 1)
+      
       temp = fecha
       
       #fecha += timedelta(days = dias_offset[frecuencia])
