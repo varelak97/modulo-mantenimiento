@@ -24,6 +24,12 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
       datos['id_solicitud_mtto'] = self.button_editar.tag
       datos['modo'] = "visor"
       self.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_solicitud', datos=datos)
+
+  def link_status_click(self, **event_args):
+    if self.label_status.tag:
+      datos = {}
+      datos['folio'] = self.label_folio.text
+      self.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)
     
     
   """def button_editar_click(self, **event_args):

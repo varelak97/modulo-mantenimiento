@@ -23,6 +23,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     self.set_event_handler('x-abrir_solicitud', self.abrir_solicitud)
+    self.set_event_handler('x-abrir_reporte', self.abrir_reporte)
     
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
@@ -50,6 +51,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       self.data_grid_registros.visible = False
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
+  def abrir_reporte(self, datos, **event_args):
+    datos.update(self.datos)
+    datos['modo'] = "visor_by_folio"
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    
   def abrir_solicitud(self, datos, **event_args):
     datos.update(self.datos)
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")

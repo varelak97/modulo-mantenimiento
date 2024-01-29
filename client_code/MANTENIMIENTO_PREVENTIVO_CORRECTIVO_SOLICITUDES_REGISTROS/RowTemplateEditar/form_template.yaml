@@ -55,15 +55,21 @@ components:
   layout_properties: {column: NZNCXN}
   data_bindings:
   - {property: text, code: 'self.item[''fecha_programada'']'}
-- name: label_status
-  properties: {icon: 'fa:check', icon_align: right, align: center, font: '', font_size: 26}
-  type: Label
+- name: link_status
+  properties: {}
+  type: Link
   layout_properties: {column: SMZSVD}
-  data_bindings:
-  - {property: background, code: '"theme:SecondaryGreen" if bool(int(self.item[''mtto_realizado'']))
-      else "theme:Yellow"', writeback: false}
-  - {property: tag, code: 'bool(int(self.item[''mtto_realizado'']))', writeback: false}
-  - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado'']))
-      else "fa:clock-o"', writeback: false}
+  components:
+  - name: label_status
+    properties: {icon: 'fa:check', icon_align: right, align: center, font: '', font_size: 26}
+    type: Label
+    layout_properties: {grid_position: 'RWJAHZ,LJGSRN'}
+    data_bindings:
+    - {property: background, code: '"theme:SecondaryGreen" if bool(int(self.item[''mtto_realizado'']))
+        else "theme:Yellow"', writeback: false}
+    - {property: tag, code: 'bool(int(self.item[''mtto_realizado'']))', writeback: false}
+    - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado'']))
+        else "fa:clock-o"', writeback: false}
+  event_bindings: {click: link_status_click}
 is_package: true
 data_bindings: []

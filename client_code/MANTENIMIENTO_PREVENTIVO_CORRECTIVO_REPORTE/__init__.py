@@ -172,14 +172,21 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.mtto_corr_prev_reporte = reg
           break
       self.llenar_campos(self.mtto_corr_prev_reporte)
-    elif self.datos['modo'] == "visor":
-      for reg in self.mtto_corr_prev_todos:
-        if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
-          self.mtto_corr_prev_reporte = reg
-          break
+    elif self.datos['modo'] == "visor" or self.datos['modo'] == "visor_by_folio":
+      if self.datos['modo'] == "visor":
+        for reg in self.mtto_corr_prev_todos:
+          if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
+            self.mtto_corr_prev_reporte = reg
+            break
+      else:
+        for reg in self.mtto_corr_prev_todos:
+          if reg['folio'] == self.datos['folio'] and reg['registro_principal'] == '1':
+            self.mtto_corr_prev_reporte = reg
+            break
       self.llenar_campos(self.mtto_corr_prev_reporte)
       self.habilitar_deshabilitar_campos(False)
       self.button_guardar.enabled = False
+      
       
 
   def llenar_campos(self, registro):

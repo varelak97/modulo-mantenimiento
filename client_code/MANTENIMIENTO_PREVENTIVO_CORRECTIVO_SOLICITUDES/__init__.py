@@ -180,7 +180,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           dict_datos = {
             "id_solicitud_mtto":id_nuevo_solicitud_mtto,
             "mtto_realizado": 0,
-            "folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
+            "folio":self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_area.selected_value,1),
+            #"folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
             "id_usuario_registrador":"4",
             "usuario_registrador":"test",
             "operacion":"creacion",
@@ -194,7 +195,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       else:
         nuevo_registro = dict(self.registro_actual).copy()
         dict_datos = {
-          "folio": self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],self.registro_actual['id_solicitud_mtto']),
+          "folio": self.get_folio(datetime.now(),self.drop_down_area.selected_value,self.registro_actual['id_solicitud_mtto']),
           "id_usuario_registrador": "6",
           "usuario_registrador": "otro usuario",
           "operacion": "edicion",
