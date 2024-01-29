@@ -483,9 +483,10 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.ws_mtto_preventivos.add_row(**dict_mtto)
 
       #siguiente fecha
-      temp = fecha
+      if frecuencia == "SEMANAL":
+        fecha += timedelta(days=7)
 
-      
+      temp = fecha
       
       #fecha += timedelta(days = dias_offset[frecuencia])
       
@@ -537,7 +538,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         fecha += timedelta(days = -1)
       elif fecha.weekday() == 6: #domingo
         fecha += timedelta(days = 1)
-      
+
+      fecha = temp
       
     return id_mtto_preventivo
   ############################################ EVENTOS ############################################
