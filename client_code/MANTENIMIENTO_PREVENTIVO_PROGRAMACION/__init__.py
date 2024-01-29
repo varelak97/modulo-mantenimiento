@@ -453,18 +453,17 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
   def generar_programa_anual(self, equipo, area, fecha_inicial, frecuencia, id_mtto_preventivo):
     dias_offset = {
-      "SEMANAL":7,
-      "MENSUAL":31,
-      "TRIMESTRAL":93,
-      "SEMESTRAL":186,
-      "ANUAL":365
+      "SEMANAL":1,
+      "MENSUAL":1,
+      "TRIMESTRAL":3,
+      "SEMESTRAL":6,
+      "ANUAL":1
     }
     fechas_excluir = self.repeating_panel_fechas_excluidas.items
     fecha = fecha_inicial
     anio_actual = datetime.today().year
+    
     while fecha.year == anio_actual:
-      temp = fecha
-
       dict_mtto = {
         "id_mtto_preventivo": id_mtto_preventivo,
         "fecha_programada":fecha,
@@ -484,8 +483,11 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       self.ws_mtto_preventivos.add_row(**dict_mtto)
 
       #siguiente fecha
-      fecha = temp
-      fecha += timedelta(days = dias_offset[frecuencia])
+      temp = fecha
+
+      
+      
+      #fecha += timedelta(days = dias_offset[frecuencia])
       
       # ******************** excluir fechas ***********************
       if fechas_excluir != None:
