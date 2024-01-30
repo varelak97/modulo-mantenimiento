@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ..RegistroUsuarios import RegistroUsuarios
+from ..A_main import A_main
 
 class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
   libro_usuarios = None
@@ -15,11 +16,33 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
     self.ws_usuarios = self.libro_usuarios['Vista']
 
   def button_iniciar_sesion_click(self, **event_args):
-    with Notification("Buscando usuario...", title="Iniciando sesión."):
-      datos = {}
-      self.usuarios = self.ws_usuarios.rows
-      for usuario in self.usuarios:
-        if usuario['numero_empleado'] == self.text_box_usuario.text:
-          if usuario['password'] == "" and self.text_box_password.text == "":
-            datos['usuario'] = self.text_box_usuario.text
+    if self.text_box_usuario.text == "" or self.text_box_usuario.text == None:
+      alert("Debe ingresar su número de empleado.", title="Error de inicio de sesión!")
+    else:
+      with Notification("Buscando usuario...", title="Iniciando sesión."):
+        datos = {
+          "empleado": None, #652
+          "password": None
+        }
+        self.usuarios = self.ws_usuarios.rows
+        for usuario in self.usuarios:
+          if usuario['numero_empleado'] == str(self.text_box_usuario.text): #usuario encontrado
+            datos['empleado'] = self.text_box_usuario.text
+            if usuario['password'] != "":
+              if usuario['password'] == self.text_box_password.text: #password encontrado
+                datos['password'] = self.text_box_password.text
+                break
+              else:
+                datos['password'] = ""
+        if(datos['empleado'] != None and datos['password'] != "" and datos['password'] != None):
+          self.remove_from_parent()
+          self.add_component(A_main(datos))
+        elif datos['empleado'] == None:
+          alert("El número de empleado ingresado no existe!", title="Error de inicio de sesión!")
+        else:
+          if datos['password'] == None:
             alert(RegistroUsuarios(datos))
+          else:
+            alert("La contraseña ingresada es incorrecta!", title="Error de incio de sesión!")
+    
+              

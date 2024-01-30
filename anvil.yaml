@@ -352,7 +352,7 @@ services:
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: A_main}
+startup: {type: form, module: MANTENIMIENTO_INICIO_SESION}
 package_name: Modulo_Mantenimiento
 allow_embedding: false
 name: Modulo_Mantenimiento
