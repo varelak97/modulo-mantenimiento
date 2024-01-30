@@ -68,8 +68,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
+    
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
+    self.text_box_nombre.text = self.datos['nombre_usuario']
     self.drop_down_area.items = self.lista_areas
     self.libro_solicitudes = app_files.mantenimiento_solicitudes
     self.ws_solicitudes = self.libro_solicitudes['Registros']
@@ -190,6 +192,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           }
           respuesta.update(dict_datos)
           self.ws_solicitudes.add_row(**respuesta)
+          with Notification("Enviando correo de notificación a jefe de mantenimiento...", title=" GENERANDO CORREO.", style="info"):
+            anvil.server.call('enviar_mail','a.varela@ensel.org', dict_datos['folio'])
           self.limpiar_campos()
           self.drop_down_area_change()
       else:

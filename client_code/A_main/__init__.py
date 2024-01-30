@@ -17,30 +17,38 @@ class A_main(A_mainTemplate):
   ################################# INICIALIZACION DE VARIABLES #################################
   form_activo = None
   datos = {
-    'id_usuario_erp': 18,
-    'clave_form':"MANTENIMIENTO_PROGRAMA_ANUAL",
-    'test':True
+    'id_usuario_erp': None,
+    'clave_form': None,
   }
-  lista_mttos = [
-    "PROGRAMA ANUAL DE MANTENIMIENTOS",
+
+  """"PROGRAMA ANUAL DE MANTENIMIENTOS",
     "REPORTE DE MTTOS PREVENTIVOS",
     "REPORTES DE MTTOS PREVENTIVOS CORRECTIVOS PROGRAMADOS",
-    "SOLICITUDES DE MANTENIMIENTO PREVENTIVO CORRECTIVO",
+    "SOLICITUDES DE MANTENIMIENTO PREVENTIVO CORRECTIVO","""
+
+  lista_mttos = [
+    "LISTA GENERAL DE EQUIPOS",
     "LLENAR SOLICITUD DE MTTO PREVENTIVO CORRECTIVO" ############ BORRAR ###########
   ]
-  def __init__(self, **properties):
+  def __init__(self, datos, **properties):
     ################################# INICIALIZACION DE VARIABLES #################################
     self.drop_down_menu_areas.items = self.lista_mttos
+    self.datos.update(datos)
     
     self.init_components(**properties)
   
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.content_panel.visible = True
 
-    if self.datos['id_usuario_erp'] == 18:
+    if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
-      self.datos['test'] = True
+      self.drop_down_menu_areas.visible = True
       self.actualizar_form_activo(self.datos)
+    else:
+      self.datos['clave_form'] = "MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES"
+      self.drop_down_menu_areas.visible = False
+      self.actualizar_form_activo(self.datos)
+      
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
@@ -76,7 +84,10 @@ class A_main(A_mainTemplate):
   def drop_down_menu_areas_change(self, **event_args):
     area_seleccionada = self.drop_down_menu_areas.selected_value
 
-    if area_seleccionada == "PROGRAMA ANUAL DE MANTENIMIENTOS":
+    if area_seleccionada == "LISTA GENERAL DE EQUIPOS":
+      self.datos['clave_form'] = 'MANTENIMIENTO_LISTA_EQUIPOS'
+      self.actualizar_form_activo(self.datos)
+    elif area_seleccionada == "PROGRAMA ANUAL DE MANTENIMIENTOS":
       self.datos['clave_form'] = 'MANTENIMIENTO_PROGRAMA_ANUAL'
       self.actualizar_form_activo(self.datos)
     elif area_seleccionada == "REPORTE DE MTTOS PREVENTIVOS":

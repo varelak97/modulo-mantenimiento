@@ -21,23 +21,25 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
     else:
       with Notification("Buscando usuario...", title="Iniciando sesión."):
         datos = {
-          "empleado": None, #652
-          "password": None
+          "id_usuario_erp": None, #652
+          "password": None,
+          "nombre_usuario": None
         }
         self.usuarios = self.ws_usuarios.rows
         for usuario in self.usuarios:
           if usuario['numero_empleado'] == str(self.text_box_usuario.text): #usuario encontrado
-            datos['empleado'] = self.text_box_usuario.text
+            datos['id_usuario_erp'] = self.text_box_usuario.text
+            datos['nombre_usuario'] = usuario['nombre_usuario']
             if usuario['password'] != "":
               if usuario['password'] == self.text_box_password.text: #password encontrado
                 datos['password'] = self.text_box_password.text
                 break
               else:
                 datos['password'] = ""
-        if(datos['empleado'] != None and datos['password'] != "" and datos['password'] != None):
-          self.remove_from_parent()
-          self.add_component(A_main(datos))
-        elif datos['empleado'] == None:
+        if(datos['id_usuario_erp'] != None and datos['password'] != "" and datos['password'] != None):
+          #self.flow_panel_card_inicio_sesion.remove_from_parent()
+          open_form(A_main(datos))
+        elif datos['id_usuario_erp'] == None:
           alert("El número de empleado ingresado no existe!", title="Error de inicio de sesión!")
         else:
           if datos['password'] == None:

@@ -49,11 +49,12 @@ components:
         layout_properties: {grid_position: 'UBNREW,QNXUGQ'}
       - type: TextBox
         properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-          border: '', enabled: true, foreground: '', visible: true, text: ALFREDO VARELA CELESTINO,
-          font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-          italic: false, background: '', bold: false, underline: false}
+          border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: text_box_nombre
         layout_properties: {grid_position: 'AKZUSZ,OCWWLT'}
+        data_bindings: []
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: 'FECHA Y HORA EN QUE DETECTÓ Y REPORTA LA ANOMALÍA
