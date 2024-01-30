@@ -36,6 +36,11 @@ components:
     name: drop_down_menu_areas
     layout_properties: {grid_position: 'IMDWZO,XBUUVL'}
     event_bindings: {change: drop_down_menu_areas_change}
+  - name: button_cerrar_sesion
+    properties: {text: CERRAR SESIÓN, align: full}
+    type: Button
+    layout_properties: {grid_position: 'EBDRPA,KVQPMH'}
+    event_bindings: {click: button_cerrar_sesion_click}
 - name: label_usuario
   properties: {role: input-prompt}
   type: Label

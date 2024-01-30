@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
+import anvil.js.window
 from ..MANTENIMIENTO_LISTA_EQUIPOS import MANTENIMIENTO_LISTA_EQUIPOS
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
@@ -103,6 +104,10 @@ class A_main(A_mainTemplate):
     elif area_seleccionada == "LLENAR SOLICITUD DE MTTO PREVENTIVO CORRECTIVO":
       self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES'
       self.actualizar_form_activo(self.datos)
+
+  def button_cerrar_sesion_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
 
 
 
