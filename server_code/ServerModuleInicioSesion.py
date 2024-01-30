@@ -10,5 +10,5 @@ def enviar_mail(address, folio):
     from_name = "ENSEL MANTENIMIENTO",
     to = address,
     subject = "SOLICITUD DE MANTENIMIENTO",
-    text= f"Tienes una nueva solicitud de mantenimiento con folio:{folio}"
+    text= f"Tienes una nueva solicitud de mantenimiento con folio: {folio}"
   )
