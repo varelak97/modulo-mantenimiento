@@ -1,11 +1,11 @@
-from ._anvil_designer import USUARIOS_EDICIONTemplate
+from ._anvil_designer import RegistroUsuariosTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
-class USUARIOS_EDICION(USUARIOS_EDICIONTemplate):
-  def __init__(self, **properties):
+class RegistroUsuarios(RegistroUsuariosTemplate):
+  def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
