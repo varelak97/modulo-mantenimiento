@@ -106,8 +106,7 @@ class A_main(A_mainTemplate):
       self.actualizar_form_activo(self.datos)
 
   def button_cerrar_sesion_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    anvil.js.window.location.reload()
 
 
 

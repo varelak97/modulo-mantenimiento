@@ -19,7 +19,7 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
     if self.text_box_usuario.text == "" or self.text_box_usuario.text == None:
       alert("Debe ingresar su número de empleado.", title="Error de inicio de sesión!")
     else:
-      with Notification("Buscando usuario...", title="Iniciando sesión."):
+      #with Notification("Buscando usuario...", title="Iniciando sesión."):
         datos = {
           "id_usuario_erp": None, #652
           "password": None,
