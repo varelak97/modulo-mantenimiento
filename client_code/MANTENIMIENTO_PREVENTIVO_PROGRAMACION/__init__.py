@@ -592,6 +592,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
           status = True
     if status: 
       Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")
+      self.raise_event("x-close-alert",value=True)
     else: 
       alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])
 
