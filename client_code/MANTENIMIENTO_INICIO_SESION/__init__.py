@@ -3,7 +3,7 @@ from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
-from ..RegistroUsuarios import RegistroUsuarios
+from ..REGISTRO_USUARIOS import REGISTRO_USUARIOS
 from ..A_main import A_main
 
 class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
@@ -43,7 +43,7 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
           alert("El número de empleado ingresado no existe!", title="Error de inicio de sesión!")
         else:
           if datos['password'] == None:
-            alert(RegistroUsuarios(datos))
+            alert(REGISTRO_USUARIOS(datos),large=True, buttons=[("SALIR","SALIR")])
           else:
             alert("La contraseña ingresada es incorrecta!", title="Error de incio de sesión!")
     
