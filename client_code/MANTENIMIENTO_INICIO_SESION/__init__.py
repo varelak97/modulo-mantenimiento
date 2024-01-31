@@ -13,7 +13,7 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     self.libro_usuarios = app_files.usuarios_erp
-    self.ws_usuarios = self.libro_usuarios['Vista']
+    self.ws_usuarios = self.libro_usuarios['Registros']
 
   def button_iniciar_sesion_click(self, **event_args):
     if self.text_box_usuario.text == "" or self.text_box_usuario.text == None:

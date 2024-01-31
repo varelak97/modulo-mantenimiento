@@ -1,8 +1,8 @@
-from ._anvil_designer import A_mainTemplate
+from ._anvil_designer import A_main_oldTemplate
 from anvil import *
-import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+import anvil.server
 import anvil.js.window
 from ..MANTENIMIENTO_LISTA_EQUIPOS import MANTENIMIENTO_LISTA_EQUIPOS
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
@@ -13,7 +13,9 @@ from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTI
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS
 
-class A_main(A_mainTemplate):
+class A_main_old(A_main_oldTemplate):
+  ############################### DECLARACIÓN DE VARIABLES GLOBALES #############################
+  ################################# INICIALIZACION DE VARIABLES #################################
   form_activo = None
   datos = {
     'id_usuario_erp': None,
@@ -103,5 +105,8 @@ class A_main(A_mainTemplate):
       self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES'
       self.actualizar_form_activo(self.datos)
 
-  def link_cerrar_sesion_click(self, **event_args):
+  def button_cerrar_sesion_click(self, **event_args):
     anvil.js.window.location.reload()
+
+
+
