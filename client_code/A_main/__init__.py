@@ -51,7 +51,7 @@ class A_main(A_mainTemplate):
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
-    datos['id_usuario_erp'] = 18
+    #datos['id_usuario_erp'] = 18
     if datos['clave_form'] == "MANTENIMIENTO_LISTA_EQUIPOS":
       self.abrir_form(MANTENIMIENTO_LISTA_EQUIPOS(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':
