@@ -184,8 +184,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
             "mtto_realizado": 0,
             "folio":self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_area.selected_value,1),
             #"folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
-            "id_usuario_registrador":"4",
-            "usuario_registrador":"test",
+            "vobo_solicitante": 0,
+            "id_usuario_registrador":self.datos['id_usuario_erp'],
+            "usuario_registrador":self.datos['nombre_usuario'],
             "operacion":"creacion",
             "marca_temporal":datetime.now(),
             "registro_principal":1
