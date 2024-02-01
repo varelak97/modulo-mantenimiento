@@ -345,3 +345,4 @@ color_scheme:
   - {name: SecondaryGreen, color: '#60F50A'}
   - {name: TertiaryGreen, color: '#F9FCF8'}
   - {name: LightBlue, color: '#D6EAF8'}
+  - {name: GrayGreen, color: '#D4E5C4'}

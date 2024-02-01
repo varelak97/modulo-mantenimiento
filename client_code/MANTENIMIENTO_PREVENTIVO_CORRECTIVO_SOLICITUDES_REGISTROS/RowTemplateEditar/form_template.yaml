@@ -65,8 +65,6 @@ components:
     type: Label
     layout_properties: {grid_position: 'RWJAHZ,LJGSRN'}
     data_bindings:
-    - {property: background, code: '"theme:SecondaryGreen" if bool(int(self.item[''mtto_realizado'']))
-        else "theme:Yellow"', writeback: false}
     - {property: tag, code: 'bool(int(self.item[''mtto_realizado'']))', writeback: false}
     - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado'']))
         else "fa:clock-o"', writeback: false}

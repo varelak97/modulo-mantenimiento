@@ -15,6 +15,11 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     else:
       self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.label_status.tag),title=self.label_equipo.text, trigger="click",max_width="450px")
 
+    if self.label_status.icon == "fa:clock-o":
+      self.label_status.background = app.theme_colors['Yellow']
+    else:
+      self.label_status.background = app.theme_colors['SecondaryGreen'] if bool(int(self.item['mtto_realizado'])) and bool(int(self.item['vobo_solicitante'])) else app.theme_colors['GrayGreen']
+    #"theme:SecondaryGreen" if bool(int(self.item['mtto_realizado'])) else "theme:Yellow"
   ############################### FUNCIONES PERSONALIZADAS ########################################
 
   ############################################ EVENTOS ############################################
