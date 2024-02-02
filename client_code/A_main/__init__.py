@@ -40,18 +40,16 @@ class A_main(A_mainTemplate):
     self.content_panel.visible = True
 
     if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
-      self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
       self.drop_down_menu_areas.visible = True
-      self.actualizar_form_activo(self.datos)
     else:
-      self.datos['clave_form'] = "MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES"
       self.drop_down_menu_areas.visible = False
-      self.actualizar_form_activo(self.datos)
+    
+    self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
+    self.actualizar_form_activo(self.datos)
       
       
   ################################### FUNCIONES PERSONALIZADAS ####################################
   def actualizar_form_activo(self, datos, **event_args):
-    #datos['id_usuario_erp'] = 18
     if datos['clave_form'] == "MANTENIMIENTO_LISTA_EQUIPOS":
       self.abrir_form(MANTENIMIENTO_LISTA_EQUIPOS(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PROGRAMA_ANUAL':

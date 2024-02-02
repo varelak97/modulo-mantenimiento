@@ -96,6 +96,13 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     augment.set_event_handler(self.outlined_card_solicitudes_mtto,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseleave',self.set_color)
+
+    if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
+      self.content_panel_general.visible = False
+      self.content_panel.visible = True
+    else:
+      self.content_panel.visible = False
+      self.content_panel_general.visible = True
   ##################################### FUNCIONES PERSONALIZADS #####################################
   def set_color(self,**event_args):
     card = event_args['sender']
