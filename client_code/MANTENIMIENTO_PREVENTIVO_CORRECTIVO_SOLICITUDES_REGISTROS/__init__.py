@@ -36,7 +36,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
 
     if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
       for row in self.ws_consulta_solicitudes_mtto.rows:
-        if int(row['id_usuario_registrador']) == int(self.datos['id_usuario_erp']):
+        if row['persona_reporta'] == self.datos['nombre_usuario']:
           self.registros_consulta_mtto.append(row)
     else:
       if self.datos['equipo'] == "todos":
@@ -61,8 +61,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     if datos['modo'] == "validacion":
       if datos['id_usuario_erp'] == 58:
         datos['modo'] = 'visor_by_folio'
-        print(f"cambio modo:{datos}")
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    if respuesta == "registro_guardado":
+      with Notification("Actualizando tabla...", title="ACTUALIZANDO", style="success"):
+        self.button_actualizar_click()
     
   def abrir_solicitud(self, datos, **event_args):
     datos.update(self.datos)

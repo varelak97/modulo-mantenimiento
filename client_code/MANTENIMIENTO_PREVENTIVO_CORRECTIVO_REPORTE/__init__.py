@@ -317,12 +317,16 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           
           registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
           self.solicitud_registro_actual['registro_principal'] = 0
+
+          registro_solicitud_editado['id_usuario_registrador'] = self.datos['id_usuario_erp']
+          registro_solicitud_editado['usuario_registrador'] = self.datos['nombre_usuario']
           registro_solicitud_editado['operacion'] = "edicion"
           registro_solicitud_editado['marca_temporal'] = datetime.now()
           registro_solicitud_editado['mtto_realizado'] = 1
           self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
           ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
-      elif self.datos['modo'] == "editor":           
+      elif self.datos['modo'] == "editor":   
+        alert("mod editor")
         with Notification("Actualizando reporte...", title="GUARDANDO.", style="info"):
           registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
           self.mtto_corr_prev_reporte['registro_principal'] = 0
@@ -341,7 +345,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
           solicitud_actual = None
           for solicitud in self.solicitudes_mtto:
-            if solicitud['folio'] == self.datos['folio']:
+            if solicitud['folio'] == self.datos['folio'] and int(solicitud['registro_principal']) == 1:
               solicitud_actual = solicitud
               break
           if solicitud_actual != None:
@@ -360,6 +364,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
 
+
+  
   def button_agregar_comentario_click(self, **event_args):
     self.button_agregar_comentario.enabled = False
     comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
