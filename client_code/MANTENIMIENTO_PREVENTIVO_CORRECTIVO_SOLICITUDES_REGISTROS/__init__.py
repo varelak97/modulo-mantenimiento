@@ -128,15 +128,20 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
           self.registros_reportes.append(row)"""
   def button_actualizar_click(self, **event_args):
     with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
-      if self.datos['equipo'] == "todos":
-        self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
-        self.registros_mtto = self.ws_solicitudes_mtto.rows
-        if len(self.registros_mtto) > 0:
-          self.column_panel_empty_db.visible = False
-          self.data_grid_registros.visible = True
-        else:
-          self.column_panel_empty_db.visible = True
-          self.data_grid_registros.visible = False
+      if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
+        for row in self.ws_consulta_solicitudes_mtto.rows:
+          if row['persona_reporta'] == self.datos['nombre_usuario']:
+            self.registros_consulta_mtto.append(row)
+      else:
+        if self.datos['equipo'] == "todos":
+          self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+          self.registros_mtto = self.ws_solicitudes_mtto.rows
+          if len(self.registros_mtto) > 0:
+            self.column_panel_empty_db.visible = False
+            self.data_grid_registros.visible = True
+          else:
+            self.column_panel_empty_db.visible = True
+            self.data_grid_registros.visible = False
         
       self.repeating_panel_registros.items = self.registros_consulta_mtto
 
