@@ -337,7 +337,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       elif self.datos['modo'] == "validacion":
         with Notification("Validando cierre de reporte...", title="GUARDANDO.", style="info"):
           solicitud_actual = None
-          for solicitud in self.solicitudes_mtto:
+          for solicitud in self.ws_solicitudes_mtto.rows:
             if solicitud['folio'] == self.datos['folio']:
               solicitud_actual = solicitud
               break

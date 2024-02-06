@@ -35,9 +35,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.registros_consulta_mtto = []
 
     if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
-      print(f"id_usuario_erp:")
       for row in self.ws_consulta_solicitudes_mtto.rows:
-        if row['id_usuario_registrador'] == self.datos['id_usuario_erp']:
+        if int(row['id_usuario_registrador']) == int(self.datos['id_usuario_erp']):
           self.registros_consulta_mtto.append(row)
     else:
       if self.datos['equipo'] == "todos":
