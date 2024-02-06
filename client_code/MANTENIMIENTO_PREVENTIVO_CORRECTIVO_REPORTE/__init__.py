@@ -112,6 +112,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ]
     
     self.datos = datos
+    print(f"los datos:{self.datos}")
     self.drop_down_area.items = self.lista_areas
     self.drop_down_equipo.items = self.lista_equipos
 
@@ -172,7 +173,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.mtto_corr_prev_reporte = reg
           break
       self.llenar_campos(self.mtto_corr_prev_reporte)
-    elif self.datos['modo'] == "visor" or self.datos['modo'] == "visor_by_folio":
+    elif self.datos['modo'] != "nuevo" and self.datos['modo'] != "editor":
+    #elif self.datos['modo'] == "visor" or self.datos['modo'] == "visor_by_folio":
       if self.datos['modo'] == "visor":
         for reg in self.mtto_corr_prev_todos:
           if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
@@ -185,7 +187,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
             break
       self.llenar_campos(self.mtto_corr_prev_reporte)
       self.habilitar_deshabilitar_campos(False)
-      self.button_guardar.enabled = False
+      if self.datos['modo'] == "validacion":
+          self.button_guardar.text = "APROBAR CIERRE DE SOLICITUD"
+          self.button_guardar.icon = "fa:check"
+          self.button_guardar.background = app.theme_colors['Blue']
+          self.button_guardar.foreground = app.theme_colors['White']
+          self.button_guardar.enabled = True
+          self.button_rechazar.visible = True
+      else:
+        self.button_guardar.enabled = False
       
       
 

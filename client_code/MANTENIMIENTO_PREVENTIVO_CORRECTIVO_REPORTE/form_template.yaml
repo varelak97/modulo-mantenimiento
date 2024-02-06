@@ -443,8 +443,19 @@ components:
         properties: {role: elevated-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: '', visible: true, text: GUARDAR, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
+          italic: false, background: '', bold: true, underline: false, icon: 'fa:floppy-o'}
         name: button_guardar
         layout_properties: {grid_position: 'ZXSXMP,UJJCVK'}
         event_bindings: {click: button_guardar_click}
+      - name: spacer_5
+        properties: {height: 18}
+        type: Spacer
+        layout_properties: {grid_position: 'ORFZIM,YBEFRR'}
+      - name: button_rechazar
+        properties: {text: RECHAZAR CIERRE DE SOLICITUD, role: filled-button, foreground: 'theme:Primary
+            Container', bold: true, background: 'theme:Error', enabled: true, visible: false,
+          icon: 'fa:times'}
+        type: Button
+        layout_properties: {grid_position: 'VHXNTL,BMTJLY'}
+        data_bindings: []
 is_package: true

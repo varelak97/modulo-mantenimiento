@@ -34,6 +34,10 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     if self.label_status.tag:
       datos = {}
       datos['folio'] = self.label_folio.text
+      if self.label_status.background == app.theme_colors['GrayGreen']:
+        datos['modo'] = "validacion"
+      else:
+        datos['modo'] = "visor_by_folio"
       self.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)
     
     

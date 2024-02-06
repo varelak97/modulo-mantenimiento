@@ -53,7 +53,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
   ############################### FUNCIONES PERSONALIZADAS ########################################
   def abrir_reporte(self, datos, **event_args):
     datos.update(self.datos)
-    datos['modo'] = "visor_by_folio"
+    if datos['modo'] == "validacion":
+      if datos['id_usuario_erp'] == 58:
+        datos['modo'] = 'visor_by_folio'
+        print("cambio modo")
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     
   def abrir_solicitud(self, datos, **event_args):
