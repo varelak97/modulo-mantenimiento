@@ -127,14 +127,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
         if row['equipo'] == self.datos['equipo']:
           self.registros_reportes.append(row)"""
   def button_actualizar_click(self, **event_args):
+    self.registros_consulta_mtto = []
     with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
       if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
         for row in self.ws_consulta_solicitudes_mtto.rows:
           if row['persona_reporta'] == self.datos['nombre_usuario']:
             self.registros_consulta_mtto.append(row)
-            print(f"fila:{row}")
       else:
-        print("else")
         if self.datos['equipo'] == "todos":
           self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
           self.registros_mtto = self.ws_solicitudes_mtto.rows
