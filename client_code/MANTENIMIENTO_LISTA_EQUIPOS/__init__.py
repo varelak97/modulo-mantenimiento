@@ -153,6 +153,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
 
   def link_solicitudes_mtto_click(self, **event_args):
     datos = self.datos
+    print(f"los datos que envia a los registros:{datos}")
     datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 

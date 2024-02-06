@@ -34,12 +34,18 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
 
     self.registros_consulta_mtto = []
 
-    if self.datos['equipo'] == "todos":
-      self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
-    else:
+    if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
+      print(f"id_usuario_erp:")
       for row in self.ws_consulta_solicitudes_mtto.rows:
-        if row['equipo'] == self.datos['equipo']:
+        if row['id_usuario_registrador'] == self.datos['id_usuario_erp']:
           self.registros_consulta_mtto.append(row)
+    else:
+      if self.datos['equipo'] == "todos":
+        self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
+      else:
+        for row in self.ws_consulta_solicitudes_mtto.rows:
+          if row['equipo'] == self.datos['equipo']:
+            self.registros_consulta_mtto.append(row)
     
     if len(self.registros_consulta_mtto) > 0:
       self.column_panel_empty_db.visible = False
@@ -56,7 +62,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     if datos['modo'] == "validacion":
       if datos['id_usuario_erp'] == 58:
         datos['modo'] = 'visor_by_folio'
-        print("cambio modo")
+        print(f"cambio modo:{datos}")
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     
   def abrir_solicitud(self, datos, **event_args):
@@ -67,9 +73,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
         self.button_actualizar_click()
         
   def actualizar_form_activo(self, datos, **event_args):
-    print(f"lo que recibe:{datos}")
-    datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+    #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
+      datos.update(self.datos)
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
       
   def abrir_form(self, form_de_interes):
