@@ -161,6 +161,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
       self.text_box_folio.text = self.solicitud_registro_actual['folio']
       self.drop_down_area.selected_value = self.solicitud_registro_actual['area']
+      self.text_box_persona_recibe_conformidad.text = self.solicitud_registro_actual['persona_reporta']
       self.drop_down_area_change()
       for item in self.drop_down_equipo.items:
         if item[1]['EQUIPO'] == self.solicitud_registro_actual['equipo']:
