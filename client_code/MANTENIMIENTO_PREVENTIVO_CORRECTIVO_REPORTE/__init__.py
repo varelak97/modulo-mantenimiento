@@ -336,8 +336,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
       elif self.datos['modo'] == "validacion":
         with Notification("Validando cierre de reporte...", title="GUARDANDO.", style="info"):
+          self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
+          self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
+          self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
           solicitud_actual = None
-          for solicitud in self.ws_solicitudes_mtto.rows:
+          for solicitud in self.solicitudes_mtto:
             if solicitud['folio'] == self.datos['folio']:
               solicitud_actual = solicitud
               break
