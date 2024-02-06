@@ -218,7 +218,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.date_picker_fecha_hora_final.date = registro['fecha_hora_final']
     self.text_box_persona_ejecuta_mtto.text = registro['persona_ejecuta_mtto']
     self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']
-    print(f"comentarios:{registro['comentarios_mantenimiento']}")
     self.repeating_panel_comentarios.items = eval(registro['comentarios_mantenimiento']) if registro['comentarios_mantenimiento'] != "" else None
 
   def valida_campos(self):
@@ -308,10 +307,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
           respuesta['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
           respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
-          respuesta['usuario_registrador'] = "falta"
+          respuesta['usuario_registrador'] = self.datos['nombre_usuario']
           respuesta['operacion'] = "creacion"
           respuesta['marca_temporal'] = datetime.now()
-          respuesta['comentarios'] = ""
+          respuesta['comentarios'] = "reporte generado"
           respuesta['registro_principal'] = 1
           self.ws_mtto_corr_prev.add_row(**respuesta)
           
@@ -322,16 +321,17 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_solicitud_editado['mtto_realizado'] = 1
           self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
           ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
-      elif self.datos['modo'] == "editor":  
+      elif self.datos['modo'] == "editor":           
         with Notification("Actualizando reporte...", title="GUARDANDO.", style="info"):
           registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
           self.mtto_corr_prev_reporte['registro_principal'] = 0
           registro_edicion.update(respuesta)
           registro_edicion['marca_temporal'] = datetime.now()
           registro_edicion['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
-          registro_edicion['id_usuario_registrador'] = 18
-          registro_edicion['usuario_registrador'] = "el que modifica"
+          registro_edicion['id_usuario_registrador'] = self.datos['id_usuario_erp']
+          registro_edicion['usuario_registrador'] = self.datos['nombre_usuario']
           registro_edicion['operacion'] = "edicion"
+          registro_edicion['comentarios'] = "reporte editado"
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
         
       Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
