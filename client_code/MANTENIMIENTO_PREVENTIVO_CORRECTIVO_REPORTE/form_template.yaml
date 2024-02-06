@@ -386,7 +386,7 @@ components:
           layout_properties: {grid_position: 'AYXXEM,LUDOKW'}
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+            placeholder: '', border: '', enabled: false, foreground: '', visible: true,
             text: MARIO ALBERTO GONZALEZ SANCHEZ, font_size: null, font: '', spacing_above: small,
             type: text, spacing_below: small, italic: false, background: '', bold: false,
             underline: false}
@@ -403,7 +403,7 @@ components:
           layout_properties: {grid_position: 'YMMQCT,FUKKTM'}
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+            placeholder: '', border: '', enabled: false, foreground: '', visible: true,
             text: '', font_size: null, font: '', spacing_above: small, type: text,
             spacing_below: small, italic: false, background: '', bold: false, underline: false}
           name: text_box_persona_recibe_conformidad
