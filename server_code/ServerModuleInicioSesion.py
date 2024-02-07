@@ -9,6 +9,6 @@ def enviar_mail(address, titulo, texto):
   anvil.email.send(
     from_name = "ENSEL MANTENIMIENTO",
     to = address,
-    subject = "SOLICITUD DE MANTENIMIENTO",
+    subject = titulo,
     text= texto
   )
