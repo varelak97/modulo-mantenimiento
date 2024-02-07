@@ -1,7 +1,7 @@
 container:
   type: DataRowPanel
   data_bindings:
-  - {property: tag, code: 'self.item[''id_solicitud_mtto'']'}
+  - {property: tag, code: 'self.item[''id_usuario_registrador'']', writeback: false}
 components:
 - type: Button
   properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,

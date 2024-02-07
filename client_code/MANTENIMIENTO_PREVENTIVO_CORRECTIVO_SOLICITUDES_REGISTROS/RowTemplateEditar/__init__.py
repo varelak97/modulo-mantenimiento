@@ -13,7 +13,9 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
     if self.label_status.tag:
       self.button_editar.icon = "fa:eye"
     else:
-      self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.label_status.tag),title=self.label_equipo.text, trigger="click",max_width="450px")
+      print(f"padre de boton:{self.button_editar.parent.parent}")
+      id_usuario_erp = self.tag
+      self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.label_status.tag, id_usuario_erp),title=self.label_equipo.text, trigger="click",max_width="450px")
 
     if self.label_status.icon == "fa:clock-o":
       self.label_status.background = app.theme_colors['Yellow']

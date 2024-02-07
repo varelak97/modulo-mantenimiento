@@ -6,11 +6,11 @@ from anvil.google.drive import app_files
 
 class opciones_edicion(opciones_edicionTemplate):
   id_solicitud = None
-  def __init__(self, id_solicitud, status, **properties):
+  def __init__(self, id_solicitud, status, id_usuario_erp, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.id_solicitud = id_solicitud
-    if status:
+    if status or id_usuario_erp != 58:
       self.button_editar_solicitud.visible = False
       self.button_generar_reporte.visible = False
       self.button_programar.visible = False
