@@ -49,7 +49,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     if len(self.registros_consulta_mtto) > 0:
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True
-      self.repeating_panel_registros.items = self.registros_consulta_mtto
+      dict_registros_consulta_mtto = []
+      for fila in self.registros_consulta_mtto:
+        dic_fila = dict(fila).copy()
+        dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
+        dict_registros_consulta_mtto.append(dic_fila)
+      self.repeating_panel_registros.items = dict_registros_consulta_mtto#self.registros_consulta_mtto
       self.drop_down_status.items = self.items_drop_down_status
     else:
       self.column_panel_empty_db.visible = True
@@ -128,23 +133,32 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
           self.registros_reportes.append(row)"""
   def button_actualizar_click(self, **event_args):
     self.registros_consulta_mtto = []
+    dict_registros_consulta_mtto = []
     with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
       if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
         for row in self.ws_consulta_solicitudes_mtto.rows:
           if row['persona_reporta'] == self.datos['nombre_usuario']:
             self.registros_consulta_mtto.append(row)
+        for fila in self.registros_consulta_mtto:
+          dic_fila = dict(fila).copy()
+          dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
+          dict_registros_consulta_mtto.append(dic_fila)
       else:
         if self.datos['equipo'] == "todos":
           self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
           self.registros_mtto = self.ws_solicitudes_mtto.rows
           if len(self.registros_mtto) > 0:
+            for fila in self.registros_consulta_mtto:
+              dic_fila = dict(fila).copy()
+              dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
+              dict_registros_consulta_mtto.append(dic_fila)
             self.column_panel_empty_db.visible = False
             self.data_grid_registros.visible = True
           else:
             self.column_panel_empty_db.visible = True
             self.data_grid_registros.visible = False
         
-      self.repeating_panel_registros.items = self.registros_consulta_mtto
+      self.repeating_panel_registros.items = dict_registros_consulta_mtto#self.registros_consulta_mtto
 
   def button_erase_filtros_click(self, **event_args):
     self.text_box_filtro_folio.text = ""

@@ -17,9 +17,8 @@ components:
       layout_properties: {grid_position: 'VVUGRT,EMTAZY'}
   - name: drop_down_tipo
     properties:
-      items: [FOR-PRO-006 Checklist mantenimiento autónomo impresión R0, FOR-PRO-007 Checklist mantenimiento autónomo Suaje R0,
-        FOR-PRO-008 Checklist mantenimiento autónomo Láser R0, FOR-PRO-009 Checklist mantenimiento autónomo Embosado R0,
-        FORM-PRO-013 Checklist Mimaki R0]
+      items: [RESPUESTAS FORM-MAN-006 Y FORM-MAN-008, FOR-MAN-006 REQUERIMIENTO DE CONSUMIBLES,
+        FOR-MAN-008 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO]
       role: outlined
       align: center
       background: theme:White

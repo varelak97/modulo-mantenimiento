@@ -154,7 +154,7 @@ components:
       properties: {}
       type: Link
       layout_properties: {grid_position: 'AJCPWS,ELPAJE'}
-      event_bindings: {click: link_solicitudes_mtto_click}
+      event_bindings: {click: link_nueva_solicitud_click}
       components:
       - name: outlined_card_nueva_solicitud
         properties: {role: elevated-card}

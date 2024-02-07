@@ -189,7 +189,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.llenar_campos(self.mtto_corr_prev_reporte)
       self.habilitar_deshabilitar_campos(False)
       if self.datos['modo'] == "validacion":
-          self.button_guardar.text = "APROBAR CIERRE DE SOLICITUD"
+          self.button_guardar.text = "APROBAR REPORTE"
           self.button_guardar.icon = "fa:check"
           self.button_guardar.background = app.theme_colors['Blue']
           self.button_guardar.foreground = app.theme_colors['White']
@@ -362,6 +362,18 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         Notification("Solicitud validada y cerrada correctamente!", title="ÉXITO!", style="success").show()
       else:
         Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
+      self.raise_event("x-close-alert",value="registro_guardado")
+
+  def button_rechazar_click(self, **event_args):
+    texto = TextArea()
+    respuesta = alert(title="MOTIVO DEL RECHAZO:", content = texto, large=True, buttons=[("ENVIAR COMENTARIOS",True), ("SALIR", False)])
+    if respuesta:
+      alert(f"enviando correo con texto:{texto.text} y folio:{self.text_box_folio.text}")
+      titulo = "REPORTE DE MANTENIMIENTO RECHAZADO"
+      texto = f"folio del reporte: {self.text_box_folio.text}\nMotivo del rechazo:\n{texto.text}"
+      with Notification("Enviando correo a jefe de mantenimiento...", title="ENVIANDO.", style="info"):
+        anvil.server.call('enviar_mail','a.varela@ensel.org', titulo, texto)
+      Notification("Correo enviado correctamente!", title="ÉXITO!", style="success").show()
       self.raise_event("x-close-alert",value="registro_guardado")
 
 

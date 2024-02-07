@@ -194,7 +194,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           respuesta.update(dict_datos)
           self.ws_solicitudes.add_row(**respuesta)
           with Notification("Enviando correo de notificación a jefe de mantenimiento...", title=" GENERANDO CORREO.", style="info"):
-            anvil.server.call('enviar_mail','a.varela@ensel.org', dict_datos['folio'])
+            titulo = "SOLICITUD DE MANTENIMIENTO"
+            texto = f"Tienes una nueva solicitud de mantenimiento con folio:{dict_datos['folio']}"
+            anvil.server.call('enviar_mail','a.varela@ensel.org', titulo, texto)
           self.limpiar_campos()
           self.drop_down_area_change()
       else:
