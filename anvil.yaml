@@ -348,6 +348,64 @@ services:
         vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1pqmzHiRfudb3H2o5dPVl-L4wHWG9Dd3V9n1hlMohPLY&exportFormat=ods'}
       thumbnailLink: https://lh3.googleusercontent.com/drive-storage/ANtge_HUsyvElpPErDRJgif87EucAHUtvFMEd_k91s1eAqSsBVy6E7WzNm6k83iFbcNn55sBbk7mztQW9G0omzllK9_75kodyDIb_v3iUOFrByLq3QLKFX2BOX8=s220
       ownerNames: [ERP ENSEL]
+    - capabilities: {canEdit: true, canCopy: true}
+      editable: true
+      copyable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs/htmlembed?ouid=111452219040835203177
+      copyRequiresWriterPermission: false
+      python_name: lista_mantenimiento_autonomo
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIUR8uyitTuiw9aI0k9x3NzDREz-UTKt0_7qw93NYg=s64'}
+      shared: true
+      createdDate: '2024-02-07T15:50:50.179Z'
+      id: 1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs
+      owners:
+      - displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIUR8uyitTuiw9aI0k9x3NzDREz-UTKt0_7qw93NYg=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs/parents/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n',
+        id: 1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      selfLink: https://www.googleapis.com/drive/v2/files/1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs
+      lastViewedByMeDate: '2024-02-07T16:03:06.274Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs/permissions/me',
+        etag: '"kGo4u7Yl07M459zzzwWRFNTnqGo"', pendingOwner: false}
+      lastModifyingUserName: ERP ENSEL
+      etag: '"MTcwNzMyMTc4NjI3NA"'
+      kind: drive#file
+      modifiedByMeDate: '2024-02-07T16:03:06.274Z'
+      title: LISTA MANTENIMIENTO AUTONOMO
+      version: '9'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '1024'
+      alternateLink: https://docs.google.com/spreadsheets/d/1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs/edit?usp=drivesdk
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2024-02-07T16:03:06.274Z'
+      quotaBytesUsed: '1024'
+      exportLinks: {x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=ods',
+        tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=tsv',
+        pdf: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=pdf',
+        vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=xlsx',
+        csv: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=csv',
+        zip: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=zip',
+        vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=ods'}
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/ANtge_EzT02XLQCy70YaQIv1E0YlMV7Ek3-ax_7pYbd1ADGxWAZTTYPLBfGdALMSPgupBlqHAUIqYH6i2jCMoSXWGzIh4j0NVNiZlJlUFX56LLGpCB9FgMsyZoQ=s220
+      ownerNames: [ERP ENSEL]
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}

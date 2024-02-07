@@ -8,29 +8,26 @@ from anvil.js import get_dom_node
 
 class MANTENIMIENTO_AUTONOMO(MANTENIMIENTO_AUTONOMOTemplate):
   datos = None
-  id_respuestas = "1Z5ARoekL1Ion2yieVu4InueSgfIEUNvME99TtrB3I-4" # FOR-MAN-006 (REQUERIMIENTO DE CONSUMIBLES) Y FOR-MAN-008(VERIFICACIÓN DE MANTENIMIENTO AUTONOMO)
-  id_verificacion_mtto_autonomo = "1QvSQLXGmQO363Vy9YwhmimKXSMNaH0z1I7PauPuCvIs" #FORM-MAN-006 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO
-  id_requerimiento_comsumibles = "1pv78MjKT9njCWzzyH8t4c2prlR9voh0hXA_k7Vb4txI" #FOR-MAN-008 REQUERIMIENTO DE CONSUMIBLES 
   iframe_size = "<iframe width='100%' height='800px'>"
-  
+  libro_lista_formularios = None
+  ws_lista_formluarios = None
+  lista_formularios = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.datos = datos
-    iframe = jQuery(self.iframe_size).attr("src",f"https://docs.google.com/spreadsheets/d/{self.id_respuestas}/edit?usp=sharing&embedded=true")
-    iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
-
+    self.libro_lista_formularios = app_files.lista_mantenimiento_autonomo
+    self.ws_lista_formluarios = self.libro_lista_formularios['LISTA']
+    self.lista_formularios = self.ws_lista_formluarios.rows
+    items_drop_dowm = []
+    for formulario in self.lista_formularios:
+      items_drop_dowm.append((formulario['nombre_formulario'],formulario['id_formulario']))
+    self.drop_down_tipo.items = items_drop_dowm
+    self.drop_down_tipo_change()
+    #iframe = jQuery(self.iframe_size)#.attr("src",f"https://docs.google.com/spreadsheets/d/{self.id_respuestas}/edit?usp=sharing&embedded=true")
+    #iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
   #################################################### EVENTOS ####################################################
   def drop_down_tipo_change(self, **event_args):
-    if self.drop_down_tipo.selected_value == "FOR-MAN-006 REQUERIMIENTO DE CONSUMIBLES":
-      self.outlined_card_visor_google.clear()
-      iframe = jQuery(self.iframe_size).attr("src",f"https://docs.google.com/forms/d/{self.id_requerimiento_comsumibles}/viewform?embedded=true")
-      iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
-    elif self.drop_down_tipo.selected_value == "FOR-MAN-008 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO":
-      self.outlined_card_visor_google.clear()
-      iframe = jQuery(self.iframe_size).attr("src",f"https://docs.google.com/forms/d/{self.id_verificacion_mtto_autonomo}/viewform?embedded=true")
-      iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
-    elif self.drop_down_tipo.selected_value == "RESPUESTAS FORM-MAN-006 Y FORM-MAN-008":
-      self.outlined_card_visor_google.clear()
-      iframe = jQuery(self.iframe_size).attr("src",f"https://docs.google.com/spreadsheets/d/{self.id_respuestas}/edit?usp=sharing&embedded=true")
-      iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
+    self.outlined_card_visor_google.clear()
+    iframe = jQuery(self.iframe_size).attr("src",f"https://docs.google.com/forms/d/{self.drop_down_tipo.selected_value}/viewform?embedded=true")
+    iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
