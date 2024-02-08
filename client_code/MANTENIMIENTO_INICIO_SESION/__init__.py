@@ -26,7 +26,6 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
           "nombre_usuario": None
         }
         self.usuarios = self.ws_usuarios.rows
-        print(self.usuarios)
         for usuario in self.usuarios:
           if usuario['numero_empleado'] == str(self.text_box_usuario.text): #usuario encontrado
             datos['id_usuario_erp'] = self.text_box_usuario.text
