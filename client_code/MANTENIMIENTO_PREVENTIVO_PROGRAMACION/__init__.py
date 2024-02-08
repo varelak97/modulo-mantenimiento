@@ -319,8 +319,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     #self.registros_totales = self.ws_registros_totales.rows
 
     self.libro_equipos = app_files.mantenimiento_lista_equipos
-    self.ws_equipos_vista = self.libro_equipos['Vista']
-    self.ws_equipos_registros = self.libro_equipos['Registros']
+    self.ws_equipos_vista = self.libro_equipos['VISTA']
+    self.ws_equipos_registros = self.libro_equipos['REGISTROS']
 
     self.repeating_panel_equipos.items = self.get_lista_equipos(self.ws_equipos_vista.rows)
 
