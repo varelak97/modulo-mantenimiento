@@ -9,7 +9,6 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
   libro_mttos = None
-  ws_registros_mttos = None
   datos_mttos = None
   registro_equipo = None
   

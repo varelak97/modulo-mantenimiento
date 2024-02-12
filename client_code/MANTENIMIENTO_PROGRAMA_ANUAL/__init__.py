@@ -128,8 +128,10 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
 
   def get_lista_equipos(self):
     self.libro_equipos = app_files.mantenimiento_lista_equipos
-    self.ws_registros_equipos = self.libro_equipos['Registros']
-    self.ws_vista_equipos = self.libro_equipos['Vista']
+    #self.ws_registros_equipos = self.libro_equipos['Registros'] #antes
+    #self.ws_vista_equipos = self.libro_equipos['Vista'] #antes
+    self.ws_registros_equipos = self.libro_equipos['EQUIPOS'] #antes
+    self.ws_vista_equipos = self.libro_equipos['VISTA_EQUIPOS'] #antes
     equipos_tuplas = []
     for fila in self.ws_vista_equipos.rows:
       equipos_tuplas.append((fila['equipo'],{"equipo":fila['equipo'],"area":fila['area']}))
@@ -144,7 +146,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos), "normal")
     elif datos['clave_form'] == "MANTENIMIENTO_PREVENTIVO_CHECKLIST":
       datos.update(self.datos)
-      print(f"abriendo checklist:{self}")
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos), "normal")
     
     #estaba asi:

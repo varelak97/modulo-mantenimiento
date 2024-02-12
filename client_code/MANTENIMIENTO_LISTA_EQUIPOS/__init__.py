@@ -26,60 +26,12 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     "IMPRESORA MIMAKI":"_/theme/equipos/mimaki.jpg",
     "default":"_/theme/equipos/default.png"
   }
-  lista_areas = [
-    "IMPRESIÓN",
-    "SUAJE",
-    "MANUALES",
-    "LÁSER",
-    "CALIDAD",
-    "REVELADO",
-    "ENSAMBLE",
-    "ALMACÉN MP"
-  ]
-  lista_equipos = [
-    ("ATMA 57",{"EQUIPO":"ATMA 57","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 71",{"EQUIPO":"ATMA 71","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 70",{"EQUIPO":"ATMA 70","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 45",{"EQUIPO":"ATMA 45","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 710",{"EQUIPO":"ATMA 710","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("ATMA 80",{"EQUIPO":"ATMA 80","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("HORNO 1",{"EQUIPO":"HORNO 1","AREA":"IMPRESIÓN","FRECUENCIA":["SEMANAL","MENSUAL","SEMESTRAL"]}),
-    ("HORNO 2",{"EQUIPO":"HORNO 2","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 3",{"EQUIPO":"HORNO 3","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 4",{"EQUIPO":"HORNO 4","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("HORNO 5",{"EQUIPO":"HORNO 5","AREA":"IMPRESIÓN","FRECUENCIA":["SEMESTRAL"]}),
-    ("IMPRESORA MIMAKI",{"EQUIPO":"IMPRESORA MIMAKI","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
-    ("IMPRESORA OFFSET",{"EQUIPO":"IMPRESORA OFFSET","AREA":"IMPRESIÓN","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SPS",{"EQUIPO":"SPS","AREA":"IMPRESIÓN","FRECUENCIA":["MENSUAL"]}),
-    ("SUAJADORA 1",{"EQUIPO":"SUAJADORA 1","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 2",{"EQUIPO":"SUAJADORA 2","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 3",{"EQUIPO":"SUAJADORA 3","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("SUAJADORA 4",{"EQUIPO":"SUAJADORA 4","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("EMBOSADORA",{"EQUIPO":"EMBOSADORA","AREA":"SUAJE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("LÁSER V-460",{"EQUIPO":"LÁSER V-460","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("LÁSER M-300",{"EQUIPO":"LÁSER M-300","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("LÁSER VLS-360",{"EQUIPO":"LÁSER VLS-360","AREA":"LÁSER","FRECUENCIA":["SEMANAL","MENSUAL"]}),
-    ("MESA DE COORDENADAS X-Y",{"EQUIPO":"MESA DE COORDENADAS X-Y","AREA":"CALIDAD","FRECUENCIA":["TRIMESTRAL"]}),
-    ("PROBADOR ELÉCTRICO 2 (CC015)",{"EQUIPO":"PROBADOR ELÉCTRICO 2 (CC015)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("PROBADOR ELÉCTRICO 3 (C0025)",{"EQUIPO":"PROBADOR ELÉCTRICO 3 (C0025)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("PROBADOR ELÉCTRICO 4 (C0028)",{"EQUIPO":"PROBADOR ELÉCTRICO 4 (C0028)","AREA":"CALIDAD","FRECUENCIA":["MENSUAL"]}),
-    ("INSOLADORA",{"EQUIPO":"INSOLADORA","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
-    ("AFILADOR DE RASEROS",{"EQUIPO":"AFILADOR DE RASEROS","AREA":"REVELADO","FRECUENCIA":["TRIMESTRAL"]}),
-    ("LAMINADORA 1",{"EQUIPO":"LAMINADORA 1","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("LAMINADORA 2",{"EQUIPO":"LAMINADORA 2","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("LAMINADORA 3",{"EQUIPO":"LAMINADOR 3","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("PICK&PLACE 2",{"EQUIPO":"PICK&PLACE 2","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("DISPENSADORES",{"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE","FRECUENCIA":["SEMESTRAL"]}),
-    ("PICK&PLACE 3",{"EQUIPO":"PICK&PLACE 3","AREA":"ENSAMBLE","FRECUENCIA":["TRIMESTRAL"]}),
-    ("GUILLOTINA 1",{"EQUIPO":"GUILLOTINA 1","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("GUILLOTINA 2",{"EQUIPO":"GUILLOTINA 2","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP","FRECUENCIA":["SEMESTRAL"]}),
-    ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
-    ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
-  ]
-  libro_equipos = None
+
+  #libro_equipos = None
+  ws_areas = None
   ws_equipos = None
+  ws_actividades = None
+  registros_vista_areas = None
   registros_vista_equipos = None
   registros_vista_actividades = None
   
@@ -87,8 +39,17 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     self.init_components(**properties)
     ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
-    self.drop_down_area.items = self.lista_areas
-    self.drop_down_equipo.items = self.lista_equipos  
+    self.libro_equipos = app_files.mantenimiento_lista_equipos
+    self.ws_areas = self.libro_equipos['VISTA_AREAS']
+    self.registros_vista_areas = self.ws_areas.rows
+    self.ws_equipos = self.libro_equipos['VISTA_EQUIPOS']
+    self.registros_vista_equipos = self.ws_equipos.rows
+
+    self.drop_down_area.items = [item['area'] for item in self.registros_vista_areas if item['nivel'] == '1']
+    self.drop_down_equipo.items = [item['equipo'] for item in self.registros_vista_equipos]
+    
+    #self.drop_down_area.items = self.lista_areas #antes
+    #self.drop_down_equipo.items = self.lista_equipos #antes
     #popovers
     """self.boton = Button(text="prueba")
     self.outlined_card_calendario_mttos.popover(content=MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(self.datos), title="TITULO DE PRUEBA", trigger="manual")"""
@@ -124,14 +85,18 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       equipos_area = []
       self.drop_down_equipo.enabled = True
       
-      for item in self.lista_equipos:
+      #antes
+      """for item in self.lista_equipos:
         if item[1]["AREA"] == area_seleccionada:
-          equipos_area.append(item)
-      
+          equipos_area.append(item)"""
+      for item in self.registros_vista_equipos:
+        if item['area'] == area_seleccionada:
+          equipos_area.append(item['equipo'])
       self.drop_down_equipo.items = equipos_area
     else:
-      self.drop_down_equipo.enabled = False
+      #self.drop_down_equipo.enabled = False #antes
       self.drop_down_equipo.selected_value = None
+      self.drop_down_equipo.items = [item['equipo'] for item in self.registros_vista_equipos]
 
   def drop_down_tipo_mtto_change(self, **event_args):
     if self.drop_down_tipo_mtto.selected_value != None:
@@ -159,12 +124,16 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
 
   def link_mtto_preventivo_correctivo_click(self, **event_args):
     datos = self.datos
-    datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
+    #antes
+    #datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
+    datos['equipo'] = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "todos"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_solicitudes_mtto_click(self, **event_args):
     datos = self.datos
-    datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
+    #antes
+    #datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
+    datos['equipo'] = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "todos"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_mtto_autonomo_click(self, **event_args):
@@ -185,7 +154,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.llenar_calendario()
 
   def drop_down_equipo_change(self, **event_args):
-    equipo_seleccionado = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "default"
+    equipo_seleccionado = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "default"
+    #equipo_seleccionado = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "default" #antes
     if equipo_seleccionado in self.url_imagenes_equipos:
       self.image_equipo.source = self.url_imagenes_equipos[equipo_seleccionado]
     else:

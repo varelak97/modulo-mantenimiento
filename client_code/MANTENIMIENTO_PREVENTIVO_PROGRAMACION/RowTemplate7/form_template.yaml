@@ -1,5 +1,8 @@
 is_package: true
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_equipo'']', writeback: false}
 components:
 - name: button_editar
   properties: {text: '', background: 'theme:Green', icon: 'fa:edit', foreground: 'theme:White'}
@@ -79,4 +82,4 @@ components:
   type: Label
   layout_properties: {column: BYJQCL}
   data_bindings:
-  - {property: text, code: 'self.item[''id_equipo'']', writeback: false}
+  - {property: text, code: 'self.item[''index'']', writeback: false}

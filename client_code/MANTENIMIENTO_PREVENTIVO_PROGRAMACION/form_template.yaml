@@ -45,6 +45,7 @@ components:
         - {id: KXABMA, data_key: editar, title: '', width: '80', expand: false}
         role: tonal-data-grid
         show_page_controls: true
+        rows_per_page: 90
       type: DataGrid
       components:
       - name: data_row_panel_equipos
