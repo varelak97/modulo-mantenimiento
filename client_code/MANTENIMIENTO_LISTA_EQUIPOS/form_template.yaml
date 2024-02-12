@@ -25,16 +25,29 @@ components:
       type: Label
       layout_properties: {grid_position: 'BYEIUP,OBMHLL LLCYSU,EUFMSA'}
     - name: drop_down_area
-      properties: {role: outlined, include_placeholder: true, placeholder: -- AREA --}
+      properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE AREA --}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL YQYWEE,SLNJSE'}
       event_bindings: {change: drop_down_area_change}
+    - name: column_panel_sub_area
+      properties: {visible: false}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'BYEIUP,OBMHLL KJQZUK,IZDFBQ'}
+      components:
+      - name: label_subarea
+        properties: {text: 'SELECCIONES SUBAREA:', bold: true}
+        type: Label
+        layout_properties: {grid_position: 'BLTHMH,JOHFTX'}
+      - name: drop_down_sub_area
+        properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE SUBAREA}
+        type: DropDown
+        layout_properties: {grid_position: 'CPAFXS,VHDFSG'}
     - name: label_equipo
       properties: {text: 'EQUIPO:', bold: true}
       type: Label
       layout_properties: {grid_position: 'BYEIUP,OBMHLL CAXHCI,IVYFYN'}
     - name: drop_down_equipo
-      properties: {role: outlined, include_placeholder: true, placeholder: -- EQUIPO --}
+      properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE EQUIPO --}
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL KOJEJI,ZKEIQM'}
       event_bindings: {change: drop_down_equipo_change}
