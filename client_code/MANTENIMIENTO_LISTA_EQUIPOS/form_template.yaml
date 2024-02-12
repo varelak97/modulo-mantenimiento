@@ -38,6 +38,21 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'BYEIUP,OBMHLL KOJEJI,ZKEIQM'}
       event_bindings: {change: drop_down_equipo_change}
+    - name: column_panel_luz_resistencia
+      properties: {visible: false}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'BYEIUP,OBMHLL HOACSB,DNCVPS'}
+      components:
+      - name: label_luz_resistencia
+        properties: {text: 'MEDICIÓN DE LUZ Y RESISTENCIA:', bold: true}
+        type: Label
+        layout_properties: {grid_position: 'TFSITR,FAXQKT'}
+      - name: drop_down_luz_resistencia
+        properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE OPCION --,
+          visible: true}
+        type: DropDown
+        layout_properties: {grid_position: 'MONITW,INFEFG'}
+        event_bindings: {change: drop_down_luz_resistencia_change}
     - name: outlined_card_img_equipo
       properties: {role: elevated-card}
       type: ColumnPanel

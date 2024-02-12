@@ -154,10 +154,30 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.llenar_calendario()
 
   def drop_down_equipo_change(self, **event_args):
+    lista_hornos_calor = ["HORNO 1", "HORNO 4"]
+    lista_hornos_luz = ["HORNO 1", "HORNO 2", "HORNO 3", "HORNO 4", "HORNO 5"]
     equipo_seleccionado = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "default"
-    #equipo_seleccionado = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "default" #antes
+    
+    if equipo_seleccionado in lista_hornos_calor or equipo_seleccionado in lista_hornos_luz:
+      items_luz_calor = []
+      
+      if equipo_seleccionado in lista_hornos_luz:
+        items_luz_calor.append("FOR-MAN-028 REPORTE DE MEDICIÓN DE RESISTENCIAS")
+      if equipo_seleccionado in lista_hornos_calor:
+        items_luz_calor.append("FOR-MAN-029 REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV")
+
+      items_luz_calor.append("MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS)")        
+      self.drop_down_luz_resistencia.items = items_luz_calor
+      self.column_panel_luz_resistencia.visible = True
+    else:
+      self.column_panel_luz_resistencia.visible = False
+      
     if equipo_seleccionado in self.url_imagenes_equipos:
       self.image_equipo.source = self.url_imagenes_equipos[equipo_seleccionado]
     else:
       self.image_equipo.source = self.url_imagenes_equipos["default"]
+
+  def drop_down_luz_resistencia_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
       
