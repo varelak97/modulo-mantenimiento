@@ -78,6 +78,11 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP","FRECUENCIA":["TRIMESTRAL"]}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES","FRECUENCIA":["TRIMESTRAL"]}),
   ]
+  libro_equipos = None
+  ws_equipos = None
+  registros_vista_equipos = None
+  registros_vista_actividades = None
+  
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ########################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
