@@ -60,11 +60,25 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def set_actividades(self, lista_equipos, lista_actividades):
-    dict_actividades = {}
+    lista_total_equipos = []
     for equipo in lista_equipos:
+      dict_actividades = {}
+      actividades_equipo = []
+      index = 1
       for actividad in lista_actividades:
-        if int(equipo['id_equipo']) in eval(actividad['id_equipos']):
-          dict_actividades['id_equipo'] = actividad['actividad']
+        if equipo['area'] == actividad['area']:
+          if int(equipo['id_equipo']) in eval(actividad['id_equipos']):
+            dict_actividad = {}
+            dict_actividad['id'] = index
+            dict_actividad['actividad'] = actividad['actividad']
+            actividades_equipo.append(dict_actividad)
+            index+=1
+      dict_actividades['id_equipo'] = equipo['equipo']
+      dict_actividades['actividades'] = actividades_equipo
+      lista_total_equipos.append(dict_actividades)
+    print(f"lo generador de equipos y actividades:{lista_total_equipos}")
+          
+      
   
   def editar_fecha_excluida(self, **event_args):
     self.button_agregar_fecha.enabled = False
