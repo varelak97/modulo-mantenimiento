@@ -73,10 +73,10 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
             dict_actividad['actividad'] = actividad['actividad']
             actividades_equipo.append(dict_actividad)
             index+=1
-      dict_actividades['id_equipo'] = equipo['equipo']
+      dict_actividades['id_equipo'] = equipo['id_equipo']
       dict_actividades['actividades'] = actividades_equipo
       lista_total_equipos.append(dict_actividades)
-    print(f"lo generador de equipos y actividades:{lista_total_equipos}")
+    return lista_total_equipos
           
       
   
@@ -121,10 +121,14 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       temp['semestral'] = ""
       temp['anual'] = ""
       lista_equipos.append(temp)
-    print(f"lo que regresa:{lista_equipos}")
     return lista_equipos
 
   def get_actividades(self, equipo, id_equipo, area, frecuencia_mtto):
+    actividades_encontradas = None
+    for actividad in self.actividades_equipos:
+      if actividad['id_equipo'] == id_equipo:
+        actividades_encontradas = actividad['actividades']
+        break
     """actividades = []
     for actividad in self.registros_actividades_vista:
       if id_equipo in eval(actividad[])"""
@@ -207,7 +211,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         actividades = self.actividades_equipo_hojeadora_trimestral
       else:
         actividades = self.actividades_equipos_guillotinas_semestral"""
-    return actividades
+    return actividades_encontradas
 
   def generar_programa_anual(self, equipo, area, fecha_inicial, frecuencia, id_equipo, id_mtto_preventivo):
     dias_offset = {
