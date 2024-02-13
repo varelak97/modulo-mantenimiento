@@ -154,7 +154,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         "status_mantenimiento":"PROGRAMADO",
         "actividades":self.get_actividades(equipo, id_equipo, area, frecuencia),
         "id_usuario_registrador":self.datos['id_usuario_erp'],
-        "usuario_registrador":"ALFREDO VARELA CELESTINO",
+        "usuario_registrador":self.datos['nombre_usuario'],
         "operacion":"creacion",
         "marca_temporal":datetime.now(),
         "comentarios":"",
