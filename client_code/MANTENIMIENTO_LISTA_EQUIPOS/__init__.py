@@ -127,6 +127,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     #antes
     #datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
     datos['equipo'] = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "todos"
+    datos['area'] = self.drop_down_area.selected_value if self.drop_down_area.selected_value != None else "todas"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_solicitudes_mtto_click(self, **event_args):
@@ -134,6 +135,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     #antes
     #datos['equipo'] = self.drop_down_equipo.selected_value['EQUIPO'] if self.drop_down_equipo.selected_value != None else "todos"
     datos['equipo'] = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "todos"
+    datos['area'] = self.drop_down_area.selected_value if self.drop_down_area.selected_value != None else "todas"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_mtto_autonomo_click(self, **event_args):
