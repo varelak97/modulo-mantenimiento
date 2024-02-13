@@ -20,13 +20,8 @@ class A_main(A_mainTemplate):
     'clave_form': None,
   }
 
-  lista_mttos = [
-    "LISTA GENERAL DE EQUIPOS",
-    "LLENAR SOLICITUD DE MTTO PREVENTIVO CORRECTIVO" ############ BORRAR ###########
-  ]
   def __init__(self, datos, **properties):
     ################################# INICIALIZACION DE VARIABLES #################################
-    self.drop_down_menu_areas.items = self.lista_mttos
     self.datos.update(datos)
     
     self.init_components(**properties)
@@ -34,10 +29,10 @@ class A_main(A_mainTemplate):
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     self.content_panel.visible = True
 
-    if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
+    """if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.drop_down_menu_areas.visible = True
     else:
-      self.drop_down_menu_areas.visible = False
+      self.drop_down_menu_areas.visible = False"""
     
     self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
     self.actualizar_form_activo(self.datos)
