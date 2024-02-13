@@ -20,7 +20,8 @@ components:
     - {property: text, code: 'f"{self.datos[''nombre_usuario'']} ({self.datos[''id_usuario_erp'']})"',
       writeback: false}
   - name: link_cerrar_sesion
-    properties: {role: body, text: CERRAR SESIÓN, icon: 'fa:sign-out', background: ''}
+    properties: {role: body, text: CERRAR SESIÓN, icon: 'fa:sign-out', background: '',
+      icon_align: right}
     type: Link
     layout_properties: {}
     event_bindings: {click: link_cerrar_sesion_click}

@@ -13,6 +13,7 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
   ws_lista_formularios = None
   registros_lista_formularios = None
   lista_formularios = None
+  #target = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -22,20 +23,20 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
     self.ws_lista_formularios = self.libro_lista_formularios['LISTA']
     self.registros_lista_formularios = self.ws_lista_formularios.rows
     selected_item = None
+    #self.target = ColumnPanel(role="elevated-card")
     
     if self.datos['tipo'] == "mtto_autonomo":
       for item in self.registros_lista_formularios:
         if item['tipo'] == "mtto_autonomo":
           self.lista_formularios.append(item)
     else:
-      print(f"antes lista form:\n{self.lista_formularios}")
+      self.label_titulo.text = "REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV Y RESISTENCIAS"
       for nombre_form in self.datos['formularios']:
         for formulario in self.registros_lista_formularios:
           if nombre_form[1] == formulario['tipo']:
             print(f"agrega:{formulario}")
             self.lista_formularios.append(formulario)
     items_drop_dowm = []
-    print(f"lista form llega bien:\n{self.lista_formularios}")
     for formulario in self.lista_formularios:
       url = None
       if formulario['formato'] == "form":
@@ -43,8 +44,13 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
       elif formulario['formato'] == "sheet":
         url = f"https://docs.google.com/spreadsheets/d/{formulario['id_formulario']}/edit?usp=sharing&embedded=true"
       items_drop_dowm.append((formulario['nombre_formulario'],url))
-      if datos['tipo'] != "mtto_autonomo" and datos['tipo'] == formulario['tipo']:
-            selected_item = url
+      if self.datos['tipo'] == formulario['tipo']:#datos['tipo'] != "mtto_autonomo" and datos['tipo'] == formulario['tipo']:
+        selected_item = url
+        """if formulario['formato'] == "form":
+          self.content_panel.add_component(self.target, full_width_row=False)
+        elif formulario['formato'] == "sheet":
+          self.content_panel.add_component(self.target, full_width_row=True)"""
+        
     self.drop_down_tipo.items = items_drop_dowm
     if selected_item != None:
       self.drop_down_tipo.selected_value = selected_item
@@ -56,3 +62,4 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
     self.outlined_card_visor_google.clear()
     iframe = jQuery(self.iframe_size).attr("src",self.drop_down_tipo.selected_value)
     iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
+    #iframe.appendTo(get_dom_node(self.target))

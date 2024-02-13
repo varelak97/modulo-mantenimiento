@@ -165,11 +165,11 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       items_luz_calor = []
       
       if equipo_seleccionado in lista_hornos_luz:
-        items_luz_calor.append(("FOR-MAN-028 REPORTE DE MEDICIÓN DE RESISTENCIAS","medicion_resistencia"))
+        items_luz_calor.append(("FOR-MAN-028 REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV","medicion_luz"))
       if equipo_seleccionado in lista_hornos_calor:
-        items_luz_calor.append(("FOR-MAN-029 REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV","medicion_luz"))
+        items_luz_calor.append(("FOR-MAN-029 REPORTE DE MEDICIÓN DE RESISTENCIAS","medicion_resistencia"))
 
-      items_luz_calor.append(("MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS)","reporte_luz_resistencia"))        
+      items_luz_calor.append(("FOR-MAN-028 Y 029 MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS)","reporte_luz_resistencia"))        
       self.drop_down_luz_resistencia.items = items_luz_calor
       self.column_panel_luz_resistencia.visible = True
     else:
