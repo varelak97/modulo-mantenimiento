@@ -10,30 +10,32 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
   datos = None
   iframe_size = "<iframe width='100%' height='800px'>"
   libro_lista_formularios = None
-  ws_lista_formluarios = None
-  lista_formularios = []
+  ws_lista_formularios = None
+  registros_lista_formularios = None
+  lista_formularios = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.datos = datos
-    print(f"datos recibidos:{self.datos['tipo']}")
+    self.lista_formularios = []
     self.libro_lista_formularios = app_files.lista_mantenimiento_autonomo
-    self.ws_lista_formluarios = self.libro_lista_formularios['LISTA']
+    self.ws_lista_formularios = self.libro_lista_formularios['LISTA']
+    self.registros_lista_formularios = self.ws_lista_formularios.rows
     selected_item = None
     
     if self.datos['tipo'] == "mtto_autonomo":
-      for item in self.ws_lista_formluarios.rows:
+      for item in self.registros_lista_formularios:
         if item['tipo'] == "mtto_autonomo":
           self.lista_formularios.append(item)
     else:
-      registros_formularios = self.ws_lista_formluarios.rows
+      print(f"antes lista form:\n{self.lista_formularios}")
       for nombre_form in self.datos['formularios']:
-        for formulario in registros_formularios:
+        for formulario in self.registros_lista_formularios:
           if nombre_form[1] == formulario['tipo']:
+            print(f"agrega:{formulario}")
             self.lista_formularios.append(formulario)
-          if datos['tipo'] == formulario['tipo']:
-            selected_item = formulario['nombre_formulario']
     items_drop_dowm = []
+    print(f"lista form llega bien:\n{self.lista_formularios}")
     for formulario in self.lista_formularios:
       url = None
       if formulario['formato'] == "form":
@@ -41,9 +43,10 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
       elif formulario['formato'] == "sheet":
         url = ""
       items_drop_dowm.append((formulario['nombre_formulario'],url))
+      if datos['tipo'] != "mtto_autonomo" and datos['tipo'] == formulario['tipo']:
+            selected_item = url
     self.drop_down_tipo.items = items_drop_dowm
     if selected_item != None:
-      print(f"item seleccionado:{selected_item}")
       self.drop_down_tipo.selected_value = selected_item
     self.drop_down_tipo_change()
     #iframe = jQuery(self.iframe_size)#.attr("src",f"https://docs.google.com/spreadsheets/d/{self.id_respuestas}/edit?usp=sharing&embedded=true")
