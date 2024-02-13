@@ -10,7 +10,7 @@ from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGIST
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
-from ..MANTENIMIENTO_AUTONOMO import MANTENIMIENTO_AUTONOMO
+from ..MANTENIMIENTO_FORMS_REPORTES import MANTENIMIENTO_FORMS_REPORTES
 
 class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -138,7 +138,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
 
   def link_mtto_autonomo_click(self, **event_args):
     datos = self.datos
-    respuesta = alert(content = MANTENIMIENTO_AUTONOMO(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+    datos['tipo'] = "mtto_autonomo"
+    respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
@@ -158,15 +159,17 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     lista_hornos_luz = ["HORNO 1", "HORNO 2", "HORNO 3", "HORNO 4", "HORNO 5"]
     equipo_seleccionado = self.drop_down_equipo.selected_value if self.drop_down_equipo.selected_value != None else "default"
     
+    self.drop_down_luz_resistencia.selected_value = None
+    
     if equipo_seleccionado in lista_hornos_calor or equipo_seleccionado in lista_hornos_luz:
       items_luz_calor = []
       
       if equipo_seleccionado in lista_hornos_luz:
-        items_luz_calor.append("FOR-MAN-028 REPORTE DE MEDICIÓN DE RESISTENCIAS")
+        items_luz_calor.append(("FOR-MAN-028 REPORTE DE MEDICIÓN DE RESISTENCIAS","medicion_resistencia"))
       if equipo_seleccionado in lista_hornos_calor:
-        items_luz_calor.append("FOR-MAN-029 REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV")
+        items_luz_calor.append(("FOR-MAN-029 REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV","medicion_luz"))
 
-      items_luz_calor.append("MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS)")        
+      items_luz_calor.append(("MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS)","reporte_luz_resistencia"))        
       self.drop_down_luz_resistencia.items = items_luz_calor
       self.column_panel_luz_resistencia.visible = True
     else:
@@ -178,6 +181,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.image_equipo.source = self.url_imagenes_equipos["default"]
 
   def drop_down_luz_resistencia_change(self, **event_args):
-    """This method is called when an item is selected"""
-    pass
+    datos = self.datos
+    datos['tipo'] = self.drop_down_luz_resistencia.selected_value
+    datos['formularios'] = self.drop_down_luz_resistencia.items
+    respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
       
