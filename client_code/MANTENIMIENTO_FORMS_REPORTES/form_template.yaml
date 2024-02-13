@@ -28,5 +28,5 @@ components:
   - name: outlined_card_visor_google
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'EECUAP,RKOCPR', full_width_row: false}
+    layout_properties: {grid_position: 'EECUAP,RKOCPR', full_width_row: true}
 is_package: true

@@ -41,7 +41,7 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
       if formulario['formato'] == "form":
         url = f"https://docs.google.com/forms/d/{formulario['id_formulario']}/viewform?embedded=true"
       elif formulario['formato'] == "sheet":
-        url = ""
+        url = f"https://docs.google.com/spreadsheets/d/{formulario['id_formulario']}/edit?usp=sharing&embedded=true"
       items_drop_dowm.append((formulario['nombre_formulario'],url))
       if datos['tipo'] != "mtto_autonomo" and datos['tipo'] == formulario['tipo']:
             selected_item = url
