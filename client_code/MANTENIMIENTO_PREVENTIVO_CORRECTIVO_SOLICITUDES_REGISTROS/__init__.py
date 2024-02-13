@@ -5,6 +5,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
+from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from anvil_extras import popover
 from datetime import datetime, date
 
@@ -194,6 +195,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
 
   def text_box_filtro_persona_reporta_change(self, **event_args):
     self.filtros()
+
+  def button_nueva_solicitud_click(self, **event_args):
+    datos = self.datos
+    datos['modo'] = "nuevo"
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
 
 
