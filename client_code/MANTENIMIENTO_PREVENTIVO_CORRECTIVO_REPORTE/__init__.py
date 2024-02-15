@@ -18,7 +18,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   mtto_corr_prev_todos = None
   mtto_corr_prev_reporte = None
 
-  lista_areas = [
+  libro_equipos = None
+  ws_equipos_vista = None
+  registros_equipos_vista = None
+  ws_areas_vista = None
+  registros_areas_vista = None
+
+  """lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
     "MANUALES",
@@ -70,7 +76,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP"}),
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP"}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"})
-  ]
+  ]"""
+  lista_equipos = None
 
   lista_text_components = None
   lista_drop_downs = None
@@ -112,18 +119,36 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     ]
     
     self.datos = datos
-    self.drop_down_area.items = self.lista_areas
-    self.drop_down_equipo.items = self.lista_equipos
+
+    self.libro_equipos = app_files.mantenimiento_lista_equipos
+    self.ws_equipos_vista = self.libro_equipos['VISTA_EQUIPOS']
+    self.registros_equipos_vista = self.ws_equipos_vista.rows
+    self.ws_areas_vista = self.libro_equipos['VISTA_AREAS']
+    self.registros_areas_vista = self.ws_areas_vista.rows
 
     self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
     self.mtto_corr_prev_todos = self.ws_mtto_corr_prev.rows
 
+    self.drop_down_area.items = self.get_lista_areas()
+    self.lista_equipos = self.get_lista_equipos()
+    self.drop_down_equipo.items = self.lista_equipos
+
     self.llenar_reporte()
     
-    
-    
   ################################ FUNCIONES PERSONALIZADS ########################################
+  def get_lista_areas(self):
+    equipos_tuplas = []
+    for fila in self.registros_areas_vista:
+      if(fila['nivel'] == '1'):
+        equipos_tuplas.append(fila['area'])
+    return equipos_tuplas
+  def get_lista_equipos(self):
+    equipos_tuplas = []
+    for fila in self.registros_equipos_vista:
+      equipos_tuplas.append((fila['equipo'],{"equipo":fila['equipo'],"AREA":fila['area']}))
+    return equipos_tuplas
+    
   def editar_comentario(self, **event_args):
     self.button_agregar_comentario.enabled = False
     filas = self.repeating_panel_comentarios.get_components()

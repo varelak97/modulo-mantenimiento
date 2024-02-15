@@ -8,7 +8,7 @@ from datetime import datetime, date
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDESTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
-  """lista_areas = [
+  lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
     "MANUALES",
@@ -19,48 +19,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     "ALMACÉN MP",
     "SERVICIOS GENERALES"
   ]
-  lista_equipos = [
-    ("ATMA 57",{"EQUIPO":"ATMA 57","AREA":"IMPRESIÓN"}),
-    ("ATMA 71",{"EQUIPO":"ATMA 71","AREA":"IMPRESIÓN"}),
-    ("ATMA 70",{"EQUIPO":"ATMA 70","AREA":"IMPRESIÓN"}),
-    ("ATMA 45",{"EQUIPO":"ATMA 45","AREA":"IMPRESIÓN"}),
-    ("ATMA 710",{"EQUIPO":"ATMA 710","AREA":"IMPRESIÓN"}),
-    ("ATMA 80",{"EQUIPO":"ATMA 80","AREA":"IMPRESIÓN"}),
-    ("HORNO 1",{"EQUIPO":"HORNO 1","AREA":"IMPRESIÓN"}),
-    ("HORNO 2",{"EQUIPO":"HORNO 2","AREA":"IMPRESIÓN"}),
-    ("HORNO 3",{"EQUIPO":"HORNO 3","AREA":"IMPRESIÓN"}),
-    ("HORNO 4",{"EQUIPO":"HORNO 4","AREA":"IMPRESIÓN"}),
-    ("HORNO 5",{"EQUIPO":"HORNO 5","AREA":"IMPRESIÓN"}),
-    ("IMPRESORA MIMAKI",{"EQUIPO":"IMPRESORA MIMAKI","AREA":"IMPRESIÓN"}),
-    ("IMPRESORA OFFSET",{"EQUIPO":"IMPRESORA OFFSET","AREA":"IMPRESIÓN"}),
-    ("SPS",{"EQUIPO":"SPS","AREA":"IMPRESIÓN"}),
-    ("SUAJADORA 1",{"EQUIPO":"SUAJADORA 1","AREA":"SUAJE"}),
-    ("SUAJADORA 2",{"EQUIPO":"SUAJADORA 2","AREA":"SUAJE"}),
-    ("SUAJADORA 3",{"EQUIPO":"SUAJADORA 3","AREA":"SUAJE"}),
-    ("SUAJADORA 4",{"EQUIPO":"SUAJADORA 4","AREA":"SUAJE"}),
-    ("EMBOSADORA",{"EQUIPO":"EMBOSADORA","AREA":"SUAJE"}),
-    ("LÁSER V-460",{"EQUIPO":"LÁSER V-460","AREA":"LÁSER"}),
-    ("LÁSER M-300",{"EQUIPO":"LÁSER M-300","AREA":"LÁSER"}),
-    ("LÁSER VLS-360",{"EQUIPO":"LÁSER VLS-360","AREA":"LÁSER"}),
-    ("MESA DE COORDENADAS X-Y",{"EQUIPO":"MESA DE COORDENADAS X-Y","AREA":"CALIDAD"}),
-    ("PROBADOR ELÉCTRICO 2 (CC015)",{"EQUIPO":"PROBADOR ELÉCTRICO 2 (CC015)","AREA":"CALIDAD"}),
-    ("PROBADOR ELÉCTRICO 3 (C0025)",{"EQUIPO":"PROBADOR ELÉCTRICO 3 (C0025)","AREA":"CALIDAD"}),
-    ("PROBADOR ELÉCTRICO 4 (C0028)",{"EQUIPO":"PROBADOR ELÉCTRICO 4 (C0028)","AREA":"CALIDAD"}),
-    ("INSOLADORA",{"EQUIPO":"INSOLADORA","AREA":"REVELADO"}),
-    ("AFILADOR DE RASEROS",{"EQUIPO":"AFILADOR DE RASEROS","AREA":"REVELADO"}),
-    ("LAMINADORA 1",{"EQUIPO":"LAMINADORA 1","AREA":"ENSAMBLE"}),
-    ("LAMINADORA 2",{"EQUIPO":"LAMINADORA 2","AREA":"ENSAMBLE"}),
-    ("LAMINADORA 3",{"EQUIPO":"LAMINADOR 3","AREA":"ENSAMBLE"}),
-    ("PICK&PLACE 2",{"EQUIPO":"PICK&PLACE 2","AREA":"ENSAMBLE"}),
-    ("TROQUELADORA MANUAL",{"EQUIPO":"TROQUELADORA MANUAL","AREA":"ENSAMBLE"}),
-    ("DISPENSADORES",{"EQUIPO":"DISPENSADORES","AREA":"ENSAMBLE"}),
-    ("PICK&PLACE 3",{"EQUIPO":"PICK&PLACE 3","AREA":"ENSAMBLE"}),
-    ("GUILLOTINA 1",{"EQUIPO":"GUILLOTINA 1","AREA":"ALMACÉN MP"}),
-    ("GUILLOTINA 2",{"EQUIPO":"GUILLOTINA 2","AREA":"ALMACÉN MP"}),
-    ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP"}),
-    ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP"}),
-    ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"})
-  ]"""
+  
+  lista_equipos = None
+  
   libro_solicitudes = None
   ws_solicitudes = None
   registros_solicitudes = None
@@ -69,8 +30,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   libro_equipos = None
   ws_equipos_vista = None
   registros_equipos_vista = None
-  ws_actividades_vista = None
-  registros_actividades_vista = None
+  ws_areas_vista = None
+  registros_areas_vista = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -78,7 +39,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
     self.text_box_nombre.text = self.datos['nombre_usuario']
-    self.drop_down_area.items = self.lista_areas
     self.libro_solicitudes = app_files.mantenimiento_solicitudes
     self.ws_solicitudes = self.libro_solicitudes['Registros']
     self.registros_solicitudes = self.ws_solicitudes.rows
@@ -86,9 +46,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     self.libro_equipos = app_files.mantenimiento_lista_equipos
     self.ws_equipos_vista = self.libro_equipos['VISTA_EQUIPOS']
     self.registros_equipos_vista = self.ws_equipos_vista.rows
+    self.ws_areas_vista = self.libro_equipos['VISTA_AREAS']
+    self.registros_areas_vista = self.ws_areas_vista.rows
 
-    self.ws_actividades_vista = self.libro_equipos['VISTA_ACTIVIDADES']
-    self.registros_actividades_vista = self.ws_actividades_vista.rows
+    self.lista_equipos = self.get_lista_equipos()
+    self.drop_down_area.items = self.get_lista_areas()
 
     if self.datos['modo'] == "editor":
       self.text_box_nombre.enabled = False
@@ -109,6 +71,18 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       self.button_enviar.enabled = False
 
   #################################### FUNCIONES PERSONALIZADS ####################################
+  def get_lista_areas(self):
+    equipos_tuplas = []
+    for fila in self.registros_areas_vista:
+      if(fila['nivel'] == '1'):
+        equipos_tuplas.append(fila['area'])
+    return equipos_tuplas
+  def get_lista_equipos(self):
+    equipos_tuplas = []
+    for fila in self.registros_equipos_vista:
+      equipos_tuplas.append((fila['equipo'],{"equipo":fila['equipo'],"AREA":fila['area']}))
+    return equipos_tuplas
+    
   def llenar_campos(self):
     for registro in self.registros_solicitudes:
       if registro['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and registro['registro_principal'] == '1':
