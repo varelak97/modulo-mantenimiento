@@ -145,6 +145,23 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
           dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
           dict_registros_consulta_mtto.append(dic_fila)
       else:
+        """if self.datos['area'] == "todas":
+          if self.datos['equipo'] == "todos":
+            self.registros_mtto = self.ws_consulta_solicitudes_mtto.rows
+          else:
+            for row in self.ws_reportes.rows:
+              if row['equipo'] == self.datos['equipo']:
+                self.registros_reportes.append(row)
+        else:
+          if self.datos['equipo'] == "todos":
+            for row in self.ws_reportes.rows:
+              if row['area'] == self.datos['area']:
+                self.registros_reportes.append(row)
+          else:
+            for row in self.ws_reportes.rows:
+              if row['equipo'] == self.datos['equipo'] and row['area'] == self.datos['area']:
+                self.registros_reportes.append(row)"""
+                
         if self.datos['equipo'] == "todos":
           self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
           self.registros_mtto = self.ws_solicitudes_mtto.rows
