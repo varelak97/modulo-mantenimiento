@@ -65,6 +65,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   ws_solicitudes = None
   registros_solicitudes = None
   registro_actual = None
+
+  libro_equipos = None
+  ws_equipos_vista = None
+  registros_equipos_vista = None
+  ws_actividades_vista = None
+  registros_actividades_vista = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
