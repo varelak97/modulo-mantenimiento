@@ -8,17 +8,6 @@ from datetime import datetime, date
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDESTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
-  lista_areas = [
-    "IMPRESIÓN",
-    "SUAJE",
-    "MANUALES",
-    "LÁSER",
-    "CALIDAD",
-    "REVELADO",
-    "ENSAMBLE",
-    "ALMACÉN MP",
-    "SERVICIOS GENERALES"
-  ]
   
   lista_equipos = None
   

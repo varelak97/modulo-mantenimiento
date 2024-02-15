@@ -18,14 +18,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   mtto_corr_prev_todos = None
   mtto_corr_prev_reporte = None
 
-  libro_equipos = None
-  ws_equipos_vista = None
-  registros_equipos_vista = None
-  ws_areas_vista = None
-  registros_areas_vista = None
-  
-  lista_equipos = None
-
   lista_text_components = None
   lista_drop_downs = None
   lista_date_pickers = None
@@ -39,13 +31,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.set_event_handler('x-editar_comentario', self.editar_comentario)
     
     self.lista_drop_downs = [
-      self.drop_down_area,
-      self.drop_down_equipo,
       self.drop_down_refaccion,
       self.drop_down_servicio,
       self.drop_down_tipo_mantenimiento
     ]
     self.lista_text_components = [
+      self.text_box_area,
+      self.text_box_equipo,
       self.text_box_folio,
       self.text_box_persona_ejecuta_mtto,
       self.text_box_persona_recibe_conformidad,
@@ -67,35 +59,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     
     self.datos = datos
 
-    self.libro_equipos = app_files.mantenimiento_lista_equipos
-    self.ws_equipos_vista = self.libro_equipos['VISTA_EQUIPOS']
-    self.registros_equipos_vista = self.ws_equipos_vista.rows
-    self.ws_areas_vista = self.libro_equipos['VISTA_AREAS']
-    self.registros_areas_vista = self.ws_areas_vista.rows
-
     self.libro_mtto_corr_prev = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_mtto_corr_prev = self.libro_mtto_corr_prev['Registros']
     self.mtto_corr_prev_todos = self.ws_mtto_corr_prev.rows
 
-    self.drop_down_area.items = self.get_lista_areas()
-    self.lista_equipos = self.get_lista_equipos()
-    self.drop_down_equipo.items = self.lista_equipos
-
     self.llenar_reporte()
     
   ################################ FUNCIONES PERSONALIZADS ########################################
-  def get_lista_areas(self):
-    equipos_tuplas = []
-    for fila in self.registros_areas_vista:
-      if(fila['nivel'] == '1'):
-        equipos_tuplas.append(fila['area'])
-    return equipos_tuplas
-  def get_lista_equipos(self):
-    equipos_tuplas = []
-    for fila in self.registros_equipos_vista:
-      equipos_tuplas.append((fila['equipo'],{"equipo":fila['equipo'],"AREA":fila['area']}))
-    return equipos_tuplas
-    
   def editar_comentario(self, **event_args):
     self.button_agregar_comentario.enabled = False
     filas = self.repeating_panel_comentarios.get_components()
@@ -132,14 +102,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       
       self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
       self.text_box_folio.text = self.solicitud_registro_actual['folio']
-      self.drop_down_area.selected_value = self.solicitud_registro_actual['area']
+      self.text_box_area.text = self.solicitud_registro_actual['area']
       self.text_box_persona_recibe_conformidad.text = self.solicitud_registro_actual['persona_reporta']
       self.text_box_persona_ejecuta_mtto.text = self.datos['nombre_usuario']
-      self.drop_down_area_change()
-      for item in self.drop_down_equipo.items:
-        if item[1]['EQUIPO'] == self.solicitud_registro_actual['equipo']:
-          self.drop_down_equipo.selected_value = item[1]
-          break
+      self.text_box_equipo.text = self.solicitud_registro_actual['equipo']
+
     elif self.datos['modo'] == "editor":
       for reg in self.mtto_corr_prev_todos:
         if reg['id_mtto_preventivo_correctivo'] == self.datos['id_mtto_preventivo_correctivo'] and reg['registro_principal'] == '1':
@@ -174,9 +141,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
 
   def llenar_campos(self, registro):
     self.date_picker_fecha_hora_solicitud.date = registro['fecha_hora_solicitud']
-    self.drop_down_area.selected_value = registro['area']
-    self.drop_down_area_change()
-    self.drop_down_equipo.selected_value = [equipo[1] for equipo in self.lista_equipos if registro['equipo'] in equipo][0]
+    self.text_box_area.text = registro['area']
+    self.text_box_equipo.text = registro['equipo']
     self.text_box_folio.text = registro['folio']
     self.text_area_descripcion_falla.text = registro['descripcion_falla']
     self.drop_down_refaccion.selected_value = registro['requiere_refaccion']
@@ -205,10 +171,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       if item.selected_value == None:
         status = False
       else:
-        if index == 1:
-          respuesta[item.tag] = item.selected_value['EQUIPO']
-        else:
-          respuesta[item.tag] = item.selected_value
+        respuesta[item.tag] = item.selected_value
     for item in self.lista_date_pickers:
       if item.date == None:
         status = False
@@ -252,22 +215,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.column_panel_tipo_mtto.visible = False
       self.column_panel_clasificacion.visible = False
       self.label_titulo_mtto_preventivo_correctivo.text = "TIPO DE MANTENIMIENTO"
-
-  def drop_down_area_change(self, **event_args):
-    area_seleccionada = self.drop_down_area.selected_value
-    if area_seleccionada != None:
-      equipos_area = []
-      for item in self.lista_equipos:
-        if item[1]["AREA"] == area_seleccionada:
-          equipos_area.append(item)
-      self.drop_down_equipo.items = equipos_area
-      #self.label_titulo_area.text = area_seleccionada
-    else:
-      self.drop_down_equipo.enabled = False
-      self.drop_down_equipo.selected_value = None
-      #self.label_titulo_area.text = "AREA"
-      #self.button_enviar.enabled = False
-      #self.text_area_anomalia.enabled = False
 
   def button_guardar_click(self, **event_args):
     respuesta = self.valida_campos()
