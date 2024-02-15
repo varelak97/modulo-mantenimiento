@@ -8,7 +8,7 @@ from datetime import datetime, date
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDESTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   datos = {}
-  lista_areas = [
+  """lista_areas = [
     "IMPRESIÓN",
     "SUAJE",
     "MANUALES",
@@ -60,7 +60,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     ("GUILLOTINA 3",{"EQUIPO":"GUILLOTINA 3","AREA":"ALMACÉN MP"}),
     ("HOJEADORA",{"EQUIPO":"HOJEADORA","AREA":"ALMACÉN MP"}),
     ("EMBOLSADORA",{"EQUIPO":"EMBOLSADORA","AREA":"MANUALES"})
-  ]
+  ]"""
   libro_solicitudes = None
   ws_solicitudes = None
   registros_solicitudes = None
@@ -82,6 +82,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     self.libro_solicitudes = app_files.mantenimiento_solicitudes
     self.ws_solicitudes = self.libro_solicitudes['Registros']
     self.registros_solicitudes = self.ws_solicitudes.rows
+
+    self.libro_equipos = app_files.mantenimiento_lista_equipos
+    self.ws_equipos_vista = self.libro_equipos['VISTA_EQUIPOS']
+    self.registros_equipos_vista = self.ws_equipos_vista.rows
+
+    self.ws_actividades_vista = self.libro_equipos['VISTA_ACTIVIDADES']
+    self.registros_actividades_vista = self.ws_actividades_vista.rows
 
     if self.datos['modo'] == "editor":
       self.text_box_nombre.enabled = False
