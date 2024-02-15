@@ -59,7 +59,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
     ########################################### EVENTOS ###########################################
   def button_actualizar_click(self, **event_args):
-    print(f"los datos llegados:{self.datos}")
     if self.datos['area'] == "todas":
       if self.datos['equipo'] == "todos":
         self.registros_reportes = self.ws_reportes.rows
@@ -68,14 +67,13 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
           if row['equipo'] == self.datos['equipo']:
             self.registros_reportes.append(row)
     else:
-      print("entro")
       if self.datos['equipo'] == "todos":
         for row in self.ws_reportes.rows:
-          if row['equipo'] == self.datos['equipo'] and row['area'] == self.datos['area']:
+          if row['area'] == self.datos['area']:
             self.registros_reportes.append(row)
       else:
         for row in self.ws_reportes.rows:
-          if row['equipo'] == self.datos['equipo']:
+          if row['equipo'] == self.datos['equipo'] and row['area'] == self.datos['area']:
             self.registros_reportes.append(row)
       
       
