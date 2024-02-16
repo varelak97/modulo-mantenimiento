@@ -244,6 +244,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_solicitud_editado['marca_temporal'] = datetime.now()
           registro_solicitud_editado['mtto_realizado'] = 1
           self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
+        Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
+        self.raise_event("x-close-alert",value="registro_guardado")
           ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
       elif self.datos['modo'] == "editor":   
         with Notification("Actualizando reporte...", title="GUARDANDO.", style="info"):
@@ -257,33 +259,33 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion['operacion'] = "edicion"
           registro_edicion['comentarios'] = "reporte editado"
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
+        Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
+        self.raise_event("x-close-alert",value="registro_guardado")
       elif self.datos['modo'] == "validacion":
         mensaje = f"¿Confirma la aprobación del reporte con folio: {self.text_box_folio.text}?"
-        confirmacion = alert(mensaje,title="CONFIRMACIÓN", buttons=[("CONFIRMAR",True),("VOLVER",False)])
-        with Notification("Validando cierre de reporte...", title="GUARDANDO.", style="info"):
-          self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
-          self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
-          self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
-          solicitud_actual = None
-          for solicitud in self.solicitudes_mtto:
-            if solicitud['folio'] == self.datos['folio'] and int(solicitud['registro_principal']) == 1:
-              solicitud_actual = solicitud
-              break
-          if solicitud_actual != None:
-            cierre_solicitud = dict(solicitud_actual).copy()
-            solicitud_actual['registro_principal'] = 0
-            cierre_solicitud['vobo_solicitante'] = 1
-            cierre_solicitud['marca_temporal'] = datetime.now()
-            cierre_solicitud['id_usuario_registrador'] = self.datos['id_usuario_erp']
-            cierre_solicitud['usuario_registrador'] = self.datos['nombre_usuario']
-            cierre_solicitud['operacion'] = "edicion"
-            cierre_solicitud['comentarios'] = "solicitud cerrada"
-            self.ws_solicitudes_mtto.add_row(**cierre_solicitud)         
-      if self.datos['modo'] == "validacion":
-        Notification("Solicitud validada y cerrada correctamente!", title="ÉXITO!", style="success").show()
-      else:
-        Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
-      self.raise_event("x-close-alert",value="registro_guardado")
+        confirmacion = alert(mensaje,title="CONFIRMACIÓN", buttons=[("CONFIRMAR",True),("CANCELAR",False)])
+        if confirmacion:
+          with Notification("Validando cierre de reporte...", title="GUARDANDO.", style="info"):
+            self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
+            self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
+            self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
+            solicitud_actual = None
+            for solicitud in self.solicitudes_mtto:
+              if solicitud['folio'] == self.datos['folio'] and int(solicitud['registro_principal']) == 1:
+                solicitud_actual = solicitud
+                break
+            if solicitud_actual != None:
+              cierre_solicitud = dict(solicitud_actual).copy()
+              solicitud_actual['registro_principal'] = 0
+              cierre_solicitud['vobo_solicitante'] = 1
+              cierre_solicitud['marca_temporal'] = datetime.now()
+              cierre_solicitud['id_usuario_registrador'] = self.datos['id_usuario_erp']
+              cierre_solicitud['usuario_registrador'] = self.datos['nombre_usuario']
+              cierre_solicitud['operacion'] = "edicion"
+              cierre_solicitud['comentarios'] = "solicitud cerrada"
+              self.ws_solicitudes_mtto.add_row(**cierre_solicitud)  
+          Notification("Solicitud validada y cerrada correctamente!", title="ÉXITO!", style="success").show()
+          self.raise_event("x-close-alert",value="registro_guardado")
 
   def button_rechazar_click(self, **event_args):
     texto = TextArea()
