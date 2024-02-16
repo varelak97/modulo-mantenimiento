@@ -190,10 +190,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         print(f"viejo registro:{self.registro_actual}")
         print(f"nuevo registro:{nuevo_registro}")
         #self.registro_actual['registro_principal'] = '0'
-      
-      with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
+
+      self.raise_event("x-close-alert",value="registro_guardado")
+      """with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):
         self.registros_solicitudes = self.ws_solicitudes.rows
-      Notification("Registro de solicitud guardada correctamente.",title="GUARDADO.", style="success").show()
+      Notification("Registro de solicitud guardada correctamente.",title="GUARDADO.", style="success").show()"""
       
 
   def drop_down_equipo_change(self, **event_args):

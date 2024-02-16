@@ -218,7 +218,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     datos = self.datos
     datos['modo'] = "nuevo"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
-
+    if respuesta == "registro_guardado":
+      self.button_actualizar_click()
 
 
 
