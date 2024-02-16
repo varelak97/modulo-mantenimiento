@@ -32,6 +32,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     #self.registros_mtto = self.ws_solicitudes_mtto.rows
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
 
+    self.drop_down_status.items = self.items_drop_down_status
+
     self.button_actualizar_click()
     
     #self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
@@ -102,6 +104,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
           break
       nuevo_registro = dict(registro_actual).copy()
       nuevo_registro['fecha_programada'] = datos['fecha_programada']
+      nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
+      nuevo_registro['usuario_registrador'] = self.datos['nombre_usuario']
       nuevo_registro['operacion'] = "edicion"
       nuevo_registro['marca_temporal'] = datetime.now()
       registro_actual['registro_principal'] = 0
