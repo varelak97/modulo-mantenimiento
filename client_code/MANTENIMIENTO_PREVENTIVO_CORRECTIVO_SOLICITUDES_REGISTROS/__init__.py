@@ -144,10 +144,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       for row in self.ws_consulta_solicitudes_mtto.rows:
         if row['persona_reporta'] == self.datos['nombre_usuario']:
           self.registros_consulta_mtto.append(row)
-      for fila in self.registros_consulta_mtto:
-        dic_fila = dict(fila).copy()
-        dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
-        dict_registros_consulta_mtto.append(dic_fila)
     else:
       self.registros_mtto = self.ws_solicitudes_mtto.rows #lee todos los registros
       if self.datos['area'] == "todas":     
