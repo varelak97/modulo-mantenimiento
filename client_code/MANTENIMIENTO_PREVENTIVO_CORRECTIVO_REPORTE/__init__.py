@@ -218,6 +218,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
 
   def button_guardar_click(self, **event_args):
     respuesta = self.valida_campos()
+    confirmacion = False
     if respuesta == False:
       alert("Por favor, llene todos los campos!",title="ERROR!")
     else:
@@ -258,7 +259,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
       elif self.datos['modo'] == "validacion":
         mensaje = f"¿Confirma la aprobación del reporte con folio: {self.text_box_folio.text}?"
-        confirmacion = alert(mensaje,title="CONFIRMACIÓN", buttons=[("ACEPTAR",True),("RECHAZAR",False)])
+        confirmacion = alert(mensaje,title="CONFIRMACIÓN", buttons=[("CONFIRMAR",True),("VOLVER",False)])
         with Notification("Validando cierre de reporte...", title="GUARDANDO.", style="info"):
           self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
           self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
