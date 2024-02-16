@@ -59,6 +59,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
     ########################################### EVENTOS ###########################################
   def button_actualizar_click(self, **event_args):
+    print(f"event args:{event_args}")
     if self.datos['area'] == "todas":
       if self.datos['equipo'] == "todos":
         self.registros_reportes = self.ws_reportes.rows

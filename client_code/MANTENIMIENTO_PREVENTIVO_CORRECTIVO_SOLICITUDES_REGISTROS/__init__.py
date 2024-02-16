@@ -133,6 +133,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
         if row['equipo'] == self.datos['equipo']:
           self.registros_reportes.append(row)"""
   def button_actualizar_click(self, **event_args):
+    print(f"los event args:{event_args}")
     self.registros_consulta_mtto = []
     dict_registros_consulta_mtto = []
     with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
