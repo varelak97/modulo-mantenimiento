@@ -75,17 +75,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
         for row in self.ws_reportes.rows:
           if row['equipo'] == self.datos['equipo'] and row['area'] == self.datos['area']:
             self.registros_reportes.append(row)
-      
-      
-    """if self.datos['equipo'] == "todos":
-      self.registros_reportes = self.ws_reportes.rows
+    if len(self.registros_reportes) > 0:
+      self.repeating_panel_registros.items = self.registros_reportes
+      self.data_grid_reportes.visible = True
+      self.column_panel_empty_db.visible = False
     else:
-      for row in self.ws_reportes.rows:
-        if row['equipo'] == self.datos['equipo']:
-          self.registros_reportes.append(row)"""
-
-    self.repeating_panel_registros.items = self.registros_reportes
-    
+      self.data_grid_reportes.visible = False
+      self.column_panel_empty_db.visible = True
+      
   def text_box_filtro_folio_change(self, **event_args):
     self.filtros()
 
