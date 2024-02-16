@@ -245,7 +245,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
           ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
       elif self.datos['modo'] == "editor":   
-        alert("mod editor")
         with Notification("Actualizando reporte...", title="GUARDANDO.", style="info"):
           registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
           self.mtto_corr_prev_reporte['registro_principal'] = 0
@@ -258,6 +257,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion['comentarios'] = "reporte editado"
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
       elif self.datos['modo'] == "validacion":
+        mensaje = f"¿Confirma la aprobación del reporte con folio: {self.text_box_folio.text}?"
+        confirmacion = alert(mensaje,title="CONFIRMACIÓN", buttons=[("ACEPTAR",True),("RECHAZAR",False)])
         with Notification("Validando cierre de reporte...", title="GUARDANDO.", style="info"):
           self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
           self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
