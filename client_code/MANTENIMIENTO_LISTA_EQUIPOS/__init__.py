@@ -63,6 +63,12 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     augment.set_event_handler(self.outlined_card_solicitudes_mtto,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_nueva_solicitud,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_nueva_solicitud,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_solicitudes_mtto_copy,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_solicitudes_mtto_copy,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_autonomo_copy,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_mtto_autonomo_copy,'mouseleave',self.set_color)
 
     if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.content_panel_general.visible = False

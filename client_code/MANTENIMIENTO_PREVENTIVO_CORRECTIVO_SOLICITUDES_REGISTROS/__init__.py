@@ -29,13 +29,16 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
     self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
-    self.registros_mtto = self.ws_solicitudes_mtto.rows
+    #self.registros_mtto = self.ws_solicitudes_mtto.rows
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
+
+    self.button_actualizar_click()
+    
     #self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
 
-    self.registros_consulta_mtto = []
+    #self.registros_consulta_mtto = []
 
-    if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
+    """if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
       for row in self.ws_consulta_solicitudes_mtto.rows:
         if row['persona_reporta'] == self.datos['nombre_usuario']:
           self.registros_consulta_mtto.append(row)
@@ -59,7 +62,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       self.drop_down_status.items = self.items_drop_down_status
     else:
       self.column_panel_empty_db.visible = True
-      self.data_grid_registros.visible = False
+      self.data_grid_registros.visible = False"""
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
   def abrir_reporte(self, datos, **event_args):
@@ -126,58 +129,55 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.repeating_panel_registros.items = items
     
   ############################################ EVENTOS ############################################
-  """if self.datos['equipo'] == "todos":
-      self.registros_reportes = self.ws_reportes.rows
-    else:
-      for row in self.ws_reportes.rows:
-        if row['equipo'] == self.datos['equipo']:
-          self.registros_reportes.append(row)"""
   def button_actualizar_click(self, **event_args):
-    print(f"los event args:{event_args}")
+    if len(event_args) > 0:
+      with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
+        self.leer_registros()
+    else:
+      self.leer_registros()
+
+  def leer_registros(self):
     self.registros_consulta_mtto = []
     dict_registros_consulta_mtto = []
-    with Notification("Actualizando tabla",title="ACTUALIZANDO", style="info"):
-      if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
-        for row in self.ws_consulta_solicitudes_mtto.rows:
-          if row['persona_reporta'] == self.datos['nombre_usuario']:
-            self.registros_consulta_mtto.append(row)
-        for fila in self.registros_consulta_mtto:
-          dic_fila = dict(fila).copy()
-          dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
-          dict_registros_consulta_mtto.append(dic_fila)
-      else:
-        """if self.datos['area'] == "todas":
-          if self.datos['equipo'] == "todos":
-            self.registros_mtto = self.ws_consulta_solicitudes_mtto.rows
-          else:
-            for row in self.ws_reportes.rows:
-              if row['equipo'] == self.datos['equipo']:
-                self.registros_reportes.append(row)
-        else:
-          if self.datos['equipo'] == "todos":
-            for row in self.ws_reportes.rows:
-              if row['area'] == self.datos['area']:
-                self.registros_reportes.append(row)
-          else:
-            for row in self.ws_reportes.rows:
-              if row['equipo'] == self.datos['equipo'] and row['area'] == self.datos['area']:
-                self.registros_reportes.append(row)"""
-                
+    
+    if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
+      for row in self.ws_consulta_solicitudes_mtto.rows:
+        if row['persona_reporta'] == self.datos['nombre_usuario']:
+          self.registros_consulta_mtto.append(row)
+      for fila in self.registros_consulta_mtto:
+        dic_fila = dict(fila).copy()
+        dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
+        dict_registros_consulta_mtto.append(dic_fila)
+    else:
+      self.registros_mtto = self.ws_solicitudes_mtto.rows #lee todos los registros
+      if self.datos['area'] == "todas":     
         if self.datos['equipo'] == "todos":
           self.registros_consulta_mtto = self.ws_consulta_solicitudes_mtto.rows
-          self.registros_mtto = self.ws_solicitudes_mtto.rows
-          if len(self.registros_mtto) > 0:
-            for fila in self.registros_consulta_mtto:
-              dic_fila = dict(fila).copy()
-              dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
-              dict_registros_consulta_mtto.append(dic_fila)
-            self.column_panel_empty_db.visible = False
-            self.data_grid_registros.visible = True
-          else:
-            self.column_panel_empty_db.visible = True
-            self.data_grid_registros.visible = False
-        
+        else:
+          for row in self.ws_consulta_solicitudes_mtto.rows:
+            if self.datos['equipo'] == row['equipo']:
+              self.registros_consulta_mtto.append(row)
+      else:
+        if self.datos['equipo'] == "todos":
+          for row in self.ws_consulta_solicitudes_mtto.rows:
+            if row['area'] == self.datos['area']:
+              self.registros_consulta_mtto.append(row)
+        else:
+          for row in self.ws_consulta_solicitudes_mtto.rows:
+            if row['equipo'] == self.datos['equipo'] and row['area'] == self.datos['area']:
+              self.registros_consulta_mtto.append(row)
+          
+    if len(self.registros_consulta_mtto) > 0:
+      for fila in self.registros_consulta_mtto:
+        dic_fila = dict(fila).copy()
+        dic_fila['id_usuario_erp'] = self.datos['id_usuario_erp']
+        dict_registros_consulta_mtto.append(dic_fila)
       self.repeating_panel_registros.items = dict_registros_consulta_mtto#self.registros_consulta_mtto
+      self.column_panel_empty_db.visible = False
+      self.data_grid_registros.visible = True
+    else:
+      self.column_panel_empty_db.visible = True
+      self.data_grid_registros.visible = False
 
   def button_erase_filtros_click(self, **event_args):
     self.text_box_filtro_folio.text = ""

@@ -69,7 +69,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   def get_lista_equipos(self):
     equipos_tuplas = []
     for fila in self.registros_equipos_vista:
-      equipos_tuplas.append((fila['equipo'],{"equipo":fila['equipo'],"AREA":fila['area']}))
+      equipos_tuplas.append((fila['equipo'],{"EQUIPO":fila['equipo'],"AREA":fila['area']}))
     return equipos_tuplas
     
   def llenar_campos(self):
@@ -102,6 +102,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if self.drop_down_equipo.selected_value == None:
       status_validacion = False 
     else: 
+      print(self.drop_down_equipo.selected_value)
       dict_solicitud['equipo'] = self.drop_down_equipo.selected_value['EQUIPO']
     if self.text_area_anomalia.text == "":
       status_validacion = False 
