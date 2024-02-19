@@ -27,6 +27,25 @@ components:
         foreground: 'theme:White', align: center, role: title}
       type: Label
       layout_properties: {grid_position: 'RLGVYW,BDZUMF', full_width_row: true}
+    - name: label_area
+      properties: {text: 'ÁREA:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'PAIGKA,ZEFSLF'}
+    - name: label_equipo
+      properties: {bold: true, text: 'EQUIPO:'}
+      type: Label
+      layout_properties: {grid_position: 'PAIGKA,ZOWMIE'}
+    - name: drop_down_area
+      properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined,
+        align: full}
+      type: DropDown
+      layout_properties: {grid_position: 'HMTNKN,RZNJET'}
+    - name: drop_down_equipo
+      properties: {placeholder: -- TODOS --, include_placeholder: true, role: outlined,
+        align: full}
+      type: DropDown
+      layout_properties: {grid_position: 'HMTNKN,FTCLDS'}
+      data_bindings: []
     - name: label_1
       properties: {text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento
           para cada equipo según corresponda:', bold: true, italic: true}
