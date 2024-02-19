@@ -10,13 +10,11 @@ class lista_equipos(lista_equiposTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.datos = datos
-    #print(f"los datos:{self.datos}")
     self.repeating_panel_lista_equipos.items = self.fill_lista(self.datos) 
     lista_columnas = self.data_grid_lista_equipos.columns
     #if self.datos['tipo'] == "PROGRAMADO" or self.datos['tipo'] == "REPROGRAMADO" or self.datos['tipo'] == "ATRASADO": #antes
     if self.datos['tipo'] != "REALIZADO" and self.datos['tipo'] != "REPROGRAMADO":
       lista_columnas.pop(2)
-      print(lista_columnas[4])
       if self.datos['tipo'] != "ATRASADO":
         lista_columnas.pop(4)
     elif self.datos['tipo'] == "REPROGRAMADO":

@@ -213,6 +213,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           diferencia_dias = self.fecha_actual - fecha 
           #print(f"fecha actual:{self.fecha_actual} ---- fecha del registro:{fecha} ---- diferencia:{diferencia_dias}")
           if diferencia_dias.days > 3: #verifica si la fecha programada ha caducado(caduca si sobrepasa los tres dias de su fecha programada)
+            print(f"el item atrasado:{item}")
             self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
         else:
           self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
@@ -248,7 +249,6 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           }
         j += 1
       items.append(dicc)
-    print(f"los items:{items}")
     self.repeating_panel_mes_calendario.items = items
     self.card_calendario.visible = True
 

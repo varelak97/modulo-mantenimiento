@@ -85,7 +85,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     
     for link in self.lista_links:
       if link.text != None and link.text != "":
-        print(f"indicador:{link.text}")
         indicador = link.text.split(': ')
         if indicador[1] != '0':
           items_test = link.parent.tag
@@ -112,7 +111,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
               items['frecuencia'] = "ANUAL"
             link.popover(content=lista_equipos(items), title=titulo, trigger="click",max_width="850px", placement = "auto")
           elif indicador[0] == "PW":
-            print("encuentra PW")
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
@@ -128,7 +126,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             items['frecuencia'] = "MENSUAL"
             link.popover(content=lista_equipos(items), title="PROGRAMADO MENSUAL", trigger="click",max_width="600px", placement = "auto")
           elif indicador[0] == "PT":
-            print("encuentra PT")
             link.background = app.theme_colors['Tertiary']
             link.foreground = app.theme_colors['White']
             items = link.parent.tag
