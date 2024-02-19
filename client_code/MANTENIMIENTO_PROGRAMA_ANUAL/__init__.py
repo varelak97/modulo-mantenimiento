@@ -159,7 +159,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     role = "wide-modal-content" if modo == "normal" else "wide-modal-content-bigger"
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",False)], role=role)
     if respuesta:
-      self.llenar_calendario()
+      with Notification("Actualizando calendario...", title="ACTUALIZANDO.", style="info"):
+        self.llenar_calendario()
     
   def llenar_calendario(self):
     self.registros_consulta_mttos = self.ws_consulta_mttos.rows

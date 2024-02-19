@@ -311,8 +311,9 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         if equipo['anual'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['anual'], "ANUAL", equipo['id_equipo'], id_mtto_preventivo)
           status = True
+    print(f"el valor de status:{status}")
     if status: 
-      Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success")
+      Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success").show()
       self.raise_event("x-close-alert",value=True)
     else: 
       alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])
