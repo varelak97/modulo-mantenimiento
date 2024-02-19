@@ -21,6 +21,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
   registros_equipos_vista = None
   ws_actividades_vista = None
   registros_actividades_vista = None
+  ws_areas_vista = None
+  registros_areas_vista = None
   #ws_equipos_registros = None #no se ocupa en este form
 
   actividades_equipos = None
@@ -48,13 +50,16 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.ws_equipos_vista = self.libro_equipos['VISTA_EQUIPOS']
     self.registros_equipos_vista = self.ws_equipos_vista.rows
     #self.ws_equipos_registros = self.libro_equipos['EQUIPOS'] #no se ocupa en este form
-
     self.ws_actividades_vista = self.libro_equipos['VISTA_ACTIVIDADES']
     self.registros_actividades_vista = self.ws_actividades_vista.rows
+    self.ws_areas_vista = self.libro_equipos['VISTA_AREAS']
+    self.registros_areas_vista = self.ws_areas_vista.rows
 
     self.actividades_equipos = self.set_actividades(self.registros_equipos_vista, self.registros_actividades_vista)
+    self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista, None, None)#self.ws_equipos_vista.rows)
 
-    self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista)#self.ws_equipos_vista.rows)
+    self.drop_down_equipo.items = [equipo['equipo'] for equipo in self.registros_equipos_vista]
+    self.drop_down_area.items = [area['area'] for area in self.registros_areas_vista if area['nivel'] == '1']
 
     self.label_titulo.text = f"PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO {datetime.today().year}"
 
@@ -110,17 +115,53 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       if componentes_fila[12].text != id_equipo:
         componentes_fila[0].enabled = status
     
-  def get_lista_equipos(self, equipos):
+  def get_lista_equipos(self, equipos, filtro_area, filtro_equipo):
     lista_equipos = []
-    for index, equipo in enumerate(list(equipos).copy()):
-      temp = dict(equipo)
-      temp['index'] = index + 1
-      temp['semanal'] = ""
-      temp['mensual'] = ""
-      temp['trimestral'] = ""
-      temp['semestral'] = ""
-      temp['anual'] = ""
-      lista_equipos.append(temp)
+    if filtro_area == None: #todas las areas
+      if filtro_equipo == None: #todos los equipos
+        for index, equipo in enumerate(list(equipos).copy()):
+          temp = dict(equipo)
+          temp['index'] = index + 1
+          temp['semanal'] = ""
+          temp['mensual'] = ""
+          temp['trimestral'] = ""
+          temp['semestral'] = ""
+          temp['anual'] = ""
+          lista_equipos.append(temp)
+      else:
+        for index, equipo in enumerate(list(equipos).copy()):
+          if equipo['equipo'] == filtro_equipo:
+            temp = dict(equipo)
+            temp['index'] = index + 1
+            temp['semanal'] = ""
+            temp['mensual'] = ""
+            temp['trimestral'] = ""
+            temp['semestral'] = ""
+            temp['anual'] = ""
+            lista_equipos.append(temp)
+    else:
+      if filtro_equipo == None:
+        for index, equipo in enumerate(list(equipos).copy()):
+          if equipo['area'] == filtro_area:
+            temp = dict(equipo)
+            temp['index'] = index + 1
+            temp['semanal'] = ""
+            temp['mensual'] = ""
+            temp['trimestral'] = ""
+            temp['semestral'] = ""
+            temp['anual'] = ""
+            lista_equipos.append(temp)
+      else:
+        for index, equipo in enumerate(list(equipos).copy()):
+          if equipo['area'] == filtro_area and equipo['equipo'] == filtro_equipo:
+            temp = dict(equipo)
+            temp['index'] = index + 1
+            temp['semanal'] = ""
+            temp['mensual'] = ""
+            temp['trimestral'] = ""
+            temp['semestral'] = ""
+            temp['anual'] = ""
+            lista_equipos.append(temp)
     return lista_equipos
 
   def get_actividades(self, equipo, id_equipo, area, frecuencia_mtto):
@@ -305,6 +346,21 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         boton_editar.enabled = False
       
       boton_eliminiar.enabled = False
+
+  def drop_down_area_change(self, **event_args):
+    self.drop_down_equipo.selected_value = None
+    if self.drop_down_area.selected_value == None:
+      self.drop_down_equipo.items = [equipo['equipo'] for equipo in self.registros_equipos_vista]
+    else:
+      lista_equipos = []
+      for equipo in self.registros_equipos_vista:
+        if equipo['area'] == self.drop_down_area.selected_value:
+          lista_equipos.append(equipo['equipo'])
+      self.drop_down_equipo.items = lista_equipos
+    self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista, self.drop_down_area.selected_value, self.drop_down_equipo.selected_value)
+
+  def drop_down_equipo_change(self, **event_args):
+    self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista, self.drop_down_area.selected_value, self.drop_down_equipo.selected_value)
       
 
     

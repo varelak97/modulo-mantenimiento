@@ -40,12 +40,14 @@ components:
         align: full}
       type: DropDown
       layout_properties: {grid_position: 'HMTNKN,RZNJET'}
+      event_bindings: {change: drop_down_area_change}
     - name: drop_down_equipo
       properties: {placeholder: -- TODOS --, include_placeholder: true, role: outlined,
         align: full}
       type: DropDown
       layout_properties: {grid_position: 'HMTNKN,FTCLDS'}
       data_bindings: []
+      event_bindings: {change: drop_down_equipo_change}
     - name: label_1
       properties: {text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento
           para cada equipo según corresponda:', bold: true, italic: true}
