@@ -201,7 +201,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       """dia_prog = int(item['fecha_programada'].split('-')[2]) 
       mes_prog = int(item['fecha_programada'].split('-')[1])"""
       if mes_prog == mes and  int(fecha.year) == int(anio):
-        if tipo == "ATRASADO": #and item['status_mantenimiento'] != "REALIZADO": #muestra mantenimientos atrasados respecto a fecha actual
+        if tipo == "ATRASADO" and item['status_mantenimiento'] != "REALIZADO": #muestra mantenimientos atrasados respecto a fecha actual
           self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
           dia_actual_semana = self.fecha_actual.weekday()
           delta = None
@@ -211,10 +211,16 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           elif dia_actual_semana == 6:
             self.fecha_actual = self.fecha_actual + timedelta(days=-2)
           diferencia_dias = self.fecha_actual - fecha 
-          #print(f"fecha actual:{self.fecha_actual} ---- fecha del registro:{fecha} ---- diferencia:{diferencia_dias}")
-          if diferencia_dias.days > 3: #verifica si la fecha programada ha caducado(caduca si sobrepasa los tres dias de su fecha programada)
-            print(f"fecha actual:{self.fecha_actual} ..... fecha:{fecha} ----- diferencia: {diferencia_dias}\n")
-            print(f"registro:{item}\n")
+          #verifica si la fecha programada ha caducado(caduca si sobrepasa los x dias de su fecha programada)
+          if item['frecuencia'] == "SEMANAL" and diferencia_dias.days > 2:
+            self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
+          elif item['frecuencia'] == "MENSUAL" and diferencia_dias.days > 3:
+            self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
+          elif item['frecuencia'] == "TRIMESTRAL" and diferencia_dias.days > 5:
+            self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
+          elif item['frecuencia'] == "SEMESTRAL" and diferencia_dias.days > 10:
+            self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
+          elif item['frecuencia'] == "ANUAL" and diferencia_dias.days > 15:
             self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
         else:
           self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
