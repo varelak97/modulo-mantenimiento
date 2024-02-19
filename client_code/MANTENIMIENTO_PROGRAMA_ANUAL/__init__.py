@@ -201,7 +201,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
       """dia_prog = int(item['fecha_programada'].split('-')[2]) 
       mes_prog = int(item['fecha_programada'].split('-')[1])"""
       if mes_prog == mes and  int(fecha.year) == int(anio):
-        if tipo == "ATRASADO": #muestra mantenimientos atrasados respecto a fecha actual
+        if tipo == "ATRASADO": #and item['status_mantenimiento'] != "REALIZADO": #muestra mantenimientos atrasados respecto a fecha actual
           self.fecha_actual = self.fecha_actual.replace(hour=0, minute=0, second=0,microsecond=0)
           dia_actual_semana = self.fecha_actual.weekday()
           delta = None
@@ -213,7 +213,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
           diferencia_dias = self.fecha_actual - fecha 
           #print(f"fecha actual:{self.fecha_actual} ---- fecha del registro:{fecha} ---- diferencia:{diferencia_dias}")
           if diferencia_dias.days > 3: #verifica si la fecha programada ha caducado(caduca si sobrepasa los tres dias de su fecha programada)
-            print(f"el item atrasado:{item}")
+            print(f"fecha actual:{self.fecha_actual} ..... fecha:{fecha} ----- diferencia: {diferencia_dias}\n")
+            print(f"registro:{item}\n")
             self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
         else:
           self.fill_indicador(dia_prog, indicadores_mtto_mes, item)
