@@ -52,6 +52,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   ################################ FUNCIONES PERSONALIZADS ########################################
   def editar_comentario(self, **event_args):
     self.button_agregar_comentario.enabled = False
+    self.button_guardar.enabled = False
     filas = self.repeating_panel_comentarios.get_components()
     for fila in filas:
       componentes_fila = fila.get_components()
@@ -63,6 +64,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     comentarios[datos['indice']]['comentario'] = datos['comentario']
     self.repeating_panel_comentarios.items = comentarios
     self.button_agregar_comentario.enabled = True
+    self.button_guardar.enabled = True
     
   def eliminar_comentario(self, indice, **event_args):
     comentarios = self.repeating_panel_comentarios.items
@@ -131,6 +133,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
   ############################################ EVENTOS ############################################
   def button_agregar_comentario_click(self, **event_args):
     self.button_agregar_comentario.enabled = False
+    self.button_guardar.enabled = False
     comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
     indice = len(comentarios)
     comentarios.append({'index':indice + 1,'comentario':""})
@@ -161,6 +164,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
           "fecha_hora_final":self.date_picker_fecha_hora_termino.date,
           "comentarios_mantenimiento":self.repeating_panel_comentarios.items,
           "operacion":"edicion",
+          "id_usuario_registrador":self.datos['id_usuario_erp'],
+          "usuario_registrador":self.datos['nombre_usuario'],
           "marca_temporal":datetime.now()
         }
         registro_actualizar.update(**datos_actualizar)

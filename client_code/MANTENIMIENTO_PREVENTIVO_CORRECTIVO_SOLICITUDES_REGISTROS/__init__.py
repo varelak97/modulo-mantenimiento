@@ -17,7 +17,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
   registros_consulta_mtto = None
   #ws_solicitudes_mtto = None
   #registros_mtto = None
-  items_drop_down_status = [("REALIZADO", True),("PENDIENTE", False)]
+  items_drop_down_status = [("PENDIENTE", 0),("REALIZADO", 1),("APROBADO", 2)]
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -124,7 +124,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     if len(self.text_box_filtro_equipo.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_equipo.text).upper() in str(item['equipo'])]
     if self.drop_down_status.selected_value != None:
-      items = [item for item in items if bool(int(item['mtto_realizado'])) == self.drop_down_status.selected_value]
+      items = [item for item in items if (int(item['mtto_realizado']) + int(item['vobo_solicitante'])) == self.drop_down_status.selected_value]
+      #items = [item for item in items if bool(int(item['mtto_realizado'])) == self.drop_down_status.selected_value]
     if len(self.text_box_filtro_descripcion_anomalia.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_descripcion_anomalia.text).upper() in str(item['descripcion_anomalia']).upper()]
     if len(self.text_box_filtro_persona_reporta.text) > 0:
