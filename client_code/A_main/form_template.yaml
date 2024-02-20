@@ -29,7 +29,11 @@ components:
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: left-nav}
-  components: []
+  components:
+  - name: link_config
+    properties: {icon: 'fa:cogs', text: AJUSTES, bold: true}
+    type: Link
+    layout_properties: {grid_position: 'NFOIHS,SXGEAG'}
 - name: label_1
   properties: {text: MANTENIMIENTO}
   type: Label

@@ -1,0 +1,21 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: label_index
+  properties: {align: center, bold: true}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''index'']', writeback: false}
+- name: label_actividad
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''actividad'']', writeback: false}
+- name: label_equipos
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''equipo'']', writeback: false}
