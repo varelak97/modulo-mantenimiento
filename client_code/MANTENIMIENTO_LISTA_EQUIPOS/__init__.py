@@ -69,6 +69,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     augment.set_event_handler(self.outlined_card_solicitudes_mtto_copy,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo_copy,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_mtto_autonomo_copy,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_req_consumibles,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_req_consumibles,'mouseleave',self.set_color)
 
     if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.content_panel_general.visible = False
@@ -86,6 +88,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     
   ############################################# EVENTOS #############################################
   def drop_down_area_change(self, **event_args):
+    self.column_panel_luz_resistencia.visible = False
     area_seleccionada = self.drop_down_area.selected_value
     if area_seleccionada != None:
       equipos_area = []
@@ -148,6 +151,10 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos = self.datos
     datos['tipo'] = "mtto_autonomo"
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+
+  def link_req_consumibles_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
 
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
