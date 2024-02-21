@@ -34,6 +34,9 @@ components:
     properties: {icon: 'fa:cogs', text: AJUSTES, bold: true}
     type: Link
     layout_properties: {grid_position: 'NFOIHS,SXGEAG'}
+    data_bindings:
+    - {property: visible, code: 'True if self.datos[''id_usuario_erp''] == 58 else
+        False', writeback: false}
 - name: label_1
   properties: {text: MANTENIMIENTO}
   type: Label

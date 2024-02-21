@@ -32,7 +32,11 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
     elif self.datos['tipo'] == "requerimiento_consumibles":
       for item in self.registros_lista_formularios:
         if item['tipo'] == "requerimiento_consumibles":
-          self.lista_formularios.append(item)
+          if item['formato'] == "sheet":
+            if self.datos['id_usuario_erp'] == 58:
+              self.lista_formularios.append(item)
+          else:
+            self.lista_formularios.append(item)
     else:
       self.label_titulo.text = "REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV Y RESISTENCIAS"
       for nombre_form in self.datos['formularios']:
