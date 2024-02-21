@@ -153,8 +153,9 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def link_req_consumibles_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    datos = self.datos
+    datos['tipo'] = "requerimiento_consumibles"
+    respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def actualizar_form_activo(self, datos, **event_args):
     datos['mes'] = self.drop_down_mes.selected_value
