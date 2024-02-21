@@ -29,6 +29,12 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
       for item in self.registros_lista_formularios:
         if item['tipo'] == "mtto_autonomo":
           self.lista_formularios.append(item)
+        if item['tipo'] == "requerimiento_consumibles":
+          if item['formato'] == "sheet":
+            if self.datos['id_usuario_erp'] == 58:
+              self.lista_formularios.append(item)
+          else:
+            self.lista_formularios.append(item)
     elif self.datos['tipo'] == "requerimiento_consumibles":
       for item in self.registros_lista_formularios:
         if item['tipo'] == "requerimiento_consumibles":
