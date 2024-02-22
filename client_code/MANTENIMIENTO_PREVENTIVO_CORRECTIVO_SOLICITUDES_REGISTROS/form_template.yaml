@@ -50,6 +50,20 @@ components:
         type: Button
         layout_properties: {}
         event_bindings: {click: button_nueva_solicitud_click}
+    - name: label_pendiente
+      properties: {icon: 'fa:clock-o', text: PENDIENTE DE REVISIÓN, bold: true, align: center,
+        background: 'theme:Yellow'}
+      type: Label
+      layout_properties: {grid_position: 'QGOUBS,VJDTNN'}
+    - name: label_realizado
+      properties: {text: PENDIENTE DE APROBACIÓN, icon: 'fa:check', bold: true, align: center,
+        background: 'theme:GrayGreen'}
+      type: Label
+      layout_properties: {grid_position: 'QGOUBS,HSYCYF'}
+    - name: label_aprobado
+      properties: {bold: true, icon: 'fa:check', text: APROBADO, align: center, background: 'theme:SecondaryGreen'}
+      type: Label
+      layout_properties: {grid_position: 'QGOUBS,XPDUHA'}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -63,21 +77,21 @@ components:
           columns:
           - {id: XMXXEM, title: '', data_key: id, $$hashKey: 'object:234583', width: '80'}
           - {id: CKNHIZ, title: FOLIO, data_key: folio, $$hashKey: 'object:234087',
-            width: '200'}
+            width: '300'}
           - {id: NZNCXN, title: FECHA PROGRAMADA, data_key: fecha_programada, $$hashKey: 'object:28465',
             width: '200'}
           - {id: YSYCQI, title: AREA, data_key: area, $$hashKey: 'object:234088',
-            width: '200'}
+            width: '300'}
           - {id: YCKOVR, title: EQUIPO, data_key: equipo, $$hashKey: 'object:234089',
-            width: '250'}
+            width: '300'}
           - {id: SMZSVD, title: STATUS, data_key: mtto_realizado, $$hashKey: 'object:234128',
             width: '150'}
           - {id: PWKCNJ, title: FECHA DE REPORTE DE ANOMALÍA, data_key: fecha_reporte,
-            $$hashKey: 'object:234238', width: '150'}
+            $$hashKey: 'object:234238', width: '200'}
           - {id: DILUZT, title: DESCRIPCIÓN DE LA ANOMALÍA, data_key: descripcion_anomalia,
-            $$hashKey: 'object:234242', width: ''}
+            $$hashKey: 'object:234242', width: '300'}
           - {id: JXBYZX, title: NOMBRE PERSONAL QUE REPORTA, data_key: persona_reporta,
-            $$hashKey: 'object:234240', width: '250'}
+            $$hashKey: 'object:234240', width: '300'}
           auto_header: true
           tooltip: ''
           border: ''
