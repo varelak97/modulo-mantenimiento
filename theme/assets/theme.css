@@ -1120,3 +1120,7 @@ div.plot-container.plotly svg.main-svg {
   position: sticky; top: 89px;
   z-index:1;
 }
+
+.anvil-role-scroll-column-panel{
+  overflow-y: auto;
+}
