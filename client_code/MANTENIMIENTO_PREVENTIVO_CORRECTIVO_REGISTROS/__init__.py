@@ -4,6 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 from anvil_extras import popover
+from anvil.js.window import Foo
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROSTemplate):
@@ -59,7 +60,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
     ########################################### EVENTOS ###########################################
   def button_actualizar_click(self, **event_args):
-    print(f"event args:{event_args}")
+    dom_node = anvil.js.window.get_dom_node(self.column_panel_body)
+    print(dom_node)
+    """print(f"event args:{event_args}")
     if self.datos['area'] == "todas":
       if self.datos['equipo'] == "todos":
         self.registros_reportes = self.ws_reportes.rows
@@ -82,7 +85,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
       self.column_panel_empty_db.visible = False
     else:
       self.data_grid_reportes.visible = False
-      self.column_panel_empty_db.visible = True
+      self.column_panel_empty_db.visible = True"""
       
   def text_box_filtro_folio_change(self, **event_args):
     self.filtros()
