@@ -40,7 +40,7 @@ components:
       components:
       - type: Button
         properties: {role: elevated-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: false, text: ACTUALIZAR, font_size: null,
+          enabled: true, foreground: '', visible: true, text: ACTUALIZAR, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
         name: button_actualizar

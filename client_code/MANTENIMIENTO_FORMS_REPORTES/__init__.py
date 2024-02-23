@@ -5,6 +5,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from anvil.js.window import jQuery
 from anvil.js import get_dom_node
+from anvil_extras import augment
 
 class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
   datos = None
@@ -72,6 +73,8 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
     #iframe = jQuery(self.iframe_size)#.attr("src",f"https://docs.google.com/spreadsheets/d/{self.id_respuestas}/edit?usp=sharing&embedded=true")
     #iframe.appendTo(get_dom_node(self.outlined_card_visor_google))
   #################################################### EVENTOS ####################################################
+  def pagination_click(self, **event_args):
+    alert("test")
   def drop_down_tipo_change(self, **event_args):
     self.outlined_card_visor_google.clear()
     iframe = jQuery(self.iframe_size).attr("src",self.drop_down_tipo.selected_value)

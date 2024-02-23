@@ -5,6 +5,7 @@ from anvil.google.drive import app_files
 import anvil.server
 from anvil_extras import popover
 from anvil.js import get_dom_node
+from anvil.js.window import jQuery
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROSTemplate):
@@ -60,6 +61,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
     ########################################### EVENTOS ###########################################
   def button_actualizar_click(self, **event_args):
+    elemento = get_dom_node(self.data_grid_reportes)
+    (jQuery(elemento).children())
     print(f"event args:{event_args}")
     if self.datos['area'] == "todas":
       if self.datos['equipo'] == "todos":
