@@ -338,7 +338,8 @@ components:
       - {property: text, code: 'self.item[''viernes''][''M'']', writeback: false}
       event_bindings: {}
     - name: link_viernes_t
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      properties: {font_size: 11, spacing_below: none, bold: true, align: center,
+        spacing_above: small}
       type: Link
       layout_properties: {grid_position: 'KCISLQ,SHZCXP'}
       data_bindings:
