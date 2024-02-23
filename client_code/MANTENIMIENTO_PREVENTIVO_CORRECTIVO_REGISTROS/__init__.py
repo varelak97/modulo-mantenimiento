@@ -19,6 +19,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.datos = datos
     self.init_components(**properties)
 
+    elemento = get_dom_node(self.data_grid_reportes)
+    jQuery(elemento).children().on("scroll",self.test())
+
     self.set_event_handler('x-abrir_reporte', self.abrir_reporte)
 
     self.libro_reportes = app_files.mantenimiento_correctivo_preventivo_programado
@@ -28,6 +31,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.button_actualizar_click()
 
   ################################ FUNCIONES PERSONALIZADS #######################################
+  def test(self):
+    print("moviendo scroll...")
     
   def abrir_reporte(self, datos, **event_args):
     datos.update(self.datos)
@@ -114,7 +119,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
   def button_test_click(self, **event_args):
     elemento = get_dom_node(self.data_grid_reportes)
-    jQuery(elemento).children().scrollLeft(50)
+    print(jQuery(elemento).children().scrollLeft())
+
+  def slider_1_change(self, handle, **event_args):
+    """This method is called when the slider has finished sliding"""
+    pass
 
 
 
