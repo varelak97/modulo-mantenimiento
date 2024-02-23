@@ -19,9 +19,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     self.datos = datos
     self.init_components(**properties)
 
-    elemento = get_dom_node(self.data_grid_reportes)
-    jQuery(elemento).children().on("scroll",self.test())
-
     self.set_event_handler('x-abrir_reporte', self.abrir_reporte)
 
     self.libro_reportes = app_files.mantenimiento_correctivo_preventivo_programado
