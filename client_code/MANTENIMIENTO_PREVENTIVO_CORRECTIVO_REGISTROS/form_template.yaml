@@ -46,11 +46,6 @@ components:
         name: button_actualizar
         layout_properties: {grid_position: 'KGNDJO,FDSADJ'}
         event_bindings: {click: button_actualizar_click}
-      - name: button_test
-        properties: {text: TEST, role: filled-button}
-        type: Button
-        layout_properties: {grid_position: 'QXGTKF,RXPWFM'}
-        event_bindings: {click: button_test_click}
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid
