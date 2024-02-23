@@ -168,7 +168,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_REGISTROS(datos))
       
   def abrir_form(self, form_de_interes):
-    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content")
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     if respuesta:
       self.llenar_calendario()
 
