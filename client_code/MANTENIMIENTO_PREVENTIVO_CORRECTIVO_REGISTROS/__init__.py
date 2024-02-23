@@ -61,9 +61,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
     ########################################### EVENTOS ###########################################
   def button_actualizar_click(self, **event_args):
-    elemento = get_dom_node(self.data_grid_reportes)
-    (jQuery(elemento).children())
-    print(f"event args:{event_args}")
     if self.datos['area'] == "todas":
       if self.datos['equipo'] == "todos":
         self.registros_reportes = self.ws_reportes.rows
@@ -114,6 +111,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
   def text_box_filtro_actividades_mtto_change(self, **event_args):
     self.filtros()
+
+  def button_test_click(self, **event_args):
+    elemento = get_dom_node(self.data_grid_reportes)
+    jQuery(elemento).children().scrollLeft(50)
 
 
 
