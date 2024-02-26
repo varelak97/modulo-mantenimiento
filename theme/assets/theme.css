@@ -1154,6 +1154,10 @@ div.plot-container.plotly svg.main-svg {
 
   /*AGREGADOR POR SISTEMAS*/
 .anvil-role-wide-modal-content-bigger{
+  border-radius: 28px;
+  background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
+  box-shadow: none;
+  border: none;
   width:98%;
 }
 

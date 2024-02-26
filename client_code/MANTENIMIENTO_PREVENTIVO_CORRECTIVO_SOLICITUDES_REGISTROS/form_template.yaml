@@ -71,6 +71,10 @@ components:
       name: outlined_card_tabla
       layout_properties: {grid_position: 'UOWEAJ,GWFMCN', full_width_row: true}
       components:
+      - name: slider_1
+        properties: {}
+        type: form:dep_a100g45byf4vh:Slider
+        layout_properties: {grid_position: 'VNMIEQ,OSSJJR'}
       - name: data_grid_1
         properties:
           columns:
