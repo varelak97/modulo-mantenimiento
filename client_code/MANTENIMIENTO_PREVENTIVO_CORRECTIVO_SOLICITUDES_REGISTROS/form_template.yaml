@@ -86,7 +86,7 @@ components:
           auto_header: false
           show_page_controls: false
           role: wide-tonal-nodata-grid
-          visible: true
+          visible: false
         type: DataGrid
         components:
         - name: repeating_panel_1

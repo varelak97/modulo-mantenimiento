@@ -36,9 +36,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
 
     self.drop_down_status.items = self.items_drop_down_status
     elemento_html = get_dom_node(self.data_grid_1)
-    self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
-    jQuery(elemento_html).children().on("scroll", self.test())
-    anvil.js.call("test",jQuery(elemento_html).children())
+    
+    #self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
+    #jQuery(elemento_html).children().on("scroll", self.test())
+    #anvil.js.call("test",jQuery(elemento_html).children())
+    elemento = jQuery(elemento_html).children()
+    anvil.js.call("test", elemento)
 
     self.button_actualizar_click()
     
@@ -73,7 +76,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       self.data_grid_registros.visible = False"""
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
-  def test(self):
+  def test(self, **event_args):
     print("scrolling...")
     
   def abrir_reporte(self, datos, **event_args):
