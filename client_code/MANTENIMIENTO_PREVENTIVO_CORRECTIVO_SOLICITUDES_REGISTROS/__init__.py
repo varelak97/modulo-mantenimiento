@@ -7,6 +7,8 @@ from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREV
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from anvil_extras import popover
+from anvil.js import get_dom_node
+from anvil.js.window import jQuery
 from datetime import datetime, date
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROSTemplate):
@@ -33,6 +35,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
 
     self.drop_down_status.items = self.items_drop_down_status
+    elemento_html = get_dom_node(self.data_grid_1)
+    self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
+    jQuery(elemento_html).children().on("scroll", self.test())
 
     self.button_actualizar_click()
     
@@ -67,6 +72,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       self.data_grid_registros.visible = False"""
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
+  def test(self):
+    print("scrolling...")
+    
   def abrir_reporte(self, datos, **event_args):
     datos.update(self.datos)
     if datos['modo'] == "validacion":

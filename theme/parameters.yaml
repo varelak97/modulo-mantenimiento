@@ -54,6 +54,8 @@ roles:
 - {name: fijar-rowpanel, components: null}
 - name: scroll-column-panel
   components: [ColumnPanel]
+- name: wide-tonal-nodata-grid
+  components: [DataGrid]
 color_scheme:
   preset_groups:
   - name: Colour Scheme
