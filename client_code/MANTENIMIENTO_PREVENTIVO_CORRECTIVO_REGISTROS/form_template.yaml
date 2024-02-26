@@ -71,7 +71,7 @@ components:
           - {id: MRYLSD, title: ACTIVIDADES DEL MANTENIMIENTO, data_key: actividades_mantenimiento,
             $$hashKey: 'object:25272', width: '400'}
           - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO,
-            width: '200'}
+            width: '400'}
           - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274',
             width: '150'}
           auto_header: true

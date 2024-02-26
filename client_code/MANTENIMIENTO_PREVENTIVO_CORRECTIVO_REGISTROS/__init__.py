@@ -114,6 +114,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
   def button_test_click(self, **event_args):
     elemento = get_dom_node(self.data_grid_reportes)
     print(jQuery(elemento).children().scrollLeft())
+    div = jQuery("<div style='overflow-y:visible; background-color:red'></div>")
+    div.appendTo(get_dom_node(self.data_grid_reportes))
+    
 
   def slider_1_change(self, handle, **event_args):
     """This method is called when the slider has finished sliding"""

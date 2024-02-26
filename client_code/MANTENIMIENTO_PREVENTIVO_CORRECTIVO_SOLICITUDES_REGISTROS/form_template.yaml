@@ -71,6 +71,11 @@ components:
       name: outlined_card_tabla
       layout_properties: {grid_position: 'UOWEAJ,GWFMCN', full_width_row: true}
       components:
+      - name: column_panel_1
+        properties: {role: scroll-column-panel}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'BQCNKG,TLKGSL', full_width_row: true}
+        components: []
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid
