@@ -123,6 +123,13 @@
       }
     }
   }
+
+  function test(elemento) {
+    elemento.addEventListener("scroll", evento());
+  }
+  function evento() {
+    console.log("trigger evento");
+  }
   
   addMarginToContent()
   window.addEventListener('resize', addMarginToContent);

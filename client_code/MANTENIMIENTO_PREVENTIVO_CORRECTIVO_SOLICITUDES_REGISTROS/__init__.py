@@ -38,6 +38,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     elemento_html = get_dom_node(self.data_grid_1)
     self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
     jQuery(elemento_html).children().on("scroll", self.test())
+    anvil.js.call("test",jQuery(elemento_html).children())
 
     self.button_actualizar_click()
     
