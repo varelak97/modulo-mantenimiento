@@ -40,8 +40,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     #self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
     #jQuery(elemento_html).children().on("scroll", self.test())
     #anvil.js.call("test",jQuery(elemento_html).children())
-    elemento = jQuery(elemento_html).children()
-    anvil.js.call("test", elemento)
+    jQuery(elemento_html).children().on("click", self.test())
+    #anvil.js.call("test", obj)
 
     self.button_actualizar_click()
     
@@ -76,7 +76,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       self.data_grid_registros.visible = False"""
     
   ############################### FUNCIONES PERSONALIZADAS ########################################
-  def test(self, **event_args):
+  def test(self):
     print("scrolling...")
     
   def abrir_reporte(self, datos, **event_args):

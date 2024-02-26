@@ -126,8 +126,7 @@
 
   function test(elemento) {
     /*elemento.addEventListener("scroll", evento());*/
-    /*elemento.addEventListener("scroll", evento, false);*/
-    console.log("lo que recibe:" + elemento)
+    elemento.on("scroll", evento);
   }
   function evento() {
     console.log("trigger evento");
