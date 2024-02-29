@@ -37,13 +37,20 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.drop_down_status.items = self.items_drop_down_status
     #elemento_html = get_dom_node(self.data_grid_1)
     
-    #self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
+    self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
     #jQuery(elemento_html).children().on("scroll", self.test())
     #anvil.js.call("test",jQuery(elemento_html).children())
     """obj = jQuery(elemento_html).children()[1]
     anvil.js.call("test", obj)"""
-    obj = jQuery("<div style='background-color:red; overflow-x: auto;'>PRUEBA</div>")
-    obj.appendTo(jQuery(get_dom_node(self.data_grid_registros)).children()[1])
+    #obj = jQuery("<div style='overflow-x: scroll;'></div>")
+
+    #grid_dummy = jQuery(get_dom_node(self.data_grid_1))
+    #grid_dummy.appendTo(obj)
+    
+    #obj.appendTo(jQuery(get_dom_node(self.data_grid_registros)))
+    #jQuery(get_dom_node(self.data_grid_registros)).prepend(obj)
+
+    jQuery(get_dom_node(self.data_grid_registros)).on("scroll", self.test())
 
     self.button_actualizar_click()
     
@@ -235,6 +242,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     if respuesta == "registro_guardado":
       self.button_actualizar_click()
+
+  def button_test_click(self, **event_args):
+    elemento = get_dom_node(self.data_grid_registros)
+    print(jQuery(elemento).children().scrollLeft())
+    """for el in jQuery(elemento).children():
+      print(f"elemento:{el}")"""
+
+    """obj = jQuery("<div style='background-color:red; overflow-x: auto;'>PRUEBA</div>")
+    obj.appendTo(jQuery(get_dom_node(self.data_grid_registros)).children()[1])"""
 
 
 

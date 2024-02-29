@@ -86,7 +86,7 @@ components:
           auto_header: false
           show_page_controls: false
           role: wide-tonal-nodata-grid
-          visible: false
+          visible: true
         type: DataGrid
         components:
         - name: repeating_panel_1
@@ -95,6 +95,11 @@ components:
           type: RepeatingPanel
           layout_properties: {}
         layout_properties: {grid_position: 'BSEYJP,EYVCEH', full_width_row: true}
+      - name: button_test
+        properties: {text: test}
+        type: Button
+        layout_properties: {grid_position: 'TSLSOE,DMOSMQ'}
+        event_bindings: {click: button_test_click}
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid
