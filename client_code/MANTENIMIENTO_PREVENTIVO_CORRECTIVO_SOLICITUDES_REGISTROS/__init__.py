@@ -42,6 +42,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     #anvil.js.call("test",jQuery(elemento_html).children())
     """obj = jQuery(elemento_html).children()[1]
     anvil.js.call("test", obj)"""
+    obj = jQuery("<div style='background-color:red; overflow-x: auto;'>PRUEBA</div>")
+    obj.appendTo(jQuery(get_dom_node(self.data_grid_registros)).children()[1])
 
     self.button_actualizar_click()
     
