@@ -10,7 +10,6 @@ from anvil_extras import popover
 from anvil.js import get_dom_node
 from anvil.js.window import jQuery
 from datetime import datetime, date
-from anvil_extras import augment
 
 class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROSTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -28,7 +27,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     self.set_event_handler('x-abrir_solicitud', self.abrir_solicitud)
     self.set_event_handler('x-abrir_reporte', self.abrir_reporte)
-    augment.add_event(self.data_grid_registros,'scroll')
     
     self.datos = datos
     self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
@@ -37,22 +35,12 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     self.ws_consulta_solicitudes_mtto = self.libro_solicitudes_mtto['Consulta']
 
     self.drop_down_status.items = self.items_drop_down_status
-    #elemento_html = get_dom_node(self.data_grid_1)
     
-    #self.repeating_panel_1.items = ["test","test","test","test","test","test","test","test","test"]
-    #jQuery(elemento_html).children().on("scroll", self.test())
-    #anvil.js.call("test",jQuery(elemento_html).children())
-    """obj = jQuery(elemento_html).children()[1]
-    anvil.js.call("test", obj)"""
-    #obj = jQuery("<div style='overflow-x: scroll;'></div>")
+    self.repeating_panel_aux.items = ["test","test","test","test","test","test","test","test","test"]
 
-    #grid_dummy = jQuery(get_dom_node(self.data_grid_1))
-    #grid_dummy.appendTo(obj)
-    
-    #obj.appendTo(jQuery(get_dom_node(self.data_grid_registros)))
-    #jQuery(get_dom_node(self.data_grid_registros)).prepend(obj)
-
-    anvil.js.call("test", get_dom_node(self.data_grid_registros))
+    aux_grid = get_dom_node(self.data_grid_aux)
+    main_grid = get_dom_node(self.data_grid_registros)
+    anvil.js.call("add_scroll_event", main_grid.childNodes[0], aux_grid.childNodes[0])
 
     self.button_actualizar_click()
     
@@ -245,15 +233,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     if respuesta == "registro_guardado":
       self.button_actualizar_click()
 
-  def button_test_click(self, **event_args):
-    self.data_grid_registros.trigger('scroll')
-    """elemento = get_dom_node(self.data_grid_registros)
-    print(jQuery(elemento).children().scrollLeft())"""
-    """for el in jQuery(elemento).children():
-      print(f"elemento:{el}")"""
-
-    """obj = jQuery("<div style='background-color:red; overflow-x: auto;'>PRUEBA</div>")
-    obj.appendTo(jQuery(get_dom_node(self.data_grid_registros)).children()[1])"""
+    
 
 
 

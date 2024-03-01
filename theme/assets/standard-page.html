@@ -124,12 +124,13 @@
     }
   }
 
-  function test(elemento) {
-    console.log(elemento)
-    /*elemento.addEventListener("scroll", evento());*/
+  function add_scroll_event(maingrid, auxgrid) {
+    auxgrid.addEventListener("scroll", function(){
+      mover(maingrid, auxgrid);
+    });
   }
-  function evento() {
-    console.log("trigger evento");
+  function mover(maingrid, auxgrid) {
+    maingrid.scrollLeft = auxgrid.scrollLeft
   }
   
   addMarginToContent()

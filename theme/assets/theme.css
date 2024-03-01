@@ -1169,6 +1169,15 @@ div.plot-container.plotly svg.main-svg {
   width:60vh
 }
 
+.anvil-role-scroll-data-grid .data-grid-child-panel {
+  overflow-x: scroll;
+}
+.anvil-role-scroll-data-grid .anvil-data-row-panel{
+  flex-wrap: nowrap;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+
 /*Fija rowPanel en el top del DataGridPanel*/
 .anvil-role-fijar-rowpanel{
   position: sticky; top: 89px;
@@ -1178,3 +1187,5 @@ div.plot-container.plotly svg.main-svg {
 .anvil-role-scroll-column-panel{
   overflow-x: scroll;
 }
+
+

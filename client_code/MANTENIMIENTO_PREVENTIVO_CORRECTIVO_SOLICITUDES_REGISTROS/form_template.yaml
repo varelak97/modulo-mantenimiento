@@ -71,7 +71,7 @@ components:
       name: outlined_card_tabla
       layout_properties: {grid_position: 'UOWEAJ,GWFMCN', full_width_row: true}
       components:
-      - name: data_grid_1
+      - name: data_grid_aux
         properties:
           columns:
           - {id: JKSDUP, title: Column 1, data_key: column_1, width: '80'}
@@ -85,21 +85,16 @@ components:
           - {id: HXRRQW, data_key: column_9, title: Column 9, width: '300'}
           auto_header: false
           show_page_controls: false
-          role: wide-tonal-nodata-grid
-          visible: false
+          role: scroll-data-grid
+          visible: true
         type: DataGrid
         components:
-        - name: repeating_panel_1
+        - name: repeating_panel_aux
           properties: {item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS.RowTemplate10,
             visible: true}
           type: RepeatingPanel
           layout_properties: {}
         layout_properties: {grid_position: 'BSEYJP,EYVCEH', full_width_row: true}
-      - name: button_test
-        properties: {text: test, visible: false}
-        type: Button
-        layout_properties: {grid_position: 'TSLSOE,DMOSMQ'}
-        event_bindings: {click: button_test_click}
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid
