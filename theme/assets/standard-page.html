@@ -126,11 +126,17 @@
 
   function add_scroll_event(maingrid, auxgrid) {
     auxgrid.addEventListener("scroll", function(){
-      mover(maingrid, auxgrid);
+      mover(maingrid, auxgrid, true);
     });
+    maingrid.addEventListener("scroll", function(){
+      mover(maingrid, auxgrid, false)
+    })
   }
-  function mover(maingrid, auxgrid) {
-    maingrid.scrollLeft = auxgrid.scrollLeft
+  function mover(maingrid, auxgrid, modo) {
+    if(modo)
+      maingrid.scrollLeft = auxgrid.scrollLeft
+    else
+      auxgrid.scrollLeft = maingrid.scrollLeft
   }
   
   addMarginToContent()

@@ -21,6 +21,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
 
     self.set_event_handler('x-abrir_reporte', self.abrir_reporte)
 
+    self.repeating_panel_aux.items = ["random data"]
+    aux_grid = get_dom_node(self.data_grid_aux)
+    main_grid = get_dom_node(self.data_grid_reportes)
+    anvil.js.call("add_scroll_event", main_grid.childNodes[0], aux_grid.childNodes[0])
+
     self.libro_reportes = app_files.mantenimiento_correctivo_preventivo_programado
     self.ws_reportes = self.libro_reportes['Consulta']
     self.registros_reportes = []
@@ -79,9 +84,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_COR
     if len(self.registros_reportes) > 0:
       self.repeating_panel_registros.items = self.registros_reportes
       self.data_grid_reportes.visible = True
+      self.data_grid_aux.visible = True
       self.column_panel_empty_db.visible = False
     else:
       self.data_grid_reportes.visible = False
+      self.data_grid_aux.visible = False
       self.column_panel_empty_db.visible = True
       
   def text_box_filtro_folio_change(self, **event_args):

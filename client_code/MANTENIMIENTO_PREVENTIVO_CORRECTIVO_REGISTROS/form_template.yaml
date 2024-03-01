@@ -46,6 +46,32 @@ components:
         name: button_actualizar
         layout_properties: {grid_position: 'KGNDJO,FDSADJ'}
         event_bindings: {click: button_actualizar_click}
+      - name: data_grid_aux
+        properties:
+          columns:
+          - {id: JKSDUP, title: Column 1, data_key: column_1, width: '80'}
+          - {id: VJQQOR, title: Column 2, data_key: column_2, width: '250'}
+          - {id: OJLQEN, title: Column 3, data_key: column_3, width: '250'}
+          - {id: VSRTUR, data_key: column_4, title: Column 4, width: '250'}
+          - {id: VNIRMB, data_key: column_5, title: Column 5, width: '150'}
+          - {id: QIMNDM, data_key: column_6, title: Column 6, width: '150'}
+          - {id: DAGMZG, data_key: column_7, title: Column 7, width: '200'}
+          - {id: NDXWMU, data_key: column_8, title: Column 8, width: '400'}
+          - {id: CWKNHT, data_key: column_9, title: Column 9, width: '400'}
+          - {id: AVMKEY, data_key: column_10, title: Column 10, width: '200'}
+          - {id: NDJFRG, data_key: column_11, title: Column 11, width: '400'}
+          - {id: BBOLXA, data_key: column_12, title: Column 12, width: '400'}
+          - {id: RTMRWC, data_key: column_13, title: Column 13, width: '150'}
+          role: scroll-data-grid
+          show_page_controls: false
+          spacing_above: none
+          spacing_below: none
+        type: DataGrid
+        components:
+        - name: repeating_panel_aux
+          properties: {item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS.RowTemplate11}
+          type: RepeatingPanel
+        layout_properties: {grid_position: 'HWCWGD,QIWSME', full_width_row: true}
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid

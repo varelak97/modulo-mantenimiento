@@ -36,11 +36,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
 
     self.drop_down_status.items = self.items_drop_down_status
     
-    self.repeating_panel_aux.items = ["test","test","test","test","test","test","test","test","test"]
-
+    self.repeating_panel_aux.items = ["ramdom_data"]
     aux_grid = get_dom_node(self.data_grid_aux)
     main_grid = get_dom_node(self.data_grid_registros)
-    anvil.js.call("add_scroll_event", main_grid.childNodes[0], aux_grid.childNodes[0]) #regresar
+    anvil.js.call("add_scroll_event", main_grid.childNodes[0], aux_grid.childNodes[0])
 
     self.button_actualizar_click()
     
@@ -187,9 +186,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
       self.repeating_panel_registros.items = dict_registros_consulta_mtto#self.registros_consulta_mtto
       self.column_panel_empty_db.visible = False
       self.data_grid_registros.visible = True
+      self.data_grid_aux.visible = True
     else:
       self.column_panel_empty_db.visible = True
       self.data_grid_registros.visible = False
+      self.data_grid_aux.visible = False
 
   def button_erase_filtros_click(self, **event_args):
     self.text_box_filtro_folio.text = ""
