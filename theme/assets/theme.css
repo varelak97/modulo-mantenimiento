@@ -1169,6 +1169,7 @@ div.plot-container.plotly svg.main-svg {
 .anvil-role-scroll-data-grid .data-grid-child-panel {
   overflow-x: scroll;
   overflow-y: auto;
+  height:17px;
 }
   
 .anvil-role-scroll-data-grid .anvil-data-row-panel{
