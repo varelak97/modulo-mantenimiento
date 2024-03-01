@@ -87,6 +87,8 @@ components:
           show_page_controls: false
           role: scroll-data-grid
           visible: true
+          spacing_below: none
+          spacing_above: none
         type: DataGrid
         components:
         - name: repeating_panel_aux

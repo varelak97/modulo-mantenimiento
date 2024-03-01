@@ -1108,23 +1108,20 @@ div.plot-container.plotly svg.main-svg {
   border-radius: 24px;
   border: 1px solid %color:Surface Variant%;
 }
-
+  
 .anvil-role-wide-tonal-nodata-grid.anvil-data-grid .data-grid-child-panel div.data-row-col {
   border-left: 1px solid %color:Surface Variant%;
   border-bottom: 1px solid %color:Surface Variant%;
-  /*recorre por columna podria ser*/
 }
 
 .anvil-role-wide-tonal-nodata-grid.anvil-data-grid .data-grid-child-panel div.data-row-col:first-child {
   border-left: 0;
-  /*NOOO, SOLO RECORRE POR COLUMNA*/
 }
 
 .anvil-role-wide-tonal-nodata-grid.anvil-data-grid > .data-grid-child-panel>div.auto-grid-header div.data-row-col {
   border-top: 0;
   border-bottom: 0;
   border-right: 0;
-  /*NOOO, SOLO RECORRE HIJOS DE COLUMNA*/
 }
   
 .anvil-role-wide-tonal-nodata-grid .data-grid-child-panel {
@@ -1168,15 +1165,23 @@ div.plot-container.plotly svg.main-svg {
   border: none;
   width:60vh
 }
-
+ /*SCROLL DATAGRID AGREGADO POR SISTEMAS*/
 .anvil-role-scroll-data-grid .data-grid-child-panel {
   overflow-x: scroll;
+  overflow-y: auto;
 }
+  
 .anvil-role-scroll-data-grid .anvil-data-row-panel{
   flex-wrap: nowrap;
   min-width: -moz-min-content;
   min-width: min-content;
 }
+  
+.anvil-role-scroll-data-grid.anvil-data-grid .data-grid-child-panel div.data-row-col {
+  border-left: 1px solid %color:Surface Variant%;
+  border-bottom: 1px solid %color:Surface Variant%;
+}
+  /*END SCROLL DATAGRID*/
 
 /*Fija rowPanel en el top del DataGridPanel*/
 .anvil-role-fijar-rowpanel{
