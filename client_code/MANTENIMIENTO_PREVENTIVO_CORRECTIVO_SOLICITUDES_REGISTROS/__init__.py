@@ -40,6 +40,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
 
     aux_grid = get_dom_node(self.data_grid_aux)
     main_grid = get_dom_node(self.data_grid_registros)
+    #anvil.js.call("add_scroll_event", main_grid.childNodes[0], aux_grid.childNodes[0]) #regresar
     anvil.js.call("add_scroll_event", main_grid.childNodes[0], aux_grid.childNodes[0])
 
     self.button_actualizar_click()

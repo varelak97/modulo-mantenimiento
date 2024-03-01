@@ -125,9 +125,11 @@
   }
 
   function add_scroll_event(maingrid, auxgrid) {
-    auxgrid.addEventListener("scroll", function(){
+    console.log("el main:" + maingrid.innerHTML);
+    console.log("los hijos:" + auxgrid);
+    /*auxgrid.addEventListener("scroll", function(){
       mover(maingrid, auxgrid);
-    });
+    });*/
   }
   function mover(maingrid, auxgrid) {
     maingrid.scrollLeft = auxgrid.scrollLeft
