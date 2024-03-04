@@ -68,6 +68,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   ################################ FUNCIONES PERSONALIZADS ########################################
   def editar_comentario(self, **event_args):
     self.button_agregar_comentario.enabled = False
+    self.button_guardar.enabled = False
     filas = self.repeating_panel_comentarios.get_components()
     for fila in filas:
       componentes_fila = fila.get_components()
@@ -75,11 +76,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       componentes_fila[4].enabled = False #boton borrar
   
   def guardar_comentario(self, datos, **event_args):
-    print("entro a guardar comentario")
     comentarios = self.repeating_panel_comentarios.items
     comentarios[datos['indice']]['comentario'] = datos['comentario']
     self.repeating_panel_comentarios.items = comentarios
     self.button_agregar_comentario.enabled = True
+    self.button_guardar.enabled = True
     
   def eliminar_comentario(self, indice, **event_args):
     comentarios = self.repeating_panel_comentarios.items
@@ -177,10 +178,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
         status = False
       else:
         respuesta[item.tag] = item.date
-    if self.radio_button_mal_uso.get_group_value() == None:
-      status = False
-    else:
-      respuesta['clasificacion_mtto'] = self.radio_button_mal_uso.get_group_value()
+    if self.drop_down_tipo_mantenimiento.selected_value == "CORRECTIVO":
+      if self.radio_button_mal_uso.get_group_value() == None:
+        status = False
+      else:
+        respuesta['clasificacion_mtto'] = self.radio_button_mal_uso.get_group_value()
 
     if not status:
       return status
@@ -303,6 +305,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
   
   def button_agregar_comentario_click(self, **event_args):
     self.button_agregar_comentario.enabled = False
+    self.button_guardar.enabled = False
     comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else []
     indice = len(comentarios)
     comentarios.append({'index':indice + 1,'comentario':""})
