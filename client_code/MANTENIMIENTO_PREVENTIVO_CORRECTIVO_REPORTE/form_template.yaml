@@ -188,7 +188,7 @@ components:
           border: ''
           enabled: true
           foreground: ''
-          items: [PREVENTIVO PROGRAMADO, CORRECTIVO]
+          items: [PREVENTIVO PROGRAMADO, CORRECTIVO, INSTALACIÓN]
           visible: true
           font_size: null
           font: ''

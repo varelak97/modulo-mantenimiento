@@ -207,7 +207,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.column_panel_tipo_mtto.visible = True
       self.column_panel_clasificacion.visible = True
       self.label_titulo_mtto_preventivo_correctivo.text = "MANTENIMIENTO PREVENTIVO CORRECTIVO"
-    elif self.drop_down_tipo_mantenimiento.selected_value == "PREVENTIVO PROGRAMADO":
+    elif self.drop_down_tipo_mantenimiento.selected_value == "PREVENTIVO PROGRAMADO" or self.drop_down_tipo_mantenimiento.selected_value == "INSTALACIÓN":
       self.column_panel_tipo_mtto.visible = True
       self.column_panel_clasificacion.visible = False
       self.label_titulo_mtto_preventivo_correctivo.text = "MANTENIMIENTO PREVENTIVO PROGRAMADO"
