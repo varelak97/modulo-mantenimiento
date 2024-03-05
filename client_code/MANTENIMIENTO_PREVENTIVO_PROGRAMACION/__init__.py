@@ -76,6 +76,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
           dict_actividad = {}
           dict_actividad['id'] = index
           dict_actividad['actividad'] = actividad['actividad']
+          dict_actividad['frecuencia'] = actividad['frecuencia']
           actividades_equipo.append(dict_actividad)
           index+=1
       dict_actividades['id_equipo'] = equipo['id_equipo']
