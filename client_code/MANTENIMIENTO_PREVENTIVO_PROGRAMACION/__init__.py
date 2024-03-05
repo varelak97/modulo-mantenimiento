@@ -408,7 +408,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
           id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['anual'], "ANUAL", equipo['id_equipo'], id_mtto_preventivo)
           status = True
     if status: 
-      Notification("Mantenimiento programados correctamente!", title="'ÉXITO!'", style="success").show()
+      Notification("Mantenimientos programados correctamente!", title="'ÉXITO!'", style="success").show()
       self.raise_event("x-close-alert",value=True)
     else: 
       alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])

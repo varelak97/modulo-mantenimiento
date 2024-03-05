@@ -3,6 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
+from ...MANTENIMIENTO_FORMS_REPORTES import MANTENIMIENTO_FORMS_REPORTES
 
 class RowTemplateCheck(RowTemplateCheckTemplate):
   def __init__(self, **properties):
@@ -20,7 +21,13 @@ class RowTemplateCheck(RowTemplateCheckTemplate):
 
   def radio_button_si_clicked(self, **event_args):
     if self.label_actividad.text == "MEDICIÓN DE INTENSIDAD DE LUZ":
-      alert("abre form intesidad luz")
+      datos = {}
+      datos['tipo'] = "medicion_luz"
+      datos['formularios'] = [("FOR-MAN-028 REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV","medicion_luz")]
+      respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     elif self.label_actividad.text == "MEDICIÓN DE RESISTENCIA":
-      alert("abre form medicion resistencia")
+      datos = {}
+      datos['tipo'] = "medicion_resistencia"
+      datos['formularios'] = [("FOR-MAN-029 REPORTE DE MEDICIÓN DE RESISTENCIAS","medicion_resistencia")]
+      respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
