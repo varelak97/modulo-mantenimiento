@@ -88,6 +88,11 @@ components:
         event_bindings: {}
       layout_properties: {grid_position: 'DYHQXF,GGFCBE', full_width_row: true}
       event_bindings: {}
+  - name: button_prog_fecha_unica
+    properties: {text: PROGRAMAR FECHA ÚNICA, bold: true, role: filled-button, background: 'theme:Blue'}
+    type: Button
+    layout_properties: {grid_position: 'PVKPSB,NCQLSF'}
+    event_bindings: {click: button_prog_fecha_unica_click}
   - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel

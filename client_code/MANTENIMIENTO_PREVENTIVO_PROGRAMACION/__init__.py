@@ -290,6 +290,26 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       #fecha = temp
       
     return id_mtto_preventivo
+
+  def programa_fecha_unica(self, equipo, area, fecha, frecuencia, id_equipo, id_mtto_preventivo):
+    dict_mtto = {
+      "id_mtto_preventivo": id_mtto_preventivo,
+      "fecha_programada":fecha,
+      "area":area,
+      "equipo":equipo,
+      "frecuencia":frecuencia,
+      "status_mantenimiento":"PROGRAMADO",
+      "actividades":self.get_actividades(equipo, id_equipo, area, frecuencia),
+      "id_usuario_registrador":self.datos['id_usuario_erp'],
+      "usuario_registrador":self.datos['nombre_usuario'],
+      "operacion":"creacion",
+      "marca_temporal":datetime.now(),
+      "comentarios":"",
+      "registro_principal": 1
+    }
+    id_mtto_preventivo += 1
+    self.ws_mtto_preventivos.add_row(**dict_mtto)
+    return id_mtto_preventivo
   ############################################ EVENTOS ############################################
   def button_generar_calendario_click(self, **event_args):
     equipos_programados = self.repeating_panel_equipos.items
@@ -364,6 +384,10 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
 
   def drop_down_equipo_change(self, **event_args):
     self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista, self.drop_down_area.selected_value, self.drop_down_equipo.selected_value)
+
+  def button_prog_fecha_unica_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
       
 
     
