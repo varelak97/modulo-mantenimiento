@@ -171,6 +171,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     for actividad in self.actividades_equipos:
       if actividad['id_equipo'] == id_equipo:
         actividades_encontradas = list(filter(lambda reg: reg['frecuencia'] == frecuencia_mtto, actividad['actividades']))
+        for index,item in enumerate(actividades_encontradas):
+          item['id'] = index + 1
         #actividades_encontradas = actividad['actividades']
         break
     return actividades_encontradas
