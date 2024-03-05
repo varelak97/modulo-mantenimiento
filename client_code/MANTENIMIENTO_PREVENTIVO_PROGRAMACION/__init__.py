@@ -111,6 +111,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     
   def enable_disable_guardar(self, id_equipo, status, **event_args):
     self.button_generar_calendario.enabled = status
+    self.button_prog_fecha_unica.enabled = status
     for fila in self.repeating_panel_equipos.get_components():
       componentes_fila = fila.get_components()
       if componentes_fila[12].text != id_equipo:
@@ -333,7 +334,6 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
         if equipo['anual'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['anual'], "ANUAL", equipo['id_equipo'], id_mtto_preventivo)
           status = True
-    print(f"el valor de status:{status}")
     if status: 
       Notification("Programa anual generado correctamente!", title="'ÉXITO!'", style="success").show()
       self.raise_event("x-close-alert",value=True)
@@ -386,8 +386,32 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista, self.drop_down_area.selected_value, self.drop_down_equipo.selected_value)
 
   def button_prog_fecha_unica_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    equipos_programados = self.repeating_panel_equipos.items
+    status = False
+    registros_vista_mttos = self.ws_mttos_preventivos_vista.rows
+    id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in registros_vista_mttos]) + 1 if len(registros_vista_mttos) > 0 else 1
+    with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
+      for equipo in equipos_programados:
+        if equipo['semanal'] != "":
+          id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['semanal'], "SEMANAL", equipo['id_equipo'], id_mtto_preventivo)
+          status = True
+        if equipo['mensual'] != "":
+          id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['mensual'], "MENSUAL", equipo['id_equipo'], id_mtto_preventivo)
+          status = True
+        if equipo['trimestral'] != "":
+          id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['trimestral'], "TRIMESTRAL", equipo['id_equipo'], id_mtto_preventivo)
+          status = True
+        if equipo['semestral'] != "":
+          id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['semestral'], "SEMESTRAL", equipo['id_equipo'], id_mtto_preventivo)
+          status = True
+        if equipo['anual'] != "":
+          id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['anual'], "ANUAL", equipo['id_equipo'], id_mtto_preventivo)
+          status = True
+    if status: 
+      Notification("Mantenimiento programados correctamente!", title="'ÉXITO!'", style="success").show()
+      self.raise_event("x-close-alert",value=True)
+    else: 
+      alert("Por favor, llene al menos las fechas de un equipo", title="ERROR AL GUARDAR!", buttons=[("ACEPTAR", "ACEPTAR")])
       
 
     

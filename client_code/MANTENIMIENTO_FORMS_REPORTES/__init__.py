@@ -49,7 +49,6 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
       for nombre_form in self.datos['formularios']:
         for formulario in self.registros_lista_formularios:
           if nombre_form[1] == formulario['tipo']:
-            print(f"agrega:{formulario}")
             self.lista_formularios.append(formulario)
     items_drop_dowm = []
     for formulario in self.lista_formularios:
