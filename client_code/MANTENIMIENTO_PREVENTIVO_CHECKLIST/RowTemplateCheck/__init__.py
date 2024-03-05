@@ -18,3 +18,9 @@ class RowTemplateCheck(RowTemplateCheckTemplate):
     fila['check'] = self.radio_button_si.selected
     self.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_checklist',fila=fila)"""
 
+  def radio_button_si_clicked(self, **event_args):
+    if self.label_actividad.text == "MEDICIÓN DE INTENSIDAD DE LUZ":
+      alert("abre form intesidad luz")
+    elif self.label_actividad.text == "MEDICIÓN DE RESISTENCIA":
+      alert("abre form medicion resistencia")
+
