@@ -55,7 +55,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     self.ws_areas_vista = self.libro_equipos['VISTA_AREAS']
     self.registros_areas_vista = self.ws_areas_vista.rows
 
-    self.actividades_equipos = self.set_actividades(self.registros_equipos_vista, self.registros_actividades_vista)
+    #self.actividades_equipos = self.set_actividades(self.registros_equipos_vista, self.registros_actividades_vista) ###REGRESAR SINO FUNCIONA
     self.repeating_panel_equipos.items = self.get_lista_equipos(self.registros_equipos_vista, None, None)#self.ws_equipos_vista.rows)
 
     self.drop_down_equipo.items = [equipo['equipo'] for equipo in self.registros_equipos_vista]
@@ -320,6 +320,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     registros_vista_mttos = self.ws_mttos_preventivos_vista.rows
     id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in registros_vista_mttos]) + 1 if len(registros_vista_mttos) > 0 else 1
     with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
+      self.actividades_equipos = self.set_actividades(self.registros_equipos_vista, self.registros_actividades_vista) ####PRUEBA BORRAR SINO FUNCIONA
       for equipo in equipos_programados:
         if equipo['semanal'] != "":
           id_mtto_preventivo = self.generar_programa_anual(equipo['equipo'], equipo['area'], equipo['semanal'], "SEMANAL", equipo['id_equipo'], id_mtto_preventivo)
@@ -392,7 +393,8 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
     status = False
     registros_vista_mttos = self.ws_mttos_preventivos_vista.rows
     id_mtto_preventivo = max([int(row['id_mtto_preventivo']) for row in registros_vista_mttos]) + 1 if len(registros_vista_mttos) > 0 else 1
-    with Notification("Insertando registros en la base de datos...", title="GENERANDO PROGRAMA ANUAL", style="info"):
+    with Notification("Insertando registros en la base de datos...", title="PROGRAMANDO FECHAS EN EL CALENDARIO", style="info"):
+      self.actividades_equipos = self.set_actividades(self.registros_equipos_vista, self.registros_actividades_vista) ####PRUEBA BORRAR SINO FUNCIONA
       for equipo in equipos_programados:
         if equipo['semanal'] != "":
           id_mtto_preventivo = self.programa_fecha_unica(equipo['equipo'], equipo['area'], equipo['semanal'], "SEMANAL", equipo['id_equipo'], id_mtto_preventivo)
