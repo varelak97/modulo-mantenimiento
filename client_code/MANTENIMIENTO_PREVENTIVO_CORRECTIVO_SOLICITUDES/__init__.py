@@ -157,9 +157,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
           id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
           dict_datos = {
-            "id_solicitud_mtto":id_nuevo_solicitud_mtto,
+            "id_solicitud_mtto":id_nuevo_solicitud_mtto - 292,
             "mtto_realizado": 0,
-            "folio":self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto), #if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_area.selected_value,293),
+            "folio":self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto),# if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_area.selected_value,293),
             #"folio":self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],id_nuevo_solicitud_mtto) if len(self.registros_solicitudes) > 0 else self.get_folio(datetime.now(),self.drop_down_equipo.selected_value['EQUIPO'],1),
             "vobo_solicitante": 0,
             "id_usuario_registrador":self.datos['id_usuario_erp'],
