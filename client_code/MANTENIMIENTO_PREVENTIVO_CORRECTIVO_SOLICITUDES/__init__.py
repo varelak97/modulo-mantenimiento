@@ -155,7 +155,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     else:
       if self.datos['modo'] == "nuevo":
         with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
-          id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 1) if len(self.registros_solicitudes) > 0 else 1
+          id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 1
           dict_datos = {
             "id_solicitud_mtto":id_nuevo_solicitud_mtto,
             "mtto_realizado": 0,
