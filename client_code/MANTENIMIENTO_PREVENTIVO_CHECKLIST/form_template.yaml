@@ -120,6 +120,13 @@ components:
             properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_CHECKLIST.RowTemplateCheck}
             name: repeating_panel_registros
             layout_properties: {}
+      - name: button_reporte_luz_resistencia
+        properties: {text: FOR-MAN-028 Y 029 MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS),
+          bold: true, role: filled-button, background: 'theme:Orange', icon: 'fa:file-text',
+          visible: false, foreground: 'theme:Primary'}
+        type: Button
+        layout_properties: {grid_position: 'OOGTPA,JAMOAI'}
+        event_bindings: {click: button_reporte_luz_resistencia_click}
     - type: ColumnPanel
       properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',

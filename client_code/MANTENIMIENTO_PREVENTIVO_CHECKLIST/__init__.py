@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from datetime import date,datetime
+from ..MANTENIMIENTO_FORMS_REPORTES import MANTENIMIENTO_FORMS_REPORTES
 
 class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -41,6 +42,9 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.repeating_panel_registros.items = lista
     
     if datos['modo'] == "ver_checklist":
+      equipos = ["HORNO 1", "HORNO 2", "HORNO 3", "HORNO 4", "HORNO 5"]
+      if self.registro_equipo['equipo'] in equipos and self.registro_equipo['frecuencia'] == "SEMANAL":
+        self.button_reporte_luz_resistencia.visible = True
       self.text_box_nombre.text = self.registro_equipo['persona_ejecuta_mtto']
       self.date_picker_fecha_hora_inicio.date = self.registro_equipo['fecha_hora_inicio']
       self.date_picker_fecha_hora_termino.date = self.registro_equipo['fecha_hora_final']
@@ -199,6 +203,12 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       self.button_add.enabled = False
     else:
       self.button_add.enabled = True"""
+
+  def button_reporte_luz_resistencia_click(self, **event_args):
+    datos = {}
+    datos['tipo'] = "reporte_luz_resistencia"
+    datos['formularios'] = [("FOR-MAN-028 y 029 Reporte de Medición de Intensidad de Luz UV y Resistencias (Respuestas)","reporte_luz_resistencia")]
+    respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   
     
