@@ -72,7 +72,7 @@ class MANTENIMIENTO_PREVENTIVO_PROGRAMACION(MANTENIMIENTO_PREVENTIVO_PROGRAMACIO
       index = 1
       for actividad in lista_actividades:
         #if equipo['area'] == actividad['area']: #regresar si falla
-        if int(equipo['id_equipo']) in eval(actividad['id_equipos']):
+        if int(equipo['id_equipo']) in eval(actividad['id_equipos']) and actividad['registro_principal'] == '1':
           dict_actividad = {}
           dict_actividad['id'] = index
           dict_actividad['actividad'] = actividad['actividad']
