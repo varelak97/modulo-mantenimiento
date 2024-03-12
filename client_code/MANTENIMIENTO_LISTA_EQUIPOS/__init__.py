@@ -73,6 +73,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     augment.set_event_handler(self.outlined_card_req_consumibles,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_req_consumibles_copy,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_req_consumibles_copy,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_inventario,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_inventario,'mouseleave',self.set_color)
 
     if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.content_panel_general.visible = False
@@ -86,7 +88,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     if 'enter' in event_args['event_type']:
       card.background = app.theme_colors['LightBlue']
     else:
-      card.background = app.theme_colors['White']
+      card.background = app.theme_colors['Background']
     
   ############################################# EVENTOS #############################################
   def drop_down_area_change(self, **event_args):
@@ -202,5 +204,10 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos = self.datos
     datos['tipo'] = self.drop_down_luz_resistencia.selected_value
     datos['formularios'] = self.drop_down_luz_resistencia.items
+    respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+
+  def link_inventario_click(self, **event_args):
+    datos = self.datos
+    datos['tipo'] = "inventario"
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
       

@@ -44,6 +44,13 @@ class MANTENIMIENTO_FORMS_REPORTES(MANTENIMIENTO_FORMS_REPORTESTemplate):
               self.lista_formularios.append(item)
           else:
             self.lista_formularios.append(item)
+    elif self.datos['tipo'] == "inventario":
+      self.label_titulo.text = "FOR-MAN-033 INVENTARIO DE REFACCIONES Y CONSUMIBLES"
+      for item in self.registros_lista_formularios:
+        if item['tipo'] == "inventario":
+          if item['formato'] == "sheet":
+            if self.datos['id_usuario_erp'] == 58:
+              self.lista_formularios.append(item)
     else:
       self.label_titulo.text = "REPORTE DE MEDICIÓN DE INTENSIDAD DE LUZ UV Y RESISTENCIAS"
       for nombre_form in self.datos['formularios']:
