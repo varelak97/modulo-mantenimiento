@@ -58,6 +58,8 @@ roles:
   components: [DataGrid]
 - name: scroll-data-grid
   components: [DataGrid]
+- name: scroll-data-grid-default
+  components: [DataGrid]
 color_scheme:
   preset_groups:
   - name: Colour Scheme

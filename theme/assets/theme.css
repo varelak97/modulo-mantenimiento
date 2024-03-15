@@ -1194,4 +1194,15 @@ div.plot-container.plotly svg.main-svg {
   overflow-x: scroll;
 }
 
+.anvil-role-scroll-data-grid-default .data-grid-child-panel {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
+}
+.anvil-role-scroll-data-grid-default .data-grid-child-panel>div.auto-grid-header {
+  position: sticky; top: 0; /*agregado por sistemas*/
+  z-index: 1; /*agregado por sistemas*/
+  background-color: white;
+}
+
 

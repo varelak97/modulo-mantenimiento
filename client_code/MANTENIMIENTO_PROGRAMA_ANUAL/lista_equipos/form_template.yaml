@@ -15,7 +15,7 @@ components:
     auto_header: true
     show_page_controls: false
     rows_per_page: 200
-    role: null
+    role: scroll-data-grid-default
   type: DataGrid
   components:
   - name: repeating_panel_lista_equipos
