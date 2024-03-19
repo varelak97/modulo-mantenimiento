@@ -217,10 +217,10 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.foreground = app.theme_colors['White']
         else:
           link.background = link.parent.background
-          link.foreground = app.theme_colors['Background']#link.parent.background
+          link.foreground = link.background#link.parent.background
       else:
         link.background = link.parent.background
-        link.foreground = link.parent.background
+        link.foreground = link.background
 
   def open_registros(self, frecuencia, card_dia, link_dia):
     datos = {}
