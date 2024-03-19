@@ -10,6 +10,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
   lista_labels = None
   lista_labels_generales = None
+  lista_cards_dias = None
   def __init__(self, **properties):
     self.init_components(**properties)
     self.lista_links = [
@@ -70,6 +71,15 @@ class RowTemplateDias(RowTemplateDiasTemplate):
       self.link_domingo_p,
       self.link_domingo_ok
     ]
+    self.lista_cards_dias = [
+      self.card_lunes,
+      self.card_martes,
+      self.card_miercoles,
+      self.card_jueves,
+      self.card_viernes,
+      self.card_sabado,
+      self.card_domingo
+    ]
     #self.link_lunes_w.popover("HOLAAAA!!!!!", trigger="manual")
     self.set_color_indicadores()
     #self.link_lunes_w.popover(content = self.show_lista_equipos('SEMANAL',self.card_lunes,self.link_lunes_numero_dia))
@@ -82,6 +92,8 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
+    for card_dia in self.lista_cards_dias:
+      pass
     
     for link in self.lista_links:
       if link.text != None and link.text != "":
