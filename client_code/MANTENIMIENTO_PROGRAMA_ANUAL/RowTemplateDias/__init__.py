@@ -93,12 +93,15 @@ class RowTemplateDias(RowTemplateDiasTemplate):
   ######################################## FUNCIONES PERSONALIZADS ################################################
   def set_color_indicadores(self):
     for card_dia in self.lista_cards_dias:
-      pass
+      if card_dia.tag != None:
+        if int(card_dia.tag['numero_dia']) == int(card_dia.tag['dia_actual']):
+          card_dia.background = app.theme_colors['LightBlue']
+          break
     
     for link in self.lista_links:
       if link.text != None and link.text != "":
-        if int(link.parent.tag['numero_dia']) == int(link.parent.tag['dia_actual']):
-          link.parent.background = app.theme_colors['LightBlue']
+        """if int(link.parent.tag['numero_dia']) == int(link.parent.tag['dia_actual']):
+          link.parent.background = app.theme_colors['LightBlue']"""
         indicador = link.text.split(': ')
         if indicador[1] != '0':
           items_test = link.parent.tag
@@ -213,11 +216,11 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.background = app.theme_colors['Green']
             link.foreground = app.theme_colors['White']
         else:
-          link.background = "#FFFFFF"
-          link.foreground = "#FFFFFF"
+          link.background = link.parent.background
+          link.foreground = link.parent.background
       else:
-        link.background = "#FFFFFF"
-        link.foreground = "#FFFFFF"
+        link.background = link.parent.background
+        link.foreground = link.parent.background
 
   def open_registros(self, frecuencia, card_dia, link_dia):
     datos = {}
