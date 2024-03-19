@@ -217,7 +217,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
             link.foreground = app.theme_colors['White']
         else:
           link.background = link.parent.background
-          link.foreground = link.parent.background
+          link.foreground = app.theme_colors['Background']#link.parent.background
       else:
         link.background = link.parent.background
         link.foreground = link.parent.background
