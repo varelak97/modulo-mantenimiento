@@ -1,4 +1,7 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  data_bindings:
+  - {property: tag, code: '"test"', writeback: false}
 components:
 - type: Link
   properties: {col_widths: '{}'}

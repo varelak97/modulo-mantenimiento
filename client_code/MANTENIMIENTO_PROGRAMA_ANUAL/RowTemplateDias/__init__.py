@@ -85,6 +85,8 @@ class RowTemplateDias(RowTemplateDiasTemplate):
     
     for link in self.lista_links:
       if link.text != None and link.text != "":
+        if int(link.parent.tag['numero_dia']) == int(link.parent.tag['dia_actual']):
+          link.parent.background = app.theme_colors['LightBlue']
         indicador = link.text.split(': ')
         if indicador[1] != '0':
           items_test = link.parent.tag
@@ -113,7 +115,6 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           elif indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
-            print(link.parent)
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMANAL"

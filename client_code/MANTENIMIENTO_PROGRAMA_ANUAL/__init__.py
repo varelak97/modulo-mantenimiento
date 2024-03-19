@@ -166,6 +166,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.registros_consulta_mttos = self.ws_consulta_mttos.rows
     anio = self.drop_down_anio.selected_value
     mes = self.drop_down_mes.selected_value
+    dia_actual = datetime.today().day if datetime.today().month == int(mes) and datetime.today().year == int(anio) else 0
     indicadores_mtto_mes = []
     for dia in range(31):
       area = "todas" if self.drop_down_areas.selected_value == None else self.drop_down_areas.selected_value
@@ -253,7 +254,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
             'equipo':indicadores_mtto_mes[int(numero_dia)-1]['equipo'],
             'lista_equipos':indicadores_mtto_mes[int(numero_dia)-1]['lista_equipos'],
             'tipo':indicadores_mtto_mes[int(numero_dia)-1]['tipo'],
-            'id_mtto_preventivo':indicadores_mtto_mes[int(numero_dia)-1]['id_mtto_preventivo']
+            'id_mtto_preventivo':indicadores_mtto_mes[int(numero_dia)-1]['id_mtto_preventivo'],
+            'dia_actual':dia_actual
           }
         j += 1
       items.append(dicc)
