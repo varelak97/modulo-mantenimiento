@@ -113,6 +113,7 @@ class RowTemplateDias(RowTemplateDiasTemplate):
           elif indicador[0] == "PW":
             link.background = app.theme_colors['Primary']
             link.foreground = app.theme_colors['White']
+            print(link.parent.tag)
             items = link.parent.tag
             items['tipo'] = "PROGRAMADO"
             items['frecuencia'] = "SEMANAL"
