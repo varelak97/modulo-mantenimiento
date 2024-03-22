@@ -103,7 +103,7 @@ components:
           layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
           components:
           - name: image_req_consumibles
-            properties: {height: '100', source: _/theme/requerimiento_consumibles.png}
+            properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
             type: Image
             layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
           - name: label_req_consumibles
@@ -157,7 +157,7 @@ components:
     - name: link_solicitudes_mtto
       properties: {}
       type: Link
-      layout_properties: {grid_position: 'TUODEU,ACSBOA'}
+      layout_properties: {grid_position: 'TUODEU,ACSBOA SASBDU,JQYMVH'}
       components:
       - name: outlined_card_solicitudes_mtto
         properties: {role: elevated-card}
@@ -173,6 +173,29 @@ components:
           type: Label
           layout_properties: {grid_position: 'FXVIML,KCAEXH'}
       event_bindings: {click: link_solicitudes_mtto_click}
+    - name: flow_panel_inventario_copy
+      properties: {}
+      type: FlowPanel
+      layout_properties: {grid_position: 'TUODEU,ACSBOA RBKXIP,YUNUAG'}
+      components:
+      - name: link_inventario_copy
+        properties: {}
+        type: Link
+        event_bindings: {click: link_inventario_click}
+        components:
+        - name: outlined_card_inventario_copy
+          properties: {role: elevated-card}
+          type: ColumnPanel
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          components:
+          - name: image_inventario_copy
+            properties: {height: '100', source: _/theme/iconos/registros_mtto_preventivo.png}
+            type: Image
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+          - name: label_inventario_copy
+            properties: {text: REGISTROS MANTENIMIENTO PREVENTIVO, bold: true, align: center}
+            type: Label
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
     - name: link_mtto_autonomo
       properties: {}
       type: Link
@@ -192,6 +215,11 @@ components:
           type: Label
           layout_properties: {grid_position: 'WMORHY,OYPKVW'}
       event_bindings: {click: link_mtto_autonomo_click}
+    - name: outlined_button_test
+      properties: {text: test, role: outlined-button}
+      type: Button
+      layout_properties: {grid_position: 'TDKNFM,ISHAUT'}
+      event_bindings: {click: outlined_button_test_click}
 - name: content_panel_general
   properties: {visible: true}
   type: ColumnPanel
