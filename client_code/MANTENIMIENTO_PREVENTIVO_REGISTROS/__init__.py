@@ -17,6 +17,20 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   ws_registros_totales = None
   registros_totales = None
   #registro_seleccionado = None
+  items_meses = [
+    ("ENERO",1),
+    ("FEBRERO",2),
+    ("MARZO",3),
+    ("ABRIL",4),
+    ("MAYO",5),
+    ("JUNIO",6),
+    ("JULIO",7),
+    ("AGOSTO",8),
+    ("SEPTIEMBRE",9),
+    ("OCTUBRE",10),
+    ("NOVIEMBRE",11),
+    ("DICIEMBRE",12)
+  ]
   
   def __init__(self,datos, **properties):
     self.init_components(**properties)
@@ -25,35 +39,33 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     self.set_event_handler('x-programar_mantenimiento', self.programar_mantenimiento)
     
     self.datos = datos
+    self.drop_down_filtro_meses.items = self.items_meses
     
     self.libro_mttos = app_files.mantenimiento_preventivo
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
     self.ws_registros_totales = self.libro_mttos['Registros']
-    self.registros_totales = self.ws_registros_totales.rows
-    if self.datos['modo'] == "dia":
-      self.data_row_panel_filtros.visible = False
-      self.repeating_panel_registros.items = self.get_datos_actuales(self.datos['tipo'], self.datos['frecuencia'])
-    elif self.datos['modo'] == "todos":
-      self.button_programar.visible = False
-      self.registros_consulta_mttos = self.ws_consulta_mttos.rows
-      self.repeating_panel_registros.items = self.registros_consulta_mttos
-    #self.ws_registros_totales = self.libro_mttos['Registros'] #revisar si es necesario   
+    self.button_actualizar_click()
 
   ################################ FUNCIONES PERSONALIZADS ########################################
   def filtros(self):
     items = self.registros_consulta_mttos.copy()
-    if self.date_picker_filtro_fecha_programada.date != None:
-      items = [item for item in items if (self.date_picker_filtro_fecha_programada.date).strftime("%Y-%m-%d") in str(item['fecha_programada'])]
+    if self.date_picker_filtro_fecha_programada.visible:
+      if self.date_picker_filtro_fecha_programada.date != None:
+        items = [item for item in items if (self.date_picker_filtro_fecha_programada.date).strftime("%Y-%m-%d") in str(item['fecha_programada'])]
+    if self.drop_down_filtro_meses.visible:
+      if self.drop_down_filtro_meses.selected_value != None:
+        items  = [item for item in items if int(datetime.strptime(item['fecha_programada'],'%Y-%m-%d').month == self.drop_down_filtro_meses.selected_value)]
     if len(self.text_box_filtro_area.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_area.text).upper() in str(item['area'])]
     if len(self.text_box_filtro_equipo.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_equipo.text).upper() in str(item['equipo'])]
-    if len(self.text_box_filtro_status.text) > 0:
-      items = [item for item in items if str(self.text_box_filtro_status.text).upper() in str(item['status_mantenimiento']).upper()]
+    if self.drop_down_filtro_status.selected_value != None:
+      items = [item for item in items if item['status_mantenimiento'] == self.drop_down_filtro_status.selected_value]
     
     if self.drop_down_filtro_frecuencia.selected_value != None:
       items = [item for item in items if item['frecuencia'] == self.drop_down_filtro_frecuencia.selected_value]
     
+    self.label_numero_registros.text = f"Registros: {len(items)}"
     self.repeating_panel_registros.items = items
     
   def get_datos_actuales(self, tipo, frecuencia):
@@ -101,9 +113,9 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def actualizar_form_activo(self, datos, **event_args):
     self.datos.update(datos)
     if self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CHECKLIST':
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(datos), True)
+      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CHECKLIST(self.datos), True)
     elif self.datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION':
-      respuesta = self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(datos), False)
+      respuesta = self.abrir_form(MANTENIMIENTO_PREVENTIVO_PROGRAMACION(self.datos), False)
       
   def abrir_form(self, form_de_interes, windows_size):
     respuesta = None
@@ -119,19 +131,30 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
         
   ############################################ EVENTOS ############################################
   def button_programar_click(self, **event_args):
-    self.datos['modo'] = 'nuevo'
-    self.datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_PROGRAMACION'
-    self.actualizar_form_activo(self.datos)
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_PROGRAMACION(self.datos), large=True, dismissible=False, buttons=[("SALIR",False)], role="wide-modal-content-bigger")
+    if respuesta:
+      with Notification("Actualizando registros...", title="ACTUALIZANDO.", style="info"):
+        self.button_actualizar_click()
 
   def button_actualizar_click(self, **event_args):
-    self.repeating_panel_registros.items = self.get_datos_actuales()
+    self.registros_totales = self.ws_registros_totales.rows
+    if self.datos['modo'] == "dia":
+      self.data_row_panel_filtros.visible = False
+      self.repeating_panel_registros.items = self.get_datos_actuales(self.datos['tipo'], self.datos['frecuencia'])
+    elif self.datos['modo'] == "todos":
+      self.registros_consulta_mttos = self.ws_consulta_mttos.rows
+      self.repeating_panel_registros.items = self.registros_consulta_mttos
+      self.label_numero_registros.text = f"Registros: {len(self.registros_consulta_mttos)}"
+    #self.ws_registros_totales = self.libro_mttos['Registros'] #revisar si es necesario   
+    #self.repeating_panel_registros.items = self.get_datos_actuales()
 
   def button_borrar_filtros_click(self, **event_args):
     self.text_box_filtro_area.text = ""
     self.text_box_filtro_equipo.text =""
-    self.text_box_fitro_status.text = ""
+    self.drop_down_filtro_status.selected_value = None
     self.drop_down_filtro_frecuencia.selected_value = None
     self.date_picker_filtro_fecha_programada.date = None
+    self.drop_down_filtro_meses.selected_value = None
     self.filtros()
 
   def date_picker_filtro_fecha_programada_change(self, **event_args):
@@ -145,19 +168,23 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
 
   def drop_down_filtro_frecuencia_change(self, **event_args):
     self.filtros()
+    
+  def drop_down_filtro_status_change(self, **event_args):
+    self.filtros()
 
-  def text_box_fitro_status_change(self, **event_args):
+  def drop_down_filtro_meses_change(self, **event_args):
     self.filtros()
 
   def button_change_click(self, **event_args):
     if self.date_picker_filtro_fecha_programada.visible:
-      self.drop_down_meses.visible = True
+      self.drop_down_filtro_meses.visible = True
       self.date_picker_filtro_fecha_programada.visible = False
       self.date_picker_filtro_fecha_programada.date = None
     else:
-      self.drop_down_meses.visible = False
-      self.drop_down_meses.selected_value = None
+      self.drop_down_filtro_meses.visible = False
+      self.drop_down_filtro_meses.selected_value = None
       self.date_picker_filtro_fecha_programada.visible = True
+    self.filtros()
 
 
 

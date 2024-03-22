@@ -32,9 +32,9 @@ components:
     components:
     - type: Button
       properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: PROGRAMAR, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: true, underline: false, icon: 'fa:pencil'}
+        enabled: true, foreground: 'theme:On Primary', visible: true, text: PROGRAMAR MANTENIMIENTOS,
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: 'theme:Blue', bold: true, underline: false, icon: 'fa:calendar'}
       name: button_programar
       layout_properties: {grid_position: 'JBGUCX,MDVRMJ'}
       event_bindings: {click: button_programar_click}
@@ -45,14 +45,24 @@ components:
       name: outlined_card_tabla
       layout_properties: {grid_position: 'QEBOFF,LXAKFN', full_width_row: true}
       components:
-      - type: Button
-        properties: {role: elevated-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: false, text: ACTUALIZAR, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
-        name: button_actualizar
-        layout_properties: {grid_position: 'YWYCZO,GMZBOL'}
-        event_bindings: {click: button_actualizar_click}
+      - name: column_panel_1
+        properties: {col_widths: '{"OXZIRT":15,"AISDPL":25,"UAWLUQ":20}'}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'VBNZHO,EKMQZA', full_width_row: true}
+        components:
+        - name: label_numero_registros
+          properties: {text: 'Registros:', bold: true, foreground: 'theme:Primary',
+            align: left}
+          type: Label
+          layout_properties: {grid_position: 'FDLETN,OXZIRT', full_width_row: true}
+        - type: Button
+          properties: {role: elevated-button, align: left, tooltip: '', border: '',
+            enabled: true, foreground: '', visible: true, text: ACTUALIZAR TABLA,
+            font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
+          name: button_actualizar
+          layout_properties: {grid_position: 'FDLETN,UAWLUQ'}
+          event_bindings: {click: button_actualizar_click}
       - type: DataGrid
         properties:
           role: wide-tonal-data-grid
@@ -66,12 +76,12 @@ components:
           - {id: BELBDL, title: FRECUENCIA, data_key: frecuecia, $$hashKey: 'object:2614',
             width: '200'}
           - {id: CJCQWT, title: STATUS, data_key: status_mantenimiento, $$hashKey: 'object:2616',
-            width: '150'}
+            width: '200'}
           auto_header: true
           tooltip: ''
           border: ''
           foreground: ''
-          rows_per_page: 20
+          rows_per_page: 100
           visible: true
           wrap_on: never
           show_page_controls: true
@@ -133,14 +143,6 @@ components:
               border: '', enabled: true, foreground: '', visible: true, text: '',
               font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
               italic: false, background: 'theme:White', bold: false, underline: false}
-            name: text_box_filtro_status
-            layout_properties: {column: CJCQWT}
-            event_bindings: {change: text_box_fitro_status_change}
-          - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_area
             layout_properties: {column: JEOEIG}
             event_bindings: {change: text_box_filtro_area_change}
@@ -152,7 +154,7 @@ components:
             - type: DatePicker
               properties: {role: null, align: left, max_date: '', pick_time: false,
                 tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
-                visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
+                visible: false, font_size: null, font: '', spacing_above: small, spacing_below: small,
                 italic: false, date: '', min_date: '', background: 'theme:White',
                 bold: false, underline: false, format: '%Y-%m-%d'}
               name: date_picker_filtro_fecha_programada
@@ -163,18 +165,28 @@ components:
               type: Button
               layout_properties: {grid_position: 'HYOJVX,CJYLZQ'}
               event_bindings: {click: button_change_click}
-            - name: drop_down_meses
+            - name: drop_down_filtro_meses
               properties:
-                items: [ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO,
-                  SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE]
+                items: ['']
                 role: outlined
                 foreground: ''
                 background: theme:On Primary
                 include_placeholder: true
                 placeholder: -- MES --
-                visible: false
+                visible: true
               type: DropDown
               layout_properties: {grid_position: 'HYOJVX,CCFHFN MNALRT,VICVIB'}
+              event_bindings: {change: drop_down_filtro_meses_change}
+          - name: drop_down_filtro_status
+            properties:
+              role: outlined
+              background: theme:On Primary
+              items: [PROGRAMADO, REALIZADO, REPROGRAMADO, ATRASADO]
+              include_placeholder: true
+              placeholder: -- TODOS --
+            type: DropDown
+            layout_properties: {column: CJCQWT}
+            event_bindings: {change: drop_down_filtro_status_change}
         - type: RepeatingPanel
           properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_REGISTROS.RowTemplateEditar}
           name: repeating_panel_registros

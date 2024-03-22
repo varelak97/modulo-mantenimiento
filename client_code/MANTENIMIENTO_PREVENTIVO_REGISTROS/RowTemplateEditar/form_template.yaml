@@ -4,7 +4,7 @@ container:
   - {property: tag, code: 'self.item[''actividades'']'}
 components:
 - type: Label
-  properties: {align: center}
+  properties: {align: left}
   name: label_fecha_programada
   layout_properties: {column: YWSDJV}
   data_bindings:
