@@ -76,6 +76,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     augment.set_event_handler(self.outlined_card_req_consumibles_copy,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_inventario,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_inventario,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_mantenimiento_preventivo,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_mantenimiento_preventivo,'mouseleave',self.set_color)
 
     if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.content_panel_general.visible = False
@@ -211,8 +213,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos = self.datos
     datos['tipo'] = "inventario"
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
-
-  def outlined_button_test_click(self, **event_args):
+    
+  def link_mantenimiento_preventivo_click(self, **event_args):
     datos = self.datos
     datos['modo'] = "todos"
     respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")

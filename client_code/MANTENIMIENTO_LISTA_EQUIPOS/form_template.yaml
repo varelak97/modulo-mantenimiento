@@ -173,26 +173,26 @@ components:
           type: Label
           layout_properties: {grid_position: 'FXVIML,KCAEXH'}
       event_bindings: {click: link_solicitudes_mtto_click}
-    - name: flow_panel_inventario_copy
+    - name: flow_panel_mantenimiento_preventivo
       properties: {}
       type: FlowPanel
       layout_properties: {grid_position: 'TUODEU,ACSBOA RBKXIP,YUNUAG'}
       components:
-      - name: link_inventario_copy
+      - name: link_mantenimiento_preventivo
         properties: {}
         type: Link
-        event_bindings: {click: link_inventario_click}
+        event_bindings: {click: link_mantenimiento_preventivo_click}
         components:
-        - name: outlined_card_inventario_copy
+        - name: outlined_card_mantenimiento_preventivo
           properties: {role: elevated-card}
           type: ColumnPanel
           layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
           components:
-          - name: image_inventario_copy
+          - name: image_mantenimiento_preventivo
             properties: {height: '100', source: _/theme/iconos/registros_mtto_preventivo.png}
             type: Image
             layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
-          - name: label_inventario_copy
+          - name: label_mantenimiento_preventivo
             properties: {text: REGISTROS MANTENIMIENTO PREVENTIVO, bold: true, align: center}
             type: Label
             layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
@@ -215,11 +215,6 @@ components:
           type: Label
           layout_properties: {grid_position: 'WMORHY,OYPKVW'}
       event_bindings: {click: link_mtto_autonomo_click}
-    - name: outlined_button_test
-      properties: {text: test, role: outlined-button}
-      type: Button
-      layout_properties: {grid_position: 'TDKNFM,ISHAUT'}
-      event_bindings: {click: outlined_button_test_click}
 - name: content_panel_general
   properties: {visible: true}
   type: ColumnPanel
