@@ -97,15 +97,6 @@ components:
             name: button_borrar_filtros
             layout_properties: {column: IZLTZI}
             event_bindings: {click: button_borrar_filtros_click}
-          - type: DatePicker
-            properties: {role: null, align: left, max_date: '', pick_time: false,
-              tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
-              visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
-              italic: false, date: '', min_date: '', background: 'theme:White', bold: false,
-              underline: false, format: '%Y-%m-%d'}
-            name: date_picker_filtro_fecha_programada
-            layout_properties: {column: YWSDJV}
-            event_bindings: {change: date_picker_filtro_fecha_programada_change}
           - type: TextBox
             properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
               border: '', enabled: true, foreground: '', visible: true, text: '',
@@ -153,6 +144,37 @@ components:
             name: text_box_filtro_area
             layout_properties: {column: JEOEIG}
             event_bindings: {change: text_box_filtro_area_change}
+          - name: column_panel_filtro_fechas
+            properties: {col_widths: '{"FPQSVV":40,"CCFHFN":40,"CJYLZQ":20,"PRFLIU":15,"VICVIB":45}'}
+            type: ColumnPanel
+            layout_properties: {column: YWSDJV}
+            components:
+            - type: DatePicker
+              properties: {role: null, align: left, max_date: '', pick_time: false,
+                tooltip: '', placeholder: '', border: '', enabled: true, foreground: '',
+                visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
+                italic: false, date: '', min_date: '', background: 'theme:White',
+                bold: false, underline: false, format: '%Y-%m-%d'}
+              name: date_picker_filtro_fecha_programada
+              layout_properties: {grid_position: 'HYOJVX,CCFHFN GFJPWK,FPQSVV'}
+              event_bindings: {change: date_picker_filtro_fecha_programada_change}
+            - name: button_change
+              properties: {text: '', icon: 'fa:exchange', role: filled-button, background: 'theme:Orange'}
+              type: Button
+              layout_properties: {grid_position: 'HYOJVX,CJYLZQ'}
+              event_bindings: {click: button_change_click}
+            - name: drop_down_meses
+              properties:
+                items: [ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO,
+                  SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE]
+                role: outlined
+                foreground: ''
+                background: theme:On Primary
+                include_placeholder: true
+                placeholder: -- MES --
+                visible: false
+              type: DropDown
+              layout_properties: {grid_position: 'HYOJVX,CCFHFN MNALRT,VICVIB'}
         - type: RepeatingPanel
           properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PREVENTIVO_REGISTROS.RowTemplateEditar}
           name: repeating_panel_registros

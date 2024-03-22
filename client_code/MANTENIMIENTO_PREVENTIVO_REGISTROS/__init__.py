@@ -149,6 +149,16 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
   def text_box_fitro_status_change(self, **event_args):
     self.filtros()
 
+  def button_change_click(self, **event_args):
+    if self.date_picker_filtro_fecha_programada.visible:
+      self.drop_down_meses.visible = True
+      self.date_picker_filtro_fecha_programada.visible = False
+      self.date_picker_filtro_fecha_programada.date = None
+    else:
+      self.drop_down_meses.visible = False
+      self.drop_down_meses.selected_value = None
+      self.date_picker_filtro_fecha_programada.visible = True
+
 
 
 
