@@ -24,6 +24,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
+    print(datos)
     
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
     self.datos = datos
