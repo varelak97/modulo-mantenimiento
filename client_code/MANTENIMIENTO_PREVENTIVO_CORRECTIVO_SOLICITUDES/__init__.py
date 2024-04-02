@@ -21,6 +21,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
   registros_equipos_vista = None
   ws_areas_vista = None
   registros_areas_vista = None
+
+  libro_usuarios_erp = None
+  ws_usuarios_erp_vista = None
+  registros_usuarios_vista = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -38,8 +42,20 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     self.ws_areas_vista = self.libro_equipos['VISTA_AREAS']
     self.registros_areas_vista = self.ws_areas_vista.rows
 
+    self.libro_usuarios_erp = app_files.usuarios_erp
+    self.ws_usuarios_erp_vista = self.libro_usuarios_erp['Vista']
+    self.registros_usuarios_vista = self.ws_usuarios_erp_vista.rows
+
     self.lista_equipos = self.get_lista_equipos()
     self.drop_down_area.items = self.get_lista_areas()
+
+    if self.datos['id_usuario_erp'] == 58:
+      items = []
+      for row in self.registros_usuarios_vista:
+        items.append((row['nombre_usuario'],{"nombre":row['nombre_usuario'],"numero_empleado":row['numero_empleado']}))
+      self.drop_down_testigo.items = items
+      self.label_testigo.visible = True
+      self.drop_down_testigo.visible = True
 
     if self.datos['modo'] == "editor":
       self.text_box_nombre.enabled = False
@@ -210,10 +226,23 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         self.text_area_anomalia.enabled = False
 
   def text_area_anomalia_change(self, **event_args):
-    if self.text_area_anomalia.text == None or self.text_area_anomalia.text == "":
+    if self.datos['id_usuario_erp'] != 58:
+      if self.text_area_anomalia.text == None or self.text_area_anomalia.text == "":
+        self.button_enviar.enabled = False
+      else:
+        self.button_enviar.enabled = True
+    else:
+      if self.text_area_anomalia.text == None or self.text_area_anomalia.text == "":
+        self.drop_down_testigo.enabled = False
+      else:
+        self.drop_down_testigo.enabled = True
+
+  def drop_down_testigo_change(self, **event_args):
+    if self.drop_down_testigo.selected_value == None:
       self.button_enviar.enabled = False
     else:
       self.button_enviar.enabled = True
+
 
 
 

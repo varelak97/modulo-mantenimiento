@@ -47,10 +47,6 @@ components:
           italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_nombre
         layout_properties: {grid_position: 'UBNREW,QNXUGQ'}
-      - name: drop_down_nombre
-        properties: {visible: false, role: outlined}
-        type: DropDown
-        layout_properties: {grid_position: 'KUOUKB,IEUOHN'}
       - type: TextBox
         properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
           border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
@@ -59,6 +55,7 @@ components:
         name: text_box_nombre
         layout_properties: {grid_position: 'AKZUSZ,OCWWLT'}
         data_bindings: []
+        event_bindings: {}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: 'FECHA Y HORA EN QUE DETECTÓ Y REPORTA LA ANOMALÍA
@@ -192,6 +189,33 @@ components:
       name: text_area_anomalia
       layout_properties: {grid_position: 'GQJQUS,XVNXYP'}
       event_bindings: {change: text_area_anomalia_change}
+    - name: spacer_9
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'VBSMNM,BNSYBV'}
+    - name: label_testigo
+      properties: {text: 'ASIGNAR REPORTE A TESTIGO:', bold: true, visible: false,
+        align: left}
+      type: Label
+      layout_properties: {grid_position: 'VBSMNM,FBHYCD'}
+    - name: spacer_10
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'VBSMNM,QPIRKL'}
+    - name: spacer_11
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'AVNVWB,WZCABT'}
+    - name: drop_down_testigo
+      properties: {visible: false, role: outlined, include_placeholder: true, placeholder: -- SELECCIONA UN USUARIO --,
+        enabled: false}
+      type: DropDown
+      layout_properties: {grid_position: 'AVNVWB,IWXNNV'}
+      event_bindings: {change: drop_down_testigo_change}
+    - name: spacer_12
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'AVNVWB,JHVAGT'}
     - type: Button
       properties: {role: elevated-button, align: center, tooltip: '', border: '',
         enabled: false, foreground: '', visible: true, text: ENVIAR, font_size: null,
