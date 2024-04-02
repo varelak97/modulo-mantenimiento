@@ -104,7 +104,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       self.date_picker_fecha_hora_solicitud.date = self.solicitud_registro_actual['fecha_reporte']
       self.text_box_folio.text = self.solicitud_registro_actual['folio']
       self.text_box_area.text = self.solicitud_registro_actual['area']
-      self.text_box_persona_recibe_conformidad.text = self.solicitud_registro_actual['persona_reporta']
+      self.text_box_persona_recibe_conformidad.text = self.solicitud_registro_actual['persona_reporta'] if self.solicitud_registro_actual['nombre_testigo'] == "" else self.solicitud_registro_actual['nombre_testigo']
       self.text_box_persona_ejecuta_mtto.text = self.datos['nombre_usuario']
       self.text_box_equipo.text = self.solicitud_registro_actual['equipo']
 

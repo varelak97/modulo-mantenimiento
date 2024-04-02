@@ -157,7 +157,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(MANTENIMIENTO_PR
     
     if self.datos['id_usuario_erp'] != 58 and self.datos['id_usuario_erp'] != 884:
       for row in self.ws_consulta_solicitudes_mtto.rows:
-        if row['persona_reporta'] == self.datos['nombre_usuario']:
+        if row['persona_reporta'] == self.datos['nombre_usuario'] or row['nombre_testigo'] == self.datos['nombre_usuario']:
           self.registros_consulta_mtto.append(row)
     else:
       self.registros_mtto = self.ws_solicitudes_mtto.rows #lee todos los registros

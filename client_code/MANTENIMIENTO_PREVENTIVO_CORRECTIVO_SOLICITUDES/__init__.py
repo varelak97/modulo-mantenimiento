@@ -61,6 +61,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       self.text_box_nombre.enabled = False
       self.date_picker_fecha_solicitud.enabled = False
       self.text_area_anomalia.enabled = False
+      self.drop_down_testigo.enabled = True
       self.button_enviar.text = "GUARDAR"
       self.button_enviar.icon = "fa:save"
       self.button_enviar.enabled = True
@@ -73,6 +74,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       self.drop_down_area.enabled = False
       self.drop_down_equipo.enabled = False
       self.text_area_anomalia.enabled = False
+      self.drop_down_testigo.enabled = False
       self.button_enviar.enabled = False
 
   #################################### FUNCIONES PERSONALIZADS ####################################
@@ -99,6 +101,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     self.drop_down_area_change()
     self.text_area_anomalia.text = self.registro_actual['descripcion_anomalia']
     self.drop_down_equipo.selected_value = [equipo[1] for equipo in self.lista_equipos if self.registro_actual['equipo'] in equipo][0]
+    if self.datos['id_usuario_erp'] == 58:
+      if self.registro_actual['nombre_testigo'] != "":
+        self.drop_down_testigo.selected_value = {"nombre":self.registro_actual['nombre_testigo'],"numero_empleado":self.registro_actual['id_usuario_testigo']}
+    
 
   def validar_campos(self):
     dict_solicitud = {}
@@ -118,12 +124,17 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if self.drop_down_equipo.selected_value == None:
       status_validacion = False 
     else: 
-      print(self.drop_down_equipo.selected_value)
       dict_solicitud['equipo'] = self.drop_down_equipo.selected_value['EQUIPO']
     if self.text_area_anomalia.text == "":
       status_validacion = False 
     else: 
       dict_solicitud['descripcion_anomalia'] = self.text_area_anomalia.text
+    if self.datos['id_usuario_erp'] == 58:
+      if self.drop_down_testigo.selected_value == None:
+        status_validacion = False
+      else:
+        dict_solicitud['nombre_testigo'] = self.drop_down_testigo.selected_value['nombre']
+        dict_solicitud['id_usuario_testigo'] = self.drop_down_testigo.selected_value['numero_empleado']
 
     if not status_validacion:
       return status_validacion
@@ -169,9 +180,10 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
     if respuesta == False:
       alert(title="ERROR!", content="Faltan campos por llenar!")
     else:
+      id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
       if self.datos['modo'] == "nuevo":
         with Notification("Guardando registro en la base de datos...", title="GUARDANDO.", style="info"):
-          id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
+          #id_nuevo_solicitud_mtto = (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
           dict_datos = {
             "id_solicitud_mtto":id_nuevo_solicitud_mtto - 292,
             "mtto_realizado": 0,
@@ -200,9 +212,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
       else:
         nuevo_registro = dict(self.registro_actual).copy()
         dict_datos = {
-          "folio": self.get_folio(datetime.now(),self.drop_down_area.selected_value,self.registro_actual['id_solicitud_mtto']),
-          "id_usuario_registrador": "6",
-          "usuario_registrador": "otro usuario",
+          "folio": self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto),
+          "id_usuario_registrador": self.datos['id_usuario_erp'],
+          "usuario_registrador": self.datos['nombre_usuario'],
           "operacion": "edicion",
           "marca_temporal": datetime.now()
         }
@@ -210,7 +222,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
         nuevo_registro.update(respuesta)
         print(f"viejo registro:{self.registro_actual}")
         print(f"nuevo registro:{nuevo_registro}")
-        #self.registro_actual['registro_principal'] = '0'
+        self.registro_actual['registro_principal'] = '0'
+        self.ws_solicitudes.add_row(**nuevo_registro)
 
       self.raise_event("x-close-alert",value="registro_guardado")
       """with Notification("Actualizando base de datos",title="ACTUALIZANDO.", style="info"):

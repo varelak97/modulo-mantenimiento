@@ -116,7 +116,7 @@ components:
     layout_properties: {grid_position: 'IUCWHE,EOELRO'}
   - type: ColumnPanel
     properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"BNSYBV":15,"FBHYCD":30,"QPIRKL":15,"WZCABT":15,"IWXNNV":30,"JHVAGT":15}',
       spacing_below: small, background: ''}
     name: outlined_card_equipo
     layout_properties: {grid_position: 'ZUFBXK,DASTTX'}
@@ -194,8 +194,8 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'VBSMNM,BNSYBV'}
     - name: label_testigo
-      properties: {text: 'ASIGNAR REPORTE A TESTIGO:', bold: true, visible: false,
-        align: left}
+      properties: {text: 'PERSONA QUE VALIDA MANTENIMIENTO REALIZADO:', bold: true,
+        visible: false, align: left}
       type: Label
       layout_properties: {grid_position: 'VBSMNM,FBHYCD'}
     - name: spacer_10
