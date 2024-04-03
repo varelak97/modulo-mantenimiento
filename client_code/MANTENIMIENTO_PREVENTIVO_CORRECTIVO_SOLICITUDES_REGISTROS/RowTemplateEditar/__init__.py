@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ..opciones_edicion import opciones_edicion
+import anvil.js
 
 class RowTemplateEditar(RowTemplateEditarTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -41,6 +42,9 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
         datos['modo'] = "visor_by_folio"
       self.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_reporte', datos=datos)
     
+  def link_fotos_click(self, **event_args):
+    if self.label_fotos.text != "NA":
+      js.call('openURL', self.link_fotos.tag)
     
   """def button_editar_click(self, **event_args):
     datos = {}
@@ -65,4 +69,6 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
         self.parent.parent.parent.parent.parent.parent.raise_event('x-programar_mantenimiento',datos=datos)
     elif respuesta == "ver_reporte":
       alert("Aqui va el reporte...",title="FORMULARIO REPORTE")"""
+
+  
 

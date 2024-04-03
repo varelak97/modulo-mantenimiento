@@ -78,5 +78,25 @@ components:
     properties: {icon: 'fa:file-picture-o', align: center, font_size: 22}
     type: Label
     layout_properties: {grid_position: 'OFAYNA,TRCGRJ'}
+    data_bindings:
+    - {property: text, code: '"NA" if self.item[''url_fotos_reporte''] == "" else
+        ""', writeback: false}
+    - {property: icon, code: '"fa:file-picture-o" if self.item[''url_fotos_reporte'']
+        != "" else ""', writeback: false}
+  event_bindings: {click: link_fotos_click}
+  data_bindings:
+  - {property: tag, code: 'self.item[''url_fotos_reporte'']', writeback: false}
+- name: label_autor_solicitud
+  properties: {}
+  type: Label
+  layout_properties: {column: YQPZLW}
+  data_bindings: []
+- name: label_nombre_validador
+  properties: {}
+  type: Label
+  layout_properties: {column: NSDTFQ}
+  data_bindings:
+  - {property: text, code: 'self.item[''nombre_testigo''] if self.item[''nombre_testigo'']
+      != "" else self.item[''persona_reporta'']', writeback: false}
 is_package: true
 data_bindings: []

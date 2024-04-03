@@ -121,7 +121,8 @@ components:
             $$hashKey: 'object:234240', width: '300'}
           - {id: YQPZLW, data_key: column_1, title: PERSONAL QUE REALIZA REPORTE,
             width: '300'}
-          - {id: NSDTFQ, data_key: column_2, title: PERSONAL QUE VALIDA REPORTE, width: '300'}
+          - {id: NSDTFQ, data_key: persona_valida_reporte, title: PERSONAL QUE VALIDA REPORTE,
+            width: '300'}
           auto_header: true
           tooltip: ''
           border: ''
