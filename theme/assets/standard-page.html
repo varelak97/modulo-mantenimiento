@@ -124,6 +124,10 @@
     }
   }
 
+  function openURL(url)
+  {
+    window.open(url);
+  }
   function add_scroll_event(maingrid, auxgrid) {
     auxgrid.addEventListener("scroll", function(){
       mover(maingrid, auxgrid, true);

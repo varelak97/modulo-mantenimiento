@@ -81,6 +81,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.repeating_panel_comentarios.items = comentarios
     self.button_agregar_comentario.enabled = True
     self.button_guardar.enabled = True
+    for index, item in enumerate(comentarios):
+      if "https" in item['comentario']:
+        filas = self.repeating_panel_comentarios.get_components()
+        componentes_fila = filas[index].get_components()
+        componentes_fila[5].visible = True
+        componentes_fila[5].text = f"Fotos del reporte: {self.text_box_folio.text}"
+        componentes_fila[4].visible = False
+        componentes_fila[3].visible = False
     
   def eliminar_comentario(self, indice, **event_args):
     comentarios = self.repeating_panel_comentarios.items
@@ -158,7 +166,15 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.date_picker_fecha_hora_final.date = registro['fecha_hora_final']
     self.text_box_persona_ejecuta_mtto.text = registro['persona_ejecuta_mtto']
     self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']
-    self.repeating_panel_comentarios.items = eval(registro['comentarios_mantenimiento']) if registro['comentarios_mantenimiento'] != "" else None
+    comentarios = eval(registro['comentarios_mantenimiento']) if registro['comentarios_mantenimiento'] != "" else None
+    self.repeating_panel_comentarios.items = comentarios
+    for index, item in enumerate(comentarios):
+      if "https" in item['comentario']:
+        filas = self.repeating_panel_comentarios.get_components()
+        componentes_fila = filas[index].get_components()
+        componentes_fila[5].visible = True
+        componentes_fila[4].visible = False
+        componentes_fila[3].visible = False
 
   def valida_campos(self):
     status = True

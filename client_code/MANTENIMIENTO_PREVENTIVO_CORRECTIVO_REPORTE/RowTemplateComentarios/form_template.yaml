@@ -1,5 +1,7 @@
 is_package: true
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  data_bindings: []
 components:
 - name: label_index
   properties: {align: center, bold: true}
@@ -12,6 +14,7 @@ components:
   type: Button
   layout_properties: {column: OJLQEN}
   event_bindings: {click: button_editar_click}
+  data_bindings: []
 - name: button_borrar
   properties: {text: '', icon: 'fa:times', role: filled-button, background: 'theme:Red'}
   type: Button
@@ -43,3 +46,10 @@ components:
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: text, code: 'self.item[''comentario'']', writeback: false}
+- name: link_comentarios
+  properties: {text: 'Fotos del reporte: XXX', visible: false}
+  type: Link
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: tag, code: 'self.item[''comentario'']', writeback: false}
+  event_bindings: {click: link_comentarios_click}

@@ -3,6 +3,7 @@ from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+import anvil.js
 
 class RowTemplateComentarios(RowTemplateComentariosTemplate):
   def __init__(self, **properties):
@@ -13,6 +14,7 @@ class RowTemplateComentarios(RowTemplateComentariosTemplate):
   def button_editar_click(self, **event_args):
     self.column_panel_comentario.visible = True
     self.label_comentario.visible = False
+    self.link_comentarios.visible = False
     self.parent.parent.parent.parent.parent.parent.parent.raise_event('x-editar_comentario')
 
   def button_guardar_click(self, **event_args):
@@ -26,3 +28,6 @@ class RowTemplateComentarios(RowTemplateComentariosTemplate):
   def button_borrar_click(self, **event_args):
     indice = int(self.label_index.text) - 1
     self.parent.parent.parent.parent.parent.parent.parent.raise_event('x-eliminar_comentario', indice = indice)
+
+  def link_comentarios_click(self, **event_args):
+    js.call('openURL', self.link_comentarios.tag)
