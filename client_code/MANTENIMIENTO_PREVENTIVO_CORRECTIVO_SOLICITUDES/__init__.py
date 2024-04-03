@@ -211,8 +211,9 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(MANTENIMIENTO_PREVENTIVO_C
           self.drop_down_area_change()
       else:
         nuevo_registro = dict(self.registro_actual).copy()
+        folio_anterior = nuevo_registro['folio'].split('-')
         dict_datos = {
-          "folio": self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto),
+          "folio": f"{folio_anterior[0]}-{self.drop_down_area.selected_value}-{folio_anterior[2]}",#self.get_folio(datetime.now(),self.drop_down_area.selected_value,id_nuevo_solicitud_mtto),
           "id_usuario_registrador": self.datos['id_usuario_erp'],
           "usuario_registrador": self.datos['nombre_usuario'],
           "operacion": "edicion",
