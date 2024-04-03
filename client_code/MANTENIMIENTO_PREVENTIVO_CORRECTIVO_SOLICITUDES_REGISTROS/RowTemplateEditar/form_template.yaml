@@ -69,5 +69,10 @@ components:
     - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado'']))
         else "fa:clock-o"', writeback: false}
   event_bindings: {click: link_status_click}
+- name: link_1
+  properties: {icon: 'fa:file-photo-o', icon_align: left, align: center}
+  type: Link
+  layout_properties: {column: HBNXIZ}
+  data_bindings: []
 is_package: true
 data_bindings: []
