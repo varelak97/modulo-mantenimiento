@@ -69,5 +69,9 @@ components:
     - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado'']))
         else "fa:clock-o"', writeback: false}
   event_bindings: {click: link_status_click}
+- name: link_fotos
+  properties: {icon: 'fa:file-picture-o', align: center, font_size: 22}
+  type: Link
+  layout_properties: {column: CRDPPG}
 is_package: true
 data_bindings: []
