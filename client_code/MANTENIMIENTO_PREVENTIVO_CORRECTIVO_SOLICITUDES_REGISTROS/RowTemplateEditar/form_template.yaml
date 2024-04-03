@@ -70,8 +70,13 @@ components:
         else "fa:clock-o"', writeback: false}
   event_bindings: {click: link_status_click}
 - name: link_fotos
-  properties: {icon: 'fa:file-picture-o', align: center, font_size: 22}
+  properties: {}
   type: Link
   layout_properties: {column: CRDPPG}
+  components:
+  - name: label_fotos
+    properties: {icon: 'fa:file-picture-o', align: center, font_size: 22}
+    type: Label
+    layout_properties: {grid_position: 'OFAYNA,TRCGRJ'}
 is_package: true
 data_bindings: []
