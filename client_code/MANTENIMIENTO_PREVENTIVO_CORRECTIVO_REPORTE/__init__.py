@@ -168,13 +168,14 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
     self.text_box_persona_recibe_conformidad.text = registro['persona_recibe_conformidad']
     comentarios = eval(registro['comentarios_mantenimiento']) if registro['comentarios_mantenimiento'] != "" else None
     self.repeating_panel_comentarios.items = comentarios
-    for index, item in enumerate(comentarios):
-      if "https" in item['comentario']:
-        filas = self.repeating_panel_comentarios.get_components()
-        componentes_fila = filas[index].get_components()
-        componentes_fila[5].visible = True
-        componentes_fila[4].visible = False
-        componentes_fila[3].visible = False
+    if comentarios != None:
+      for index, item in enumerate(comentarios):
+        if "https" in item['comentario']:
+          filas = self.repeating_panel_comentarios.get_components()
+          componentes_fila = filas[index].get_components()
+          componentes_fila[5].visible = True
+          componentes_fila[4].visible = False
+          componentes_fila[3].visible = False
 
   def valida_campos(self):
     status = True
