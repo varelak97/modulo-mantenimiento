@@ -176,6 +176,8 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           componentes_fila[5].visible = True
           componentes_fila[4].visible = False
           componentes_fila[3].visible = False
+          componentes_fila[5].text = f"Fotos del reporte: {self.text_box_folio.text}"
+          
 
   def valida_campos(self):
     status = True
