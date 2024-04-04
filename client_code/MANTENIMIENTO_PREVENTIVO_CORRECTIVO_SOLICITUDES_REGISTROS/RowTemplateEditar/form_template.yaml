@@ -75,7 +75,7 @@ components:
   layout_properties: {column: CRDPPG}
   components:
   - name: label_fotos
-    properties: {icon: 'fa:file-picture-o', align: center, font_size: 22}
+    properties: {icon: 'fa:file-picture-o', align: center, font_size: null}
     type: Label
     layout_properties: {grid_position: 'OFAYNA,TRCGRJ'}
     data_bindings:
