@@ -303,7 +303,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
 
           for item in self.solicitudes_mtto:
-            if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
+            if item['folio'] == registro_edicion['folio'] and item['registro_principal'] == '1':
               self.solicitud_registro_actual = item
               break
 
