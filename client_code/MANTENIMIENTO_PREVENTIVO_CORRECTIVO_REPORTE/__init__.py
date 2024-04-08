@@ -302,6 +302,11 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion['comentarios'] = "reporte editado"
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
 
+          for item in self.solicitudes_mtto:
+            if item['id_solicitud_mtto'] == self.datos['id_solicitud_mtto'] and item['registro_principal'] == '1':
+              self.solicitud_registro_actual = item
+              break
+
           registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
           self.solicitud_registro_actual['registro_principal'] = 0
 
