@@ -246,8 +246,17 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
       if self.datos['modo'] == "nuevo":
         with Notification("Guardando reporte...", title="GUARDANDO.", style="info"):
           comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
+          
+          url_fotos_reporte = ""
+          if comentarios != "":
+            for item in comentarios:
+              if "https" in item['comentario']:
+                url_fotos_reporte = item['comentario']
+                break
+                
           respuesta['id_mtto_preventivo_correctivo'] = (max([int(item['id_mtto_preventivo_correctivo']) for item in self.mtto_corr_prev_todos]) + 1) if len(self.mtto_corr_prev_todos) > 0 else 1
           respuesta['descripcion_problema'] = self.solicitud_registro_actual['descripcion_anomalia']
+          respuesta['url_fotos_reporte'] = url_fotos_reporte
           respuesta['comentarios_mantenimiento'] = comentarios
           respuesta['id_usuario_registrador'] = self.datos['id_usuario_erp']
           respuesta['usuario_registrador'] = self.datos['nombre_usuario']
@@ -259,12 +268,6 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           
           registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
           self.solicitud_registro_actual['registro_principal'] = 0
-          url_fotos_reporte = ""
-          if comentarios != "":
-            for item in comentarios:
-              if "https" in item['comentario']:
-                url_fotos_reporte = item['comentario']
-                break
 
           registro_solicitud_editado['id_usuario_registrador'] = self.datos['id_usuario_erp']
           registro_solicitud_editado['usuario_registrador'] = self.datos['nombre_usuario']
@@ -298,6 +301,19 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion['operacion'] = "edicion"
           registro_edicion['comentarios'] = "reporte editado"
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
+
+          registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
+          self.solicitud_registro_actual['registro_principal'] = 0
+
+          registro_solicitud_editado['id_usuario_registrador'] = self.datos['id_usuario_erp']
+          registro_solicitud_editado['usuario_registrador'] = self.datos['nombre_usuario']
+          registro_solicitud_editado['operacion'] = "edicion"
+          registro_solicitud_editado['marca_temporal'] = datetime.now()
+          registro_solicitud_editado['mtto_realizado'] = 1
+          registro_solicitud_editado['url_fotos_reporte'] = url_fotos_reporte
+          self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
+
+        
         Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
         self.raise_event("x-close-alert",value="registro_guardado")
       elif self.datos['modo'] == "validacion":
