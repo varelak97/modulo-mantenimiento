@@ -302,21 +302,26 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion['comentarios'] = "reporte editado"
           self.ws_mtto_corr_prev.add_row(**registro_edicion)
 
-          for item in self.solicitudes_mtto:
-            if item['folio'] == registro_edicion['folio'] and item['registro_principal'] == '1':
-              self.solicitud_registro_actual = item
-              break
+          if url_fotos_reporte != "":
+            self.libro_solicitudes_mtto = app_files.mantenimiento_solicitudes
+            self.ws_solicitudes_mtto = self.libro_solicitudes_mtto['Registros']
+            self.solicitudes_mtto = self.ws_solicitudes_mtto.rows
 
-          registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
-          self.solicitud_registro_actual['registro_principal'] = 0
-
-          registro_solicitud_editado['id_usuario_registrador'] = self.datos['id_usuario_erp']
-          registro_solicitud_editado['usuario_registrador'] = self.datos['nombre_usuario']
-          registro_solicitud_editado['operacion'] = "edicion"
-          registro_solicitud_editado['marca_temporal'] = datetime.now()
-          registro_solicitud_editado['mtto_realizado'] = 1
-          registro_solicitud_editado['url_fotos_reporte'] = url_fotos_reporte
-          self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
+            for item in self.solicitudes_mtto:
+              if item['folio'] == registro_edicion['folio'] and item['registro_principal'] == '1':
+                self.solicitud_registro_actual = item
+                break
+  
+            registro_solicitud_editado = dict(self.solicitud_registro_actual).copy() #self.solicitud_registro_actual['mtto_realizado'] = 1 
+            self.solicitud_registro_actual['registro_principal'] = 0
+  
+            registro_solicitud_editado['id_usuario_registrador'] = self.datos['id_usuario_erp']
+            registro_solicitud_editado['usuario_registrador'] = self.datos['nombre_usuario']
+            registro_solicitud_editado['operacion'] = "edicion"
+            registro_solicitud_editado['marca_temporal'] = datetime.now()
+            registro_solicitud_editado['mtto_realizado'] = 1
+            registro_solicitud_editado['url_fotos_reporte'] = url_fotos_reporte
+            self.ws_solicitudes_mtto.add_row(**registro_solicitud_editado)
 
         
         Notification("Reporte guardado correctamente!", title="ÉXITO!", style="success").show()
