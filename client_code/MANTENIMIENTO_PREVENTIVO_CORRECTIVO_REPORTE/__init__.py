@@ -292,7 +292,7 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           registro_edicion.update(respuesta)
           registro_edicion['marca_temporal'] = datetime.now()
           registro_edicion['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
-          url_fotos_reporte['url_fotos_reporte'] = url_fotos_reporte
+          registro_edicion['url_fotos_reporte'] = url_fotos_reporte
           registro_edicion['id_usuario_registrador'] = self.datos['id_usuario_erp']
           registro_edicion['usuario_registrador'] = self.datos['nombre_usuario']
           registro_edicion['operacion'] = "edicion"
