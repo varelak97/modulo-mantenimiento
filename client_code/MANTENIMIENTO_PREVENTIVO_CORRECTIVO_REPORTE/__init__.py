@@ -278,11 +278,21 @@ class MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(MANTENIMIENTO_PREVENTIVO_CORRE
           ##################### seguir aqui!!!!!!!!!!!!!!!!! ##############################
       elif self.datos['modo'] == "editor":   
         with Notification("Actualizando reporte...", title="GUARDANDO.", style="info"):
+          comentarios = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
           registro_edicion = dict(self.mtto_corr_prev_reporte).copy() 
           self.mtto_corr_prev_reporte['registro_principal'] = 0
+
+          url_fotos_reporte = ""
+          if comentarios != "":
+            for item in comentarios:
+              if "https" in item['comentario']:
+                url_fotos_reporte = item['comentario']
+                break
+          
           registro_edicion.update(respuesta)
           registro_edicion['marca_temporal'] = datetime.now()
           registro_edicion['comentarios_mantenimiento'] = self.repeating_panel_comentarios.items if self.repeating_panel_comentarios.items != None else ""
+          url_fotos_reporte['url_fotos_reporte'] = url_fotos_reporte
           registro_edicion['id_usuario_registrador'] = self.datos['id_usuario_erp']
           registro_edicion['usuario_registrador'] = self.datos['nombre_usuario']
           registro_edicion['operacion'] = "edicion"
