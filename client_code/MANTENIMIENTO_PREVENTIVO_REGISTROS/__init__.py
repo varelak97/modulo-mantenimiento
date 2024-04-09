@@ -60,7 +60,11 @@ class MANTENIMIENTO_PREVENTIVO_REGISTROS(MANTENIMIENTO_PREVENTIVO_REGISTROSTempl
     if len(self.text_box_filtro_equipo.text) > 0:
       items = [item for item in items if str(self.text_box_filtro_equipo.text).upper() in str(item['equipo'])]
     if self.drop_down_filtro_status.selected_value != None:
-      items = [item for item in items if item['status_mantenimiento'] == self.drop_down_filtro_status.selected_value]
+      status = self.drop_down_filtro_status.selected_value
+      if status == "PROGRAMADO":
+        items = [item for item in items if item['status_mantenimiento'] == status or item['status_mantenimiento'] == "REALIZADO"]
+      else:
+        items = [item for item in items if item['status_mantenimiento'] == status]
     
     if self.drop_down_filtro_frecuencia.selected_value != None:
       items = [item for item in items if item['frecuencia'] == self.drop_down_filtro_frecuencia.selected_value]
