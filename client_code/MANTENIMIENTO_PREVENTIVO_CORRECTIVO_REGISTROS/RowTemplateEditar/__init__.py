@@ -18,3 +18,7 @@ class RowTemplateEditar(RowTemplateEditarTemplate):
         texto += comentario['comentario']
         texto += '\n'
     return texto
+
+  def link_fotos_click(self, **event_args):
+    if self.label_fotos.text != "NA":
+      js.call('openURL', self.link_fotos.tag)

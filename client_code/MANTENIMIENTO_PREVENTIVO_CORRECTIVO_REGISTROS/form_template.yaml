@@ -49,7 +49,7 @@ components:
       - name: data_grid_aux
         properties:
           columns:
-          - {id: JKSDUP, title: Column 1, data_key: column_1, width: '80'}
+          - {id: JKSDUP, title: Column 1, data_key: column_1, width: '460'}
           - {id: VJQQOR, title: Column 2, data_key: column_2, width: '250'}
           - {id: OJLQEN, title: Column 3, data_key: column_3, width: '250'}
           - {id: VSRTUR, data_key: column_4, title: Column 4, width: '250'}
@@ -77,6 +77,7 @@ components:
           role: wide-tonal-data-grid
           columns:
           - {id: OIYETW, data_key: editar, title: '', width: '80'}
+          - {id: EXAZGT, data_key: fotos, title: FOTOS, width: '80'}
           - {id: POIVGQ, title: FOLIO, data_key: folio, $$hashKey: 'object:25130',
             width: '250'}
           - {id: QJQSHC, title: ÁREA, data_key: area, $$hashKey: 'object:25131', width: '250'}
@@ -95,7 +96,7 @@ components:
           - {id: GGGTRK, title: FECHA Y HORA INICIAL, data_key: fecha_hora_inicial,
             $$hashKey: 'object:25270', width: '200'}
           - {id: MRYLSD, title: ACTIVIDADES DEL MANTENIMIENTO, data_key: actividades_mantenimiento,
-            $$hashKey: 'object:25272', width: '400'}
+            $$hashKey: 'object:25272', width: '700'}
           - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO,
             width: '400'}
           - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274',
@@ -115,9 +116,9 @@ components:
         layout_properties: {grid_position: 'SLDNDB,QPUADC', full_width_row: true}
         components:
         - type: DataRowPanel
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            auto_display_data: true, visible: true, item: null, font_size: null, font: '',
-            spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
+          properties: {role: fijar-rowpanel, align: left, tooltip: '', border: '',
+            foreground: '', auto_display_data: true, visible: true, item: null, font_size: null,
+            font: '', spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
             bold: false, underline: false}
           name: data_row_panel_filtros
           layout_properties: {}
