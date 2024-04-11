@@ -19,10 +19,9 @@ class RowTemplateLinks(RowTemplateLinksTemplate):
     
   ########################################################### EVENTOS ###########################################################
   def button_llenar_checklist_click(self, **event_args):
-    #print(self.parent.parent.parent.popper.parent.tag)
     datos = {}
     datos['clave_form'] = 'MANTENIMIENTO_PREVENTIVO_CHECKLIST'
-    datos['modo'] = "checklist"
+    datos['modo'] = "checklist" if self.button_ver_checklist.visible == False else "editor"
     datos['id_mtto_preventivo'] = self.label_equipo.tag
     self.parent.parent.parent.popper.pop("hide")
     self.parent.parent.parent.popper.parent.parent.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_form_activo', datos=datos)

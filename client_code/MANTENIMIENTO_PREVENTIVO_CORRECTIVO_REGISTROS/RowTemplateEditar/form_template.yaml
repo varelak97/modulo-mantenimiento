@@ -72,6 +72,7 @@ components:
   layout_properties: {column: OIYETW}
   data_bindings:
   - {property: tag, code: 'self.item[''id_mtto_preventivo_correctivo'']', writeback: false}
+  event_bindings: {}
 - name: label_comentarios_mtto
   properties: {}
   type: Label

@@ -1,5 +1,7 @@
 is_package: true
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  data_bindings: []
 components:
 - name: label_equipo
   properties: {spacing_below: none, spacing_above: none, bold: true, foreground: 'theme:Primary'}

@@ -40,8 +40,10 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
         item['no'] = False
     
     self.repeating_panel_registros.items = lista
+
+    print(f"modo:{datos['modo']}")
     
-    if datos['modo'] == "ver_checklist":
+    if datos['modo'] == "ver_checklist" or datos['modo'] == "editor":
       equipos = ["HORNO 1", "HORNO 2", "HORNO 3", "HORNO 4", "HORNO 5"]
       if self.registro_equipo['equipo'] in equipos and self.registro_equipo['frecuencia'] == "SEMANAL":
         self.button_reporte_luz_resistencia.visible = True
@@ -49,7 +51,8 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       self.date_picker_fecha_hora_inicio.date = self.registro_equipo['fecha_hora_inicio']
       self.date_picker_fecha_hora_termino.date = self.registro_equipo['fecha_hora_final']
       self.repeating_panel_comentarios.items = eval(self.registro_equipo['comentarios_mantenimiento'])#self.get_comentarios(self.registro_equipo['comentarios_mantenimiento'])
-      self.disable_componentes_form()
+      if datos['modo'] == "ver_checklist":
+        self.disable_componentes_form()
     else:
       self.text_box_nombre.text = self.datos['nombre_usuario']
         #componentes_row[4].enabled = False
