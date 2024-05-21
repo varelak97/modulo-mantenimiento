@@ -199,7 +199,7 @@ components:
     - name: link_mtto_autonomo
       properties: {}
       type: Link
-      layout_properties: {grid_position: 'TUODEU,XAIAWO'}
+      layout_properties: {grid_position: 'TUODEU,XAIAWO SXNKAN,IVRXLG'}
       components:
       - name: outlined_card_mtto_autonomo
         properties: {role: elevated-card}
@@ -215,6 +215,29 @@ components:
           type: Label
           layout_properties: {grid_position: 'WMORHY,OYPKVW'}
       event_bindings: {click: link_mtto_autonomo_click}
+    - name: flow_panel_control_herramentales
+      properties: {}
+      type: FlowPanel
+      layout_properties: {grid_position: 'TUODEU,XAIAWO NFSMSU,PSYASC'}
+      components:
+      - name: link_control_herramentales
+        properties: {}
+        type: Link
+        event_bindings: {click: link_control_herramentales_click}
+        components:
+        - name: outlined_card_control_herramentales
+          properties: {role: elevated-card}
+          type: ColumnPanel
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          components:
+          - name: image_control_herramentales
+            properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
+            type: Image
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+          - name: label_control_herramentales
+            properties: {text: CONTROL DE HERRAMENTALES, bold: true, align: center}
+            type: Label
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
 - name: content_panel_general
   properties: {visible: true}
   type: ColumnPanel
