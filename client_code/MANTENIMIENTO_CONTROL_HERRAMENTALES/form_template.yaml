@@ -3,7 +3,7 @@ components:
 - name: content_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'RIEBTU,GDKATN'}
+  layout_properties: {grid_position: 'RIEBTU,GDKATN', full_width_row: true}
   components:
   - name: outlined_card_title
     properties: {role: elevated-card, background: 'theme:Primary'}
@@ -20,7 +20,7 @@ components:
   - name: outlined_card_body
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'WNVMKG,VHSWPG'}
+    layout_properties: {grid_position: 'WNVMKG,VHSWPG', full_width_row: true}
     components:
     - name: button_actualizar
       properties: {text: ACTUALIZAR, role: filled-button, icon: 'fa:refresh', bold: true}
@@ -43,5 +43,5 @@ components:
       - name: repeating_panel_herramentales
         properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.RowTemplate12}
         type: RepeatingPanel
-      layout_properties: {grid_position: 'NEXOXL,LERAIR'}
+      layout_properties: {grid_position: 'NEXOXL,LERAIR', full_width_row: true}
 is_package: true

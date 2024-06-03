@@ -6,8 +6,7 @@ from anvil.google.drive import app_files
 
 
 class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTemplate):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+  datos = None
+  def __init__(self, datos, **properties):
     self.init_components(**properties)
-
-    # Any code you write here will run before the form opens.
+    datos = self.datos

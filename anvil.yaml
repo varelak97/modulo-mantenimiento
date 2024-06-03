@@ -406,6 +406,64 @@ services:
         vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1W9JUiCBkbmUqaaWQlZZ8v1hJwc5bRtgP7yOsHY4EBMs&exportFormat=ods'}
       thumbnailLink: https://lh3.googleusercontent.com/drive-storage/ANtge_EzT02XLQCy70YaQIv1E0YlMV7Ek3-ax_7pYbd1ADGxWAZTTYPLBfGdALMSPgupBlqHAUIqYH6i2jCMoSXWGzIh4j0NVNiZlJlUFX56LLGpCB9FgMsyZoQ=s220
       ownerNames: [ERP ENSEL]
+    - capabilities: {canEdit: true, canCopy: true}
+      editable: true
+      copyable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4/htmlembed?ouid=111452219040835203177
+      copyRequiresWriterPermission: false
+      python_name: control_herramentales
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIzVjfOLg7L9jNP-PsaTZo4D_mGJGwRt_PxHvtY6tSpex_7=s64'}
+      shared: true
+      createdDate: '2024-05-21T21:31:54.053Z'
+      id: 1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4
+      owners:
+      - displayName: ERP ENSEL
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06466331473864975350
+        emailAddress: erp@ensel.org
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIzVjfOLg7L9jNP-PsaTZo4D_mGJGwRt_PxHvtY6tSpex_7=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4/parents/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n',
+        id: 1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n, isRoot: false, kind: drive#parentReference,
+        parentLink: 'https://www.googleapis.com/drive/v2/files/1g46vh97mQOUrD3JjA-dqKKZdTBLxnf9n'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      selfLink: https://www.googleapis.com/drive/v2/files/1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4
+      lastViewedByMeDate: '2024-06-03T18:46:13.234Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4/permissions/me',
+        etag: '"GbHb1vk1VwwMIh782EHHi2Q9VqI"', pendingOwner: false}
+      lastModifyingUserName: ERP ENSEL
+      etag: '"MTcxNzQ0MDM3MzIzNA"'
+      kind: drive#file
+      modifiedByMeDate: '2024-06-03T18:46:13.234Z'
+      title: CONTROL_HERRAMENTALES
+      version: '64'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '2052'
+      alternateLink: https://docs.google.com/spreadsheets/d/1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4/edit?usp=drivesdk
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2024-06-03T18:46:13.234Z'
+      quotaBytesUsed: '2052'
+      exportLinks: {x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=ods',
+        tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=tsv',
+        pdf: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=pdf',
+        vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=xlsx',
+        csv: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=csv',
+        zip: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=zip',
+        vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4&exportFormat=ods'}
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBMhAVCZJKdiey9p9THSLl0fMkQEqVkoe-IYnEqaiO0Saszh19bzx2-nWAVAT3M63QeASkq6T95LSqWEuIE_McxTtaQfYHZpg9Aklj33EU-xZo8aEjyCupokpne5=s220
+      ownerNames: [ERP ENSEL]
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
