@@ -29,9 +29,14 @@ components:
     - name: data_grid_herramentales
       properties:
         columns:
-        - {id: JKSDUP, title: Column 1, data_key: column_1}
-        - {id: VJQQOR, title: Column 2, data_key: column_2, width: 312, expand: false}
-        - {id: OJLQEN, title: Column 3, data_key: column_3}
+        - {id: JKSDUP, title: '', data_key: editar, width: '100'}
+        - {id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, data_key: codigo_herramental,
+          width: '200', expand: false}
+        - {id: OJLQEN, title: DESCRIPCIÓN, data_key: descripcion, width: '300', expand: false}
+        - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '200'}
+        - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL, width: '200'}
+        - {id: JWMLVC, data_key: alerta, title: ALERTA, width: '200'}
+        - {id: WWXEME, data_key: contador, title: CONTADOR, width: '150'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:
