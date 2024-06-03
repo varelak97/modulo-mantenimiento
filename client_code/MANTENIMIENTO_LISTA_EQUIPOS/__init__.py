@@ -221,5 +221,7 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
 
   def link_control_herramentales_click(self, **event_args):
     datos = self.datos
+    datos['modo'] = "todos"
+    respuesta = alert(content = MANTENIMIENTO_PREVENTIVO_REGISTROS(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     
       
