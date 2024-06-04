@@ -1,3 +1,43 @@
 is_package: true
 container: {type: DataRowPanel}
-components: []
+components:
+- name: button_editar
+  properties: {text: '', icon: 'fa:edit', font_size: null}
+  type: Button
+  layout_properties: {column: JKSDUP}
+- name: label_codigo_herramental
+  properties: {bold: false, foreground: ''}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''codigo_herramental'']', writeback: false}
+- name: label_vida_util
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: XCLKEX}
+  data_bindings:
+  - {property: text, code: 'self.item[''vida_util'']', writeback: false}
+- name: label_alerta
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: JWMLVC}
+  data_bindings:
+  - {property: text, code: 'self.item[''alerta'']', writeback: false}
+- name: label_contador
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: WWXEME}
+  data_bindings:
+  - {property: text, code: 'self.item[''contador'']', writeback: false}
+- name: label_descripcion
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''descripcion'']', writeback: false}
+- name: label_ubicacion
+  properties: {bold: false}
+  type: Label
+  layout_properties: {column: IEFKUK}
+  data_bindings:
+  - {property: text, code: 'self.item[''ubicacion'']', writeback: false}
