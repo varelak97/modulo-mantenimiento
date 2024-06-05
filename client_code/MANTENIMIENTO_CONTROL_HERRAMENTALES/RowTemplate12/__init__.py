@@ -10,4 +10,4 @@ class RowTemplate12(RowTemplate12Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.label_status.tag, id_usuario_erp),title=self.label_equipo.text, trigger="click",max_width="450px")
+    #self.button_editar.popover(content=opciones_edicion(self.button_editar.tag, self.label_status.tag, id_usuario_erp),title=self.label_equipo.text, trigger="click",max_width="450px")

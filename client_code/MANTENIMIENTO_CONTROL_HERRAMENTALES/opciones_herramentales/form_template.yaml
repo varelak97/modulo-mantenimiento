@@ -1,7 +1,11 @@
 container: {type: ColumnPanel}
 components:
-- name: button_1
-  properties: {text: button_1}
+- name: button_ver
+  properties: {text: VER HOJA TÉCNICA, icon: 'fa:eye', bold: true, align: left}
   type: Button
   layout_properties: {grid_position: 'YVACDA,PNFSMG'}
+- name: button_editar
+  properties: {text: EDITAR HERRAMENTAL, icon: 'fa:edit', bold: true, align: left}
+  type: Button
+  layout_properties: {grid_position: 'PESSKW,EXGRNX'}
 is_package: true

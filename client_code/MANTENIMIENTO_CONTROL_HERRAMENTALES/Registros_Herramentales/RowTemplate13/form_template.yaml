@@ -1,0 +1,29 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: button_editar
+  properties: {text: '', bold: true, icon: 'fa:edit'}
+  type: Button
+  layout_properties: {column: JKSDUP}
+- name: label_fecha_programada
+  properties: {}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_programada'']', writeback: false}
+- name: label_numero_parte
+  properties: {}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''numero_parte'']', writeback: false}
+- name: label_tipo_suaje
+  properties: {}
+  type: Label
+  layout_properties: {column: TQAONH}
+  data_bindings:
+  - {property: text, code: 'self.item[''tipo_suaje'']', writeback: false}
+- name: label_suajes_programados
+  properties: {}
+  type: Label
+  layout_properties: {column: NLQEOC}

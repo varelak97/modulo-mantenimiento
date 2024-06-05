@@ -41,3 +41,7 @@ components:
   layout_properties: {column: IEFKUK}
   data_bindings:
   - {property: text, code: 'self.item[''ubicacion'']', writeback: false}
+- name: button_ubicar
+  properties: {text: UBICAR, bold: true, icon: 'fa:search', role: filled-button, background: 'theme:Green'}
+  type: Button
+  layout_properties: {column: ISLAHB}

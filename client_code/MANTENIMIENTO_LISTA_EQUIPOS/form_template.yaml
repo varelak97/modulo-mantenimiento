@@ -6,13 +6,13 @@ components:
   layout_properties: {grid_position: 'YEBQKU,YRZNNA'}
   components:
   - name: outlined_card_title
-    properties: {role: elevated-card, background: 'theme:Primary'}
+    properties: {role: elevated-card, background: ''}
     type: ColumnPanel
     layout_properties: {grid_position: 'ASKKYO,BCQQDD'}
     components:
     - name: label_titulo
       properties: {text: LISTADO GENERAL DE EQUIPOS, align: center, bold: true, role: title,
-        background: '', foreground: 'theme:White'}
+        background: 'theme:Primary', foreground: 'theme:Primary Container'}
       type: Label
       layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
   - name: outlined_card_filtros

@@ -6,15 +6,15 @@ components:
   layout_properties: {grid_position: 'RIEBTU,GDKATN', full_width_row: true}
   components:
   - name: outlined_card_title
-    properties: {role: elevated-card, background: 'theme:Primary'}
+    properties: {role: elevated-card, background: ''}
     type: ColumnPanel
     layout_properties: {grid_position: 'RQHGGM,KYDADT'}
     components:
     - name: label_title
       properties: {text: 'SUAJES
 
-          ', role: title, background: '', foreground: 'theme:On Primary', bold: true,
-        align: center}
+          ', role: title, background: 'theme:Primary', foreground: 'theme:On Primary',
+        bold: true, align: center}
       type: Label
       layout_properties: {grid_position: 'WIPJGU,YWZADD'}
   - name: outlined_card_body
@@ -22,8 +22,16 @@ components:
     type: ColumnPanel
     layout_properties: {grid_position: 'WNVMKG,VHSWPG', full_width_row: true}
     components:
+    - name: button_nuevo
+      properties: {text: 'NUEVO HERRAMENTAL
+
+          ', role: filled-button, icon: 'fa:file', bold: true, align: center, background: 'theme:Orange',
+        foreground: 'theme:Primary'}
+      type: Button
+      layout_properties: {grid_position: 'HALFUG,HICFWJ'}
     - name: button_actualizar
-      properties: {text: ACTUALIZAR, role: filled-button, icon: 'fa:refresh', bold: true}
+      properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh',
+        bold: true, align: center}
       type: Button
       layout_properties: {grid_position: 'HALFUG,FXQDDM'}
       event_bindings: {click: button_actualizar_click}
@@ -38,6 +46,7 @@ components:
         - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL, width: '200'}
         - {id: JWMLVC, data_key: alerta, title: ALERTA, width: '200'}
         - {id: WWXEME, data_key: contador, title: CONTADOR, width: '150'}
+        - {id: ISLAHB, data_key: localizar, title: '', width: '150'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:
