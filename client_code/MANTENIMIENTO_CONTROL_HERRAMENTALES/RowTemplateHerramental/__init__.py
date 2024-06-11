@@ -11,4 +11,4 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag, self.label_status.tag, id_usuario_erp),title=self.label_equipo.text, trigger="click",max_width="450px")
+    self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_equipo.text, trigger="click",max_width="450px")

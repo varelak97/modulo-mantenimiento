@@ -27,7 +27,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''alerta'']', writeback: false}
 - name: label_contador
-  properties: {bold: false}
+  properties: {bold: false, align: center}
   type: Label
   layout_properties: {column: WWXEME}
   data_bindings:
