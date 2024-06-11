@@ -5,6 +5,9 @@ components:
   properties: {text: '', icon: 'fa:edit', font_size: null}
   type: Button
   layout_properties: {column: JKSDUP}
+  event_bindings: {}
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
 - name: label_codigo_herramental
   properties: {bold: false, foreground: ''}
   type: Label
