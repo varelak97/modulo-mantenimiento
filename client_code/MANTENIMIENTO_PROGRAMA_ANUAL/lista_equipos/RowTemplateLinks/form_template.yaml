@@ -11,16 +11,14 @@ components:
   - {property: text, code: 'self.item[''equipo'']', writeback: false}
   - {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}
 - name: button_ver_checklist
-  properties: {text: '', icon: 'fa:eye', align: left, spacing_above: none, spacing_below: none,
-    icon_align: left}
+  properties: {text: '', icon: 'fa:eye', align: left, spacing_above: none, spacing_below: none, icon_align: left}
   type: Button
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: visible, code: 'self.item[''ver_checklist'']', writeback: false}
   event_bindings: {click: button_ver_checklist_click}
 - name: button_llenar_checklist
-  properties: {text: '', icon: 'fa:pencil-square-o', align: center, spacing_below: none,
-    spacing_above: none, icon_align: left, bold: false}
+  properties: {text: '', icon: 'fa:pencil-square-o', align: center, spacing_below: none, spacing_above: none, icon_align: left, bold: false}
   type: Button
   layout_properties: {column: GNNYVV}
   event_bindings: {click: button_llenar_checklist_click}

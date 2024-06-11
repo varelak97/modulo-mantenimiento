@@ -4,54 +4,38 @@ container:
   event_bindings: {}
 components:
 - type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: content_panel
   layout_properties: {grid_position: 'ODKQYG,DVKRFX', full_width_row: true}
   components:
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
     name: outlined_card_titulo
     layout_properties: {grid_position: 'HVIYWO,NYUOFN'}
     components:
     - type: Label
-      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: 'theme:Primary', bold: true, underline: false,
-        icon: ''}
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Secondary', visible: true, text: PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary', bold: true, underline: false, icon: ''}
       name: label_titulo
       layout_properties: {grid_position: 'NXWQIQ,LZPNWC'}
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
     name: card_calendario
     layout_properties: {grid_position: 'MRPKLW,HJQETC', full_width_row: true}
     components:
     - name: button_programar
-      properties: {text: PROGRAMAR MANTENIMIENTOS, bold: true, role: filled-button,
-        icon: 'fa:calendar'}
+      properties: {text: PROGRAMAR MANTENIMIENTOS, bold: true, role: filled-button, icon: 'fa:calendar'}
       type: Button
       layout_properties: {grid_position: 'SQAUDH,RWCYYQ'}
       event_bindings: {click: button_programar_click}
     - type: FlowPanel
-      properties: {role: null, vertical_align: full, spacing: medium, align: center,
-        tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
-        spacing_below: small, background: 'theme:Outline'}
+      properties: {role: null, vertical_align: full, spacing: medium, align: center, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: 'theme:Outline'}
       name: flow_panel_componentes_busqueda
       layout_properties:
         col_widths: {}
         grid_position: NCNSYW,YWDAWJ
       components:
       - type: Label
-        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-            Primary', visible: true, text: CALENDARIO, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: none, italic: false,
-          background: '', bold: true, underline: false, icon: ''}
+        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: CALENDARIO, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_calendario_mantenimiento
         layout_properties: {grid_position: 'GGLLJE,VNRYTO'}
       - type: DropDown
@@ -116,8 +100,7 @@ components:
         type: Label
         layout_properties: {}
       - name: drop_down_areas
-        properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined,
-          background: 'theme:White'}
+        properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined, background: 'theme:White'}
         type: DropDown
         layout_properties: {width: 181}
         event_bindings: {change: drop_down_areas_change}
@@ -126,8 +109,7 @@ components:
         type: Label
         layout_properties: {}
       - name: drop_down_equipos
-        properties: {include_placeholder: true, placeholder: -- TODOS --, role: outlined,
-          background: 'theme:White', align: full}
+        properties: {include_placeholder: true, placeholder: -- TODOS --, role: outlined, background: 'theme:White', align: full}
         type: DropDown
         layout_properties: {width: 233.667}
         event_bindings: {change: drop_down_equipos_change}
@@ -149,20 +131,13 @@ components:
       properties:
         role: tonal-data-grid
         columns:
-        - {id: OTNAOY, title: LUNES, data_key: column_1, $$hashKey: 'object:30719',
-          width: ''}
-        - {id: HTLZSE, title: MARTES, data_key: column_2, $$hashKey: 'object:30720',
-          width: ''}
-        - {id: CCDLML, title: MIÉRCOLES, data_key: column_3, $$hashKey: 'object:30721',
-          width: ''}
-        - {id: OTSFPZ, title: JUEVES, data_key: column_4, $$hashKey: 'object:30759',
-          width: ''}
-        - {id: UJXKHF, title: VIERNES, data_key: column_5, $$hashKey: 'object:30761',
-          width: ''}
-        - {id: MVWUVE, title: SÁBADO, data_key: column_6, $$hashKey: 'object:30763',
-          width: ''}
-        - {id: XMAFNF, title: DOMINGO, data_key: column_7, $$hashKey: 'object:30765',
-          width: ''}
+        - {id: OTNAOY, title: LUNES, data_key: column_1, $$hashKey: 'object:30719', width: ''}
+        - {id: HTLZSE, title: MARTES, data_key: column_2, $$hashKey: 'object:30720', width: ''}
+        - {id: CCDLML, title: MIÉRCOLES, data_key: column_3, $$hashKey: 'object:30721', width: ''}
+        - {id: OTSFPZ, title: JUEVES, data_key: column_4, $$hashKey: 'object:30759', width: ''}
+        - {id: UJXKHF, title: VIERNES, data_key: column_5, $$hashKey: 'object:30761', width: ''}
+        - {id: MVWUVE, title: SÁBADO, data_key: column_6, $$hashKey: 'object:30763', width: ''}
+        - {id: XMAFNF, title: DOMINGO, data_key: column_7, $$hashKey: 'object:30765', width: ''}
         auto_header: true
         tooltip: ''
         border: ''

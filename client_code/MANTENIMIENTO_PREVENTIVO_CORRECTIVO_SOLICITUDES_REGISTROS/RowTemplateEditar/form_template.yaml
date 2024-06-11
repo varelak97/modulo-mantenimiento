@@ -4,10 +4,7 @@ container:
   - {property: tag, code: 'self.item[''id_usuario_erp'']', writeback: false}
 components:
 - type: Button
-  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:edit'}
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:edit'}
   name: button_editar
   layout_properties: {column: XMXXEM}
   data_bindings:
@@ -66,8 +63,7 @@ components:
     layout_properties: {grid_position: 'RWJAHZ,LJGSRN'}
     data_bindings:
     - {property: tag, code: 'bool(int(self.item[''mtto_realizado'']))', writeback: false}
-    - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado'']))
-        else "fa:clock-o"', writeback: false}
+    - {property: icon, code: '"fa:check" if bool(int(self.item[''mtto_realizado''])) else "fa:clock-o"', writeback: false}
   event_bindings: {click: link_status_click}
 - name: link_fotos
   properties: {}
@@ -79,10 +75,8 @@ components:
     type: Label
     layout_properties: {grid_position: 'OFAYNA,TRCGRJ'}
     data_bindings:
-    - {property: text, code: '"NA" if self.item[''url_fotos_reporte''] == "" else
-        ""', writeback: false}
-    - {property: icon, code: '"fa:file-picture-o" if self.item[''url_fotos_reporte'']
-        != "" else ""', writeback: false}
+    - {property: text, code: '"NA" if self.item[''url_fotos_reporte''] == "" else ""', writeback: false}
+    - {property: icon, code: '"fa:file-picture-o" if self.item[''url_fotos_reporte''] != "" else ""', writeback: false}
   event_bindings: {click: link_fotos_click}
   data_bindings:
   - {property: tag, code: 'self.item[''url_fotos_reporte'']', writeback: false}
@@ -96,7 +90,6 @@ components:
   type: Label
   layout_properties: {column: NSDTFQ}
   data_bindings:
-  - {property: text, code: 'self.item[''nombre_testigo''] if self.item[''nombre_testigo'']
-      != "" else self.item[''persona_reporta'']', writeback: false}
+  - {property: text, code: 'self.item[''nombre_testigo''] if self.item[''nombre_testigo''] != "" else self.item[''persona_reporta'']', writeback: false}
 is_package: true
 data_bindings: []

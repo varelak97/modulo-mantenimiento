@@ -78,8 +78,7 @@ components:
   type: Label
   layout_properties: {column: RFLGSF}
   data_bindings:
-  - {property: text, code: 'self.llena_comentarios(self.item[''comentarios_mantenimiento''])',
-    writeback: false}
+  - {property: text, code: 'self.llena_comentarios(self.item[''comentarios_mantenimiento''])', writeback: false}
 - name: link_fotos
   properties: {icon: '', align: center}
   type: Link
@@ -90,10 +89,8 @@ components:
     type: Label
     layout_properties: {grid_position: 'NTZGED,PPKKPP'}
     data_bindings:
-    - {property: text, code: '"NA" if self.item[''url_fotos_reporte''] == "" else
-        ""', writeback: false}
-    - {property: icon, code: '"fa:file-picture-o" if self.item[''url_fotos_reporte'']
-        != "" else ""', writeback: false}
+    - {property: text, code: '"NA" if self.item[''url_fotos_reporte''] == "" else ""', writeback: false}
+    - {property: icon, code: '"fa:file-picture-o" if self.item[''url_fotos_reporte''] != "" else ""', writeback: false}
   event_bindings: {click: link_fotos_click}
   data_bindings:
   - {property: tag, code: 'self.item[''url_fotos_reporte'']', writeback: false}

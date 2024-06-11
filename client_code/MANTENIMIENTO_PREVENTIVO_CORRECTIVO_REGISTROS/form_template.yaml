@@ -3,46 +3,31 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: content_panel
   layout_properties: {grid_position: 'YPFRUL,TGUKPI', full_width_row: true}
   components:
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"EHOXCL":50}',
-      spacing_below: small, background: ''}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"EHOXCL":50}', spacing_below: small, background: ''}
     name: outlined_card_titulo
     layout_properties: {grid_position: 'QCJZDR,OQSGOI'}
     components:
     - type: Label
-      properties: {role: headline, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: MANTENIMIENTOS CORRECTIVOS Y PREVENTIVOS PROGRAMADOS,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: 'theme:Primary', bold: true, underline: false,
-        icon: ''}
+      properties: {role: headline, align: center, tooltip: '', border: '', foreground: 'theme:On Secondary', visible: true, text: MANTENIMIENTOS CORRECTIVOS Y PREVENTIVOS PROGRAMADOS, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary', bold: true, underline: false, icon: ''}
       name: label_titulo
       layout_properties: {grid_position: 'BIMPJE,EHOXCL'}
   - type: ColumnPanel
-    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
     name: column_panel_body
     layout_properties: {grid_position: 'AGQQOQ,YRZTEQ', full_width_row: true}
     components:
     - type: ColumnPanel
-      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
       name: outlined_card_tabla
       layout_properties: {grid_position: 'SLPCWM,DIZCIV', full_width_row: true}
       components:
       - type: Button
-        properties: {role: elevated-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: false, text: ACTUALIZAR, font_size: null,
-          font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
+        properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: false, text: ACTUALIZAR, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: 'fa:refresh'}
         name: button_actualizar
         layout_properties: {grid_position: 'KGNDJO,FDSADJ'}
         event_bindings: {click: button_actualizar_click}
@@ -78,29 +63,18 @@ components:
           columns:
           - {id: OIYETW, data_key: editar, title: '', width: '80'}
           - {id: EXAZGT, data_key: fotos, title: FOTOS, width: '80'}
-          - {id: POIVGQ, title: FOLIO, data_key: folio, $$hashKey: 'object:25130',
-            width: '250'}
+          - {id: POIVGQ, title: FOLIO, data_key: folio, $$hashKey: 'object:25130', width: '250'}
           - {id: QJQSHC, title: ÁREA, data_key: area, $$hashKey: 'object:25131', width: '250'}
-          - {id: UMPPDH, title: EQUIPO, data_key: equipo, $$hashKey: 'object:25132',
-            width: '250'}
-          - {id: AKUIUI, title: REQUIERE REFACCIÓN, data_key: requiere_refaccion,
-            $$hashKey: 'object:25171', width: '150'}
-          - {id: JEKZQH, title: REQUIERE SERVICIO, data_key: requiere_servicio, $$hashKey: 'object:25173',
-            width: '150'}
-          - {id: GBJDGR, title: TIPO DE MANTENIMIENTO, data_key: tipo_mantenimiento,
-            $$hashKey: 'object:25175', width: '200'}
-          - {id: GBXTQF, title: DESCRIPCIÓN DE LA FALLA O POSIBLE RIESGO, data_key: descripcion_falla_riesgo,
-            $$hashKey: 'object:25177', width: '400'}
-          - {id: BETFFO, title: DESCRIPCIÓN DEL PROBLEMA, data_key: descripcion_problema,
-            $$hashKey: 'object:25268', width: '400'}
-          - {id: GGGTRK, title: FECHA Y HORA INICIAL, data_key: fecha_hora_inicial,
-            $$hashKey: 'object:25270', width: '200'}
-          - {id: MRYLSD, title: ACTIVIDADES DEL MANTENIMIENTO, data_key: actividades_mantenimiento,
-            $$hashKey: 'object:25272', width: '700'}
-          - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO,
-            width: '400'}
-          - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274',
-            width: '150'}
+          - {id: UMPPDH, title: EQUIPO, data_key: equipo, $$hashKey: 'object:25132', width: '250'}
+          - {id: AKUIUI, title: REQUIERE REFACCIÓN, data_key: requiere_refaccion, $$hashKey: 'object:25171', width: '150'}
+          - {id: JEKZQH, title: REQUIERE SERVICIO, data_key: requiere_servicio, $$hashKey: 'object:25173', width: '150'}
+          - {id: GBJDGR, title: TIPO DE MANTENIMIENTO, data_key: tipo_mantenimiento, $$hashKey: 'object:25175', width: '200'}
+          - {id: GBXTQF, title: DESCRIPCIÓN DE LA FALLA O POSIBLE RIESGO, data_key: descripcion_falla_riesgo, $$hashKey: 'object:25177', width: '400'}
+          - {id: BETFFO, title: DESCRIPCIÓN DEL PROBLEMA, data_key: descripcion_problema, $$hashKey: 'object:25268', width: '400'}
+          - {id: GGGTRK, title: FECHA Y HORA INICIAL, data_key: fecha_hora_inicial, $$hashKey: 'object:25270', width: '200'}
+          - {id: MRYLSD, title: ACTIVIDADES DEL MANTENIMIENTO, data_key: actividades_mantenimiento, $$hashKey: 'object:25272', width: '700'}
+          - {id: RFLGSF, data_key: comentarios_mantenimiento, title: COMENTARIOS DEL MANTENIMIENTO, width: '400'}
+          - {id: POAEJM, title: FECHA Y HORA FINAL, data_key: fecha_hora_final, $$hashKey: 'object:25274', width: '150'}
           auto_header: true
           tooltip: ''
           border: ''
@@ -116,34 +90,22 @@ components:
         layout_properties: {grid_position: 'SLDNDB,QPUADC', full_width_row: true}
         components:
         - type: DataRowPanel
-          properties: {role: fijar-rowpanel, align: left, tooltip: '', border: '',
-            foreground: '', auto_display_data: true, visible: true, item: null, font_size: null,
-            font: '', spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline',
-            bold: false, underline: false}
+          properties: {role: fijar-rowpanel, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true, visible: true, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none, italic: false, background: 'theme:Outline', bold: false, underline: false}
           name: data_row_panel_filtros
           layout_properties: {}
           components:
           - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_folio
             layout_properties: {column: POIVGQ}
             event_bindings: {change: text_box_filtro_folio_change}
           - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_area
             layout_properties: {column: QJQSHC}
             event_bindings: {change: text_box_filtro_area_change}
           - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_equipo
             layout_properties: {column: UMPPDH}
             event_bindings: {change: text_box_filtro_equipo_change}
@@ -217,26 +179,17 @@ components:
             layout_properties: {column: GBJDGR}
             event_bindings: {change: drop_down_filtro_mantenimiento_change}
           - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_falla
             layout_properties: {column: GBXTQF}
             event_bindings: {change: text_box_filtro_falla_change}
           - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_problema
             layout_properties: {column: BETFFO}
             event_bindings: {change: text_box_filtro_problema_change}
           - type: TextBox
-            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-              border: '', enabled: true, foreground: '', visible: true, text: '',
-              font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-              italic: false, background: 'theme:White', bold: false, underline: false}
+            properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: 'theme:White', bold: false, underline: false}
             name: text_box_filtro_actividades_mtto
             layout_properties: {column: MRYLSD}
             event_bindings: {change: text_box_filtro_actividades_mtto_change}
@@ -245,9 +198,7 @@ components:
           name: repeating_panel_registros
           layout_properties: {}
       - name: column_panel_empty_db
-        properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
-          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-          spacing_below: small, background: ''}
+        properties: {role: null, tooltip: '', border: '', foreground: '', visible: false, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
         type: ColumnPanel
         layout_properties: {grid_position: 'PHANWS,DINPRO'}
         components:
@@ -256,10 +207,7 @@ components:
           type: Spacer
           layout_properties: {grid_position: 'ANDJFI,KWFJNI'}
         - name: label_db_empty
-          properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:LightGray',
-            visible: true, text: NO EXISTEN REGISTROS EN LA BASE DE DATOS, font_size: null,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '', bold: true, underline: false, icon: ''}
+          properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:LightGray', visible: true, text: NO EXISTEN REGISTROS EN LA BASE DE DATOS, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
           type: Label
           layout_properties: {grid_position: 'WXAJZT,DYKTVM'}
         - name: spacer_2

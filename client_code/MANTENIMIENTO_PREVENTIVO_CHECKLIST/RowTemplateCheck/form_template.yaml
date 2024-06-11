@@ -4,10 +4,7 @@ container:
   - {property: tag, code: 'self.item[''id'']'}
 components:
 - type: Label
-  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
   name: label_id
   layout_properties: {column: AMSCHA}
   data_bindings:
@@ -19,10 +16,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''actividad'']'}
 - type: RadioButton
-  properties: {role: null, selected: false, align: right, tooltip: '', border: '',
-    enabled: true, foreground: '', value: si, visible: true, text: '', font_size: null,
-    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-    bold: false, group_name: '', underline: false}
+  properties: {role: null, selected: false, align: right, tooltip: '', border: '', enabled: true, foreground: '', value: si, visible: true, text: '', font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, background: '', bold: false, group_name: '', underline: false}
   name: radio_button_si
   layout_properties: {column: EEMRUC}
   data_bindings:
@@ -30,10 +24,7 @@ components:
   - {property: group_name, code: 'self.item[''id'']'}
   event_bindings: {clicked: radio_button_si_clicked}
 - type: RadioButton
-  properties: {role: null, selected: false, align: right, tooltip: '', border: '',
-    enabled: true, foreground: '', value: 'no', visible: true, text: '', font_size: null,
-    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-    bold: false, group_name: '', underline: false}
+  properties: {role: null, selected: false, align: right, tooltip: '', border: '', enabled: true, foreground: '', value: 'no', visible: true, text: '', font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, background: '', bold: false, group_name: '', underline: false}
   name: radio_button_no
   layout_properties: {column: VQHNKV}
   data_bindings:

@@ -8,17 +8,12 @@ components:
   layout_properties: {grid_position: 'XWQPDK,WDHCVQ'}
   components:
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZQGKKG":50}',
-      spacing_below: small, background: ''}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZQGKKG":50}', spacing_below: small, background: ''}
     name: outlined_card_titulo
     layout_properties: {grid_position: 'TZUALE,NVEKQA'}
     components:
     - type: Label
-      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: TITULO_MTTO_REVENTIVO_CHECKLIST, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: 'theme:Primary', bold: true, underline: false, icon: ''}
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Secondary', visible: true, text: TITULO_MTTO_REVENTIVO_CHECKLIST, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary', bold: true, underline: false, icon: ''}
       name: label_titulo
       layout_properties: {grid_position: 'KDVFIC,ZQGKKG'}
   - type: ColumnPanel
@@ -27,40 +22,25 @@ components:
     layout_properties: {grid_position: 'KJKXQS,KYYMDG'}
     components:
     - type: ColumnPanel
-      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
       name: outlined_card_inicio
       layout_properties: {grid_position: 'MXIQUP,RNJWRI'}
       components:
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'NOMBRE DEL PERSONAL QUE REALIZÓ EL MANTENIMIENTO:',
-          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: true, underline: false, icon: ''}
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'NOMBRE DEL PERSONAL QUE REALIZÓ EL MANTENIMIENTO:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_nombre
         layout_properties: {grid_position: 'DZHBTG,OYOIAC'}
       - type: TextBox
-        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-          border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
-          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false}
+        properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
         name: text_box_nombre
         layout_properties: {grid_position: 'MGBPXQ,MUTXSK'}
         data_bindings: []
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'FECHA Y HORA DE INICIO:', font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: true, underline: false, icon: ''}
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'FECHA Y HORA DE INICIO:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_fecha_hora_inicio
         layout_properties: {grid_position: 'DFSEDB,EENTKS'}
       - type: DatePicker
-        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
-          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
-          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
-            %H:%M:%S'}
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d %H:%M:%S'}
         name: date_picker_fecha_hora_inicio
         layout_properties: {grid_position: 'KJSSHW,YVWUCJ'}
       - type: Spacer
@@ -72,23 +52,16 @@ components:
         name: spacer_1
         layout_properties: {grid_position: 'KJSSHW,RHSIHM'}
     - type: ColumnPanel
-      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
       name: outlined_card_tabla
       layout_properties: {grid_position: 'CLTRQC,VGWIZV'}
       components:
       - type: Label
-        properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
-            Secondary', visible: true, text: ACTIVIDADES, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: 'theme:Green', bold: true, underline: false, icon: ''}
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On Secondary', visible: true, text: ACTIVIDADES, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Green', bold: true, underline: false, icon: ''}
         name: label_titulo_actividades
         layout_properties: {grid_position: 'OTRPTE,ALHRNW'}
       - type: FlowPanel
-        properties: {role: null, vertical_align: full, spacing: medium, align: center,
-          tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
-          spacing_below: small, background: ''}
+        properties: {role: null, vertical_align: full, spacing: medium, align: center, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
         name: flow_panel_tabla
         layout_properties: {grid_position: 'YDVPXP,GNMKUV'}
         components:
@@ -97,11 +70,9 @@ components:
             role: tonal-data-grid
             columns:
             - {id: AMSCHA, title: '#', data_key: id, $$hashKey: 'object:25225', width: '50'}
-            - {id: OXHXIX, title: ACTIVIDAD, data_key: actividad, $$hashKey: 'object:25226',
-              width: '500'}
+            - {id: OXHXIX, title: ACTIVIDAD, data_key: actividad, $$hashKey: 'object:25226', width: '500'}
             - {id: EEMRUC, title: SI, data_key: si, $$hashKey: 'object:25227', width: ''}
-            - {id: VQHNKV, title: 'NO', data_key: 'no', $$hashKey: 'object:27015',
-              width: ''}
+            - {id: VQHNKV, title: 'NO', data_key: 'no', $$hashKey: 'object:27015', width: ''}
             auto_header: true
             tooltip: ''
             border: ''
@@ -121,32 +92,21 @@ components:
             name: repeating_panel_registros
             layout_properties: {}
       - name: button_reporte_luz_resistencia
-        properties: {text: FOR-MAN-028 Y 029 MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS),
-          bold: true, role: filled-button, background: 'theme:Orange', icon: 'fa:file-text',
-          visible: false, foreground: 'theme:Primary'}
+        properties: {text: FOR-MAN-028 Y 029 MEDICIÓN DE LUZ UV Y RESISTENCIA (RESPUESTAS), bold: true, role: filled-button, background: 'theme:Orange', icon: 'fa:file-text', visible: false, foreground: 'theme:Primary'}
         type: Button
         layout_properties: {grid_position: 'OOGTPA,JAMOAI'}
         event_bindings: {click: button_reporte_luz_resistencia_click}
     - type: ColumnPanel
-      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
+      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
       name: outlined_card_termino
       layout_properties: {grid_position: 'TAYIVJ,BNFDEJ'}
       components:
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'FECHA Y HORA DE TÉRMINO:', font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: true, underline: false, icon: ''}
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'FECHA Y HORA DE TÉRMINO:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_fecha_hora_termino
         layout_properties: {grid_position: 'ATHQTV,OEYVBD'}
       - type: DatePicker
-        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '',
-          placeholder: '', border: '', enabled: true, foreground: '', visible: true,
-          font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-          date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d
-            %H:%M:%S'}
+        properties: {role: outlined, align: left, max_date: '', pick_time: true, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, date: '', min_date: '', background: '', bold: false, underline: false, format: '%Y-%m-%d %H:%M:%S'}
         name: date_picker_fecha_hora_termino
         layout_properties: {grid_position: 'WVFXGK,WOVKWI'}
       - type: Spacer
@@ -177,8 +137,7 @@ components:
           type: DataRowPanel
           components:
           - name: button_agregar_comentario
-            properties: {text: AGREGAR COMENTARIO, bold: true, icon: 'fa:plus-circle',
-              role: filled-button, background: 'theme:Orange'}
+            properties: {text: AGREGAR COMENTARIO, bold: true, icon: 'fa:plus-circle', role: filled-button, background: 'theme:Orange'}
             type: Button
             layout_properties: {column: VJQQOR}
             event_bindings: {click: button_agregar_comentario_click}
@@ -188,10 +147,7 @@ components:
           type: RepeatingPanel
         layout_properties: {grid_position: 'IJZFSQ,WFULEC'}
     - type: Button
-      properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: '', visible: true, text: GUARDAR, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
+      properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: GUARDAR, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:floppy-o'}
       name: button_guardar
       layout_properties: {grid_position: 'OGDFWR,MZMVQM'}
       event_bindings: {click: button_guardar_click}

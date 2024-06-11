@@ -1,54 +1,37 @@
 container:
   type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small,
-    background: ''}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
 components:
 - type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: content_panel
   layout_properties: {grid_position: 'HWJACB,NIILZD', full_width_row: true}
   components:
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
     name: outlined_card_titulo
     layout_properties:
       col_widths: {}
       grid_position: HVDUVV,MZKGNT
     components:
     - type: Label
-      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Secondary', visible: true, text: FOR-MAN-001 PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: 'theme:Primary', bold: true, underline: false,
-        icon: ''}
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Secondary', visible: true, text: FOR-MAN-001 PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary', bold: true, underline: false, icon: ''}
       name: label_titulo
       layout_properties: {grid_position: 'NXWQIQ,LZPNWC'}
   - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
     name: outlined_card_1
     layout_properties: {grid_position: 'IBDBNK,RHPUGA', full_width_row: true}
     components:
     - type: FlowPanel
-      properties: {role: null, vertical_align: full, spacing: medium, align: center,
-        tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
-        spacing_below: small, background: 'theme:Outline'}
+      properties: {role: null, vertical_align: full, spacing: medium, align: center, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: 'theme:Outline'}
       name: flow_panel_componentes_busqueda
       layout_properties:
         col_widths: {}
         grid_position: ANAZYM,DHBXAV
       components:
       - type: Label
-        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On
-            Primary', visible: true, text: CALENDARIO, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: none, italic: false,
-          background: '', bold: true, underline: false, icon: ''}
+        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: CALENDARIO, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_calendario_mantenimiento
         layout_properties: {grid_position: 'GGLLJE,VNRYTO'}
       - type: DropDown

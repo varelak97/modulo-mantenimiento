@@ -11,8 +11,7 @@ components:
     layout_properties: {grid_position: 'ASKKYO,BCQQDD'}
     components:
     - name: label_titulo
-      properties: {text: LISTADO GENERAL DE EQUIPOS, align: center, bold: true, role: title,
-        background: 'theme:Primary', foreground: 'theme:Primary Container'}
+      properties: {text: LISTADO GENERAL DE EQUIPOS, align: center, bold: true, role: title, background: 'theme:Primary', foreground: 'theme:Primary Container'}
       type: Label
       layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
   - name: outlined_card_filtros
@@ -48,8 +47,7 @@ components:
         type: Label
         layout_properties: {grid_position: 'TFSITR,FAXQKT'}
       - name: drop_down_luz_resistencia
-        properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE OPCION --,
-          visible: true}
+        properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE OPCION --, visible: true}
         type: DropDown
         layout_properties: {grid_position: 'MONITW,INFEFG'}
         event_bindings: {change: drop_down_luz_resistencia_change}
@@ -121,13 +119,11 @@ components:
         layout_properties: {grid_position: 'IIEWAV,GGWONO'}
         components:
         - name: image_mtto_preventivo_correctivo
-          properties: {source: _/theme/iconos/mtto_preventivo_correctivo_prog.png,
-            height: 100}
+          properties: {source: _/theme/iconos/mtto_preventivo_correctivo_prog.png, height: 100}
           type: Image
           layout_properties: {grid_position: 'GELVWU,FVUQRY'}
         - name: label_mtto_preventivo_correctivo
-          properties: {text: MANTENIMIENTO PREVENTIVO/CORRECTIVO, bold: true, align: center,
-            foreground: ''}
+          properties: {text: MANTENIMIENTO PREVENTIVO/CORRECTIVO, bold: true, align: center, foreground: ''}
           type: Label
           layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
       event_bindings: {click: link_mtto_preventivo_correctivo_click}
@@ -249,8 +245,7 @@ components:
     layout_properties: {grid_position: 'BQRIOO,OOPLIK'}
     components:
     - name: label_titulo_general
-      properties: {text: OPCIONES DE MANTENIMIENTO, align: center, bold: true, role: title,
-        background: 'theme:Primary', foreground: 'theme:White'}
+      properties: {text: OPCIONES DE MANTENIMIENTO, align: center, bold: true, role: title, background: 'theme:Primary', foreground: 'theme:White'}
       type: Label
       layout_properties: {grid_position: 'IJRMBK,VQORYJ'}
   - name: outlined_card_general

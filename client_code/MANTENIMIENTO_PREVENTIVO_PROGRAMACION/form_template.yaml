@@ -13,8 +13,7 @@ components:
     layout_properties: {grid_position: 'QPSVNO,JOACMD'}
     components:
     - name: label_titulo
-      properties: {text: LABEL_TITULO, bold: true, role: headline, background: 'theme:Primary',
-        foreground: 'theme:White', align: center}
+      properties: {text: LABEL_TITULO, bold: true, role: headline, background: 'theme:Primary', foreground: 'theme:White', align: center}
       type: Label
       layout_properties: {grid_position: 'RBFHGX,CMFZXY'}
   - name: outlined_card_equipos
@@ -23,8 +22,7 @@ components:
     layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
     components:
     - name: label_equipos
-      properties: {text: EQUIPOS FECHA DE INICIO, background: 'theme:Tertiary', bold: true,
-        foreground: 'theme:White', align: center, role: title}
+      properties: {text: EQUIPOS FECHA DE INICIO, background: 'theme:Tertiary', bold: true, foreground: 'theme:White', align: center, role: title}
       type: Label
       layout_properties: {grid_position: 'RLGVYW,BDZUMF', full_width_row: true}
     - name: label_area
@@ -36,21 +34,18 @@ components:
       type: Label
       layout_properties: {grid_position: 'PAIGKA,ZOWMIE'}
     - name: drop_down_area
-      properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined,
-        align: full}
+      properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined, align: full}
       type: DropDown
       layout_properties: {grid_position: 'HMTNKN,RZNJET'}
       event_bindings: {change: drop_down_area_change}
     - name: drop_down_equipo
-      properties: {placeholder: -- TODOS --, include_placeholder: true, role: outlined,
-        align: full}
+      properties: {placeholder: -- TODOS --, include_placeholder: true, role: outlined, align: full}
       type: DropDown
       layout_properties: {grid_position: 'HMTNKN,FTCLDS'}
       data_bindings: []
       event_bindings: {change: drop_down_equipo_change}
     - name: label_1
-      properties: {text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento
-          para cada equipo según corresponda:', bold: true, italic: true}
+      properties: {text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento para cada equipo según corresponda:', bold: true, italic: true}
       type: Label
       layout_properties: {grid_position: 'XBEGXN,HGMKQR'}
     - name: data_grid_equipos
@@ -74,15 +69,13 @@ components:
         type: DataRowPanel
         components:
         - name: button_agregar_equipo
-          properties: {text: AGREGAR EQUIPO, role: filled-button, foreground: 'theme:White',
-            background: 'theme:Orange', bold: true}
+          properties: {text: AGREGAR EQUIPO, role: filled-button, foreground: 'theme:White', background: 'theme:Orange', bold: true}
           type: Button
           layout_properties: {column: JKSDUP}
           event_bindings: {click: button_agregar_equipo_click}
         layout_properties: {}
       - name: repeating_panel_equipos
-        properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7,
-          role: null}
+        properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7, role: null}
         type: RepeatingPanel
         layout_properties: {}
         event_bindings: {}
@@ -99,13 +92,11 @@ components:
     layout_properties: {grid_position: 'XPHNCL,SYFQUW'}
     components:
     - name: label_calendario
-      properties: {text: LISTA DE FECHAS A EXCLUIR, background: 'theme:Tertiary',
-        bold: true, foreground: 'theme:White', align: center, role: title}
+      properties: {text: LISTA DE FECHAS A EXCLUIR, background: 'theme:Tertiary', bold: true, foreground: 'theme:White', align: center, role: title}
       type: Label
       layout_properties: {grid_position: 'NKBZAF,DXRSCI'}
     - name: label_excluir
-      properties: {text: '* Ingrese las fechas a excluir en la generación del calendario
-          anual de mantenimiento (opcional):', bold: true, italic: true}
+      properties: {text: '* Ingrese las fechas a excluir en la generación del calendario anual de mantenimiento (opcional):', bold: true, italic: true}
       type: Label
       layout_properties: {grid_position: 'WFFDAX,BDEKOB'}
     - name: data_grid_fechas_excluidas
@@ -122,8 +113,7 @@ components:
       type: DataGrid
       components:
       - name: button_agregar_fecha
-        properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button,
-          bold: true, icon: 'fa:plus-circle'}
+        properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button, bold: true, icon: 'fa:plus-circle'}
         type: Button
         event_bindings: {click: button_agregar_fecha_click}
       - name: data_row_panel_agregar_fecha
@@ -136,8 +126,7 @@ components:
         type: RepeatingPanel
       layout_properties: {grid_position: 'HEHOUK,ASFZFF'}
   - name: button_generar_calendario
-    properties: {text: GENERAR CALENDARIO ANUAL, bold: true, background: 'theme:Blue',
-      foreground: 'theme:White', icon: 'fa:calendar-check-o'}
+    properties: {text: GENERAR CALENDARIO ANUAL, bold: true, background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:calendar-check-o'}
     type: Button
     layout_properties: {grid_position: 'CTVMXS,RIEGGP'}
     event_bindings: {click: button_generar_calendario_click}

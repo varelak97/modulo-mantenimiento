@@ -6,8 +6,7 @@ components:
   layout_properties: {grid_position: 'IKAZSA,EHLYNR'}
   components:
   - name: label_titulo
-    properties: {text: AJUSTES DE MANTENIMIENTO, bold: true, align: center, role: headline,
-      foreground: 'theme:White', background: 'theme:Primary'}
+    properties: {text: AJUSTES DE MANTENIMIENTO, bold: true, align: center, role: headline, foreground: 'theme:White', background: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'FJPCIW,YZVERO'}
   - name: link_areas

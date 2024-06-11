@@ -5,8 +5,7 @@ components:
   type: Label
   layout_properties: {column: KKYZMV}
 - name: link_8
-  properties: {text: PW, foreground: 'theme:LightGray', background: '', align: center,
-    bold: true}
+  properties: {text: PW, foreground: 'theme:LightGray', background: '', align: center, bold: true}
   type: Link
   layout_properties: {column: EUFNYA}
   components: []

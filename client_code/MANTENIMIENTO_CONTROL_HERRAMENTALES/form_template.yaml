@@ -11,10 +11,14 @@ components:
     layout_properties: {grid_position: 'RQHGGM,KYDADT'}
     components:
     - name: label_title
-      properties: {text: 'SUAJES
-
-          ', role: title, background: 'theme:Primary', foreground: 'theme:On Primary',
-        bold: true, align: center}
+      properties:
+        text: |
+          SUAJES
+        role: title
+        background: theme:Primary
+        foreground: theme:On Primary
+        bold: true
+        align: center
       type: Label
       layout_properties: {grid_position: 'WIPJGU,YWZADD'}
   - name: outlined_card_body
@@ -23,15 +27,19 @@ components:
     layout_properties: {grid_position: 'WNVMKG,VHSWPG', full_width_row: true}
     components:
     - name: button_nuevo
-      properties: {text: 'NUEVO HERRAMENTAL
-
-          ', role: filled-button, icon: 'fa:file', bold: true, align: center, background: 'theme:Orange',
-        foreground: 'theme:Primary'}
+      properties:
+        text: |
+          NUEVO HERRAMENTAL
+        role: filled-button
+        icon: fa:file
+        bold: true
+        align: center
+        background: theme:Orange
+        foreground: theme:Primary
       type: Button
       layout_properties: {grid_position: 'HALFUG,HICFWJ'}
     - name: button_actualizar
-      properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh',
-        bold: true, align: center}
+      properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh', bold: true, align: center}
       type: Button
       layout_properties: {grid_position: 'HALFUG,FXQDDM'}
       event_bindings: {click: button_actualizar_click}
@@ -39,8 +47,7 @@ components:
       properties:
         columns:
         - {id: JKSDUP, title: '', data_key: editar, width: '100'}
-        - {id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, data_key: codigo_herramental,
-          width: '200', expand: false}
+        - {id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, data_key: codigo_herramental, width: '200', expand: false}
         - {id: OJLQEN, title: DESCRIPCIÓN, data_key: descripcion, width: '', expand: false}
         - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '200'}
         - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL, width: '200'}
@@ -51,7 +58,7 @@ components:
       type: DataGrid
       components:
       - name: repeating_panel_herramentales
-        properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.RowTemplate12}
+        properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.RowTemplateHerramental}
         type: RepeatingPanel
       layout_properties: {grid_position: 'NEXOXL,LERAIR', full_width_row: true}
 is_package: true

@@ -1,11 +1,11 @@
-from ._anvil_designer import RowTemplate13Template
+from ._anvil_designer import RowTemplateRegistroHerramentalTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
 
-class RowTemplate13(RowTemplate13Template):
+class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

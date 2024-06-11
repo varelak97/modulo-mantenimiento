@@ -11,14 +11,12 @@ components:
     layout_properties: {grid_position: 'CYJNJD,MMVJLB'}
     components:
     - name: label_titulo
-      properties: {text: MANTENIMIENTO AUTÓNOMO, role: headline, foreground: 'theme:White',
-        bold: true, background: 'theme:Primary', align: center}
+      properties: {text: MANTENIMIENTO AUTÓNOMO, role: headline, foreground: 'theme:White', bold: true, background: 'theme:Primary', align: center}
       type: Label
       layout_properties: {grid_position: 'VVUGRT,EMTAZY'}
   - name: drop_down_tipo
     properties:
-      items: [RESPUESTAS FORM-MAN-006 Y FORM-MAN-008, FOR-MAN-006 REQUERIMIENTO DE CONSUMIBLES,
-        FOR-MAN-008 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO]
+      items: [RESPUESTAS FORM-MAN-006 Y FORM-MAN-008, FOR-MAN-006 REQUERIMIENTO DE CONSUMIBLES, FOR-MAN-008 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO]
       role: outlined
       align: center
       background: theme:White

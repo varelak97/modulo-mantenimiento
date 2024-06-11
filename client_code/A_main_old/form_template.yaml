@@ -41,5 +41,4 @@ components:
   type: Label
   layout_properties: {slot: nav-right}
   data_bindings:
-  - {property: text, code: 'f"{self.datos[''nombre_usuario'']} ({self.datos[''id_usuario_erp'']})"',
-    writeback: false}
+  - {property: text, code: 'f"{self.datos[''nombre_usuario'']} ({self.datos[''id_usuario_erp'']})"', writeback: false}

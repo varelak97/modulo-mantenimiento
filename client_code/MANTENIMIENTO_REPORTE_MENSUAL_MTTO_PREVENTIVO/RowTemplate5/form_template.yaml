@@ -38,8 +38,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''observaciones'']', writeback: false}
 - name: button_add_observaciones
-  properties: {text: '', icon: 'fa:pencil', role: filled-button, background: 'theme:Orange',
-    foreground: 'theme:Primary'}
+  properties: {text: '', icon: 'fa:pencil', role: filled-button, background: 'theme:Orange', foreground: 'theme:Primary'}
   type: Button
   layout_properties: {column: ZFQQNA}
   data_bindings: []

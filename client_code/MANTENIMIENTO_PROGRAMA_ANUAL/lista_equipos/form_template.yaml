@@ -6,8 +6,7 @@ components:
   properties:
     columns:
     - {id: JKSDUP, title: EQUIPO, data_key: equipo, width: '250'}
-    - {id: LEHODC, data_key: fecha_programada, title: FECHA PROGRAMADA, width: '200',
-      expand: false}
+    - {id: LEHODC, data_key: fecha_programada, title: FECHA PROGRAMADA, width: '200', expand: false}
     - {id: INWVXD, data_key: fecha_realizada, title: FECHA REALIZADA, width: '150'}
     - {id: GNNYVV, data_key: llenar_checklist, title: '', width: '50'}
     - {id: VJQQOR, title: '', data_key: ver_checlist, width: '50'}
@@ -19,8 +18,7 @@ components:
   type: DataGrid
   components:
   - name: repeating_panel_lista_equipos
-    properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplateLinks,
-      role: null}
+    properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplateLinks, role: null}
     type: RepeatingPanel
     layout_properties: {}
   layout_properties: {grid_position: 'JPJFEP,KHEVXI'}

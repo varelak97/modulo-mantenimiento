@@ -11,8 +11,7 @@ components:
     layout_properties: {grid_position: 'BSTLHB,GZSADJ', full_width_row: true}
     components:
     - name: label_title
-      properties: {text: HERRAMENTAL XXXXX, bold: true, align: center, role: title,
-        background: 'theme:Primary', foreground: 'theme:On Primary'}
+      properties: {text: HERRAMENTAL XXXXX, bold: true, align: center, role: title, background: 'theme:Primary', foreground: 'theme:On Primary'}
       type: Label
       layout_properties: {grid_position: 'KFNLWK,BZIAEK'}
   - name: outlined_card_body
@@ -37,7 +36,7 @@ components:
       type: DataGrid
       components:
       - name: repeating_panel_1
-        properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.Registros_Herramentales.RowTemplate13}
+        properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.Registros_Herramentales.RowTemplateRegistroHerramental}
         type: RepeatingPanel
       layout_properties: {grid_position: 'ZSKAXC,OUOYWN', full_width_row: true}
 is_package: true

@@ -34,10 +34,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''status_mantenimiento'']'}
 - type: Button
-  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:pencil'}
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:pencil'}
   name: button_editar
   layout_properties: {column: IZLTZI}
   event_bindings: {click: button_editar_click}
