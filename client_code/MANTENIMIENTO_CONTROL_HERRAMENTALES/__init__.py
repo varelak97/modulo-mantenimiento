@@ -14,7 +14,7 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
   herramentales = None
   def __init__(self, datos, **properties):
     self.init_components(**properties)
-    datos = self.datos
+    self.datos = datos
 
     self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
     
@@ -26,7 +26,7 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
   ############################################# FUNCIONES PERSONALIZADAS ##############################################
   def actualizar_form_activo(self, datos, **event_args):
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
-    if datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE':
+    if datos['clave_form'] == 'REGISTROS_HERRAMENTALES':
       datos.update(self.datos)
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
       

@@ -6,7 +6,7 @@ from anvil.google.drive import app_files
 
 
 class Registros_Herramentales(Registros_HerramentalesTemplate):
-  def __init__(self, **properties):
+  def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
