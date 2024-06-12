@@ -53,10 +53,28 @@ components:
         - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL, width: '200'}
         - {id: JWMLVC, data_key: alerta, title: ALERTA, width: '200'}
         - {id: WWXEME, data_key: contador, title: CONTADOR, width: '150'}
+        - {id: YKCCEL, data_key: registrar, title: '', width: '100'}
         - {id: ISLAHB, data_key: localizar, title: '', width: '150'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:
+      - name: data_row_panel_filtros
+        properties: {foreground: '', background: 'theme:Secondary'}
+        type: DataRowPanel
+        components:
+        - name: text_box_codigo_herramental
+          properties: {role: outlined, background: 'theme:On Primary'}
+          type: TextBox
+          layout_properties: {column: VJQQOR}
+        - name: text_box_ubicacion
+          properties: {role: outlined, background: 'theme:On Primary'}
+          type: TextBox
+          layout_properties: {column: IEFKUK}
+        - name: drop_down_alerta
+          properties: {role: outlined, background: 'theme:On Primary'}
+          type: DropDown
+          layout_properties: {column: JWMLVC}
+        layout_properties: {}
       - name: repeating_panel_herramentales
         properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.RowTemplateHerramental}
         type: RepeatingPanel

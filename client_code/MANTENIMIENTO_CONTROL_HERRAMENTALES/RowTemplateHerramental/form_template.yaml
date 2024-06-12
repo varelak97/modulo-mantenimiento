@@ -48,3 +48,8 @@ components:
   properties: {text: UBICAR, bold: true, icon: 'fa:search', role: filled-button, background: 'theme:Green'}
   type: Button
   layout_properties: {column: ISLAHB}
+- name: button_ver
+  properties: {text: '', icon: 'fa:eye', role: filled-button, background: 'theme:Orange', foreground: ''}
+  type: Button
+  layout_properties: {column: YKCCEL}
+  event_bindings: {click: button_ver_click}

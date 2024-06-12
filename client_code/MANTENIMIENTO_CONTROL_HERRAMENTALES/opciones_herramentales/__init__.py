@@ -6,7 +6,7 @@ from anvil.google.drive import app_files
 
 
 class opciones_herramentales(opciones_herramentalesTemplate):
-  def __init__(self, **properties):
+  def __init__(self, id_herramental, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
