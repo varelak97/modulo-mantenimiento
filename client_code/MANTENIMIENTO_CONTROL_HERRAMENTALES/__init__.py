@@ -16,7 +16,7 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
     self.init_components(**properties)
     self.datos = datos
 
-    self.set_event_handler('x-actualizar_form_activo', self.actualizar_form_activo)
+    self.set_event_handler('x-abrir_form', self.abrir_popup_form)
     
     self.ws_herramentales = app_files.control_herramentales
     self.ss_herramentales = self.ws_herramentales['VISTA_HERRAMENTALES']
@@ -24,14 +24,14 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
     self.button_actualizar_click()
 
   ############################################# FUNCIONES PERSONALIZADAS ##############################################
-  def actualizar_form_activo(self, datos, **event_args):
+  def abrir_popup_form(self, datos, **event_args):
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
-    if datos['clave_form'] == 'REGISTROS_HERRAMENTALES':
+    if datos['clave_form'] == 'REGISTROS_HERRAMENTAL':
       datos.update(self.datos)
-      self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE(datos))
+      self.abrir_form(Registros_Herramentales(datos))
       
   def abrir_form(self, form_de_interes):
-    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)])
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content-bigger")
     if respuesta == "registro_guardado":
         self.button_actualizar_click()
   
