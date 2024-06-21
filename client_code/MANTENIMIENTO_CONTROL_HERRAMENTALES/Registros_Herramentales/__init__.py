@@ -21,7 +21,7 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
       self.abrir_form(Form_Edicion_Herramental(datos))
       
   def abrir_form(self, form_de_interes):
-    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content-bigger")
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content")
     if respuesta == "registro_guardado":
         self.button_actualizar_click()
 
@@ -32,7 +32,7 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     datos = {}
     datos['clave_form'] = "FORMULARIO_REGISTRO_HERRAMENTAL"
     datos['modo'] = "NUEVO"
-    self.abrir_form(datos)
+    self.abrir_popup_form(datos)
 
   def button_actualizar_click(self, **event_args):
     """This method is called when the button is clicked"""
