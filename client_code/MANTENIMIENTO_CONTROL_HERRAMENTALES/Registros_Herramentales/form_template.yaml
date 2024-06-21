@@ -19,10 +19,11 @@ components:
     type: ColumnPanel
     layout_properties: {grid_position: 'NCEMPF,OFJLPD', full_width_row: true}
     components:
-    - name: button_1
+    - name: button_registrar
       properties: {text: REGISTRAR, role: filled-button, bold: true, icon: 'fa:pencil'}
       type: Button
       layout_properties: {grid_position: 'ONGAYX,RVBZXQ'}
+      event_bindings: {click: button_registrar_click}
     - name: data_grid_registros
       properties:
         columns:

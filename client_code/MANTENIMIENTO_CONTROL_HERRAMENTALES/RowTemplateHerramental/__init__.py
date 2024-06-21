@@ -16,6 +16,7 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
   def button_ver_click(self, **event_args):
     datos = {
       "id_herramental": self.button_editar.tag,
+      "codigo_herramental": self.label_codigo_herramental.text,
       "clave_form": "REGISTROS_HERRAMENTAL"
     }
     print(self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos))
