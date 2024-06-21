@@ -13,9 +13,27 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     self.datos = datos
     self.label_title.text = f"HERRAMENTAL {self.datos['codigo_herramental']}"
 
+  #################################################### FUNCIONES PERSONALIZADAS #####################################################
+  def abrir_popup_form(self, datos, **event_args):
+    #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+    if datos['clave_form'] == "FORMULARIO_REGISTRO_HERRAMENTAL":
+      datos.update(self.datos)
+      self.abrir_form(Form_Edicion_Herramental(datos))
+      
+  def abrir_form(self, form_de_interes):
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content-bigger")
+    if respuesta == "registro_guardado":
+        self.button_actualizar_click()
+
 
   
-  ################################################ EVENTOS ################################################
+  ############################################################# EVENTOS #############################################################
   def button_registrar_click(self, **event_args):
+    datos = {}
+    datos['clave_form'] = "FORMULARIO_REGISTRO_HERRAMENTAL"
+    datos['modo'] = "NUEVO"
+    self.abrir_form(datos)
+
+  def button_actualizar_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
