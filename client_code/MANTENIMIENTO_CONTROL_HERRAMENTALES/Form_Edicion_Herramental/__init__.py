@@ -25,12 +25,20 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   def get_data(self):
     self.ws_control_herramentales = app_files.control_herramentales
     self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
-    self.registros = self.ss_vista_numeros_parte.rows
+    self.numeros_parte = self.ss_vista_numeros_parte.rows
     self.ss_registros = self.ws_control_herramentales['VISTA_REGISTROS']
     self.registros = self.ss_registros.rows
 
     lista_numeros_parte = []
-    for numero_parte in self.ss_vista_numeros_parte:
-      lista_numeros_parte.append((numero_parte['numero_parte'], numero_parte['tipo_corte']))
-    print(lista_numeros_parte)
+    for numero_parte in self.numeros_parte:
+      lista_numeros_parte.append((numero_parte['numero_parte'],(numero_parte['numero_parte'], numero_parte['tipo_corte'])))
+    self.drop_down_numeros_parte.items = lista_numeros_parte
+    
   ############################################################ EVENTOS ###########################################################
+  def drop_down_numeros_parte_change(self, **event_args):
+    self.drop_down_tipo_suaje.items = eval(self.drop_down_numeros_parte.selected_value[1])
+    self.drop_down_tipo_suaje.enabled = True
+    
+  def drop_down_tipo_suaje_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
