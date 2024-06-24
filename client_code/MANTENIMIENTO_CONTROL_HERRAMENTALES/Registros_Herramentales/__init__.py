@@ -31,7 +31,7 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
   def button_registrar_click(self, **event_args):
     datos = {}
     datos['clave_form'] = "FORMULARIO_REGISTRO_HERRAMENTAL"
-    datos['modo'] = "NUEVO"
+    datos['modo'] = "nuevo"
     datos['id_herramental'] = self.datos['id_herramental']
     self.abrir_popup_form(datos)
 

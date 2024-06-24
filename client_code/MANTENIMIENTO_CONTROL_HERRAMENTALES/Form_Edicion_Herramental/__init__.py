@@ -41,7 +41,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
     lista_numeros_parte = []
     for numero_parte in self.numeros_parte:
-      lista_numeros_parte.append((numero_parte['numero_parte'],(numero_parte['numero_parte'], numero_parte['tipo_corte'])))
+      lista_numeros_parte.append((numero_parte['numero_parte'],(numero_parte['id_numero_parte'], numero_parte['tipo_corte'])))
     self.drop_down_numeros_parte.items = lista_numeros_parte
     
   ############################################################ EVENTOS ###########################################################
@@ -61,7 +61,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
       dicc_datos['status'] = 0
       dicc_datos['id_herramental'] = self.datos['id_herramental']
-      dicc_datos['codigo_herramental'] = self.datos['codigo_herrramental']
+      #dicc_datos['codigo_herramental'] = self.datos['codigo_herrramental']
       dicc_datos['marca_temporal'] = datetime.now()
       status = ""
       if self.datos['modo'] == "edicion":
