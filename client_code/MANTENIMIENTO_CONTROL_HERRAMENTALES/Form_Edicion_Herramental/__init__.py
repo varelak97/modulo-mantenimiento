@@ -18,15 +18,19 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     self.init_components(**properties)
 
     self.datos = datos
+    self.get_data()
+    
+
+  ################################################### FUNCIONES PERSONALIZADAS ###################################################
+  def get_data(self):
     self.ws_control_herramentales = app_files.control_herramentales
     self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
     self.registros = self.ss_vista_numeros_parte.rows
     self.ss_registros = self.ws_control_herramentales['VISTA_REGISTROS']
     self.registros = self.ss_registros.rows
 
-  ################################################### FUNCIONES PERSONALIZADAS ###################################################
-  def get_data(self):
-    
-    pass
-
+    lista_numeros_parte = []
+    for numero_parte in self.ss_vista_numeros_parte:
+      lista_numeros_parte.append((numero_parte['numero_parte'], numero_parte['tipo_corte']))
+    print(lista_numeros_parte)
   ############################################################ EVENTOS ###########################################################
