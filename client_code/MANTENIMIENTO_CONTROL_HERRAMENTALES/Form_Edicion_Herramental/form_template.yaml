@@ -30,12 +30,24 @@ components:
       properties: {role: outlined}
       type: DropDown
       layout_properties: {grid_position: 'XBNBYZ,LROIGW'}
-    - name: label_1
-      properties: {}
+    - name: label_tipo_suaje
+      properties: {text: 'TIPO DE SUAJE:', bold: true}
       type: Label
       layout_properties: {grid_position: 'ASNMUD,CIHRRE'}
-    - name: drop_down_1
+    - name: drop_down_tipo_suaje
       properties: {role: outlined}
       type: DropDown
       layout_properties: {grid_position: 'KFPRPN,HINDLR'}
+    - name: label_suajes_programados
+      properties: {text: 'SUAJES PROGRAMADOS:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'UOKLNV,WRGQFC'}
+    - name: text_box_suajes_programados
+      properties: {type: number, role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'KBVVXK,OCUDXN'}
+    - name: button_guardar
+      properties: {text: GUARDAR, role: filled-button, icon: 'fa:save', bold: true}
+      type: Button
+      layout_properties: {grid_position: 'JKSGPX,CMTCZV'}
 is_package: true
