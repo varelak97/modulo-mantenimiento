@@ -26,7 +26,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     self.ws_control_herramentales = app_files.control_herramentales
     self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
     self.numeros_parte = self.ss_vista_numeros_parte.rows
-    self.ss_registros = self.ws_control_herramentales['VISTA_REGISTROS']
+    self.ss_registros = self.ws_control_herramentales['REGISTROS']
     self.registros = self.ss_registros.rows
 
     lista_numeros_parte = []
@@ -45,5 +45,4 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       self.drop_down_tipo_suaje.enabled = False
 
   def button_guardar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    id_registro = 1 if len(self.registros) > 0 else 1
