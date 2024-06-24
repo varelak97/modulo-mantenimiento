@@ -1,5 +1,16 @@
 from anvil import *
 
+def genera_diccionario(lista_components):
+  diccionario = {}
+  valor = None
+  for component in lista_components:
+    if type(component) in [TextBox, TextArea]:
+      valor = component.text
+    elif type(component) is DropDown:
+      valor = component.selected_value
+    diccionario[component.tag] = valor
+  return diccionario
+
 def fill_formulario(lista_components, datos):
   for component in lista_components:
     if type(component) in [TextBox, TextArea]:
