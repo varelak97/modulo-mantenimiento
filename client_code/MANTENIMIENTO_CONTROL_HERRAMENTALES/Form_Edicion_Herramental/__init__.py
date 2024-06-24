@@ -10,4 +10,4 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+  ################################################### FUNCIONES GLOBALES ###################################################

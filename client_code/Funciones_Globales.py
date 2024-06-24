@@ -1,6 +1,4 @@
-import anvil.server
-import anvil.google.auth, anvil.google.drive
-from anvil.google.drive import app_files
+from anvil import *
 
 def fill_formulario(lista_components, datos):
   for component in lista_components:
