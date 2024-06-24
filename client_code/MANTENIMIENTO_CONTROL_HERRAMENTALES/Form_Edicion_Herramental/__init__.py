@@ -4,7 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ... import Funciones_Globales
-from anvil import datetime
+from datetime import datetime, date
 
 
 class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
@@ -29,6 +29,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
     self.datos = datos
     self.get_data()
+    print(self.datos)
     
 
   ################################################### FUNCIONES PERSONALIZADAS ###################################################
@@ -48,7 +49,6 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   def drop_down_numeros_parte_change(self, **event_args):
     if self.drop_down_numeros_parte.selected_value is not None:
       self.drop_down_tipo_suaje.items = eval(self.drop_down_numeros_parte.selected_value[1])
-      self.drop_down_numeros_parte.selected_value = None
       self.drop_down_tipo_suaje.enabled = True
     else:
       self.drop_down_tipo_suaje.selected_value = None
@@ -57,7 +57,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
-      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_textbox)
+      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
       dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
       dicc_datos['status'] = 0
       dicc_datos['id_herramental'] = self.datos['id_herramental']
