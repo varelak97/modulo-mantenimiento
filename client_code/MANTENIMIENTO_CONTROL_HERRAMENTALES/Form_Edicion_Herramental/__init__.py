@@ -3,19 +3,28 @@ from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+from ... import Funciones_Globales
 
 
 class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
-  lista_componentes = None
+  lista_input_components = None
   datos = None
   ws_control_herramentales = None
   ss_vista_numeros_parte = None
   numeros_parte = None
   ss_registros = None
   registros = None
+  campos_no_obligatorios = []
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
+
+    self.lista_input_components = [
+      self.date_picker_fecha_programada,
+      self.drop_down_numeros_parte,
+      self.drop_down_tipo_suaje,
+      self.text_box_suajes_programados
+    ]
 
     self.datos = datos
     self.get_data()
@@ -47,4 +56,21 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   def button_guardar_click(self, **event_args):
     (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
     id_registro = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
+
+    status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
+    if status == 1:
+      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_textbox)
+      status = ""
+      if self.datos['modo'] == "edicion":
+        
+        status = "registro_actualizado"
+      elif self.datos['modo'] == "nuevo":
+        self.ss_registros.add_row()
+        status = "registro_guardado"
+      self.raise_event("x-close-alert",value=status)
+    elif status == 2:
+      alert("No hay cambios que guardar.", title="ERROR!")
+    elif status == 3:
+      alert("faltan campos por llenar!", title="ERROR!")
+
     

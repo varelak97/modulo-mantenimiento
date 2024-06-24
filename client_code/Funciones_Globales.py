@@ -19,7 +19,7 @@ def fill_formulario(lista_components, datos):
       component.selected_value = datos[component.tag]
 
 
-def validar_campos(lista_components, datos_proveedor, campos_no_obligatorios, modo):
+def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo):
     status = True
     cambios = False
     for textcomponent in lista_components:
@@ -35,7 +35,7 @@ def validar_campos(lista_components, datos_proveedor, campos_no_obligatorios, mo
           status = False
           textcomponent.role = "outlined-error"
       if modo == "edicion":
-        if valor != datos_proveedor[textcomponent.tag]: #valida que al menos un campos haya sido modificado
+        if valor != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
           cambios = True
       else:
         cambios = True
