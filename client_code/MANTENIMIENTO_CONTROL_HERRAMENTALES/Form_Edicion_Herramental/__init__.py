@@ -46,4 +46,5 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
   def button_guardar_click(self, **event_args):
     (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
-    id_registro = (max([int(item['id_registro']) for item in self.registros])) if 
+    id_registro = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
+    

@@ -15,6 +15,8 @@ def validar_campos(lista_components, datos_proveedor, campos_no_obligatorios, mo
       valor = None
       if type(textcomponent) is DropDown:
         valor = textcomponent.selected_value
+      elif type(textcomponent) is DatePicker:
+        valor = textcomponent.date
       elif type(textcomponent) in [TextBox, TextArea]:
         valor = textcomponent.text
       if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
