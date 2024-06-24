@@ -36,9 +36,14 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     
   ############################################################ EVENTOS ###########################################################
   def drop_down_numeros_parte_change(self, **event_args):
-    self.drop_down_tipo_suaje.items = eval(self.drop_down_numeros_parte.selected_value[1])
-    self.drop_down_tipo_suaje.enabled = True
-    
-  def drop_down_tipo_suaje_change(self, **event_args):
-    """This method is called when an item is selected"""
+    if self.drop_down_numeros_parte.selected_value is not None:
+      self.drop_down_tipo_suaje.items = eval(self.drop_down_numeros_parte.selected_value[1])
+      self.drop_down_numeros_parte.selected_value = None
+      self.drop_down_tipo_suaje.enabled = True
+    else:
+      self.drop_down_tipo_suaje.selected_value = None
+      self.drop_down_tipo_suaje.enabled = False
+
+  def button_guardar_click(self, **event_args):
+    """This method is called when the button is clicked"""
     pass
