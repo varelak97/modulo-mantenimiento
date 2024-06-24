@@ -6,8 +6,12 @@ from anvil.google.drive import app_files
 
 
 class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
+  lista_componentes = None
+  datos = None
   def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-  ################################################### FUNCIONES GLOBALES ###################################################
+  ################################################### FUNCIONES PERSONALIZADAS ###################################################
+
+  ############################################################ EVENTOS ###########################################################
