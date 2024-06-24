@@ -45,4 +45,5 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       self.drop_down_tipo_suaje.enabled = False
 
   def button_guardar_click(self, **event_args):
-    id_registro = 1 if len(self.registros) > 0 else 1
+    (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
+    id_registro = (max([int(item['id_registro']) for item in self.registros])) if 
