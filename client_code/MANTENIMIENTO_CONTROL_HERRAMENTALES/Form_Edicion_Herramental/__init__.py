@@ -61,7 +61,8 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
       dicc_datos['status'] = 0
       dicc_datos['id_herramental'] = self.datos['id_herramental']
-      #dicc_datos['codigo_herramental'] = self.datos['codigo_herrramental']
+      dicc_datos['registro_principal'] = 1
+      dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
       dicc_datos['marca_temporal'] = datetime.now()
       status = ""
       if self.datos['modo'] == "edicion":

@@ -17,7 +17,7 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
   def abrir_popup_form(self, datos, **event_args):
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == "FORMULARIO_REGISTRO_HERRAMENTAL":
-      datos.update(self.datos)
+      datos['id_usuario_erp'] = self.datos['id_usuario_erp']
       self.abrir_form(Form_Edicion_Herramental(datos))
       
   def abrir_form(self, form_de_interes):
