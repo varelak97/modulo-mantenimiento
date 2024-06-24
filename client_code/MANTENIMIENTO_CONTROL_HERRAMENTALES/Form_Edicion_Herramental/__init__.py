@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ... import Funciones_Globales
+from anvil import datetime
 
 
 class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
@@ -54,18 +55,21 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       self.drop_down_tipo_suaje.enabled = False
 
   def button_guardar_click(self, **event_args):
-    (max([int(item['id_solicitud_mtto']) for item in self.registros_solicitudes]) + 293) if len(self.registros_solicitudes) > 0 else 293
-    id_registro = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
-
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
       dicc_datos = Funciones_Globales.genera_diccionario(self.lista_textbox)
+      dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
+      dicc_datos['status'] = 0
+      dicc_datos['id_herramental'] = self.datos['id_herramental']
+      dicc_datos['codigo_herramental'] = self.datos['codigo_herrramental']
+      dicc_datos['marca_temporal'] = datetime.now()
       status = ""
       if self.datos['modo'] == "edicion":
         
         status = "registro_actualizado"
       elif self.datos['modo'] == "nuevo":
-        self.ss_registros.add_row()
+        alert(dicc_datos)
+        #self.ss_registros.add_row()
         status = "registro_guardado"
       self.raise_event("x-close-alert",value=status)
     elif status == 2:
