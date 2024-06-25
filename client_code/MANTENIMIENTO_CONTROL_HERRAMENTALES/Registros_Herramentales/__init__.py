@@ -23,6 +23,7 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content")
     if respuesta == "registro_guardado":
+      with Notification("Actualizando tabla...", title="ACTUALIZANDO", style="success"):
         self.button_actualizar_click()
 
 
