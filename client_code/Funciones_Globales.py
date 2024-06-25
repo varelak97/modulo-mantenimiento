@@ -8,6 +8,8 @@ def genera_diccionario(lista_components):
       valor = component.text
     elif type(component) is DropDown:
       valor = component.selected_value
+    elif type(component) is DatePicker:
+      valor = component.date
     diccionario[component.tag] = valor
   return diccionario
 

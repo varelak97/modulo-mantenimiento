@@ -58,6 +58,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
       dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
+      dicc_datos['id_numero_parte'] = dicc_datos['id_numero_parte'][0]
       dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
       dicc_datos['status'] = 0
       dicc_datos['id_herramental'] = self.datos['id_herramental']
@@ -69,8 +70,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
         
         status = "registro_actualizado"
       elif self.datos['modo'] == "nuevo":
-        alert(dicc_datos)
-        #self.ss_registros.add_row()
+        self.ss_registros.add_row(**dicc_datos)
         status = "registro_guardado"
       self.raise_event("x-close-alert",value=status)
     elif status == 2:

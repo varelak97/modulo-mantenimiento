@@ -19,7 +19,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'BMZTLK,MTDLOA'}
     - name: date_picker_fecha_programada
-      properties: {role: outlined}
+      properties: {role: outlined, format: '%d/%m/%Y'}
       type: DatePicker
       layout_properties: {grid_position: 'XAJUYK,PCGCJV'}
       data_bindings:
