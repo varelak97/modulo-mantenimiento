@@ -11,11 +11,14 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
   ws_herramentales = None
   ss_vista_registros = None
   registros = None
+  ss_vista_numeros_parte = None
+  numeros_parte = None
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.datos = datos
     self.ws_herramentales = app_files.control_herramentales
     self.ss_vista_registros = self.ws_herramentales['VISTA_REGISTROS']
+    self.ss_vista_numeros_parte = self.ws_herramentales["VISTA_NUMEROS_PARTE"]
     
     self.label_title.text = f"HERRAMENTAL {self.datos['codigo_herramental']}"
     self.button_actualizar_click()
@@ -45,4 +48,13 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
 
   def button_actualizar_click(self, **event_args):
     self.registros = self.ss_vista_registros.rows
+    self.numeros_parte = self.ss_vista_numeros_parte.rows
+    lista_registros = list(self.registros)
+    self.registros = []
+    for registro in lista_registros:
+      for numero_parte in self.numeros_parte:
+        if registro['id_numero_parte'] == numero_parte['id_numero_parte']:
+          dicc_registro = dict(registro)
+          dicc_registro['numero_parte'] = numero_parte['numero_parte']
+          self.registros.append(dicc_registro)
     self.repeating_panel_registros.items = self.registros

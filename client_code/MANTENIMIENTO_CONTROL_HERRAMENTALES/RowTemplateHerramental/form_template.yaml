@@ -53,3 +53,9 @@ components:
   type: Button
   layout_properties: {column: YKCCEL}
   event_bindings: {click: button_ver_click}
+- name: label_tipo_suaje
+  properties: {}
+  type: Label
+  layout_properties: {column: XTGDJP}
+  data_bindings:
+  - {property: text, code: 'self.item[''tipo_suaje'']', writeback: false}

@@ -23,7 +23,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     self.lista_input_components = [
       self.date_picker_fecha_programada,
       self.drop_down_numeros_parte,
-      self.drop_down_tipo_suaje,
+      self.text_box_tipo_suaje,
       self.text_box_suajes_programados
     ]
 

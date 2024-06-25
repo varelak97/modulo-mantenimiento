@@ -39,13 +39,12 @@ components:
       properties: {text: 'TIPO DE SUAJE:', bold: true}
       type: Label
       layout_properties: {grid_position: 'ASNMUD,CIHRRE'}
-    - name: drop_down_tipo_suaje
-      properties: {role: outlined, enabled: false, include_placeholder: true, placeholder: -- SELECCIONE --}
-      type: DropDown
-      layout_properties: {grid_position: 'KFPRPN,HINDLR'}
+    - name: text_box_tipo_suaje
+      properties: {role: outlined, enabled: false}
+      type: TextBox
+      layout_properties: {grid_position: 'MGEKJK,VLMITH'}
       data_bindings:
       - {property: tag, code: '"tipo_suaje"', writeback: false}
-      event_bindings: {}
     - name: label_suajes_programados
       properties: {text: 'SUAJES PROGRAMADOS:', bold: true}
       type: Label
