@@ -8,10 +8,17 @@ from ..Form_Edicion_Herramental import Form_Edicion_Herramental
 
 class Registros_Herramentales(Registros_HerramentalesTemplate):
   datos = None
+  ws_herramentales = None
+  ss_vista_registros = None
+  registros = None
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.datos = datos
+    self.ws_herramentales = app_files.control_herramentales
+    self.ss_vista_registros = self.ws_herramentales['VISTA_REGISTROS']
+    
     self.label_title.text = f"HERRAMENTAL {self.datos['codigo_herramental']}"
+    self.button_actualizar_click()
 
   #################################################### FUNCIONES PERSONALIZADAS #####################################################
   def abrir_popup_form(self, datos, **event_args):
@@ -37,5 +44,5 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     self.abrir_popup_form(datos)
 
   def button_actualizar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    self.registros = self.ss_vista_registros.rows
+    self.repeating_panel_registros.items = self.registros

@@ -27,3 +27,14 @@ components:
   properties: {}
   type: Label
   layout_properties: {column: NLQEOC}
+- name: link_status
+  properties: {}
+  type: Link
+  layout_properties: {column: ISZKHV}
+  components:
+  - name: label_status
+    properties: {icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'PAOIQD,BADMFA'}
+    data_bindings:
+    - {property: icon, code: '"fa:check" if bool(self.item[''status'']) else "fa-clock-o"', writeback: false}

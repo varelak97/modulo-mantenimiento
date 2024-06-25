@@ -41,7 +41,7 @@ components:
         role: wide-tonal-data-grid
       type: DataGrid
       components:
-      - name: repeating_panel_1
+      - name: repeating_panel_registros
         properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.Registros_Herramentales.RowTemplateRegistroHerramental}
         type: RepeatingPanel
       layout_properties: {grid_position: 'ZSKAXC,OUOYWN', full_width_row: true}
