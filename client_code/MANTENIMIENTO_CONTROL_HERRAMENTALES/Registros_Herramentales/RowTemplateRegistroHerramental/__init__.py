@@ -10,7 +10,10 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+    if self.item['status'] == "1":
+      self.label_status.background = app.theme_colors["SecondaryGreen"]
+    else:
+      self.label_status.background = app.theme_colors["Yellow"]
 
   def link_status_click(self, **event_args):
     if int(self.item['status']) == 0:
@@ -18,6 +21,5 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
       if respuesta:
         datos = {}
         datos['id_registro'] = self.button_editar.tag
-        #alert(f"el parent:{self.parent.parent.parent.parent.parent} ---- id_registro:{self.button_editar.tag}")
-        self.parent.parent.parent.parent.parent.raise_event("x-actualizar_status",datos = datos)
+        self.parent.parent.parent.parent.parent.raise_event("x-actualizar_status", datos = datos)
         

@@ -41,6 +41,5 @@ components:
     type: Label
     layout_properties: {grid_position: 'PAOIQD,BADMFA'}
     data_bindings:
-    - {property: background, code: '"Blue" if bool(int(self.item[''status''])) else "Yellow"', writeback: false}
     - {property: icon, code: '"fa:check" if bool(int(self.item[''status''])) else "fa:clock-o"', writeback: false}
   event_bindings: {click: link_status_click}
