@@ -50,7 +50,6 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
       nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
       self.ss_registros.add_row(**nuevo_registro)
 
-      self.herramentales = self.ss_herramentales.rows
       herramental = None
       for registro in self.herramentales:
         if self.datos['id_herramental'] == registro['id_herramental'] and registro['registro_principal'] == "1":
@@ -76,8 +75,11 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     self.registros = self.ss_registros.rows
     self.vista_registros = self.ss_vista_registros.rows
     self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
+    self.herramentales = self.ss_herramentales.rows
+    
     lista_registros = list(self.vista_registros)
     self.vista_registros = []
+    
     for registro in lista_registros:
       for numero_parte in self.vista_numeros_parte:
         if registro['id_numero_parte'] == numero_parte['id_numero_parte']:
