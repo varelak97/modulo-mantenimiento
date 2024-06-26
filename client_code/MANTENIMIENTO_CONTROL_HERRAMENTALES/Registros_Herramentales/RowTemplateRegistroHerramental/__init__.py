@@ -18,4 +18,6 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
       if respuesta:
         datos = {}
         datos['id_registro'] = self.button_editar.tag
+        #alert(f"el parent:{self.parent.parent.parent.parent.parent} ---- id_registro:{self.button_editar.tag}")
+        self.parent.parent.parent.parent.parent.raise_event("x-actualizar_status",datos = datos)
         
