@@ -36,16 +36,16 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
                 break
               else:
                 datos['password'] = ""
-        if(datos['id_usuario_erp'] != None and datos['password'] != "" and datos['password'] != None):
+        if(datos['id_usuario_erp'] is not None and datos['password'] != "" and datos['password'] is not None):
           #self.flow_panel_card_inicio_sesion.remove_from_parent()
           open_form(A_main(datos))
-        elif datos['id_usuario_erp'] == None:
-          Notification("El número de empleado ingresado no existe!", style="error", title="Error de inicio de sesión").show(3)
+        elif datos['id_usuario_erp'] is None:
+          Notification("El número de empleado ingresado no existe!", style="danger", title="Error de inicio de sesión").show(3)
           #alert("El número de empleado ingresado no existe!", title="Error de inicio de sesión!")
         else:
-          if datos['password'] == None:
+          if datos['password'] is None:
             alert(REGISTRO_USUARIOS(datos),large=True, buttons=[("SALIR","SALIR")])
           else:
-            alert("La contraseña ingresada es incorrecta!", title="Error de incio de sesión!")
+            Notification("La contraseña ingresada es incorrecta!", style="danger", title="Error de inicio de sesión").show(3)
     
               

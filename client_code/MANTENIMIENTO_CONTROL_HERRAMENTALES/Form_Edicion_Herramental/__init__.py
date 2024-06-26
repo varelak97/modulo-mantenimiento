@@ -29,8 +29,6 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
     self.datos = datos
     self.get_data()
-    print(self.datos)
-    
 
   ################################################### FUNCIONES PERSONALIZADAS ###################################################
   def get_data(self):
@@ -42,18 +40,12 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
     lista_numeros_parte = []
     for numero_parte in self.numeros_parte:
-      lista_numeros_parte.append((numero_parte['numero_parte'],(numero_parte['id_numero_parte'], numero_parte['tipo_corte'])))
+      if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
+        lista_numeros_parte.append((numero_parte['numero_parte'], numero_parte['id_numero_parte']))
     self.drop_down_numeros_parte.items = lista_numeros_parte
+    self.text_box_tipo_suaje.text = self.datos['tipo_suaje']
     
   ############################################################ EVENTOS ###########################################################
-  def drop_down_numeros_parte_change(self, **event_args):
-    if self.drop_down_numeros_parte.selected_value is not None:
-      self.drop_down_tipo_suaje.items = eval(self.drop_down_numeros_parte.selected_value[1])
-      self.drop_down_tipo_suaje.enabled = True
-    else:
-      self.drop_down_tipo_suaje.selected_value = None
-      self.drop_down_tipo_suaje.enabled = False
-
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
@@ -64,6 +56,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       dicc_datos['id_herramental'] = self.datos['id_herramental']
       dicc_datos['registro_principal'] = 1
       dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
+      dicc_datos['comentarios'] = "Alta"
       dicc_datos['marca_temporal'] = datetime.now()
       status = ""
       if self.datos['modo'] == "edicion":

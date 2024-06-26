@@ -11,3 +11,11 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def link_status_click(self, **event_args):
+    if int(self.item['status']) == 0:
+      respuesta = alert("¿Confirma que desea marcar como terminado?", title="CONFIRMACIÓN", buttons=(("ACEPTAR", True),("CANCELAR", False)))
+      if respuesta:
+        datos = {}
+        datos['id_registros'] = self.button_editar.tag
+        
