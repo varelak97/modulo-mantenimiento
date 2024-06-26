@@ -40,7 +40,8 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
           #self.flow_panel_card_inicio_sesion.remove_from_parent()
           open_form(A_main(datos))
         elif datos['id_usuario_erp'] == None:
-          alert("El número de empleado ingresado no existe!", title="Error de inicio de sesión!")
+          Notification("El número de empleado ingresado no existe!", style="error", title="Error de inicio de sesión").show(3)
+          #alert("El número de empleado ingresado no existe!", title="Error de inicio de sesión!")
         else:
           if datos['password'] == None:
             alert(REGISTRO_USUARIOS(datos),large=True, buttons=[("SALIR","SALIR")])
