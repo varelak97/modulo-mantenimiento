@@ -76,8 +76,11 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     self.vista_registros = self.ss_vista_registros.rows
     self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
     self.herramentales = self.ss_herramentales.rows
-    
-    lista_registros = list(self.vista_registros)
+    lista_registros = []
+    for registro in self.vista_registros:
+      if registro['id_herramental'] == self.datos['id_herramental']:
+        lista_registros.append(registro)
+
     self.vista_registros = []
     
     for registro in lista_registros:
