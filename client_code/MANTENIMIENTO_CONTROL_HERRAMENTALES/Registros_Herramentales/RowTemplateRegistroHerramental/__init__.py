@@ -17,5 +17,5 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
       respuesta = alert("¿Confirma que desea marcar como terminado?", title="CONFIRMACIÓN", buttons=(("ACEPTAR", True),("CANCELAR", False)))
       if respuesta:
         datos = {}
-        datos['id_registros'] = self.button_editar.tag
+        datos['id_registro'] = self.button_editar.tag
         
