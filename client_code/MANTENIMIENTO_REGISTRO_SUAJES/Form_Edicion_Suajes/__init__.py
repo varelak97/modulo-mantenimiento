@@ -12,7 +12,9 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   datos = None
   ws_control_herramentales = None
   ss_vista_numeros_parte = None
-  numeros_parte = None
+  vista_numeros_parte = None
+  ss_vista_herramentales = None
+  vista_herramentales = None
   ss_registros = None
   registros = None
   campos_no_obligatorios = []
@@ -23,28 +25,29 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     self.lista_input_components = [
       self.date_picker_fecha_programada,
       self.drop_down_numeros_parte,
-      self.text_box_tipo_suaje,
+      self.drop_down_tipo_suaje,
       self.text_box_suajes_programados
     ]
+
+    self.ws_control_herramentales = app_files.control_herramentales
+    self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
+    self.ss_vista_herramentales = self.ws_control_herramentales['VISTA_HERRAMENTALES']
+    self.ss_registros = self.ws_control_herramentales['REGISTROS']
 
     self.datos = datos
     self.get_data()
 
   ################################################### FUNCIONES PERSONALIZADAS ###################################################
   def get_data(self):
-    self.ws_control_herramentales = app_files.control_herramentales
-    self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
-    self.numeros_parte = self.ss_vista_numeros_parte.rows
-    self.ss_registros = self.ws_control_herramentales['REGISTROS']
+    self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
+    self.vista_herramentales = self.ss_vista_herramentales.rows
     self.registros = self.ss_registros.rows
 
     lista_numeros_parte = []
-    for numero_parte in self.numeros_parte:
-      if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
-        lista_numeros_parte.append((numero_parte['numero_parte'], numero_parte['id_numero_parte']))
+    for numero_parte in self.vista_numeros_parte:
+      #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
+      lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
     self.drop_down_numeros_parte.items = lista_numeros_parte
-    self.text_box_tipo_suaje.text = self.datos['tipo_suaje']
-    
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
@@ -70,5 +73,17 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:
       alert("faltan campos por llenar!", title="ERROR!")
+
+  def drop_down_numeros_parte_change(self, **event_args):
+    if self.drop_down_numeros_parte is not None:
+      lista_suajes = []
+      for herramental in self.vista_herramentales:
+        if herramental['id_herramental'] in eval(self.drop_down_numeros_parte.selected_value[1]):
+          lista_suajes.append(herramental['tipo_suaje'])
+      self.drop_down_tipo_suaje.items = lista_suajes
+      self.drop_down_tipo_suaje.enabled = True
+    else:
+      self.drop_down_tipo_suaje.selected_value = None
+      self.drop_down_tipo_suaje.enabled = False
 
     

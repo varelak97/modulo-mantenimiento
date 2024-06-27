@@ -111,8 +111,6 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     datos = {}
     datos['clave_form'] = "FORMULARIO_REGISTRO_HERRAMENTAL"
     datos['modo'] = "nuevo"
-    datos['id_herramental'] = self.datos['id_herramental']
-    datos['tipo_suaje'] = self.datos['tipo_suaje']
     self.abrir_popup_form(datos)
 
   def button_actualizar_click(self, **event_args):
