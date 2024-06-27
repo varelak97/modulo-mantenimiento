@@ -54,9 +54,8 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
 
       herramental = None
       for registro in self.herramentales:
-        if self.datos['id_herramental'] == registro['id_herramental'] and registro['registro_principal'] == "1":
+        if datos['id_herramental'] == registro['id_herramental'] and registro['registro_principal'] == "1":
           herramental = registro
-          alert(f"encontrado:{herramental}")
           break
       herramental['contador'] = int(herramental['contador']) + int(nuevo_registro['suajes_programados'])    
     Notification("El registro ha sido actualizado correctamente!", "HECHO!", style="success").show(3)

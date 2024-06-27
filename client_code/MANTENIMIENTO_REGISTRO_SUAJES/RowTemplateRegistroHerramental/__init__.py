@@ -21,5 +21,6 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
       if respuesta:
         datos = {}
         datos['id_registro'] = self.button_editar.tag
+        datos['id_herramental'] = self.label_codigo_herramental.tag
         self.parent.parent.parent.parent.parent.raise_event("x-actualizar_status", datos = datos)
         

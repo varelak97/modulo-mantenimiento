@@ -49,3 +49,4 @@ components:
   layout_properties: {column: OAPQCV}
   data_bindings:
   - {property: text, code: 'self.item[''codigo_herramental'']', writeback: false}
+  - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
