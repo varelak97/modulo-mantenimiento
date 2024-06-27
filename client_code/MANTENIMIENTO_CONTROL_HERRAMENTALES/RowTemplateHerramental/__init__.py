@@ -19,6 +19,10 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
       self.label_alerta.icon = "fa:warning"
       self.label_alerta.foreground = app.theme_colors['Primary']
       self.label_alerta.background = app.theme_colors['Yellow']
+    else:
+      self.label_alerta.icon = "fa:check"
+      self.label_alerta.foreground = app.theme_colors['Primary']
+      self.label_alerta.background = app.theme_colors['SecondaryGreen']
 
     self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_codigo_herramental.text, trigger="click",max_width="450px")
 
