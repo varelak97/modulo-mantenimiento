@@ -57,8 +57,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       with Notification(mensaje, title=title):
         dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
         dicc_datos['id_numero_parte'] = dicc_datos['id_numero_parte'][0]
-        dicc_datos['id_herramental'] = dicc_datos['id_herramental'][1]
         dicc_datos['tipo_suaje'] = dicc_datos['tipo_suaje'][0]
+        dicc_datos['id_herramental'] = dicc_datos['tipo_suaje'][1]
         dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
         dicc_datos['status'] = 0
         dicc_datos['registro_principal'] = 1
