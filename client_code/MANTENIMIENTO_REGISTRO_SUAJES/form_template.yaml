@@ -11,7 +11,7 @@ components:
     layout_properties: {grid_position: 'BSTLHB,GZSADJ', full_width_row: true}
     components:
     - name: label_title
-      properties: {text: HERRAMENTAL XXXXX, bold: true, align: center, role: title, background: 'theme:Primary', foreground: 'theme:On Primary'}
+      properties: {text: REGISTRO DE SUAJES, bold: true, align: center, role: title, background: 'theme:Primary', foreground: 'theme:On Primary'}
       type: Label
       layout_properties: {grid_position: 'KFNLWK,BZIAEK'}
   - name: outlined_card_body
@@ -25,7 +25,7 @@ components:
       layout_properties: {grid_position: 'ONGAYX,RVBZXQ'}
       event_bindings: {click: button_registrar_click}
     - name: button_actualizar
-      properties: {text: ACTUALIZAR, icon: 'fa:refresh', bold: true, background: 'theme:Primary', foreground: 'theme:Primary Container'}
+      properties: {text: ACTUALIZAR, icon: 'fa:refresh', bold: true, background: 'theme:Primary', foreground: 'theme:On Primary'}
       type: Button
       layout_properties: {grid_position: 'ONGAYX,AHMNNA'}
       event_bindings: {click: button_actualizar_click}
@@ -37,12 +37,13 @@ components:
         - {id: OJLQEN, title: NÚMERO DE PARTE, data_key: numero_parte, width: '250'}
         - {id: TQAONH, data_key: tipo_suaje, title: TIPO DE SUAJE, width: '250'}
         - {id: NLQEOC, data_key: suajes_programados, title: SUAJES PROGRAMADOS, width: '250'}
+        - {id: OAPQCV, data_key: codigo_herramental, title: HERRAMENTAL, width: '200'}
         - {id: ISZKHV, data_key: status, title: STATUS, width: '250'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:
       - name: repeating_panel_registros
-        properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.Registros_Herramentales.RowTemplateRegistroHerramental}
+        properties: {item_template: MANTENIMIENTO_REGISTRO_SUAJES.RowTemplateRegistroHerramental}
         type: RepeatingPanel
       layout_properties: {grid_position: 'ZSKAXC,OUOYWN', full_width_row: true}
 is_package: true

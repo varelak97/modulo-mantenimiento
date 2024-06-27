@@ -8,7 +8,7 @@ components:
   data_bindings:
   - {property: tag, code: 'self.item[''id_registro'']', writeback: false}
 - name: label_fecha_programada
-  properties: {}
+  properties: {align: center}
   type: Label
   layout_properties: {column: VJQQOR}
   data_bindings:
@@ -26,7 +26,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''tipo_suaje'']', writeback: false}
 - name: label_suajes_programados
-  properties: {}
+  properties: {align: center}
   type: Label
   layout_properties: {column: NLQEOC}
   data_bindings:
@@ -43,3 +43,9 @@ components:
     data_bindings:
     - {property: icon, code: '"fa:check" if bool(int(self.item[''status''])) else "fa:clock-o"', writeback: false}
   event_bindings: {click: link_status_click}
+- name: label_codigo_herramental
+  properties: {}
+  type: Label
+  layout_properties: {column: OAPQCV}
+  data_bindings:
+  - {property: text, code: 'self.item[''codigo_herramental'']', writeback: false}

@@ -13,6 +13,7 @@ from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGIST
 from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
 from ..MANTENIMIENTO_FORMS_REPORTES import MANTENIMIENTO_FORMS_REPORTES
 from ..MANTENIMIENTO_CONTROL_HERRAMENTALES import MANTENIMIENTO_CONTROL_HERRAMENTALES
+from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
 
 class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -81,6 +82,8 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     augment.set_event_handler(self.outlined_card_mantenimiento_preventivo,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_control_herramentales,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_control_herramentales,'mouseleave',self.set_color)
+    augment.set_event_handler(self.outlined_card_registro_suajes,'mouseenter',self.set_color)
+    augment.set_event_handler(self.outlined_card_registro_suajes,'mouseleave',self.set_color)
 
     if self.datos['id_usuario_erp'] == 58 or self.datos['id_usuario_erp'] == 884 or self.datos['id_usuario_erp'] == 0:
       self.content_panel_general.visible = False
@@ -226,5 +229,10 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos = self.datos
     datos['modo'] = "todos"
     respuesta = alert(content = MANTENIMIENTO_CONTROL_HERRAMENTALES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+
+  def link_registro_suajes_click(self, **event_args):
+    datos = self.datos
+    datos['modo'] = "todos"
+    respuesta = alert(content = MANTENIMIENTO_REGISTRO_SUAJES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     
       

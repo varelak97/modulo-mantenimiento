@@ -4,7 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from anvil_extras import popover
-from .Registros_Herramentales import Registros_Herramentales
+from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
 
 
 class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTemplate):
@@ -28,7 +28,7 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == 'REGISTROS_HERRAMENTAL':
       datos.update(self.datos)
-      self.abrir_form(Registros_Herramentales(datos))
+      self.abrir_form(MANTENIMIENTO_REGISTRO_SUAJES(datos))
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content-bigger")

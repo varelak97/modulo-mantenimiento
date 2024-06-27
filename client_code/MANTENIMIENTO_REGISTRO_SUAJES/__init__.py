@@ -1,13 +1,13 @@
-from ._anvil_designer import Registros_HerramentalesTemplate
+from ._anvil_designer import MANTENIMIENTO_REGISTRO_SUAJESTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
-from ..Form_Edicion_Herramental import Form_Edicion_Herramental
+from .Form_Edicion_Suajes import Form_Edicion_Suajes
 from datetime import datetime, date
 
 
-class Registros_Herramentales(Registros_HerramentalesTemplate):
+class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
   datos = None
   ws_herramentales = None
   ss_vista_registros = None
@@ -18,6 +18,8 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
   registros = None
   ss_herramentales = None
   herramentales = None
+  ss_vista_herramentales = None
+  vista_herramentales = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -30,8 +32,8 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     self.ss_vista_numeros_parte = self.ws_herramentales["VISTA_NUMEROS_PARTE"]
     self.ss_registros = self.ws_herramentales['REGISTROS']
     self.ss_herramentales = self.ws_herramentales['HERRAMENTALES']
+    self.ss_vista_herramentales = self.ws_herramentales['VISTA_HERRAMENTALES']
     
-    self.label_title.text = f"HERRAMENTAL {self.datos['codigo_herramental']}"
     self.button_actualizar_click()
 
   #################################################### FUNCIONES PERSONALIZADAS #####################################################
@@ -64,7 +66,7 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
     if datos['clave_form'] == "FORMULARIO_REGISTRO_HERRAMENTAL":
       datos['id_usuario_erp'] = self.datos['id_usuario_erp']
-      self.abrir_form(Form_Edicion_Herramental(datos))
+      self.abrir_form(Form_Edicion_Suajes(datos))
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content")
@@ -72,14 +74,19 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
       self.button_actualizar_click()
 
   def get_data(self):
-    self.registros = self.ss_registros.rows
     self.vista_registros = self.ss_vista_registros.rows
     self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
+    self.vista_herramentales = self.ss_vista_herramentales.rows
+    self.registros = self.ss_registros.rows
     self.herramentales = self.ss_herramentales.rows
     lista_registros = []
-    for registro in self.vista_registros:
-      if registro['id_herramental'] == self.datos['id_herramental']:
-        lista_registros.append(registro)
+    
+    if self.datos['modo'] == "todos":
+      lista_registros = list(self.vista_registros)
+    else:
+      for registro in self.vista_registros:
+        if registro['id_herramental'] == self.datos['id_herramental']:
+          lista_registros.append(registro)
 
     self.vista_registros = []
     
@@ -89,6 +96,12 @@ class Registros_Herramentales(Registros_HerramentalesTemplate):
           dicc_registro = dict(registro)
           dicc_registro['numero_parte'] = numero_parte['numero_parte']
           self.vista_registros.append(dicc_registro)
+
+    for registro in self.vista_registros:
+      for herramental in self.vista_herramentales:
+        if registro['id_herramental'] == herramental['id_herramental']:
+          registro['codigo_herramental'] = herramental['codigo_herramental']
+    
     self.repeating_panel_registros.items = self.vista_registros
 
 

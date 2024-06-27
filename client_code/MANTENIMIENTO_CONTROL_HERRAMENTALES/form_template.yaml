@@ -13,7 +13,7 @@ components:
     - name: label_title
       properties:
         text: |
-          SUAJES
+          CONTROL DE HERRAMENTALES
         role: title
         background: theme:Primary
         foreground: theme:On Primary

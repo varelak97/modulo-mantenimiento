@@ -1,4 +1,4 @@
-from ._anvil_designer import Form_Edicion_HerramentalTemplate
+from ._anvil_designer import Form_Edicion_SuajesTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -7,7 +7,7 @@ from ... import Funciones_Globales
 from datetime import datetime, date
 
 
-class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
+class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   lista_input_components = None
   datos = None
   ws_control_herramentales = None
