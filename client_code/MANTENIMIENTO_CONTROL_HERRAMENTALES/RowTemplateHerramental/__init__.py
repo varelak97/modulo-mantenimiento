@@ -11,6 +11,15 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    if int(self.item['contador']) >= int(self.item['vida_util']):
+      self.label_alerta.icon = "fa:exclamation-circle"
+      self.label_alerta.background = app.theme_colors['Red']
+      self.label_alerta.foreground = app.theme_colors['Yellow']
+    elif int(self.item['contador']) >= int(self.item['alerta']):
+      self.label_alerta.icon = "fa:warning"
+      self.label_alerta.foreground = app.theme_colors['Primary']
+      self.label_alerta.background = app.theme_colors['Yellow']
+
     self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_codigo_herramental.text, trigger="click",max_width="450px")
 
   def button_ver_click(self, **event_args):
