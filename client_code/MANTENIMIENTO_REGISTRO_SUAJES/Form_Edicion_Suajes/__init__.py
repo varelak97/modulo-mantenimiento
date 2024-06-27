@@ -75,7 +75,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       alert("faltan campos por llenar!", title="ERROR!")
 
   def drop_down_numeros_parte_change(self, **event_args):
-    if self.drop_down_numeros_parte is not None:
+    if self.drop_down_numeros_parte.selected_value is not None:
       lista_suajes = []
       for herramental in self.vista_herramentales:
         if herramental['id_herramental'] in eval(self.drop_down_numeros_parte.selected_value[1]):
