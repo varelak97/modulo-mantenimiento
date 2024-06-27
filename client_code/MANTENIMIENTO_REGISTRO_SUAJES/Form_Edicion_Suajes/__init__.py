@@ -52,22 +52,26 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
-      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
-      dicc_datos['id_numero_parte'] = dicc_datos['id_numero_parte'][0]
-      dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
-      dicc_datos['status'] = 0
-      dicc_datos['id_herramental'] = self.datos['id_herramental']
-      dicc_datos['registro_principal'] = 1
-      dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
-      dicc_datos['comentarios'] = "Alta"
-      dicc_datos['marca_temporal'] = datetime.now()
-      status = ""
-      if self.datos['modo'] == "edicion":
-        
-        status = "registro_actualizado"
-      elif self.datos['modo'] == "nuevo":
-        self.ss_registros.add_row(**dicc_datos)
-        status = "registro_guardado"
+      mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
+      title = "ACTUALIZANDO." if self.datos['modo'] == "edicion" else "GUARDANDO."
+      with Notification(mensaje, title=title):
+        dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
+        dicc_datos['id_numero_parte'] = dicc_datos['id_numero_parte'][0]
+        dicc_datos['id_herramental'] = dicc_datos['id_herramental'][1]
+        dicc_datos['tipo_suaje'] = dicc_datos['tipo_suaje'][0]
+        dicc_datos['id_registro'] = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
+        dicc_datos['status'] = 0
+        dicc_datos['registro_principal'] = 1
+        dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
+        dicc_datos['comentarios'] = "Alta"
+        dicc_datos['marca_temporal'] = datetime.now()
+        status = ""
+        if self.datos['modo'] == "edicion":
+          #falta codigo cuando se actualiza
+          status = "registro_actualizado"
+        elif self.datos['modo'] == "nuevo":
+          self.ss_registros.add_row(**dicc_datos)
+          status = "registro_guardado"
       self.raise_event("x-close-alert",value=status)
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
@@ -78,8 +82,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     if self.drop_down_numeros_parte.selected_value is not None:
       lista_suajes = []
       for herramental in self.vista_herramentales:
-        if herramental['id_herramental'] in eval(self.drop_down_numeros_parte.selected_value[1]):
-          lista_suajes.append(herramental['tipo_suaje'])
+        if int(herramental['id_herramental']) in eval(self.drop_down_numeros_parte.selected_value[1]):
+          lista_suajes.append((herramental['tipo_suaje'], (herramental['tipo_suaje'], herramental['id_herramental'])))
       self.drop_down_tipo_suaje.items = lista_suajes
       self.drop_down_tipo_suaje.enabled = True
     else:

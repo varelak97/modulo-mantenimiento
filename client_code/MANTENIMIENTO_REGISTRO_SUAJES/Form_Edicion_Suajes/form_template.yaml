@@ -43,6 +43,8 @@ components:
       properties: {placeholder: -- SELECCIONE --, include_placeholder: true, role: outlined, enabled: false}
       type: DropDown
       layout_properties: {grid_position: 'RRZOMZ,PJDDXL'}
+      data_bindings:
+      - {property: tag, code: '"tipo_suaje"', writeback: false}
     - name: label_suajes_programados
       properties: {text: 'SUAJES PROGRAMADOS:', bold: true}
       type: Label
