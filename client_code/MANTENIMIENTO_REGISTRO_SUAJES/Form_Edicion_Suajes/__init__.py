@@ -63,6 +63,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
         dicc_datos['status'] = 0
         dicc_datos['registro_principal'] = 1
         dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
+        dicc_datos['nombre_usuario'] = self.datos['nombre_usuario']
         dicc_datos['comentarios'] = "Alta"
         dicc_datos['marca_temporal'] = datetime.now()
         status = ""

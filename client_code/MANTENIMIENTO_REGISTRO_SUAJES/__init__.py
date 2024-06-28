@@ -27,6 +27,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     self.set_event_handler('x-actualizar_status', self.actualizar_status)
     
     self.datos = datos
+    print(f"lo que llega:{self.datos}")
     self.ws_herramentales = app_files.control_herramentales
     self.ss_vista_registros = self.ws_herramentales['VISTA_REGISTROS']
     self.ss_vista_numeros_parte = self.ws_herramentales["VISTA_NUMEROS_PARTE"]
@@ -63,8 +64,9 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     
   def abrir_popup_form(self, datos, **event_args):
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
-    if datos['clave_form'] == "FORMULARIO_REGISTRO_HERRAMENTAL":
+    if datos['clave_form'] == "FORMULARIO_REGISTRO_SUAJE":
       datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+      datos['nombre_usuario'] = self.datos['nombre_usuario']
       self.abrir_form(Form_Edicion_Suajes(datos))
       
   def abrir_form(self, form_de_interes):
@@ -108,7 +110,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
   ############################################################# EVENTOS #############################################################
   def button_registrar_click(self, **event_args):
     datos = {}
-    datos['clave_form'] = "FORMULARIO_REGISTRO_HERRAMENTAL"
+    datos['clave_form'] = "FORMULARIO_REGISTRO_SUAJE"
     datos['modo'] = "nuevo"
     self.abrir_popup_form(datos)
 

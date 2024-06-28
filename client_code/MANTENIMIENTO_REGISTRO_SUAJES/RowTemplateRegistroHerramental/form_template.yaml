@@ -50,3 +50,9 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''codigo_herramental'']', writeback: false}
   - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
+- name: label_nombre_usuario
+  properties: {}
+  type: Label
+  layout_properties: {column: YOCKTR}
+  data_bindings:
+  - {property: text, code: 'self.item[''nombre_usuario'']', writeback: false}

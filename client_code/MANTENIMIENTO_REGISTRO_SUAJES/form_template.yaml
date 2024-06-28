@@ -39,6 +39,7 @@ components:
         - {id: NLQEOC, data_key: suajes_programados, title: SUAJES PROGRAMADOS, width: '250'}
         - {id: OAPQCV, data_key: codigo_herramental, title: HERRAMENTAL, width: '200'}
         - {id: ISZKHV, data_key: status, title: STATUS, width: '250'}
+        - {id: YOCKTR, data_key: nombre_usuario, title: USUARIO REGISTRADOR, width: '300'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:
