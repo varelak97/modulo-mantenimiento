@@ -6,7 +6,7 @@ components:
   layout_properties: {grid_position: 'EXSSZL,KOCFCH'}
   components:
   - name: outlined_card_body
-    properties: {role: elevated-card, col_widths: '{"OIBCPU":15,"CGUNEJ":20}'}
+    properties: {role: elevated-card, col_widths: '{}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'APJKCG,FCDSEX'}
     components:
@@ -17,17 +17,18 @@ components:
     - name: label_codigo_herramental
       properties: {text: 'CÓDIGO DEL HERRAMENTAL:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'KQMUCF,OIBCPU QFTUXC,GCONLF'}
+      layout_properties: {grid_position: 'QFTUXC,GCONLF'}
     - name: text_box_codigo_herramental
       properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'KQMUCF,OIBCPU VAHWPI,PZLGST'}
+      layout_properties: {grid_position: 'VAHWPI,PZLGST'}
       data_bindings:
       - {property: tag, code: '"codigo_herramental"', writeback: false}
+      event_bindings: {change: text_box_codigo_herramental_change}
     - name: spacer_1
       properties: {height: 32}
       type: Spacer
-      layout_properties: {grid_position: 'KQMUCF,OIBCPU VAHWPI,ZTAFEQ'}
+      layout_properties: {grid_position: 'VAHWPI,ZTAFEQ'}
     - name: label_descripcion_herramental
       properties: {text: 'DESCRIPCIÓN DEL HERRAMENTAL:', bold: true}
       type: Label
@@ -37,47 +38,66 @@ components:
       type: TextArea
       layout_properties: {grid_position: 'AYZFWQ,WHAFQA'}
       data_bindings:
-      - {property: tag, code: '"descripcion_herramental"', writeback: false}
+      - {property: tag, code: '"descripcion"', writeback: false}
+      event_bindings: {change: text_area_descripcion_change}
     - name: label_tipo_suaje
       properties: {text: 'TIPO DE SUAJE:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'TOKWNU,BMIYXK'}
-    - name: label_vida_util
-      properties: {text: 'VIDA UTIL ESTIMADA:', bold: true}
-      type: Label
-      layout_properties: {grid_position: 'TOKWNU,WHBAGM'}
+      layout_properties: {grid_position: 'TOKWNU,BMIYXK ANZBND,QNHOVU'}
     - name: text_box_tipo_suaje
       properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'EKGERF,QJYYHL'}
+      layout_properties: {grid_position: 'TOKWNU,BMIYXK UEYETH,MJHRNN'}
       data_bindings:
       - {property: tag, code: '"tipo_suaje"', writeback: false}
-    - name: text_box_vida_util
-      properties: {role: outlined, type: number}
-      type: TextBox
-      layout_properties: {grid_position: 'EKGERF,JVPISH'}
-      data_bindings:
-      - {property: tag, code: '"vida_util"', writeback: false}
+      event_bindings: {change: text_box_tipo_suaje_change}
     - name: label_ubicacion
       properties: {text: 'UBICACIÓN:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'TNNCNR,KIEMDO'}
+      layout_properties: {grid_position: 'TOKWNU,GEFZCP GFWJVP,WRXFTC'}
+    - name: text_box_ubicacion
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'TOKWNU,GEFZCP FBYMQF,JZDGDO'}
+      data_bindings:
+      - {property: tag, code: '"ubicacion"', writeback: false}
+      event_bindings: {change: text_box_ubicacion_change}
+    - name: label_vida_util
+      properties: {text: 'VIDA UTIL ESTIMADA:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'DBLKAN,FVWPEH KAWIEY,CBNIAN'}
+    - name: text_box_vida_util
+      properties: {role: outlined, type: number}
+      type: TextBox
+      layout_properties: {grid_position: 'DBLKAN,FVWPEH UXYRJG,RSSBFT'}
+      data_bindings:
+      - {property: tag, code: '"vida_util"', writeback: false}
+      event_bindings: {change: text_box_vida_util_change}
+    - name: label_1
+      properties: {text: 'ALERTA PARA REVISIÓN:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'DBLKAN,OFXUTP RNAKNX,VEXMZP'}
+    - name: text_box_alerta
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'DBLKAN,OFXUTP ATRNEI,TSSIEW'}
+      data_bindings:
+      - {property: tag, code: '"alerta"', writeback: false}
     - name: label_tipo_material
       properties: {text: 'TIPO DE MATERIAL:', bold: true}
       type: Label
       layout_properties: {grid_position: 'TNNCNR,BRQADH'}
-    - name: text_box_ubicacion
-      properties: {role: outlined}
-      type: TextBox
-      layout_properties: {grid_position: 'RHOAUT,WSQHKI'}
-      data_bindings:
-      - {property: tag, code: '"ubicacion"', writeback: false}
     - name: text_box_tipo_material
       properties: {role: outlined}
       type: TextBox
       layout_properties: {grid_position: 'RHOAUT,GDWJIF'}
       data_bindings:
       - {property: tag, code: '"tipo_material"', writeback: false}
+      event_bindings: {change: text_box_tipo_material_change}
+    - name: spacer_3
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'RHOAUT,KTAMPJ'}
     - name: spacer_2
       properties: {height: 27}
       type: Spacer
