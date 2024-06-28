@@ -1,5 +1,13 @@
 from anvil import *
 
+def get_registro(self, id, clave, base):
+    registro_encontrado = None
+    for registro in base:
+      if registro[clave] == id and registro['registro_principal'] == '1' and registro['activo'] == '1':
+        registro_encontrado = registro
+        break
+    return registro_encontrado
+
 def genera_diccionario(lista_components):
   diccionario = {}
   valor = None
