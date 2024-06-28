@@ -38,6 +38,7 @@ components:
         foreground: theme:Primary
       type: Button
       layout_properties: {grid_position: 'HALFUG,HICFWJ'}
+      event_bindings: {click: button_nuevo_click}
     - name: button_actualizar
       properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh', bold: true, align: center}
       type: Button

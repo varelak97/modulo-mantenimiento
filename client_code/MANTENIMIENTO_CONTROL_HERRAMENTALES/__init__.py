@@ -5,6 +5,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from anvil_extras import popover
 from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
+from .Form_Edicion_Herramental import Form_Edicion_Herramental
 
 
 class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTemplate):
@@ -29,6 +30,9 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
     if datos['clave_form'] == 'REGISTROS_HERRAMENTAL':
       datos.update(self.datos)
       self.abrir_form(MANTENIMIENTO_REGISTRO_SUAJES(datos))
+    elif datos['clave_form'] == 'FORM_HERRAMENTAL':
+      datos.update(self.datos)
+      self.abrir_form(Form_Edicion_Herramental(datos))
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content-bigger")
@@ -39,3 +43,9 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
   def button_actualizar_click(self, **event_args):
     self.herramentales = self.ss_herramentales.rows
     self.repeating_panel_herramentales.items = self.herramentales
+
+  def button_nuevo_click(self, **event_args):
+    datos = {}
+    datos['clave_form'] = 'FORM_HERRAMENTAL'
+    datos['modo'] = "nuevo"
+    self.abrir_popup_form(datos)
