@@ -6,7 +6,7 @@ components:
   layout_properties: {grid_position: 'EXSSZL,KOCFCH'}
   components:
   - name: outlined_card_body
-    properties: {role: elevated-card}
+    properties: {role: elevated-card, col_widths: '{"OIBCPU":15,"CGUNEJ":20}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'APJKCG,FCDSEX'}
     components:
@@ -14,44 +14,64 @@ components:
       properties: {text: DATOS DEL HERRAMENTAL, bold: true, align: center, role: headline}
       type: Label
       layout_properties: {grid_position: 'CXTHIT,KTOBVH'}
-    - name: label_1
-      properties: {text: 'CÓDIGO DEL HERRAMENTAL:'}
+    - name: label_codigo_herramental
+      properties: {text: 'CÓDIGO DEL HERRAMENTAL:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'WUECZY,PUIEPM'}
-    - name: text_box_1
-      properties: {}
+      layout_properties: {grid_position: 'KQMUCF,OIBCPU QFTUXC,GCONLF'}
+    - name: text_box_codigo_herramental
+      properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'WUECZY,QPRGLD'}
-    - name: label_2
-      properties: {text: 'DESCRIPCIÓN DEL HERRAMENTAL:'}
+      layout_properties: {grid_position: 'KQMUCF,OIBCPU VAHWPI,PZLGST'}
+    - name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'KQMUCF,OIBCPU VAHWPI,ZTAFEQ'}
+    - name: label_descripcion_herramental
+      properties: {text: 'DESCRIPCIÓN DEL HERRAMENTAL:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'KUILOY,DFEJAH'}
-    - name: text_area_1
-      properties: {}
+      layout_properties: {grid_position: 'XSUMRA,GSHQAS'}
+    - name: text_area_descripcion
+      properties: {role: outlined, height: 101}
       type: TextArea
-      layout_properties: {grid_position: 'BKKSHM,OWBXUM'}
-    - name: label_4
-      properties: {text: 'TIPO DE SUAJE:'}
+      layout_properties: {grid_position: 'AYZFWQ,WHAFQA'}
+    - name: label_tipo_suaje
+      properties: {text: 'TIPO DE SUAJE:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'MZQXHY,ISZZQL'}
-    - name: text_box_3
-      properties: {}
-      type: TextBox
-      layout_properties: {grid_position: 'MZQXHY,PPGFAB'}
-    - name: label_5
-      properties: {text: 'VIDA UTIL ESTIMADA:'}
+      layout_properties: {grid_position: 'TOKWNU,BMIYXK'}
+    - name: label_vida_util
+      properties: {text: 'VIDA UTIL ESTIMADA:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'NPAAOS,LQECPB'}
-    - name: text_box_4
-      properties: {}
+      layout_properties: {grid_position: 'TOKWNU,WHBAGM'}
+    - name: text_box_tipo_suaje
+      properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'NPAAOS,YMJGIK'}
-    - name: label_3
-      properties: {text: 'UBICACIÓN:'}
+      layout_properties: {grid_position: 'EKGERF,QJYYHL'}
+    - name: text_box_vida_util
+      properties: {role: outlined, type: number}
+      type: TextBox
+      layout_properties: {grid_position: 'EKGERF,JVPISH'}
+    - name: label_ubicacion
+      properties: {text: 'UBICACIÓN:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'KNYMMO,YCQFIW'}
-    - name: text_box_2
-      properties: {}
+      layout_properties: {grid_position: 'TNNCNR,KIEMDO'}
+    - name: label_tipo_material
+      properties: {text: 'TIPO DE MATERIAL:', bold: true}
+      type: Label
+      layout_properties: {grid_position: 'TNNCNR,BRQADH'}
+    - name: text_box_ubicacion
+      properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'KNYMMO,UDYDPZ'}
+      layout_properties: {grid_position: 'RHOAUT,WSQHKI'}
+    - name: text_box_tipo_material
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'RHOAUT,GDWJIF'}
+    - name: spacer_2
+      properties: {height: 27}
+      type: Spacer
+      layout_properties: {grid_position: 'OTRLOE,PVCKHZ'}
+    - name: button_guardar
+      properties: {text: GUARDAR, icon: 'fa:save', role: filled-button, bold: true}
+      type: Button
+      layout_properties: {grid_position: 'YWRVKP,ZILTPG'}
 is_package: true
