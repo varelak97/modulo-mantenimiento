@@ -11,8 +11,10 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
     self.init_components(**properties)
 
     if self.item['status'] == "1":
+      self.label_status.icon = "fa:check"
       self.label_status.background = app.theme_colors["SecondaryGreen"]
     else:
+      self.label_status.icon = "fa:clock-o"
       self.label_status.background = app.theme_colors["Yellow"]
 
   def link_status_click(self, **event_args):
