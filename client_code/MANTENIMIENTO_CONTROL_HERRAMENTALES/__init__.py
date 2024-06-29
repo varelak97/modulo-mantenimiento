@@ -41,7 +41,7 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
       self.abrir_form(Form_Edicion_Herramental(datos))
       
   def abrir_form(self, form_de_interes):
-    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content-bigger")
+    respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", False)], role="wide-modal-content-bigger")
     if respuesta is not False and  respuesta is not None:
       mensaje = "El registro ha sido guardado correctamente" if respuesta == "registro_guardado" else "El registro ha sido actualizado correctamente."
       Notification(mensaje, title="ÉXITO!", style="success").show(3)
