@@ -32,12 +32,11 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
     self.repeating_panel_herramentales.items = self.herramentales
     
   def abrir_popup_form(self, datos, **event_args):
-    #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+    datos['id_usuario_erp'] = self.datos['id_usuario_erp']
+    datos['nombre_usuario'] = self.datos['nombre_usuario']
     if datos['clave_form'] == 'REGISTROS_HERRAMENTAL':
-      datos['id_usuario_erp'] = self.datos['id_usuario_erp']
       self.abrir_form(MANTENIMIENTO_REGISTRO_SUAJES(datos))
     elif datos['clave_form'] == 'FORM_HERRAMENTAL':
-      datos['id_usuario_erp'] = self.datos['id_usuario_erp']
       self.abrir_form(Form_Edicion_Herramental(datos))
       
   def abrir_form(self, form_de_interes):

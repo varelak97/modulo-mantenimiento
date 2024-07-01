@@ -34,6 +34,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
     self.lista_componentes = [
       self.text_box_codigo_herramental,
+      self.date_picker_fecha_registro,
       self.text_area_descripcion,
       self.text_box_tipo_material,
       self.text_box_tipo_suaje,
@@ -56,6 +57,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       dicc_datos['activo'] = 1  
       dicc_datos['registro_principal'] = 1
       dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
+      dicc_datos['nombre_usuario'] = self.datos['nombre_usuario']
       dicc_datos['comentarios'] = "Alta" if modo == "nuevo" else "Edición"
       dicc_datos['marca_temporal'] = datetime.now()
         
