@@ -48,6 +48,7 @@ components:
       properties:
         columns:
         - {id: JKSDUP, title: '', data_key: editar, width: '100'}
+        - {id: ISLAHB, data_key: localizar, title: '', width: '90'}
         - {id: XTGDJP, data_key: tipo_suaje, title: TIPO DE SUAJE, width: '200'}
         - {id: OJLQEN, title: DESCRIPCIÓN, data_key: descripcion, width: '400', expand: false}
         - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '150'}
@@ -55,7 +56,7 @@ components:
         - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL ESTIMADA, width: '200'}
         - {id: JWMLVC, data_key: alerta, title: ALERTA PARA REVISIÓN, width: '200'}
         - {id: WWXEME, data_key: contador, title: CICLOS DE CORTE ACUMULADOS, width: '200'}
-        - {id: ISLAHB, data_key: localizar, title: '', width: '150'}
+        - {id: NHKBAB, data_key: nombre_usuario, title: USUARIO REGISTRADOR, width: '300'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:

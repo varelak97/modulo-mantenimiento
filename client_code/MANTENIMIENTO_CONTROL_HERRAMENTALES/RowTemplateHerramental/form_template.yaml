@@ -2,7 +2,7 @@ is_package: true
 container: {type: DataRowPanel}
 components:
 - name: button_editar
-  properties: {text: '', icon: 'fa:edit', font_size: null}
+  properties: {text: '', icon: 'fa:edit', font_size: 18, role: null, background: '', foreground: '', bold: true}
   type: Button
   layout_properties: {column: JKSDUP}
   event_bindings: {}
@@ -44,7 +44,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''ubicacion'']', writeback: false}
 - name: button_ubicar
-  properties: {text: UBICAR, bold: true, icon: 'fa:search', role: filled-button, background: 'theme:Green'}
+  properties: {text: '', bold: true, icon: 'fa:search', role: filled-button, background: 'theme:Green'}
   type: Button
   layout_properties: {column: ISLAHB}
 - name: label_tipo_suaje
@@ -53,3 +53,9 @@ components:
   layout_properties: {column: XTGDJP}
   data_bindings:
   - {property: text, code: 'self.item[''tipo_suaje'']', writeback: false}
+- name: label_nombre_usuario
+  properties: {}
+  type: Label
+  layout_properties: {column: NHKBAB}
+  data_bindings:
+  - {property: text, code: 'self.item[''nombre_usuario'']', writeback: false}
