@@ -5,7 +5,6 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ..opciones_herramentales import opciones_herramentales
 
-
 class RowTemplateHerramental(RowTemplateHerramentalTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -37,6 +36,6 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
     #abrir herramental
 
   def button_ubicar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    resp = anvil.server.call('turn_on_led')
+    alert(resp)
 
