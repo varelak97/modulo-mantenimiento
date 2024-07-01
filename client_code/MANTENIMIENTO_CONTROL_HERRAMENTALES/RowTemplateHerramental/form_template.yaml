@@ -48,6 +48,8 @@ components:
   type: Button
   layout_properties: {column: ISLAHB}
   event_bindings: {click: button_ubicar_click}
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
 - name: label_tipo_suaje
   properties: {}
   type: Label

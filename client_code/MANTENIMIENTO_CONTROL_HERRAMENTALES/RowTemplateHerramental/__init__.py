@@ -36,6 +36,5 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
     #abrir herramental
 
   def button_ubicar_click(self, **event_args):
-    resp = anvil.server.call('turn_on_led')
-    alert(resp)
+    anvil.server.call('led_on', int(self.button_ubicar.tag))
 
