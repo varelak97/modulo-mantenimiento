@@ -46,19 +46,19 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     mensaje = "Actualizando registro en la base de datos..." if modo == "edicion" else "Guardando registro en la base de datos..."
     title = "ACTUALIZANDO." if modo == "edicion" else "GUARDANDO."
     with Notification(mensaje, title=title, style="notification"):
+      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_componentes)
       if modo == "edicion":
         self.registro_actual['registro_principal'] = 0
-        
-      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_componentes)
-      if modo == "nuevo":
-        dicc_datos['contador'] = 0
-        dicc_datos['activo'] = 1
-        
-      dicc_datos['id_herramental'] = (max([int(item['id_herramental']) for item in self.herramentales]) + 1) if len(self.herramentales) > 0 else 0
+        dicc_datos['id_herramental'] = self.registro_actual['id_herramental']
+      else:
+        dicc_datos['id_herramental'] = (max([int(item['id_herramental']) for item in self.herramentales]) + 1) if len(self.herramentales) > 0 else 0
+      dicc_datos['contador'] = 0 if modo == "nuevo" else self.registro_actual['contador']  
+      dicc_datos['activo'] = 1  
       dicc_datos['registro_principal'] = 1
       dicc_datos['id_usuario_registrador'] = self.datos['id_usuario_erp']
       dicc_datos['comentarios'] = "Alta" if modo == "nuevo" else "Edición"
       dicc_datos['marca_temporal'] = datetime.now()
+        
       
       status = "registro_actualizado" if  modo == "edicion" else "registro_guardado"
       self.ss_heramentales.add_row(**dicc_datos)
@@ -69,7 +69,6 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
-      alert(f"modo:{self.datos['modo']}")
       self.save_data(self.datos['modo'])
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")

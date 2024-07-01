@@ -1,6 +1,6 @@
 from anvil import *
 
-def get_registro(self, id, clave, base):
+def get_registro(id, clave, base):
     registro_encontrado = None
     for registro in base:
       if registro[clave] == id and registro['registro_principal'] == '1' and registro['activo'] == '1':
@@ -45,7 +45,7 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           status = False
           textcomponent.role = "outlined-error"
       if modo == "edicion":
-        if valor != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
+        if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
           cambios = True
       else:
         cambios = True
