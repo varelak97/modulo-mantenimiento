@@ -47,6 +47,7 @@ components:
   properties: {text: '', bold: true, icon: 'fa:search', role: filled-button, background: 'theme:Green'}
   type: Button
   layout_properties: {column: ISLAHB}
+  event_bindings: {click: button_ubicar_click}
 - name: label_tipo_suaje
   properties: {}
   type: Label

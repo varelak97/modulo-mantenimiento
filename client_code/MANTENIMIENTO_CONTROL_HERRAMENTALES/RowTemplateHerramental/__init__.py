@@ -36,3 +36,7 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
     self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
     #abrir herramental
 
+  def button_ubicar_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
