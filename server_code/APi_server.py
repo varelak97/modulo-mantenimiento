@@ -7,5 +7,5 @@ import anvil.http
 
 @anvil.server.callable
 def turn_on_led():
-  resp = anvil.http.request(url ="http://192.168.2.151/led1on", method="GET")
+  resp = anvil.http.request(url ="http://192.168.100.56/led1on", method="GET")
   return resp
