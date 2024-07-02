@@ -20,9 +20,11 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     self.init_components(**properties)
     self.set_ini_config(datos)
 
-    if self.datos['modo'] == "edicion":
+    if self.datos['modo'] == "edicion" or self.datos['modo'] == "visor":
       self.registro_actual = Funciones_Globales.get_registro(self.datos['id_herramental'], 'id_herramental', self.herramentales)
       Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual)
+      if self.datos['modo'] == "visor":
+        self.deshabilitar_form()
 
   #################################################### FUNCIONES PERSONALIZADAS ####################################################
         
@@ -65,6 +67,11 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       status = "registro_actualizado" if  modo == "edicion" else "registro_guardado"
       self.ss_heramentales.add_row(**dicc_datos)
       self.raise_event("x-close-alert",value=status)
+
+  def deshabilitar_form(self):
+    for componente in self.lista_componentes:
+      componente.enabled = False
+    self.button_guardar.enabled = False
 
   
   ############################################################ EVENTOS ############################################################

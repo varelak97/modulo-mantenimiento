@@ -4,6 +4,7 @@ components:
   properties: {text: VER HOJA TÉCNICA, icon: 'fa:eye', bold: true, align: left}
   type: Button
   layout_properties: {grid_position: 'YVACDA,PNFSMG'}
+  event_bindings: {click: button_ver_click}
 - name: button_editar
   properties: {text: EDITAR HERRAMENTAL, icon: 'fa:edit', bold: true, align: left}
   type: Button

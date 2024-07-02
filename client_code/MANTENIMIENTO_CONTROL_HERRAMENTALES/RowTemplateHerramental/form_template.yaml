@@ -62,3 +62,9 @@ components:
   layout_properties: {column: NHKBAB}
   data_bindings:
   - {property: text, code: 'self.item[''nombre_usuario'']', writeback: false}
+- name: label_fecha_registro
+  properties: {align: center}
+  type: Label
+  layout_properties: {column: LJHPYT}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_registro'']', writeback: false}

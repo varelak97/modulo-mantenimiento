@@ -11,7 +11,7 @@ components:
     layout_properties: {grid_position: 'BSTLHB,GZSADJ', full_width_row: true}
     components:
     - name: label_title
-      properties: {text: REGISTRO DE SUAJES, bold: true, align: center, role: title, background: 'theme:Primary', foreground: 'theme:On Primary'}
+      properties: {text: REGISTRO DE OPERACIÓN DE SUAJES, bold: true, align: center, role: title, background: 'theme:Primary', foreground: 'theme:On Primary'}
       type: Label
       layout_properties: {grid_position: 'KFNLWK,BZIAEK'}
   - name: outlined_card_body
@@ -36,10 +36,10 @@ components:
         - {id: VJQQOR, title: FECHA PROGRAMADA, data_key: fecha_programada, width: '200'}
         - {id: OJLQEN, title: NÚMERO DE PARTE, data_key: numero_parte, width: '250'}
         - {id: TQAONH, data_key: tipo_suaje, title: TIPO DE SUAJE, width: '250'}
-        - {id: NLQEOC, data_key: suajes_programados, title: SUAJES PROGRAMADOS, width: '250'}
-        - {id: OAPQCV, data_key: codigo_herramental, title: HERRAMENTAL, width: '200'}
-        - {id: ISZKHV, data_key: status, title: STATUS, width: '250'}
-        - {id: YOCKTR, data_key: nombre_usuario, title: USUARIO REGISTRADOR, width: '300'}
+        - {id: NLQEOC, data_key: suajes_programados, title: CICLOS PROGRAMADOS, width: '250'}
+        - {id: OAPQCV, data_key: codigo_herramental, title: CODIGO DE SUAJE, width: '200'}
+        - {id: ISZKHV, data_key: status, title: ESTATUS, width: '250'}
+        - {id: YOCKTR, data_key: nombre_usuario, title: OPERADOR, width: '300'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:

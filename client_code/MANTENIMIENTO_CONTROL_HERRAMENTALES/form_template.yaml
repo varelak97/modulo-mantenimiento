@@ -13,7 +13,7 @@ components:
     - name: label_title
       properties:
         text: |
-          CONTROL DE HERRAMENTALES
+          CONTROL DE SUAJES
         role: title
         background: theme:Primary
         foreground: theme:On Primary
@@ -26,24 +26,45 @@ components:
     type: ColumnPanel
     layout_properties: {grid_position: 'WNVMKG,VHSWPG', full_width_row: true}
     components:
-    - name: button_nuevo
-      properties:
-        text: |
-          NUEVO HERRAMENTAL
-        role: filled-button
-        icon: fa:file
-        bold: true
-        align: center
-        background: theme:Orange
-        foreground: theme:Primary
-      type: Button
-      layout_properties: {grid_position: 'HALFUG,HICFWJ'}
-      event_bindings: {click: button_nuevo_click}
-    - name: button_actualizar
-      properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh', bold: true, align: center}
-      type: Button
-      layout_properties: {grid_position: 'HALFUG,FXQDDM'}
-      event_bindings: {click: button_actualizar_click}
+    - name: flow_panel_1
+      properties: {align: center}
+      type: FlowPanel
+      layout_properties: {grid_position: 'WZUBPL,IXAESG'}
+      components:
+      - name: button_nuevo
+        properties:
+          text: |
+            NUEVO SUAJE
+          role: filled-button
+          icon: fa:file
+          bold: true
+          align: center
+          background: theme:Orange
+          foreground: theme:Primary
+        type: Button
+        layout_properties: {}
+        event_bindings: {click: button_nuevo_click}
+      - name: button_actualizar
+        properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh', bold: true, align: center}
+        type: Button
+        layout_properties: {}
+        event_bindings: {click: button_actualizar_click}
+    - name: spacer_1
+      properties: {height: 17}
+      type: Spacer
+      layout_properties: {grid_position: 'KBUPBE,PLZOHF'}
+    - name: label_3
+      properties: {icon: 'fa:check', align: center, bold: true, text: HERRAMENTAL EN CONDICIONES DE OPERACIÓN, background: 'theme:SecondaryGreen'}
+      type: Label
+      layout_properties: {grid_position: 'ELRTPN,EOOHDN'}
+    - name: label_alerta_revision
+      properties: {text: HERRAMENTAL PRÓXIMO A REVISIÓN, align: center, bold: true, icon: 'fa:warning', background: 'theme:Yellow'}
+      type: Label
+      layout_properties: {grid_position: 'ELRTPN,IYHYEZ'}
+    - name: label_1
+      properties: {icon: 'fa:exclamation-circle', background: 'theme:Red', foreground: 'theme:Yellow', text: HERRAMENTAL ALCANZÓ CICLOS PARA REVISIÓN, bold: true, align: center}
+      type: Label
+      layout_properties: {grid_position: 'ELRTPN,QTRAEE'}
     - name: data_grid_herramentales
       properties:
         columns:
@@ -56,7 +77,8 @@ components:
         - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL ESTIMADA, width: '200'}
         - {id: JWMLVC, data_key: alerta, title: ALERTA PARA REVISIÓN, width: '200'}
         - {id: WWXEME, data_key: contador, title: CICLOS DE CORTE ACUMULADOS, width: '200'}
-        - {id: NHKBAB, data_key: nombre_usuario, title: USUARIO REGISTRADOR, width: '300'}
+        - {id: LJHPYT, data_key: fecha_registros, title: FECHA DE ALTA, width: '200'}
+        - {id: NHKBAB, data_key: nombre_usuario, title: OPERADOR, width: '300'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:

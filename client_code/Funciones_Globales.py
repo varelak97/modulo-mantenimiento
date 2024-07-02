@@ -28,6 +28,8 @@ def fill_formulario(lista_components, datos):
       component.text = datos[component.tag]
     elif type(component) is DropDown:
       component.selected_value = datos[component.tag]
+    elif type(component) is DatePicker:
+      component.date = datos[component.tag]
 
 
 def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo):
