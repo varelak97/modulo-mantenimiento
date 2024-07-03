@@ -54,15 +54,15 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'KBUPBE,PLZOHF'}
     - name: label_3
-      properties: {icon: 'fa:check', align: center, bold: true, text: HERRAMENTAL EN CONDICIONES DE OPERACIÓN, background: 'theme:SecondaryGreen'}
+      properties: {icon: 'fa:check', align: center, bold: true, text: EN CONDICIONES DE OPERACIÓN, background: 'theme:SecondaryGreen'}
       type: Label
       layout_properties: {grid_position: 'ELRTPN,EOOHDN'}
     - name: label_alerta_revision
-      properties: {text: HERRAMENTAL PRÓXIMO A REVISIÓN, align: center, bold: true, icon: 'fa:warning', background: 'theme:Yellow'}
+      properties: {text: PRÓXIMO A REVISIÓN, align: center, bold: true, icon: 'fa:warning', background: 'theme:Yellow'}
       type: Label
       layout_properties: {grid_position: 'ELRTPN,IYHYEZ'}
     - name: label_1
-      properties: {icon: 'fa:exclamation-circle', background: 'theme:Red', foreground: 'theme:Yellow', text: HERRAMENTAL ALCANZÓ CICLOS PARA REVISIÓN, bold: true, align: center}
+      properties: {icon: 'fa:exclamation-circle', background: 'theme:Red', foreground: 'theme:Yellow', text: ALCANZÓ CICLOS PARA REVISIÓN, bold: true, align: center}
       type: Label
       layout_properties: {grid_position: 'ELRTPN,QTRAEE'}
     - name: data_grid_herramentales
@@ -75,7 +75,7 @@ components:
         - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '150'}
         - {id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, data_key: codigo_herramental, width: '200', expand: false}
         - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL ESTIMADA, width: '200'}
-        - {id: JWMLVC, data_key: alerta, title: ALERTA PARA REVISIÓN, width: '200'}
+        - {id: JWMLVC, data_key: alerta, title: ALERTA PARA REVISIÓN DE HERRAMENTAL, width: '250'}
         - {id: WWXEME, data_key: contador, title: CICLOS DE CORTE ACUMULADOS, width: '200'}
         - {id: LJHPYT, data_key: fecha_registros, title: FECHA DE ALTA, width: '200'}
         - {id: NHKBAB, data_key: nombre_usuario, title: OPERADOR, width: '300'}
