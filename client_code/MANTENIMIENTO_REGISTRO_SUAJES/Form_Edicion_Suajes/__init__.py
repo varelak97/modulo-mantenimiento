@@ -21,23 +21,25 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
+    self.set_ini_config(datos)
+    self.get_data()
 
+  ################################################### FUNCIONES PERSONALIZADAS ###################################################
+  def set_ini_config(self, datos):
+    self.datos = datos
+    
     self.lista_input_components = [
       self.date_picker_fecha_programada,
       self.drop_down_numeros_parte,
       self.drop_down_tipo_suaje,
       self.text_box_suajes_programados
     ]
-
+    
     self.ws_control_herramentales = app_files.control_herramentales
     self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
     self.ss_vista_herramentales = self.ws_control_herramentales['VISTA_HERRAMENTALES']
     self.ss_registros = self.ws_control_herramentales['REGISTROS']
-
-    self.datos = datos
-    self.get_data()
-
-  ################################################### FUNCIONES PERSONALIZADAS ###################################################
+    
   def get_data(self):
     self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
     self.vista_herramentales = self.ss_vista_herramentales.rows
@@ -48,6 +50,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
       lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
     self.drop_down_numeros_parte.items = lista_numeros_parte
+
+  def fill_formulario(datos):
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
