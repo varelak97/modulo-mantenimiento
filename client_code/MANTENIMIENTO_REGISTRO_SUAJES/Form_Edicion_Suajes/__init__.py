@@ -17,6 +17,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   vista_herramentales = None
   ss_registros = None
   registros = None
+  registro_actual = None
   campos_no_obligatorios = []
   
   def __init__(self, datos, **properties):
@@ -50,6 +51,14 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
       lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
     self.drop_down_numeros_parte.items = lista_numeros_parte
+    
+    
+    if self.datos['modo'] == "edicion":
+      for registro in self.registros:
+        if registro['id_registro'] == self.datos['id_registro'] and registro['registro_principal'] == "1":
+          self.registro_actual = registro
+          break
+    
 
   def fill_formulario(datos):
   ############################################################ EVENTOS ###########################################################
