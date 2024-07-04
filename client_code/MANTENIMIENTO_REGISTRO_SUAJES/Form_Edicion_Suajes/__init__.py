@@ -58,9 +58,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
         if registro['id_registro'] == self.datos['id_registro'] and registro['registro_principal'] == "1":
           self.registro_actual = registro
           break
-    
-
-  def fill_formulario(datos):
+      Funciones_Globales.fill_formulario(self.lista_input_components, self.registro_actual)
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
