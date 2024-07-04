@@ -29,8 +29,11 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
         self.parent.parent.parent.parent.parent.raise_event("x-actualizar_status", datos = datos)
 
   def button_editar_click(self, **event_args):
-    datos = {}
-    datos['id_registro'] = self.button_editar.tag
-    datos['id_herramental'] = self.label_codigo_herramental.tag
-    self.parent.parent.parent.parent.parent.raise_event("x-abrir_form", datos = datos)
+    if self.item['status'] != "1":
+      datos = {}
+      datos['id_registro'] = self.button_editar.tag
+      datos['id_herramental'] = self.label_codigo_herramental.tag
+      datos['clave_form'] = "FORMULARIO_REGISTRO_SUAJE"
+      datos['modo'] = "edicion"
+      self.parent.parent.parent.parent.parent.raise_event("x-abrir_form", datos = datos)
         
