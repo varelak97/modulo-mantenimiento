@@ -1,12 +1,12 @@
 container: {type: ColumnPanel}
 components:
 - name: button_ver
-  properties: {text: VER HOJA TÉCNICA, icon: 'fa:eye', bold: true, align: left}
+  properties: {text: VER DATOS DE SUAJE, icon: 'fa:eye', bold: true, align: left}
   type: Button
   layout_properties: {grid_position: 'YVACDA,PNFSMG'}
   event_bindings: {click: button_ver_click}
 - name: button_editar
-  properties: {text: EDITAR HERRAMENTAL, icon: 'fa:edit', bold: true, align: left}
+  properties: {text: EDITAR SUAJE, icon: 'fa:edit', bold: true, align: left}
   type: Button
   layout_properties: {grid_position: 'PESSKW,EXGRNX'}
   event_bindings: {click: button_editar_click}

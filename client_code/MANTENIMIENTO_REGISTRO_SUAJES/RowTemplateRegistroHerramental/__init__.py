@@ -17,6 +17,8 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
       self.label_status.icon = "fa:clock-o"
       self.label_status.background = app.theme_colors["Yellow"]
 
+  
+########################################################## EVENTOS ##########################################################
   def link_status_click(self, **event_args):
     if int(self.item['status']) == 0:
       respuesta = alert("¿Confirma que desea marcar como terminado?", title="CONFIRMACIÓN", buttons=(("ACEPTAR", True),("CANCELAR", False)))
@@ -25,4 +27,10 @@ class RowTemplateRegistroHerramental(RowTemplateRegistroHerramentalTemplate):
         datos['id_registro'] = self.button_editar.tag
         datos['id_herramental'] = self.label_codigo_herramental.tag
         self.parent.parent.parent.parent.parent.raise_event("x-actualizar_status", datos = datos)
+
+  def button_editar_click(self, **event_args):
+    datos = {}
+    datos['id_registro'] = self.button_editar.tag
+    datos['id_herramental'] = self.label_codigo_herramental.tag
+    self.parent.parent.parent.parent.parent.raise_event("x-abrir_form", datos = datos)
         

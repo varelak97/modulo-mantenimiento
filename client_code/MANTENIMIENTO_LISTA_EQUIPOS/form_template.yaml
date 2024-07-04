@@ -250,7 +250,7 @@ components:
             type: Image
             layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
           - name: label_control_herramentales
-            properties: {text: CONTROL DE HERRAMENTALES, bold: true, align: center}
+            properties: {text: CONTROL DE HERRAMENTALES DE SUAJE, bold: true, align: center}
             type: Label
             layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
 - name: content_panel_general
