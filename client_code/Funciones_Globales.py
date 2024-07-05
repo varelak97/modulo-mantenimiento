@@ -29,7 +29,7 @@ def fill_formulario(lista_components, datos, tuplas, modo, llave, id_tupla):
     if type(component) in [TextBox, TextArea]:
       component.text = datos[component.tag]
     elif type(component) is DropDown:
-      if tuplas != None:
+      if tuplas is not None:
         for tupla in tuplas:
           component.selected_value = datos[tupla['tag']] = datos[tupla['llave']] 
           """if tupla['modo'] == 1 and tupla['tag'] == component.tag:
