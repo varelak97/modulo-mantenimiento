@@ -32,10 +32,10 @@ def fill_formulario(lista_components, datos, tuplas, modo, llave, id_tupla):
       if tuplas != None:
         for tupla in tuplas:
           component.selected_value = datos[tupla['tag']] = datos[tupla['llave']] 
-          if tupla['modo'] == 1 and tupla['tag'] == component.tag:
+          """if tupla['modo'] == 1 and tupla['tag'] == component.tag:
             component.selected_value = (datos[component.tag], datos[llave])
           elif tupla['modo'] == 2 and tupla['tag'] == component.tag:
-            component.selected_value = (datos[component.tag], id_tupla)
+            component.selected_value = (datos[component.tag], id_tupla)"""
       else:
         component.selected_value = datos[component.tag]
     elif type(component) is DatePicker:
