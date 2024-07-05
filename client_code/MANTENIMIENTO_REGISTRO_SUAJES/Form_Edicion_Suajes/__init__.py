@@ -50,9 +50,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     for numero_parte in self.vista_numeros_parte:
       #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
       lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
-    print(f"lista de tuplas numeros_parte:{lista_numeros_parte}")
     self.drop_down_numeros_parte.items = lista_numeros_parte
-    
     
     if self.datos['modo'] == "edicion":
       for registro in self.registros:
@@ -62,11 +60,10 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       dicc_registro_actual = dict(self.registro_actual)
       for numero_parte in self.vista_numeros_parte:
         if numero_parte['id_numero_parte'] == dicc_registro_actual['id_numero_parte']:
-          dicc_registro_actual['numero_parte'] = numero_parte['numero_parte']
+          #dicc_registro_actual['numero_parte'] = numero_parte['numero_parte']
           dicc_registro_actual['id_herramentales'] = numero_parte['id_herramentales']
           break
-      print(f"el registro actual:{dicc_registro_actual} \n")
-      Funciones_Globales.fill_formulario(self.lista_input_components, dicc_registro_actual, 1, 'numero_parte', 'id_herramentales', self.datos['id_herramental'])
+      Funciones_Globales.fill_formulario(self.lista_input_components, dicc_registro_actual, 1, 'id_herramentales', self.datos['id_herramental'])
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
