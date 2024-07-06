@@ -63,7 +63,9 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
           #dicc_registro_actual['numero_parte'] = numero_parte['numero_parte']
           dicc_registro_actual['id_herramentales'] = numero_parte['id_herramentales']
           break
-      Funciones_Globales.fill_formulario(self.lista_input_components, dicc_registro_actual, 1, 'id_herramentales', self.datos['id_herramental'])
+      dicc_registro_actual['id_herramental'] = self.datos['id_herramental']
+      modos = {'modo1':'id_numero_parte', 'modo2':'tipo_suaje'}
+      Funciones_Globales.fill_formulario(self.lista_input_components, dicc_registro_actual, modos)
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
@@ -103,6 +105,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
           lista_suajes.append((herramental['tipo_suaje'], (herramental['tipo_suaje'], herramental['id_herramental'])))
       self.drop_down_tipo_suaje.items = lista_suajes
       self.drop_down_tipo_suaje.enabled = True
+      alert(lista_suajes)
     else:
       self.drop_down_tipo_suaje.selected_value = None
       self.drop_down_tipo_suaje.enabled = False

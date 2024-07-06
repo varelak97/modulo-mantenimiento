@@ -24,19 +24,16 @@ def genera_diccionario(lista_components):
 
 #[{'modo':1, 'tag':'id_numero_parte'},{'modo':2, 'tag':'id_numero_parte'}]
 
-def fill_formulario(lista_components, datos, tuplas, modo, llave, id_tupla):
+def fill_formulario(lista_components, datos, modos):
   for component in lista_components:
     if type(component) in [TextBox, TextArea]:
       component.text = datos[component.tag]
     elif type(component) is DropDown:
-      if tuplas is not None:
-        for tupla in tuplas:
-          if component.tag == tupla['tag']:
-            component.selected_value = datos[tupla['tag']] = datos[tupla['llave']] 
-          """if tupla['modo'] == 1 and tupla['tag'] == component.tag:
-            component.selected_value = (datos[component.tag], datos[llave])
-          elif tupla['modo'] == 2 and tupla['tag'] == component.tag:
-            component.selected_value = (datos[component.tag], id_tupla)"""
+      if modos['modo1'] == component.tag:
+        component.selected_value = (datos[component.tag], datos['id_herramentales'])
+      elif modos['modo2'] == component.tag:
+        print((datos[component.tag], datos['id_herramental']))
+        component.selected_value = (datos[component.tag], datos['id_herramental'])
       else:
         component.selected_value = datos[component.tag]
     elif type(component) is DatePicker:
