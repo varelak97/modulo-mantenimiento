@@ -31,6 +31,7 @@ def fill_formulario(lista_components, datos, modos):
     elif type(component) is DropDown:
       if modos['modo1'] == component.tag:
         component.selected_value = (datos[component.tag], datos['id_herramentales'])
+        self.drip
       elif modos['modo2'] == component.tag:
         print((datos[component.tag], datos['id_herramental']))
         component.selected_value = (datos[component.tag], datos['id_herramental'])
