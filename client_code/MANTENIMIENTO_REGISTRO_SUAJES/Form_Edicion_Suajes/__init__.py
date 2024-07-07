@@ -28,7 +28,6 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   ################################################### FUNCIONES PERSONALIZADAS ###################################################
   def set_ini_config(self, datos):
     self.datos = datos
-    print(f"los datos recibidos:{self.datos}")
     
     self.lista_input_components = [
       self.date_picker_fecha_programada,
@@ -70,7 +69,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       self.drop_down_numeros_parte_change()
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
-    status = Funciones_Globales.validar_campos(self.lista_input_components, None, self.campos_no_obligatorios, self.datos['modo'])
+    status = Funciones_Globales.validar_campos(self.lista_input_components, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
       mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
       title = "ACTUALIZANDO." if self.datos['modo'] == "edicion" else "GUARDANDO."
