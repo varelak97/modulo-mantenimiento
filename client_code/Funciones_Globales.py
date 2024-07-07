@@ -29,12 +29,13 @@ def fill_formulario(lista_components, datos, modos):
     if type(component) in [TextBox, TextArea]:
       component.text = datos[component.tag]
     elif type(component) is DropDown:
-      if modos['modo1'] == component.tag:
-        component.selected_value = (datos[component.tag], datos['id_herramentales'])
-        self.drip
-      elif modos['modo2'] == component.tag:
-        print((datos[component.tag], datos['id_herramental']))
-        component.selected_value = (datos[component.tag], datos['id_herramental'])
+      if modos is not None and modos != "":
+        for modo in modos:
+          if modo['tag'] == component.tag:
+            if modo['modo'] == 'modo1':
+              component.selected_value = (datos[component.tag], datos[modo['llave']])
+            elif modo['modo'] == 'modo2':
+              component.selected_value = (datos[component.tag], datos[modo['llave']])
       else:
         component.selected_value = datos[component.tag]
     elif type(component) is DatePicker:
