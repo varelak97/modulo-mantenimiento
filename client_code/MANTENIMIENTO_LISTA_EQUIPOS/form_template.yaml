@@ -169,6 +169,25 @@ components:
             properties: {text: INVENTARIO REFACCIONES Y CONSUMIBLES, bold: true, align: center}
             type: Label
             layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+    - name: link_numeros_parte
+      properties: {}
+      type: Link
+      event_bindings: {click: link_registro_suajes_click}
+      layout_properties: {grid_position: 'TUODEU,KSGOCH PEGUFB,VYHOIT'}
+      components:
+      - name: outlined_card_numeros_parte
+        properties: {role: elevated-card}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+        components:
+        - name: image_numeros_parte
+          properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
+          type: Image
+          layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+        - name: label_numeros_parte
+          properties: {text: 'NÚMEROS DE PARTE ', bold: true, align: center}
+          type: Label
+          layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
     - name: link_solicitudes_mtto
       properties: {}
       type: Link

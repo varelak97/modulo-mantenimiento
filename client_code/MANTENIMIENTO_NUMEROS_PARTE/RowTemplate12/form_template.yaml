@@ -1,0 +1,33 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: button_editar
+  properties: {text: '', icon: 'fa:edit'}
+  type: Button
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_numero_parte'']', writeback: false}
+- name: label_numero_parte
+  properties: {}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''numero_parte'']', writeback: false}
+- name: label_cliente
+  properties: {}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''cliente'']', writeback: false}
+- name: label_herramentales
+  properties: {}
+  type: Label
+  layout_properties: {column: OCXQLW}
+  data_bindings:
+  - {property: text, code: 'self.item[''herramentales'']', writeback: false}
+- name: label_fecha_registro
+  properties: {}
+  type: Label
+  layout_properties: {column: BYEKWX}
+  data_bindings:
+  - {property: text, code: 'self.item[''fecha_registro'']', writeback: false}
