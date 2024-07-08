@@ -81,7 +81,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
           consecutivo = (max([int(item['id_registro']) for item in self.registros]) + 1) if len(self.registros) > 0 else 0
         else:
           consecutivo = self.registro_actual['id_registro']
-          self.registro_actual['registro_principal'] = False
+          self.registro_actual['registro_principal'] = 0
         
         dicc_datos['id_numero_parte'] = dicc_datos['id_numero_parte'][0]
         dicc_datos['id_herramental'] = dicc_datos['tipo_suaje'][1]
