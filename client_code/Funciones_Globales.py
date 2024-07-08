@@ -42,7 +42,7 @@ def fill_formulario(lista_components, datos, modos):
       component.date = datos[component.tag]
 
 
-def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo):
+def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo, dicc_modos):
     status = True
     cambios = False
     for textcomponent in lista_components:
@@ -59,12 +59,20 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           textcomponent.role = "outlined-error"
       if modo == "edicion":
         if type(textcomponent) is DropDown:
-          if textcomponent.tag == 'id_numero_parte':
+          if dicc_modos is not None and dicc_modos != "":
+            for dic_modo in dicc_modos:
+              if dic_modo['tag'] == textcomponent.tag:
+                if str(valor[dic_modo['index']]) != datos_antiguos[textcomponent.tag]:
+                  cambios = True
+          else:
+            if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
+              cambios = True
+          """if textcomponent.tag == 'id_numero_parte':
             if str(valor[0]) != datos_antiguos[textcomponent.tag]:
               cambios = True
           elif textcomponent.tag == 'tipo_suaje':
             if str(valor[0]) != datos_antiguos[textcomponent.tag]:
-              cambios = True
+              cambios = True"""
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True

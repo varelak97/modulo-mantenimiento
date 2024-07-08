@@ -71,8 +71,11 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", True)], role="wide-modal-content")
-    if respuesta == "registro_guardado":
-      self.button_actualizar_click()
+    if respuesta == "registro_guardado" or respuesta == "registro_actualizado":
+      mensaje = "Registro guardado correctamente!" if respuesta == "registro_guardado" else "Registro actualizado correctamente!"
+      Notification(mensaje, title="HECHO!", style="success").show(3)
+      with Notification("Actualizando tabla..", title="ACTUALIZANDO.", style="notification"):
+        self.button_actualizar_click()
 
   def get_data(self):
     self.vista_registros = self.ss_vista_registros.rows
