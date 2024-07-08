@@ -37,11 +37,30 @@ components:
         - {id: JKSDUP, title: '', data_key: editar, width: '100'}
         - {id: VJQQOR, title: NÚMERO DE PARTE, data_key: numero_parte, width: '250'}
         - {id: OJLQEN, title: CLIENTE, data_key: cliente, width: '350'}
-        - {id: OCXQLW, data_key: herramentales, title: herramentales, width: '400'}
+        - {id: OCXQLW, data_key: herramentales, title: SUAJES, width: '250'}
         - {id: BYEKWX, data_key: fecha_registro, title: FECHA DE REGISTRO, width: '200'}
+        - {id: HRTTQR, data_key: comentarios, title: COMENTARIOS, width: '400'}
+        - {id: JVRGIU, data_key: usuario_registrador, title: USUARIO QUE REGISTRA, width: '400'}
         role: wide-tonal-data-grid
       type: DataGrid
       components:
+      - name: data_row_panel_1
+        properties: {background: 'theme:Secondary'}
+        type: DataRowPanel
+        layout_properties: {}
+        components:
+        - name: text_box_filtro_numero_parte
+          properties: {role: outlined, background: 'theme:On Primary'}
+          type: TextBox
+          layout_properties: {column: VJQQOR}
+        - name: text_box_filtro_cliente
+          properties: {role: outlined, background: 'theme:On Primary'}
+          type: TextBox
+          layout_properties: {column: OJLQEN}
+        - name: text_box_suajes
+          properties: {role: outlined, background: 'theme:On Primary'}
+          type: TextBox
+          layout_properties: {column: OCXQLW}
       - name: repeating_panel_numeros_parte
         properties: {item_template: MANTENIMIENTO_NUMEROS_PARTE.RowTemplate12}
         type: RepeatingPanel

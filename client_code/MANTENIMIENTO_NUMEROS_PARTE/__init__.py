@@ -47,7 +47,7 @@ class MANTENIMIENTO_NUMEROS_PARTE(MANTENIMIENTO_NUMEROS_PARTETemplate):
       lista_herramentales = ""
       for id_herramental in eval(numero_parte['id_herramentales']):
         if lista_herramentales != "":
-          lista_herramentales += ","
+          lista_herramentales += "\n"
         for herramentales in self.vista_herramentales:
           if id_herramental == int(herramentales['id_herramental']):
             lista_herramentales += f"{herramentales['codigo_herramental']}"

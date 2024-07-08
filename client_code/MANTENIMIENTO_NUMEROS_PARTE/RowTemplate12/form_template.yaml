@@ -2,7 +2,7 @@ is_package: true
 container: {type: DataRowPanel}
 components:
 - name: button_editar
-  properties: {text: '', icon: 'fa:edit'}
+  properties: {text: '', icon: 'fa:edit', bold: true, font_size: 18}
   type: Button
   layout_properties: {column: JKSDUP}
   data_bindings:
@@ -31,3 +31,15 @@ components:
   layout_properties: {column: BYEKWX}
   data_bindings:
   - {property: text, code: 'self.item[''fecha_registro'']', writeback: false}
+- name: label_usuario_registrador
+  properties: {}
+  type: Label
+  layout_properties: {column: JVRGIU}
+  data_bindings:
+  - {property: text, code: 'self.item[''usuario_registrador'']', writeback: false}
+- name: label_comentarios
+  properties: {}
+  type: Label
+  layout_properties: {column: HRTTQR}
+  data_bindings:
+  - {property: text, code: 'self.item[''comentarios'']', writeback: false}
