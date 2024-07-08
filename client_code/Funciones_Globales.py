@@ -58,8 +58,6 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           status = False
           textcomponent.role = "outlined-error"
       if modo == "edicion":
-        #dicc_datos['id_numero_parte'][0]
-        #dicc_datos['tipo_suaje'][1]
         if type(textcomponent) is DropDown:
           if textcomponent.tag == 'id_numero_parte':
             if str(valor[0]) != datos_antiguos[textcomponent.tag]:
