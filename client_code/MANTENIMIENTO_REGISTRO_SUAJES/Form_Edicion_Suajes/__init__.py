@@ -71,7 +71,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos(self.lista_input_components, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'])
     if status == 1:
-      mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
+      alert("se guardó...")
+      """mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
       title = "ACTUALIZANDO." if self.datos['modo'] == "edicion" else "GUARDANDO."
       with Notification(mensaje, title=title):
         dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
@@ -94,7 +95,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
         dicc_datos['comentarios'] = "Alta" if self.datos['modo'] == 'nuevo' else "Edición" 
         dicc_datos['marca_temporal'] = datetime.now()
         status = "registro_guardado" if self.datos['modo'] == 'nuevo' else "registro_actualizado"
-        self.ss_registros.add_row(**dicc_datos)
+        self.ss_registros.add_row(**dicc_datos)"""
       self.raise_event("x-close-alert",value=status)
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
