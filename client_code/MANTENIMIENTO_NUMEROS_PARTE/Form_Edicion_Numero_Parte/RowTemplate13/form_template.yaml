@@ -1,0 +1,21 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: button_borrar
+  properties: {text: '', icon: 'fa:times', role: filled-button, background: 'theme:Red'}
+  type: Button
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
+- name: label_codigo_herramental
+  properties: {}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''codigo_herramental'']', writeback: false}
+- name: label_tipo_suaje
+  properties: {}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''tipo_suaje'']', writeback: false}

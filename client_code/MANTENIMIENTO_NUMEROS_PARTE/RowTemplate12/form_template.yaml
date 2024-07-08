@@ -19,12 +19,14 @@ components:
   layout_properties: {column: OJLQEN}
   data_bindings:
   - {property: text, code: 'self.item[''cliente'']', writeback: false}
+  - {property: tag, code: 'self.item[''id_cliente'']', writeback: false}
 - name: label_herramentales
   properties: {}
   type: Label
   layout_properties: {column: OCXQLW}
   data_bindings:
   - {property: text, code: 'self.item[''herramentales'']', writeback: false}
+  - {property: tag, code: 'self.item[''id_herramentales'']', writeback: false}
 - name: label_fecha_registro
   properties: {}
   type: Label

@@ -27,6 +27,7 @@ components:
       - name: button_nuevo_numero_parte
         properties: {text: NUEVO NÚMERO DE PARTE, role: filled-button, icon: 'fa:file', bold: true, background: 'theme:Orange', foreground: 'theme:Primary'}
         type: Button
+        event_bindings: {click: button_nuevo_numero_parte_click}
       - name: button_actualizar
         properties: {text: ACTUALIZAR, role: filled-button, icon: 'fa:refresh', bold: true}
         type: Button
