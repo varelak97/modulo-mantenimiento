@@ -44,7 +44,8 @@ class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTem
     if respuesta is not False and  respuesta is not None:
       mensaje = "El registro ha sido guardado correctamente" if respuesta == "registro_guardado" else "El registro ha sido actualizado correctamente."
       Notification(mensaje, title="ÉXITO!", style="success").show(3)
-      self.button_actualizar_click()
+      with Notification("Actualizando tabla...", title="ACTUALIZANDO.", style="notification"):
+        self.button_actualizar_click()
   
   ###################################################### EVENTOS ######################################################
   def button_actualizar_click(self, **event_args):

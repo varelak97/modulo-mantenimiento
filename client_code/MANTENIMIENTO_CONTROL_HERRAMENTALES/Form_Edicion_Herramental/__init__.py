@@ -22,7 +22,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
 
     if self.datos['modo'] == "edicion" or self.datos['modo'] == "visor":
       self.registro_actual = Funciones_Globales.get_registro(self.datos['id_herramental'], 'id_herramental', self.herramentales)
-      Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual)
+      Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, None)
       if self.datos['modo'] == "visor":
         self.deshabilitar_form()
 
@@ -76,7 +76,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   
   ############################################################ EVENTOS ############################################################
   def button_guardar_click(self, **event_args):
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'])
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None)
     if status == 1:
       self.save_data(self.datos['modo'])
     elif status == 2:

@@ -67,12 +67,6 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           else:
             if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
               cambios = True
-          """if textcomponent.tag == 'id_numero_parte':
-            if str(valor[0]) != datos_antiguos[textcomponent.tag]:
-              cambios = True
-          elif textcomponent.tag == 'tipo_suaje':
-            if str(valor[0]) != datos_antiguos[textcomponent.tag]:
-              cambios = True"""
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
