@@ -14,6 +14,7 @@ from ..MANTENIMIENTO_PROGRAMA_ANUAL import MANTENIMIENTO_PROGRAMA_ANUAL
 from ..MANTENIMIENTO_FORMS_REPORTES import MANTENIMIENTO_FORMS_REPORTES
 from ..MANTENIMIENTO_CONTROL_HERRAMENTALES import MANTENIMIENTO_CONTROL_HERRAMENTALES
 from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
+from ..MANTENIMIENTO_NUMEROS_PARTE import MANTENIMIENTO_NUMEROS_PARTE
 
 class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
   ################################### DEFINICION DE VARIABLES ####################################
@@ -234,5 +235,10 @@ class MANTENIMIENTO_LISTA_EQUIPOS(MANTENIMIENTO_LISTA_EQUIPOSTemplate):
     datos = self.datos
     datos['modo'] = "todos"
     respuesta = alert(content = MANTENIMIENTO_REGISTRO_SUAJES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+
+  def link_numeros_parte_click(self, **event_args):
+    datos = self.datos
+    datos['modo'] = "todos"
+    respuesta = alert(content = MANTENIMIENTO_NUMEROS_PARTE(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
     
       
