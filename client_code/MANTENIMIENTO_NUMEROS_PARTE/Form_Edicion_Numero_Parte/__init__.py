@@ -56,6 +56,6 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     
   ########################################################## EVENTOS #########################################################
   def button_agregar_click(self, **event_args):
-    dropdown_suajes = DropDown(role='outlined', background='On Primary', placeholder='-- SELECCIONE --', items=)
+    dropdown_suajes = DropDown(role='outlined', background='On Primary', placeholder='-- SELECCIONE --', items=-"")
     respuesta = alert(dropdown_suajes, title="SELECCIONE SUAJE:", buttons=[("ACEPTAR", dropdown_suajes.selected_value),("CANCELAR", False)])
     print(f"la respuesta seleccionada es:{respuesta}")
