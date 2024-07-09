@@ -19,6 +19,7 @@ class MANTENIMIENTO_NUMEROS_PARTE(MANTENIMIENTO_NUMEROS_PARTETemplate):
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
+    self.set_event_handler('x-abrir_form', self.abrir_popup_form)
     self.set_ini_config(datos)
     self.button_actualizar_click()
 
@@ -84,4 +85,5 @@ class MANTENIMIENTO_NUMEROS_PARTE(MANTENIMIENTO_NUMEROS_PARTETemplate):
   def button_nuevo_numero_parte_click(self, **event_args):
     datos = {}
     datos['clave_form'] = 'FORM_NUMERO_PARTE'
+    datos['modo'] = 'nuevo'
     self.abrir_popup_form(datos)

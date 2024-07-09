@@ -20,8 +20,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
-    self.set_event_handler('x-abrir_form', self.abrir_popup_form)
-    self.set_ini_config()
+    self.set_ini_config(datos)
     self.get_datos()
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
@@ -32,7 +31,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     self.ss_vista_herramentales = self.ws_libro_suajes['VISTA_HERRAMENTALES']
     self.ss_vista_clientes = self.ws_libro_suajes['VISTA_CLIENTES']
     self.lista_componentes = [
-      self.text_area_suajes_asociados,
+      self.text_area_descripcion,
       self.date_picker_fecha_registro,
       self.drop_down_cliente,
       self.text_area_descripcion
@@ -56,4 +55,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, modos)
     
   ########################################################## EVENTOS #########################################################
-  
+  def button_agregar_click(self, **event_args):
+    dropdown_suajes = DropDown(role='outlined', background='On Primary', placeholder='-- SELECCIONE --', items=)
+    respuesta = alert(dropdown_suajes, title="SELECCIONE SUAJE:", buttons=[("ACEPTAR", dropdown_suajes.selected_value),("CANCELAR", False)])
+    print(f"la respuesta seleccionada es:{respuesta}")
