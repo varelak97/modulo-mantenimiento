@@ -62,7 +62,7 @@ components:
       properties:
         columns:
         - {id: VJQQOR, title: '', data_key: column_2, width: '80'}
-        - {id: JKSDUP, title: CÓDIGO HERRAMENTAL, data_key: codigo_herramental, width: '150'}
+        - {id: JKSDUP, title: CÓDIGO HERRAMENTAL, data_key: codigo_herramental, width: '250'}
         - {id: OJLQEN, title: TIPO SUAJE, data_key: tipo_suaje, width: '200'}
         show_page_controls: false
       type: DataGrid
