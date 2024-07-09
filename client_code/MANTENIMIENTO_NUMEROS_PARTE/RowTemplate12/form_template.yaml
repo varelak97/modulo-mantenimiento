@@ -7,6 +7,7 @@ components:
   layout_properties: {column: JKSDUP}
   data_bindings:
   - {property: tag, code: 'self.item[''id_numero_parte'']', writeback: false}
+  event_bindings: {click: button_editar_click}
 - name: label_numero_parte
   properties: {}
   type: Label

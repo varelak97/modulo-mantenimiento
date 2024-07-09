@@ -7,6 +7,7 @@ components:
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
+  event_bindings: {click: button_borrar_click}
 - name: label_codigo_herramental
   properties: {}
   type: Label

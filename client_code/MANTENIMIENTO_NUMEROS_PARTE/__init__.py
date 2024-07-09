@@ -19,7 +19,6 @@ class MANTENIMIENTO_NUMEROS_PARTE(MANTENIMIENTO_NUMEROS_PARTETemplate):
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
-    self.set_event_handler('x-abrir_form', self.abrir_popup_form)
     self.set_ini_config(datos)
     self.button_actualizar_click()
 
@@ -39,6 +38,7 @@ class MANTENIMIENTO_NUMEROS_PARTE(MANTENIMIENTO_NUMEROS_PARTETemplate):
         self.button_actualizar_click()
         
   def set_ini_config(self, datos):
+    self.set_event_handler('x-abrir_form', self.abrir_popup_form)
     self.datos = datos
     self.ws_suajes = app_files.control_herramentales
     self.ss_vista_numeros_parte = self.ws_suajes['VISTA_NUMEROS_PARTE']
