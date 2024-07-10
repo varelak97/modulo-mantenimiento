@@ -36,13 +36,9 @@ def fill_formulario(lista_components, datos, modos):
       component.text = datos[component.tag]
     elif type(component) is DropDown:
       if modos is not None and modos != "":
-        print("entro a modos")
         for modo in modos:
           if modo['tag'] == component.tag:
             if modo['modo'] == 'modo1':
-              print(f"el valor seleccionado:{(datos[component.tag], datos[modo['llave']])}")
-              component.selected_value = (datos[component.tag], datos[modo['llave']])
-            elif modo['modo'] == 'modo2':
               component.selected_value = (datos[component.tag], datos[modo['llave']])
       else:
         component.selected_value = datos[component.tag]
@@ -76,9 +72,11 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
               if dic_modo['tag'] == textcomponent.tag:
                 if str(valor[dic_modo['index']]) != datos_antiguos[textcomponent.tag]:
                   cambios = True
+                  print(f"cambio en:{textcomponent.tag}")
           else:
             if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
               cambios = True
+              print(f"cambio en:{textcomponent.tag}")
         elif type(textcomponent) is RepeatingPanel:
           filas_similares = 0
           total_filas = len(valor)
@@ -87,11 +85,14 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
               filas_similares += 1
           if total_filas != filas_similares:
             cambios = True
+            print(f"cambio en:{textcomponent.tag}")
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
+            print(f"cambio en:{textcomponent.tasg}")
       else:
         cambios = True
+        print(f"no hay cambios")
     if not status:
       return 3
     if not cambios:

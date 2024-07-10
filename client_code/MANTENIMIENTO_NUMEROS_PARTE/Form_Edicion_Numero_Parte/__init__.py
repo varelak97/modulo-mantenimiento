@@ -53,7 +53,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     self.vista_clientes = self.ss_vista_clientes.rows
     lista_clientes = []
     for cliente in self.vista_clientes:
-      lista_clientes.append((cliente['cliente'], (cliente['cliente'], cliente['id_cliente'])))
+      lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
     self.drop_down_cliente.items = lista_clientes
     self.lista_suajes = []
     for suaje in self.vista_herramentales:
@@ -92,9 +92,11 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
     nuevo_registro['marca_temporal'] = datetime.now()
     nuevo_registro['operacion'] = 'Alta' if self.datos['modo'] == 'nuevo' else 'Edicion'
+    nuevo_registro['id_cliente'] = nuevo_registro['id_cliente'][0]
     if self.datos['modo'] == 'nuevo':
       nuevo_registro['id_numero_parte'] = max([int(item['id_numero_parte']) for item in self.numeros_parte]) + 1
     #self.ss_numeros_parte.add_row(**nuevo_registro)
+    print(f"registro anterior:{self.registro_actual}")
     alert(f"se guardaron los datos:{nuevo_registro}")
     
     
