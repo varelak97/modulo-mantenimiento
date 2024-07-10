@@ -18,6 +18,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
   registro_actual = None
   lista_componentes = None
   lista_suajes = None
+  campos_no_obligatorios = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -32,10 +33,16 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     self.ss_numeros_parte = self.ws_libro_suajes['NUMEROS_PARTE']
     self.ss_vista_herramentales = self.ws_libro_suajes['VISTA_HERRAMENTALES']
     self.ss_vista_clientes = self.ws_libro_suajes['VISTA_CLIENTES']
+    
     self.lista_componentes = [
+      self.text_box_numero_parte,
       self.text_area_descripcion,
       self.date_picker_fecha_registro,
       self.drop_down_cliente,
+      self.text_area_descripcion,
+      self.repeating_panel_suajes_asociados
+    ]
+    self.campos_no_obligatorios = [
       self.text_area_descripcion
     ]
 
@@ -52,12 +59,27 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       self.lista_suajes.append((suaje['codigo_herramental'], suaje['id_herramental']))
                             
     if self.datos['modo'] == "edicion":
-      for numero_parte in self.numeros_parte:
-        if numero_parte['id_numero_parte'] == self.datos['id_numero_parte'] and numero_parte['registro_activo'] == '1':
-          self.registro_actual = numero_parte
+      self.llenar_formulario()
+
+  def llenar_formulario(self):
+    for numero_parte in self.numeros_parte:
+        if numero_parte['id_numero_parte'] == self.datos['id_numero_parte'] and numero_parte['registro_principal'] == '1':
+          self.registro_actual = dict(numero_parte)
           break
-      modos = [{"tag":"cliente","modo":"modo1","llave:":"id_cliente"}]
-      Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, modos)
+    datos_suaje = []
+    for suaje_registro in eval(self.registro_actual['id_herramentales']):
+      for herramental in self.vista_herramentales:
+        if suaje_registro == int(herramental['id_herramental']):
+          datos_suaje.append(herramental)
+          break
+    self.registro_actual['tabla'] = datos_suaje
+    for cliente in self.vista_clientes:
+      if cliente['id_cliente'] == self.registro_actual['id_cliente']:
+        self.registro_actual['cliente'] = cliente['cliente']
+        break
+      
+    modos = [{"tag":"cliente","modo":"modo1","llave":"id_cliente"}]
+    Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, modos)
 
   def borrar_item(self, id_herramental, **event_args):
     lista_suajes = self.repeating_panel_suajes_asociados.items
@@ -82,3 +104,12 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
           items_actuales.append(dict(herramental))
       self.repeating_panel_suajes_asociados.items = items_actuales
             #items_actuales.append({'id_herramental':herramental['id_herramental'],'codigo_herramental':herramental['codigo_herramental'],'tipo_suaje':herramental['tipo_suaje']})
+
+  def button_guardar_click(self, **event_args):
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None)
+    if status == 1:
+      self.save_data(self.datos['modo'])
+    elif status == 2:
+      alert("No hay cambios que guardar.", title="ERROR!")
+    elif status == 3:
+      alert("faltan campos por llenar!", title="ERROR!")

@@ -27,6 +27,7 @@ def genera_diccionario(lista_components):
 def fill_formulario(lista_components, datos, modos):
   for component in lista_components:
     if type(component) in [TextBox, TextArea]:
+      print(f"lo que llena:{datos[component.tag]}")
       component.text = datos[component.tag]
     elif type(component) is DropDown:
       if modos is not None and modos != "":
@@ -40,6 +41,8 @@ def fill_formulario(lista_components, datos, modos):
         component.selected_value = datos[component.tag]
     elif type(component) is DatePicker:
       component.date = datos[component.tag]
+    elif type(component) is RepeatingPanel:
+      component.items = datos['tabla']
 
 
 def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo, dicc_modos):

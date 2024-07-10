@@ -13,5 +13,8 @@ class RowTemplate12(RowTemplate12Template):
     # Any code you write here will run before the form opens.
 
   def button_editar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    datos = {}
+    datos['id_numero_parte'] = self.button_editar.tag
+    datos['modo'] = "edicion"
+    datos['clave_form'] = 'FORM_NUMERO_PARTE'
+    self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
