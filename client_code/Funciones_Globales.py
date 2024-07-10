@@ -72,25 +72,24 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
               if dic_modo['tag'] == textcomponent.tag:
                 if str(valor[dic_modo['index']]) != datos_antiguos[textcomponent.tag]:
                   cambios = True
-                  print(f"cambio en:{textcomponent.tag}")
           else:
             if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
               cambios = True
-              print(f"cambio en:{textcomponent.tag}")
         elif type(textcomponent) is RepeatingPanel:
           filas_similares = 0
-          total_filas = len(valor)
+          total_filas = len(eval(datos_antiguos[textcomponent.tag]))
           for row in valor:
             if int(row[llave_tabla]) in eval(datos_antiguos[textcomponent.tag]):
               filas_similares += 1
-          print(f"filas_similares:{filas_similares}")
-          if total_filas != filas_similares:
-            cambios = True
-            print(f"cambio en:{textcomponent.tag}")
+              cambios = True
+            """else:
+              print(f"id:{row[llave_tabla]} si está en datos:{datos_antiguos[textcomponent.tag]}")"""
+          #print(f"filas_similares:{filas_similares} de un total de:{ total_filas}")
+          #if total_filas != filas_similares:
+          #  cambios = True
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
-            print(f"cambio en:{textcomponent.tag}")
       else:
         cambios = True
     print(f"valor de cambios:{cambios}")

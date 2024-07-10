@@ -114,8 +114,8 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       self.repeating_panel_suajes_asociados.items = items_actuales
 
   def button_guardar_click(self, **event_args):
-    
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None, 'id_herramental')
+    modos = [{'tag':'id_cliente', 'index':0}]
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], modos, 'id_herramental')
     if status == 1:
       mensaje = "Guardando registro en la base de datos" if self.datos['modo'] == 'nuevo' else 'Actualizando registro en la base de datos'
       titulo = "GUARDANDO" if self.datos['modo'] == 'nuevo' else "ACTUALIZANDO."
