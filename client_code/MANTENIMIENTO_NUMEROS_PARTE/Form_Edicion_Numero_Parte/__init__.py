@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ... import Funciones_Globales
+from datetime import datetime
 
 
 class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
@@ -27,7 +28,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_ini_config(self, datos):
-    self.set_event_handler('x-borrar_item', self.borrar_item)
+    self.set_event_handler('x-borrar_item', Funciones_Globales.borrar_item)
     self.datos = datos
     self.ws_libro_suajes = app_files.control_herramentales
     self.ss_numeros_parte = self.ws_libro_suajes['NUMEROS_PARTE']
@@ -64,7 +65,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
   def llenar_formulario(self):
     for numero_parte in self.numeros_parte:
         if numero_parte['id_numero_parte'] == self.datos['id_numero_parte'] and numero_parte['registro_principal'] == '1':
-          self.registro_actual = dict(numero_parte)
+          self.registro_actual = numero_parte
           break
     datos_suaje = []
     for suaje_registro in eval(self.registro_actual['id_herramentales']):
@@ -72,24 +73,29 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
         if suaje_registro == int(herramental['id_herramental']):
           datos_suaje.append(herramental)
           break
-    self.registro_actual['tabla'] = datos_suaje
+    dicc_registro_actual = dict(self.registro_actual)
+    dicc_registro_actual['tabla'] = datos_suaje
     for cliente in self.vista_clientes:
-      if cliente['id_cliente'] == self.registro_actual['id_cliente']:
-        self.registro_actual['cliente'] = cliente['cliente']
+      if cliente['id_cliente'] == dicc_registro_actual['id_cliente']:
+        dicc_registro_actual['cliente'] = cliente['cliente']
         break
       
     modos = [{"tag":"cliente","modo":"modo1","llave":"id_cliente"}]
-    Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, modos)
+    Funciones_Globales.fill_formulario(self.lista_componentes, dicc_registro_actual, modos)
 
-  def borrar_item(self, id_herramental, **event_args):
-    lista_suajes = self.repeating_panel_suajes_asociados.items
-    id_borrar = None
-    for index, suaje in enumerate(lista_suajes):
-      if int(suaje['id_herramental']) == int(id_herramental):
-        id_borrar = index
-        break
-    del(lista_suajes[id_borrar])
-    self.repeating_panel_suajes_asociados.items = lista_suajes
+  def guardar_datos(self, modo):
+    nuevo_registro = dict(self.registro_actual).copy()
+    self.registro_actual['registro_principal'] = 0
+    datos_formulario = Funciones_Globales.genera_diccionario(self.lista_componentes, 'id_herramental')
+    nuevo_registro.update(datos_formulario)
+    nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
+    nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
+    nuevo_registro['marca_temporal'] = datetime.now()
+    nuevo_registro['operacion'] = 'Alta' if self.datos['modo'] == 'nuevo' else 'Edicion'
+    if self.datos['modo'] == 'nuevo':
+      nuevo_registro['id_numero_parte'] = max([int(item['id_numero_parte']) for item in self.numeros_parte]) + 1
+    self.ss_numeros_parte.add_row(**nuevo_registro)
+    
     
   ########################################################## EVENTOS #########################################################
   def button_agregar_click(self, **event_args):
@@ -103,12 +109,16 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
         if int(herramental['id_herramental']) == int(dropdown_suajes.selected_value):
           items_actuales.append(dict(herramental))
       self.repeating_panel_suajes_asociados.items = items_actuales
-            #items_actuales.append({'id_herramental':herramental['id_herramental'],'codigo_herramental':herramental['codigo_herramental'],'tipo_suaje':herramental['tipo_suaje']})
 
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None)
     if status == 1:
-      self.save_data(self.datos['modo'])
+      mensaje = "Guardando registro en la base de datos" if self.datos['modo'] == 'nuevo' else 'Actualizando registro en la base de datos'
+      titulo = "GUARDANDO" if self.datos['modo'] == 'nuevo' else "ACTUALIZANDO."
+      with Notification(mensaje, title=titulo, style='notification'):
+        self.guardar_datos(self.datos['modo'])
+      status = 'registro_guardado' if self.datos['modo'] == 'nuevo' else 'registro_actualizado'
+      self.raise_event("x-close-alert", value=status)
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:

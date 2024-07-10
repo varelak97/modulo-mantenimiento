@@ -70,6 +70,8 @@ components:
       - name: repeating_panel_suajes_asociados
         properties: {item_template: MANTENIMIENTO_NUMEROS_PARTE.Form_Edicion_Numero_Parte.RowTemplate13}
         type: RepeatingPanel
+        data_bindings:
+        - {property: tag, code: '"id_herramentales"', writeback: false}
       layout_properties: {grid_position: 'JHYVJM,DTVAFF YIRQNS,SHLKTJ'}
     - name: button_agregar
       properties: {text: '', icon: 'fa:plus-circle', role: filled-button, bold: true, background: 'theme:Green', font_size: null}

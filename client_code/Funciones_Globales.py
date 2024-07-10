@@ -9,7 +9,7 @@ def get_registro(id, clave, base):
         break
     return registro_encontrado
 
-def genera_diccionario(lista_components):
+def genera_diccionario(lista_components, llave_tabla):
   diccionario = {}
   valor = None
   for component in lista_components:
@@ -19,6 +19,12 @@ def genera_diccionario(lista_components):
       valor = component.selected_value
     elif type(component) is DatePicker:
       valor = component.date
+    elif type(component) is RepeatingPanel:
+      items = component.items
+      ids = []
+      for item in items:
+        ids.append(item[llave_tabla])
+      valor = ids
     diccionario[component.tag] = valor
   return diccionario
 
@@ -27,7 +33,6 @@ def genera_diccionario(lista_components):
 def fill_formulario(lista_components, datos, modos):
   for component in lista_components:
     if type(component) in [TextBox, TextArea]:
-      print(f"lo que llena:{datos[component.tag]}")
       component.text = datos[component.tag]
     elif type(component) is DropDown:
       if modos is not None and modos != "":
@@ -81,3 +86,13 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
       return 2
     else:
       return 1
+
+def borrar_item(datos, **event_args):
+  lista_items = datos['repeating_panel'].items
+  id_borrar = None
+  for index, item in enumerate(lista_items):
+    if int(item[datos['llave']]) == int(datos[datos['llave']]):
+      id_borrar = index
+      break
+  del(lista_items[id_borrar])
+  datos['repeating_panel'].items = lista_items
