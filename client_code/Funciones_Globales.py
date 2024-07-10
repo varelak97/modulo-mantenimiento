@@ -39,7 +39,7 @@ def fill_formulario(lista_components, datos, modos):
         for modo in modos:
           if modo['tag'] == component.tag:
             if modo['modo'] == 'modo1':
-              component.selected_value = (datos[component.tag], datos[modo['llave']])
+              component.selected_value = (datos[modo.tag], datos[modo['llave']])
             elif modo['modo'] == 'modo2':
               component.selected_value = (datos[component.tag], datos[modo['llave']])
       else:
@@ -50,7 +50,7 @@ def fill_formulario(lista_components, datos, modos):
       component.items = datos['tabla']
 
 
-def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo, dicc_modos):
+def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo, dicc_modos, llave_tabla):
     status = True
     cambios = False
     for textcomponent in lista_components:
@@ -61,6 +61,8 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         valor = textcomponent.date
       elif type(textcomponent) in [TextBox, TextArea]:
         valor = textcomponent.text
+      elif type(textcomponent) is RepeatingPanel:
+        valor = textcomponent.items
       if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
         if valor == "" or valor is None:
           status = False
@@ -75,6 +77,14 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           else:
             if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
               cambios = True
+        elif type(textcomponent) is RepeatingPanel:
+          filas_similares = 0
+          total_filas = len(valor)
+          for row in valor:
+            if row[llave_tabla] in eval(datos_antiguos[textcomponent.tag]):
+              filas_similares += 1
+          if total_filas != filas_similares:
+            cambios = True
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True

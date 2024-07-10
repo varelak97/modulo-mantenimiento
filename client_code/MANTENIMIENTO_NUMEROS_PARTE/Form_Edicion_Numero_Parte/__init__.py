@@ -80,12 +80,12 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
         dicc_registro_actual['cliente'] = cliente['cliente']
         break
       
-    modos = [{"tag":"cliente","modo":"modo1","llave":"id_cliente"}]
+    modos = [{"modo":"modo1", "tag":"cliente", "llave":"id_cliente"}]
     Funciones_Globales.fill_formulario(self.lista_componentes, dicc_registro_actual, modos)
 
   def guardar_datos(self, modo):
     nuevo_registro = dict(self.registro_actual).copy()
-    self.registro_actual['registro_principal'] = 0
+    #self.registro_actual['registro_principal'] = 0
     datos_formulario = Funciones_Globales.genera_diccionario(self.lista_componentes, 'id_herramental')
     nuevo_registro.update(datos_formulario)
     nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
@@ -94,7 +94,8 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     nuevo_registro['operacion'] = 'Alta' if self.datos['modo'] == 'nuevo' else 'Edicion'
     if self.datos['modo'] == 'nuevo':
       nuevo_registro['id_numero_parte'] = max([int(item['id_numero_parte']) for item in self.numeros_parte]) + 1
-    self.ss_numeros_parte.add_row(**nuevo_registro)
+    #self.ss_numeros_parte.add_row(**nuevo_registro)
+    alert(f"se guardaron los datos:{nuevo_registro}")
     
     
   ########################################################## EVENTOS #########################################################
@@ -111,7 +112,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       self.repeating_panel_suajes_asociados.items = items_actuales
 
   def button_guardar_click(self, **event_args):
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None)
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None, 'id_herramental')
     if status == 1:
       mensaje = "Guardando registro en la base de datos" if self.datos['modo'] == 'nuevo' else 'Actualizando registro en la base de datos'
       titulo = "GUARDANDO" if self.datos['modo'] == 'nuevo' else "ACTUALIZANDO."

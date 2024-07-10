@@ -43,7 +43,7 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'JHYVJM,ZHCBDY LTHYAD,AQOQUY'}
       data_bindings:
-      - {property: tag, code: '"cliente"', writeback: false}
+      - {property: tag, code: '"id_cliente"', writeback: false}
     - name: label_descripcion
       properties: {text: 'DESCRIPCIÓN:', bold: true}
       type: Label
