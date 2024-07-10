@@ -80,7 +80,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
         dicc_registro_actual['cliente'] = cliente['cliente']
         break
       
-    modos = [{"modo":"modo1", "tag":"cliente", "llave":"id_cliente"}]
+    modos = [{"modo":"modo1", "tag":"id_cliente", "llave":"cliente"}]
     Funciones_Globales.fill_formulario(self.lista_componentes, dicc_registro_actual, modos)
 
   def guardar_datos(self, modo):

@@ -36,10 +36,12 @@ def fill_formulario(lista_components, datos, modos):
       component.text = datos[component.tag]
     elif type(component) is DropDown:
       if modos is not None and modos != "":
+        print("entro a modos")
         for modo in modos:
           if modo['tag'] == component.tag:
             if modo['modo'] == 'modo1':
-              component.selected_value = (datos[modo.tag], datos[modo['llave']])
+              print(f"el valor seleccionado:{(datos[component.tag], datos[modo['llave']])}")
+              component.selected_value = (datos[component.tag], datos[modo['llave']])
             elif modo['modo'] == 'modo2':
               component.selected_value = (datos[component.tag], datos[modo['llave']])
       else:
