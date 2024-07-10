@@ -81,18 +81,19 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           filas_similares = 0
           total_filas = len(valor)
           for row in valor:
-            if row[llave_tabla] in eval(datos_antiguos[textcomponent.tag]):
+            if int(row[llave_tabla]) in eval(datos_antiguos[textcomponent.tag]):
               filas_similares += 1
+          print(f"filas_similares:{filas_similares}")
           if total_filas != filas_similares:
             cambios = True
             print(f"cambio en:{textcomponent.tag}")
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
-            print(f"cambio en:{textcomponent.tasg}")
+            print(f"cambio en:{textcomponent.tag}")
       else:
         cambios = True
-        print(f"no hay cambios")
+    print(f"valor de cambios:{cambios}")
     if not status:
       return 3
     if not cambios:
