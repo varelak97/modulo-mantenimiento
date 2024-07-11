@@ -40,6 +40,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
 
   #################################################### FUNCIONES PERSONALIZADAS #####################################################
   def actualizar_status(self, datos, **event_args):
+    herramental = None
     with Notification("Actualizando status del registro...", title="ACTUALIZANDO", style="notification"):
       registro_anterior = None
       for registro in self.registros:
@@ -54,14 +55,23 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
       nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
       self.ss_registros.add_row(**nuevo_registro)
 
-      herramental = None
       for registro in self.herramentales:
         if datos['id_herramental'] == registro['id_herramental'] and registro['registro_principal'] == "1":
           herramental = registro
           break
       herramental['contador'] = int(herramental['contador']) + int(nuevo_registro['suajes_programados'])    
     Notification("El registro ha sido actualizado correctamente!", "HECHO!", style="success").show(3)
+    if int(herramental['contador']) >= int(herramental['vida_util']):
+      titulo = f"REVISIÓN DE SUAJE del PN:{self.datos['numero_parte']}]"
+      datos_ciclos = f"Vida útil estimada:{herramental['vida_util']}\nCiclos de corte acumulados:{herramental['contador']}"
+      texto = f"El suaje con código:{herramental['codigo_herramental']} ha llegado a su vida útil estimada y requiere de su revisión.\n{datos_ciclos}"
+      texto_alerta = f"El herramental de suaje con código:{herramental['codigo_herramental']} ha llegado a su vida útil estimada, por favor entreguelo al Jefe de Mantenimiento para su revisión"
+      alert(texto_alerta, title=titulo, buttons=[("ACEPTAR",True)])
+      anvil.server.call('enviar_mail', 'a.varela@ensel.org', titulo, texto)
     self.button_actualizar_click()
+
+  def enviar_correo(self, codigo_herramental):
+    pass
     
   def abrir_popup_form(self, datos, **event_args):
     #datos['id_usuario_erp'] = self.datos['id_usuario_erp']
@@ -88,10 +98,10 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     
     if self.datos['modo'] == "todos":
       if self.datos['id_usuario_erp'] in self.super_usuarios:
-        lista_registros = list(self.vista_registros)+
+        lista_registros = list(self.vista_registros)
       else:
         for registro in self.vista_registros:
-          if registro['id_usuario_registrador'] == self.datos['id_usuario_registrador']:
+          if registro['id_usuario_registrador'] == self.datos['id_usuario_erp']:
             lista_registros.append(registro)
     else:
       for registro in self.vista_registros:

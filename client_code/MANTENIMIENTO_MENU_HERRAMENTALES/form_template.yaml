@@ -69,10 +69,7 @@ components:
             type: Image
             layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
           - name: label_registros_suaje
-            properties:
-              text: "         REGISTROS DE SUAJE         \n  "
-              bold: true
-              align: center
+            properties: {text: REGISTROS DE OPERACIÓN DE SUAJE, bold: true, align: center}
             type: Label
             layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
     - name: flow_panel_control_suajes

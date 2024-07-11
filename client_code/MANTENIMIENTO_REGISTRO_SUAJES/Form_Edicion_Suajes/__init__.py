@@ -70,12 +70,12 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
     dicc_modos = [{'tag':'id_numero_parte', 'index': 0}, {'tag':'tipo_suaje', 'index': 0}]
-    status = Funciones_Globales.validar_campos(self.lista_input_components, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], dicc_modos)
+    status = Funciones_Globales.validar_campos(self.lista_input_components, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], dicc_modos, None)
     if status == 1:
       mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
       title = "ACTUALIZANDO." if self.datos['modo'] == "edicion" else "GUARDANDO."
       with Notification(mensaje, title=title):
-        dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components)
+        dicc_datos = Funciones_Globales.genera_diccionario(self.lista_input_components, None)
 
         consecutivo = None
         if self.datos['modo'] == 'nuevo':
