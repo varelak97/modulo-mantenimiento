@@ -62,7 +62,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
       herramental['contador'] = int(herramental['contador']) + int(nuevo_registro['suajes_programados'])    
     Notification("El registro ha sido actualizado correctamente!", "HECHO!", style="success").show(3)
     if int(herramental['contador']) >= int(herramental['vida_util']):
-      titulo = f"REVISIÓN DE SUAJE del PN:{self.datos['numero_parte']}]"
+      titulo = f"REVISIÓN DE SUAJE para el NP:{self.datos['numero_parte']}]"
       datos_ciclos = f"Vida útil estimada:{herramental['vida_util']}\nCiclos de corte acumulados:{herramental['contador']}"
       texto = f"El suaje con código:{herramental['codigo_herramental']} ha llegado a su vida útil estimada y requiere de su revisión.\n{datos_ciclos}"
       texto_alerta = f"El herramental de suaje con código:{herramental['codigo_herramental']} ha llegado a su vida útil estimada, por favor entreguelo al Jefe de Mantenimiento para su revisión"
