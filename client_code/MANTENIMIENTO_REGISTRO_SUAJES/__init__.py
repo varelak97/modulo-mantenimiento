@@ -65,7 +65,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
       titulo = f"REVISIÓN DE SUAJE para el NP:{self.datos['numero_parte']}]"
       datos_ciclos = f"Vida útil estimada:{herramental['vida_util']}\nCiclos de corte acumulados:{herramental['contador']}"
       texto = f"El suaje con código:{herramental['codigo_herramental']} ha llegado a su vida útil estimada y requiere de su revisión.\n{datos_ciclos}"
-      texto_alerta = f"El herramental de suaje con código:{herramental['codigo_herramental']} ha llegado a su vida útil estimada, por favor entreguelo al Jefe de Mantenimiento para su revisión"
+      texto_alerta = f"El suaje del NP:{self.datos['numero_parte']} ha llegado a su vida útil estimada, por favor entreguelo al Jefe de Mantenimiento para su revisión"
       alert(texto_alerta, title=titulo, buttons=[("ACEPTAR",True)])
       anvil.server.call('enviar_mail', 'a.varela@ensel.org', titulo, texto)
     self.button_actualizar_click()
