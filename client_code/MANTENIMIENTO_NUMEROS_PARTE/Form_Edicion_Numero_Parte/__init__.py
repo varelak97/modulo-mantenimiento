@@ -83,7 +83,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
 
   def guardar_datos(self, modo):
     nuevo_registro = dict(self.registro_actual).copy()
-    #self.registro_actual['registro_principal'] = 0
+    self.registro_actual['registro_principal'] = 0
     datos_formulario = Funciones_Globales.genera_diccionario(self.lista_componentes, 'id_herramental')
     nuevo_registro.update(datos_formulario)
     nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
@@ -93,7 +93,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     nuevo_registro['id_cliente'] = nuevo_registro['id_cliente'][0]
     if self.datos['modo'] == 'nuevo':
       nuevo_registro['id_numero_parte'] = max([int(item['id_numero_parte']) for item in self.numeros_parte]) + 1
-    #self.ss_numeros_parte.add_row(**nuevo_registro)
+    self.ss_numeros_parte.add_row(**nuevo_registro)
     print(f"registro anterior:{self.registro_actual}")
     alert(f"se guardaron los datos:{nuevo_registro}")
     

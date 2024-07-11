@@ -23,7 +23,7 @@ def genera_diccionario(lista_components, llave_tabla):
       items = component.items
       ids = []
       for item in items:
-        ids.append(item[llave_tabla])
+        ids.append(int(item[llave_tabla]))
       valor = ids
     diccionario[component.tag] = valor
   return diccionario
@@ -63,7 +63,7 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         valor = textcomponent.items
       if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
         if type(textcomponent) is RepeatingPanel:
-          if len(valor) == 0:
+          if valor is None or len(valor) == 0:
             status = False
             textcomponent.role = "outlined-error"
         else:
@@ -86,10 +86,6 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
           for row in valor:
             if int(row[llave_tabla]) in eval(datos_antiguos[textcomponent.tag]):
               filas_similares += 1
-              #cambios = True
-            """else:
-              print(f"id:{row[llave_tabla]} si está en datos:{datos_antiguos[textcomponent.tag]}")"""
-          #print(f"filas_similares:{filas_similares} de un total de:{ total_filas}")
           if not (filas_similares == total_suajes and len(valor) == total_suajes):
             cambios = True
         else:
@@ -97,7 +93,6 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             cambios = True
       else:
         cambios = True
-    print(f"valor de cambios:{cambios}")
     if not status:
       return 3
     if not cambios:
