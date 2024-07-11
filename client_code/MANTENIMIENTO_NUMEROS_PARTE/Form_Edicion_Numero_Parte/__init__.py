@@ -43,9 +43,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       self.text_area_descripcion,
       self.repeating_panel_suajes_asociados
     ]
-    self.campos_no_obligatorios = [
-      self.text_area_descripcion
-    ]
+    self.campos_no_obligatorios = ['comentarios']
 
   def get_datos(self):
     self.numeros_parte = self.ss_numeros_parte.rows
