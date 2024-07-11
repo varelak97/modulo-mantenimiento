@@ -20,6 +20,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
   herramentales = None
   ss_vista_herramentales = None
   vista_herramentales = None
+  super_usuarios = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -27,7 +28,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     self.set_event_handler('x-actualizar_status', self.actualizar_status)
     
     self.datos = datos
-    print(f"lo que llega:{self.datos}")
+    self.super_usuarios = [58, 884]
     self.ws_herramentales = app_files.control_herramentales
     self.ss_vista_registros = self.ws_herramentales['VISTA_REGISTROS']
     self.ss_vista_numeros_parte = self.ws_herramentales["VISTA_NUMEROS_PARTE"]
@@ -86,7 +87,12 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     lista_registros = []
     
     if self.datos['modo'] == "todos":
-      lista_registros = list(self.vista_registros)
+      if self.datos['id_usuario_erp'] in self.super_usuarios:
+        lista_registros = list(self.vista_registros)+
+      else:
+        for registro in self.vista_registros:
+          if registro['id_usuario_registrador'] == self.datos['id_usuario_registrador']:
+            lista_registros.append(registro)
     else:
       for registro in self.vista_registros:
         if registro['id_herramental'] == self.datos['id_herramental']:

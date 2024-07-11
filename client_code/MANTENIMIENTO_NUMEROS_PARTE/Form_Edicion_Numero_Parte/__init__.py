@@ -98,9 +98,6 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     if self.datos['modo'] == 'nuevo':
       nuevo_registro['id_numero_parte'] = max([int(item['id_numero_parte']) for item in self.numeros_parte]) + 1
     self.ss_numeros_parte.add_row(**nuevo_registro)
-    print(f"registro anterior:{self.registro_actual}")
-    alert(f"se guardaron los datos:{nuevo_registro}")
-    
     
   ########################################################## EVENTOS #########################################################
   def button_agregar_click(self, **event_args):
