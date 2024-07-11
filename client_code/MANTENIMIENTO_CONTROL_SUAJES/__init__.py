@@ -1,4 +1,4 @@
-from ._anvil_designer import MANTENIMIENTO_CONTROL_HERRAMENTALESTemplate
+from ._anvil_designer import MANTENIMIENTO_CONTROL_SUAJESTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -8,7 +8,7 @@ from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
 from .Form_Edicion_Herramental import Form_Edicion_Herramental
 
 
-class MANTENIMIENTO_CONTROL_HERRAMENTALES(MANTENIMIENTO_CONTROL_HERRAMENTALESTemplate):
+class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   datos = None
   ws_herramentales = None
   ss_herramentales = None

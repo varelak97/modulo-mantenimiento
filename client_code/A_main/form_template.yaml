@@ -28,12 +28,18 @@ components:
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   components:
-  - name: link_config
-    properties: {icon: 'fa:cogs', text: AJUSTES, bold: true}
+  - name: link_mantenimiento
+    properties: {icon: 'fa:wrench', text: MANTENIMIENTO, bold: true}
     type: Link
-    layout_properties: {grid_position: 'NFOIHS,SXGEAG'}
-    data_bindings:
-    - {property: visible, code: 'True if self.datos[''id_usuario_erp''] == 58 else False', writeback: false}
+    layout_properties: {grid_position: 'SQBIOU,YLAWNP'}
+    data_bindings: []
+    event_bindings: {click: link_mantenimiento_click}
+  - name: link_herramentales
+    properties: {icon: 'fa:cog', text: HERRAMENTALES, bold: true}
+    type: Link
+    layout_properties: {grid_position: 'WNSACP,UMYSVC'}
+    data_bindings: []
+    event_bindings: {click: link_herramentales_click}
 - name: label_1
   properties: {text: MANTENIMIENTO}
   type: Label

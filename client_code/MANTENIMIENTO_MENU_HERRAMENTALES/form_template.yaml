@@ -1,0 +1,108 @@
+container: {type: ColumnPanel}
+components:
+- name: content_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'VTDDMV,VGABWM'}
+  components:
+  - name: outlined_card_2
+    properties: {role: elevated-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'GQXUVS,NGCNDH'}
+    components:
+    - name: label_titulo
+      properties: {text: CONTROL DE HERRAMENTALES, background: 'theme:Primary', foreground: 'theme:On Primary', role: title, bold: true, align: center}
+      type: Label
+      layout_properties: {grid_position: 'DQVYOU,LCGCJB'}
+  - name: outlined_card_1
+    properties: {role: elevated-card, col_widths: '{"OFMOWM":20,"FEAXZI":20,"OLTMCW":20,"ODSKOQ":5,"TGYMQW":7}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'GEAVYP,MQZDQY'}
+    components:
+    - name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'UYEJHA,ODSKOQ'}
+    - name: flow_panel_numeros_parte
+      properties: {}
+      type: FlowPanel
+      layout_properties: {grid_position: 'UYEJHA,OFMOWM'}
+      components:
+      - name: link_numeros_parte
+        properties: {}
+        type: Link
+        event_bindings: {click: link_numeros_parte_click}
+        components:
+        - name: outlined_card_numeros_parte
+          properties: {role: elevated-card, col_widths: '{"OEDDCG":10,"OYPKVW":40}'}
+          type: ColumnPanel
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          components:
+          - name: image_numeros_parte
+            properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
+            type: Image
+            layout_properties: {grid_position: 'WOVRWL,GKJKNO'}
+          - name: label_numeros_parte
+            properties:
+              text: "         NÚMEROS DE PARTE          \n  "
+              bold: true
+              align: center
+            type: Label
+            layout_properties: {grid_position: 'WMORHY,OYPKVW'}
+    - name: flow_panel_registros_suaje
+      properties: {}
+      type: FlowPanel
+      layout_properties: {grid_position: 'UYEJHA,FEAXZI'}
+      components:
+      - name: link_registros_suaje
+        properties: {}
+        type: Link
+        event_bindings: {click: link_registros_suaje_click}
+        components:
+        - name: outlined_card_registros_suaje
+          properties: {role: elevated-card}
+          type: ColumnPanel
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          components:
+          - name: image_registros_suaje
+            properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
+            type: Image
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+          - name: label_registros_suaje
+            properties:
+              text: "         REGISTROS DE SUAJE         \n  "
+              bold: true
+              align: center
+            type: Label
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+    - name: flow_panel_control_suajes
+      properties: {}
+      type: FlowPanel
+      layout_properties: {grid_position: 'UYEJHA,OLTMCW'}
+      components:
+      - name: link_control_suajes
+        properties: {}
+        type: Link
+        event_bindings: {click: link_control_suajes_click}
+        components:
+        - name: outlined_card_control_suajes
+          properties: {role: elevated-card}
+          type: ColumnPanel
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          components:
+          - name: image_control_suajes
+            properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
+            type: Image
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+          - name: label_control_suajes
+            properties:
+              text: "         CONTROL DE SUAJES         \n "
+              bold: true
+              align: center
+            type: Label
+            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+    - name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'UYEJHA,TGYMQW'}
+is_package: true

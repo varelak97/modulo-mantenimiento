@@ -12,6 +12,7 @@ from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REGISTROS import MANTENIMIENTO_PREVEN
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS
+from ..MANTENIMIENTO_MENU_HERRAMENTALES import MANTENIMIENTO_MENU_HERRAMENTALES
 
 class A_main(A_mainTemplate):
   form_activo = None
@@ -57,6 +58,8 @@ class A_main(A_mainTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS':
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_MENU_HERRAMENTALES':
+      self.abrir_form(MANTENIMIENTO_MENU_HERRAMENTALES(datos))
 
   def abrir_form(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
@@ -93,3 +96,11 @@ class A_main(A_mainTemplate):
 
   def link_cerrar_sesion_click(self, **event_args):
     anvil.js.window.location.reload()
+
+  def link_mantenimiento_click(self, **event_args):
+    self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
+    self.actualizar_form_activo(self.datos)
+
+  def link_herramentales_click(self, **event_args):
+    self.datos['clave_form'] = 'MANTENIMIENTO_MENU_HERRAMENTALES'
+    self.actualizar_form_activo(self.datos)

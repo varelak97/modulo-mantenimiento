@@ -100,7 +100,7 @@ components:
           layout_properties: {column: JWMLVC}
         layout_properties: {}
       - name: repeating_panel_herramentales
-        properties: {item_template: MANTENIMIENTO_CONTROL_HERRAMENTALES.RowTemplateHerramental}
+        properties: {item_template: MANTENIMIENTO_CONTROL_SUAJES.RowTemplateHerramental}
         type: RepeatingPanel
       layout_properties: {grid_position: 'NEXOXL,LERAIR', full_width_row: true}
 is_package: true
