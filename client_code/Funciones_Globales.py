@@ -72,11 +72,12 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             textcomponent.role = "outlined-error"
       if modo == "edicion":
         if type(textcomponent) is DropDown:
-          if dicc_modos is not None and dicc_modos != "":
-            for dic_modo in dicc_modos:
-              if dic_modo['tag'] == textcomponent.tag:
-                if str(valor[dic_modo['index']]) != datos_antiguos[textcomponent.tag]:
-                  cambios = True
+          if textcomponent.selected_value is not None:
+            if dicc_modos is not None and dicc_modos != "":
+              for dic_modo in dicc_modos:
+                if dic_modo['tag'] == textcomponent.tag:
+                  if str(valor[dic_modo['index']]) != datos_antiguos[textcomponent.tag]:
+                    cambios = True
           else:
             if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
               cambios = True

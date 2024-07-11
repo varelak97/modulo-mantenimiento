@@ -44,6 +44,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       self.repeating_panel_suajes_asociados
     ]
     self.campos_no_obligatorios = ['comentarios']
+    self.registro_actual = {}
 
   def get_datos(self):
     self.numeros_parte = self.ss_numeros_parte.rows
@@ -91,6 +92,9 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     nuevo_registro['marca_temporal'] = datetime.now()
     nuevo_registro['operacion'] = 'Alta' if self.datos['modo'] == 'nuevo' else 'Edicion'
     nuevo_registro['id_cliente'] = nuevo_registro['id_cliente'][0]
+    nuevo_registro['registro_principal'] = 1
+    nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
+    nuevo_registro['usuario_registrador'] = self.datos['nombre_usuario']
     if self.datos['modo'] == 'nuevo':
       nuevo_registro['id_numero_parte'] = max([int(item['id_numero_parte']) for item in self.numeros_parte]) + 1
     self.ss_numeros_parte.add_row(**nuevo_registro)
@@ -125,3 +129,17 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:
       alert("faltan campos por llenar!", title="ERROR!")
+
+  def date_picker_fecha_registro_change(self, **event_args):
+    self.date_picker_fecha_registro.role = "outlined"
+
+  def text_box_numero_parte_change(self, **event_args):
+    self.text_box_numero_parte.role = "outlined"
+    self.text_box_numero_parte.text = self.text_box_numero_parte.text.upper()
+
+  def drop_down_cliente_change(self, **event_args):
+    self.drop_down_cliente.role = "outlined"
+
+  def text_area_descripcion_change(self, **event_args):
+    self.text_area_descripcion.role = "outlined"
+    self.text_area_descripcion.text = self.text_area_descripcion.text.upper()
