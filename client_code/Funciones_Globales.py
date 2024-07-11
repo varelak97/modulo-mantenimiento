@@ -62,9 +62,14 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
       elif type(textcomponent) is RepeatingPanel:
         valor = textcomponent.items
       if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
-        if valor == "" or valor is None:
-          status = False
-          textcomponent.role = "outlined-error"
+        if type(textcomponent) is RepeatingPanel:
+          if len(valor) == 0:
+            status = False
+            textcomponent.role = "outlined-error"
+        else:
+          if valor == "" or valor is None:
+            status = False
+            textcomponent.role = "outlined-error"
       if modo == "edicion":
         if type(textcomponent) is DropDown:
           if dicc_modos is not None and dicc_modos != "":
