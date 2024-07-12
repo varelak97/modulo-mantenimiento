@@ -21,6 +21,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   registros = None
   registro_actual = None
   campos_no_obligatorios = []
+  lista_numeros_parte = None
+  lista_clientes = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -50,16 +52,16 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.registros = self.ss_registros.rows
 
-    lista_clientes = []
+    self.lista_clientes = []
     for cliente in self.vista_clientes:
-      lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
-    self.drop_down_cliente.items = lista_clientes
+      self.lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
+    self.drop_down_cliente.items = self.lista_clientes
 
-    lista_numeros_parte = []
+    self.lista_numeros_parte = []
     for numero_parte in self.vista_numeros_parte:
       #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
-      lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
-    self.drop_down_numeros_parte.items = lista_numeros_parte
+      self.lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
+    self.drop_down_numeros_parte.items = self.lista_numeros_parte
     
     if self.datos['modo'] == "edicion":
       for registro in self.registros:
@@ -118,9 +120,37 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
         if int(herramental['id_herramental']) in eval(self.drop_down_numeros_parte.selected_value[1]):
           lista_suajes.append((herramental['tipo_suaje'], (herramental['tipo_suaje'], herramental['id_herramental'])))
       self.drop_down_tipo_suaje.items = lista_suajes
+
+      #(cliente['cliente'], (cliente['id_cliente'], cliente['cliente']))
+      #(numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales']))
+      numero_parte_seleccionado = None
+      if self.drop_down_cliente.selected_value is None:
+        for numero_parte in self.vista_numeros_parte:
+          if self.drop_down_numeros_parte.selected_value[0] == numero_parte['id_numero_parte']:
+            numero_parte_seleccionado = numero_parte
+            break
+        cliente_seleccionado = None
+        for cliente in self.vista_clientes:
+          if numero_parte_seleccionado['id_cliente'] == cliente['id_cliente']:
+            cliente_seleccionado = cliente
+            break
+        self.drop_down_cliente.selected_value = (cliente_seleccionado['cliente'], (cliente_seleccionado['id_cliente'], cliente_seleccionado['cliente']))
+        
       self.drop_down_tipo_suaje.enabled = True
     else:
       self.drop_down_tipo_suaje.selected_value = None
       self.drop_down_tipo_suaje.enabled = False
 
+  def drop_down_cliente_change(self, **event_args):
+    if self.drop_down_cliente.selected_value is not None:
+      lista_numeros_parte = []
+      for numero_parte in self.vista_numeros_parte:
+        if self.drop_down_cliente.selected_value[0] == numero_parte['id_cliente']:
+          lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
+      self.drop_down_numeros_parte.items = lista_numeros_parte
+    else:
+      lista_numeros_parte = []
+      for numero_parte in self.vista_numeros_parte:
+        lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
+      self.drop_down_numeros_parte.items = lista_numeros_parte
     
