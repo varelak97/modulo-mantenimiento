@@ -11,6 +11,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   lista_input_components = None
   datos = None
   ws_control_herramentales = None
+  ss_vista_clientes = None
+  vista_clientes = None
   ss_vista_numeros_parte = None
   vista_numeros_parte = None
   ss_vista_herramentales = None
@@ -37,11 +39,13 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     ]
     
     self.ws_control_herramentales = app_files.control_herramentales
+    self.ss_vista_clientes = self.ws_control_herramentales['VISTA_CLIENTES']
     self.ss_vista_numeros_parte = self.ws_control_herramentales['VISTA_NUMEROS_PARTE']
     self.ss_vista_herramentales = self.ws_control_herramentales['VISTA_HERRAMENTALES']
     self.ss_registros = self.ws_control_herramentales['REGISTROS']
     
   def get_data(self):
+    self.vista_clientes = self.ss_vista_clientes.rows
     self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.registros = self.ss_registros.rows
