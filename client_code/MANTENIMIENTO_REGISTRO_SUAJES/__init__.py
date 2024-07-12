@@ -60,11 +60,12 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
           herramental = registro
           break
       print(f"valor antes de contador herramental es:{herramental['contador']}")
-      herramental['contador'] = int(herramental['contador']) + int(nuevo_registro['suajes_programados'])
-      print(f"valor despues de contador herramental es:{herramental['contador']}")
+      suma = int(herramental['contador']) + int(nuevo_registro['suajes_programados'])
+      herramental['contador'] = suma
+      print(f"valor despues de contador herramental es:{suma}")
     Notification("El registro ha sido actualizado correctamente!", "HECHO!", style="success").show(3)
-    print(f"herramental contador:{herramental['contador']} y vida util:{herramental['vida_util']}")
-    if int(herramental['contador']) >= int(herramental['vida_util']):
+    print(f"herramental contador:{suma} y vida util:{herramental['vida_util']}")
+    if suma >= int(herramental['vida_util']):
       titulo = f"REVISIÓN DE SUAJE para el NP: {datos['numero_parte']}"
       datos_ciclos = f"Vida útil estimada:{herramental['vida_util']}\nCiclos de corte acumulados:{herramental['contador']}"
       texto = f"El suaje del NP: {datos['numero_parte']} ({datos['tipo_suaje']}) ha llegado a su vida útil estimada y requiere de su revisión.\n{datos_ciclos}"
