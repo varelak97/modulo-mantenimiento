@@ -134,7 +134,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
           if numero_parte_seleccionado['id_cliente'] == cliente['id_cliente']:
             cliente_seleccionado = cliente
             break
-        self.drop_down_cliente.selected_value = (cliente_seleccionado['cliente'], (cliente_seleccionado['id_cliente'], cliente_seleccionado['cliente']))
+        print(f"los items clientes:{self.drop_down_cliente.items}")
+        self.drop_down_cliente.selected_value = (cliente_seleccionado['id_cliente'], cliente_seleccionado['cliente'])
         
       self.drop_down_tipo_suaje.enabled = True
     else:
