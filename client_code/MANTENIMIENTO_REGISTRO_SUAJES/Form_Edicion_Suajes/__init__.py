@@ -50,6 +50,11 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.registros = self.ss_registros.rows
 
+    lista_clientes = []
+    for cliente in self.vista_clientes:
+      lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
+    self.drop_down_cliente.items = lista_clientes
+
     lista_numeros_parte = []
     for numero_parte in self.vista_numeros_parte:
       #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
