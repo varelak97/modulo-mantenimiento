@@ -56,3 +56,10 @@ components:
   layout_properties: {column: YOCKTR}
   data_bindings:
   - {property: text, code: 'self.item[''nombre_usuario'']', writeback: false}
+- name: label_cliente
+  properties: {}
+  type: Label
+  layout_properties: {column: YUSRMZ}
+  data_bindings:
+  - {property: text, code: 'self.item[''cliente'']', writeback: false}
+  - {property: tag, code: 'self.item[''id_cliente'']', writeback: false}

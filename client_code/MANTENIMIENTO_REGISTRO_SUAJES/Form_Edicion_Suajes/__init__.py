@@ -35,6 +35,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     
     self.lista_input_components = [
       self.date_picker_fecha_programada,
+      self.drop_down_cliente,
       self.drop_down_numeros_parte,
       self.drop_down_tipo_suaje,
       self.text_box_suajes_programados
@@ -71,16 +72,22 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       dicc_registro_actual = dict(self.registro_actual)
       for numero_parte in self.vista_numeros_parte:
         if numero_parte['id_numero_parte'] == dicc_registro_actual['id_numero_parte']:
-          #dicc_registro_actual['numero_parte'] = numero_parte['numero_parte']
           dicc_registro_actual['id_herramentales'] = numero_parte['id_herramentales']
           break
+      """for cliente in self.vista_clientes:
+        if cliente['id_cliente'] == dicc_registro_actual['id_cliente']:
+          dicc_registro_actual['cliente'] = cliente['cliente']
+          break"""
       dicc_registro_actual['id_herramental'] = self.datos['id_herramental']
-      modos = [{'tag':'id_numero_parte', 'modo':'modo1', 'llave':'id_herramentales'}, {'tag':'tipo_suaje', 'modo':'modo2', 'llave': 'id_herramental'}]
+      modos = [
+        {'tag':'id_numero_parte', 'modo':'modo1', 'llave':'id_herramentales'}, 
+        {'tag':'tipo_suaje', 'modo':'modo1', 'llave': 'id_herramental'}
+      ]
       Funciones_Globales.fill_formulario(self.lista_input_components, dicc_registro_actual, modos)
       self.drop_down_numeros_parte_change()
   ############################################################ EVENTOS ###########################################################
   def button_guardar_click(self, **event_args):
-    dicc_modos = [{'tag':'id_numero_parte', 'index': 0}, {'tag':'tipo_suaje', 'index': 0}]
+    dicc_modos = [{'tag':'id_numero_parte', 'index': 0}, {'tag':'tipo_suaje', 'index': 0}, {'tag':'id_cliente', 'index': 0}]
     status = Funciones_Globales.validar_campos(self.lista_input_components, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], dicc_modos, None)
     if status == 1:
       mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
@@ -121,22 +128,18 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
           lista_suajes.append((herramental['tipo_suaje'], (herramental['tipo_suaje'], herramental['id_herramental'])))
       self.drop_down_tipo_suaje.items = lista_suajes
 
-      #(cliente['cliente'], (cliente['id_cliente'], cliente['cliente']))
-      #(numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales']))
       numero_parte_seleccionado = None
-      if self.drop_down_cliente.selected_value is None:
-        for numero_parte in self.vista_numeros_parte:
-          if self.drop_down_numeros_parte.selected_value[0] == numero_parte['id_numero_parte']:
-            numero_parte_seleccionado = numero_parte
-            break
-        cliente_seleccionado = None
-        for cliente in self.vista_clientes:
-          if numero_parte_seleccionado['id_cliente'] == cliente['id_cliente']:
-            cliente_seleccionado = cliente
-            break
-        print(f"los items clientes:{self.drop_down_cliente.items}")
-        self.drop_down_cliente.selected_value = (cliente_seleccionado['id_cliente'], cliente_seleccionado['cliente'])
-        
+      for numero_parte in self.vista_numeros_parte:
+        if self.drop_down_numeros_parte.selected_value[0] == numero_parte['id_numero_parte']:
+          numero_parte_seleccionado = numero_parte
+          break
+      cliente_seleccionado = None
+      for cliente in self.vista_clientes:
+        if numero_parte_seleccionado['id_cliente'] == cliente['id_cliente']:
+          cliente_seleccionado = cliente
+          break
+      self.drop_down_cliente.selected_value = (cliente_seleccionado['id_cliente'], cliente_seleccionado['cliente'])
+    
       self.drop_down_tipo_suaje.enabled = True
     else:
       self.drop_down_tipo_suaje.selected_value = None

@@ -12,6 +12,8 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
   ws_herramentales = None
   ss_vista_registros = None
   vista_registros = None
+  ss_vista_clientes = None
+  vista_clientes = None
   ss_vista_numeros_parte = None
   vista_numeros_parte = None
   ss_registros = None
@@ -31,6 +33,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     self.super_usuarios = [58, 884]
     self.ws_herramentales = app_files.control_herramentales
     self.ss_vista_registros = self.ws_herramentales['VISTA_REGISTROS']
+    self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
     self.ss_vista_numeros_parte = self.ws_herramentales["VISTA_NUMEROS_PARTE"]
     self.ss_registros = self.ws_herramentales['REGISTROS']
     self.ss_herramentales = self.ws_herramentales['HERRAMENTALES']
@@ -59,10 +62,8 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
         if datos['id_herramental'] == registro['id_herramental'] and registro['registro_principal'] == "1":
           herramental = registro
           break
-      print(f"valor antes de contador herramental es:{herramental['contador']}")
       suma = int(herramental['contador']) + int(nuevo_registro['suajes_programados'])
       herramental['contador'] = suma
-      print(f"valor despues de contador herramental es:{suma}")
     Notification("El registro ha sido actualizado correctamente!", "HECHO!", style="success").show(3)
     print(f"herramental contador:{suma} y vida util:{herramental['vida_util']}")
     if suma >= int(herramental['vida_util']):
@@ -96,6 +97,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
 
   def get_data(self):
     self.vista_registros = self.ss_vista_registros.rows
+    self.vista_clientes = self.ss_vista_clientes.rows
     self.vista_numeros_parte = self.ss_vista_numeros_parte.rows
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.registros = self.ss_registros.rows
@@ -122,6 +124,11 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
           dicc_registro = dict(registro)
           dicc_registro['numero_parte'] = numero_parte['numero_parte']
           self.vista_registros.append(dicc_registro)
+
+    for registro in self.vista_registros:
+      for cliente in self.vista_clientes:
+        if cliente['id_cliente'] == registro['id_cliente']:
+          registro['cliente'] = cliente['cliente']
 
     for registro in self.vista_registros:
       for herramental in self.vista_herramentales:
