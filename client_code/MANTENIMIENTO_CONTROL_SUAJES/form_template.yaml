@@ -70,6 +70,7 @@ components:
         columns:
         - {id: JKSDUP, title: '', data_key: editar, width: '100'}
         - {id: ISLAHB, data_key: localizar, title: '', width: '90'}
+        - {id: MECWZS, data_key: cliente, title: CLIENTE, width: '300'}
         - {id: XTGDJP, data_key: tipo_suaje, title: TIPO DE SUAJE, width: '200'}
         - {id: OJLQEN, title: DESCRIPCIÓN, data_key: descripcion, width: '400', expand: false}
         - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '150'}
@@ -80,6 +81,7 @@ components:
         - {id: LJHPYT, data_key: fecha_registros, title: FECHA DE ALTA, width: '200'}
         - {id: NHKBAB, data_key: nombre_usuario, title: OPERADOR, width: '300'}
         role: wide-tonal-data-grid
+        rows_per_page: 100
       type: DataGrid
       components:
       - name: data_row_panel_filtros

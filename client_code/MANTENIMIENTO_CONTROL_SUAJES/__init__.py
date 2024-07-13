@@ -11,8 +11,10 @@ from .Form_Edicion_Herramental import Form_Edicion_Herramental
 class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   datos = None
   ws_herramentales = None
-  ss_herramentales = None
-  herramentales = None
+  ss_vista_herramentales = None
+  vista_herramentales = None
+  ss_vista_clientes = None
+  vista_clientes = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -25,11 +27,20 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   def set_ini_config(self, datos):
     self.datos = datos
     self.ws_herramentales = app_files.control_herramentales
-    self.ss_herramentales = self.ws_herramentales['VISTA_HERRAMENTALES']
+    self.ss_vista_herramentales = self.ws_herramentales['VISTA_HERRAMENTALES']
+    self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
 
   def get_datos(self):
-    self.herramentales = self.ss_herramentales.rows
-    self.repeating_panel_herramentales.items = self.herramentales
+    self.vista_herramentales = self.ss_vista_herramentales.rows
+    self.vista_clientes = self.ss_vista_clientes.rows
+    lista_vista_herramentales = []
+    for herramental in list(self.vista_herramentales):
+      for cliente in self.vista_clientes:
+        if herramental['id_cliente'] == cliente['id_cliente']:
+          dicc_herramental = dict(herramental)
+          dicc_herramental['cliente'] = cliente['cliente']
+          lista_vista_herramentales.append(dicc_herramental)
+    self.repeating_panel_herramentales.items = lista_vista_herramentales
     
   def abrir_popup_form(self, datos, **event_args):
     datos['id_usuario_erp'] = self.datos['id_usuario_erp']

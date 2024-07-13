@@ -12,6 +12,8 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   ws_herramentales = None
   ss_heramentales = None
   herramentales = None
+  ss_vista_clientes = None
+  vista_clientes = None
   lista_componentes = None
   registro_actual = None
   campos_no_obligatorios = []
@@ -21,20 +23,26 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
     self.set_ini_config(datos)
 
     if self.datos['modo'] == "edicion" or self.datos['modo'] == "visor":
-      self.registro_actual = Funciones_Globales.get_registro(self.datos['id_herramental'], 'id_herramental', self.herramentales)
-      Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, None)
-      if self.datos['modo'] == "visor":
-        self.deshabilitar_form()
+      self.get_datos(self.datos['modo'])
+      
 
   #################################################### FUNCIONES PERSONALIZADAS ####################################################
+  def get_datos(self, modo):
+    self.registro_actual = Funciones_Globales.get_registro(self.datos['id_herramental'], 'id_herramental', self.herramentales)
+    Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, None)
+    if modo == "visor":
+      self.deshabilitar_form()
         
   def set_ini_config(self, datos):
     self.ws_herramentales = app_files.control_herramentales
     self.ss_heramentales = self.ws_herramentales['HERRAMENTALES']
     self.herramentales = self.ss_heramentales.rows
+    self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
+    self.vista_clientes = self.ss_vista_clientes.rows
     self.datos = datos
 
     self.lista_componentes = [
+      self.drop_down_cliente,
       self.text_box_codigo_herramental,
       self.date_picker_fecha_registro,
       self.text_area_descripcion,
@@ -44,12 +52,15 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       self.text_box_vida_util,
       self.text_box_alerta
     ]
+    for cliente in self.vista_clientes:
+      pass
+      ########################## AQUI ME QUEDÉ ################################
 
   def save_data(self, modo):
     mensaje = "Actualizando registro en la base de datos..." if modo == "edicion" else "Guardando registro en la base de datos..."
     title = "ACTUALIZANDO." if modo == "edicion" else "GUARDANDO."
     with Notification(mensaje, title=title, style="notification"):
-      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_componentes)
+      dicc_datos = Funciones_Globales.genera_diccionario(self.lista_componentes, None)
       if modo == "edicion":
         self.registro_actual['registro_principal'] = 0
         dicc_datos['id_herramental'] = self.registro_actual['id_herramental']
@@ -76,7 +87,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   
   ############################################################ EVENTOS ############################################################
   def button_guardar_click(self, **event_args):
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None)
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None, None)
     if status == 1:
       self.save_data(self.datos['modo'])
     elif status == 2:

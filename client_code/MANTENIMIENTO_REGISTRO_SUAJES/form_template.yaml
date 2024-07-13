@@ -34,14 +34,15 @@ components:
         columns:
         - {id: JKSDUP, title: '', data_key: editar, width: '100'}
         - {id: VJQQOR, title: FECHA PROGRAMADA, data_key: fecha_programada, width: '200'}
-        - {id: OJLQEN, title: NÚMERO DE PARTE, data_key: numero_parte, width: '250'}
         - {id: YUSRMZ, data_key: cliente, title: CLIENTE, width: '300'}
+        - {id: OJLQEN, title: NÚMERO DE PARTE, data_key: numero_parte, width: '250'}
         - {id: TQAONH, data_key: tipo_suaje, title: TIPO DE SUAJE, width: '250'}
         - {id: NLQEOC, data_key: suajes_programados, title: CICLOS PROGRAMADOS, width: '250'}
         - {id: OAPQCV, data_key: codigo_herramental, title: CODIGO DE SUAJE, width: '200'}
         - {id: ISZKHV, data_key: status, title: ESTATUS, width: '250'}
         - {id: YOCKTR, data_key: nombre_usuario, title: OPERADOR, width: '300'}
         role: wide-tonal-data-grid
+        rows_per_page: 100
       type: DataGrid
       components:
       - name: repeating_panel_registros

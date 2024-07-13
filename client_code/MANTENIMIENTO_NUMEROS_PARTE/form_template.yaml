@@ -43,6 +43,7 @@ components:
         - {id: HRTTQR, data_key: comentarios, title: COMENTARIOS, width: '400'}
         - {id: JVRGIU, data_key: usuario_registrador, title: USUARIO QUE REGISTRA, width: '400'}
         role: wide-tonal-data-grid
+        rows_per_page: 100
       type: DataGrid
       components:
       - name: data_row_panel_1

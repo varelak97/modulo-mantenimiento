@@ -68,3 +68,10 @@ components:
   layout_properties: {column: LJHPYT}
   data_bindings:
   - {property: text, code: 'self.item[''fecha_registro'']', writeback: false}
+- name: label_cliente
+  properties: {}
+  type: Label
+  layout_properties: {column: MECWZS}
+  data_bindings:
+  - {property: text, code: 'self.item[''cliente'']', writeback: false}
+  - {property: tag, code: 'self.item[''id_cliente'']', writeback: false}
