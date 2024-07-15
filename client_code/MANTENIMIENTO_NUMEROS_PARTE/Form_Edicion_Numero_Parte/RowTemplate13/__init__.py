@@ -16,5 +16,4 @@ class RowTemplate13(RowTemplate13Template):
     datos['id_herramental'] = self.button_borrar.tag
     datos['llave'] = 'id_herramental'
     datos['repeating_panel'] = self.parent
-    print(self.parent)
     self.button_borrar.parent.parent.parent.parent.parent.parent.raise_event('x-borrar_item', datos=datos)

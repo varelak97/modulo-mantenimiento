@@ -28,7 +28,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_ini_config(self, datos):
-    self.set_event_handler('x-borrar_item', Funciones_Globales.borrar_item)
+    self.set_event_handler('x-borrar_item', self.borrar_item)
     self.datos = datos
     self.ws_libro_suajes = app_files.control_herramentales
     self.ss_numeros_parte = self.ws_libro_suajes['NUMEROS_PARTE']
@@ -45,6 +45,18 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     ]
     self.campos_no_obligatorios = ['comentarios']
     self.registro_actual = {}
+
+  def borrar_item(self, datos, **event_args):
+    lista_items = datos['repeating_panel'].items
+    if len(lista_items) == 1:
+      self.drop_down_cliente.enabled = True
+    id_borrar = None
+    for index, item in enumerate(lista_items):
+      if int(item[datos['llave']]) == int(datos[datos['llave']]):
+        id_borrar = index
+        break
+    del(lista_items[id_borrar])
+    datos['repeating_panel'].items = lista_items
 
   def get_datos(self):
     self.numeros_parte = self.ss_numeros_parte.rows
