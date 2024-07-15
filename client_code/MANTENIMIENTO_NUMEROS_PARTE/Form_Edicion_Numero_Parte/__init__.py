@@ -118,7 +118,12 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     if self.drop_down_cliente.selected_value is None:
       dropdown_suajes.items = self.lista_suajes
     else:
-      pass
+      lista_filtrada_suajes = []
+      for suaje in self.vista_herramentales:
+        if suaje['id_cliente'] == self.drop_down_cliente.selected_value[0]:
+          lista_filtrada_suajes.append((f"{suaje['codigo_herramental']} [{suaje['tipo_suaje']}]", suaje['id_herramental']))
+      dropdown_suajes.items = lista_filtrada_suajes
+      
     respuesta = alert(dropdown_suajes, title="SELECCIONE SUAJE:", buttons=[("ACEPTAR", True),("CANCELAR", False)])
     if respuesta:
       self.drop_down_cliente.enabled = False
