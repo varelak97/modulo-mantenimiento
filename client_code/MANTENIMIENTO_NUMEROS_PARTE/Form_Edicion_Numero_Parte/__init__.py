@@ -126,6 +126,15 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
       
     respuesta = alert(dropdown_suajes, title="SELECCIONE SUAJE:", buttons=[("ACEPTAR", True),("CANCELAR", False)])
     if respuesta:
+      if dropdown_suajes.selected_value is not None:
+        id_cliente = None
+        for suaje in self.vista_herramentales:
+          if dropdown_suajes.selected_value == suaje['id_herramental']:
+            id_cliente = suaje['id_cliente']
+        for cliente in self.vista_clientes:
+          if id_cliente == cliente['id_cliente']:
+            self.drop_down_cliente.selected_value =(cliente['id_cliente'], cliente['cliente'])
+            break
       self.drop_down_cliente.enabled = False
       items_actuales = self.repeating_panel_suajes_asociados.items
       if items_actuales is None:
