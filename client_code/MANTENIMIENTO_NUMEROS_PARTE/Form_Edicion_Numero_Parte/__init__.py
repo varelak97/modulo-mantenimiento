@@ -56,9 +56,10 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     self.drop_down_cliente.items = lista_clientes
     self.lista_suajes = []
     for suaje in self.vista_herramentales:
-      self.lista_suajes.append((suaje['codigo_herramental'], suaje['id_herramental']))
+      self.lista_suajes.append((f"{suaje['codigo_herramental']} [{suaje['tipo_suaje']}]", suaje['id_herramental']))
                             
     if self.datos['modo'] == "edicion":
+      self.drop_down_cliente.enabled = False
       self.llenar_formulario()
 
   def llenar_formulario(self):
