@@ -29,7 +29,8 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   #################################################### FUNCIONES PERSONALIZADAS ####################################################
   def get_datos(self, modo):
     self.registro_actual = Funciones_Globales.get_registro(self.datos['id_herramental'], 'id_herramental', self.herramentales)
-    Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, None)
+    modos = [{'tag':'tipo_suaje', 'modo':'modo1', 'llave': 'id_herramental'}]
+    Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, modos)
     if modo == "visor":
       self.deshabilitar_form()
         
@@ -52,9 +53,10 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
       self.text_box_vida_util,
       self.text_box_alerta
     ]
+    lista_clientes = []
     for cliente in self.vista_clientes:
-      pass
-      ########################## AQUI ME QUEDÉ ################################
+      lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
+    self.drop_down_cliente.items = lista_clientes
 
   def save_data(self, modo):
     mensaje = "Actualizando registro en la base de datos..." if modo == "edicion" else "Guardando registro en la base de datos..."

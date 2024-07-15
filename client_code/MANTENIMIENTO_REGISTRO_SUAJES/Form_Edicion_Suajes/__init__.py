@@ -21,8 +21,6 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
   registros = None
   registro_actual = None
   campos_no_obligatorios = []
-  lista_numeros_parte = None
-  lista_clientes = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -53,16 +51,16 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.registros = self.ss_registros.rows
 
-    self.lista_clientes = []
+    lista_clientes = []
     for cliente in self.vista_clientes:
-      self.lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
-    self.drop_down_cliente.items = self.lista_clientes
+      lista_clientes.append((cliente['cliente'], (cliente['id_cliente'], cliente['cliente'])))
+    self.drop_down_cliente.items = lista_clientes
 
-    self.lista_numeros_parte = []
+    lista_numeros_parte = []
     for numero_parte in self.vista_numeros_parte:
       #if int(self.datos['id_herramental']) in eval(numero_parte['id_herramentales']):
-      self.lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
-    self.drop_down_numeros_parte.items = self.lista_numeros_parte
+      lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
+    self.drop_down_numeros_parte.items = lista_numeros_parte
     
     if self.datos['modo'] == "edicion":
       for registro in self.registros:

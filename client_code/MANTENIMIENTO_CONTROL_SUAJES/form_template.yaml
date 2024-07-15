@@ -75,7 +75,7 @@ components:
         - {id: OJLQEN, title: DESCRIPCIÓN, data_key: descripcion, width: '400', expand: false}
         - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '150'}
         - {id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, data_key: codigo_herramental, width: '200', expand: false}
-        - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL ESTIMADA, width: '200'}
+        - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL ESTIMADA, width: '150'}
         - {id: JWMLVC, data_key: alerta, title: ALERTA PARA REVISIÓN DE HERRAMENTAL, width: '250'}
         - {id: WWXEME, data_key: contador, title: CICLOS DE CORTE ACUMULADOS, width: '200'}
         - {id: LJHPYT, data_key: fecha_registros, title: FECHA DE ALTA, width: '200'}
