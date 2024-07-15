@@ -117,6 +117,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
     dropdown_suajes = DropDown(role='outlined', background='On Primary', placeholder='-- SELECCIONE --', items=self.lista_suajes)
     respuesta = alert(dropdown_suajes, title="SELECCIONE SUAJE:", buttons=[("ACEPTAR", True),("CANCELAR", False)])
     if respuesta:
+      self.drop_down_cliente.enabled = False
       items_actuales = self.repeating_panel_suajes_asociados.items
       if items_actuales is None:
         items_actuales = []
