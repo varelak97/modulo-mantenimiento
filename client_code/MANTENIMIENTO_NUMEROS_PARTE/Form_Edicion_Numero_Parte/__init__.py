@@ -116,7 +116,7 @@ class Form_Edicion_Numero_Parte(Form_Edicion_Numero_ParteTemplate):
   def button_agregar_click(self, **event_args):
     dropdown_suajes = DropDown(role='outlined', background='On Primary', placeholder='-- SELECCIONE --', items=self.lista_suajes)
     if self.drop_down_cliente.selected_value is None:
-      pass
+      dropdown_suajes.items = self.lista_suajes
     else:
       pass
     respuesta = alert(dropdown_suajes, title="SELECCIONE SUAJE:", buttons=[("ACEPTAR", True),("CANCELAR", False)])
