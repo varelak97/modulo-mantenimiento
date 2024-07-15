@@ -29,8 +29,12 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   #################################################### FUNCIONES PERSONALIZADAS ####################################################
   def get_datos(self, modo):
     self.registro_actual = Funciones_Globales.get_registro(self.datos['id_herramental'], 'id_herramental', self.herramentales)
-    modos = [{'tag':'tipo_suaje', 'modo':'modo1', 'llave': 'id_herramental'}]
-    Funciones_Globales.fill_formulario(self.lista_componentes, self.registro_actual, modos)
+    dicc_registro_actual = dict(self.registro_actual)
+    for cliente in self.vista_clientes:
+      if cliente['id_cliente'] == dicc_registro_actual['id_cliente']:
+        dicc_registro_actual['cliente'] = cliente['cliente']
+    modos = [{'tag':'id_cliente', 'modo':'modo1', 'llave': 'cliente'}]
+    Funciones_Globales.fill_formulario(self.lista_componentes, dicc_registro_actual, modos)
     if modo == "visor":
       self.deshabilitar_form()
         
@@ -68,6 +72,7 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
         dicc_datos['id_herramental'] = self.registro_actual['id_herramental']
       else:
         dicc_datos['id_herramental'] = (max([int(item['id_herramental']) for item in self.herramentales]) + 1) if len(self.herramentales) > 0 else 0
+      dicc_datos['id_cliente'] = dicc_datos['id_cliente'][0]
       dicc_datos['contador'] = 0 if modo == "nuevo" else self.registro_actual['contador']  
       dicc_datos['activo'] = 1  
       dicc_datos['registro_principal'] = 1
@@ -89,7 +94,8 @@ class Form_Edicion_Herramental(Form_Edicion_HerramentalTemplate):
   
   ############################################################ EVENTOS ############################################################
   def button_guardar_click(self, **event_args):
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], None, None)
+    dicc_modos = [{'tag':'id_cliente', 'index': 0}]
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], dicc_modos, None)
     if status == 1:
       self.save_data(self.datos['modo'])
     elif status == 2:
