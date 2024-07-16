@@ -39,3 +39,11 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
   def button_ubicar_click(self, **event_args):
     anvil.server.call('led_on', int(self.button_ubicar.tag))
 
+  def link_alerta_click(self, **event_args):
+    if int(self.item['contador']) >= int(self.item['vida_util']):
+      datos = {
+        'id_herramental': self.button_editar.tag,
+        'clave_form': 'FORM_INSPECCION_SUAJE', 
+        'modo':'nuevo'
+      }
+      self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)

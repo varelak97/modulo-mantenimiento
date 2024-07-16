@@ -6,6 +6,8 @@ from anvil.google.drive import app_files
 from anvil_extras import popover
 from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
 from .Form_Edicion_Herramental import Form_Edicion_Herramental
+from ..MANTENIMIENTO_INSPECCION_HERRAMENTALES import MANTENIMIENTO_INSPECCION_HERRAMENTALES
+from ..MANTENIMIENTO_INSPECCION_HERRAMENTALES.Form_Inspeccion_Suaje import Form_Inspeccion_Suaje
 
 
 class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
@@ -49,6 +51,8 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
       self.abrir_form(MANTENIMIENTO_REGISTRO_SUAJES(datos))
     elif datos['clave_form'] == 'FORM_HERRAMENTAL':
       self.abrir_form(Form_Edicion_Herramental(datos))
+    elif datos['clave_form'] == 'FORM_INSPECCION_SUAJE':
+      self.abrir_form(Form_Inspeccion_Suaje(datos))
       
   def abrir_form(self, form_de_interes):
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", False)], role="wide-modal-content-bigger")

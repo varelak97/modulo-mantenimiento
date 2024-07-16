@@ -20,11 +20,6 @@ components:
   layout_properties: {column: XCLKEX}
   data_bindings:
   - {property: text, code: 'self.item[''vida_util'']', writeback: false}
-- name: label_alerta
-  properties: {bold: true, font_size: 22, align: center}
-  type: Label
-  layout_properties: {column: JWMLVC}
-  data_bindings: []
 - name: label_contador
   properties: {bold: false, align: center}
   type: Label
@@ -75,3 +70,14 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''cliente'']', writeback: false}
   - {property: tag, code: 'self.item[''id_cliente'']', writeback: false}
+- name: link_alerta
+  properties: {}
+  type: Link
+  layout_properties: {column: JWMLVC}
+  components:
+  - name: label_alerta
+    properties: {bold: true, font_size: 22, align: center}
+    type: Label
+    layout_properties: {grid_position: 'BFWTMX,HTOPMY'}
+    data_bindings: []
+  event_bindings: {click: link_alerta_click}
