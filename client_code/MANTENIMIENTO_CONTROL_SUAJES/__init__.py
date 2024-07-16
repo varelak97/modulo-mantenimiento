@@ -6,8 +6,8 @@ from anvil.google.drive import app_files
 from anvil_extras import popover
 from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
 from .Form_Edicion_Herramental import Form_Edicion_Herramental
-from ..MANTENIMIENTO_INSPECCION_HERRAMENTALES import MANTENIMIENTO_INSPECCION_HERRAMENTALES
-from ..MANTENIMIENTO_INSPECCION_HERRAMENTALES.Form_Inspeccion_visual import Form_Inspeccion_visual
+from ..MANTENIMIENTO_INSPECCION_SUAJES import MANTENIMIENTO_INSPECCION_SUAJES
+from ..MANTENIMIENTO_INSPECCION_SUAJES.Form_Inspeccion_visual import Form_Inspeccion_visual
 
 
 class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):

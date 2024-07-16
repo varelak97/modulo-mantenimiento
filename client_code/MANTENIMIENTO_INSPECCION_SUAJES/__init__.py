@@ -1,11 +1,11 @@
-from ._anvil_designer import MANTENIMIENTO_INSPECCION_HERRAMENTALESTemplate
+from ._anvil_designer import MANTENIMIENTO_INSPECCION_SUAJESTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
 
-class MANTENIMIENTO_INSPECCION_HERRAMENTALES(MANTENIMIENTO_INSPECCION_HERRAMENTALESTemplate):
+class MANTENIMIENTO_INSPECCION_SUAJES(MANTENIMIENTO_INSPECCION_SUAJESTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
