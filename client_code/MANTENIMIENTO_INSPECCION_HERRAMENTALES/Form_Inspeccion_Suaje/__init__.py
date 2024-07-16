@@ -29,6 +29,7 @@ class Form_Inspeccion_Suaje(Form_Inspeccion_SuajeTemplate):
       self.reporte_suajes = self.ss_reporte_suajes.rows
     self.vista_suaje = self.ss_vista_suaje.rows
     for suaje in self.vista_suaje:
-      if suaje['id_herramental'] == self.datos['id_herramental']
+      if suaje['id_herramental'] == self.datos['id_herramental']:
+        pass
 
   ###################################################### EVENTOS #####################################################
