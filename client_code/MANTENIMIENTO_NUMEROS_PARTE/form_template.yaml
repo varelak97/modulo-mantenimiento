@@ -36,8 +36,8 @@ components:
       properties:
         columns:
         - {id: JKSDUP, title: '', data_key: editar, width: '100'}
+        - {id: OJLQEN, title: CLIENTE, data_key: cliente, width: '300'}
         - {id: VJQQOR, title: NÚMERO DE PARTE, data_key: numero_parte, width: '250'}
-        - {id: OJLQEN, title: CLIENTE, data_key: cliente, width: '350'}
         - {id: OCXQLW, data_key: herramentales, title: SUAJES, width: '250'}
         - {id: BYEKWX, data_key: fecha_registro, title: FECHA DE REGISTRO, width: '200'}
         - {id: HRTTQR, data_key: comentarios, title: COMENTARIOS, width: '400'}

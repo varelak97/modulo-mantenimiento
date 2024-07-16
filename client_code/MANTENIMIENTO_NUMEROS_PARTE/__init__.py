@@ -66,7 +66,7 @@ class MANTENIMIENTO_NUMEROS_PARTE(MANTENIMIENTO_NUMEROS_PARTETemplate):
           lista_herramentales += "\n"
         for herramentales in self.vista_herramentales:
           if id_herramental == int(herramentales['id_herramental']):
-            lista_herramentales += f"{herramentales['codigo_herramental']}"
+            lista_herramentales += f"{herramentales['codigo_herramental']} [{herramentales['tipo_suaje']}]"
             break
       numero_parte['herramentales'] = lista_herramentales
 
