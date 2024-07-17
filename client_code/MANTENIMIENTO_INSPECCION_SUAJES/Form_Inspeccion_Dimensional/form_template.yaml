@@ -58,7 +58,7 @@ components:
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
         event_bindings: {click: button_filo_mal_click}
       - name: label_1
-        properties: {text: REVISIÓN DE FILO EN PLECAS, bold: true, background: ''}
+        properties: {text: CORROBORAR MEDIDAS CON PLANOS DE DIBUJO DE DISEÑO, bold: true, background: ''}
         type: Label
         layout_properties: {grid_position: 'ETOULO,VSGGLC'}
       - name: label_3
@@ -73,64 +73,10 @@ components:
       properties: {height: 15}
       type: Spacer
       layout_properties: {grid_position: 'HJQNMZ,DHEQVV'}
-    - name: column_panel_2
-      properties: {col_widths: '{"FMRIUB":8,"PZGEPK":7,"GELTVT":45}', background: 'theme:LightGray', role: elevated-card}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'QPSPXV,XHUZXW'}
-      components:
-      - name: button_union_bien
-        properties: {text: '', icon: 'fa:check', background: '', foreground: 'theme:Secondary'}
-        type: Button
-        layout_properties: {grid_position: 'XTQDJR,FMRIUB'}
-        event_bindings: {click: button_union_bien_click}
-      - name: button_union_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary'}
-        type: Button
-        layout_properties: {grid_position: 'XTQDJR,PZGEPK'}
-        event_bindings: {click: button_union_mal_click}
-      - name: label_2
-        properties: {text: REVISIÓN EN UNIÓN DE PLECAS, bold: true, background: 'theme:LightGray'}
-        type: Label
-        layout_properties: {grid_position: 'XTQDJR,GELTVT'}
-      - name: label_4
-        properties: {bold: true, text: 'COMENTARIOS:'}
-        type: Label
-        layout_properties: {grid_position: 'WHCMTM,CFPQCC'}
-      - name: text_area_2
-        properties: {height: 111, role: outlined, background: 'theme:On Primary'}
-        type: TextArea
-        layout_properties: {grid_position: 'YDZZFF,YDZKOP'}
     - name: spacer_2_copy
       properties: {height: 15}
       type: Spacer
       layout_properties: {grid_position: 'HEVHAI,SDZOOD'}
-    - name: column_panel_3
-      properties: {col_widths: '{"LEDJNH":8,"JNJVJP":7,"YOZPVK":45}', role: elevated-card, background: 'theme:LightGray'}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'RKIOVQ,IDMAAB'}
-      components:
-      - name: button_estado_bien
-        properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary'}
-        type: Button
-        layout_properties: {grid_position: 'GMJEXH,LEDJNH'}
-        event_bindings: {click: button_estado_bien_click}
-      - name: button_estado_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary'}
-        type: Button
-        layout_properties: {grid_position: 'GMJEXH,JNJVJP'}
-        event_bindings: {click: button_estado_mal_click}
-      - name: label_5
-        properties: {text: REVISIÓN DE BUEN ESTADO DE PLECAS (GOLPES), bold: true}
-        type: Label
-        layout_properties: {grid_position: 'GMJEXH,YOZPVK'}
-      - name: label_6
-        properties: {text: 'COMENTARIOS:', bold: true}
-        type: Label
-        layout_properties: {grid_position: 'ECPGAT,IVTIYB'}
-      - name: text_area_3
-        properties: {role: outlined, height: 107, background: 'theme:On Primary'}
-        type: TextArea
-        layout_properties: {grid_position: 'DBKDBL,KBBWYX'}
     - name: button_guardar
       properties: {text: GUARDAR_REPORTE, icon: 'fa:save', bold: true, role: filled-button}
       type: Button
