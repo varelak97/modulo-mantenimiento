@@ -49,12 +49,14 @@ components:
         layout_properties: {grid_position: 'ETOULO,YGNVSN'}
         event_bindings: {click: button_filo_bien_click}
         data_bindings:
-        - {property: tag, code: '""', writeback: false}
+        - {property: tag, code: '"filo_bien"', writeback: false}
       - name: button_filo_mal
         properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', font_size: null}
         type: Button
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
         event_bindings: {click: button_filo_mal_click}
+        data_bindings:
+        - {property: tag, code: '"filo_mal"', writeback: false}
       - name: label_filo
         properties: {text: REVISIÓN DE FILO EN PLECAS, bold: true, background: ''}
         type: Label
@@ -81,11 +83,15 @@ components:
         type: Button
         layout_properties: {grid_position: 'XTQDJR,FMRIUB'}
         event_bindings: {click: button_union_bien_click}
+        data_bindings:
+        - {property: tag, code: '"union_bien"', writeback: false}
       - name: button_union_mal
         properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary'}
         type: Button
         layout_properties: {grid_position: 'XTQDJR,PZGEPK'}
         event_bindings: {click: button_union_mal_click}
+        data_bindings:
+        - {property: tag, code: '"union_mal"', writeback: false}
       - name: label_union
         properties: {text: REVISIÓN EN UNIÓN DE PLECAS, bold: true, background: 'theme:LightGray'}
         type: Label
@@ -112,11 +118,15 @@ components:
         type: Button
         layout_properties: {grid_position: 'GMJEXH,LEDJNH'}
         event_bindings: {click: button_estado_bien_click}
+        data_bindings:
+        - {property: tag, code: '"estado_bien"', writeback: false}
       - name: button_estado_mal
         properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary'}
         type: Button
         layout_properties: {grid_position: 'GMJEXH,JNJVJP'}
         event_bindings: {click: button_estado_mal_click}
+        data_bindings:
+        - {property: tag, code: '"estado_mal"', writeback: false}
       - name: label_estado
         properties: {text: REVISIÓN DE BUEN ESTADO DE PLECAS (GOLPES), bold: true}
         type: Label

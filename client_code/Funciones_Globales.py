@@ -32,7 +32,7 @@ def genera_diccionario(lista_components, llave_tabla):
 
 def fill_formulario(lista_components, datos, modos):
   for component in lista_components:
-    if type(component) in [TextBox, TextArea]:
+    if type(component) in [TextBox, TextArea, Label]:
       component.text = datos[component.tag]
     elif type(component) is DropDown:
       if modos is not None and modos != "":
@@ -42,6 +42,24 @@ def fill_formulario(lista_components, datos, modos):
               component.selected_value = (datos[component.tag], datos[modo['llave']])
       else:
         component.selected_value = datos[component.tag]
+    elif type(component) is Button:
+      if modos is not None and modos != "":
+        for modo in modos:
+          if modo['tag'] == component.tag:
+            if modo['modo'] is True:
+              if bool(int(datos[modo['llave']])):
+                  component.background = app.theme_colors['Primary']
+                  component.foreground = app.theme_colors['On Primary']
+              else:
+                component.background = app.theme_colors['LightGray']
+                component.foreground = app.theme_colors['Secondary']
+            elif modo['modo'] is False:
+              if not bool(int(datos[modo['llave']])):
+                  component.background = app.theme_colors['Red']
+                  component.foreground = app.theme_colors['On Primary']
+              else:
+                  component.background = app.theme_colors['LightGray']
+                  component.foreground = app.theme_colors['Secondary']
     elif type(component) is DatePicker:
       component.date = datos[component.tag]
     elif type(component) is RepeatingPanel:

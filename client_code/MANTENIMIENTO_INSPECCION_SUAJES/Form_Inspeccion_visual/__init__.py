@@ -30,12 +30,6 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.text_area_filo,
       self.text_area_union,
       self.text_area_estado,
-      self.button_filo_bien,
-      self.button_filo_mal,
-      self.button_union_bien,
-      self.button_union_mal,
-      self.button_estado_bien,
-      self.button_estado_mal
     ]
 
   def get_datos(self):
@@ -45,7 +39,15 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
         if self.datos['id_inspeccion'] == row['id_inspeccion']:
           self.registro_actual = row
           break
-      Funciones_Globales.fill_formulario(datos,self.registro_actual, None)
+      modos = [
+        {'tag':'filo_bien','modo':True,'llave':'status_filo'},
+        {'tag':'union_bien','modo':True,'llave':'status_union'},
+        {'tag':'estado_bien','modo':True,'llave':'status_estado'},
+        {'tag':'filo_mal','modo':False,'llave':'status_filo'},
+        {'tag':'union_mal','modo':False,'llave':'status_union'},
+        {'tag':'estado_mal','modo':False,'llave':'status_estado'}
+      ]
+      Funciones_Globales.fill_formulario(self.lista_componentes,self.registro_actual, modos)
     else:
       self.label_cliente.text = self.datos['cliente']
       self.label_codigo_suaje.text = self.datos['codigo_suaje']
