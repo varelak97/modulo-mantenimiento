@@ -9,6 +9,10 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   ws_herramentales = None
   ss_reporte_suajes = None
   reporte_suajes = None
+  ss_vista_clientes = None
+  vista_clientes = None
+  ss_vista_suajes = None
+  vista_suajes = None
   registro_actual = {}
   datos = None
   lista_componentes = None
@@ -22,6 +26,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.datos = datos
     self.ws_herramentales = app_files.control_herramentales
     self.ss_reporte_suajes = self.ws_herramentales['REVISION_SUAJE']
+    self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
+    self.ss_vista_suajes = self.ws_herramentales['VISTA_SUAJES']
+    
     self.lista_componentes = [
       self.text_box_cliente,
       self.text_box_codigo_suaje,
@@ -33,12 +40,16 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     ]
 
   def get_datos(self):
+    self.reporte_suajes = self.ss_reporte_suajes.rows
+    self.vista_clientes = self.ss_vista_clientes.rows
+    self.ss_vista_suajes = self.ss_vista_suajes.rows
+    
     if self.datos['modo'] == 'edicion':
-      self.reporte_suajes = self.ss_reporte_suajes.rows
       for row in self.reporte_suajes:
         if self.datos['id_inspeccion'] == row['id_inspeccion']:
           self.registro_actual = row
           break
+    
       modos = [
         {'tag':'filo_bien','modo':True,'llave':'status_filo'},
         {'tag':'union_bien','modo':True,'llave':'status_union'},
