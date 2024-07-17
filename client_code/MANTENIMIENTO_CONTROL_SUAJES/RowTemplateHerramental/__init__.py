@@ -42,7 +42,9 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
   def link_alerta_click(self, **event_args):
     if int(self.item['contador']) >= int(self.item['vida_util']):
       datos = {
-        'id_herramental': self.button_editar.tag,
+        'cliente':self.label_cliente.text,
+        'codigo_suaje': self.label_codigo_herramental.text,
+        'tipo_suaje': self.label_tipo_suaje.text,
         'clave_form': 'FORM_INSPECCION_SUAJE', 
         'modo':'nuevo'
       }
