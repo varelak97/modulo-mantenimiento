@@ -35,14 +35,14 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
 
   ###################################################### EVENTOS #####################################################
 
-  def button_filo_bien_click(self, **event_args):
+  def button_medidas_bien_click(self, **event_args):
     self.button_filo_bien.background = app.theme_colors["Primary"]
     self.button_filo_bien.foreground = app.theme_colors["On Primary"]
 
     self.button_filo_mal.background = app.theme_colors["LightGray"]
     self.button_filo_mal.foreground = app.theme_colors["Secondary"]
 
-  def button_filo_mal_click(self, **event_args):
+  def button_medidas_mal_click(self, **event_args):
     self.button_filo_bien.background = app.theme_colors["LightGray"]
     self.button_filo_bien.foreground = app.theme_colors["Secondary"]
 

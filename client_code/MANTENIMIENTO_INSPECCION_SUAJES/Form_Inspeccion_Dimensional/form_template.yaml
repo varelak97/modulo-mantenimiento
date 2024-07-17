@@ -47,16 +47,16 @@ components:
       type: ColumnPanel
       layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
       components:
-      - name: button_filo_bien
+      - name: button_medidas_bien
         properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary', font_size: null}
         type: Button
         layout_properties: {grid_position: 'ETOULO,YGNVSN'}
-        event_bindings: {click: button_filo_bien_click}
-      - name: button_filo_mal
+        event_bindings: {click: button_medidas_bien_click}
+      - name: button_medidas_mal
         properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', font_size: null}
         type: Button
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
-        event_bindings: {click: button_filo_mal_click}
+        event_bindings: {click: button_medidas_mal_click}
       - name: label_1
         properties: {text: CORROBORAR MEDIDAS CON PLANOS DE DIBUJO DE DISEÑO, bold: true, background: ''}
         type: Label
@@ -69,10 +69,6 @@ components:
         properties: {height: 113, role: outlined, background: 'theme:On Primary'}
         type: TextArea
         layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
-    - name: spacer_2
-      properties: {height: 15}
-      type: Spacer
-      layout_properties: {grid_position: 'HJQNMZ,DHEQVV'}
     - name: spacer_2_copy
       properties: {height: 15}
       type: Spacer

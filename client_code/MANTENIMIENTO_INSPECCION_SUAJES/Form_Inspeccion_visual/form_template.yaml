@@ -34,7 +34,7 @@ components:
       properties: {text: 'PERSONA QUE REVISA:', bold: true}
       type: Label
       layout_properties: {grid_position: 'UBAYNH,DDLHMA'}
-    - name: text_box_1
+    - name: text_box_revisor
       properties: {role: outlined}
       type: TextBox
       layout_properties: {grid_position: 'UBAYNH,XBGDCK'}
@@ -42,7 +42,7 @@ components:
       properties: {height: 19}
       type: Spacer
       layout_properties: {grid_position: 'NHGCST,BTCSTL'}
-    - name: column_panel_1
+    - name: column_panel_filo
       properties: {col_widths: '{"YGNVSN":8,"YCJNHS":7,"VSGGLC":45}', role: elevated-card, background: 'theme:LightGray'}
       type: ColumnPanel
       layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
@@ -57,15 +57,15 @@ components:
         type: Button
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
         event_bindings: {click: button_filo_mal_click}
-      - name: label_1
+      - name: label_filo
         properties: {text: REVISIÓN DE FILO EN PLECAS, bold: true, background: ''}
         type: Label
         layout_properties: {grid_position: 'ETOULO,VSGGLC'}
-      - name: label_3
+      - name: label_comentarios_filo
         properties: {text: 'COMENTARIOS:', bold: true}
         type: Label
         layout_properties: {grid_position: 'GGXDLO,HOJTID'}
-      - name: text_area_1
+      - name: text_area_filo
         properties: {height: 113, role: outlined, background: 'theme:On Primary'}
         type: TextArea
         layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
@@ -73,7 +73,7 @@ components:
       properties: {height: 15}
       type: Spacer
       layout_properties: {grid_position: 'HJQNMZ,DHEQVV'}
-    - name: column_panel_2
+    - name: column_panel_union
       properties: {col_widths: '{"FMRIUB":8,"PZGEPK":7,"GELTVT":45}', background: 'theme:LightGray', role: elevated-card}
       type: ColumnPanel
       layout_properties: {grid_position: 'QPSPXV,XHUZXW'}
@@ -88,15 +88,15 @@ components:
         type: Button
         layout_properties: {grid_position: 'XTQDJR,PZGEPK'}
         event_bindings: {click: button_union_mal_click}
-      - name: label_2
+      - name: label_union
         properties: {text: REVISIÓN EN UNIÓN DE PLECAS, bold: true, background: 'theme:LightGray'}
         type: Label
         layout_properties: {grid_position: 'XTQDJR,GELTVT'}
-      - name: label_4
+      - name: label_comentarios_union
         properties: {bold: true, text: 'COMENTARIOS:'}
         type: Label
         layout_properties: {grid_position: 'WHCMTM,CFPQCC'}
-      - name: text_area_2
+      - name: text_area_union
         properties: {height: 111, role: outlined, background: 'theme:On Primary'}
         type: TextArea
         layout_properties: {grid_position: 'YDZZFF,YDZKOP'}
@@ -119,15 +119,15 @@ components:
         type: Button
         layout_properties: {grid_position: 'GMJEXH,JNJVJP'}
         event_bindings: {click: button_estado_mal_click}
-      - name: label_5
+      - name: label_estado
         properties: {text: REVISIÓN DE BUEN ESTADO DE PLECAS (GOLPES), bold: true}
         type: Label
         layout_properties: {grid_position: 'GMJEXH,YOZPVK'}
-      - name: label_6
+      - name: label_comentarios_estado
         properties: {text: 'COMENTARIOS:', bold: true}
         type: Label
         layout_properties: {grid_position: 'ECPGAT,IVTIYB'}
-      - name: text_area_3
+      - name: text_area_estado
         properties: {role: outlined, height: 107, background: 'theme:On Primary'}
         type: TextArea
         layout_properties: {grid_position: 'DBKDBL,KBBWYX'}
