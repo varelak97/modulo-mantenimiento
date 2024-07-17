@@ -6,7 +6,7 @@ components:
   layout_properties: {grid_position: 'GRJQCJ,RHRZTH'}
   components:
   - name: column_panel_body
-    properties: {role: elevated-card, col_widths: '{"DDLHMA":15,"XBGDCK":45}'}
+    properties: {role: elevated-card, col_widths: '{"VYVKNZ":15,"LGGCKV":45}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'GUONSM,RXEYWV'}
     components:
@@ -14,26 +14,47 @@ components:
       properties: {text: 'INSPECCIÓN VISUAL DE SUAJE ', bold: true, align: center, role: title}
       type: Label
       layout_properties: {grid_position: 'YRDIIA,CYIRYZ'}
-    - name: label_cliente
-      properties: {bold: true}
-      type: Label
-      layout_properties: {grid_position: 'LZFRCB,UUBQEU'}
-    - name: label_codigo_suaje
-      properties: {bold: true}
-      type: Label
-      layout_properties: {grid_position: 'TORNPX,CJVFQT'}
-    - name: label_tipo_suaje
-      properties: {bold: true}
-      type: Label
-      layout_properties: {grid_position: 'LFXWGC,FDLXOO'}
     - name: label_revisor
       properties: {text: 'PERSONA QUE REVISA:', bold: true}
       type: Label
-      layout_properties: {grid_position: 'UBAYNH,DDLHMA'}
+      layout_properties: {grid_position: 'GWAECQ,VYVKNZ'}
     - name: text_box_revisor
-      properties: {role: outlined}
+      properties: {role: outlined, enabled: false}
       type: TextBox
-      layout_properties: {grid_position: 'UBAYNH,XBGDCK'}
+      layout_properties: {grid_position: 'GWAECQ,LGGCKV'}
+    - name: spacer_3
+      properties: {height: 20}
+      type: Spacer
+      layout_properties: {grid_position: 'SBPEEU,YMVKVD'}
+    - name: column_panel_1
+      properties: {role: elevated-card, background: 'theme:LightGray', col_widths: '{"NMTYGW":15,"GIJZGP":45,"OCHKIL":15,"OOBVVM":45,"RCXZQZ":15,"RBRIGO":45}'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'ZVDTOK,PKNMSU'}
+      components:
+      - name: label_cliente
+        properties: {bold: true, text: 'CLIENTE:'}
+        type: Label
+        layout_properties: {grid_position: 'KOUCLX,NMTYGW'}
+      - name: text_box_cliente
+        properties: {role: outlined, background: 'theme:On Primary', enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'KOUCLX,GIJZGP'}
+      - name: label_codigo_suaje
+        properties: {bold: true, text: 'CÓDIGO DE SUAJE:'}
+        type: Label
+        layout_properties: {grid_position: 'ANLKZP,OCHKIL'}
+      - name: text_box_codigo_suaje
+        properties: {role: outlined, background: 'theme:On Primary', enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'ANLKZP,OOBVVM'}
+      - name: label_tipo_suaje
+        properties: {bold: true, text: 'TIPO DE SUAJE:'}
+        type: Label
+        layout_properties: {grid_position: 'QRVYBP,RCXZQZ'}
+      - name: text_box_tipo_suaje
+        properties: {role: outlined, background: 'theme:On Primary', enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'QRVYBP,RBRIGO'}
     - name: spacer_1
       properties: {height: 19}
       type: Spacer

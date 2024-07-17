@@ -23,9 +23,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.ws_herramentales = app_files.control_herramentales
     self.ss_reporte_suajes = self.ws_herramentales['REVISION_SUAJE']
     self.lista_componentes = [
-      self.label_cliente,
-      self.label_codigo_suaje,
-      self.label_tipo_suaje,
+      self.text_box_cliente,
+      self.text_box_codigo_suaje,
+      self.text_box_tipo_suaje,
       self.text_box_revisor,
       self.text_area_filo,
       self.text_area_union,
@@ -49,9 +49,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       ]
       Funciones_Globales.fill_formulario(self.lista_componentes,self.registro_actual, modos)
     else:
-      self.label_cliente.text = f"CLIENTE: {self.datos['cliente']}"
-      self.label_codigo_suaje.text = f"CODIGO SUAJE: {self.datos['codigo_suaje']}"
-      self.label_tipo_suaje.text = f"TIPO SUAJE: {self.datos['tipo_suaje']}"
+      self.text_box_cliente.text = self.datos['cliente']
+      self.text_box_codigo_suaje.text = self.datos['codigo_suaje']
+      self.text_box_tipo_suaje.text = self.datos['tipo_suaje']
     
     
   ###################################################### EVENTOS #####################################################
