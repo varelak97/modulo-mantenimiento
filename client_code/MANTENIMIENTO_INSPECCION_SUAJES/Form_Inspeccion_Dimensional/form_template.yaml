@@ -34,7 +34,7 @@ components:
       properties: {text: 'PERSONA QUE REVISA:', bold: true}
       type: Label
       layout_properties: {grid_position: 'UBAYNH,DDLHMA'}
-    - name: text_box_1
+    - name: text_box_revisor
       properties: {role: outlined}
       type: TextBox
       layout_properties: {grid_position: 'UBAYNH,XBGDCK'}
@@ -42,7 +42,7 @@ components:
       properties: {height: 19}
       type: Spacer
       layout_properties: {grid_position: 'NHGCST,BTCSTL'}
-    - name: column_panel_1
+    - name: column_panel_medidas
       properties: {col_widths: '{"YGNVSN":8,"YCJNHS":7,"VSGGLC":45}', role: elevated-card, background: 'theme:LightGray'}
       type: ColumnPanel
       layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
@@ -57,7 +57,7 @@ components:
         type: Button
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
         event_bindings: {click: button_medidas_mal_click}
-      - name: label_1
+      - name: label_medidas
         properties: {text: CORROBORAR MEDIDAS CON PLANOS DE DIBUJO DE DISEÑO, bold: true, background: ''}
         type: Label
         layout_properties: {grid_position: 'ETOULO,VSGGLC'}
@@ -65,7 +65,7 @@ components:
         properties: {text: 'COMENTARIOS:', bold: true}
         type: Label
         layout_properties: {grid_position: 'GGXDLO,HOJTID'}
-      - name: text_area_1
+      - name: text_area_medidas
         properties: {height: 113, role: outlined, background: 'theme:On Primary'}
         type: TextArea
         layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
