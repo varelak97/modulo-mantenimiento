@@ -79,6 +79,11 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         valor = textcomponent.text
       elif type(textcomponent) is RepeatingPanel:
         valor = textcomponent.items
+      elif type(textcomponent) is Button:
+        if textcomponent.background == app.theme_colors['Primary']:
+          valor = 1
+        elif textcomponent.background == app.theme_colors['Red']:
+          valor = 0
       if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
         if type(textcomponent) is RepeatingPanel:
           if valor is None or len(valor) == 0:
@@ -87,7 +92,10 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         else:
           if valor == "" or valor is None:
             status = False
-            textcomponent.role = "outlined-error"
+            if type(textcomponent) is Button:
+              textcomponent.role = "outlined-button"
+            else:
+              textcomponent.role = "outlined-error"
       if modo == "edicion":
         if type(textcomponent) is DropDown:
           if textcomponent.selected_value is not None:
@@ -107,6 +115,9 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
               filas_similares += 1
           if not (filas_similares == total_suajes and len(valor) == total_suajes):
             cambios = True
+        elif type(textcomponent) is Button:
+          
+          pass
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True

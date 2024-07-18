@@ -69,6 +69,8 @@ components:
         properties: {height: 113, role: outlined, background: 'theme:On Primary'}
         type: TextArea
         layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
+        data_bindings:
+        - {property: tag, code: '"comentarios_medidas"', writeback: false}
     - name: spacer_2_copy
       properties: {height: 15}
       type: Spacer

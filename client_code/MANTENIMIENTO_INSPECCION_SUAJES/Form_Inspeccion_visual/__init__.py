@@ -16,7 +16,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   registro_actual = {}
   datos = None
   modos_botones = None
+  status_botones = None
   lista_componentes = None
+  lista_componentes_validacion = None
   campos_no_obligatorios = None
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -47,6 +49,18 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.button_union_bien,
       self.button_union_mal
     ]
+    self.lista_componentes_validacion = [
+      self.text_box_revisor,
+      self.text_area_filo,
+      self.text_area_union,
+      self.text_area_estado,
+      self.button_estado_bien,
+      self.button_estado_mal,
+      self.button_filo_bien,
+      self.button_filo_mal,
+      self.button_union_bien,
+      self.button_union_mal
+    ]
     self.modos_botones = [
         {'tag':'filo_bien','modo':True,'llave':'status_filo'},
         {'tag':'union_bien','modo':True,'llave':'status_union'},
@@ -55,7 +69,12 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
         {'tag':'union_mal','modo':False,'llave':'status_union'},
         {'tag':'estado_mal','modo':False,'llave':'status_estado'}
       ]
-    self.campos_no_obligatorios = ["comentarios", ""]
+    self.status_botones = [
+      {'tag':["filo_bien", "filo_mal"], "valor": None, 'llave':'status_filo'},
+      {'tag':["union_bien", "union_mal"], "valor": None, 'llave':'status_union'},
+      {'tag':["estado_bien", "estado_mal"], "valor": None, 'llave':'status_estado'}
+    ]
+    self.campos_no_obligatorios = ["comentarios_filo", "comentarios_union", "comentarios_estado"]
 
   def get_datos(self):
     self.reporte_suajes = self.ss_reporte_suajes.rows
@@ -80,6 +99,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
           break
       Funciones_Globales.fill_formulario(self.lista_componentes,dicc_registro_actual, self.modos_botones)
     else:
+      
       self.text_box_revisor.text = self.datos['nombre_usuario']
       self.text_box_cliente.text = self.datos['cliente']
       self.text_box_codigo_suaje.text = self.datos['codigo_herramental']
@@ -90,10 +110,10 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     pass
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
-    dicc_modos = [{'tag':'id_cliente', 'index': 0}]
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], dicc_modos, None)
+    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
-      self.guarda_datos(self.datos['modo'])
+      alert("guardando datos...")
+      #self.guarda_datos(self.datos['modo'])
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:
@@ -106,12 +126,16 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.button_filo_mal.background = app.theme_colors['LightGray']
     self.button_filo_mal.foreground = app.theme_colors['Secondary']
 
+    self.status_botones[0]['valor'] = True
+
   def button_filo_mal_click(self, **event_args):
     self.button_filo_bien.background = app.theme_colors['LightGray']
     self.button_filo_bien.foreground = app.theme_colors['Secondary']
     
     self.button_filo_mal.background = app.theme_colors['Red']
     self.button_filo_mal.foreground = app.theme_colors['On Primary']
+
+    self.status_botones[0]['valor'] = False
 
   def button_union_bien_click(self, **event_args):
     self.button_union_bien.background = app.theme_colors['Primary']
@@ -120,12 +144,16 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.button_union_mal.background = app.theme_colors['LightGray']
     self.button_union_mal.foreground = app.theme_colors['Secondary']
 
+    self.status_botones[1]['valor'] = True
+
   def button_union_mal_click(self, **event_args):
     self.button_union_bien.background = app.theme_colors['LightGray']
     self.button_union_bien.foreground = app.theme_colors['Secondary']
     
     self.button_union_mal.background = app.theme_colors['Red']
     self.button_union_mal.foreground = app.theme_colors['On Primary']
+
+    self.status_botones[1]['valor'] = False
 
   def button_estado_bien_click(self, **event_args):
     self.button_estado_bien.background = app.theme_colors['Primary']
@@ -134,10 +162,14 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.button_estado_mal.background = app.theme_colors['LightGray']
     self.button_estado_mal.foreground = app.theme_colors['Secondary']
 
+    self.status_botones[2]['valor'] = True
+
   def button_estado_mal_click(self, **event_args):
     self.button_estado_bien.background = app.theme_colors['LightGray']
     self.button_estado_bien.foreground = app.theme_colors['Secondary']
     
     self.button_estado_mal.background = app.theme_colors['Red']
     self.button_estado_mal.foreground = app.theme_colors['On Primary']
+
+    self.status_botones[2]['valor'] = False
 
