@@ -54,25 +54,22 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.text_area_filo,
       self.text_area_union,
       self.text_area_estado,
-      self.button_estado_bien,
-      self.button_estado_mal,
       self.button_filo_bien,
-      self.button_filo_mal,
       self.button_union_bien,
-      self.button_union_mal
+      self.button_estado_bien
     ]
     self.modos_botones = [
         {'tag':'filo_bien','modo':True,'llave':'status_filo'},
         {'tag':'union_bien','modo':True,'llave':'status_union'},
         {'tag':'estado_bien','modo':True,'llave':'status_estado'},
-        {'tag':'filo_mal','modo':False,'llave':'status_filo'},
+        """{'tag':'filo_mal','modo':False,'llave':'status_filo'},
         {'tag':'union_mal','modo':False,'llave':'status_union'},
-        {'tag':'estado_mal','modo':False,'llave':'status_estado'}
+        {'tag':'estado_mal','modo':False,'llave':'status_estado'}"""
       ]
     self.status_botones = [
-      {'tag':["filo_bien", "filo_mal"], "valor": None, 'llave':'status_filo'},
-      {'tag':["union_bien", "union_mal"], "valor": None, 'llave':'status_union'},
-      {'tag':["estado_bien", "estado_mal"], "valor": None, 'llave':'status_estado'}
+      {'tag':"filo_bien", "valor": None, 'llave':'status_filo'},
+      {'tag':"union_bien", "valor": None, 'llave':'status_union'},
+      {'tag':"estado_bien", "valor": None, 'llave':'status_estado'}
     ]
     self.campos_no_obligatorios = ["comentarios_filo", "comentarios_union", "comentarios_estado"]
 
@@ -110,7 +107,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     pass
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
-    status = Funciones_Globales.validar_campos( self.lista_componentes, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
+    status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
       alert("guardando datos...")
       #self.guarda_datos(self.datos['modo'])
