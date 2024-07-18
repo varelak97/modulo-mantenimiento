@@ -69,6 +69,8 @@ def fill_formulario(lista_components, datos, modos):
 def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo, dicc_modos, llave_tabla):
     status = True
     cambios = False
+
+    #obtiene los valores del formulario
     for textcomponent in lista_components:
       valor = None
       if type(textcomponent) is DropDown:
@@ -83,12 +85,15 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         if dicc_modos is not None and dicc_modos != "":
           for modo in dicc_modos:
             if modo['tag'] in textcomponent.tag:
-              if modo['valor'] is None:
+              if modo['valor'] is not None:
                 if textcomponent.background == app.theme_colors['Primary']:
                   valor = 1
-              elif textcomponent.background == app.theme_colors['Red']:
-                valor = 0
-      if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
+                elif textcomponent.background == app.theme_colors['Red']:
+                  valor = 0
+              
+                  
+      #valida que campos obligatorios no estén vacios
+      if textcomponent.tag not in campos_no_obligatorios: 
         if type(textcomponent) is RepeatingPanel:
           if valor is None or len(valor) == 0:
             status = False
@@ -100,6 +105,8 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
               textcomponent.role = "outlined-button"
             else:
               textcomponent.role = "outlined-error"
+
+      #valida que campos hayan cambiado respecto al registro antiguo
       if modo == "edicion":
         if type(textcomponent) is DropDown:
           if textcomponent.selected_value is not None:
