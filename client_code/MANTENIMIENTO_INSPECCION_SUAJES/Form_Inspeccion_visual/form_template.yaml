@@ -27,7 +27,7 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'SBPEEU,YMVKVD'}
     - name: column_panel_1
-      properties: {role: elevated-card, background: 'theme:LightGray', col_widths: '{"NMTYGW":15,"GIJZGP":45,"OCHKIL":15,"OOBVVM":45,"RCXZQZ":15,"RBRIGO":45}'}
+      properties: {role: elevated-card, background: 'theme:LightGray', col_widths: '{"NMTYGW":10,"GIJZGP":50,"OCHKIL":15,"LUGIBL":10,"GWPPUH":50,"IEMGWP":10,"JZKSND":50}'}
       type: ColumnPanel
       layout_properties: {grid_position: 'ZVDTOK,PKNMSU'}
       components:
@@ -39,22 +39,38 @@ components:
         properties: {role: outlined, background: 'theme:On Primary', enabled: false}
         type: TextBox
         layout_properties: {grid_position: 'KOUCLX,GIJZGP'}
+        data_bindings:
+        - {property: tag, code: '"cliente"', writeback: false}
       - name: label_codigo_suaje
         properties: {bold: true, text: 'CÓDIGO DE SUAJE:'}
         type: Label
-        layout_properties: {grid_position: 'ANLKZP,OCHKIL'}
+        layout_properties: {grid_position: 'TZULIZ,LUGIBL'}
       - name: text_box_codigo_suaje
         properties: {role: outlined, background: 'theme:On Primary', enabled: false}
         type: TextBox
-        layout_properties: {grid_position: 'ANLKZP,OOBVVM'}
+        layout_properties: {grid_position: 'TZULIZ,GWPPUH'}
+        data_bindings:
+        - {property: tag, code: '"codigo_suaje"', writeback: false}
       - name: label_tipo_suaje
         properties: {bold: true, text: 'TIPO DE SUAJE:'}
         type: Label
-        layout_properties: {grid_position: 'QRVYBP,RCXZQZ'}
+        layout_properties: {grid_position: 'EAHFMP,IEMGWP'}
       - name: text_box_tipo_suaje
         properties: {role: outlined, background: 'theme:On Primary', enabled: false}
         type: TextBox
-        layout_properties: {grid_position: 'QRVYBP,RBRIGO'}
+        layout_properties: {grid_position: 'EAHFMP,JZKSND'}
+        data_bindings:
+        - {property: tag, code: '"tipo_suaje"', writeback: false}
+      - name: label_descripcion
+        properties: {text: 'DESCRIPCIÓN:', bold: true}
+        type: Label
+        layout_properties: {grid_position: 'ZIBAPH,JYWJZZ'}
+      - name: text_area_descripcion
+        properties: {height: 80, role: outlined, background: 'theme:On Primary', enabled: false}
+        type: TextArea
+        layout_properties: {grid_position: 'RUUCJQ,WUMTRR'}
+        data_bindings:
+        - {property: tag, code: '"descripcion"', writeback: false}
     - name: spacer_1
       properties: {height: 19}
       type: Spacer
