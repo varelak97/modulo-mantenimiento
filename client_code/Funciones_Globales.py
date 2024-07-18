@@ -80,10 +80,14 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
       elif type(textcomponent) is RepeatingPanel:
         valor = textcomponent.items
       elif type(textcomponent) is Button:
-        if textcomponent.background == app.theme_colors['Primary']:
-          valor = 1
-        elif textcomponent.background == app.theme_colors['Red']:
-          valor = 0
+        if dicc_modos is not None and dicc_modos != "":
+          for modo in dicc_modos:
+            if modo['tag'] in textcomponent.tag:
+              if modo['valor'] is None:
+                if textcomponent.background == app.theme_colors['Primary']:
+                  valor = 1
+              elif textcomponent.background == app.theme_colors['Red']:
+                valor = 0
       if textcomponent.tag not in campos_no_obligatorios: #valida que campos obligatorios no estén vacios
         if type(textcomponent) is RepeatingPanel:
           if valor is None or len(valor) == 0:
