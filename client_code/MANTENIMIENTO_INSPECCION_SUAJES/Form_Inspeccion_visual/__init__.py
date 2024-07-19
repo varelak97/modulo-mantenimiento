@@ -107,10 +107,18 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
-    dicc_nuevo_registro['id_']
-
-    if self.datos['modo'] == 'edicion':
-      self.registro_actual['registro_principal'] = 0
+    dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'edicion' else 0
+    dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
+    dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
+    
+    if self.datos['modo'] == 'nuevo':
+      dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
+      dicc_nuevo_registro['status_visual'] = 1
+      dicc_nuevo_registro['registro_principal'] = 1
+    else:
+      print("poner registro actual a cero en registr principal")
+      #self.registro_actual['registro_principal'] = 0
+    alert(f"se guardó nuevo registro:\n{dicc_nuevo_registro}")
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
