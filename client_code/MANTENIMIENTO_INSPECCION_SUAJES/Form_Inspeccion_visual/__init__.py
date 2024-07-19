@@ -104,13 +104,18 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.text_area_descripcion.text = self.datos['descripcion']
 
   def guarda_datos(self, modo):
-    pass
+    datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
+    dicc_nuevo_registro = dict(self.registro_actual)
+    dicc_nuevo_registro.update(datos_form)
+    dicc_nuevo_registro['id_']
+
+    if self.datos['modo'] == 'edicion':
+      self.registro_actual['registro_principal'] = 0
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
-      alert("guardando datos...")
-      #self.guarda_datos(self.datos['modo'])
+      self.guarda_datos(self.datos['modo'])
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:

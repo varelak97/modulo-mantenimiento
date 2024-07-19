@@ -127,10 +127,7 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             if modo['tag'] == textcomponent.tag:
               if str(valor) != datos_antiguos[modo['llave']]:
                 cambios = True
-                ######################### aqui me quedé ################################################################
                 break
-          #if str(valor) != datos_antiguos[dicc_modos[]]
-          pass
         else:
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
