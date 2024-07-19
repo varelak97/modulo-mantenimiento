@@ -25,7 +25,8 @@ def genera_diccionario(lista_components, llave_tabla):
       for item in items:
         ids.append(int(item[llave_tabla]))
       valor = ids
-    diccionario[component.tag] = valor
+    if type(component) is not Button:
+      diccionario[component.tag] = valor
   return diccionario
 
 #[{'modo':1, 'tag':'id_numero_parte'},{'modo':2, 'tag':'id_numero_parte'}]
