@@ -96,7 +96,6 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
           break
       Funciones_Globales.fill_formulario(self.lista_componentes,dicc_registro_actual, self.modos_botones)
     else:
-      
       self.text_box_revisor.text = self.datos['nombre_usuario']
       self.text_box_cliente.text = self.datos['cliente']
       self.text_box_codigo_suaje.text = self.datos['codigo_herramental']
