@@ -106,15 +106,23 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'edicion' else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
+    dicc_nuevo_registro['status_filo'] = int(self.status_botones[0]['valor'])
+    dicc_nuevo_registro['status_union'] = int(self.status_botones[1]['valor'])
+    dicc_nuevo_registro['status_estado'] = int(self.status_botones[2]['valor'])
     
     if self.datos['modo'] == 'nuevo':
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_visual'] = 1
       dicc_nuevo_registro['registro_principal'] = 1
     else:
-      print("poner registro actual a cero en registr principal")
-      #self.registro_actual['registro_principal'] = 0
-    alert(f"se guardó nuevo registro:\n{dicc_nuevo_registro}")
+      self.registro_actual['registro_principal'] = 0
+    confirmacion_uso = None
+    if not self.status_botones[0]['valor'] and self.status_botones[0]['valor'] and self.status_botones[0]['valor']:
+      confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?\nSi confirma que NO se enviará una solicitud de fabricación de un nuevo suaje al Jefe de Diseño", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
+    if confirmacion_uso is not None:
+      if not confirmacion_uso:
+        anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE PARA EL NP:{self.labe}")
+    self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
