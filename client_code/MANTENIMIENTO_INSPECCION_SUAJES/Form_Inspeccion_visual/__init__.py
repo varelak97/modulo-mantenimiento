@@ -72,7 +72,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   def get_datos(self):
     self.reporte_suajes = self.ss_reporte_suajes.rows
     
-    if self.datos['modo'] == 'edicion':
+    if self.datos['modo'] in ['edicion', 'validacion']:
       self.vista_clientes = self.ss_vista_clientes.rows
       self.ss_vista_suajes = self.ss_vista_suajes.rows
       for row in self.reporte_suajes:
@@ -103,7 +103,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
-    dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'edicion' else 0
+    dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] in ['edicion', 'validacion'] else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
     dicc_nuevo_registro['status_filo'] = int(self.status_botones[0]['valor'])
@@ -116,31 +116,29 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       dicc_nuevo_registro['registro_principal'] = 1
     else:
       self.registro_actual['registro_principal'] = 0
-    confirmacion_uso = None
-    if not (self.status_botones[0]['valor'] and self.status_botones[1]['valor'] and self.status_botones[2]['valor']):
+    if self.datos['modo'] == 'validacion':
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
-    print(f"valor de confirmacion de uso:{confirmacion_uso}")
-    if confirmacion_uso is not None:
-      if not confirmacion_uso:
-        with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
-          text = f"CLIENTE: {self.text_box_cliente.text}\n"
-          text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
-          text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
-          text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
-          text += "\nREVISIÓN DE FILO EN PLECAS:\n"
-          text += f"{self.text_area_filo.text}\n"
-          text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
-          text += f"{self.text_area_union.text}\n"
-          text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
-          text += f"{self.text_area_estado.text}\n"
-          anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
+      if confirmacion_uso is not None:
+        if not confirmacion_uso:
+          with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
+            text = f"CLIENTE: {self.text_box_cliente.text}\n"
+            text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
+            text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
+            text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
+            text += "\nREVISIÓN DE FILO EN PLECAS:\n"
+            text += f"{self.text_area_filo.text}\n"
+            text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
+            text += f"{self.text_area_union.text}\n"
+            text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
+            text += f"{self.text_area_estado.text}\n"
+            anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
-      mensaje = "Actualizando registros..." if self.datos['modo'] == 'edicion' else "Guardando registro..."
-      titulo = "ACTUALIZANDO." if self.datos['modo'] == 'edicion' else "GUARDANDO."
+      mensaje = "Actualizando registros..." if self.datos['modo'] in ['edicion', 'validacion'] else "Guardando registro..."
+      titulo = "ACTUALIZANDO." if self.datos['modo'] in ['edicion', 'validacion'] else "GUARDANDO."
       with Notification(mensaje, title=titulo, style="notification"):
         self.guarda_datos(self.datos['modo'])
     elif status == 2:
