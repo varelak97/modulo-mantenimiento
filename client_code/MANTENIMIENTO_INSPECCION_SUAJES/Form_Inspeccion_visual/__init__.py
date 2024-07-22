@@ -117,17 +117,32 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     else:
       self.registro_actual['registro_principal'] = 0
     confirmacion_uso = None
-    if not self.status_botones[0]['valor'] and self.status_botones[0]['valor'] and self.status_botones[0]['valor']:
-      confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?\nSi confirma que NO se enviará una solicitud de fabricación de un nuevo suaje al Jefe de Diseño", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
+    if not (self.status_botones[0]['valor'] and self.status_botones[1]['valor'] and self.status_botones[2]['valor']):
+      confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
+    print(f"valor de confirmacion de uso:{confirmacion_uso}")
     if confirmacion_uso is not None:
       if not confirmacion_uso:
-        anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE PARA EL NP:{self.labe}")
+        with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
+          text = f"CLIENTE: {self.text_box_cliente.text}\n"
+          text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
+          text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
+          text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
+          text += "\nREVISIÓN DE FILO EN PLECAS:\n"
+          text += f"{self.text_area_filo.text}\n"
+          text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
+          text += f"{self.text_area_union.text}\n"
+          text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
+          text += f"{self.text_area_estado.text}\n"
+          anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
-      self.guarda_datos(self.datos['modo'])
+      mensaje = "Actualizando registros..." if self.datos['modo'] == 'edicion' else "Guardando registro..."
+      titulo = "ACTUALIZANDO." if self.datos['modo'] == 'edicion' else "GUARDANDO."
+      with Notification(mensaje, title=titulo, style="notification"):
+        self.guarda_datos(self.datos['modo'])
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:
