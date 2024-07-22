@@ -13,6 +13,8 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   vista_clientes = None
   ss_vista_suajes = None
   vista_suajes = None
+  ss_suajes = None
+  suajes = None
   registro_actual = {}
   datos = None
   modos_botones = None
@@ -32,6 +34,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.ss_reporte_suajes = self.ws_herramentales['REVISION_SUAJES']
     self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
     self.ss_vista_suajes = self.ws_herramentales['VISTA_HERRAMENTALES']
+    self.ss_suajes = self.ws_herramentales['HERRAMENTALES']
     
     self.lista_componentes = [
       self.text_box_cliente,
@@ -71,6 +74,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
 
   def get_datos(self):
     self.reporte_suajes = self.ss_reporte_suajes.rows
+    self.suajes = self.ss_suajes.rows
     
     if self.datos['modo'] in ['edicion', 'validacion']:
       self.vista_clientes = self.ss_vista_clientes.rows
@@ -110,7 +114,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     dicc_nuevo_registro['status_union'] = int(self.status_botones[1]['valor'])
     dicc_nuevo_registro['status_estado'] = int(self.status_botones[2]['valor'])
     
-    if self.datos['modo'] == 'nuevo':
+    if self.datos['modo'] == 'validacion':
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_visual'] = 1
       dicc_nuevo_registro['registro_principal'] = 1
@@ -118,7 +122,17 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] == 'validacion':
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
-      if confirmacion_uso is not None:
+      if confirmacion_uso:
+        if int(self.datos['vida_util']) < int(self.datos['contador']):
+          input = TextBox(type='number', role='outlined', background='On Primary')
+          respuesta = alert(input, title="INGRESE PRÓXIMO CICLO PARA REVISIÓN:", buttons=[("GUARDAR", True),("IGNORAR", False)])
+          if respuesta:
+            with Notification("Actualizando ciclo para próxima revisión", title="PRÓXIMO CICLO DE REVISIÓN", style="notification"):
+              for suaje in self.suajes:
+                if self.datos['id_herramental'] == suaje['id_herramental']:
+                  suaje['vida_util'] = input.text
+                  break
+      else:
         if not confirmacion_uso:
           with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
             text = f"CLIENTE: {self.text_box_cliente.text}\n"

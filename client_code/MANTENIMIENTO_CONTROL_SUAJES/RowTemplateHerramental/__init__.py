@@ -48,7 +48,9 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
         'descripcion': self.label_descripcion.text,
         'id_herramental': self.button_editar.tag,
         'tipo_suaje': self.label_tipo_suaje.text,
+        'vida_util': self.item['vida_util'],
+        'contador': self.label_contador.text,
         'clave_form': 'FORM_INSPECCION_SUAJE', 
-        'modo':'nuevo'
+        'modo':'validacion'
       }
       self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
