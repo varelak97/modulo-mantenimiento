@@ -48,12 +48,12 @@ components:
       layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
       components:
       - name: button_medidas_bien
-        properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary', font_size: null}
+        properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary', font_size: null, background: 'theme:Secondary Container'}
         type: Button
         layout_properties: {grid_position: 'ETOULO,YGNVSN'}
         event_bindings: {click: button_medidas_bien_click}
       - name: button_medidas_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', font_size: null}
+        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', font_size: null, background: 'theme:Secondary Container'}
         type: Button
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
         event_bindings: {click: button_medidas_mal_click}
