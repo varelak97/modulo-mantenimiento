@@ -53,4 +53,4 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
         'clave_form': 'FORM_INSPECCION_SUAJE', 
         'modo':'validacion'
       }
-      self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
+      self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-validar_reporte', datos=datos)

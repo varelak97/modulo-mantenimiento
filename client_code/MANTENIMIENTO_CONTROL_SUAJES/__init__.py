@@ -17,12 +17,14 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   vista_herramentales = None
   ss_vista_clientes = None
   vista_clientes = None
+  ss_vista_reportes = None
+  vista_reportes = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.set_ini_config(datos)
     self.set_event_handler('x-abrir_form', self.abrir_popup_form)
-    
+    self.set_event_handler('x-validar_reporte', self.validar_reporte)
     self.button_actualizar_click()
 
   ############################################# FUNCIONES PERSONALIZADAS ##############################################
@@ -31,10 +33,12 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
     self.ws_herramentales = app_files.control_herramentales
     self.ss_vista_herramentales = self.ws_herramentales['VISTA_HERRAMENTALES']
     self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
+    self.ss_vista_reportes = self.ws_herramentales['VISTA_REVISION_SUAJES']
 
   def get_datos(self):
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.vista_clientes = self.ss_vista_clientes.rows
+    
     lista_vista_herramentales = []
     for herramental in list(self.vista_herramentales):
       for cliente in self.vista_clientes:
@@ -61,6 +65,22 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
       Notification(mensaje, title="ÉXITO!", style="success").show(3)
       with Notification("Actualizando tabla...", title="ACTUALIZANDO.", style="notification"):
         self.button_actualizar_click()
+
+  def validar_reporte(self, datos, **event_args):
+    self.vista_reportes = self.ss_vista_reportes.rows
+    reporte_actual = None
+    for reporte in self.vista_reportes:
+      if reporte['id_herramental'] == datos['id_herramental'] and reporte['registro_principal'] == '1':
+        reporte_actual = reporte
+        break
+    if reporte_actual is not None:
+      if reporte_actual['status_visual'] == '0': #and self.datos['id_usuario_erp'] == xx # HABILITAR PARA QUE SOLO USUARIO ASIGNADO PUEDA HACER REPORTE VISUAL
+        self.abrir_popup_form(datos)
+      else:
+        alert("El reporte visual de este suaje ya ha sido generado!", title="ERROR!")
+    else:
+      print(f"los datos:{datos}")
+      self.abrir_popup_form(datos)
   
   ###################################################### EVENTOS ######################################################
   def button_actualizar_click(self, **event_args):
