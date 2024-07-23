@@ -59,6 +59,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
       self.abrir_form(Form_Inspeccion_visual(datos))
       
   def abrir_form(self, form_de_interes):
+    print("entro!!!!!!!!!!!!!!!")
     respuesta = alert(content = form_de_interes, large=True, dismissible=False, buttons=[("REGRESAR", False)], role="wide-modal-content-bigger")
     if respuesta is not False and  respuesta is not None:
       mensaje = "El registro ha sido guardado correctamente" if respuesta == "registro_guardado" else "El registro ha sido actualizado correctamente."
