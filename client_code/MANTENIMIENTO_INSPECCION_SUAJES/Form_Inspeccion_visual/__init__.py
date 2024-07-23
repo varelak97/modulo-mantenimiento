@@ -79,10 +79,16 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     if self.datos['modo'] in ['edicion', 'validacion']:
       self.vista_clientes = self.ss_vista_clientes.rows
       self.ss_vista_suajes = self.ss_vista_suajes.rows
-      for row in self.reporte_suajes:
-        if self.datos['id_inspeccion'] == row['id_inspeccion']:
-          self.registro_actual = row
-          break
+      if self.datos['modo'] == 'edicion':
+        for row in self.reporte_suajes:
+          if self.datos['id_inspeccion'] == row['id_inspeccion']:
+            self.registro_actual = row
+            break
+      else:
+        for row in self.reporte_suajes:
+          if self.datos['id_herramental'] == row['id_herramental'] and row['registro_principal'] == '1':
+            self.registro_actual = row
+            break
       dicc_registro_actual = dict(self.registro_actual)
       for suaje in self.vista_suajes:
         if dicc_registro_actual['id_herramental'] == suaje['id_herramental']:
