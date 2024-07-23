@@ -75,11 +75,12 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
         break
     if reporte_actual is not None:
       if reporte_actual['status_visual'] == '0': #and self.datos['id_usuario_erp'] == xx # HABILITAR PARA QUE SOLO USUARIO ASIGNADO PUEDA HACER REPORTE VISUAL
+        datos['modo'] = 'edicion'
+        datos['id_inspeccion'] = reporte_actual['id_inspeccion']
         self.abrir_popup_form(datos)
       else:
         alert("El reporte visual de este suaje ya ha sido generado!", title="ERROR!")
     else:
-      print(f"los datos:{datos}")
       self.abrir_popup_form(datos)
   
   ###################################################### EVENTOS ######################################################

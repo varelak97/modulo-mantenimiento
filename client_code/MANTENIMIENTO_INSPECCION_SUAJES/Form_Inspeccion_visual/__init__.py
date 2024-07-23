@@ -76,19 +76,13 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.reporte_suajes = self.ss_reporte_suajes.rows
     self.suajes = self.ss_suajes.rows
     
-    if self.datos['modo'] in ['edicion', 'validacion']:
+    if self.datos['modo'] == 'edicion':
       self.vista_clientes = self.ss_vista_clientes.rows
       self.ss_vista_suajes = self.ss_vista_suajes.rows
-      if self.datos['modo'] == 'edicion':
-        for row in self.reporte_suajes:
-          if self.datos['id_inspeccion'] == row['id_inspeccion']:
-            self.registro_actual = row
-            break
-      else:
-        for row in self.reporte_suajes:
-          if self.datos['id_herramental'] == row['id_herramental'] and row['registro_principal'] == '1':
-            self.registro_actual = row
-            break
+      for row in self.reporte_suajes:
+        if self.datos['id_inspeccion'] == row['id_inspeccion']:
+          self.registro_actual = row
+          break
       dicc_registro_actual = dict(self.registro_actual)
       for suaje in self.vista_suajes:
         if dicc_registro_actual['id_herramental'] == suaje['id_herramental']:
@@ -112,7 +106,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
-    dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] in ['edicion', 'validacion'] else 0
+    dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'edicion' else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
     dicc_nuevo_registro['status_filo'] = int(self.status_botones[0]['valor'])
@@ -128,7 +122,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     if self.datos['modo'] == 'validacion':
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
       if confirmacion_uso:
-        if int(self.datos['vida_util']) < int(self.datos['contador']):
+        alert(f"valor de confirmacion.{confirmacion_uso}")
+        if int(self.datos['vida_util']) <= int(self.datos['contador']):
+          alert(f"valor de vida util:{self.datos['vida_util']} y valor de contador:{self.datos['contador']}")
           input = TextBox(type='number', role='outlined', background='On Primary')
           respuesta = alert(input, title="INGRESE PRÓXIMO CICLO PARA REVISIÓN:", buttons=[("GUARDAR", True),("IGNORAR", False)])
           if respuesta:
@@ -137,6 +133,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
                 if self.datos['id_herramental'] == suaje['id_herramental']:
                   suaje['vida_util'] = input.text
                   break
+        else:
+          alert(f"no mayor y valor de vida util:{self.datos['vida_util']} y valor de contador:{self.datos['contador']}")
+        
       else:
         if not confirmacion_uso:
           with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
