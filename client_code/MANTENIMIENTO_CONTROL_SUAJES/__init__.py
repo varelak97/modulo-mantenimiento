@@ -73,18 +73,19 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
       if reporte['id_herramental'] == datos['id_herramental'] and reporte['registro_principal'] == '1':
         reporte_actual = reporte
         break
-    if reporte_actual is not None:
+    if reporte_actual is not None: #existe un reporte
       if reporte_actual['status_visual'] == '0': #and self.datos['id_usuario_erp'] == xx # HABILITAR PARA QUE SOLO USUARIO ASIGNADO PUEDA HACER REPORTE VISUAL
-        datos['modo'] = 'edicion'
+        datos['visual_modo'] = 'edicion'
+        
         datos['id_inspeccion'] = reporte_actual['id_inspeccion']
         self.abrir_popup_form(datos)
       else:
         datos['modo'] = "visor"
         datos['reporte_actual'] = reporte_actual['id_inspeccion']
         return datos
-    else:
+    else: #nio se ha generado reporte
       print("entrando aqui!!")
-      self.abrir_popup_form(datos)
+      #self.abrir_popup_form(datos)
   
   ###################################################### EVENTOS ######################################################
   def button_actualizar_click(self, **event_args):
