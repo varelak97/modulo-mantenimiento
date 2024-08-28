@@ -1,13 +1,29 @@
 components:
-- event_bindings: {click: button_visual_click}
-  layout_properties: {grid_position: 'NCHXUC,YGCEPK'}
-  name: button_visual
-  properties: {align: left, bold: true, icon: 'fa:edit', text: OPCION VISUAL}
+- layout_properties: {grid_position: 'XMYDIZ,FSZKEM'}
+  name: button_visual_editar
+  properties: {icon: 'fa:edit', text: ''}
   type: Button
-- event_bindings: {click: button_1_click}
-  layout_properties: {grid_position: 'FALUIT,TXOKLT'}
-  name: button_1
-  properties: {align: left, bold: true, icon: 'fa:edit', text: OPCION DIMENSIONAL}
+- layout_properties: {grid_position: 'XMYDIZ,RDZOVJ'}
+  name: button_visual_ver
+  properties: {icon: 'fa:eye', text: ''}
   type: Button
-container: {type: ColumnPanel}
+- layout_properties: {grid_position: 'XMYDIZ,TNXPWA'}
+  name: label_1
+  properties: {bold: true, text: INSPECCIÓN VISUAL}
+  type: Label
+- layout_properties: {grid_position: 'XFOZNW,KVGDHS'}
+  name: button_dimensional_editar
+  properties: {icon: 'fa:edit', text: ''}
+  type: Button
+- layout_properties: {grid_position: 'XFOZNW,PMUQWL'}
+  name: button_dimensional_ver
+  properties: {icon: 'fa:eye', text: ''}
+  type: Button
+- layout_properties: {grid_position: 'XFOZNW,SRVHKX'}
+  name: label_2
+  properties: {bold: true, text: INSPECCIÓN DIMENSIONAL}
+  type: Label
+container:
+  properties: {col_widths: '{"FSZKEM":10,"RDZOVJ":10,"KVGDHS":10,"PMUQWL":10,"TNXPWA":60,"SRVHKX":60}'}
+  type: ColumnPanel
 is_package: true

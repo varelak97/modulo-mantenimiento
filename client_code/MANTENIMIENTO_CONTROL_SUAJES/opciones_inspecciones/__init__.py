@@ -6,14 +6,25 @@ from anvil.google.drive import app_files
 
 
 class opciones_inspecciones(opciones_inspeccionesTemplate):
-  id_inspeccion = None
-  modo = None
-  def __init__(self, id_inspeccion, modo, **properties):
+  id_herramental = None
+  status_reportes = None
+  def __init__(self, id_herramental, status_reportes, **properties):
     self.init_components(**properties)
-    self.id_inspeccion = id_inspeccion
-    self.modo = modo
+    self.id_herramental = id_herramental
+    self.status_reportes = status_reportes
+    self.set_config(status_reportes)
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
+  def set_config(self, status_reportes):
+    if status_reportes[0] == '1':
+      self.button_visual_ver.foreground = app.theme_colors['Primary']
+    else:
+      self.button_visual_ver.foreground = app.theme_colors['LightGray']
+    if status_reportes[1] == '1':
+      self.button_dimensional_ver.foreground = app.theme_colors['Primary']
+    else:
+      self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
+    
   def abrir_form(self, modo, clave_form):
     datos  = {
       'id_inspeccion': self.id_inspeccion,
@@ -30,9 +41,9 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   def button_ver_click(self, **event_args):
     self.abrir_form('visor')
 
-  def button_visual_click(self, **event_args):
+  def button_visual_editar_click(self, **event_args):
     self.abrir_form('edicion')
 
-  def button_1_click(self, **event_args):
+  def button_dimensional_editar_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass

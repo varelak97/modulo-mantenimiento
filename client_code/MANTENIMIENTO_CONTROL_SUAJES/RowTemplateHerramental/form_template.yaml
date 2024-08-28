@@ -69,12 +69,13 @@ components:
   properties: {}
   type: Label
 - components:
-  - data_bindings:
-    - {code: '[self.item[''status_visual''], self.item[''status_dimensional'']]', property: tag, writeback: false}
+  - data_bindings: []
     layout_properties: {grid_position: 'BFWTMX,HTOPMY'}
     name: label_alerta
     properties: {align: center, bold: true, font_size: 22}
     type: Label
+  data_bindings:
+  - {code: '[self.item[''status_visual''], self.item[''status_dimensional'']]', property: tag, writeback: false}
   event_bindings: {click: link_alerta_click}
   layout_properties: {column: JWMLVC}
   name: link_alerta

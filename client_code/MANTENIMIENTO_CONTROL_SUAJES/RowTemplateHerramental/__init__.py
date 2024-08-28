@@ -24,7 +24,7 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
       self.label_alerta.icon = "fa:check"
       self.label_alerta.foreground = app.theme_colors['Primary']
       self.label_alerta.background = app.theme_colors['SecondaryGreen']
-
+    self.link_alerta.popover(content=opciones_inspecciones(self.button_editar.tag, self.link_alerta.tag), title="REPORTES DE INSPECCIÓN", trigger="click", max_width="550px")
     self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_codigo_herramental.text, trigger="click",max_width="450px")
 
   def button_ver_click(self, **event_args):
@@ -41,7 +41,7 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
     anvil.server.call('led_on', int(self.button_ubicar.tag))
 
   def link_alerta_click(self, **event_args):
-    if int(self.item['contador']) >= int(self.item['vida_util']):
+    """if int(self.item['contador']) >= int(self.item['vida_util']):
       datos = {
         'cliente':self.label_cliente.text,
         'id_cliente': self.label_cliente.tag,
@@ -54,4 +54,4 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
         'clave_form': 'FORM_INSPECCION_SUAJE', 
         'modo':'validacion'
       }
-      self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-validar_reporte', datos=datos)
+      self.button_editar.parent.parent.parent.parent.parent.parent.raise_event('x-validar_reporte', datos=datos)"""
