@@ -79,7 +79,9 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
         datos['id_inspeccion'] = reporte_actual['id_inspeccion']
         self.abrir_popup_form(datos)
       else:
-        alert("El reporte visual de este suaje ya ha sido generado!", title="ERROR!")
+        datos['modo'] = "visor"
+        datos['reporte_actual'] = reporte_actual['id_inspeccion']
+        return datos
     else:
       self.abrir_popup_form(datos)
   
