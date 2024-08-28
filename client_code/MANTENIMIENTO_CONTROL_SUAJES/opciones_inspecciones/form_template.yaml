@@ -1,9 +1,11 @@
 components:
-- layout_properties: {grid_position: 'NCHXUC,YGCEPK'}
+- event_bindings: {click: button_visual_click}
+  layout_properties: {grid_position: 'NCHXUC,YGCEPK'}
   name: button_visual
   properties: {align: left, bold: true, icon: 'fa:edit', text: OPCION VISUAL}
   type: Button
-- layout_properties: {grid_position: 'FALUIT,TXOKLT'}
+- event_bindings: {click: button_1_click}
+  layout_properties: {grid_position: 'FALUIT,TXOKLT'}
   name: button_1
   properties: {align: left, bold: true, icon: 'fa:edit', text: OPCION DIMENSIONAL}
   type: Button

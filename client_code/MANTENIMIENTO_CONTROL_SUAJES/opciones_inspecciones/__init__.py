@@ -14,7 +14,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     self.modo = modo
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
-  def abrir_form(self, modo):
+  def abrir_form(self, modo, clave_form):
     datos  = {
       'id_inspeccion': self.id_inspeccion,
       'modo': modo,
@@ -29,3 +29,10 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   def button_ver_click(self, **event_args):
     self.abrir_form('visor')
+
+  def button_visual_click(self, **event_args):
+    self.abrir_form('edicion')
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass

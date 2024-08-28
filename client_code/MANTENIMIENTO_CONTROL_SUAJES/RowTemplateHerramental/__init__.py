@@ -4,6 +4,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from ..opciones_herramentales import opciones_herramentales
+from ..opciones_inspecciones import opciones_inspecciones
 from datetime import datetime
 
 class RowTemplateHerramental(RowTemplateHerramentalTemplate):
