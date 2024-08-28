@@ -83,6 +83,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
         datos['reporte_actual'] = reporte_actual['id_inspeccion']
         return datos
     else:
+      print("entrando aqui!!")
       self.abrir_popup_form(datos)
   
   ###################################################### EVENTOS ######################################################
