@@ -69,7 +69,8 @@ components:
   properties: {}
   type: Label
 - components:
-  - data_bindings: []
+  - data_bindings:
+    - {code: '[self.item[''status_visual''], self.item[''status_dimensional'']]', property: tag, writeback: false}
     layout_properties: {grid_position: 'BFWTMX,HTOPMY'}
     name: label_alerta
     properties: {align: center, bold: true, font_size: 22}
