@@ -1,30 +1,30 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'MLNPTE,LMOUDK', full_width_row: true}
-  components:
-  - name: outlined_card_titulo
+- components:
+  - components:
+    - layout_properties: {grid_position: 'VVUGRT,EMTAZY'}
+      name: label_titulo
+      properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:White', role: headline, text: MANTENIMIENTO AUTÓNOMO}
+      type: Label
+    layout_properties: {grid_position: 'CYJNJD,MMVJLB'}
+    name: outlined_card_titulo
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'CYJNJD,MMVJLB'}
-    components:
-    - name: label_titulo
-      properties: {text: MANTENIMIENTO AUTÓNOMO, role: headline, foreground: 'theme:White', bold: true, background: 'theme:Primary', align: center}
-      type: Label
-      layout_properties: {grid_position: 'VVUGRT,EMTAZY'}
-  - name: drop_down_tipo
+  - event_bindings: {change: drop_down_tipo_change}
+    layout_properties: {grid_position: 'SNNTST,EKFCDF'}
+    name: drop_down_tipo
     properties:
-      items: [RESPUESTAS FORM-MAN-006 Y FORM-MAN-008, FOR-MAN-006 REQUERIMIENTO DE CONSUMIBLES, FOR-MAN-008 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO]
-      role: outlined
       align: center
       background: theme:White
+      items: [RESPUESTAS FORM-MAN-006 Y FORM-MAN-008, FOR-MAN-006 REQUERIMIENTO DE CONSUMIBLES, FOR-MAN-008 VERIFICACIONES DE MANTENIMIENTO AUTÓNOMO]
+      role: outlined
     type: DropDown
-    layout_properties: {grid_position: 'SNNTST,EKFCDF'}
-    event_bindings: {change: drop_down_tipo_change}
-  - name: outlined_card_visor_google
+  - layout_properties: {full_width_row: true, grid_position: 'EECUAP,RKOCPR'}
+    name: outlined_card_visor_google
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'EECUAP,RKOCPR', full_width_row: true}
+  layout_properties: {full_width_row: true, grid_position: 'MLNPTE,LMOUDK'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

@@ -1,95 +1,95 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'FBMSWL,ADQTAS'}
-  components:
-  - name: column_panel_body
-    properties: {role: elevated-card, col_widths: '{"ZHCBDY":25,"DTVAFF":35}'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'XCJVFR,ZOIPCL'}
-    components:
-    - name: label_titulo
-      properties: {text: REGISTRO DE NÚMERO DE PARTE, role: title, align: center, bold: true}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'YJZBXB,LQITGE'}
+      name: label_titulo
+      properties: {align: center, bold: true, role: title, text: REGISTRO DE NÚMERO DE PARTE}
       type: Label
-      layout_properties: {grid_position: 'YJZBXB,LQITGE'}
-    - name: label_fecha_registro
-      properties: {text: 'FECHA DE REGISTRO:', bold: true}
+    - layout_properties: {grid_position: 'JHYVJM,ZHCBDY DLNMGV,OGXBTN'}
+      name: label_fecha_registro
+      properties: {bold: true, text: 'FECHA DE REGISTRO:'}
       type: Label
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY DLNMGV,OGXBTN'}
-    - name: date_picker_fecha_registro
-      properties: {role: outlined, format: '%d-%m-%Y'}
-      type: DatePicker
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY RRTUHC,ECFLSF'}
-      data_bindings:
-      - {property: tag, code: '"fecha_registro"', writeback: false}
+    - data_bindings:
+      - {code: '"fecha_registro"', property: tag, writeback: false}
       event_bindings: {change: date_picker_fecha_registro_change}
-    - name: label_numero_parte
-      properties: {text: 'NÚMERO DE PARTE:', bold: true}
+      layout_properties: {grid_position: 'JHYVJM,ZHCBDY RRTUHC,ECFLSF'}
+      name: date_picker_fecha_registro
+      properties: {format: '%d-%m-%Y', role: outlined}
+      type: DatePicker
+    - layout_properties: {grid_position: 'JHYVJM,ZHCBDY JCFXBY,OLURNU'}
+      name: label_numero_parte
+      properties: {bold: true, text: 'NÚMERO DE PARTE:'}
       type: Label
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY JCFXBY,OLURNU'}
-    - name: text_box_numero_parte
+    - data_bindings:
+      - {code: '"numero_parte"', property: tag, writeback: false}
+      event_bindings: {change: text_box_numero_parte_change}
+      layout_properties: {grid_position: 'JHYVJM,ZHCBDY KYQRYX,MYTCED'}
+      name: text_box_numero_parte
       properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY KYQRYX,MYTCED'}
-      data_bindings:
-      - {property: tag, code: '"numero_parte"', writeback: false}
-      event_bindings: {change: text_box_numero_parte_change}
-    - name: label_cliente
-      properties: {text: 'CLIENTE:', bold: true}
+    - layout_properties: {grid_position: 'JHYVJM,ZHCBDY QSWLQB,HFRWXT'}
+      name: label_cliente
+      properties: {bold: true, text: 'CLIENTE:'}
       type: Label
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY QSWLQB,HFRWXT'}
-    - name: drop_down_cliente
-      properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE --}
-      type: DropDown
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY LTHYAD,AQOQUY'}
-      data_bindings:
-      - {property: tag, code: '"id_cliente"', writeback: false}
+    - data_bindings:
+      - {code: '"id_cliente"', property: tag, writeback: false}
       event_bindings: {change: drop_down_cliente_change}
-    - name: label_descripcion
-      properties: {text: 'DESCRIPCIÓN:', bold: true}
+      layout_properties: {grid_position: 'JHYVJM,ZHCBDY LTHYAD,AQOQUY'}
+      name: drop_down_cliente
+      properties: {include_placeholder: true, placeholder: -- SELECCIONE --, role: outlined}
+      type: DropDown
+    - layout_properties: {grid_position: 'JHYVJM,ZHCBDY QFVGLJ,ZXKKHS'}
+      name: label_descripcion
+      properties: {bold: true, text: 'DESCRIPCIÓN:'}
       type: Label
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY QFVGLJ,ZXKKHS'}
-    - name: text_area_descripcion
+    - data_bindings:
+      - {code: '"comentarios"', property: tag, writeback: false}
+      event_bindings: {change: text_area_descripcion_change}
+      layout_properties: {grid_position: 'JHYVJM,ZHCBDY VSKUBH,SAQXCN'}
+      name: text_area_descripcion
       properties: {height: 106, role: outlined}
       type: TextArea
-      layout_properties: {grid_position: 'JHYVJM,ZHCBDY VSKUBH,SAQXCN'}
-      data_bindings:
-      - {property: tag, code: '"comentarios"', writeback: false}
-      event_bindings: {change: text_area_descripcion_change}
-    - name: label_suajes_asociados
-      properties: {text: SUAJES ASOCIADOS, bold: true, align: center, background: '', foreground: ''}
+    - layout_properties: {grid_position: 'JHYVJM,DTVAFF NNBUGC,ZDYUQI'}
+      name: label_suajes_asociados
+      properties: {align: center, background: '', bold: true, foreground: '', text: SUAJES ASOCIADOS}
       type: Label
-      layout_properties: {grid_position: 'JHYVJM,DTVAFF NNBUGC,ZDYUQI'}
-    - name: data_grid_suajes_asociados
+    - components:
+      - data_bindings:
+        - {code: '"id_herramentales"', property: tag, writeback: false}
+        layout_properties: {}
+        name: repeating_panel_suajes_asociados
+        properties: {background: '', foreground: '', item_template: MANTENIMIENTO_NUMEROS_PARTE.Form_Edicion_Numero_Parte.RowTemplate13, role: null}
+        type: RepeatingPanel
+      layout_properties: {grid_position: 'JHYVJM,DTVAFF YIRQNS,SHLKTJ'}
+      name: data_grid_suajes_asociados
       properties:
         columns:
-        - {id: VJQQOR, title: '', data_key: column_2, width: '80'}
-        - {id: JKSDUP, title: CÓDIGO HERRAMENTAL, data_key: codigo_herramental, width: '250'}
-        - {id: OJLQEN, title: TIPO SUAJE, data_key: tipo_suaje, width: '200'}
+        - {data_key: column_2, id: VJQQOR, title: '', width: '80'}
+        - {data_key: codigo_herramental, id: JKSDUP, title: CÓDIGO HERRAMENTAL, width: '250'}
+        - {data_key: tipo_suaje, id: OJLQEN, title: TIPO SUAJE, width: '200'}
         show_page_controls: false
       type: DataGrid
-      components:
-      - name: repeating_panel_suajes_asociados
-        properties: {item_template: MANTENIMIENTO_NUMEROS_PARTE.Form_Edicion_Numero_Parte.RowTemplate13, role: null, background: '', foreground: ''}
-        type: RepeatingPanel
-        data_bindings:
-        - {property: tag, code: '"id_herramentales"', writeback: false}
-        layout_properties: {}
-      layout_properties: {grid_position: 'JHYVJM,DTVAFF YIRQNS,SHLKTJ'}
-    - name: button_agregar
-      properties: {text: '', icon: 'fa:plus-circle', role: filled-button, bold: true, background: 'theme:Green', font_size: null}
-      type: Button
+    - event_bindings: {click: button_agregar_click}
       layout_properties: {grid_position: 'JHYVJM,DTVAFF ZMREST,LBQQMR'}
-      event_bindings: {click: button_agregar_click}
-    - name: spacer_1
+      name: button_agregar
+      properties: {background: 'theme:Green', bold: true, font_size: null, icon: 'fa:plus-circle', role: filled-button, text: ''}
+      type: Button
+    - layout_properties: {grid_position: 'JHYVJM,DTVAFF COIFLE,SKIXHH'}
+      name: spacer_1
       properties: {height: 29}
       type: Spacer
-      layout_properties: {grid_position: 'JHYVJM,DTVAFF COIFLE,SKIXHH'}
-    - name: button_guardar
-      properties: {text: GUARDAR, role: filled-button, icon: 'fa:save', bold: true}
-      type: Button
+    - event_bindings: {click: button_guardar_click}
       layout_properties: {grid_position: 'JHYVJM,DTVAFF OHGCMD,IXKWTC'}
-      event_bindings: {click: button_guardar_click}
+      name: button_guardar
+      properties: {bold: true, icon: 'fa:save', role: filled-button, text: GUARDAR}
+      type: Button
+    layout_properties: {grid_position: 'XCJVFR,ZOIPCL'}
+    name: column_panel_body
+    properties: {col_widths: '{"ZHCBDY":25,"DTVAFF":35}', role: elevated-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'FBMSWL,ADQTAS'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

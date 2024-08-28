@@ -1,65 +1,65 @@
-is_package: true
-container: {type: DataRowPanel}
 components:
-- name: button_editar
-  properties: {text: '', bold: true, icon: 'fa:edit'}
-  type: Button
-  layout_properties: {column: JKSDUP}
-  data_bindings:
-  - {property: tag, code: 'self.item[''id_registro'']', writeback: false}
+- data_bindings:
+  - {code: 'self.item[''id_registro'']', property: tag, writeback: false}
   event_bindings: {click: button_editar_click}
-- name: label_fecha_programada
-  properties: {align: center}
-  type: Label
+  layout_properties: {column: JKSDUP}
+  name: button_editar
+  properties: {bold: true, icon: 'fa:edit', text: ''}
+  type: Button
+- data_bindings:
+  - {code: 'self.item[''fecha_programada'']', property: text, writeback: false}
   layout_properties: {column: VJQQOR}
-  data_bindings:
-  - {property: text, code: 'self.item[''fecha_programada'']', writeback: false}
-- name: label_numero_parte
-  properties: {}
-  type: Label
-  layout_properties: {column: OJLQEN}
-  data_bindings:
-  - {property: text, code: 'self.item[''numero_parte'']', writeback: false}
-- name: label_tipo_suaje
-  properties: {}
-  type: Label
-  layout_properties: {column: TQAONH}
-  data_bindings:
-  - {property: text, code: 'self.item[''tipo_suaje'']', writeback: false}
-- name: label_suajes_programados
+  name: label_fecha_programada
   properties: {align: center}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''numero_parte'']', property: text, writeback: false}
+  layout_properties: {column: OJLQEN}
+  name: label_numero_parte
+  properties: {}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''tipo_suaje'']', property: text, writeback: false}
+  layout_properties: {column: TQAONH}
+  name: label_tipo_suaje
+  properties: {}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''suajes_programados'']', property: text, writeback: false}
   layout_properties: {column: NLQEOC}
-  data_bindings:
-  - {property: text, code: 'self.item[''suajes_programados'']', writeback: false}
-- name: link_status
+  name: label_suajes_programados
+  properties: {align: center}
+  type: Label
+- components:
+  - data_bindings: []
+    layout_properties: {grid_position: 'PAOIQD,BADMFA'}
+    name: label_status
+    properties: {align: center, bold: true, font_size: 22, icon: ''}
+    type: Label
+  event_bindings: {click: link_status_click}
+  layout_properties: {column: ISZKHV}
+  name: link_status
   properties: {}
   type: Link
-  layout_properties: {column: ISZKHV}
-  components:
-  - name: label_status
-    properties: {icon: '', bold: true, align: center, font_size: 22}
-    type: Label
-    layout_properties: {grid_position: 'PAOIQD,BADMFA'}
-    data_bindings: []
-  event_bindings: {click: link_status_click}
-- name: label_codigo_herramental
-  properties: {}
-  type: Label
+- data_bindings:
+  - {code: 'self.item[''codigo_herramental'']', property: text, writeback: false}
+  - {code: 'self.item[''id_herramental'']', property: tag, writeback: false}
   layout_properties: {column: OAPQCV}
-  data_bindings:
-  - {property: text, code: 'self.item[''codigo_herramental'']', writeback: false}
-  - {property: tag, code: 'self.item[''id_herramental'']', writeback: false}
-- name: label_nombre_usuario
+  name: label_codigo_herramental
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''nombre_usuario'']', property: text, writeback: false}
   layout_properties: {column: YOCKTR}
-  data_bindings:
-  - {property: text, code: 'self.item[''nombre_usuario'']', writeback: false}
-- name: label_cliente
+  name: label_nombre_usuario
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''cliente'']', property: text, writeback: false}
+  - {code: 'self.item[''id_cliente'']', property: tag, writeback: false}
   layout_properties: {column: YUSRMZ}
-  data_bindings:
-  - {property: text, code: 'self.item[''cliente'']', writeback: false}
-  - {property: tag, code: 'self.item[''id_cliente'']', writeback: false}
+  name: label_cliente
+  properties: {}
+  type: Label
+container: {type: DataRowPanel}
+is_package: true

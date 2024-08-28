@@ -1,68 +1,68 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'ELHTNI,MTCFJI', full_width_row: true}
-  components:
-  - name: outlined_card_titulo
+- components:
+  - components:
+    - layout_properties: {grid_position: 'XFAJTI,ZSKSSS'}
+      name: label_titulo
+      properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:On Primary', role: headline, text: TITULO_CUMPLIMIENTO_MANTENIMIENTO}
+      type: Label
+    layout_properties: {grid_position: 'PCHKFB,VKUYHZ'}
+    name: outlined_card_titulo
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'PCHKFB,VKUYHZ'}
-    components:
-    - name: label_titulo
-      properties: {text: TITULO_CUMPLIMIENTO_MANTENIMIENTO, align: center, bold: true, role: headline, foreground: 'theme:On Primary', background: 'theme:Primary'}
-      type: Label
-      layout_properties: {grid_position: 'XFAJTI,ZSKSSS'}
-  - name: column_panel_body
-    properties: {}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'NVADLO,OHBQTO', full_width_row: true}
-    components:
-    - name: outlined_card_reporte
-      properties: {role: elevated-card}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'YCPUIR,JYAXJU'}
-      components:
-      - name: data_grid_reporte
-        properties:
-          columns:
-          - {id: JKSDUP, title: FRECUENCIA, data_key: frecuencia}
-          - {id: VJQQOR, title: MANTENIMIENTROS PROGRAMADOS, data_key: mttos_programados}
-          - {id: OJLQEN, title: MANTENIMIENTOS REALIZADOS EN FECHA, data_key: mttos_realizados}
-          - {id: LSYEDG, data_key: mttos_reprogramados, title: MANTENIMIENTOS REPROGRAMADOS}
-          - {id: TIAIOE, data_key: mttos_pendientes, title: MANTENIMIENTOS PENDIENTES}
-          - {id: VRTRKW, data_key: observaciones, title: OBSERVACIONES}
-          - {id: ZFQQNA, data_key: '', title: ''}
-          role: tonal-data-grid
-          show_page_controls: false
-        type: DataGrid
-        components:
+  - components:
+    - components:
+      - components:
         - name: repeating_panel_reporte
           properties: {item_template: MANTENIMIENTO_REPORTE_MENSUAL_MTTO_PREVENTIVO.RowTemplate5}
           type: RepeatingPanel
         layout_properties: {grid_position: 'FCSHHT,MZTTXV'}
-    - name: outlined_card_cumplimiento
-      properties: {role: elevated-card}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'PXIOPS,CCXUJL', full_width_row: true}
-      components:
-      - name: data_grid_objetivos
+        name: data_grid_reporte
         properties:
           columns:
-          - {id: JKSDUP, title: MES, data_key: mes}
-          - {id: VJQQOR, title: OBJETIVO 95%, data_key: objetivo}
-          - {id: OJLQEN, title: '% DE CUMPLIMIENTO', data_key: cumplimiento}
-          show_page_controls: false
+          - {data_key: frecuencia, id: JKSDUP, title: FRECUENCIA}
+          - {data_key: mttos_programados, id: VJQQOR, title: MANTENIMIENTROS PROGRAMADOS}
+          - {data_key: mttos_realizados, id: OJLQEN, title: MANTENIMIENTOS REALIZADOS EN FECHA}
+          - {data_key: mttos_reprogramados, id: LSYEDG, title: MANTENIMIENTOS REPROGRAMADOS}
+          - {data_key: mttos_pendientes, id: TIAIOE, title: MANTENIMIENTOS PENDIENTES}
+          - {data_key: observaciones, id: VRTRKW, title: OBSERVACIONES}
+          - {data_key: '', id: ZFQQNA, title: ''}
           role: tonal-data-grid
+          show_page_controls: false
         type: DataGrid
-        components:
+      layout_properties: {grid_position: 'YCPUIR,JYAXJU'}
+      name: outlined_card_reporte
+      properties: {role: elevated-card}
+      type: ColumnPanel
+    - components:
+      - components:
         - name: repeating_panel_1
           properties: {item_template: MANTENIMIENTO_REPORTE_MENSUAL_MTTO_PREVENTIVO.RowTemplate6}
           type: RepeatingPanel
         layout_properties: {grid_position: 'MALETI,TKGHNV'}
-      - name: plot_cumplimiento
+        name: data_grid_objetivos
+        properties:
+          columns:
+          - {data_key: mes, id: JKSDUP, title: MES}
+          - {data_key: objetivo, id: VJQQOR, title: OBJETIVO 95%}
+          - {data_key: cumplimiento, id: OJLQEN, title: '% DE CUMPLIMIENTO'}
+          role: tonal-data-grid
+          show_page_controls: false
+        type: DataGrid
+      - layout_properties: {grid_position: 'MALETI,ZWCBIP'}
+        name: plot_cumplimiento
         properties: {height: 418}
         type: Plot
-        layout_properties: {grid_position: 'MALETI,ZWCBIP'}
+      layout_properties: {full_width_row: true, grid_position: 'PXIOPS,CCXUJL'}
+      name: outlined_card_cumplimiento
+      properties: {role: elevated-card}
+      type: ColumnPanel
+    layout_properties: {full_width_row: true, grid_position: 'NVADLO,OHBQTO'}
+    name: column_panel_body
+    properties: {}
+    type: ColumnPanel
+  layout_properties: {full_width_row: true, grid_position: 'ELHTNI,MTCFJI'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

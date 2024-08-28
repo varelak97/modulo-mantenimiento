@@ -1,82 +1,82 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'GRJQCJ,RHRZTH'}
-  components:
-  - name: column_panel_body
-    properties: {role: elevated-card, col_widths: '{"DDLHMA":15,"XBGDCK":45}'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'GUONSM,RXEYWV'}
-    components:
-    - name: label_titulo
-      properties: {text: INSPECCIÓN DIMENSIONAL, bold: true, align: center, role: title}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'YRDIIA,CYIRYZ'}
+      name: label_titulo
+      properties: {align: center, bold: true, role: title, text: INSPECCIÓN DIMENSIONAL}
       type: Label
-      layout_properties: {grid_position: 'YRDIIA,CYIRYZ'}
-    - name: label_cliente
+    - layout_properties: {grid_position: 'LZFRCB,UUBQEU'}
+      name: label_cliente
       properties: {bold: true}
       type: Label
-      layout_properties: {grid_position: 'LZFRCB,UUBQEU'}
-    - name: label_numero_parte
+    - layout_properties: {grid_position: 'LZFRCB,ZLYNPE'}
+      name: label_numero_parte
       properties: {bold: true}
       type: Label
-      layout_properties: {grid_position: 'LZFRCB,ZLYNPE'}
-    - name: label_codigo_suaje
+    - layout_properties: {grid_position: 'TORNPX,FLMFUA'}
+      name: label_codigo_suaje
       properties: {bold: true}
       type: Label
-      layout_properties: {grid_position: 'TORNPX,FLMFUA'}
-    - name: label_tipo_suaje
+    - layout_properties: {grid_position: 'TORNPX,RMTMSR'}
+      name: label_tipo_suaje
       properties: {bold: true}
       type: Label
-      layout_properties: {grid_position: 'TORNPX,RMTMSR'}
-    - name: label_revisor
-      properties: {text: 'PERSONA QUE REVISA:', bold: true}
+    - layout_properties: {grid_position: 'UBAYNH,DDLHMA'}
+      name: label_revisor
+      properties: {bold: true, text: 'PERSONA QUE REVISA:'}
       type: Label
-      layout_properties: {grid_position: 'UBAYNH,DDLHMA'}
-    - name: text_box_revisor
+    - layout_properties: {grid_position: 'UBAYNH,XBGDCK'}
+      name: text_box_revisor
       properties: {role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'UBAYNH,XBGDCK'}
-    - name: spacer_1
+    - layout_properties: {grid_position: 'NHGCST,BTCSTL'}
+      name: spacer_1
       properties: {height: 19}
       type: Spacer
-      layout_properties: {grid_position: 'NHGCST,BTCSTL'}
-    - name: column_panel_medidas
-      properties: {col_widths: '{"YGNVSN":8,"YCJNHS":7,"VSGGLC":45}', role: elevated-card, background: 'theme:LightGray'}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
-      components:
-      - name: button_medidas_bien
-        properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary', font_size: null, background: 'theme:Secondary Container'}
-        type: Button
+    - components:
+      - event_bindings: {click: button_medidas_bien_click}
         layout_properties: {grid_position: 'ETOULO,YGNVSN'}
-        event_bindings: {click: button_medidas_bien_click}
-      - name: button_medidas_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', font_size: null, background: 'theme:Secondary Container'}
+        name: button_medidas_bien
+        properties: {background: 'theme:Secondary Container', font_size: null, foreground: 'theme:Secondary', icon: 'fa:check', text: ''}
         type: Button
+      - event_bindings: {click: button_medidas_mal_click}
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
-        event_bindings: {click: button_medidas_mal_click}
-      - name: label_medidas
-        properties: {text: CORROBORAR MEDIDAS CON PLANOS DE DIBUJO DE DISEÑO, bold: true, background: ''}
+        name: button_medidas_mal
+        properties: {background: 'theme:Secondary Container', font_size: null, foreground: 'theme:Secondary', icon: 'fa:times', text: ''}
+        type: Button
+      - layout_properties: {grid_position: 'ETOULO,VSGGLC'}
+        name: label_medidas
+        properties: {background: '', bold: true, text: CORROBORAR MEDIDAS CON PLANOS DE DIBUJO DE DISEÑO}
         type: Label
-        layout_properties: {grid_position: 'ETOULO,VSGGLC'}
-      - name: label_3
-        properties: {text: 'COMENTARIOS:', bold: true}
+      - layout_properties: {grid_position: 'GGXDLO,HOJTID'}
+        name: label_3
+        properties: {bold: true, text: 'COMENTARIOS:'}
         type: Label
-        layout_properties: {grid_position: 'GGXDLO,HOJTID'}
-      - name: text_area_medidas
-        properties: {height: 113, role: outlined, background: 'theme:On Primary'}
-        type: TextArea
+      - data_bindings:
+        - {code: '"comentarios_medidas"', property: tag, writeback: false}
         layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
-        data_bindings:
-        - {property: tag, code: '"comentarios_medidas"', writeback: false}
-    - name: spacer_2_copy
+        name: text_area_medidas
+        properties: {background: 'theme:On Primary', height: 113, role: outlined}
+        type: TextArea
+      layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
+      name: column_panel_medidas
+      properties: {background: 'theme:LightGray', col_widths: '{"YGNVSN":8,"YCJNHS":7,"VSGGLC":45}', role: elevated-card}
+      type: ColumnPanel
+    - layout_properties: {grid_position: 'HEVHAI,SDZOOD'}
+      name: spacer_2_copy
       properties: {height: 15}
       type: Spacer
-      layout_properties: {grid_position: 'HEVHAI,SDZOOD'}
-    - name: button_guardar
-      properties: {text: GUARDAR_REPORTE, icon: 'fa:save', bold: true, role: filled-button}
+    - layout_properties: {grid_position: 'MXHZDY,IIWAVY'}
+      name: button_guardar
+      properties: {bold: true, icon: 'fa:save', role: filled-button, text: GUARDAR_REPORTE}
       type: Button
-      layout_properties: {grid_position: 'MXHZDY,IIWAVY'}
+    layout_properties: {grid_position: 'GUONSM,RXEYWV'}
+    name: column_panel_body
+    properties: {col_widths: '{"DDLHMA":15,"XBGDCK":45}', role: elevated-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'GRJQCJ,RHRZTH'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

@@ -1,190 +1,190 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'GRJQCJ,RHRZTH'}
-  components:
-  - name: column_panel_body
-    properties: {role: elevated-card, col_widths: '{"VYVKNZ":15,"LGGCKV":45}'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'GUONSM,RXEYWV'}
-    components:
-    - name: label_titulo
-      properties: {text: 'INSPECCIÓN VISUAL DE SUAJE ', bold: true, align: center, role: title}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'YRDIIA,CYIRYZ'}
+      name: label_titulo
+      properties: {align: center, bold: true, role: title, text: 'INSPECCIÓN VISUAL DE SUAJE '}
       type: Label
-      layout_properties: {grid_position: 'YRDIIA,CYIRYZ'}
-    - name: label_revisor
-      properties: {text: 'PERSONA QUE REVISA:', bold: true}
+    - layout_properties: {grid_position: 'GWAECQ,VYVKNZ'}
+      name: label_revisor
+      properties: {bold: true, text: 'PERSONA QUE REVISA:'}
       type: Label
-      layout_properties: {grid_position: 'GWAECQ,VYVKNZ'}
-    - name: text_box_revisor
-      properties: {role: outlined, enabled: false}
+    - layout_properties: {grid_position: 'GWAECQ,LGGCKV'}
+      name: text_box_revisor
+      properties: {enabled: false, role: outlined}
       type: TextBox
-      layout_properties: {grid_position: 'GWAECQ,LGGCKV'}
-    - name: spacer_3
+    - layout_properties: {grid_position: 'SBPEEU,YMVKVD'}
+      name: spacer_3
       properties: {height: 20}
       type: Spacer
-      layout_properties: {grid_position: 'SBPEEU,YMVKVD'}
-    - name: column_panel_1
-      properties: {role: elevated-card, background: 'theme:LightGray', col_widths: '{"NMTYGW":10,"GIJZGP":50,"OCHKIL":15,"LUGIBL":10,"GWPPUH":50,"IEMGWP":10,"JZKSND":50}'}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'ZVDTOK,PKNMSU'}
-      components:
-      - name: label_cliente
+    - components:
+      - layout_properties: {grid_position: 'KOUCLX,NMTYGW'}
+        name: label_cliente
         properties: {bold: true, text: 'CLIENTE:'}
         type: Label
-        layout_properties: {grid_position: 'KOUCLX,NMTYGW'}
-      - name: text_box_cliente
-        properties: {role: outlined, background: 'theme:On Primary', enabled: false}
-        type: TextBox
+      - data_bindings:
+        - {code: '"cliente"', property: tag, writeback: false}
         layout_properties: {grid_position: 'KOUCLX,GIJZGP'}
-        data_bindings:
-        - {property: tag, code: '"cliente"', writeback: false}
-      - name: label_codigo_suaje
+        name: text_box_cliente
+        properties: {background: 'theme:On Primary', enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'TZULIZ,LUGIBL'}
+        name: label_codigo_suaje
         properties: {bold: true, text: 'CÓDIGO DE SUAJE:'}
         type: Label
-        layout_properties: {grid_position: 'TZULIZ,LUGIBL'}
-      - name: text_box_codigo_suaje
-        properties: {role: outlined, background: 'theme:On Primary', enabled: false}
-        type: TextBox
+      - data_bindings:
+        - {code: '"codigo_herramental"', property: tag, writeback: false}
         layout_properties: {grid_position: 'TZULIZ,GWPPUH'}
-        data_bindings:
-        - {property: tag, code: '"codigo_herramental"', writeback: false}
-      - name: label_tipo_suaje
+        name: text_box_codigo_suaje
+        properties: {background: 'theme:On Primary', enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'EAHFMP,IEMGWP'}
+        name: label_tipo_suaje
         properties: {bold: true, text: 'TIPO DE SUAJE:'}
         type: Label
-        layout_properties: {grid_position: 'EAHFMP,IEMGWP'}
-      - name: text_box_tipo_suaje
-        properties: {role: outlined, background: 'theme:On Primary', enabled: false}
-        type: TextBox
+      - data_bindings:
+        - {code: '"tipo_suaje"', property: tag, writeback: false}
         layout_properties: {grid_position: 'EAHFMP,JZKSND'}
-        data_bindings:
-        - {property: tag, code: '"tipo_suaje"', writeback: false}
-      - name: label_descripcion
-        properties: {text: 'DESCRIPCIÓN:', bold: true}
+        name: text_box_tipo_suaje
+        properties: {background: 'theme:On Primary', enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'ZIBAPH,JYWJZZ'}
+        name: label_descripcion
+        properties: {bold: true, text: 'DESCRIPCIÓN:'}
         type: Label
-        layout_properties: {grid_position: 'ZIBAPH,JYWJZZ'}
-      - name: text_area_descripcion
-        properties: {height: 80, role: outlined, background: 'theme:On Primary', enabled: false}
-        type: TextArea
+      - data_bindings:
+        - {code: '"descripcion"', property: tag, writeback: false}
         layout_properties: {grid_position: 'RUUCJQ,WUMTRR'}
-        data_bindings:
-        - {property: tag, code: '"descripcion"', writeback: false}
-    - name: spacer_1
+        name: text_area_descripcion
+        properties: {background: 'theme:On Primary', enabled: false, height: 80, role: outlined}
+        type: TextArea
+      layout_properties: {grid_position: 'ZVDTOK,PKNMSU'}
+      name: column_panel_1
+      properties: {background: 'theme:LightGray', col_widths: '{"NMTYGW":10,"GIJZGP":50,"OCHKIL":15,"LUGIBL":10,"GWPPUH":50,"IEMGWP":10,"JZKSND":50}', role: elevated-card}
+      type: ColumnPanel
+    - layout_properties: {grid_position: 'NHGCST,BTCSTL'}
+      name: spacer_1
       properties: {height: 19}
       type: Spacer
-      layout_properties: {grid_position: 'NHGCST,BTCSTL'}
-    - name: column_panel_filo
-      properties: {col_widths: '{"YGNVSN":8,"YCJNHS":7,"VSGGLC":45}', role: elevated-card, background: 'theme:LightGray'}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
-      components:
-      - name: button_filo_bien
-        properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary', font_size: null, role: null, background: 'theme:Secondary Container'}
-        type: Button
-        layout_properties: {grid_position: 'ETOULO,YGNVSN'}
+    - components:
+      - data_bindings:
+        - {code: '"filo_bien"', property: tag, writeback: false}
         event_bindings: {click: button_filo_bien_click}
-        data_bindings:
-        - {property: tag, code: '"filo_bien"', writeback: false}
-      - name: button_filo_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', font_size: null, background: 'theme:Secondary Container'}
+        layout_properties: {grid_position: 'ETOULO,YGNVSN'}
+        name: button_filo_bien
+        properties: {background: 'theme:Secondary Container', font_size: null, foreground: 'theme:Secondary', icon: 'fa:check', role: null, text: ''}
         type: Button
-        layout_properties: {grid_position: 'ETOULO,YCJNHS'}
+      - data_bindings:
+        - {code: '"filo_mal"', property: tag, writeback: false}
         event_bindings: {click: button_filo_mal_click}
-        data_bindings:
-        - {property: tag, code: '"filo_mal"', writeback: false}
-      - name: label_filo
-        properties: {text: REVISIÓN DE FILO EN PLECAS, bold: true, background: ''}
-        type: Label
-        layout_properties: {grid_position: 'ETOULO,VSGGLC'}
-      - name: label_comentarios_filo
-        properties: {text: 'COMENTARIOS:', bold: true}
-        type: Label
-        layout_properties: {grid_position: 'GGXDLO,HOJTID'}
-      - name: text_area_filo
-        properties: {height: 113, role: outlined, background: 'theme:On Primary'}
-        type: TextArea
-        layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
-        data_bindings:
-        - {property: tag, code: '"comentarios_filo"', writeback: false}
-    - name: spacer_2
-      properties: {height: 15}
-      type: Spacer
-      layout_properties: {grid_position: 'HJQNMZ,DHEQVV'}
-    - name: column_panel_union
-      properties: {col_widths: '{"FMRIUB":8,"PZGEPK":7,"GELTVT":45}', background: 'theme:LightGray', role: elevated-card}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'QPSPXV,XHUZXW'}
-      components:
-      - name: button_union_bien
-        properties: {text: '', icon: 'fa:check', background: 'theme:Secondary Container', foreground: 'theme:Secondary'}
+        layout_properties: {grid_position: 'ETOULO,YCJNHS'}
+        name: button_filo_mal
+        properties: {background: 'theme:Secondary Container', font_size: null, foreground: 'theme:Secondary', icon: 'fa:times', text: ''}
         type: Button
-        layout_properties: {grid_position: 'XTQDJR,FMRIUB'}
-        event_bindings: {click: button_union_bien_click}
-        data_bindings:
-        - {property: tag, code: '"union_bien"', writeback: false}
-      - name: button_union_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', background: 'theme:Secondary Container'}
-        type: Button
-        layout_properties: {grid_position: 'XTQDJR,PZGEPK'}
-        event_bindings: {click: button_union_mal_click}
-        data_bindings:
-        - {property: tag, code: '"union_mal"', writeback: false}
-      - name: label_union
-        properties: {text: REVISIÓN EN UNIÓN DE PLECAS, bold: true, background: 'theme:LightGray'}
+      - layout_properties: {grid_position: 'ETOULO,VSGGLC'}
+        name: label_filo
+        properties: {background: '', bold: true, text: REVISIÓN DE FILO EN PLECAS}
         type: Label
-        layout_properties: {grid_position: 'XTQDJR,GELTVT'}
-      - name: label_comentarios_union
+      - layout_properties: {grid_position: 'GGXDLO,HOJTID'}
+        name: label_comentarios_filo
         properties: {bold: true, text: 'COMENTARIOS:'}
         type: Label
-        layout_properties: {grid_position: 'WHCMTM,CFPQCC'}
-      - name: text_area_union
-        properties: {height: 111, role: outlined, background: 'theme:On Primary'}
+      - data_bindings:
+        - {code: '"comentarios_filo"', property: tag, writeback: false}
+        layout_properties: {grid_position: 'EPGXPR,FTOMDJ'}
+        name: text_area_filo
+        properties: {background: 'theme:On Primary', height: 113, role: outlined}
         type: TextArea
-        layout_properties: {grid_position: 'YDZZFF,YDZKOP'}
-        data_bindings:
-        - {property: tag, code: '"comentarios_union"', writeback: false}
-    - name: spacer_2_copy
+      layout_properties: {grid_position: 'ASQPXF,DPNGWJ'}
+      name: column_panel_filo
+      properties: {background: 'theme:LightGray', col_widths: '{"YGNVSN":8,"YCJNHS":7,"VSGGLC":45}', role: elevated-card}
+      type: ColumnPanel
+    - layout_properties: {grid_position: 'HJQNMZ,DHEQVV'}
+      name: spacer_2
       properties: {height: 15}
       type: Spacer
-      layout_properties: {grid_position: 'HEVHAI,SDZOOD'}
-    - name: column_panel_3
-      properties: {col_widths: '{"LEDJNH":8,"JNJVJP":7,"YOZPVK":45}', role: elevated-card, background: 'theme:LightGray'}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'RKIOVQ,IDMAAB'}
-      components:
-      - name: button_estado_bien
-        properties: {text: '', icon: 'fa:check', foreground: 'theme:Secondary', background: 'theme:Secondary Container'}
+    - components:
+      - data_bindings:
+        - {code: '"union_bien"', property: tag, writeback: false}
+        event_bindings: {click: button_union_bien_click}
+        layout_properties: {grid_position: 'XTQDJR,FMRIUB'}
+        name: button_union_bien
+        properties: {background: 'theme:Secondary Container', foreground: 'theme:Secondary', icon: 'fa:check', text: ''}
         type: Button
-        layout_properties: {grid_position: 'GMJEXH,LEDJNH'}
-        event_bindings: {click: button_estado_bien_click}
-        data_bindings:
-        - {property: tag, code: '"estado_bien"', writeback: false}
-      - name: button_estado_mal
-        properties: {text: '', icon: 'fa:times', foreground: 'theme:Secondary', background: 'theme:Secondary Container'}
+      - data_bindings:
+        - {code: '"union_mal"', property: tag, writeback: false}
+        event_bindings: {click: button_union_mal_click}
+        layout_properties: {grid_position: 'XTQDJR,PZGEPK'}
+        name: button_union_mal
+        properties: {background: 'theme:Secondary Container', foreground: 'theme:Secondary', icon: 'fa:times', text: ''}
         type: Button
-        layout_properties: {grid_position: 'GMJEXH,JNJVJP'}
-        event_bindings: {click: button_estado_mal_click}
-        data_bindings:
-        - {property: tag, code: '"estado_mal"', writeback: false}
-      - name: label_estado
-        properties: {text: REVISIÓN DE BUEN ESTADO DE PLECAS (GOLPES), bold: true}
+      - layout_properties: {grid_position: 'XTQDJR,GELTVT'}
+        name: label_union
+        properties: {background: 'theme:LightGray', bold: true, text: REVISIÓN EN UNIÓN DE PLECAS}
         type: Label
-        layout_properties: {grid_position: 'GMJEXH,YOZPVK'}
-      - name: label_comentarios_estado
-        properties: {text: 'COMENTARIOS:', bold: true}
+      - layout_properties: {grid_position: 'WHCMTM,CFPQCC'}
+        name: label_comentarios_union
+        properties: {bold: true, text: 'COMENTARIOS:'}
         type: Label
-        layout_properties: {grid_position: 'ECPGAT,IVTIYB'}
-      - name: text_area_estado
-        properties: {role: outlined, height: 107, background: 'theme:On Primary'}
+      - data_bindings:
+        - {code: '"comentarios_union"', property: tag, writeback: false}
+        layout_properties: {grid_position: 'YDZZFF,YDZKOP'}
+        name: text_area_union
+        properties: {background: 'theme:On Primary', height: 111, role: outlined}
         type: TextArea
+      layout_properties: {grid_position: 'QPSPXV,XHUZXW'}
+      name: column_panel_union
+      properties: {background: 'theme:LightGray', col_widths: '{"FMRIUB":8,"PZGEPK":7,"GELTVT":45}', role: elevated-card}
+      type: ColumnPanel
+    - layout_properties: {grid_position: 'HEVHAI,SDZOOD'}
+      name: spacer_2_copy
+      properties: {height: 15}
+      type: Spacer
+    - components:
+      - data_bindings:
+        - {code: '"estado_bien"', property: tag, writeback: false}
+        event_bindings: {click: button_estado_bien_click}
+        layout_properties: {grid_position: 'GMJEXH,LEDJNH'}
+        name: button_estado_bien
+        properties: {background: 'theme:Secondary Container', foreground: 'theme:Secondary', icon: 'fa:check', text: ''}
+        type: Button
+      - data_bindings:
+        - {code: '"estado_mal"', property: tag, writeback: false}
+        event_bindings: {click: button_estado_mal_click}
+        layout_properties: {grid_position: 'GMJEXH,JNJVJP'}
+        name: button_estado_mal
+        properties: {background: 'theme:Secondary Container', foreground: 'theme:Secondary', icon: 'fa:times', text: ''}
+        type: Button
+      - layout_properties: {grid_position: 'GMJEXH,YOZPVK'}
+        name: label_estado
+        properties: {bold: true, text: REVISIÓN DE BUEN ESTADO DE PLECAS (GOLPES)}
+        type: Label
+      - layout_properties: {grid_position: 'ECPGAT,IVTIYB'}
+        name: label_comentarios_estado
+        properties: {bold: true, text: 'COMENTARIOS:'}
+        type: Label
+      - data_bindings:
+        - {code: '"comentarios_estado"', property: tag, writeback: false}
         layout_properties: {grid_position: 'DBKDBL,KBBWYX'}
-        data_bindings:
-        - {property: tag, code: '"comentarios_estado"', writeback: false}
-    - name: button_guardar
-      properties: {text: GUARDAR_REPORTE, icon: 'fa:save', bold: true, role: filled-button}
-      type: Button
+        name: text_area_estado
+        properties: {background: 'theme:On Primary', height: 107, role: outlined}
+        type: TextArea
+      layout_properties: {grid_position: 'RKIOVQ,IDMAAB'}
+      name: column_panel_3
+      properties: {background: 'theme:LightGray', col_widths: '{"LEDJNH":8,"JNJVJP":7,"YOZPVK":45}', role: elevated-card}
+      type: ColumnPanel
+    - event_bindings: {click: button_guardar_click}
       layout_properties: {grid_position: 'MXHZDY,IIWAVY'}
-      event_bindings: {click: button_guardar_click}
+      name: button_guardar
+      properties: {bold: true, icon: 'fa:save', role: filled-button, text: GUARDAR_REPORTE}
+      type: Button
+    layout_properties: {grid_position: 'GUONSM,RXEYWV'}
+    name: column_panel_body
+    properties: {col_widths: '{"VYVKNZ":15,"LGGCKV":45}', role: elevated-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'GRJQCJ,RHRZTH'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

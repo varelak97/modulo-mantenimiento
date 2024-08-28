@@ -1,25 +1,25 @@
-container: {type: ColumnPanel}
 components:
-- name: button_ver_solicitud
-  properties: {text: VER SOLICITUD, bold: true, icon: 'fa:eye', align: left}
-  type: Button
-  layout_properties: {grid_position: 'ABVCAG,MIVMRK'}
-  data_bindings: []
+- data_bindings: []
   event_bindings: {click: button_ver_solicitud_click}
-- name: button_editar_solicitud
-  properties: {text: EDITAR SOLICITUD, bold: true, icon: 'fa:edit', align: left}
-  type: Button
   layout_properties: {grid_position: 'ABVCAG,MIVMRK'}
-  data_bindings: []
+  name: button_ver_solicitud
+  properties: {align: left, bold: true, icon: 'fa:eye', text: VER SOLICITUD}
+  type: Button
+- data_bindings: []
   event_bindings: {click: button_editar_solicitud_click}
-- name: button_programar
-  properties: {text: PROGRAMAR, bold: true, align: left, icon: 'fa:calendar'}
+  layout_properties: {grid_position: 'ABVCAG,MIVMRK'}
+  name: button_editar_solicitud
+  properties: {align: left, bold: true, icon: 'fa:edit', text: EDITAR SOLICITUD}
   type: Button
+- event_bindings: {click: button_programar_click}
   layout_properties: {grid_position: 'TJIGGU,XUIGIC'}
-  event_bindings: {click: button_programar_click}
-- name: button_generar_reporte
-  properties: {text: GENERAR REPORTE, icon: 'fa:file', align: left, bold: true}
+  name: button_programar
+  properties: {align: left, bold: true, icon: 'fa:calendar', text: PROGRAMAR}
   type: Button
+- event_bindings: {click: button_generar_reporte_click}
   layout_properties: {grid_position: 'UUSLYS,QWZEXR'}
-  event_bindings: {click: button_generar_reporte_click}
+  name: button_generar_reporte
+  properties: {align: left, bold: true, icon: 'fa:file', text: GENERAR REPORTE}
+  type: Button
+container: {type: ColumnPanel}
 is_package: true

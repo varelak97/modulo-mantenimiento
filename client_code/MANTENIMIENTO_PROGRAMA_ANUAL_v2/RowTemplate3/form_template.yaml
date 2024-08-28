@@ -1,28 +1,28 @@
-container: {type: DataRowPanel}
 components:
-- name: label_1
-  properties: {text: EQUIPO XX, bold: true}
+- layout_properties: {column: KKYZMV}
+  name: label_1
+  properties: {bold: true, text: EQUIPO XX}
   type: Label
-  layout_properties: {column: KKYZMV}
-- name: link_8
-  properties: {text: PW, foreground: 'theme:LightGray', background: '', align: center, bold: true}
-  type: Link
+- components: []
   layout_properties: {column: EUFNYA}
-  components: []
-- name: link_3
-  properties: {text: PM, align: center, bold: true, foreground: 'theme:LightGray'}
+  name: link_8
+  properties: {align: center, background: '', bold: true, foreground: 'theme:LightGray', text: PW}
   type: Link
-  layout_properties: {column: EUFNYA}
-- name: link_1
-  properties: {text: PT, bold: true, align: center, foreground: 'theme:LightGray'}
+- layout_properties: {column: EUFNYA}
+  name: link_3
+  properties: {align: center, bold: true, foreground: 'theme:LightGray', text: PM}
   type: Link
-  layout_properties: {column: EUFNYA}
-- name: link_2
-  properties: {text: PS, bold: true, align: center, foreground: 'theme:LightGray'}
+- layout_properties: {column: EUFNYA}
+  name: link_1
+  properties: {align: center, bold: true, foreground: 'theme:LightGray', text: PT}
   type: Link
-  layout_properties: {column: EUFNYA}
-- name: link_4
-  properties: {text: PA, bold: true, align: center, foreground: 'theme:LightGray'}
+- layout_properties: {column: EUFNYA}
+  name: link_2
+  properties: {align: center, bold: true, foreground: 'theme:LightGray', text: PS}
   type: Link
-  layout_properties: {column: EUFNYA}
+- layout_properties: {column: EUFNYA}
+  name: link_4
+  properties: {align: center, bold: true, foreground: 'theme:LightGray', text: PA}
+  type: Link
+container: {type: DataRowPanel}
 is_package: true

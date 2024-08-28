@@ -1,58 +1,58 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {col_widths: '{}'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'UWFERO,MQYHWP'}
-  components:
-  - name: flow_panel_card_inicio_sesion
-    properties: {role: null, spacing: medium, align: center, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
-    type: FlowPanel
-    layout_properties: {grid_position: 'RFMXUN,QVKMZD'}
-    components:
-    - name: card_inicio_sesion
-      properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"PTOZRN":30}', spacing_below: small, background: ''}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'CXZHWD,HTLDHJ', width: 544}
-      components:
-      - name: label_nuevo_usuario
-        properties: {role: title, align: center, tooltip: '', border: '', foreground: '', visible: true, text: BIENVENIDO/A USER, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
+- components:
+  - components:
+    - components:
+      - layout_properties: {grid_position: 'XRCATF,MAQYJK'}
+        name: label_nuevo_usuario
+        properties: {align: center, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: BIENVENIDO/A USER, tooltip: '', underline: false, visible: true}
         type: Label
-        layout_properties: {grid_position: 'XRCATF,MAQYJK'}
-      - name: column_panel_1
+      - components:
+        - layout_properties: {full_width_row: false, grid_position: 'ZPMFXT,LUPHZK', row_background: ''}
+          name: label_password
+          properties: {align: center, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: none, text: 'Password:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - event_bindings: {lost_focus: text_box_usuario_lost_focus, pressed_enter: button_iniciar_sesion_click}
+          layout_properties: {full_width_row: false, grid_position: 'YDOGTA,CMQNAH', row_background: ''}
+          name: text_box_password
+          properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: true, italic: false, placeholder: '******', role: outlined, spacing_above: none, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+          type: TextBox
+        - layout_properties:
+            col_widths: {}
+            full_width_row: false
+            grid_position: ZKHIOR,IJEUFI
+            row_background: ''
+          name: label_confir_password
+          properties: {align: center, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: none, text: 'Confirmar password:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - event_bindings: {pressed_enter: button_iniciar_sesion_click}
+          layout_properties:
+            col_widths: {}
+            full_width_row: false
+            grid_position: XGSONC,QRDHSM
+            row_background: ''
+          name: text_box_confirm_password
+          properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: true, italic: false, placeholder: '******', role: outlined, spacing_above: none, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+          type: TextBox
+        - event_bindings: {click: button_registrar_click}
+          layout_properties: {full_width_row: false, grid_position: 'NXFNCP,UWMCKM', row_background: ''}
+          name: button_registrar
+          properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:Tertiary', icon: 'fa:sign-in', icon_align: left, italic: false, role: elevated-button, spacing_above: small, spacing_below: small, text: Registrar, tooltip: '', underline: false, visible: true}
+          type: Button
+        layout_properties: {full_width_row: false, grid_position: 'BMTJZB,HLWUOV', row_background: '', width: 235}
+        name: column_panel_1
         properties: {col_widths: '{}'}
         type: ColumnPanel
-        layout_properties: {width: 235, grid_position: 'BMTJZB,HLWUOV', row_background: '', full_width_row: false}
-        components:
-        - name: label_password
-          properties: {role: title, align: center, tooltip: '', border: '', foreground: '', visible: true, text: 'Password:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
-          type: Label
-          layout_properties: {grid_position: 'ZPMFXT,LUPHZK', row_background: '', full_width_row: false}
-        - name: text_box_password
-          properties: {role: outlined, align: center, hide_text: true, tooltip: '', placeholder: '******', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: none, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
-          type: TextBox
-          layout_properties: {grid_position: 'YDOGTA,CMQNAH', row_background: '', full_width_row: false}
-          event_bindings: {pressed_enter: button_iniciar_sesion_click, lost_focus: text_box_usuario_lost_focus}
-        - name: label_confir_password
-          properties: {role: title, align: center, tooltip: '', border: '', foreground: '', visible: true, text: 'Confirmar password:', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
-          type: Label
-          layout_properties:
-            col_widths: {}
-            grid_position: ZKHIOR,IJEUFI
-            full_width_row: false
-            row_background: ''
-        - name: text_box_confirm_password
-          properties: {role: outlined, align: center, hide_text: true, tooltip: '', placeholder: '******', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: none, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
-          type: TextBox
-          layout_properties:
-            col_widths: {}
-            grid_position: XGSONC,QRDHSM
-            full_width_row: false
-            row_background: ''
-          event_bindings: {pressed_enter: button_iniciar_sesion_click}
-        - name: button_registrar
-          properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true, foreground: 'theme:Tertiary', visible: true, text: Registrar, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:sign-in'}
-          type: Button
-          layout_properties: {grid_position: 'NXFNCP,UWMCKM', row_background: '', full_width_row: false}
-          event_bindings: {click: button_registrar_click}
+      layout_properties: {grid_position: 'CXZHWD,HTLDHJ', width: 544}
+      name: card_inicio_sesion
+      properties: {background: '', border: '', col_spacing: medium, col_widths: '{"PTOZRN":30}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'RFMXUN,QVKMZD'}
+    name: flow_panel_card_inicio_sesion
+    properties: {align: center, background: '', border: '', foreground: '', role: null, spacing: medium, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
+    type: FlowPanel
+  layout_properties: {grid_position: 'UWFERO,MQYHWP'}
+  name: content_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

@@ -1,309 +1,309 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {visible: false}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'YEBQKU,YRZNNA'}
-  components:
-  - name: outlined_card_title
-    properties: {role: elevated-card, background: ''}
-    type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
+      name: label_titulo
+      properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:On Primary', role: title, text: LISTADO GENERAL DE EQUIPOS}
+      type: Label
     layout_properties: {grid_position: 'ASKKYO,BCQQDD'}
-    components:
-    - name: label_titulo
-      properties: {text: LISTADO GENERAL DE EQUIPOS, align: center, bold: true, role: title, background: 'theme:Primary', foreground: 'theme:On Primary'}
-      type: Label
-      layout_properties: {grid_position: 'BGTUTL,ICWXAW'}
-  - name: outlined_card_filtros
-    properties: {role: elevated-card}
+    name: outlined_card_title
+    properties: {background: '', role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'HFDZTN,QCTOMG'}
-    components:
-    - name: label_area
-      properties: {text: 'AREA:', bold: true}
+  - components:
+    - layout_properties: {grid_position: 'BYEIUP,OBMHLL LLCYSU,EUFMSA'}
+      name: label_area
+      properties: {bold: true, text: 'AREA:'}
       type: Label
-      layout_properties: {grid_position: 'BYEIUP,OBMHLL LLCYSU,EUFMSA'}
-    - name: drop_down_area
-      properties: {role: outlined, include_placeholder: true, placeholder: -- TODAS --}
-      type: DropDown
+    - event_bindings: {change: drop_down_area_change}
       layout_properties: {grid_position: 'BYEIUP,OBMHLL YQYWEE,SLNJSE'}
-      event_bindings: {change: drop_down_area_change}
-    - name: label_equipo
-      properties: {text: 'EQUIPO:', bold: true}
-      type: Label
-      layout_properties: {grid_position: 'BYEIUP,OBMHLL CAXHCI,IVYFYN'}
-    - name: drop_down_equipo
-      properties: {role: outlined, include_placeholder: true, placeholder: -- TODOS --}
+      name: drop_down_area
+      properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined}
       type: DropDown
+    - layout_properties: {grid_position: 'BYEIUP,OBMHLL CAXHCI,IVYFYN'}
+      name: label_equipo
+      properties: {bold: true, text: 'EQUIPO:'}
+      type: Label
+    - event_bindings: {change: drop_down_equipo_change}
       layout_properties: {grid_position: 'BYEIUP,OBMHLL KOJEJI,ZKEIQM'}
-      event_bindings: {change: drop_down_equipo_change}
-    - name: column_panel_luz_resistencia
+      name: drop_down_equipo
+      properties: {include_placeholder: true, placeholder: -- TODOS --, role: outlined}
+      type: DropDown
+    - components:
+      - layout_properties: {grid_position: 'TFSITR,FAXQKT'}
+        name: label_luz_resistencia
+        properties: {bold: true, text: 'MEDICIÓN DE LUZ Y RESISTENCIA:'}
+        type: Label
+      - event_bindings: {change: drop_down_luz_resistencia_change}
+        layout_properties: {grid_position: 'MONITW,INFEFG'}
+        name: drop_down_luz_resistencia
+        properties: {include_placeholder: true, placeholder: -- SELECCIONE OPCION --, role: outlined, visible: true}
+        type: DropDown
+      layout_properties: {grid_position: 'BYEIUP,OBMHLL HOACSB,DNCVPS'}
+      name: column_panel_luz_resistencia
       properties: {visible: false}
       type: ColumnPanel
-      layout_properties: {grid_position: 'BYEIUP,OBMHLL HOACSB,DNCVPS'}
-      components:
-      - name: label_luz_resistencia
-        properties: {text: 'MEDICIÓN DE LUZ Y RESISTENCIA:', bold: true}
-        type: Label
-        layout_properties: {grid_position: 'TFSITR,FAXQKT'}
-      - name: drop_down_luz_resistencia
-        properties: {role: outlined, include_placeholder: true, placeholder: -- SELECCIONE OPCION --, visible: true}
-        type: DropDown
-        layout_properties: {grid_position: 'MONITW,INFEFG'}
-        event_bindings: {change: drop_down_luz_resistencia_change}
-    - name: outlined_card_img_equipo
+    - components:
+      - data_bindings: []
+        layout_properties: {grid_position: 'OYEKRJ,GUGRDB'}
+        name: image_equipo
+        properties: {display_mode: shrink_to_fit, source: _/theme/equipos/default.png}
+        type: Image
+      layout_properties: {grid_position: 'BYEIUP,HPLOGN'}
+      name: outlined_card_img_equipo
       properties: {role: elevated-card}
       type: ColumnPanel
-      layout_properties: {grid_position: 'BYEIUP,HPLOGN'}
-      components:
-      - name: image_equipo
-        properties: {source: _/theme/equipos/default.png, display_mode: shrink_to_fit}
-        type: Image
-        layout_properties: {grid_position: 'OYEKRJ,GUGRDB'}
-        data_bindings: []
-    - name: label_tipo_mtto
-      properties: {text: 'OPCIONES DE MANTENIMIENTO:', bold: true, align: center}
+    - layout_properties: {grid_position: 'AYTBUP,DUPRFA'}
+      name: label_tipo_mtto
+      properties: {align: center, bold: true, text: 'OPCIONES DE MANTENIMIENTO:'}
       type: Label
-      layout_properties: {grid_position: 'AYTBUP,DUPRFA'}
-    - name: link_calendario_mttos
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'YTZQGB,FZGRNH'}
+          name: image_calendario_mttos
+          properties: {height: '100', source: _/theme/iconos/calendario_anual.png}
+          type: Image
+        - layout_properties: {grid_position: 'PIOVLG,UOKKGE'}
+          name: label_calendario_mttos
+          properties: {align: center, bold: true, text: CALENDARIO ANUAL DE MANTENIMIENTOS}
+          type: Label
+        layout_properties: {grid_position: 'OUMSPT,TFNMKP'}
+        name: outlined_card_calendario_mttos
+        properties: {role: elevated-card}
+        type: ColumnPanel
+      data_bindings: []
+      event_bindings: {click: link_calendario_mttos_click}
+      layout_properties: {grid_position: 'TUODEU,QGEHYN MJURXL,HVDODZ'}
+      name: link_calendario_mttos
       properties: {role: null, visible: true}
       type: Link
-      layout_properties: {grid_position: 'TUODEU,QGEHYN MJURXL,HVDODZ'}
-      components:
-      - name: outlined_card_calendario_mttos
-        properties: {role: elevated-card}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'OUMSPT,TFNMKP'}
-        components:
-        - name: image_calendario_mttos
-          properties: {source: _/theme/iconos/calendario_anual.png, height: '100'}
-          type: Image
-          layout_properties: {grid_position: 'YTZQGB,FZGRNH'}
-        - name: label_calendario_mttos
-          properties: {text: CALENDARIO ANUAL DE MANTENIMIENTOS, bold: true, align: center}
-          type: Label
-          layout_properties: {grid_position: 'PIOVLG,UOKKGE'}
-      event_bindings: {click: link_calendario_mttos_click}
-      data_bindings: []
-    - name: flow_panel_req_consumibles
-      properties: {}
-      type: FlowPanel
-      layout_properties: {grid_position: 'TUODEU,QGEHYN YMTZZA,YDEWJK', full_width_row: false}
-      components:
-      - name: link_req_consumibles
-        properties: {}
-        type: Link
-        event_bindings: {click: link_req_consumibles_click}
-        components:
-        - name: outlined_card_req_consumibles
-          properties: {role: elevated-card}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
-          components:
-          - name: image_req_consumibles
+    - components:
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+            name: image_req_consumibles
             properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
             type: Image
-            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
-          - name: label_req_consumibles
-            properties: {text: REQUERIMIENTO DE CONSUMIBLES, bold: true, align: center}
+          - layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+            name: label_req_consumibles
+            properties: {align: center, bold: true, text: REQUERIMIENTO DE CONSUMIBLES}
             type: Label
-            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
-    - name: link_mtto_preventivo_correctivo
-      properties: {}
-      type: Link
-      layout_properties: {grid_position: 'TUODEU,KSGOCH OVVNGD,XVVMZK'}
-      components:
-      - name: outlined_card_mtto_preventivo_correctivo
-        properties: {role: elevated-card, foreground: ''}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'IIEWAV,GGWONO'}
-        components:
-        - name: image_mtto_preventivo_correctivo
-          properties: {source: _/theme/iconos/mtto_preventivo_correctivo_prog.png, height: 100}
-          type: Image
-          layout_properties: {grid_position: 'GELVWU,FVUQRY'}
-        - name: label_mtto_preventivo_correctivo
-          properties: {text: MANTENIMIENTO PREVENTIVO/CORRECTIVO, bold: true, align: center, foreground: ''}
-          type: Label
-          layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
-      event_bindings: {click: link_mtto_preventivo_correctivo_click}
-    - name: flow_panel_inventario
-      properties: {}
-      type: FlowPanel
-      layout_properties: {grid_position: 'TUODEU,KSGOCH JESQOM,OJMAUX'}
-      components:
-      - name: link_inventario
-        properties: {}
-        type: Link
-        event_bindings: {click: link_inventario_click}
-        components:
-        - name: outlined_card_inventario
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          name: outlined_card_req_consumibles
           properties: {role: elevated-card}
           type: ColumnPanel
-          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
-          components:
-          - name: image_inventario
+        event_bindings: {click: link_req_consumibles_click}
+        name: link_req_consumibles
+        properties: {}
+        type: Link
+      layout_properties: {full_width_row: false, grid_position: 'TUODEU,QGEHYN YMTZZA,YDEWJK'}
+      name: flow_panel_req_consumibles
+      properties: {}
+      type: FlowPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'GELVWU,FVUQRY'}
+          name: image_mtto_preventivo_correctivo
+          properties: {height: 100, source: _/theme/iconos/mtto_preventivo_correctivo_prog.png}
+          type: Image
+        - layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
+          name: label_mtto_preventivo_correctivo
+          properties: {align: center, bold: true, foreground: '', text: MANTENIMIENTO PREVENTIVO/CORRECTIVO}
+          type: Label
+        layout_properties: {grid_position: 'IIEWAV,GGWONO'}
+        name: outlined_card_mtto_preventivo_correctivo
+        properties: {foreground: '', role: elevated-card}
+        type: ColumnPanel
+      event_bindings: {click: link_mtto_preventivo_correctivo_click}
+      layout_properties: {grid_position: 'TUODEU,KSGOCH OVVNGD,XVVMZK'}
+      name: link_mtto_preventivo_correctivo
+      properties: {}
+      type: Link
+    - components:
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+            name: image_inventario
             properties: {height: '100', source: _/theme/iconos/inventario.png}
             type: Image
-            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
-          - name: label_inventario
-            properties: {text: INVENTARIO REFACCIONES Y CONSUMIBLES, bold: true, align: center}
+          - layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+            name: label_inventario
+            properties: {align: center, bold: true, text: INVENTARIO REFACCIONES Y CONSUMIBLES}
             type: Label
-            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
-    - name: link_solicitudes_mtto
-      properties: {}
-      type: Link
-      layout_properties: {grid_position: 'TUODEU,ACSBOA SASBDU,JQYMVH'}
-      components:
-      - name: outlined_card_solicitudes_mtto
-        properties: {role: elevated-card}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
-        components:
-        - name: image_solicitudes_mtto
-          properties: {source: _/theme/iconos/solicitudes_mtto.png, height: '100'}
-          type: Image
-          layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-        - name: label_solicitudes_mtto
-          properties: {text: SOLICITUDES DE MANTENIMIENTO, bold: true, align: center}
-          type: Label
-          layout_properties: {grid_position: 'FXVIML,KCAEXH'}
-      event_bindings: {click: link_solicitudes_mtto_click}
-    - name: flow_panel_mantenimiento_preventivo
-      properties: {}
-      type: FlowPanel
-      layout_properties: {grid_position: 'TUODEU,ACSBOA RBKXIP,YUNUAG'}
-      components:
-      - name: link_mantenimiento_preventivo
-        properties: {}
-        type: Link
-        event_bindings: {click: link_mantenimiento_preventivo_click}
-        components:
-        - name: outlined_card_mantenimiento_preventivo
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          name: outlined_card_inventario
           properties: {role: elevated-card}
           type: ColumnPanel
-          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
-          components:
-          - name: image_mantenimiento_preventivo
+        event_bindings: {click: link_inventario_click}
+        name: link_inventario
+        properties: {}
+        type: Link
+      layout_properties: {grid_position: 'TUODEU,KSGOCH JESQOM,OJMAUX'}
+      name: flow_panel_inventario
+      properties: {}
+      type: FlowPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
+          name: image_solicitudes_mtto
+          properties: {height: '100', source: _/theme/iconos/solicitudes_mtto.png}
+          type: Image
+        - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
+          name: label_solicitudes_mtto
+          properties: {align: center, bold: true, text: SOLICITUDES DE MANTENIMIENTO}
+          type: Label
+        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
+        name: outlined_card_solicitudes_mtto
+        properties: {role: elevated-card}
+        type: ColumnPanel
+      event_bindings: {click: link_solicitudes_mtto_click}
+      layout_properties: {grid_position: 'TUODEU,ACSBOA SASBDU,JQYMVH'}
+      name: link_solicitudes_mtto
+      properties: {}
+      type: Link
+    - components:
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+            name: image_mantenimiento_preventivo
             properties: {height: '100', source: _/theme/iconos/registros_mtto_preventivo.png}
             type: Image
-            layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
-          - name: label_mantenimiento_preventivo
-            properties: {text: REGISTROS MANTENIMIENTO PREVENTIVO, bold: true, align: center}
+          - layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+            name: label_mantenimiento_preventivo
+            properties: {align: center, bold: true, text: REGISTROS MANTENIMIENTO PREVENTIVO}
             type: Label
-            layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
-    - name: link_mtto_autonomo
+          layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+          name: outlined_card_mantenimiento_preventivo
+          properties: {role: elevated-card}
+          type: ColumnPanel
+        event_bindings: {click: link_mantenimiento_preventivo_click}
+        name: link_mantenimiento_preventivo
+        properties: {}
+        type: Link
+      layout_properties: {grid_position: 'TUODEU,ACSBOA RBKXIP,YUNUAG'}
+      name: flow_panel_mantenimiento_preventivo
       properties: {}
-      type: Link
+      type: FlowPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'WOVRWL,GKJKNO'}
+          name: image_mtto_autonomo
+          properties: {height: '100', source: _/theme/iconos/mtto_autonomo.png}
+          type: Image
+        - layout_properties: {grid_position: 'WMORHY,OYPKVW'}
+          name: label_mtto_autonomo
+          properties: {align: center, bold: true, text: MANTENIMIENTO AUTÓNOMO}
+          type: Label
+        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+        name: outlined_card_mtto_autonomo
+        properties: {role: elevated-card}
+        type: ColumnPanel
+      event_bindings: {click: link_mtto_autonomo_click}
       layout_properties: {grid_position: 'TUODEU,XAIAWO'}
-      components:
-      - name: outlined_card_mtto_autonomo
-        properties: {role: elevated-card}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
-        components:
-        - name: image_mtto_autonomo
-          properties: {height: '100', source: _/theme/iconos/mtto_autonomo.png}
-          type: Image
-          layout_properties: {grid_position: 'WOVRWL,GKJKNO'}
-        - name: label_mtto_autonomo
-          properties: {text: MANTENIMIENTO AUTÓNOMO, bold: true, align: center}
-          type: Label
-          layout_properties: {grid_position: 'WMORHY,OYPKVW'}
-      event_bindings: {click: link_mtto_autonomo_click}
-- name: content_panel_general
-  properties: {visible: true}
+      name: link_mtto_autonomo
+      properties: {}
+      type: Link
+    layout_properties: {grid_position: 'HFDZTN,QCTOMG'}
+    name: outlined_card_filtros
+    properties: {role: elevated-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'YEBQKU,YRZNNA'}
+  name: content_panel
+  properties: {visible: false}
   type: ColumnPanel
-  layout_properties: {grid_position: 'WKYMDQ,XUFPWV'}
-  components:
-  - name: outlined_card_titulo_general
-    properties: {role: elevated-card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'BQRIOO,OOPLIK'}
-    components:
-    - name: label_titulo_general
-      properties: {text: OPCIONES DE MANTENIMIENTO, align: center, bold: true, role: title, background: 'theme:Primary', foreground: 'theme:White'}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'IJRMBK,VQORYJ'}
+      name: label_titulo_general
+      properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:White', role: title, text: OPCIONES DE MANTENIMIENTO}
       type: Label
-      layout_properties: {grid_position: 'IJRMBK,VQORYJ'}
-  - name: outlined_card_general
+    layout_properties: {grid_position: 'BQRIOO,OOPLIK'}
+    name: outlined_card_titulo_general
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'IMZOWB,XWYAYF'}
-    components:
-    - name: link_nueva_solicitud
-      properties: {}
-      type: Link
-      layout_properties: {grid_position: 'AJCPWS,ELPAJE'}
+  - components:
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
+          name: image_nueva_solicitud
+          properties: {height: '100', source: _/theme/iconos/llenar_solicitud.png}
+          type: Image
+        - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
+          name: label_nueva_solicitud
+          properties: {align: center, bold: true, text: NUEVA SOLICITUD DE MANTENIMIENTO}
+          type: Label
+        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
+        name: outlined_card_nueva_solicitud
+        properties: {role: elevated-card}
+        type: ColumnPanel
       event_bindings: {click: link_nueva_solicitud_click}
-      components:
-      - name: outlined_card_nueva_solicitud
-        properties: {role: elevated-card}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
-        components:
-        - name: image_nueva_solicitud
-          properties: {source: _/theme/iconos/llenar_solicitud.png, height: '100'}
-          type: Image
-          layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-        - name: label_nueva_solicitud
-          properties: {text: NUEVA SOLICITUD DE MANTENIMIENTO, bold: true, align: center}
-          type: Label
-          layout_properties: {grid_position: 'FXVIML,KCAEXH'}
-    - name: link_solicitudes_mtto_copy
+      layout_properties: {grid_position: 'AJCPWS,ELPAJE'}
+      name: link_nueva_solicitud
       properties: {}
       type: Link
-      layout_properties: {grid_position: 'AJCPWS,IJEDOQ'}
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
+          name: image_solicitudes_mtto_copy
+          properties: {height: '100', source: _/theme/iconos/solicitudes_mtto.png}
+          type: Image
+        - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
+          name: label_solicitudes_mtto_copy
+          properties: {align: center, bold: true, text: SOLICITUDES DE MANTENIMIENTO}
+          type: Label
+        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
+        name: outlined_card_solicitudes_mtto_copy
+        properties: {role: elevated-card}
+        type: ColumnPanel
       event_bindings: {click: link_solicitudes_mtto_click}
-      components:
-      - name: outlined_card_solicitudes_mtto_copy
-        properties: {role: elevated-card}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
-        components:
-        - name: image_solicitudes_mtto_copy
-          properties: {source: _/theme/iconos/solicitudes_mtto.png, height: '100'}
-          type: Image
-          layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-        - name: label_solicitudes_mtto_copy
-          properties: {text: SOLICITUDES DE MANTENIMIENTO, bold: true, align: center}
-          type: Label
-          layout_properties: {grid_position: 'FXVIML,KCAEXH'}
-    - name: link_mtto_autonomo_copy
+      layout_properties: {grid_position: 'AJCPWS,IJEDOQ'}
+      name: link_solicitudes_mtto_copy
       properties: {}
       type: Link
-      layout_properties: {grid_position: 'AJCPWS,RQEHDW'}
-      event_bindings: {click: link_mtto_autonomo_click}
-      components:
-      - name: outlined_card_mtto_autonomo_copy
-        properties: {role: elevated-card}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
-        components:
-        - name: image_mtto_autonomo_copy
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'WOVRWL,GKJKNO'}
+          name: image_mtto_autonomo_copy
           properties: {height: '100', source: _/theme/iconos/mtto_autonomo.png}
           type: Image
-          layout_properties: {grid_position: 'WOVRWL,GKJKNO'}
-        - name: label_mtto_autonomo_copy
-          properties: {text: MANTENIMIENTO AUTÓNOMO, bold: true, align: center}
+        - layout_properties: {grid_position: 'WMORHY,OYPKVW'}
+          name: label_mtto_autonomo_copy
+          properties: {align: center, bold: true, text: MANTENIMIENTO AUTÓNOMO}
           type: Label
-          layout_properties: {grid_position: 'WMORHY,OYPKVW'}
-    - name: link_req_consumibles_copy
-      properties: {}
-      type: Link
-      event_bindings: {click: link_req_consumibles_click}
-      layout_properties: {grid_position: 'AJCPWS,TMDOBS'}
-      components:
-      - name: outlined_card_req_consumibles_copy
+        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+        name: outlined_card_mtto_autonomo_copy
         properties: {role: elevated-card}
         type: ColumnPanel
-        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
-        components:
-        - name: image_req_consumibles_copy
+      event_bindings: {click: link_mtto_autonomo_click}
+      layout_properties: {grid_position: 'AJCPWS,RQEHDW'}
+      name: link_mtto_autonomo_copy
+      properties: {}
+      type: Link
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
+          name: image_req_consumibles_copy
           properties: {height: '100', source: _/theme/iconos/requerimiento_consumibles.png}
           type: Image
-          layout_properties: {grid_position: 'BYAXXV,POYOJP WOVRWL,GKJKNO'}
-        - name: label_req_consumibles_copy
-          properties: {text: REQUERIMIENTO DE CONSUMIBLES, bold: true, align: center}
+        - layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+          name: label_req_consumibles_copy
+          properties: {align: center, bold: true, text: REQUERIMIENTO DE CONSUMIBLES}
           type: Label
-          layout_properties: {grid_position: 'BYAXXV,POYOJP WMORHY,OYPKVW'}
+        layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
+        name: outlined_card_req_consumibles_copy
+        properties: {role: elevated-card}
+        type: ColumnPanel
+      event_bindings: {click: link_req_consumibles_click}
+      layout_properties: {grid_position: 'AJCPWS,TMDOBS'}
+      name: link_req_consumibles_copy
+      properties: {}
+      type: Link
+    layout_properties: {grid_position: 'IMZOWB,XWYAYF'}
+    name: outlined_card_general
+    properties: {role: elevated-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'WKYMDQ,XUFPWV'}
+  name: content_panel_general
+  properties: {visible: true}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

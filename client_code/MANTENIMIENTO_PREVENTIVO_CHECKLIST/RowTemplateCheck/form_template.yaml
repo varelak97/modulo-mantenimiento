@@ -1,34 +1,34 @@
-container:
-  type: DataRowPanel
-  data_bindings:
-  - {property: tag, code: 'self.item[''id'']'}
 components:
-- type: Label
-  properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
-  name: label_id
+- data_bindings:
+  - {code: 'self.item[''id'']', property: text}
   layout_properties: {column: AMSCHA}
-  data_bindings:
-  - {property: text, code: 'self.item[''id'']'}
-- type: Label
-  properties: {}
-  name: label_actividad
+  name: label_id
+  properties: {align: center, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''actividad'']', property: text}
   layout_properties: {column: OXHXIX}
-  data_bindings:
-  - {property: text, code: 'self.item[''actividad'']'}
-- type: RadioButton
-  properties: {role: null, selected: false, align: right, tooltip: '', border: '', enabled: true, foreground: '', value: si, visible: true, text: '', font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, background: '', bold: false, group_name: '', underline: false}
-  name: radio_button_si
-  layout_properties: {column: EEMRUC}
-  data_bindings:
-  - {property: selected, code: 'self.item[''si'']'}
-  - {property: group_name, code: 'self.item[''id'']'}
+  name: label_actividad
+  properties: {}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''si'']', property: selected}
+  - {code: 'self.item[''id'']', property: group_name}
   event_bindings: {clicked: radio_button_si_clicked}
-- type: RadioButton
-  properties: {role: null, selected: false, align: right, tooltip: '', border: '', enabled: true, foreground: '', value: 'no', visible: true, text: '', font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false, background: '', bold: false, group_name: '', underline: false}
-  name: radio_button_no
-  layout_properties: {column: VQHNKV}
-  data_bindings:
-  - {property: selected, code: 'self.item[''no'']'}
-  - {property: group_name, code: 'self.item[''id'']'}
+  layout_properties: {column: EEMRUC}
+  name: radio_button_si
+  properties: {align: right, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', group_name: '', italic: false, role: null, selected: false, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, value: si, visible: true}
+  type: RadioButton
+- data_bindings:
+  - {code: 'self.item[''no'']', property: selected}
+  - {code: 'self.item[''id'']', property: group_name}
   event_bindings: {}
+  layout_properties: {column: VQHNKV}
+  name: radio_button_no
+  properties: {align: right, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', group_name: '', italic: false, role: null, selected: false, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, value: 'no', visible: true}
+  type: RadioButton
+container:
+  data_bindings:
+  - {code: 'self.item[''id'']', property: tag}
+  type: DataRowPanel
 is_package: true

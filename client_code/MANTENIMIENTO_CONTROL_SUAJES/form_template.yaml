@@ -1,108 +1,108 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'RIEBTU,GDKATN', full_width_row: true}
-  components:
-  - name: outlined_card_title
-    properties: {role: elevated-card, background: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'RQHGGM,KYDADT'}
-    components:
-    - name: label_title
+- components:
+  - components:
+    - layout_properties: {grid_position: 'WIPJGU,YWZADD'}
+      name: label_title
       properties:
+        align: center
+        background: theme:Primary
+        bold: true
+        foreground: theme:On Primary
+        role: title
         text: |
           CONTROL DE HERRAMENTALES DE SUAJE
-        role: title
-        background: theme:Primary
-        foreground: theme:On Primary
-        bold: true
-        align: center
       type: Label
-      layout_properties: {grid_position: 'WIPJGU,YWZADD'}
-  - name: outlined_card_body
-    properties: {role: elevated-card}
+    layout_properties: {grid_position: 'RQHGGM,KYDADT'}
+    name: outlined_card_title
+    properties: {background: '', role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'WNVMKG,VHSWPG', full_width_row: true}
-    components:
-    - name: flow_panel_1
-      properties: {align: center}
-      type: FlowPanel
-      layout_properties: {grid_position: 'WZUBPL,IXAESG'}
-      components:
-      - name: button_nuevo
+  - components:
+    - components:
+      - event_bindings: {click: button_nuevo_click}
+        layout_properties: {}
+        name: button_nuevo
         properties:
-          text: |
-            NUEVO SUAJE
-          role: filled-button
-          icon: fa:file
-          bold: true
           align: center
           background: theme:Orange
+          bold: true
           foreground: theme:Primary
+          icon: fa:file
+          role: filled-button
+          text: |
+            NUEVO SUAJE
         type: Button
+      - event_bindings: {click: button_actualizar_click}
         layout_properties: {}
-        event_bindings: {click: button_nuevo_click}
-      - name: button_actualizar
-        properties: {text: ACTUALIZAR TABLA, role: filled-button, icon: 'fa:refresh', bold: true, align: center}
+        name: button_actualizar
+        properties: {align: center, bold: true, icon: 'fa:refresh', role: filled-button, text: ACTUALIZAR TABLA}
         type: Button
-        layout_properties: {}
-        event_bindings: {click: button_actualizar_click}
-    - name: spacer_1
+      layout_properties: {grid_position: 'WZUBPL,IXAESG'}
+      name: flow_panel_1
+      properties: {align: center}
+      type: FlowPanel
+    - layout_properties: {grid_position: 'KBUPBE,PLZOHF'}
+      name: spacer_1
       properties: {height: 17}
       type: Spacer
-      layout_properties: {grid_position: 'KBUPBE,PLZOHF'}
-    - name: label_3
-      properties: {icon: 'fa:check', align: center, bold: true, text: EN CONDICIONES DE OPERACIÓN, background: 'theme:SecondaryGreen'}
+    - layout_properties: {grid_position: 'ELRTPN,EOOHDN'}
+      name: label_3
+      properties: {align: center, background: 'theme:SecondaryGreen', bold: true, icon: 'fa:check', text: EN CONDICIONES DE OPERACIÓN}
       type: Label
-      layout_properties: {grid_position: 'ELRTPN,EOOHDN'}
-    - name: label_alerta_revision
-      properties: {text: PRÓXIMO A REVISIÓN, align: center, bold: true, icon: 'fa:warning', background: 'theme:Yellow'}
+    - layout_properties: {grid_position: 'ELRTPN,IYHYEZ'}
+      name: label_alerta_revision
+      properties: {align: center, background: 'theme:Yellow', bold: true, icon: 'fa:warning', text: PRÓXIMO A REVISIÓN}
       type: Label
-      layout_properties: {grid_position: 'ELRTPN,IYHYEZ'}
-    - name: label_1
-      properties: {icon: 'fa:exclamation-circle', background: 'theme:Red', foreground: 'theme:Yellow', text: ALCANZÓ CICLOS PARA REVISIÓN, bold: true, align: center}
+    - layout_properties: {grid_position: 'ELRTPN,QTRAEE'}
+      name: label_1
+      properties: {align: center, background: 'theme:Red', bold: true, foreground: 'theme:Yellow', icon: 'fa:exclamation-circle', text: ALCANZÓ CICLOS PARA REVISIÓN}
       type: Label
-      layout_properties: {grid_position: 'ELRTPN,QTRAEE'}
-    - name: data_grid_herramentales
-      properties:
-        columns:
-        - {id: JKSDUP, title: '', data_key: editar, width: '100'}
-        - {id: ISLAHB, data_key: localizar, title: '', width: '90'}
-        - {id: JWMLVC, data_key: alerta, title: ALERTA PARA REVISIÓN DE HERRAMENTAL, width: '250'}
-        - {id: MECWZS, data_key: cliente, title: CLIENTE, width: '300'}
-        - {id: XTGDJP, data_key: tipo_suaje, title: TIPO DE SUAJE, width: '200'}
-        - {id: OJLQEN, title: DESCRIPCIÓN, data_key: descripcion, width: '400', expand: false}
-        - {id: IEFKUK, data_key: ubicacion, title: UBICACIÓN, width: '150'}
-        - {id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, data_key: codigo_herramental, width: '200', expand: false}
-        - {id: XCLKEX, data_key: vida_util, title: VIDA ÚTIL ESTIMADA, width: '150'}
-        - {id: WWXEME, data_key: contador, title: CICLOS DE CORTE ACUMULADOS, width: '200'}
-        - {id: LJHPYT, data_key: fecha_registros, title: FECHA DE ALTA, width: '200'}
-        - {id: NHKBAB, data_key: nombre_usuario, title: OPERADOR, width: '300'}
-        role: wide-tonal-data-grid
-        rows_per_page: 100
-      type: DataGrid
-      components:
-      - name: data_row_panel_filtros
-        properties: {foreground: '', background: 'theme:Secondary'}
-        type: DataRowPanel
-        components:
-        - name: text_box_codigo_herramental
-          properties: {role: outlined, background: 'theme:On Primary'}
+    - components:
+      - components:
+        - layout_properties: {column: VJQQOR}
+          name: text_box_codigo_herramental
+          properties: {background: 'theme:On Primary', role: outlined}
           type: TextBox
-          layout_properties: {column: VJQQOR}
-        - name: text_box_ubicacion
-          properties: {role: outlined, background: 'theme:On Primary'}
+        - layout_properties: {column: IEFKUK}
+          name: text_box_ubicacion
+          properties: {background: 'theme:On Primary', role: outlined}
           type: TextBox
-          layout_properties: {column: IEFKUK}
-        - name: drop_down_alerta
-          properties: {role: outlined, background: 'theme:On Primary'}
+        - layout_properties: {column: JWMLVC}
+          name: drop_down_alerta
+          properties: {background: 'theme:On Primary', role: outlined}
           type: DropDown
-          layout_properties: {column: JWMLVC}
         layout_properties: {}
+        name: data_row_panel_filtros
+        properties: {background: 'theme:Secondary', foreground: ''}
+        type: DataRowPanel
       - name: repeating_panel_herramentales
         properties: {item_template: MANTENIMIENTO_CONTROL_SUAJES.RowTemplateHerramental}
         type: RepeatingPanel
-      layout_properties: {grid_position: 'NEXOXL,LERAIR', full_width_row: true}
+      layout_properties: {full_width_row: true, grid_position: 'NEXOXL,LERAIR'}
+      name: data_grid_herramentales
+      properties:
+        columns:
+        - {data_key: editar, id: JKSDUP, title: '', width: '100'}
+        - {data_key: localizar, id: ISLAHB, title: '', width: '90'}
+        - {data_key: alerta, id: JWMLVC, title: ALERTA PARA REVISIÓN DE HERRAMENTAL, width: '250'}
+        - {data_key: cliente, id: MECWZS, title: CLIENTE, width: '300'}
+        - {data_key: tipo_suaje, id: XTGDJP, title: TIPO DE SUAJE, width: '200'}
+        - {data_key: descripcion, expand: false, id: OJLQEN, title: DESCRIPCIÓN, width: '400'}
+        - {data_key: ubicacion, id: IEFKUK, title: UBICACIÓN, width: '150'}
+        - {data_key: codigo_herramental, expand: false, id: VJQQOR, title: CÓDIGO DE HERRAMENTAL, width: '200'}
+        - {data_key: vida_util, id: XCLKEX, title: VIDA ÚTIL ESTIMADA, width: '150'}
+        - {data_key: contador, id: WWXEME, title: CICLOS DE CORTE ACUMULADOS, width: '200'}
+        - {data_key: fecha_registros, id: LJHPYT, title: FECHA DE ALTA, width: '200'}
+        - {data_key: nombre_usuario, id: NHKBAB, title: OPERADOR, width: '300'}
+        role: wide-tonal-data-grid
+        rows_per_page: 100
+      type: DataGrid
+    layout_properties: {full_width_row: true, grid_position: 'WNVMKG,VHSWPG'}
+    name: outlined_card_body
+    properties: {role: elevated-card}
+    type: ColumnPanel
+  layout_properties: {full_width_row: true, grid_position: 'RIEBTU,GDKATN'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

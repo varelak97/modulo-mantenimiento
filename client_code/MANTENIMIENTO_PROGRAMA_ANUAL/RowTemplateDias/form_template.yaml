@@ -1,525 +1,525 @@
-container:
-  type: DataRowPanel
-  data_bindings:
-  - {property: tag, code: '"test"', writeback: false}
 components:
-- type: Link
-  properties: {col_widths: '{}'}
-  name: link_lunes
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: OTNAOY}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"OZXULN":17,"MRLIJF":17,"EZQCTW":17,"KRXWLV":17}', spacing_below: small, background: ''}
-    name: card_lunes
-    layout_properties: {grid_position: 'EVDIHK,BGUPSL'}
-    components:
-    - name: link_lunes_numero_dia
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''numero_dia'']', property: text, writeback: false}
+      event_bindings: {click: link_lunes_numero_dia_click}
+      layout_properties: {grid_position: 'DAHIIJ,BBTXJF'}
+      name: link_lunes_numero_dia
       properties: {align: right, bold: true, icon_align: left}
       type: Link
-      layout_properties: {grid_position: 'DAHIIJ,BBTXJF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''numero_dia'']', writeback: false}
-      event_bindings: {click: link_lunes_numero_dia_click}
-    - name: link_lunes_w
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
-      type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'WFFQIT,OZXULN'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''W'']', writeback: false}
-      event_bindings: {}
-    - name: link_lunes_m
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_lunes_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'WFFQIT,MRLIJF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_lunes_t
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_lunes_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'DKXXSI,CNBBPU'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_lunes_s
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_lunes_t
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'DKXXSI,HRPWQI'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_lunes_a
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_lunes_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'YAAUDT,EZQCTW'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_lunes_p
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_lunes_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'YAAUDT,KRXWLV'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''P'']', writeback: false}
-    - name: link_lunes_r
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_lunes_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'QEDOKQ,CSUIPN'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''R'']', writeback: false}
-    - name: link_lunes_ok
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_lunes_r
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''lunes''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'QEDOKQ,TPBEBD'}
-      data_bindings:
-      - {property: text, code: 'self.item[''lunes''][''OK'']', writeback: false}
-    data_bindings:
-    - {property: tag, code: 'self.item[''lunes'']', writeback: false}
-  data_bindings:
-  - {property: visible, code: 'bool(self.item[''lunes''][''numero_dia''])'}
-  event_bindings: {}
-- type: Link
-  properties: {col_widths: '{}'}
-  name: link_martes
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: HTLZSE}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"GVQWST":17,"KOPSCU":17}', spacing_below: small, background: ''}
-    name: card_martes
-    layout_properties: {grid_position: 'IGNXDQ,YJTTJY'}
-    components:
-    - name: link_martes_numero_dia
-      properties: {bold: true, icon_align: left, align: right}
+      name: link_lunes_ok
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    data_bindings:
+    - {code: 'self.item[''lunes'']', property: tag, writeback: false}
+    layout_properties: {grid_position: 'EVDIHK,BGUPSL'}
+    name: card_lunes
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{"OZXULN":17,"MRLIJF":17,"EZQCTW":17,"KRXWLV":17}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  data_bindings:
+  - {code: 'bool(self.item[''lunes''][''numero_dia''])', property: visible}
+  event_bindings: {}
+  layout_properties: {column: OTNAOY, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_lunes
+  properties: {col_widths: '{}'}
+  type: Link
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''martes''][''numero_dia'']', property: text, writeback: false}
       layout_properties: {grid_position: 'AERPWG,ZHCEDG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''numero_dia'']', writeback: false}
-    - name: link_martes_w
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_numero_dia
+      properties: {align: right, bold: true, icon_align: left}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'SLUEXY,AWVFVX'}
-      event_bindings: {}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''W'']', writeback: false}
-    - name: link_martes_m
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'SLUEXY,CFLOLW'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_martes_t
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'XBQWLN,GVQWST'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_martes_s
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_t
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'XBQWLN,KOPSCU'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_martes_a
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'BSKSAN,LAOFLQ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_martes_p
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'BSKSAN,CDSGYU'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''P'']', writeback: false}
-    - name: link_martes_r
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'DYWKRF,MEQNJP'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''R'']', writeback: false}
-    - name: link_martes_ok
-      properties: {bold: true, font_size: 11, spacing_below: none, align: center}
+      name: link_martes_r
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''martes''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'DYWKRF,EIFOWO'}
-      data_bindings:
-      - {property: text, code: 'self.item[''martes''][''OK'']', writeback: false}
-    data_bindings:
-    - {property: tag, code: 'self.item[''martes'']', writeback: false}
-  data_bindings:
-  - {property: visible, code: 'bool(self.item[''martes''][''numero_dia''])'}
-  event_bindings: {}
-- type: Link
-  properties: {col_widths: '{}'}
-  name: link_miercoles
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: CCDLML}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"VLSPJD":17,"LBUXOD":17}', spacing_below: small, background: ''}
-    name: card_miercoles
-    layout_properties: {grid_position: 'ONDGXZ,IONDEO', column: QOVXCB}
-    components:
-    - name: link_miercoles_numero_dia
-      properties: {bold: true, icon_align: left, align: right}
+      name: link_martes_ok
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    data_bindings:
+    - {code: 'self.item[''martes'']', property: tag, writeback: false}
+    layout_properties: {grid_position: 'IGNXDQ,YJTTJY'}
+    name: card_martes
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{"GVQWST":17,"KOPSCU":17}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  data_bindings:
+  - {code: 'bool(self.item[''martes''][''numero_dia''])', property: visible}
+  event_bindings: {}
+  layout_properties: {column: HTLZSE, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_martes
+  properties: {col_widths: '{}'}
+  type: Link
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''numero_dia'']', property: text, writeback: false}
       layout_properties: {grid_position: 'ZNADMF,IVEACK'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''numero_dia'']', writeback: false}
-    - name: link_miercoles_w
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_numero_dia
+      properties: {align: right, bold: true, icon_align: left}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'WNKPJU,VLSPJD'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''W'']', writeback: false}
-      event_bindings: {}
-    - name: link_miercoles_m
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'WNKPJU,LBUXOD'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_miercoles_t
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'TBPBNW,QZBXKQ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_miercoles_s
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_t
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'TBPBNW,PTPAJU'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_miercoles_a
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'LPBXJL,AUPMJP'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_miercoles_p
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LPBXJL,NIZKEX'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''P'']', writeback: false}
-    - name: link_miercoles_r
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'IGBTPK,TUMJVS'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''R'']', writeback: false}
-    - name: link_miercoles_ok
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_miercoles_r
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''miercoles''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'IGBTPK,NBJZXF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''miercoles''][''OK'']', writeback: false}
-    data_bindings:
-    - {property: tag, code: 'self.item[''miercoles'']', writeback: false}
-  data_bindings:
-  - {property: visible, code: 'bool(self.item[''miercoles''][''numero_dia''])'}
-  event_bindings: {}
-- type: Link
-  properties: {col_widths: '{}'}
-  name: link_jueves
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: OTSFPZ}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_jueves
-    layout_properties: {grid_position: 'IHQBCJ,LUCBVH'}
-    components:
-    - name: link_jueves_numero_dia
-      properties: {bold: true, icon_align: left, align: right}
+      name: link_miercoles_ok
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    data_bindings:
+    - {code: 'self.item[''miercoles'']', property: tag, writeback: false}
+    layout_properties: {column: QOVXCB, grid_position: 'ONDGXZ,IONDEO'}
+    name: card_miercoles
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{"VLSPJD":17,"LBUXOD":17}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  data_bindings:
+  - {code: 'bool(self.item[''miercoles''][''numero_dia''])', property: visible}
+  event_bindings: {}
+  layout_properties: {column: CCDLML, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_miercoles
+  properties: {col_widths: '{}'}
+  type: Link
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''numero_dia'']', property: text, writeback: false}
       layout_properties: {grid_position: 'EMTNVF,VICNTQ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''numero_dia'']', writeback: false}
-    - name: link_jueves_w
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_numero_dia
+      properties: {align: right, bold: true, icon_align: left}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'TZLUWR,NVQUNM'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''W'']', writeback: false}
-      event_bindings: {}
-    - name: link_jueves_m
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'TZLUWR,XOEXMG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_jueves_t
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'FISWLD,DEEFFG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_jueves_s
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_t
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'FISWLD,CHNSKG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_jueves_a
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'SHALNI,CSRCWD'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_jueves_p
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'SHALNI,JZKAIZ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''P'']', writeback: false}
-    - name: link_jueves_r
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'GESVBE,FOVOAD'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''R'']', writeback: false}
-    - name: link_jueves_ok
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_jueves_r
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''jueves''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'GESVBE,EPOPWE'}
-      data_bindings:
-      - {property: text, code: 'self.item[''jueves''][''OK'']', writeback: false}
-    data_bindings:
-    - {property: tag, code: 'self.item[''jueves'']', writeback: false}
-  data_bindings:
-  - {property: visible, code: 'bool(self.item[''jueves''][''numero_dia''])'}
-  event_bindings: {}
-- type: Link
-  properties: {col_widths: '{}'}
-  name: link_viernes
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: UJXKHF}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_viernes
-    layout_properties: {grid_position: 'RKESBT,HTZFDL'}
-    components:
-    - name: link_viernes_numero_dia
-      properties: {bold: true, icon_align: left, align: right}
+      name: link_jueves_ok
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    data_bindings:
+    - {code: 'self.item[''jueves'']', property: tag, writeback: false}
+    layout_properties: {grid_position: 'IHQBCJ,LUCBVH'}
+    name: card_jueves
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  data_bindings:
+  - {code: 'bool(self.item[''jueves''][''numero_dia''])', property: visible}
+  event_bindings: {}
+  layout_properties: {column: OTSFPZ, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_jueves
+  properties: {col_widths: '{}'}
+  type: Link
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''numero_dia'']', property: text, writeback: false}
       layout_properties: {grid_position: 'UWLUHJ,ARZDES'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''numero_dia'']', writeback: false}
-    - name: link_viernes_w
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_numero_dia
+      properties: {align: right, bold: true, icon_align: left}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'KSPTSU,KHHIBL'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''W'']', writeback: false}
-      event_bindings: {}
-    - name: link_viernes_m
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'KSPTSU,HFUSAX'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_viernes_t
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center, spacing_above: small}
+      name: link_viernes_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'KCISLQ,SHZCXP'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_viernes_s
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_t
+      properties: {align: center, bold: true, font_size: 11, spacing_above: small, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'KCISLQ,HHPQBG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_viernes_a
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'UOSLXO,SSEWOE'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_viernes_p
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'UOSLXO,MMRPEH'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''P'']', writeback: false}
-    - name: link_viernes_r
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'ADWJJI,BVSBHJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''R'']', writeback: false}
-    - name: link_viernes_ok
-      properties: {font_size: 11, spacing_below: none, bold: true, align: center}
+      name: link_viernes_r
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''viernes''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'ADWJJI,TXUSMA'}
-      data_bindings:
-      - {property: text, code: 'self.item[''viernes''][''OK'']', writeback: false}
-    data_bindings:
-    - {property: tag, code: 'self.item[''viernes'']', writeback: false}
-  data_bindings:
-  - {property: visible, code: 'bool(self.item[''viernes''][''numero_dia''])'}
-  event_bindings: {}
-- type: Link
-  properties: {col_widths: '{}'}
-  name: link_sabado
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: MVWUVE}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_sabado
-    layout_properties: {grid_position: 'WEQHKD,FIDLXH'}
-    components:
-    - name: link_sabado_numero_dia
-      properties: {bold: true, icon_align: left, align: right}
+      name: link_viernes_ok
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    data_bindings:
+    - {code: 'self.item[''viernes'']', property: tag, writeback: false}
+    layout_properties: {grid_position: 'RKESBT,HTZFDL'}
+    name: card_viernes
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  data_bindings:
+  - {code: 'bool(self.item[''viernes''][''numero_dia''])', property: visible}
+  event_bindings: {}
+  layout_properties: {column: UJXKHF, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_viernes
+  properties: {col_widths: '{}'}
+  type: Link
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''numero_dia'']', property: text, writeback: false}
       layout_properties: {grid_position: 'HERVOY,XRHWED'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''numero_dia'']', writeback: false}
-    - name: link_sabado_w
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_numero_dia
+      properties: {align: right, bold: true, icon_align: left}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'PJSFBK,FPDDGR'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''W'']', writeback: false}
-      event_bindings: {}
-    - name: link_sabado_m
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'PJSFBK,UNBBTO'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_sabado_t
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'QBVKWT,XAPFJI'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_sabado_s
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_t
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'QBVKWT,WBGYPF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_sabado_a
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'TNXRSG,LYHDNC'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_sabado_p
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'TNXRSG,CWSCRG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''P'']', writeback: false}
-    - name: link_sabado_r
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'ZIIHHC,BDXUTX'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''R'']', writeback: false}
-    - name: link_sabado_ok
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_sabado_r
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''sabado''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'ZIIHHC,AMPKXG'}
-      data_bindings:
-      - {property: text, code: 'self.item[''sabado''][''OK'']', writeback: false}
+      name: link_sabado_ok
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
+      type: Link
     data_bindings:
-    - {property: tag, code: 'self.item[''sabado'']', writeback: false}
+    - {code: 'self.item[''sabado'']', property: tag, writeback: false}
+    layout_properties: {grid_position: 'WEQHKD,FIDLXH'}
+    name: card_sabado
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
   data_bindings:
-  - {property: visible, code: 'bool(self.item[''sabado''][''numero_dia''])'}
+  - {code: 'bool(self.item[''sabado''][''numero_dia''])', property: visible}
   event_bindings: {}
-- type: Link
+  layout_properties: {column: MVWUVE, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_sabado
   properties: {col_widths: '{}'}
-  name: link_domingo
-  layout_properties: {grid_position: 'FLSKZH,TQJRYB', column: XMAFNF}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_domingo
-    layout_properties: {grid_position: 'PTKJIK,MFTNDA'}
-    components:
-    - name: link_domingo_numero_dia
-      properties: {bold: true, icon_align: left, align: right}
-      type: Link
+  type: Link
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''numero_dia'']', property: text, writeback: false}
       layout_properties: {grid_position: 'TOLWTG,KFSVMF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''numero_dia'']', writeback: false}
-    - name: link_domingo_w
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_domingo_numero_dia
+      properties: {align: right, bold: true, icon_align: left}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''W'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'UZFHZF,QTJCWF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''W'']', writeback: false}
-      event_bindings: {}
-    - name: link_domingo_m
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_domingo_w
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''M'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'UZFHZF,YCSPJH'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''M'']', writeback: false}
-      event_bindings: {}
-    - name: link_domingo_t
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_domingo_m
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''T'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'UMCDHE,FRPGGD'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''T'']', writeback: false}
-      event_bindings: {}
-    - name: link_domingo_s
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_domingo_t
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''S'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'UMCDHE,EVRAOP'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''S'']', writeback: false}
-      event_bindings: {}
-    - name: link_domingo_a
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_domingo_s
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''A'']', property: text, writeback: false}
+      event_bindings: {}
       layout_properties: {grid_position: 'JLFCJJ,VRBCMQ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''A'']', writeback: false}
-      event_bindings: {}
-    - name: link_domingo_p
-      properties: {spacing_below: none, font_size: 11, bold: true, align: center}
+      name: link_domingo_a
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''P'']', property: text, writeback: false}
       layout_properties: {grid_position: 'JLFCJJ,GAYDPP'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''P'']', writeback: false}
-    - name: link_domingo_r
-      properties: {font_size: 11, bold: true, align: center}
+      name: link_domingo_p
+      properties: {align: center, bold: true, font_size: 11, spacing_below: none}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''R'']', property: text, writeback: false}
       layout_properties: {grid_position: 'RSFAWS,BXKBLF'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''R'']', writeback: false}
-    - name: link_domingo_ok
-      properties: {font_size: 11, bold: true, align: center}
+      name: link_domingo_r
+      properties: {align: center, bold: true, font_size: 11}
       type: Link
+    - data_bindings:
+      - {code: 'self.item[''domingo''][''OK'']', property: text, writeback: false}
       layout_properties: {grid_position: 'RSFAWS,UNCXYA'}
-      data_bindings:
-      - {property: text, code: 'self.item[''domingo''][''OK'']', writeback: false}
+      name: link_domingo_ok
+      properties: {align: center, bold: true, font_size: 11}
+      type: Link
     data_bindings:
-    - {property: tag, code: 'self.item[''domingo'']', writeback: false}
+    - {code: 'self.item[''domingo'']', property: tag, writeback: false}
+    layout_properties: {grid_position: 'PTKJIK,MFTNDA'}
+    name: card_domingo
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
   data_bindings:
-  - {property: visible, code: 'bool(self.item[''domingo''][''numero_dia''])'}
+  - {code: 'bool(self.item[''domingo''][''numero_dia''])', property: visible}
   event_bindings: {}
+  layout_properties: {column: XMAFNF, grid_position: 'FLSKZH,TQJRYB'}
+  name: link_domingo
+  properties: {col_widths: '{}'}
+  type: Link
+container:
+  data_bindings:
+  - {code: '"test"', property: tag, writeback: false}
+  type: DataRowPanel
 is_package: true

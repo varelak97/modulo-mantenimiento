@@ -1,48 +1,48 @@
-is_package: true
-container: {type: DataRowPanel}
 components:
-- name: button_editar
-  properties: {text: '', icon: 'fa:edit', bold: true, font_size: 18}
-  type: Button
-  layout_properties: {column: JKSDUP}
-  data_bindings:
-  - {property: tag, code: 'self.item[''id_numero_parte'']', writeback: false}
+- data_bindings:
+  - {code: 'self.item[''id_numero_parte'']', property: tag, writeback: false}
   event_bindings: {click: button_editar_click}
-- name: label_numero_parte
-  properties: {}
-  type: Label
+  layout_properties: {column: JKSDUP}
+  name: button_editar
+  properties: {bold: true, font_size: 18, icon: 'fa:edit', text: ''}
+  type: Button
+- data_bindings:
+  - {code: 'self.item[''numero_parte'']', property: text, writeback: false}
   layout_properties: {column: VJQQOR}
-  data_bindings:
-  - {property: text, code: 'self.item[''numero_parte'']', writeback: false}
-- name: label_cliente
+  name: label_numero_parte
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''cliente'']', property: text, writeback: false}
+  - {code: 'self.item[''id_cliente'']', property: tag, writeback: false}
   layout_properties: {column: OJLQEN}
-  data_bindings:
-  - {property: text, code: 'self.item[''cliente'']', writeback: false}
-  - {property: tag, code: 'self.item[''id_cliente'']', writeback: false}
-- name: label_herramentales
+  name: label_cliente
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''herramentales'']', property: text, writeback: false}
+  - {code: 'self.item[''id_herramentales'']', property: tag, writeback: false}
   layout_properties: {column: OCXQLW}
-  data_bindings:
-  - {property: text, code: 'self.item[''herramentales'']', writeback: false}
-  - {property: tag, code: 'self.item[''id_herramentales'']', writeback: false}
-- name: label_fecha_registro
+  name: label_herramentales
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''fecha_registro'']', property: text, writeback: false}
   layout_properties: {column: BYEKWX}
-  data_bindings:
-  - {property: text, code: 'self.item[''fecha_registro'']', writeback: false}
-- name: label_usuario_registrador
+  name: label_fecha_registro
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''usuario_registrador'']', property: text, writeback: false}
   layout_properties: {column: JVRGIU}
-  data_bindings:
-  - {property: text, code: 'self.item[''usuario_registrador'']', writeback: false}
-- name: label_comentarios
+  name: label_usuario_registrador
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''comentarios'']', property: text, writeback: false}
   layout_properties: {column: HRTTQR}
-  data_bindings:
-  - {property: text, code: 'self.item[''comentarios'']', writeback: false}
+  name: label_comentarios
+  properties: {}
+  type: Label
+container: {type: DataRowPanel}
+is_package: true

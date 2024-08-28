@@ -1,159 +1,159 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
-  event_bindings: {}
 components:
-- type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-  name: content_panel
-  layout_properties: {grid_position: 'ODKQYG,DVKRFX', full_width_row: true}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: outlined_card_titulo
-    layout_properties: {grid_position: 'HVIYWO,NYUOFN'}
-    components:
-    - type: Label
-      properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Secondary', visible: true, text: PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary', bold: true, underline: false, icon: ''}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'NXWQIQ,LZPNWC'}
       name: label_titulo
-      layout_properties: {grid_position: 'NXWQIQ,LZPNWC'}
-  - type: ColumnPanel
-    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_calendario
-    layout_properties: {grid_position: 'MRPKLW,HJQETC', full_width_row: true}
-    components:
-    - name: button_programar
-      properties: {text: PROGRAMAR MANTENIMIENTOS, bold: true, role: filled-button, icon: 'fa:calendar'}
-      type: Button
+      properties: {align: center, background: 'theme:Primary', bold: true, border: '', font: '', font_size: null, foreground: 'theme:On Secondary', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA, tooltip: '', underline: false, visible: true}
+      type: Label
+    layout_properties: {grid_position: 'HVIYWO,NYUOFN'}
+    name: outlined_card_titulo
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  - components:
+    - event_bindings: {click: button_programar_click}
       layout_properties: {grid_position: 'SQAUDH,RWCYYQ'}
-      event_bindings: {click: button_programar_click}
-    - type: FlowPanel
-      properties: {role: null, vertical_align: full, spacing: medium, align: center, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: 'theme:Outline'}
-      name: flow_panel_componentes_busqueda
+      name: button_programar
+      properties: {bold: true, icon: 'fa:calendar', role: filled-button, text: PROGRAMAR MANTENIMIENTOS}
+      type: Button
+    - components:
+      - layout_properties: {grid_position: 'GGLLJE,VNRYTO'}
+        name: label_calendario_mantenimiento
+        properties: {align: center, background: '', bold: true, border: '', font: '', font_size: null, foreground: 'theme:On Primary', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: none, text: CALENDARIO, tooltip: '', underline: false, visible: true}
+        type: Label
+      - event_bindings: {change: drop_down_mes_change}
+        layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
+        name: drop_down_mes
+        properties:
+          align: center
+          background: theme:On Primary
+          bold: false
+          border: ''
+          enabled: true
+          font: ''
+          font_size: null
+          foreground: ''
+          include_placeholder: false
+          italic: false
+          items: ['']
+          placeholder: -- MES --
+          role: outlined
+          spacing_above: small
+          spacing_below: none
+          tooltip: ''
+          underline: false
+          visible: true
+        type: DropDown
+      - event_bindings: {change: drop_down_anio_change}
+        layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
+        name: drop_down_anio
+        properties:
+          align: center
+          background: theme:On Primary
+          bold: false
+          border: ''
+          enabled: true
+          font: ''
+          font_size: null
+          foreground: ''
+          include_placeholder: false
+          italic: false
+          items: ['2020', '2021', '2022', '2023', '2024', '2025', '2026']
+          placeholder: -- AÑO --
+          role: outlined
+          spacing_above: small
+          spacing_below: none
+          tooltip: ''
+          underline: false
+          visible: true
+        type: DropDown
       layout_properties:
         col_widths: {}
         grid_position: NCNSYW,YWDAWJ
-      components:
-      - type: Label
-        properties: {role: title, align: center, tooltip: '', border: '', foreground: 'theme:On Primary', visible: true, text: CALENDARIO, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: true, underline: false, icon: ''}
-        name: label_calendario_mantenimiento
-        layout_properties: {grid_position: 'GGLLJE,VNRYTO'}
-      - type: DropDown
-        properties:
-          role: outlined
-          align: center
-          tooltip: ''
-          placeholder: -- MES --
-          border: ''
-          enabled: true
-          foreground: ''
-          items: ['']
-          visible: true
-          font_size: null
-          font: ''
-          spacing_above: small
-          spacing_below: none
-          italic: false
-          background: theme:On Primary
-          bold: false
-          underline: false
-          include_placeholder: false
-        name: drop_down_mes
-        layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
-        event_bindings: {change: drop_down_mes_change}
-      - type: DropDown
-        properties:
-          role: outlined
-          align: center
-          tooltip: ''
-          placeholder: -- AÑO --
-          border: ''
-          enabled: true
-          foreground: ''
-          items: ['2020', '2021', '2022', '2023', '2024', '2025', '2026']
-          visible: true
-          font_size: null
-          font: ''
-          spacing_above: small
-          spacing_below: none
-          italic: false
-          background: theme:On Primary
-          bold: false
-          underline: false
-          include_placeholder: false
-        name: drop_down_anio
-        layout_properties: {grid_position: 'RZLHRV,EIZXMN'}
-        event_bindings: {change: drop_down_anio_change}
-    - name: flow_panel_1
-      properties: {align: center, background: 'theme:LightGreen', role: null}
+      name: flow_panel_componentes_busqueda
+      properties: {align: center, background: 'theme:Outline', border: '', foreground: '', role: null, spacing: medium, spacing_above: small, spacing_below: small, tooltip: '', vertical_align: full, visible: true}
       type: FlowPanel
-      layout_properties: {grid_position: 'ASVUGV,HNZMYC'}
-      components:
-      - name: button_borrar
-        properties: {text: '', role: filled-button, background: 'theme:Orange', icon: 'fa:eraser'}
-        type: Button
-        layout_properties: {}
-        data_bindings: []
+    - components:
+      - data_bindings: []
         event_bindings: {click: button_borrar_click}
-      - name: label_areas
-        properties: {text: 'ÁREA:', bold: true}
-        type: Label
         layout_properties: {}
-      - name: drop_down_areas
-        properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined, background: 'theme:White'}
-        type: DropDown
+        name: button_borrar
+        properties: {background: 'theme:Orange', icon: 'fa:eraser', role: filled-button, text: ''}
+        type: Button
+      - layout_properties: {}
+        name: label_areas
+        properties: {bold: true, text: 'ÁREA:'}
+        type: Label
+      - event_bindings: {change: drop_down_areas_change}
         layout_properties: {width: 181}
-        event_bindings: {change: drop_down_areas_change}
-      - name: label_1
-        properties: {text: 'EQUIPO:', bold: true}
-        type: Label
-        layout_properties: {}
-      - name: drop_down_equipos
-        properties: {include_placeholder: true, placeholder: -- TODOS --, role: outlined, background: 'theme:White', align: full}
+        name: drop_down_areas
+        properties: {background: 'theme:White', include_placeholder: true, placeholder: -- TODAS --, role: outlined}
         type: DropDown
-        layout_properties: {width: 233.667}
-        event_bindings: {change: drop_down_equipos_change}
-      - name: label_2
-        properties: {text: 'TIPO:', align: left, bold: true}
+      - layout_properties: {}
+        name: label_1
+        properties: {bold: true, text: 'EQUIPO:'}
         type: Label
-        layout_properties: {}
-      - name: drop_down_tipo
+      - event_bindings: {change: drop_down_equipos_change}
+        layout_properties: {width: 233.667}
+        name: drop_down_equipos
+        properties: {align: full, background: 'theme:White', include_placeholder: true, placeholder: -- TODOS --, role: outlined}
+        type: DropDown
+      - layout_properties: {}
+        name: label_2
+        properties: {align: left, bold: true, text: 'TIPO:'}
+        type: Label
+      - event_bindings: {change: drop_down_tipo_change}
+        layout_properties: {width: 193}
+        name: drop_down_tipo
         properties:
+          background: theme:White
           include_placeholder: false
+          items: [PROGRAMADO, REPROGRAMADO, ATRASADO, REALIZADO]
           placeholder: -- TODOS --
           role: outlined
-          background: theme:White
-          items: [PROGRAMADO, REPROGRAMADO, ATRASADO, REALIZADO]
         type: DropDown
-        layout_properties: {width: 193}
-        event_bindings: {change: drop_down_tipo_change}
-    - type: DataGrid
+      layout_properties: {grid_position: 'ASVUGV,HNZMYC'}
+      name: flow_panel_1
+      properties: {align: center, background: 'theme:LightGreen', role: null}
+      type: FlowPanel
+    - components:
+      - layout_properties: {}
+        name: repeating_panel_mes_calendario
+        properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplateDias, spacing_above: none, spacing_below: none}
+        type: RepeatingPanel
+      layout_properties: {full_width_row: true, grid_position: 'JVQOET,MPJOOI'}
+      name: data_grid_calendario
       properties:
-        role: tonal-data-grid
-        columns:
-        - {id: OTNAOY, title: LUNES, data_key: column_1, $$hashKey: 'object:30719', width: ''}
-        - {id: HTLZSE, title: MARTES, data_key: column_2, $$hashKey: 'object:30720', width: ''}
-        - {id: CCDLML, title: MIÉRCOLES, data_key: column_3, $$hashKey: 'object:30721', width: ''}
-        - {id: OTSFPZ, title: JUEVES, data_key: column_4, $$hashKey: 'object:30759', width: ''}
-        - {id: UJXKHF, title: VIERNES, data_key: column_5, $$hashKey: 'object:30761', width: ''}
-        - {id: MVWUVE, title: SÁBADO, data_key: column_6, $$hashKey: 'object:30763', width: ''}
-        - {id: XMAFNF, title: DOMINGO, data_key: column_7, $$hashKey: 'object:30765', width: ''}
         auto_header: true
-        tooltip: ''
+        background: theme:TertiaryGreen
         border: ''
+        columns:
+        - {$$hashKey: 'object:30719', data_key: column_1, id: OTNAOY, title: LUNES, width: ''}
+        - {$$hashKey: 'object:30720', data_key: column_2, id: HTLZSE, title: MARTES, width: ''}
+        - {$$hashKey: 'object:30721', data_key: column_3, id: CCDLML, title: MIÉRCOLES, width: ''}
+        - {$$hashKey: 'object:30759', data_key: column_4, id: OTSFPZ, title: JUEVES, width: ''}
+        - {$$hashKey: 'object:30761', data_key: column_5, id: UJXKHF, title: VIERNES, width: ''}
+        - {$$hashKey: 'object:30763', data_key: column_6, id: MVWUVE, title: SÁBADO, width: ''}
+        - {$$hashKey: 'object:30765', data_key: column_7, id: XMAFNF, title: DOMINGO, width: ''}
         foreground: ''
+        role: tonal-data-grid
         rows_per_page: 20
-        visible: true
-        wrap_on: never
         show_page_controls: true
         spacing_above: small
         spacing_below: small
-        background: theme:TertiaryGreen
-      name: data_grid_calendario
-      layout_properties: {grid_position: 'JVQOET,MPJOOI', full_width_row: true}
-      components:
-      - type: RepeatingPanel
-        properties: {spacing_above: none, spacing_below: none, item_template: MANTENIMIENTO_PROGRAMA_ANUAL.RowTemplateDias}
-        name: repeating_panel_mes_calendario
-        layout_properties: {}
+        tooltip: ''
+        visible: true
+        wrap_on: never
+      type: DataGrid
+    layout_properties: {full_width_row: true, grid_position: 'MRPKLW,HJQETC'}
+    name: card_calendario
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  layout_properties: {full_width_row: true, grid_position: 'ODKQYG,DVKRFX'}
+  name: content_panel
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+container:
+  event_bindings: {}
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

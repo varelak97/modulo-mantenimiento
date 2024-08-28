@@ -1,54 +1,54 @@
-container: {type: ColumnPanel}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'IKAZSA,EHLYNR'}
-  components:
-  - name: label_titulo
-    properties: {text: AJUSTES DE MANTENIMIENTO, bold: true, align: center, role: headline, foreground: 'theme:White', background: 'theme:Primary'}
+- components:
+  - layout_properties: {grid_position: 'FJPCIW,YZVERO'}
+    name: label_titulo
+    properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:White', role: headline, text: AJUSTES DE MANTENIMIENTO}
     type: Label
-    layout_properties: {grid_position: 'FJPCIW,YZVERO'}
-  - name: link_areas
-    properties: {text: AREAS, align: center, bold: true, background: 'theme:LightBlue'}
+  - layout_properties: {grid_position: 'RYFSUV,QKDFWA'}
+    name: link_areas
+    properties: {align: center, background: 'theme:LightBlue', bold: true, text: AREAS}
     type: Link
-    layout_properties: {grid_position: 'RYFSUV,QKDFWA'}
-  - name: link_equipos
-    properties: {text: EQUIPOS, bold: true, align: center}
+  - layout_properties: {grid_position: 'RYFSUV,LKGNXN'}
+    name: link_equipos
+    properties: {align: center, bold: true, text: EQUIPOS}
     type: Link
-    layout_properties: {grid_position: 'RYFSUV,LKGNXN'}
-  - name: link_actividades
-    properties: {text: ACTIVIDADES, align: center, bold: true}
+  - layout_properties: {grid_position: 'RYFSUV,NLROGS'}
+    name: link_actividades
+    properties: {align: center, bold: true, text: ACTIVIDADES}
     type: Link
-    layout_properties: {grid_position: 'RYFSUV,NLROGS'}
-  - name: outlined_card_areas
-    properties: {role: elevated-card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'MQNIGC,EXNRYX'}
-    components:
-    - name: data_grid_actividades
-      properties:
-        columns:
-        - {id: JKSDUP, title: '#', data_key: index, width: '80'}
-        - {id: VJQQOR, title: ACTIVIDAD, data_key: actividad}
-        - {id: OJLQEN, title: EQUIPOS, data_key: equipos}
-        - {id: QZYANH, data_key: column_1, title: Column 1}
-      type: DataGrid
-      components:
+  - components:
+    - components:
       - name: repeating_panel_1
         properties: {item_template: MANTENIMIENTO_AJUSTES.RowTemplate8}
         type: RepeatingPanel
       layout_properties: {grid_position: 'HWHRLT,OYZLWE'}
-  - name: outlined_card_equipos
+      name: data_grid_actividades
+      properties:
+        columns:
+        - {data_key: index, id: JKSDUP, title: '#', width: '80'}
+        - {data_key: actividad, id: VJQQOR, title: ACTIVIDAD}
+        - {data_key: equipos, id: OJLQEN, title: EQUIPOS}
+        - {data_key: column_1, id: QZYANH, title: Column 1}
+      type: DataGrid
+    layout_properties: {grid_position: 'MQNIGC,EXNRYX'}
+    name: outlined_card_areas
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'LBZTBL,FFQEAT'}
-  - name: outlined_card_actividades
+  - layout_properties: {grid_position: 'LBZTBL,FFQEAT'}
+    name: outlined_card_equipos
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'GELCLD,ASUWOL'}
-  - name: button_guardar
-    properties: {text: GUARDAR, icon: 'fa:save', role: elevated-button, bold: true}
+  - layout_properties: {grid_position: 'GELCLD,ASUWOL'}
+    name: outlined_card_actividades
+    properties: {role: elevated-card}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'DGSTVJ,DSULMK'}
+    name: button_guardar
+    properties: {bold: true, icon: 'fa:save', role: elevated-button, text: GUARDAR}
     type: Button
-    layout_properties: {grid_position: 'DGSTVJ,DSULMK'}
+  layout_properties: {grid_position: 'IKAZSA,EHLYNR'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

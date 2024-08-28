@@ -1,45 +1,45 @@
-is_package: true
-container:
-  type: DataRowPanel
-  data_bindings: []
 components:
-- name: label_equipo
-  properties: {spacing_below: none, spacing_above: none, bold: true, foreground: 'theme:Primary'}
-  type: Label
+- data_bindings:
+  - {code: 'self.item[''equipo'']', property: text, writeback: false}
+  - {code: 'self.item[''id_mtto_preventivo'']', property: tag, writeback: false}
   layout_properties: {column: JKSDUP}
-  data_bindings:
-  - {property: text, code: 'self.item[''equipo'']', writeback: false}
-  - {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}
-- name: button_ver_checklist
-  properties: {text: '', icon: 'fa:eye', align: left, spacing_above: none, spacing_below: none, icon_align: left}
-  type: Button
-  layout_properties: {column: VJQQOR}
-  data_bindings:
-  - {property: visible, code: 'self.item[''ver_checklist'']', writeback: false}
+  name: label_equipo
+  properties: {bold: true, foreground: 'theme:Primary', spacing_above: none, spacing_below: none}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''ver_checklist'']', property: visible, writeback: false}
   event_bindings: {click: button_ver_checklist_click}
-- name: button_llenar_checklist
-  properties: {text: '', icon: 'fa:pencil-square-o', align: center, spacing_below: none, spacing_above: none, icon_align: left, bold: false}
+  layout_properties: {column: VJQQOR}
+  name: button_ver_checklist
+  properties: {align: left, icon: 'fa:eye', icon_align: left, spacing_above: none, spacing_below: none, text: ''}
   type: Button
+- event_bindings: {click: button_llenar_checklist_click}
   layout_properties: {column: GNNYVV}
-  event_bindings: {click: button_llenar_checklist_click}
-- name: label_fecha_programada
+  name: button_llenar_checklist
+  properties: {align: center, bold: false, icon: 'fa:pencil-square-o', icon_align: left, spacing_above: none, spacing_below: none, text: ''}
+  type: Button
+- data_bindings:
+  - {code: 'self.item[''fecha_programada'']', property: text, writeback: false}
+  layout_properties: {column: LEHODC}
+  name: label_fecha_programada
   properties: {align: center, bold: true, foreground: 'theme:Tertiary'}
   type: Label
-  layout_properties: {column: LEHODC}
-  data_bindings:
-  - {property: text, code: 'self.item[''fecha_programada'']', writeback: false}
-- name: label_fecha_realizada
-  properties: {bold: true, align: center, foreground: 'theme:Green'}
-  type: Label
+- data_bindings:
+  - {code: 'self.item[''fecha_realizada'']', property: text, writeback: false}
   layout_properties: {column: INWVXD}
-  data_bindings:
-  - {property: text, code: 'self.item[''fecha_realizada'']', writeback: false}
-- name: button_reprogramar
-  properties: {text: '', icon: 'fa:calendar', align: left, spacing_above: none, spacing_below: none}
-  type: Button
-  layout_properties: {column: YSEHUK}
-  data_bindings:
-  - {property: visible, code: 'self.item[''programar'']', writeback: false}
+  name: label_fecha_realizada
+  properties: {align: center, bold: true, foreground: 'theme:Green'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''programar'']', property: visible, writeback: false}
   event_bindings: {click: button_reprogramar_click}
+  layout_properties: {column: YSEHUK}
+  name: button_reprogramar
+  properties: {align: left, icon: 'fa:calendar', spacing_above: none, spacing_below: none, text: ''}
+  type: Button
+container:
+  data_bindings: []
+  type: DataRowPanel
 data_bindings:
-- {property: tag, code: 'self.item[''id_mtto_preventivo'']', writeback: false}
+- {code: 'self.item[''id_mtto_preventivo'']', property: tag, writeback: false}
+is_package: true

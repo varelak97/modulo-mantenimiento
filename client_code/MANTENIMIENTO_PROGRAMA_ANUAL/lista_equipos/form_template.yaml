@@ -1,26 +1,26 @@
-container:
-  type: ColumnPanel
-  properties: {background: '', spacing_above: small, spacing_below: small}
 components:
-- name: data_grid_lista_equipos
-  properties:
-    columns:
-    - {id: JKSDUP, title: EQUIPO, data_key: equipo, width: '250'}
-    - {id: LEHODC, data_key: fecha_programada, title: FECHA PROGRAMADA, width: '200', expand: false}
-    - {id: INWVXD, data_key: fecha_realizada, title: FECHA REALIZADA, width: '150'}
-    - {id: GNNYVV, data_key: llenar_checklist, title: '', width: '50'}
-    - {id: VJQQOR, title: '', data_key: ver_checlist, width: '50'}
-    - {id: YSEHUK, data_key: reprogramar, title: '', width: '50', expand: false}
-    auto_header: true
-    show_page_controls: false
-    rows_per_page: 200
-    role: scroll-data-grid-default
-  type: DataGrid
-  components:
-  - name: repeating_panel_lista_equipos
+- components:
+  - layout_properties: {}
+    name: repeating_panel_lista_equipos
     properties: {item_template: MANTENIMIENTO_PROGRAMA_ANUAL.lista_equipos.RowTemplateLinks, role: null}
     type: RepeatingPanel
-    layout_properties: {}
   layout_properties: {grid_position: 'JPJFEP,KHEVXI'}
-is_package: true
+  name: data_grid_lista_equipos
+  properties:
+    auto_header: true
+    columns:
+    - {data_key: equipo, id: JKSDUP, title: EQUIPO, width: '250'}
+    - {data_key: fecha_programada, expand: false, id: LEHODC, title: FECHA PROGRAMADA, width: '200'}
+    - {data_key: fecha_realizada, id: INWVXD, title: FECHA REALIZADA, width: '150'}
+    - {data_key: llenar_checklist, id: GNNYVV, title: '', width: '50'}
+    - {data_key: ver_checlist, id: VJQQOR, title: '', width: '50'}
+    - {data_key: reprogramar, expand: false, id: YSEHUK, title: '', width: '50'}
+    role: scroll-data-grid-default
+    rows_per_page: 200
+    show_page_controls: false
+  type: DataGrid
+container:
+  properties: {background: '', spacing_above: small, spacing_below: small}
+  type: ColumnPanel
 data_bindings: []
+is_package: true

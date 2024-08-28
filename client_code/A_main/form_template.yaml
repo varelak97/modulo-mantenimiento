@@ -1,46 +1,46 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
 components:
-- type: ColumnPanel
-  properties: {}
+- layout_properties: {slot: default}
   name: content_panel
-  layout_properties: {slot: default}
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
-  components:
-  - name: label_usuario
-    properties: {role: input-prompt}
-    type: Label
-    layout_properties: {}
-    data_bindings:
-    - {property: text, code: 'f"{self.datos[''nombre_usuario'']} ({self.datos[''id_usuario_erp'']})"', writeback: false}
-  - name: link_cerrar_sesion
-    properties: {role: body, text: CERRAR SESIÓN, icon: 'fa:sign-out', background: '', icon_align: right}
-    type: Link
-    layout_properties: {}
-    event_bindings: {click: link_cerrar_sesion_click}
-- name: column_panel_1
   properties: {}
   type: ColumnPanel
-  layout_properties: {slot: left-nav}
-  components:
-  - name: link_mantenimiento
-    properties: {icon: 'fa:wrench', text: MANTENIMIENTO, bold: true}
+- components:
+  - data_bindings:
+    - {code: 'f"{self.datos[''nombre_usuario'']} ({self.datos[''id_usuario_erp'']})"', property: text, writeback: false}
+    layout_properties: {}
+    name: label_usuario
+    properties: {role: input-prompt}
+    type: Label
+  - event_bindings: {click: link_cerrar_sesion_click}
+    layout_properties: {}
+    name: link_cerrar_sesion
+    properties: {background: '', icon: 'fa:sign-out', icon_align: right, role: body, text: CERRAR SESIÓN}
     type: Link
-    layout_properties: {grid_position: 'SQBIOU,YLAWNP'}
-    data_bindings: []
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- components:
+  - data_bindings: []
     event_bindings: {click: link_mantenimiento_click}
-  - name: link_herramentales
-    properties: {icon: 'fa:cog', text: HERRAMENTALES, bold: true}
+    layout_properties: {grid_position: 'SQBIOU,YLAWNP'}
+    name: link_mantenimiento
+    properties: {bold: true, icon: 'fa:wrench', text: MANTENIMIENTO}
     type: Link
-    layout_properties: {grid_position: 'WNSACP,UMYSVC'}
-    data_bindings: []
+  - data_bindings: []
     event_bindings: {click: link_herramentales_click}
-- name: label_1
+    layout_properties: {grid_position: 'WNSACP,UMYSVC'}
+    name: link_herramentales
+    properties: {bold: true, icon: 'fa:cog', text: HERRAMENTALES}
+    type: Link
+  layout_properties: {slot: left-nav}
+  name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: title}
+  name: label_1
   properties: {text: MANTENIMIENTO}
   type: Label
-  layout_properties: {slot: title}
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

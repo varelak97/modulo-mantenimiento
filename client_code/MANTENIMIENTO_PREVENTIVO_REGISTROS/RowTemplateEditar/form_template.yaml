@@ -1,43 +1,43 @@
-container:
-  type: DataRowPanel
-  data_bindings:
-  - {property: tag, code: 'self.item[''actividades'']'}
 components:
-- type: Label
-  properties: {align: left}
-  name: label_fecha_programada
+- data_bindings:
+  - {code: 'self.item[''fecha_programada'']', property: text}
   layout_properties: {column: YWSDJV}
-  data_bindings:
-  - {property: text, code: 'self.item[''fecha_programada'']'}
-- type: Label
-  properties: {}
-  name: label_area
+  name: label_fecha_programada
+  properties: {align: left}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''area'']', property: text}
   layout_properties: {column: JEOEIG}
-  data_bindings:
-  - {property: text, code: 'self.item[''area'']'}
-- type: Label
+  name: label_area
   properties: {}
-  name: label_equipo
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''equipo'']', property: text}
   layout_properties: {column: KAQTHB}
-  data_bindings:
-  - {property: text, code: 'self.item[''equipo'']'}
-- type: Label
+  name: label_equipo
   properties: {}
-  name: label_frecuencia
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''frecuencia'']', property: text}
   layout_properties: {column: BELBDL}
-  data_bindings:
-  - {property: text, code: 'self.item[''frecuencia'']'}
-- type: Label
+  name: label_frecuencia
   properties: {}
-  name: label_status
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''status_mantenimiento'']', property: text}
   layout_properties: {column: CJCQWT}
-  data_bindings:
-  - {property: text, code: 'self.item[''status_mantenimiento'']'}
-- type: Button
-  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:pencil'}
-  name: button_editar
-  layout_properties: {column: IZLTZI}
+  name: label_status
+  properties: {}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''id_mtto_preventivo'']', property: tag}
   event_bindings: {click: button_editar_click}
+  layout_properties: {column: IZLTZI}
+  name: button_editar
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:pencil', icon_align: left, italic: false, role: elevated-button, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Button
+container:
   data_bindings:
-  - {property: tag, code: 'self.item[''id_mtto_preventivo'']'}
+  - {code: 'self.item[''actividades'']', property: tag}
+  type: DataRowPanel
 is_package: true

@@ -1,133 +1,133 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- name: content_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'PKWEYG,WBCCKR', full_width_row: true}
-  components:
-  - name: outlined_card_titulo
-    properties: {role: elevated-card}
-    type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'RBFHGX,CMFZXY'}
+      name: label_titulo
+      properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:White', role: headline, text: LABEL_TITULO}
+      type: Label
     layout_properties: {grid_position: 'QPSVNO,JOACMD'}
-    components:
-    - name: label_titulo
-      properties: {text: LABEL_TITULO, bold: true, role: headline, background: 'theme:Primary', foreground: 'theme:White', align: center}
-      type: Label
-      layout_properties: {grid_position: 'RBFHGX,CMFZXY'}
-  - name: outlined_card_equipos
+    name: outlined_card_titulo
     properties: {role: elevated-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'TFYNWU,BPTEAC', full_width_row: true}
-    components:
-    - name: label_equipos
-      properties: {text: EQUIPOS FECHA DE INICIO, background: 'theme:Tertiary', bold: true, foreground: 'theme:White', align: center, role: title}
+  - components:
+    - layout_properties: {full_width_row: true, grid_position: 'RLGVYW,BDZUMF'}
+      name: label_equipos
+      properties: {align: center, background: 'theme:Tertiary', bold: true, foreground: 'theme:White', role: title, text: EQUIPOS FECHA DE INICIO}
       type: Label
-      layout_properties: {grid_position: 'RLGVYW,BDZUMF', full_width_row: true}
-    - name: label_area
-      properties: {text: 'ÁREA:', bold: true}
+    - layout_properties: {grid_position: 'PAIGKA,ZEFSLF'}
+      name: label_area
+      properties: {bold: true, text: 'ÁREA:'}
       type: Label
-      layout_properties: {grid_position: 'PAIGKA,ZEFSLF'}
-    - name: label_equipo
+    - layout_properties: {grid_position: 'PAIGKA,ZOWMIE'}
+      name: label_equipo
       properties: {bold: true, text: 'EQUIPO:'}
       type: Label
-      layout_properties: {grid_position: 'PAIGKA,ZOWMIE'}
-    - name: drop_down_area
-      properties: {include_placeholder: true, placeholder: -- TODAS --, role: outlined, align: full}
-      type: DropDown
+    - event_bindings: {change: drop_down_area_change}
       layout_properties: {grid_position: 'HMTNKN,RZNJET'}
-      event_bindings: {change: drop_down_area_change}
-    - name: drop_down_equipo
-      properties: {placeholder: -- TODOS --, include_placeholder: true, role: outlined, align: full}
+      name: drop_down_area
+      properties: {align: full, include_placeholder: true, placeholder: -- TODAS --, role: outlined}
       type: DropDown
-      layout_properties: {grid_position: 'HMTNKN,FTCLDS'}
-      data_bindings: []
+    - data_bindings: []
       event_bindings: {change: drop_down_equipo_change}
-    - name: label_1
-      properties: {text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento para cada equipo según corresponda:', bold: true, italic: true}
+      layout_properties: {grid_position: 'HMTNKN,FTCLDS'}
+      name: drop_down_equipo
+      properties: {align: full, include_placeholder: true, placeholder: -- TODOS --, role: outlined}
+      type: DropDown
+    - layout_properties: {grid_position: 'XBEGXN,HGMKQR'}
+      name: label_1
+      properties: {bold: true, italic: true, text: '* Ingrese la fecha inicial de cada frecuencia  de mantenimiento para cada equipo según corresponda:'}
       type: Label
-      layout_properties: {grid_position: 'XBEGXN,HGMKQR'}
-    - name: data_grid_equipos
-      properties:
-        columns:
-        - {id: BYJQCL, data_key: id_equipo, title: '', width: '80'}
-        - {id: JKSDUP, title: EQUIPO, data_key: equipo, width: '500'}
-        - {id: VJQQOR, title: SEMANAL, data_key: semanal}
-        - {id: OJLQEN, title: MENSUAL, data_key: mensual}
-        - {id: GCFZRN, data_key: trimestral, title: TRIMESTRAL}
-        - {id: BZILCF, data_key: semestral, title: SEMESTRAL}
-        - {id: GXQNNV, data_key: anual, title: ANUAL}
-        - {id: KXABMA, data_key: editar, title: '', width: '80', expand: false}
-        role: tonal-data-grid
-        show_page_controls: true
-        rows_per_page: 90
-      type: DataGrid
-      components:
-      - name: data_row_panel_equipos
+    - components:
+      - components:
+        - event_bindings: {click: button_agregar_equipo_click}
+          layout_properties: {column: JKSDUP}
+          name: button_agregar_equipo
+          properties: {background: 'theme:Orange', bold: true, foreground: 'theme:White', role: filled-button, text: AGREGAR EQUIPO}
+          type: Button
+        layout_properties: {}
+        name: data_row_panel_equipos
         properties: {visible: false}
         type: DataRowPanel
-        components:
-        - name: button_agregar_equipo
-          properties: {text: AGREGAR EQUIPO, role: filled-button, foreground: 'theme:White', background: 'theme:Orange', bold: true}
-          type: Button
-          layout_properties: {column: JKSDUP}
-          event_bindings: {click: button_agregar_equipo_click}
+      - event_bindings: {}
         layout_properties: {}
-      - name: repeating_panel_equipos
+        name: repeating_panel_equipos
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate7, role: null}
         type: RepeatingPanel
-        layout_properties: {}
-        event_bindings: {}
-      layout_properties: {grid_position: 'DYHQXF,GGFCBE', full_width_row: true}
       event_bindings: {}
-  - name: button_prog_fecha_unica
-    properties: {text: PROGRAMAR FECHA ÚNICA, bold: true, role: filled-button, background: 'theme:Blue'}
-    type: Button
-    layout_properties: {grid_position: 'PVKPSB,NCQLSF'}
-    event_bindings: {click: button_prog_fecha_unica_click}
-  - name: outlined_card_body
-    properties: {role: elevated-card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'XPHNCL,SYFQUW'}
-    components:
-    - name: label_calendario
-      properties: {text: LISTA DE FECHAS A EXCLUIR, background: 'theme:Tertiary', bold: true, foreground: 'theme:White', align: center, role: title}
-      type: Label
-      layout_properties: {grid_position: 'NKBZAF,DXRSCI'}
-    - name: label_excluir
-      properties: {text: '* Ingrese las fechas a excluir en la generación del calendario anual de mantenimiento (opcional):', bold: true, italic: true}
-      type: Label
-      layout_properties: {grid_position: 'WFFDAX,BDEKOB'}
-    - name: data_grid_fechas_excluidas
+      layout_properties: {full_width_row: true, grid_position: 'DYHQXF,GGFCBE'}
+      name: data_grid_equipos
       properties:
         columns:
-        - {id: JKSDUP, title: '#', data_key: index, width: '80'}
-        - {id: VJQQOR, title: FECHA INICIAL, data_key: fecha_inicial}
-        - {id: OJLQEN, title: FECHA FINAL, data_key: fecha_final}
-        - {id: LEJPEQ, data_key: editar, title: '', width: '80'}
-        - {id: RPPGHT, data_key: eliminar, title: '', width: '80'}
+        - {data_key: id_equipo, id: BYJQCL, title: '', width: '80'}
+        - {data_key: equipo, id: JKSDUP, title: EQUIPO, width: '500'}
+        - {data_key: semanal, id: VJQQOR, title: SEMANAL}
+        - {data_key: mensual, id: OJLQEN, title: MENSUAL}
+        - {data_key: trimestral, id: GCFZRN, title: TRIMESTRAL}
+        - {data_key: semestral, id: BZILCF, title: SEMESTRAL}
+        - {data_key: anual, id: GXQNNV, title: ANUAL}
+        - {data_key: editar, expand: false, id: KXABMA, title: '', width: '80'}
         role: tonal-data-grid
+        rows_per_page: 90
         show_page_controls: true
-        rows_per_page: 100
       type: DataGrid
-      components:
-      - name: button_agregar_fecha
-        properties: {text: AGREGAR FECHA, background: 'theme:Orange', role: filled-button, bold: true, icon: 'fa:plus-circle'}
+    layout_properties: {full_width_row: true, grid_position: 'TFYNWU,BPTEAC'}
+    name: outlined_card_equipos
+    properties: {role: elevated-card}
+    type: ColumnPanel
+  - event_bindings: {click: button_prog_fecha_unica_click}
+    layout_properties: {grid_position: 'PVKPSB,NCQLSF'}
+    name: button_prog_fecha_unica
+    properties: {background: 'theme:Blue', bold: true, role: filled-button, text: PROGRAMAR FECHA ÚNICA}
+    type: Button
+  - components:
+    - layout_properties: {grid_position: 'NKBZAF,DXRSCI'}
+      name: label_calendario
+      properties: {align: center, background: 'theme:Tertiary', bold: true, foreground: 'theme:White', role: title, text: LISTA DE FECHAS A EXCLUIR}
+      type: Label
+    - layout_properties: {grid_position: 'WFFDAX,BDEKOB'}
+      name: label_excluir
+      properties: {bold: true, italic: true, text: '* Ingrese las fechas a excluir en la generación del calendario anual de mantenimiento (opcional):'}
+      type: Label
+    - components:
+      - event_bindings: {click: button_agregar_fecha_click}
+        name: button_agregar_fecha
+        properties: {background: 'theme:Orange', bold: true, icon: 'fa:plus-circle', role: filled-button, text: AGREGAR FECHA}
         type: Button
-        event_bindings: {click: button_agregar_fecha_click}
-      - name: data_row_panel_agregar_fecha
+      - components: []
+        layout_properties: {}
+        name: data_row_panel_agregar_fecha
         properties: {visible: true}
         type: DataRowPanel
-        components: []
-        layout_properties: {}
       - name: repeating_panel_fechas_excluidas
         properties: {item_template: MANTENIMIENTO_PREVENTIVO_PROGRAMACION.RowTemplate1}
         type: RepeatingPanel
       layout_properties: {grid_position: 'HEHOUK,ASFZFF'}
-  - name: button_generar_calendario
-    properties: {text: GENERAR CALENDARIO ANUAL, bold: true, background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:calendar-check-o'}
-    type: Button
+      name: data_grid_fechas_excluidas
+      properties:
+        columns:
+        - {data_key: index, id: JKSDUP, title: '#', width: '80'}
+        - {data_key: fecha_inicial, id: VJQQOR, title: FECHA INICIAL}
+        - {data_key: fecha_final, id: OJLQEN, title: FECHA FINAL}
+        - {data_key: editar, id: LEJPEQ, title: '', width: '80'}
+        - {data_key: eliminar, id: RPPGHT, title: '', width: '80'}
+        role: tonal-data-grid
+        rows_per_page: 100
+        show_page_controls: true
+      type: DataGrid
+    layout_properties: {grid_position: 'XPHNCL,SYFQUW'}
+    name: outlined_card_body
+    properties: {role: elevated-card}
+    type: ColumnPanel
+  - event_bindings: {click: button_generar_calendario_click}
     layout_properties: {grid_position: 'CTVMXS,RIEGGP'}
-    event_bindings: {click: button_generar_calendario_click}
+    name: button_generar_calendario
+    properties: {background: 'theme:Blue', bold: true, foreground: 'theme:White', icon: 'fa:calendar-check-o', text: GENERAR CALENDARIO ANUAL}
+    type: Button
+  layout_properties: {full_width_row: true, grid_position: 'PKWEYG,WBCCKR'}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

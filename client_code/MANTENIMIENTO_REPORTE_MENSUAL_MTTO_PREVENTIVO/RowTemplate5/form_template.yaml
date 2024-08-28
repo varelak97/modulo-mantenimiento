@@ -1,44 +1,44 @@
-is_package: true
-container: {type: DataRowPanel}
 components:
-- name: label_frecuencia
-  properties: {}
-  type: Label
+- data_bindings:
+  - {code: 'self.item[''frecuencia'']', property: text, writeback: false}
   layout_properties: {column: JKSDUP}
-  data_bindings:
-  - {property: text, code: 'self.item[''frecuencia'']', writeback: false}
-- name: label_mttos_programados
+  name: label_frecuencia
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''mttos_programados'']', property: text, writeback: false}
   layout_properties: {column: VJQQOR}
-  data_bindings:
-  - {property: text, code: 'self.item[''mttos_programados'']', writeback: false}
-- name: label_mttos_realizados
+  name: label_mttos_programados
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''mttos_realizados'']', property: text, writeback: false}
   layout_properties: {column: OJLQEN}
-  data_bindings:
-  - {property: text, code: 'self.item[''mttos_realizados'']', writeback: false}
-- name: label_mttos_reprogramados
+  name: label_mttos_realizados
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''mttos_reprogramados'']', property: text, writeback: false}
   layout_properties: {column: LSYEDG}
-  data_bindings:
-  - {property: text, code: 'self.item[''mttos_reprogramados'']', writeback: false}
-- name: label_mttos_pendientes
+  name: label_mttos_reprogramados
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''mttos_pendientes'']', property: text, writeback: false}
   layout_properties: {column: TIAIOE}
-  data_bindings:
-  - {property: text, code: 'self.item[''mttos_pendientes'']', writeback: false}
-- name: label_observaciones
+  name: label_mttos_pendientes
   properties: {}
   type: Label
+- data_bindings:
+  - {code: 'self.item[''observaciones'']', property: text, writeback: false}
   layout_properties: {column: VRTRKW}
-  data_bindings:
-  - {property: text, code: 'self.item[''observaciones'']', writeback: false}
-- name: button_add_observaciones
-  properties: {text: '', icon: 'fa:pencil', role: filled-button, background: 'theme:Orange', foreground: 'theme:Primary'}
-  type: Button
+  name: label_observaciones
+  properties: {}
+  type: Label
+- data_bindings: []
   layout_properties: {column: ZFQQNA}
-  data_bindings: []
+  name: button_add_observaciones
+  properties: {background: 'theme:Orange', foreground: 'theme:Primary', icon: 'fa:pencil', role: filled-button, text: ''}
+  type: Button
+container: {type: DataRowPanel}
+is_package: true

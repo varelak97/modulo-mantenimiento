@@ -1,314 +1,314 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: content_panel
-  layout_properties: {grid_position: 'ZXJMQZ,JWETKI'}
-  components:
-  - type: ColumnPanel
-    properties: {role: elevated-card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-    name: outlined_card_titulo
-    layout_properties: {grid_position: 'ILIQFV,FWAXIV'}
-    components:
-    - type: Label
-      properties: {role: title, bold: true, align: center, spacing_above: small, background: 'theme:Primary', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: REPORTE DE MANTENIMIENTO CORRECTIVO O PREVENTIVO PROGRAMADO}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'ZUTWES,UAWKNS'}
       name: label_titulo
-      layout_properties: {grid_position: 'ZUTWES,UAWKNS'}
-  - type: ColumnPanel
-    properties: {col_widths: '{}'}
-    name: column_panel_body
-    layout_properties: {grid_position: 'JJXHMO,CQJVDO'}
-    components:
-    - type: ColumnPanel
-      properties: {role: elevated-card, col_widths: '{"BTVGEH":25,"LEMXXN":35,"IGIDLV":25,"YVEUIP":35,"PJDBYM":25,"GSMLBN":35,"UPLWNL":25,"QSIOPU":35}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-      name: outlined_card_equipo
-      layout_properties: {grid_position: 'IOMSGE,FIKYFX'}
-      components:
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'FECHA Y HORA DE SOLICITUD:'}
+      properties: {align: center, background: 'theme:Primary', bold: true, border: '', font: '', font_size: null, foreground: 'theme:On Primary', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: REPORTE DE MANTENIMIENTO CORRECTIVO O PREVENTIVO PROGRAMADO, tooltip: '', underline: false, visible: true}
+      type: Label
+    layout_properties: {grid_position: 'ILIQFV,FWAXIV'}
+    name: outlined_card_titulo
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  - components:
+    - components:
+      - layout_properties: {grid_position: 'YNRMXP,BTVGEH'}
         name: label_fecha_hora_solicitud
-        layout_properties: {grid_position: 'YNRMXP,BTVGEH'}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'ÁREA:'}
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'FECHA Y HORA DE SOLICITUD:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - layout_properties: {grid_position: 'YNRMXP,LEMXXN'}
         name: label_area
-        layout_properties: {grid_position: 'YNRMXP,LEMXXN'}
-      - type: DatePicker
-        properties: {role: outlined, bold: false, format: '%Y-%m-%d %H:%M:%S', align: left, date: '', placeholder: '', pick_time: true, spacing_above: small, background: '', underline: false, font: '', max_date: '', foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: false, font_size: null, tooltip: '', min_date: ''}
-        name: date_picker_fecha_hora_solicitud
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'ÁREA:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - data_bindings:
+        - {code: '''fecha_hora_solicitud''', property: tag}
         layout_properties: {grid_position: 'CSUHCU,IGIDLV'}
-        data_bindings:
-        - {property: tag, code: '''fecha_hora_solicitud'''}
-      - name: text_box_area
-        properties: {role: outlined, enabled: false}
-        type: TextBox
+        name: date_picker_fecha_hora_solicitud
+        properties: {align: left, background: '', bold: false, border: '', date: '', enabled: false, font: '', font_size: null, foreground: '', format: '%Y-%m-%d %H:%M:%S', italic: false, max_date: '', min_date: '', pick_time: true, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, tooltip: '', underline: false, visible: true}
+        type: DatePicker
+      - data_bindings:
+        - {code: '''area''', property: tag, writeback: false}
         layout_properties: {grid_position: 'CSUHCU,YVEUIP PTCWUZ,VIDKAP'}
-        data_bindings:
-        - {property: tag, code: '''area''', writeback: false}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'NÚMERO DE FOLIO:'}
-        name: label_folio
-        layout_properties: {grid_position: 'JCDEKV,UPLWNL'}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'EQUIPO:'}
-        name: label_equipo
-        layout_properties: {grid_position: 'JCDEKV,QSIOPU'}
-      - type: TextBox
-        properties: {role: outlined, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
-        name: text_box_folio
-        layout_properties: {grid_position: 'EDLJTM,PJDBYM'}
-        data_bindings:
-        - {property: tag, code: '''folio'''}
-      - name: text_box_equipo
-        properties: {role: outlined, enabled: false}
+        name: text_box_area
+        properties: {enabled: false, role: outlined}
         type: TextBox
+      - layout_properties: {grid_position: 'JCDEKV,UPLWNL'}
+        name: label_folio
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'NÚMERO DE FOLIO:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - layout_properties: {grid_position: 'JCDEKV,QSIOPU'}
+        name: label_equipo
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'EQUIPO:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - data_bindings:
+        - {code: '''folio''', property: tag}
+        layout_properties: {grid_position: 'EDLJTM,PJDBYM'}
+        name: text_box_folio
+        properties: {align: left, background: '', bold: false, border: '', enabled: false, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+        type: TextBox
+      - data_bindings:
+        - {code: '''equipo''', property: tag, writeback: false}
         layout_properties: {grid_position: 'EDLJTM,GSMLBN'}
-        data_bindings:
-        - {property: tag, code: '''equipo''', writeback: false}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'DESCRIPCIÓN DE LA FALLA O POSIBLE RIESGO:'}
+        name: text_box_equipo
+        properties: {enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'TZTQUE,LABQTD'}
         name: label_descripcion_falla
-        layout_properties: {grid_position: 'TZTQUE,LABQTD'}
-      - type: TextArea
-        properties: {role: outlined, bold: false, align: left, placeholder: '', spacing_above: small, background: '', underline: false, font: '', foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, auto_expand: false, font_size: null, tooltip: '', height: 97.1953, text: ''}
-        name: text_area_descripcion_falla
-        layout_properties: {grid_position: 'ZHJLMV,YPNBXK'}
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'DESCRIPCIÓN DE LA FALLA O POSIBLE RIESGO:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - data_bindings:
+        - {code: '''descripcion_falla''', property: tag}
         event_bindings: {}
-        data_bindings:
-        - {property: tag, code: '''descripcion_falla'''}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: REQUIERE REFACCIÓN}
+        layout_properties: {grid_position: 'ZHJLMV,YPNBXK'}
+        name: text_area_descripcion_falla
+        properties: {align: left, auto_expand: false, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', height: 97.1953, italic: false, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+        type: TextArea
+      - layout_properties: {grid_position: 'ULMWQP,GMKXOX'}
         name: label_refaccion
-        layout_properties: {grid_position: 'ULMWQP,GMKXOX'}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'REQUIERE SERVICIO:'}
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: REQUIERE REFACCIÓN, tooltip: '', underline: false, visible: true}
+        type: Label
+      - layout_properties: {grid_position: 'ULMWQP,MILYUG'}
         name: label_servicio
-        layout_properties: {grid_position: 'ULMWQP,MILYUG'}
-      - type: Label
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'TIPO DE MANTENIMIENTO:'}
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'REQUIERE SERVICIO:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - layout_properties: {grid_position: 'ULMWQP,RHVJEI'}
         name: label_tipo_mtto
-        layout_properties: {grid_position: 'ULMWQP,RHVJEI'}
-      - type: DropDown
-        properties:
-          role: outlined
-          include_placeholder: true
-          bold: false
-          align: full
-          placeholder: -- SELECCIONE --
-          spacing_above: small
-          background: ''
-          underline: false
-          font: ''
-          foreground: ''
-          items: [SI, 'NO']
-          spacing_below: small
-          visible: true
-          border: ''
-          italic: false
-          enabled: true
-          font_size: null
-          tooltip: ''
-        name: drop_down_refaccion
+        properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'TIPO DE MANTENIMIENTO:', tooltip: '', underline: false, visible: true}
+        type: Label
+      - data_bindings:
+        - {code: '''requiere_refaccion''', property: tag}
         layout_properties: {grid_position: 'EJAQQL,NKODQS'}
-        data_bindings:
-        - {property: tag, code: '''requiere_refaccion'''}
-      - type: DropDown
+        name: drop_down_refaccion
         properties:
-          role: outlined
-          include_placeholder: true
-          bold: false
           align: full
-          placeholder: -- SELECCIONE --
-          spacing_above: small
           background: ''
-          underline: false
+          bold: false
+          border: ''
+          enabled: true
           font: ''
+          font_size: null
           foreground: ''
+          include_placeholder: true
+          italic: false
           items: [SI, 'NO']
-          spacing_below: small
-          visible: true
-          border: ''
-          italic: false
-          enabled: true
-          font_size: null
-          tooltip: ''
-        name: drop_down_servicio
-        layout_properties: {grid_position: 'EJAQQL,YUDMZU'}
-        data_bindings:
-        - {property: tag, code: '''requiere_servicio'''}
-      - type: DropDown
-        properties:
-          role: outlined
-          include_placeholder: true
-          bold: false
-          align: full
           placeholder: -- SELECCIONE --
+          role: outlined
           spacing_above: small
-          background: ''
-          underline: false
-          font: ''
-          foreground: ''
-          items: [PREVENTIVO PROGRAMADO, CORRECTIVO, INSTALACIÓN]
           spacing_below: small
-          visible: true
-          border: ''
-          italic: false
-          enabled: true
-          font_size: null
           tooltip: ''
-        name: drop_down_tipo_mantenimiento
-        layout_properties: {grid_position: 'EJAQQL,FZMDQG'}
+          underline: false
+          visible: true
+        type: DropDown
+      - data_bindings:
+        - {code: '''requiere_servicio''', property: tag}
+        layout_properties: {grid_position: 'EJAQQL,YUDMZU'}
+        name: drop_down_servicio
+        properties:
+          align: full
+          background: ''
+          bold: false
+          border: ''
+          enabled: true
+          font: ''
+          font_size: null
+          foreground: ''
+          include_placeholder: true
+          italic: false
+          items: [SI, 'NO']
+          placeholder: -- SELECCIONE --
+          role: outlined
+          spacing_above: small
+          spacing_below: small
+          tooltip: ''
+          underline: false
+          visible: true
+        type: DropDown
+      - data_bindings:
+        - {code: '''tipo_mantenimiento''', property: tag}
         event_bindings: {change: drop_down_tipo_mantenimiento_change}
-        data_bindings:
-        - {property: tag, code: '''tipo_mantenimiento'''}
-    - type: ColumnPanel
-      properties: {role: null, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: false, border: '', tooltip: ''}
-      name: column_panel_tipo_mtto
-      layout_properties: {grid_position: 'NIYUTF,ZUYOIM'}
-      components:
-      - type: ColumnPanel
-        properties: {role: elevated-card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-        name: outlined_card_mtto_preventivo_correctivo
-        layout_properties: {grid_position: 'YGWHMU,DAANWG'}
-        components:
-        - type: Label
-          properties: {role: input-prompt, bold: true, align: center, spacing_above: small, background: 'theme:Tertiary', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: TIPO DE MANTENIMIENTO}
+        layout_properties: {grid_position: 'EJAQQL,FZMDQG'}
+        name: drop_down_tipo_mantenimiento
+        properties:
+          align: full
+          background: ''
+          bold: false
+          border: ''
+          enabled: true
+          font: ''
+          font_size: null
+          foreground: ''
+          include_placeholder: true
+          italic: false
+          items: [PREVENTIVO PROGRAMADO, CORRECTIVO, INSTALACIÓN]
+          placeholder: -- SELECCIONE --
+          role: outlined
+          spacing_above: small
+          spacing_below: small
+          tooltip: ''
+          underline: false
+          visible: true
+        type: DropDown
+      layout_properties: {grid_position: 'IOMSGE,FIKYFX'}
+      name: outlined_card_equipo
+      properties: {background: '', border: '', col_spacing: medium, col_widths: '{"BTVGEH":25,"LEMXXN":35,"IGIDLV":25,"YVEUIP":35,"PJDBYM":25,"GSMLBN":35,"UPLWNL":25,"QSIOPU":35}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BLJVSH,LCRJKN'}
           name: label_titulo_mtto_preventivo_correctivo
-          layout_properties: {grid_position: 'BLJVSH,LCRJKN'}
-        - type: ColumnPanel
-          properties: {role: outlined-card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: false, border: '', tooltip: ''}
-          name: column_panel_clasificacion
-          layout_properties: {grid_position: 'SPBSEK,DEQTKQ'}
-          components:
-          - type: Label
-            properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'CLASIFICACIÓN DEL MANTENIMIENTO:'}
+          properties: {align: center, background: 'theme:Tertiary', bold: true, border: '', font: '', font_size: null, foreground: 'theme:On Primary', icon: '', icon_align: left, italic: false, role: input-prompt, spacing_above: small, spacing_below: small, text: TIPO DE MANTENIMIENTO, tooltip: '', underline: false, visible: true}
+          type: Label
+        - components:
+          - layout_properties: {grid_position: 'AWSGVP,RCXAHM'}
             name: label_clasifiacacion
-            layout_properties: {grid_position: 'AWSGVP,RCXAHM'}
-          - type: RadioButton
-            properties: {role: null, bold: false, align: left, selected: false, spacing_above: small, value: Mal uso del equipo, background: '', underline: false, font: '', group_name: clasificacion_mtto, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Mal uso del equipo}
-            name: radio_button_mal_uso
+            properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'CLASIFICACIÓN DEL MANTENIMIENTO:', tooltip: '', underline: false, visible: true}
+            type: Label
+          - data_bindings: []
             layout_properties: {grid_position: 'TUOIHO,SXEJKD'}
-            data_bindings: []
-          - type: RadioButton
-            properties: {role: null, bold: false, align: left, selected: false, spacing_above: small, value: Incumplimiento de mantenimiento preventivo, background: '', underline: false, font: '', group_name: clasificacion_mtto, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Incumplimiento de mantenimiento preventivo}
+            name: radio_button_mal_uso
+            properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', group_name: clasificacion_mtto, italic: false, role: null, selected: false, spacing_above: small, spacing_below: small, text: Mal uso del equipo, tooltip: '', underline: false, value: Mal uso del equipo, visible: true}
+            type: RadioButton
+          - layout_properties: {grid_position: 'TUOIHO,HMWATS'}
             name: radio_button_incumplimiento
-            layout_properties: {grid_position: 'TUOIHO,HMWATS'}
-          - type: RadioButton
-            properties: {role: null, bold: false, align: left, selected: false, spacing_above: small, value: Deterioro o desgaste, background: '', underline: false, font: '', group_name: clasificacion_mtto, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Deterioro o desgaste}
+            properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', group_name: clasificacion_mtto, italic: false, role: null, selected: false, spacing_above: small, spacing_below: small, text: Incumplimiento de mantenimiento preventivo, tooltip: '', underline: false, value: Incumplimiento de mantenimiento preventivo, visible: true}
+            type: RadioButton
+          - layout_properties: {grid_position: 'SPETOE,LVQIMB'}
             name: radio_button_deterioro
-            layout_properties: {grid_position: 'SPETOE,LVQIMB'}
-          - type: RadioButton
-            properties: {role: null, bold: false, align: left, selected: false, spacing_above: small, value: Por omisión de falla, background: '', underline: false, font: '', group_name: clasificacion_mtto, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Por omisión de falla}
+            properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', group_name: clasificacion_mtto, italic: false, role: null, selected: false, spacing_above: small, spacing_below: small, text: Deterioro o desgaste, tooltip: '', underline: false, value: Deterioro o desgaste, visible: true}
+            type: RadioButton
+          - layout_properties: {grid_position: 'SPETOE,JTXOUA'}
             name: radio_button_omision
-            layout_properties: {grid_position: 'SPETOE,JTXOUA'}
-        - type: Label
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'FECHA Y HORA INICIAL:'}
+            properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', group_name: clasificacion_mtto, italic: false, role: null, selected: false, spacing_above: small, spacing_below: small, text: Por omisión de falla, tooltip: '', underline: false, value: Por omisión de falla, visible: true}
+            type: RadioButton
+          layout_properties: {grid_position: 'SPBSEK,DEQTKQ'}
+          name: column_panel_clasificacion
+          properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: outlined-card, spacing_above: small, spacing_below: small, tooltip: '', visible: false, wrap_on: mobile}
+          type: ColumnPanel
+        - layout_properties: {grid_position: 'JOSEKI,MXVPJL'}
           name: label_fecha_hora_inicial
-          layout_properties: {grid_position: 'JOSEKI,MXVPJL'}
-        - type: DatePicker
-          properties: {role: outlined, bold: false, format: '%Y-%m-%d %H:%M:%S', align: left, date: '', placeholder: '', pick_time: true, spacing_above: small, background: '', underline: false, font: '', max_date: '', foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', min_date: ''}
-          name: date_picker_fecha_hora_inicial
+          properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'FECHA Y HORA INICIAL:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - data_bindings:
+          - {code: '''fecha_hora_inicial''', property: tag}
           layout_properties: {grid_position: 'RFURYW,ULLDSU'}
-          data_bindings:
-          - {property: tag, code: '''fecha_hora_inicial'''}
-        - type: Spacer
-          properties: {height: 32}
+          name: date_picker_fecha_hora_inicial
+          properties: {align: left, background: '', bold: false, border: '', date: '', enabled: true, font: '', font_size: null, foreground: '', format: '%Y-%m-%d %H:%M:%S', italic: false, max_date: '', min_date: '', pick_time: true, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, tooltip: '', underline: false, visible: true}
+          type: DatePicker
+        - layout_properties: {grid_position: 'RFURYW,IQFOCT'}
           name: spacer_2
-          layout_properties: {grid_position: 'RFURYW,IQFOCT'}
-        - type: Spacer
           properties: {height: 32}
+          type: Spacer
+        - layout_properties: {grid_position: 'RFURYW,PRKWKX'}
           name: spacer_1
-          layout_properties: {grid_position: 'RFURYW,PRKWKX'}
-        - type: Label
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'ACTIVIDADES DEL MANTENIMIENTO:'}
+          properties: {height: 32}
+          type: Spacer
+        - layout_properties: {grid_position: 'KFLVAQ,PUGRHX'}
           name: label_actividades_mantenimiento
-          layout_properties: {grid_position: 'KFLVAQ,PUGRHX'}
-        - type: TextArea
-          properties: {role: outlined, bold: false, align: left, placeholder: '', spacing_above: small, background: '', underline: false, font: '', foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, auto_expand: false, font_size: null, tooltip: '', height: 197.1953, text: ''}
-          name: text_area_actividades
+          properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'ACTIVIDADES DEL MANTENIMIENTO:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - data_bindings:
+          - {code: '''actividades_mtto''', property: tag}
           layout_properties: {grid_position: 'WZGJVD,ZSLKCH'}
-          data_bindings:
-          - {property: tag, code: '''actividades_mtto'''}
-        - type: Label
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'FECHA Y HORA FINAL:'}
+          name: text_area_actividades
+          properties: {align: left, auto_expand: false, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', height: 197.1953, italic: false, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+          type: TextArea
+        - layout_properties: {grid_position: 'SQGQSF,YSJSVE'}
           name: label_fecha_hora_final
-          layout_properties: {grid_position: 'SQGQSF,YSJSVE'}
-        - type: DatePicker
-          properties: {role: outlined, bold: false, format: '%Y-%m-%d %H:%M:%S', align: left, date: '', placeholder: '', pick_time: true, spacing_above: small, background: '', underline: false, font: '', max_date: '', foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', min_date: ''}
-          name: date_picker_fecha_hora_final
+          properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'FECHA Y HORA FINAL:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - data_bindings:
+          - {code: '''fecha_hora_final''', property: tag}
           layout_properties: {grid_position: 'TCLADT,XDDPWG'}
-          data_bindings:
-          - {property: tag, code: '''fecha_hora_final'''}
-        - type: Spacer
-          properties: {height: 32}
+          name: date_picker_fecha_hora_final
+          properties: {align: left, background: '', bold: false, border: '', date: '', enabled: true, font: '', font_size: null, foreground: '', format: '%Y-%m-%d %H:%M:%S', italic: false, max_date: '', min_date: '', pick_time: true, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, tooltip: '', underline: false, visible: true}
+          type: DatePicker
+        - layout_properties: {grid_position: 'TCLADT,JQNEAV'}
           name: spacer_3
-          layout_properties: {grid_position: 'TCLADT,JQNEAV'}
-        - type: Spacer
           properties: {height: 32}
+          type: Spacer
+        - layout_properties: {grid_position: 'TCLADT,BAXKKZ'}
           name: spacer_4
-          layout_properties: {grid_position: 'TCLADT,BAXKKZ'}
-        - type: Label
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'PERSONA QUE REALIZÓ EL MANTENIMIENTO:'}
+          properties: {height: 32}
+          type: Spacer
+        - layout_properties: {grid_position: 'AYXXEM,LUDOKW'}
           name: label_persona_ejecuta_mtto
-          layout_properties: {grid_position: 'AYXXEM,LUDOKW'}
-        - type: TextBox
-          properties: {role: outlined, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
-          name: text_box_persona_ejecuta_mtto
+          properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'PERSONA QUE REALIZÓ EL MANTENIMIENTO:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - data_bindings:
+          - {code: '''persona_ejecuta_mtto''', property: tag}
           layout_properties: {grid_position: 'QDXPNE,CAIIWG'}
-          data_bindings:
-          - {property: tag, code: '''persona_ejecuta_mtto'''}
-        - type: Label
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'PERSONA QUE RECIBE DE CONFORMIDAD:'}
+          name: text_box_persona_ejecuta_mtto
+          properties: {align: left, background: '', bold: false, border: '', enabled: false, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+          type: TextBox
+        - layout_properties: {grid_position: 'YMMQCT,FUKKTM'}
           name: label_persona_recibe_conformidad
-          layout_properties: {grid_position: 'YMMQCT,FUKKTM'}
-        - type: TextBox
-          properties: {role: outlined, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
-          name: text_box_persona_recibe_conformidad
+          properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'PERSONA QUE RECIBE DE CONFORMIDAD:', tooltip: '', underline: false, visible: true}
+          type: Label
+        - data_bindings:
+          - {code: '''persona_recibe_conformidad''', property: tag}
           layout_properties: {grid_position: 'XGFLMI,BDXUAN'}
-          data_bindings:
-          - {property: tag, code: '''persona_recibe_conformidad'''}
-      - name: outlined_card_comentarios
-        properties: {role: elevated-card}
+          name: text_box_persona_recibe_conformidad
+          properties: {align: left, background: '', bold: false, border: '', enabled: false, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: outlined, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+          type: TextBox
+        layout_properties: {grid_position: 'YGWHMU,DAANWG'}
+        name: outlined_card_mtto_preventivo_correctivo
+        properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
         type: ColumnPanel
-        layout_properties: {grid_position: 'OQYVJD,SGFDZV'}
-        components:
-        - name: data_grid_comentarios
-          properties:
-            columns:
-            - {id: JKSDUP, title: '#', data_key: id, width: '80'}
-            - {id: VJQQOR, title: COMENTARIOS, data_key: comentario, expand: false}
-            - {id: OJLQEN, title: '', data_key: editar, width: '80'}
-            - {id: RERGBB, data_key: delete, title: '', width: '80'}
-            role: tonal-data-grid
-          type: DataGrid
-          components:
-          - name: data_row_panel_comentarios
+      - components:
+        - components:
+          - components:
+            - event_bindings: {click: button_agregar_comentario_click}
+              layout_properties: {column: VJQQOR}
+              name: button_agregar_comentario
+              properties: {background: 'theme:Orange', bold: true, foreground: 'theme:White', icon: 'fa:plus-circle', text: AGREGAR COMENTARIO}
+              type: Button
+            name: data_row_panel_comentarios
             properties: {}
             type: DataRowPanel
-            components:
-            - name: button_agregar_comentario
-              properties: {text: AGREGAR COMENTARIO, icon: 'fa:plus-circle', background: 'theme:Orange', foreground: 'theme:White', bold: true}
-              type: Button
-              layout_properties: {column: VJQQOR}
-              event_bindings: {click: button_agregar_comentario_click}
           - name: repeating_panel_comentarios
             properties: {item_template: MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE.RowTemplateComentarios}
             type: RepeatingPanel
           layout_properties: {grid_position: 'MLVMVA,BVBGWH'}
-      - type: Button
-        properties: {role: elevated-button, bold: true, align: center, spacing_above: small, background: '', icon: 'fa:floppy-o', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: GUARDAR}
-        name: button_guardar
+          name: data_grid_comentarios
+          properties:
+            columns:
+            - {data_key: id, id: JKSDUP, title: '#', width: '80'}
+            - {data_key: comentario, expand: false, id: VJQQOR, title: COMENTARIOS}
+            - {data_key: editar, id: OJLQEN, title: '', width: '80'}
+            - {data_key: delete, id: RERGBB, title: '', width: '80'}
+            role: tonal-data-grid
+          type: DataGrid
+        layout_properties: {grid_position: 'OQYVJD,SGFDZV'}
+        name: outlined_card_comentarios
+        properties: {role: elevated-card}
+        type: ColumnPanel
+      - event_bindings: {click: button_guardar_click}
         layout_properties: {grid_position: 'ZXSXMP,UJJCVK'}
-        event_bindings: {click: button_guardar_click}
-      - name: spacer_5
+        name: button_guardar
+        properties: {align: center, background: '', bold: true, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:floppy-o', icon_align: left, italic: false, role: elevated-button, spacing_above: small, spacing_below: small, text: GUARDAR, tooltip: '', underline: false, visible: true}
+        type: Button
+      - layout_properties: {grid_position: 'ORFZIM,YBEFRR'}
+        name: spacer_5
         properties: {height: 18}
         type: Spacer
-        layout_properties: {grid_position: 'ORFZIM,YBEFRR'}
-      - name: button_rechazar
-        properties: {text: RECHAZAR REPORTE, role: filled-button, foreground: 'theme:Primary Container', bold: true, background: 'theme:Error', enabled: true, visible: false, icon: 'fa:times'}
-        type: Button
-        layout_properties: {grid_position: 'VHXNTL,BMTJLY'}
-        data_bindings: []
+      - data_bindings: []
         event_bindings: {click: button_rechazar_click}
+        layout_properties: {grid_position: 'VHXNTL,BMTJLY'}
+        name: button_rechazar
+        properties: {background: 'theme:Error', bold: true, enabled: true, foreground: 'theme:Primary Container', icon: 'fa:times', role: filled-button, text: RECHAZAR REPORTE, visible: false}
+        type: Button
+      layout_properties: {grid_position: 'NIYUTF,ZUYOIM'}
+      name: column_panel_tipo_mtto
+      properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: false, wrap_on: mobile}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'JJXHMO,CQJVDO'}
+    name: column_panel_body
+    properties: {col_widths: '{}'}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'ZXJMQZ,JWETKI'}
+  name: content_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true
