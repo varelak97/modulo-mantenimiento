@@ -25,9 +25,9 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     else:
       self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
     
-  def abrir_form(self, modo, clave_form):
+  def abrir_form(self, modo):
     datos  = {
-      'id_inspeccion': self.id_inspeccion,
+      'id_inspeccion': self.id_herramental,
       'modo': modo,
       'clave_form': 'FORM_INSPECCION_SUAJE'
     }
