@@ -35,15 +35,22 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
 
   ########################################################## EVENTOS #########################################################
-  def button_editar_click(self, **event_args):
-    self.abrir_form('edicion')
-
-  def button_ver_click(self, **event_args):
-    self.abrir_form('visor')
 
   def button_visual_editar_click(self, **event_args):
-    self.abrir_form('edicion')
+    if self.status_reportes[0] == '1' or self.status_reportes[1] == '1':
+      self.abrir_form('edicion')
+    else:
+      self.abrir_form('nuevo')
+
+  def button_visual_ver_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
 
   def button_dimensional_editar_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
+
+  def button_dimensional_ver_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
