@@ -32,7 +32,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       if registro['registro_principal'] == '1' and registro['id_mtto_preventivo'] == self.datos['id_mtto_preventivo']:
         self.registro_equipo = registro
         break
-    self.label_titulo.text = f"FOR-MAN-037 CHECKLIST DE MANTENIMIENTO PREVENTIVO\n EQUIPO: {self.registro_equipo['equipo']}"
+    self.label_titulo.text = f"FOR-MAN-037 CHECKLIST DE VERIFICACIÓN DE MANTENIMIENTO PREVENTIVO\n EQUIPO: {self.registro_equipo['equipo']}"
     lista = list(eval(self.registro_equipo['actividades']))
     if datos['modo'] == "checklist":
       for item in lista:

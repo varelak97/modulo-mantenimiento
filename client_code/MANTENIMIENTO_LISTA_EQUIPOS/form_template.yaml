@@ -64,7 +64,7 @@ components:
           type: Image
         - layout_properties: {grid_position: 'PIOVLG,UOKKGE'}
           name: label_calendario_mttos
-          properties: {align: center, bold: true, text: CALENDARIO ANUAL DE MANTENIMIENTOS}
+          properties: {align: center, bold: true, text: PROGRAMACIÓN ANUAL DE MANTENIMIENTO PREVENTIVO}
           type: Label
         layout_properties: {grid_position: 'OUMSPT,TFNMKP'}
         name: outlined_card_calendario_mttos
@@ -107,7 +107,7 @@ components:
           type: Image
         - layout_properties: {grid_position: 'ZHWNCC,CEIBQR'}
           name: label_mtto_preventivo_correctivo
-          properties: {align: center, bold: true, foreground: '', text: MANTENIMIENTO PREVENTIVO/CORRECTIVO}
+          properties: {align: center, bold: true, foreground: '', text: REPORTES DE MANTENIMIENTO O INSTALACIÓN}
           type: Label
         layout_properties: {grid_position: 'IIEWAV,GGWONO'}
         name: outlined_card_mtto_preventivo_correctivo
@@ -149,7 +149,7 @@ components:
           type: Image
         - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
           name: label_solicitudes_mtto
-          properties: {align: center, bold: true, text: SOLICITUDES DE MANTENIMIENTO}
+          properties: {align: center, bold: true, text: SOLICITUDES DE MANTENIMIENTO O INSTALACIÓN}
           type: Label
         layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
         name: outlined_card_solicitudes_mtto
@@ -191,7 +191,10 @@ components:
           type: Image
         - layout_properties: {grid_position: 'WMORHY,OYPKVW'}
           name: label_mtto_autonomo
-          properties: {align: center, bold: true, text: MANTENIMIENTO AUTÓNOMO}
+          properties:
+            align: center
+            bold: true
+            text: "MANTENIMIENTO AUTÓNOMO\n         "
           type: Label
         layout_properties: {grid_position: 'QNFXUT,TQOFCG'}
         name: outlined_card_mtto_autonomo
@@ -229,7 +232,7 @@ components:
           type: Image
         - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
           name: label_nueva_solicitud
-          properties: {align: center, bold: true, text: NUEVA SOLICITUD DE MANTENIMIENTO}
+          properties: {align: center, bold: true, text: NUEVA SOLICITUD DE MANTENIMIENTO O INSTALACIÓN}
           type: Label
         layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
         name: outlined_card_nueva_solicitud
@@ -248,7 +251,7 @@ components:
           type: Image
         - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
           name: label_solicitudes_mtto_copy
-          properties: {align: center, bold: true, text: SOLICITUDES DE MANTENIMIENTO}
+          properties: {align: center, bold: true, text: SOLICITUDES DE MANTENIMIENTO O INSTALACIÓN}
           type: Label
         layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
         name: outlined_card_solicitudes_mtto_copy

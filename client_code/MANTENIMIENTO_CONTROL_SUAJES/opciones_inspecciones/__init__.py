@@ -25,11 +25,11 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     else:
       self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
     
-  def abrir_form(self, modo):
+  def abrir_form(self, modo, clave_form):
     datos  = {
       'id_inspeccion': self.id_herramental,
       'modo': modo,
-      'clave_form': 'FORM_INSPECCION_SUAJE'
+      'clave_form': clave_form
     }
     self.popper.pop("hide")
     self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
@@ -38,19 +38,19 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   def button_visual_editar_click(self, **event_args):
     if self.status_reportes[0] == '1' or self.status_reportes[1] == '1':
-      self.abrir_form('edicion')
+      self.abrir_form('edicion', 'FORM_INSPECCION_SUAJE')
     else:
       self.abrir_form('nuevo')
 
   def button_visual_ver_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    if self.button_visual_ver.foreground != app.theme_colors['LightGray']:
+      self.abrir_form('visor')
 
   def button_dimensional_editar_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
 
   def button_dimensional_ver_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    if self.button_dimensional_ver.foreground != app.theme_colors['LightGray']:
+      self.abrir_form('visor')
 

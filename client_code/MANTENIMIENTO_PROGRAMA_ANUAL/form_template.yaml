@@ -3,7 +3,7 @@ components:
   - components:
     - layout_properties: {grid_position: 'NXWQIQ,LZPNWC'}
       name: label_titulo
-      properties: {align: center, background: 'theme:Primary', bold: true, border: '', font: '', font_size: null, foreground: 'theme:On Secondary', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA, tooltip: '', underline: false, visible: true}
+      properties: {align: center, background: 'theme:Primary', bold: true, border: '', font: '', font_size: null, foreground: 'theme:On Secondary', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: FOR-MAN-001 PROGRAMA ANUAL DE MANTENIMIENTO PREVENTIVO A EQUIPOS E INFRAESTRUCTURA, tooltip: '', underline: false, visible: true}
       type: Label
     layout_properties: {grid_position: 'HVIYWO,NYUOFN'}
     name: outlined_card_titulo
