@@ -38,7 +38,10 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   def button_visual_editar_click(self, **event_args):
     if self.status_reportes[0] == '1' or self.status_reportes[1] == '1':
-      self.abrir_form('edicion', 'FORM_INSPECCION_SUAJE')
+      if self.status_reportes[0] == '1':
+        self.abrir_form('edicion', 'FORM_INSPECCION_VISUAL')
+      elif self.status_reportes[1] == '0':
+        self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
     else:
       self.abrir_form('nuevo')
 
