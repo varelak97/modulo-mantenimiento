@@ -47,8 +47,10 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       self.abrir_form('visor')
 
   def button_dimensional_editar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    if self.status_reportes[1] == '1':
+      self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
+    else:
+      self.abrir_form('nuevo', 'FORM_INSPECCION_DIMENSIONAL')
 
   def button_dimensional_ver_click(self, **event_args):
     if self.button_dimensional_ver.foreground != app.theme_colors['LightGray']:
