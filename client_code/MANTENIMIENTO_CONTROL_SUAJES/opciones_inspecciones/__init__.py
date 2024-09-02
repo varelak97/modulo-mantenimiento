@@ -6,21 +6,19 @@ from anvil.google.drive import app_files
 
 
 class opciones_inspecciones(opciones_inspeccionesTemplate):
-  id_herramental = None
-  status_reportes = None
-  def __init__(self, id_herramental, status_reportes, **properties):
+  datos = None
+  def __init__(self, datos, **properties):
     self.init_components(**properties)
-    self.id_herramental = id_herramental
-    self.status_reportes = status_reportes
-    self.set_config(status_reportes)
+    self.datos = datos
+    self.set_config()
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
-  def set_config(self, status_reportes):
-    if status_reportes[0] == '1':
+  def set_config(self):
+    if self.datos['inspeccion_visual'] == '1':
       self.button_visual_ver.foreground = app.theme_colors['Primary']
     else:
       self.button_visual_ver.foreground = app.theme_colors['LightGray']
-    if status_reportes[1] == '1':
+    if self.datos['inspeccion_dimensional'] == '1':
       self.button_dimensional_ver.foreground = app.theme_colors['Primary']
     else:
       self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
@@ -37,22 +35,28 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   ########################################################## EVENTOS #########################################################
 
   def button_visual_editar_click(self, **event_args):
-    if self.status_reportes[0] == '1':
-      self.abrir_form('edicion', 'FORM_INSPECCION_VISUAL')
+    if self.datos['id_inspeccion'] is None:
+      self.abrir_form('nuevo_reg_inps', 'FORM_INSPECCION_VISUAL')
     else:
-      self.abrir_form('nuevo', 'FORM_INSPECCION_VISUAL')
+      if self.datos['status_visual'] == '0':
+        self.abrir_form('nuevo_insp', 'FORM_INSPECCION_VISUAL')
+      else:
+        self.abrir_form('edicion', 'FORM_INSPECCION_VISUAL')
 
   def button_visual_ver_click(self, **event_args):
-    if self.status_reportes[0] == '1':
+    if self.datos['inspeccion_visual'] == '1':
       self.abrir_form('visor', 'FORM_INSPECCION_VISUAL')
 
   def button_dimensional_editar_click(self, **event_args):
-    if self.status_reportes[1] == '1':
-      self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
+    if self.datos['id_inspeccion'] is None:
+      self.abrir_form('nuevo_reg_inps', 'FORM_INSPECCION_DIMENSIONAL')
     else:
-      self.abrir_form('nuevo', 'FORM_INSPECCION_DIMENSIONAL')
+      if self.datos['status_visual'] == '0':
+        self.abrir_form('nuevo_insp', 'FORM_INSPECCION_DIMENSIONAL')
+      else:
+        self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
 
   def button_dimensional_ver_click(self, **event_args):
-    if self.status_reportes[1] == '1':
+    if self.datos['inspeccion_dimensional'] == '1':
       self.abrir_form('visor', 'FORM_INSPECCION_DIMENSIONAL')
 

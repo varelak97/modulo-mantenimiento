@@ -24,7 +24,14 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
       self.label_alerta.icon = "fa:check"
       self.label_alerta.foreground = app.theme_colors['Primary']
       self.label_alerta.background = app.theme_colors['SecondaryGreen']
-    self.link_alerta.popover(content=opciones_inspecciones(self.button_editar.tag, self.link_alerta.tag), title="REPORTES DE INSPECCIÓN", trigger="click", max_width="700px")
+
+    datos = {
+      'id_herramental': self.item['id_herramental'],
+      'id_inspeccion': self.item['id_inspeccion'],
+      'status_visual': self.item['status_visual'],
+      'status_dimensional': self.item['status_dimensional']
+    }
+    self.link_alerta.popover(content=opciones_inspecciones(datos), title="REPORTES DE INSPECCIÓN", trigger="click", max_width="700px")
     self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_codigo_herramental.text, trigger="click",max_width="450px")
 
   def button_ver_click(self, **event_args):
