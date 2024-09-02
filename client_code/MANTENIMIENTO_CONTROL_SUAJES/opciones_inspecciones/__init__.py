@@ -43,8 +43,8 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       self.abrir_form('nuevo', 'FORM_INSPECCION_VISUAL')
 
   def button_visual_ver_click(self, **event_args):
-    if self.button_visual_ver.foreground != app.theme_colors['LightGray']:
-      self.abrir_form('visor')
+    if self.status_reportes[0] == '1':
+      self.abrir_form('visor', 'FORM_INSPECCION_VISUAL')
 
   def button_dimensional_editar_click(self, **event_args):
     if self.status_reportes[1] == '1':
@@ -53,6 +53,6 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       self.abrir_form('nuevo', 'FORM_INSPECCION_DIMENSIONAL')
 
   def button_dimensional_ver_click(self, **event_args):
-    if self.button_dimensional_ver.foreground != app.theme_colors['LightGray']:
-      self.abrir_form('visor')
+    if self.status_reportes[1] == '1':
+      self.abrir_form('visor', 'FORM_INSPECCION_DIMENSIONAL')
 
