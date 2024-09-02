@@ -46,6 +46,17 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
           dicc_herramental = dict(herramental)
           dicc_herramental['cliente'] = cliente['cliente']
           lista_vista_herramentales.append(dicc_herramental)
+    for herramental in lista_vista_herramentales:
+      for reporte in self.vista_reportes:
+        if herramental['id_herramental'] == reporte['id_herramental'] and reporte['registro_principal'] == '1':
+          herramental['id_inspeccion'] = reporte['id_inspeccion']
+          herramental['status_visual'] = reporte['status_visual']
+          herramental['status_dimensional'] = reporte['status_dimensional']
+        else:
+          herramental['id_inspeccion'] = None
+          herramental['status_visual'] = '0'
+          herramental['status_dimensional'] = '0'
+          
     self.repeating_panel_herramentales.items = lista_vista_herramentales
     
   def abrir_popup_form(self, datos, **event_args):
