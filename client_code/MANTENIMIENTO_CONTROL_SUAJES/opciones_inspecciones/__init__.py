@@ -16,18 +16,23 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   def set_config(self):
     if self.datos['id_inspeccion'] is None:
       self.button_visual_ver.foreground = app.theme_colors['LightGray']
-    else:
-    
-      pass
-    
-    if self.datos['status_visual'] == '1':
-      self.button_visual_ver.foreground = app.theme_colors['Primary']
-    else:
-      self.button_visual_ver.foreground = app.theme_colors['LightGray']
-    if self.datos['status_dimensional'] == '1':
-      self.button_dimensional_ver.foreground = app.theme_colors['Primary']
-    else:
       self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
+    else:
+      if self.datos['status_visual'] == '0':
+        self.button_visual_ver.foreground = app.theme_colors['LightGray']
+      if self.datos['status_dimensional'] == '0':
+        self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
+        
+      """if self.datos['status_visual'] == '1':
+        self.button_visual_ver.foreground = app.theme_colors['Primary']
+      else:
+        self.button_visual_ver.foreground = app.theme_colors['LightGray']
+      if self.datos['status_dimensional'] == '1':
+        self.button_dimensional_ver.foreground = app.theme_colors['Primary']
+      else:
+        self.button_dimensional_ver.foreground = app.theme_colors['LightGray']"""
+    
+    
     
   def abrir_form(self, modo, clave_form):
     datos  = {
