@@ -38,6 +38,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   def get_datos(self):
     self.vista_herramentales = self.ss_vista_herramentales.rows
     self.vista_clientes = self.ss_vista_clientes.rows
+    self.vista_reportes = self.ss_vista_reportes.rows
     
     lista_vista_herramentales = []
     for herramental in list(self.vista_herramentales):
