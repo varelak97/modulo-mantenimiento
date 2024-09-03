@@ -14,6 +14,12 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_config(self):
+    if self.datos['id_inspeccion'] is None:
+      self.button_visual_ver.foreground = app.theme_colors['LightGray']
+    else:
+    
+      pass
+    
     if self.datos['status_visual'] == '1':
       self.button_visual_ver.foreground = app.theme_colors['Primary']
     else:
