@@ -103,8 +103,12 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.text_area_descripcion.text = self.datos['descripcion']
     
     if self.datos['modo'] == 'visor':
-      pass
+      self.disable_inputs()
 
+  def disable_inputs(self):
+    for input in self.lista_componentes_validacion:
+      input.enabled = False
+    
   def guarda_datos(self, modo):
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)

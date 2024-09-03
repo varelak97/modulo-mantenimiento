@@ -55,7 +55,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.abrir_form('edicion', 'FORM_INSPECCION_VISUAL')
 
   def button_visual_ver_click(self, **event_args):
-    if self.datos['inspeccion_visual'] == '1':
+    if self.datos['status_visual'] == '1':
       self.abrir_form('visor', 'FORM_INSPECCION_VISUAL')
 
   def button_dimensional_editar_click(self, **event_args):
@@ -68,6 +68,6 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
 
   def button_dimensional_ver_click(self, **event_args):
-    if self.datos['inspeccion_dimensional'] == '1':
+    if self.datos['status_dimensional'] == '1':
       self.abrir_form('visor', 'FORM_INSPECCION_DIMENSIONAL')
 
