@@ -36,7 +36,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   def button_visual_editar_click(self, **event_args):
     if self.datos['id_inspeccion'] is None:
-      self.abrir_form('nuevo_reg_inps', 'FORM_INSPECCION_VISUAL')
+      self.abrir_form('nuevo_reg_insp', 'FORM_INSPECCION_VISUAL')
     else:
       if self.datos['status_visual'] == '0':
         self.abrir_form('nuevo_insp', 'FORM_INSPECCION_VISUAL')
