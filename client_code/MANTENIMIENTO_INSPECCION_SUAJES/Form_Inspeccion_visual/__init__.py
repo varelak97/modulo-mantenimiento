@@ -78,7 +78,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     
     if self.datos['modo'] in ['edicion', 'visor']:
       self.vista_clientes = self.ss_vista_clientes.rows
-      self.ss_vista_suajes = self.ss_vista_suajes.rows
+      self.vista_suajes = self.ss_vista_suajes.rows
       for row in self.reporte_suajes:
         if self.datos['id_inspeccion'] == row['id_inspeccion']:
           self.registro_actual = row
@@ -89,10 +89,11 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
           dicc_registro_actual['codigo_herramental'] = suaje['codigo_herramental']
           dicc_registro_actual['descripcion'] = suaje['descripcion']
           dicc_registro_actual['id_cliente'] = suaje['id_cliente']
+          dicc_registro_actual['tipo_suaje'] = suaje['tipo_suaje']
           break
       for cliente in self.vista_clientes:
         if dicc_registro_actual['id_cliente'] == cliente['id_cliente']:
-          dicc_registro_actual['cliente'] = cliente['ciente']
+          dicc_registro_actual['cliente'] = cliente['cliente']
           break
       Funciones_Globales.fill_formulario(self.lista_componentes,dicc_registro_actual, self.modos_botones)
     elif self.datos['modo'] == 'nuevo':
