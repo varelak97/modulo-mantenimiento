@@ -76,7 +76,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.reporte_suajes = self.ss_reporte_suajes.rows
     self.suajes = self.ss_suajes.rows
     
-    if self.datos['modo'] == 'edicion':
+    if self.datos['modo'] in ['edicion', 'visor']:
       self.vista_clientes = self.ss_vista_clientes.rows
       self.ss_vista_suajes = self.ss_vista_suajes.rows
       for row in self.reporte_suajes:
@@ -95,12 +95,15 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
           dicc_registro_actual['cliente'] = cliente['ciente']
           break
       Funciones_Globales.fill_formulario(self.lista_componentes,dicc_registro_actual, self.modos_botones)
-    else:
+    elif self.datos['modo'] == 'nuevo':
       self.text_box_revisor.text = self.datos['nombre_usuario']
       self.text_box_cliente.text = self.datos['cliente']
       self.text_box_codigo_suaje.text = self.datos['codigo_herramental']
       self.text_box_tipo_suaje.text = self.datos['tipo_suaje']
       self.text_area_descripcion.text = self.datos['descripcion']
+    
+    if self.datos['modo'] == 'visor':
+      pass
 
   def guarda_datos(self, modo):
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)

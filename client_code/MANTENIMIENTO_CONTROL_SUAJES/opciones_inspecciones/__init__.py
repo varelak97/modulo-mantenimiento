@@ -36,7 +36,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     
   def abrir_form(self, modo, clave_form):
     datos  = {
-      'id_inspeccion': self.id_herramental,
+      'id_inspeccion': self.datos['id_inspeccion'],
       'modo': modo,
       'clave_form': clave_form
     }
@@ -47,7 +47,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   def button_visual_editar_click(self, **event_args):
     if self.datos['id_inspeccion'] is None:
-      self.abrir_form('nuevo_reg_insp', 'FORM_INSPECCION_VISUAL')
+      self.abrir_form('nuevo', 'FORM_INSPECCION_VISUAL')
     else:
       if self.datos['status_visual'] == '0':
         self.abrir_form('nuevo_insp', 'FORM_INSPECCION_VISUAL')
@@ -60,7 +60,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
 
   def button_dimensional_editar_click(self, **event_args):
     if self.datos['id_inspeccion'] is None:
-      self.abrir_form('nuevo_reg_inps', 'FORM_INSPECCION_DIMENSIONAL')
+      self.abrir_form('nuevo', 'FORM_INSPECCION_DIMENSIONAL')
     else:
       if self.datos['status_visual'] == '0':
         self.abrir_form('nuevo_insp', 'FORM_INSPECCION_DIMENSIONAL')
