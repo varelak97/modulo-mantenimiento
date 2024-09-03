@@ -33,6 +33,7 @@ def genera_diccionario(lista_components, llave_tabla):
 
 def fill_formulario(lista_components, datos, modos):
   for component in lista_components:
+    print(f"leyendo de:{component.tag}")
     if type(component) in [TextBox, TextArea, Label]:
       component.text = datos[component.tag]
     elif type(component) is DropDown:
