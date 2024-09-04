@@ -107,7 +107,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.disable_inputs()
 
   def disable_inputs(self):
-    for input in self.lista_componentes_validacion:
+    for input in self.lista_componentes:
       input.enabled = False
     
   def guarda_datos(self, modo):
