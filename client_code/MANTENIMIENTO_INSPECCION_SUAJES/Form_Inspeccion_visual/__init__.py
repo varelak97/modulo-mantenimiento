@@ -105,6 +105,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     
     if self.datos['modo'] == 'visor':
       self.disable_inputs()
+      self.button_guardar.visible = False
 
   def disable_inputs(self):
     for input in self.lista_componentes:
