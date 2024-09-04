@@ -63,7 +63,10 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.modos_botones = [
         {'tag':'filo_bien','modo':True,'llave':'status_filo'},
         {'tag':'union_bien','modo':True,'llave':'status_union'},
-        {'tag':'estado_bien','modo':True,'llave':'status_estado'}
+        {'tag':'estado_bien','modo':True,'llave':'status_estado'},
+        {'tag':'filo_mal','modo':False,'llave':'status_filo'},
+        {'tag':'union_mal','modo':False,'llave':'status_union'},
+        {'tag':'estado_mal','modo':False,'llave':'status_estado'}
       ]
     self.status_botones = [
       {'tag':"filo_bien", "valor": None, 'llave':'status_filo'},

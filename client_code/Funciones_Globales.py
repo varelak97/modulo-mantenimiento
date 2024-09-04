@@ -33,7 +33,6 @@ def genera_diccionario(lista_components, llave_tabla):
 
 def fill_formulario(lista_components, datos, modos):
   for component in lista_components:
-    print(f"leyendo de:{component.tag}")
     if type(component) in [TextBox, TextArea, Label]:
       component.text = datos[component.tag]
     elif type(component) is DropDown:
@@ -50,8 +49,8 @@ def fill_formulario(lista_components, datos, modos):
           if modo['tag'] == component.tag:
             if modo['modo'] is True:
               if bool(int(datos[modo['llave']])):
-                  component.background = app.theme_colors['Primary']
-                  component.foreground = app.theme_colors['On Primary']
+                component.background = app.theme_colors['Primary']
+                component.foreground = app.theme_colors['On Primary']
               else:
                 component.background = app.theme_colors['LightGray']
                 component.foreground = app.theme_colors['Secondary']
