@@ -10,7 +10,6 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.datos = datos
-    print(f"datos llegan a opciones:{self.datos}")
     self.set_config()
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
@@ -36,13 +35,16 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     
     
   def abrir_form(self, modo, clave_form):
-    datos  = {
+    """datos  = {
       'id_inspeccion': self.datos['id_inspeccion'],
       'modo': modo,
       'clave_form': clave_form
-    }
+    }"""
+    self.datos['modo'] = modo
+    self.datos['clave_form'] = clave_form
+    
     self.popper.pop("hide")
-    self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=datos)
+    self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-abrir_form', datos=self.datos)
 
   ########################################################## EVENTOS #########################################################
 

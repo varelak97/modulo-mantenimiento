@@ -30,6 +30,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   ############################################# FUNCIONES PERSONALIZADAS #############################################
   def set_ini_config(self, datos):
     self.datos = datos
+    print(f"los datos recibidos en el formulario:{self.datos}")
     self.ws_herramentales = app_files.control_herramentales
     self.ss_reporte_suajes = self.ws_herramentales['REVISION_SUAJES']
     self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
@@ -125,13 +126,13 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     dicc_nuevo_registro['status_union'] = int(self.status_botones[1]['valor'])
     dicc_nuevo_registro['status_estado'] = int(self.status_botones[2]['valor'])
     
-    if self.datos['modo'] == 'validacion':
+    if self.datos['modo'] in ['nuevo']: #antes validacion
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_visual'] = 1
       dicc_nuevo_registro['registro_principal'] = 1
     else:
       self.registro_actual['registro_principal'] = 0
-    if self.datos['modo'] == 'validacion':
+    if self.datos['modo'] == 'nuevo':
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
       if confirmacion_uso:
         alert(f"valor de confirmacion.{confirmacion_uso}")
@@ -167,8 +168,8 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   def button_guardar_click(self, **event_args):
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
-      mensaje = "Actualizando registros..." if self.datos['modo'] in ['edicion', 'validacion'] else "Guardando registro..."
-      titulo = "ACTUALIZANDO." if self.datos['modo'] in ['edicion', 'validacion'] else "GUARDANDO."
+      mensaje = "Actualizando registros..." if self.datos['modo'] == 'edicion' else "Guardando registro..."
+      titulo = "ACTUALIZANDO." if self.datos['modo'] == 'edicion' else "GUARDANDO."
       with Notification(mensaje, title=titulo, style="notification"):
         self.guarda_datos(self.datos['modo'])
     elif status == 2:

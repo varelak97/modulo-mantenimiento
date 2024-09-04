@@ -29,7 +29,14 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
       'id_herramental': self.item['id_herramental'],
       'id_inspeccion': self.item['id_inspeccion'],
       'status_visual': self.item['status_visual'],
-      'status_dimensional': self.item['status_dimensional']
+      'status_dimensional': self.item['status_dimensional'],
+      'cliente': self.item['cliente'],
+      'id_cliente': self.item['id_cliente'],
+      'codigo_herramental': self.item['codigo_herramental'],
+      'descripcion': self.item['descripcion'],
+      'tipo_suaje': self.item['tipo_suaje'],
+      'contador': self.item['contador'],
+      'vida_util':self.item['vida_util']
     }
     self.link_alerta.popover(content=opciones_inspecciones(datos), title="REPORTES DE INSPECCIÓN", trigger="click", max_width="700px")
     self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_codigo_herramental.text, trigger="click",max_width="450px")
