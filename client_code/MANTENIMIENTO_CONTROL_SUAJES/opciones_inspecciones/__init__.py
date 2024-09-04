@@ -10,6 +10,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   def __init__(self, datos, **properties):
     self.init_components(**properties)
     self.datos = datos
+    print(f"datos llegan a opciones:{self.datos}")
     self.set_config()
 
   ################################################# FUNCIONES PERSONALIZADAS #################################################
