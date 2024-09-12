@@ -38,7 +38,8 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
       'contador': self.item['contador'],
       'vida_util':self.item['vida_util']
     }
-    self.link_alerta.popover(content=opciones_inspecciones(datos), title="REPORTES DE INSPECCIÓN", trigger="click", max_width="700px")
+    if int(self.item['contador']) >= int(self.item['vida_util']):
+      self.link_alerta.popover(content=opciones_inspecciones(datos), title="REPORTES DE INSPECCIÓN", trigger="click", max_width="700px")
     self.button_editar.popover(content=opciones_herramentales(self.button_editar.tag),title=self.label_codigo_herramental.text, trigger="click",max_width="450px")
 
   def button_ver_click(self, **event_args):
