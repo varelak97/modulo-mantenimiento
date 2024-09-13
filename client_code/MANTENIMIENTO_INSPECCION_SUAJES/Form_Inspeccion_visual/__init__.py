@@ -126,10 +126,12 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     dicc_nuevo_registro['status_union'] = int(self.status_botones[1]['valor'])
     dicc_nuevo_registro['status_estado'] = int(self.status_botones[2]['valor'])
     
-    if self.datos['modo'] == "validacion":
+    if self.datos['modo'] in ["nuevo", "nuevo_inps"]: #antes validacion
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_visual'] = 1
-      dicc_nuevo_registro['registro_principal'] = 1
+      if dicc_nuevo_registro['stastus_dimensional'] == '':
+        dicc_nuevo_registro['status_dimensional'] = 0
+      #dicc_nuevo_registro['registro_principal'] = 1
     else:
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
