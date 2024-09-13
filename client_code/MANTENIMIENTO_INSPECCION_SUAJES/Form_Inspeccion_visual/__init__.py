@@ -129,10 +129,10 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     if self.datos['modo'] in ["nuevo", "nuevo_inps"]: #antes validacion
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_visual'] = 1
-      if dicc_nuevo_registro['stastus_dimensional'] == '':
+      if self.datos['modo'] == 'nuevo':
         dicc_nuevo_registro['status_dimensional'] = 0
-      #dicc_nuevo_registro['registro_principal'] = 1
-    else:
+      dicc_nuevo_registro['registro_principal'] = 1
+    if self.datos['modo'] != "nuevo":
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
