@@ -126,6 +126,7 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         elif type(textcomponent) is Button:
           for modo in dicc_modos:
             if modo['tag'] == textcomponent.tag:
+              print(f"button valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
               if str(valor) != datos_antiguos[modo['llave']]:
                 cambios = True
                 break
