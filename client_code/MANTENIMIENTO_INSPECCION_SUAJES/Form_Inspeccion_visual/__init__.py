@@ -168,17 +168,17 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
-    print(self.popper)
-    """status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
+    status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
       mensaje = "Actualizando registros..." if self.datos['modo'] == 'edicion' else "Guardando registro..."
       titulo = "ACTUALIZANDO." if self.datos['modo'] == 'edicion' else "GUARDANDO."
       with Notification(mensaje, title=titulo, style="notification"):
         self.guarda_datos(self.datos['modo'])
+        self.raise_event("x-close-alert",value="registro_guardado")
     elif status == 2:
       alert("No hay cambios que guardar.", title="ERROR!")
     elif status == 3:
-      alert("faltan campos por llenar!", title="ERROR!")"""
+      alert("faltan campos por llenar!", title="ERROR!")
 
   def button_filo_bien_click(self, **event_args):
     self.button_filo_bien.background = app.theme_colors['Primary']

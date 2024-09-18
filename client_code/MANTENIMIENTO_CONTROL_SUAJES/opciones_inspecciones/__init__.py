@@ -18,11 +18,17 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       self.button_visual_ver.foreground = app.theme_colors['LightGray']
       self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
     else:
+      config_ciclo = True
       if self.datos['status_visual'] == '0':
         self.button_visual_ver.foreground = app.theme_colors['LightGray']
+        config_ciclo = False
       if self.datos['status_dimensional'] == '0':
         self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
-        
+        config_ciclo = False 
+      if config_ciclo:
+        self.button_ciclo.visible = True
+        self.label_ciclo.visible = True
+      
       """if self.datos['status_visual'] == '1':
         self.button_visual_ver.foreground = app.theme_colors['Primary']
       else:
