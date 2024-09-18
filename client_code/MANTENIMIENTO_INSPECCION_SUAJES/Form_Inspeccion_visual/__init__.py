@@ -136,10 +136,10 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
-      if confirmacion_uso:
-        alert(f"valor de confirmacion.{confirmacion_uso}")
+      """if confirmacion_uso:
+        #alert(f"valor de confirmacion.{confirmacion_uso}")
         if int(self.datos['vida_util']) <= int(self.datos['contador']):
-          alert(f"valor de vida util:{self.datos['vida_util']} y valor de contador:{self.datos['contador']}")
+          #alert(f"valor de vida util:{self.datos['vida_util']} y valor de contador:{self.datos['contador']}")
           input = TextBox(type='number', role='outlined', background='On Primary')
           respuesta = alert(input, title="INGRESE PRÓXIMO CICLO PARA REVISIÓN:", buttons=[("GUARDAR", True),("IGNORAR", False)])
           if respuesta:
@@ -149,22 +149,22 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
                   suaje['vida_util'] = input.text
                   break
         else:
-          alert(f"no mayor y valor de vida util:{self.datos['vida_util']} y valor de contador:{self.datos['contador']}")
+          alert(f"no mayor y valor de vida util:{self.datos['vida_util']} y valor de contador:{self.datos['contador']}")"""
         
-      else:
-        if not confirmacion_uso:
-          with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
-            text = f"CLIENTE: {self.text_box_cliente.text}\n"
-            text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
-            text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
-            text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
-            text += "\nREVISIÓN DE FILO EN PLECAS:\n"
-            text += f"{self.text_area_filo.text}\n"
-            text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
-            text += f"{self.text_area_union.text}\n"
-            text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
-            text += f"{self.text_area_estado.text}\n"
-            anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
+      #else:
+      if not confirmacion_uso:
+        with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
+          text = f"CLIENTE: {self.text_box_cliente.text}\n"
+          text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
+          text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
+          text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
+          text += "\nREVISIÓN DE FILO EN PLECAS:\n"
+          text += f"{self.text_area_filo.text}\n"
+          text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
+          text += f"{self.text_area_union.text}\n"
+          text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
+          text += f"{self.text_area_estado.text}\n"
+          anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
