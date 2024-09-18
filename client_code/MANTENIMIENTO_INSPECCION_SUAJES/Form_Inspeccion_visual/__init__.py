@@ -168,7 +168,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
-    print(self.parent.parent.parent)
+    print(self.popper)
     """status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
       mensaje = "Actualizando registros..." if self.datos['modo'] == 'edicion' else "Guardando registro..."
