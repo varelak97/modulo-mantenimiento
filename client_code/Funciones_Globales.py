@@ -97,7 +97,7 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             status = False
             textcomponent.role = "outlined-error"
         else:
-          print(f"el valor:{valor}")
+          #print(f"el valor:{valor}")
           if valor == "" or valor is None:
             status = False
             if type(textcomponent) is not Button:
