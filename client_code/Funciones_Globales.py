@@ -97,8 +97,8 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             status = False
             textcomponent.role = "outlined-error"
         else:
+          print(f"el valor:{valor}")
           if valor == "" or valor is None:
-            print(f"el valor:{valor}")
             status = False
             if type(textcomponent) is not Button:
               textcomponent.role = "outlined-error"
@@ -126,15 +126,15 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         elif type(textcomponent) is Button:
           for modo in dicc_modos:
             if modo['tag'] == textcomponent.tag:
-              print(f"button valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
+              #print(f"button valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
               if str(valor) != datos_antiguos[modo['llave']]:
                 cambios = True
                 break
         else:
-          print(f"valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
+          #print(f"valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
-          print(f"valor de cambios:{cambios}")
+          #print(f"valor de cambios:{cambios}")
       else:
         cambios = True
     if not status:
