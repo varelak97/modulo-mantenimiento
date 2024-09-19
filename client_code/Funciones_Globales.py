@@ -67,7 +67,7 @@ def fill_formulario(lista_components, datos, modos):
       component.items = datos['tabla']
 
 
-def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo, dicc_modos, llave_tabla):
+def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, modo_edicion, dicc_modos, llave_tabla):
     status = True
     cambios = False
 
@@ -97,14 +97,13 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             status = False
             textcomponent.role = "outlined-error"
         else:
-          #print(f"el valor:{valor}")
           if valor == "" or valor is None:
             status = False
             if type(textcomponent) is not Button:
               textcomponent.role = "outlined-error"
 
       #valida que campos hayan cambiado respecto al registro antiguo
-      if modo == "edicion":
+      if modo_edicion == "edicion":
         if type(textcomponent) is DropDown:
           if textcomponent.selected_value is not None:
             if dicc_modos is not None and dicc_modos != "":
@@ -126,15 +125,12 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
         elif type(textcomponent) is Button:
           for modo in dicc_modos:
             if modo['tag'] == textcomponent.tag:
-              #print(f"button valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
               if str(valor) != datos_antiguos[modo['llave']]:
                 cambios = True
                 break
         else:
-          #print(f"valor antiguo:{valor} y valor actual:{datos_antiguos[textcomponent.tag]}")
           if str(valor) != datos_antiguos[textcomponent.tag]: #valida que al menos un campos haya sido modificado
             cambios = True
-          #print(f"valor de cambios:{cambios}")
       else:
         cambios = True
     if not status:

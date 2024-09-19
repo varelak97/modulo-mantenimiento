@@ -124,7 +124,8 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
-    dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'nuevo' else 0
+    if self.datos['modo'] != 'edicion':
+      dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'nuevo' else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
     dicc_nuevo_registro['status_filo'] = int(self.status_botones[0]['valor'])
@@ -173,6 +174,19 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
+    if self.button_filo_bien.background == app.theme_colors['Primary']:
+      self.status_botones[0]['valor'] = True
+    elif self.button_filo_mal.background == app.theme_colors['Red']:
+      self.status_botones[0]['valor'] = False
+    if self.button_union_bien.background == app.theme_colors['Primary']:
+      self.status_botones[1]['valor'] = True
+    elif self.button_union_mal.background == app.theme_colors['Red']:
+      self.status_botones[1]['valor'] = False
+    if self.button_estado_bien.background == app.theme_colors['Primary']:
+      self.status_botones[2]['valor'] = True
+    elif self.button_estado_mal.background == app.theme_colors['Red']:
+      self.status_botones[2]['valor'] = False
+      
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
       mensaje = "Actualizando registros..." if self.datos['modo'] == 'edicion' else "Guardando registro..."
