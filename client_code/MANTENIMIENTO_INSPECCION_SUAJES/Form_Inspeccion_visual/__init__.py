@@ -99,6 +99,8 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
         if dicc_registro_actual['id_cliente'] == cliente['id_cliente']:
           dicc_registro_actual['cliente'] = cliente['cliente']
           break
+      for status_boton in self.status_botones:
+        pass
       Funciones_Globales.fill_formulario(self.lista_componentes,dicc_registro_actual, self.modos_botones)
     elif self.datos['modo'] == 'nuevo':
       self.text_box_revisor.text = self.datos['nombre_usuario']
