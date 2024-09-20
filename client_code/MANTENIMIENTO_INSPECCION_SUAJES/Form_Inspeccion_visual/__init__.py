@@ -84,7 +84,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.vista_clientes = self.ss_vista_clientes.rows
       self.vista_suajes = self.ss_vista_suajes.rows
       for row in self.reporte_suajes:
-        if self.datos['id_inspeccion'] == row['id_inspeccion']:
+        if self.datos['id_inspeccion'] == row['id_inspeccion'] and row['registro_principal'] == '1':
           self.registro_actual = row
           break
       dicc_registro_actual = dict(self.registro_actual)
