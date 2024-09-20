@@ -60,7 +60,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
           herramental['id_inspeccion'] = None
           herramental['status_visual'] = '0'
           herramental['status_dimensional'] = '0'
-          
+    print(f"la lista de herramentales:{lista_vista_herramentales}")      
     self.repeating_panel_herramentales.items = lista_vista_herramentales
     
   def abrir_popup_form(self, datos, **event_args):

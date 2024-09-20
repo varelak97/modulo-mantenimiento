@@ -25,6 +25,8 @@ class RowTemplateHerramental(RowTemplateHerramentalTemplate):
       self.label_alerta.foreground = app.theme_colors['Primary']
       self.label_alerta.background = app.theme_colors['SecondaryGreen']
 
+    print(f"desde row:{self.item['id_herramental']}")
+
     datos = {
       'id_herramental': self.item['id_herramental'],
       'id_inspeccion': self.item['id_inspeccion'],
