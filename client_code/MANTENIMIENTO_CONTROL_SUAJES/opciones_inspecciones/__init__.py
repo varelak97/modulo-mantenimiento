@@ -12,8 +12,6 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     self.datos = datos
     self.set_config()
 
-    print(F"datos recibidos de popup:{self.datos}")
-
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_config(self):
     if self.datos['id_inspeccion'] is None:

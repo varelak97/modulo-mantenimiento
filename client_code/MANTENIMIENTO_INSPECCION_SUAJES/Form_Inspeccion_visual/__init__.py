@@ -30,7 +30,6 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
   ############################################# FUNCIONES PERSONALIZADAS #############################################
   def set_ini_config(self, datos):
     self.datos = datos
-    print(f"los datos recibidos en el formulario:{self.datos}")
     self.ws_herramentales = app_files.control_herramentales
     self.ss_reporte_suajes = self.ws_herramentales['REVISION_SUAJES']
     self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']

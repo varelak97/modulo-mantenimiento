@@ -8,6 +8,7 @@ from ..MANTENIMIENTO_REGISTRO_SUAJES import MANTENIMIENTO_REGISTRO_SUAJES
 from .Form_Edicion_Herramental import Form_Edicion_Herramental
 from ..MANTENIMIENTO_INSPECCION_SUAJES import MANTENIMIENTO_INSPECCION_SUAJES
 from ..MANTENIMIENTO_INSPECCION_SUAJES.Form_Inspeccion_visual import Form_Inspeccion_visual
+from ..MANTENIMIENTO_INSPECCION_SUAJES.Form_Inspeccion_Dimensional import Form_Inspeccion_Dimensional
 
 
 class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
@@ -46,21 +47,19 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
         if herramental['id_cliente'] == cliente['id_cliente']:
           dicc_herramental = dict(herramental)
           dicc_herramental['cliente'] = cliente['cliente']
-          lista_vista_herramentales.append(dicc_herramental)
+          lista_vista_herramentales.append(dicc_herramental)   
+    
     for herramental in lista_vista_herramentales:
+      herramental['id_inspeccion'] = None
+      herramental['status_visual'] = '0'
+      herramental['status_dimensional'] = '0'
       for reporte in self.vista_reportes:
-        #print(f"id desde herramental:{herramental['id_herramental']} y id desde reporte:{reporte['id_herramental']}")
-        if herramental['id_herramental'] == reporte['id_herramental'] and reporte['registro_principal'] == '1':
-          print("iguales y registro principal")
+        if reporte['id_herramental'] == herramental['id_herramental'] and reporte['registro_principal'] == '1':
           herramental['id_inspeccion'] = reporte['id_inspeccion']
           herramental['status_visual'] = reporte['status_visual']
           herramental['status_dimensional'] = reporte['status_dimensional']
-        else:
-          print("no iguales")
-          herramental['id_inspeccion'] = None
-          herramental['status_visual'] = '0'
-          herramental['status_dimensional'] = '0'
-    print(f"la lista de herramentales:{lista_vista_herramentales}")      
+          break
+        
     self.repeating_panel_herramentales.items = lista_vista_herramentales
     
   def abrir_popup_form(self, datos, **event_args):
