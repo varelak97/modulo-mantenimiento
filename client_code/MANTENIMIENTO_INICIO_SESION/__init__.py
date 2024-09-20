@@ -16,7 +16,7 @@ class MANTENIMIENTO_INICIO_SESION(MANTENIMIENTO_INICIO_SESIONTemplate):
     self.ws_usuarios = self.libro_usuarios['Registros']
 
   def button_iniciar_sesion_click(self, **event_args):
-    if self.text_box_usuario.text == "" or self.text_box_usuario.text == None:
+    if self.text_box_usuario.text == "" or self.text_box_usuario.text is None:
       alert("Debe ingresar su número de empleado.", title="Error de inicio de sesión!")
     else:
       #with Notification("Buscando usuario...", title="Iniciando sesión."):
