@@ -50,8 +50,7 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
     ]
     self.lista_componentes_validacion = [
       self.text_area_medidas,
-      self.button_medidas_bien,
-      self.button_medidas_mal
+      self.button_medidas_bien
     ]
     self.modos_botones = [
       {'tag':'medidas_bien','modo':True,'llave':'status_medidas'},
@@ -112,7 +111,7 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
     dicc_nuevo_registro['status_medidas'] = int(self.status_botones[0]['valor'])
     
-    if self.datos['modo'] in ["nuevo", "nuevo_inps"]: #antes validacion
+    if self.datos['modo'] in ["nuevo", "nuevo_insp"]: #antes validacion
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_dimensional'] = 1
       if self.datos['modo'] == 'nuevo':

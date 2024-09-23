@@ -98,6 +98,7 @@ def validar_campos(lista_components, datos_antiguos, campos_no_obligatorios, mod
             status = False
             textcomponent.role = "outlined-error"
         else:
+          print(f"valor leido:{valor} y componente:{textcomponent} con tag:{textcomponent.tag}")
           if valor == "" or valor is None:
             print("vacio")
             status = False
