@@ -44,44 +44,29 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
       self.text_box_tipo_suaje,
       self.text_area_descripcion,
       self.text_box_revisor,
-      self.text_area_filo,
-      self.text_area_union,
-      self.text_area_estado,
-      self.button_estado_bien,
-      self.button_estado_mal,
-      self.button_filo_bien,
-      self.button_filo_mal,
-      self.button_union_bien,
-      self.button_union_mal
+      self.text_area_medidas,
+      self.button_medidas_bien,
+      self.button_medidas_mal
     ]
     self.lista_componentes_validacion = [
-      self.text_area_filo,
-      self.text_area_union,
-      self.text_area_estado,
-      self.button_filo_bien,
-      self.button_union_bien,
-      self.button_estado_bien
+      self.text_area_medidas,
+      self.button_medidas_bien,
+      self.button_medidas_mal
     ]
     self.modos_botones = [
-        {'tag':'filo_bien','modo':True,'llave':'status_filo'},
-        {'tag':'union_bien','modo':True,'llave':'status_union'},
-        {'tag':'estado_bien','modo':True,'llave':'status_estado'},
-        {'tag':'filo_mal','modo':False,'llave':'status_filo'},
-        {'tag':'union_mal','modo':False,'llave':'status_union'},
-        {'tag':'estado_mal','modo':False,'llave':'status_estado'}
-      ]
-    self.status_botones = [
-      {'tag':"filo_bien", "valor": None, 'llave':'status_filo'},
-      {'tag':"union_bien", "valor": None, 'llave':'status_union'},
-      {'tag':"estado_bien", "valor": None, 'llave':'status_estado'}
+      {'tag':'medidas_bien','modo':True,'llave':'status_medidas'},
+      {'tag':'medidas_mal','modo':False,'llave':'status_medidas'},
     ]
-    self.campos_no_obligatorios = ["comentarios_filo", "comentarios_union", "comentarios_estado"]
+    self.status_botones = [
+      {'tag':"medidas_bien", "valor": None, 'llave':'status_medidas'}
+    ]
+    self.campos_no_obligatorios = ["comentarios_medidas"]
 
   def get_datos(self):
     self.reporte_suajes = self.ss_reporte_suajes.rows
     self.suajes = self.ss_suajes.rows
     
-    if self.datos['modo'] in ['edicion', 'visor']:
+    if self.datos['modo'] in ['edicion', 'visor', 'nuevo_insp']:
       self.vista_clientes = self.ss_vista_clientes.rows
       self.vista_suajes = self.ss_vista_suajes.rows
       for row in self.reporte_suajes:
@@ -100,7 +85,7 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
         if dicc_registro_actual['id_cliente'] == cliente['id_cliente']:
           dicc_registro_actual['cliente'] = cliente['cliente']
           break
-          
+      #if self.datos['modo'] != 'nuevo_insp':
       Funciones_Globales.fill_formulario(self.lista_componentes,dicc_registro_actual, self.modos_botones)
     elif self.datos['modo'] == 'nuevo':
       self.text_box_revisor.text = self.datos['nombre_usuario']
@@ -118,10 +103,6 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
       input.enabled = False
     
   def guarda_datos(self, modo):
-    """self.status_botones[0]['valor'] = True if dicc_registro_actual['status_filo'] == '1' else False
-    self.status_botones[1]['valor'] = True if dicc_registro_actual['status_union'] == '1' else False
-    self.status_botones[2]['valor'] = True if dicc_registro_actual['status_estado'] == '1' else False"""
-    
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
@@ -129,20 +110,18 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
       dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'nuevo' else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
-    dicc_nuevo_registro['status_filo'] = int(self.status_botones[0]['valor'])
-    dicc_nuevo_registro['status_union'] = int(self.status_botones[1]['valor'])
-    dicc_nuevo_registro['status_estado'] = int(self.status_botones[2]['valor'])
+    dicc_nuevo_registro['status_medidas'] = int(self.status_botones[0]['valor'])
     
     if self.datos['modo'] in ["nuevo", "nuevo_inps"]: #antes validacion
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
-      dicc_nuevo_registro['status_visual'] = 1
+      dicc_nuevo_registro['status_dimensional'] = 1
       if self.datos['modo'] == 'nuevo':
-        dicc_nuevo_registro['status_dimensional'] = 0
+        dicc_nuevo_registro['status_visual'] = 0
       dicc_nuevo_registro['registro_principal'] = 1
     if self.datos['modo'] != "nuevo":
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
-      confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
+      confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN DIMENSIONAL", buttons=[("SI", True), ("NO", False)])
       if not confirmacion_uso:
         with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
           text = f"CLIENTE: {self.text_box_cliente.text}\n"
@@ -160,18 +139,10 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
 
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
-    if self.button_filo_bien.background == app.theme_colors['Primary']:
+    if self.button_medidas_bien.background == app.theme_colors['Primary']:
       self.status_botones[0]['valor'] = True
-    elif self.button_filo_mal.background == app.theme_colors['Red']:
+    elif self.button_medidas_mal.background == app.theme_colors['Red']:
       self.status_botones[0]['valor'] = False
-    if self.button_union_bien.background == app.theme_colors['Primary']:
-      self.status_botones[1]['valor'] = True
-    elif self.button_union_mal.background == app.theme_colors['Red']:
-      self.status_botones[1]['valor'] = False
-    if self.button_estado_bien.background == app.theme_colors['Primary']:
-      self.status_botones[2]['valor'] = True
-    elif self.button_estado_mal.background == app.theme_colors['Red']:
-      self.status_botones[2]['valor'] = False
       
     status = Funciones_Globales.validar_campos( self.lista_componentes_validacion, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], self.status_botones, None)
     if status == 1:
@@ -186,19 +157,19 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
       alert("faltan campos por llenar!", title="ERROR!")
 
   def button_medidas_bien_click(self, **event_args):
-    self.button_filo_bien.background = app.theme_colors['Primary']
-    self.button_filo_bien.foreground = app.theme_colors['On Primary']
+    self.button_medidas_bien.background = app.theme_colors['Primary']
+    self.button_medidas_bien.foreground = app.theme_colors['On Primary']
     
-    self.button_filo_mal.background = app.theme_colors['LightGray']
-    self.button_filo_mal.foreground = app.theme_colors['Secondary']
+    self.button_medidas_mal.background = app.theme_colors['LightGray']
+    self.button_medidas_mal.foreground = app.theme_colors['Secondary']
 
     self.status_botones[0]['valor'] = True
 
   def button_medidas_mal_click(self, **event_args):
-    self.button_filo_bien.background = app.theme_colors['LightGray']
-    self.button_filo_bien.foreground = app.theme_colors['Secondary']
+    self.button_medidas_bien.background = app.theme_colors['LightGray']
+    self.button_medidas_bien.foreground = app.theme_colors['Secondary']
     
-    self.button_filo_mal.background = app.theme_colors['Red']
-    self.button_filo_mal.foreground = app.theme_colors['On Primary']
+    self.button_medidas_mal.background = app.theme_colors['Red']
+    self.button_medidas_mal.foreground = app.theme_colors['On Primary']
 
     self.status_botones[0]['valor'] = False

@@ -48,12 +48,13 @@ def fill_formulario(lista_components, datos, modos):
         for modo in modos:
           if modo['tag'] == component.tag:
             if modo['modo'] is True:
-              if bool(int(datos[modo['llave']])):
-                component.background = app.theme_colors['Primary']
-                component.foreground = app.theme_colors['On Primary']
-              else:
-                component.background = app.theme_colors['LightGray']
-                component.foreground = app.theme_colors['Secondary']
+              if datos[modo['llave']] != "":
+                if bool(int(datos[modo['llave']])):
+                  component.background = app.theme_colors['Primary']
+                  component.foreground = app.theme_colors['On Primary']
+                else:
+                  component.background = app.theme_colors['LightGray']
+                  component.foreground = app.theme_colors['Secondary']
             elif modo['modo'] is False:
               if not bool(int(datos[modo['llave']])):
                   component.background = app.theme_colors['Red']

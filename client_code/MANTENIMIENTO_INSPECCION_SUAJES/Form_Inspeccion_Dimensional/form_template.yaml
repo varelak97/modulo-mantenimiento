@@ -5,41 +5,76 @@ components:
       name: label_titulo
       properties: {align: center, bold: true, role: title, text: INSPECCIÓN DIMENSIONAL}
       type: Label
-    - layout_properties: {grid_position: 'LZFRCB,UUBQEU'}
-      name: label_cliente
-      properties: {bold: true}
-      type: Label
-    - layout_properties: {grid_position: 'LZFRCB,ZLYNPE'}
-      name: label_numero_parte
-      properties: {bold: true}
-      type: Label
-    - layout_properties: {grid_position: 'TORNPX,FLMFUA'}
-      name: label_codigo_suaje
-      properties: {bold: true}
-      type: Label
-    - layout_properties: {grid_position: 'TORNPX,RMTMSR'}
-      name: label_tipo_suaje
-      properties: {bold: true}
-      type: Label
-    - layout_properties: {grid_position: 'UBAYNH,DDLHMA'}
+    - layout_properties: {grid_position: 'OVOKHO,WBXCHP'}
       name: label_revisor
       properties: {bold: true, text: 'PERSONA QUE REVISA:'}
       type: Label
-    - layout_properties: {grid_position: 'UBAYNH,XBGDCK'}
+    - data_bindings:
+      - {code: '"nombre_usuario"', property: tag, writeback: false}
+      layout_properties: {grid_position: 'OVOKHO,GRHXVR'}
       name: text_box_revisor
-      properties: {role: outlined}
+      properties: {enabled: false, role: outlined}
       type: TextBox
+    - components:
+      - layout_properties: {grid_position: 'KOUCLX,NMTYGW'}
+        name: label_cliente
+        properties: {bold: true, text: 'CLIENTE:'}
+        type: Label
+      - data_bindings:
+        - {code: '"cliente"', property: tag, writeback: false}
+        layout_properties: {grid_position: 'KOUCLX,GIJZGP'}
+        name: text_box_cliente
+        properties: {background: 'theme:On Primary', enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'TZULIZ,LUGIBL'}
+        name: label_codigo_suaje
+        properties: {bold: true, text: 'CÓDIGO DE SUAJE:'}
+        type: Label
+      - data_bindings:
+        - {code: '"codigo_herramental"', property: tag, writeback: false}
+        layout_properties: {grid_position: 'TZULIZ,GWPPUH'}
+        name: text_box_codigo_suaje
+        properties: {background: 'theme:On Primary', enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'EAHFMP,IEMGWP'}
+        name: label_tipo_suaje
+        properties: {bold: true, text: 'TIPO DE SUAJE:'}
+        type: Label
+      - data_bindings:
+        - {code: '"tipo_suaje"', property: tag, writeback: false}
+        layout_properties: {grid_position: 'EAHFMP,JZKSND'}
+        name: text_box_tipo_suaje
+        properties: {background: 'theme:On Primary', enabled: false, role: outlined}
+        type: TextBox
+      - layout_properties: {grid_position: 'ZIBAPH,JYWJZZ'}
+        name: label_descripcion
+        properties: {bold: true, text: 'DESCRIPCIÓN:'}
+        type: Label
+      - data_bindings:
+        - {code: '"descripcion"', property: tag, writeback: false}
+        layout_properties: {grid_position: 'RUUCJQ,WUMTRR'}
+        name: text_area_descripcion
+        properties: {background: 'theme:On Primary', enabled: false, height: 80, role: outlined}
+        type: TextArea
+      layout_properties: {grid_position: 'GKBRFS,GOKPRR'}
+      name: column_panel_1
+      properties: {background: 'theme:LightGray', col_widths: '{"NMTYGW":10,"GIJZGP":50,"OCHKIL":15,"LUGIBL":10,"GWPPUH":50,"IEMGWP":10,"JZKSND":50}', role: elevated-card}
+      type: ColumnPanel
     - layout_properties: {grid_position: 'NHGCST,BTCSTL'}
       name: spacer_1
       properties: {height: 19}
       type: Spacer
     - components:
-      - event_bindings: {click: button_medidas_bien_click}
+      - data_bindings:
+        - {code: '"medidas_bien"', property: tag, writeback: false}
+        event_bindings: {click: button_medidas_bien_click}
         layout_properties: {grid_position: 'ETOULO,YGNVSN'}
         name: button_medidas_bien
         properties: {background: 'theme:Secondary Container', font_size: null, foreground: 'theme:Secondary', icon: 'fa:check', text: ''}
         type: Button
-      - event_bindings: {click: button_medidas_mal_click}
+      - data_bindings:
+        - {code: '"medidas_mal"', property: tag, writeback: false}
+        event_bindings: {click: button_medidas_mal_click}
         layout_properties: {grid_position: 'ETOULO,YCJNHS'}
         name: button_medidas_mal
         properties: {background: 'theme:Secondary Container', font_size: null, foreground: 'theme:Secondary', icon: 'fa:times', text: ''}
@@ -73,7 +108,7 @@ components:
       type: Button
     layout_properties: {grid_position: 'GUONSM,RXEYWV'}
     name: column_panel_body
-    properties: {col_widths: '{"DDLHMA":15,"XBGDCK":45}', role: elevated-card}
+    properties: {col_widths: '{"WBXCHP":15,"GRHXVR":45}', role: elevated-card}
     type: ColumnPanel
   layout_properties: {grid_position: 'GRJQCJ,RHRZTH'}
   name: content_panel

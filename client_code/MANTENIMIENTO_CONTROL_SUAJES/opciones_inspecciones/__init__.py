@@ -72,11 +72,11 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       print("ejecuta inspeccion dimensional como nuevo")
       self.abrir_form('nuevo', 'FORM_INSPECCION_DIMENSIONAL')
     else:
-      if self.datos['status_visual'] == '0':
+      if self.datos['status_dimensional'] == '0':
         print("ejecuta inspeccion dimensional como nueva inspeccion")
         self.abrir_form('nuevo_insp', 'FORM_INSPECCION_DIMENSIONAL')
       else:
-        print("ejecuta inspeccion dimensional como edicion")
+        print(f"ejecuta inspeccion dimensional como edicion con status visual:{self.datos['status_dimensional']}")
         self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
 
   def button_dimensional_ver_click(self, **event_args):
