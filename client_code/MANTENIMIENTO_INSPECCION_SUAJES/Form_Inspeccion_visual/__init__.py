@@ -79,7 +79,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     self.reporte_suajes = self.ss_reporte_suajes.rows
     self.suajes = self.ss_suajes.rows
     
-    if self.datos['modo'] in ['edicion', 'visor']:
+    if self.datos['modo'] in ['edicion', 'visor', 'nuevo_insp']:
       self.vista_clientes = self.ss_vista_clientes.rows
       self.vista_suajes = self.ss_vista_suajes.rows
       for row in self.reporte_suajes:
