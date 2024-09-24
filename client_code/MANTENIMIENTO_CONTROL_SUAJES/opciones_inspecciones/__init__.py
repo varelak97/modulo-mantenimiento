@@ -93,9 +93,12 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     
     respuesta = alert(contenido, title="PRÓXIMO CICLO DE REVISIÓN", buttons=[("GUARDAR", True)])
     if respuesta:
-      datos = {
-        "id_herramental" : self.datos['id_herramental'],
-        "nuevo_ciclo" : input_ciclo.text
-      }
-      self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
+      if int(self.datos['vida_util']) >= input_ciclo.text:
+        alert("Debe ingresar un ciclo mayor al actualmente registrado!", title="ERROR!")
+      else:
+        datos = {
+          "id_herramental" : self.datos['id_herramental'],
+          "nuevo_ciclo" : input_ciclo.text
+        }
+        self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
 
