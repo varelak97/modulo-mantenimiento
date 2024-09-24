@@ -112,7 +112,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
       self.herramentales = self.ss_herramentales.rows
       for herramental in self.herramentales:
         if herramental['id_herramental'] == datos['id_herramental']:
-          nueva_alerta = (int(datos['nuevo_ciclo']) - int(herramental['vida_util'])) * 0.9
+          nueva_alerta = (int(datos['nuevo_ciclo']) - int(herramental['vida_util'])) * 0.9 + int(herramental['vida_util'])
           herramental['vida_util'] = datos['nuevo_ciclo']
           herramental['alerta'] = nueva_alerta
           break
