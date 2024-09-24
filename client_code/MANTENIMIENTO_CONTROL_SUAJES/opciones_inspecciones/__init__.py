@@ -83,22 +83,29 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     if self.datos['status_dimensional'] == '1':
       self.abrir_form('visor', 'FORM_INSPECCION_DIMENSIONAL')
 
+  def test(self, **event_args):
+    alert("prueba")
+    
   def button_ciclo_click(self, **event_args):
     self.popper.pop("hide")
     contenido = ColumnPanel()
     input_ciclo = TextBox(type="number", role="outlined")
     descripcion = Label(text=f"Ciclo actual: {self.datos['vida_util']}\nIngrese próximo ciclo:")
+    boton = Button(text="GUARDAR", role="filled-button")
+    boton.add_event_handler('click', self.test)
     contenido.add_component(descripcion)
     contenido.add_component(input_ciclo)
+    contenido.add_component(boton)
     
-    respuesta = alert(contenido, title="PRÓXIMO CICLO DE REVISIÓN", buttons=[("GUARDAR", True)])
+    respuesta = alert(contenido, title="PRÓXIMO CICLO DE REVISIÓN", buttons=None)
     if respuesta:
       if int(self.datos['vida_util']) >= input_ciclo.text:
         alert("Debe ingresar un ciclo mayor al actualmente registrado!", title="ERROR!")
       else:
-        datos = {
+        alert("guardando...")
+        """datos = {
           "id_herramental" : self.datos['id_herramental'],
           "nuevo_ciclo" : input_ciclo.text
         }
-        self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
+        self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)"""
 
