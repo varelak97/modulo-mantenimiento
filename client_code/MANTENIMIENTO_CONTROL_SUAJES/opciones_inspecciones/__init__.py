@@ -94,5 +94,5 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     respuesta = alert(contenido, title="PRÓXIMO CICLO DE REVISIÓN", buttons=[("GUARDAR", True)])
     
     if respuesta:
-      alert("ciclo guardado correctamente")
+      alert(f"ciclo guardado correctamente:{self.button_ciclo.parent.parent}")
 
