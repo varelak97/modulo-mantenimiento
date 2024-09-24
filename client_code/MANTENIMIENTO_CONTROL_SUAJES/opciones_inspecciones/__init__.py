@@ -92,16 +92,10 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     contenido.add_component(input_ciclo)
     
     respuesta = alert(contenido, title="PRÓXIMO CICLO DE REVISIÓN", buttons=[("GUARDAR", True)])
-    
     if respuesta:
-      with Notification("Actualizando próximo ciclo de revisión...", title="ACTUALIZANDO.", style="notification"):
-        ws_herramentales = app_files.control_herramentales
-        ss_herramentales = ws_herramentales['HERRAMENTALES']
-        herramentales = ss_herramentales.rows
-        for herramental in herramentales:
-          if herramental['id_herramental'] == self.datos['id_herramental']:
-            herramental['vida_util'] = input_ciclo.text
-            break
-      alert(f"ciclo guardado correctamente:{self.button_ciclo.parent.parent}")
-      self.raise_event("x-close-alert",value="registro_guardado")
+      datos = {
+        "id_herramental" : self.datos['id_herramental'],
+        "nuevo_ciclo" : input_ciclo.text
+      }
+      self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
 

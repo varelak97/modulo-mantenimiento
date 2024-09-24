@@ -16,6 +16,8 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   ws_herramentales = None
   ss_vista_herramentales = None
   vista_herramentales = None
+  ss_herramentales = None
+  herramentales = None
   ss_vista_clientes = None
   vista_clientes = None
   ss_vista_reportes = None
@@ -26,6 +28,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
     self.set_ini_config(datos)
     self.set_event_handler('x-abrir_form', self.abrir_popup_form)
     self.set_event_handler('x-validar_reporte', self.validar_reporte)
+    self.set_event_handler('x-actualizar_ciclo', self.actualizar_ciclo)
     self.button_actualizar_click()
 
   ############################################# FUNCIONES PERSONALIZADAS ##############################################
@@ -33,6 +36,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
     self.datos = datos
     self.ws_herramentales = app_files.control_herramentales
     self.ss_vista_herramentales = self.ws_herramentales['VISTA_HERRAMENTALES']
+    self.ss_herramentales = self.ws_herramentales['HERRAMENTALES']
     self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
     self.ss_vista_reportes = self.ws_herramentales['VISTA_REVISION_SUAJES']
 
@@ -102,7 +106,18 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
     else: #nio se ha generado reporte
       print("entrando aqui!!")
       #self.abrir_popup_form(datos)
-  
+
+  def actualizar_ciclo(self, datos, **event_args):
+    with Notification("Actualizando próximo ciclo de revisión...", title="ACTUALIZANDO.", style="notification"):
+      self.herramentales = self.ss_herramentales.rows
+      for herramental in self.herramentales:
+        if herramental['id_herramental'] == datos['id_herramental']:
+          nueva_alerta = (int(datos['nuevo_ciclo']) - int(herramental['vida_util'])) * 0.9
+          herramental['vida_util'] = datos['nuevo_ciclo']
+          herramental['alerta'] = nueva_alerta
+          break
+    Notification("Próximo ciclo de revisión actualizado correctamente!", title="ÉXITO!", style="success").show(3)
+    self.button_actualizar_click()
   ###################################################### EVENTOS ######################################################
   def button_actualizar_click(self, **event_args):
     if len(event_args) > 0:
