@@ -83,3 +83,16 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
     if self.datos['status_dimensional'] == '1':
       self.abrir_form('visor', 'FORM_INSPECCION_DIMENSIONAL')
 
+  def button_ciclo_click(self, **event_args):
+    self.popper.pop("hide")
+    contenido = ColumnPanel()
+    input_ciclo = TextBox(type="number", role="outlined")
+    descripcion = Label(text=f"Ciclo actual: {self.datos['vida_util']}\nIngrese próximo ciclo:")
+    contenido.add_component(descripcion)
+    contenido.add_component(input_ciclo)
+    
+    respuesta = alert(contenido, title="PRÓXIMO CICLO DE REVISIÓN", buttons=[("GUARDAR", True)])
+    
+    if respuesta:
+      alert("ciclo guardado correctamente")
+

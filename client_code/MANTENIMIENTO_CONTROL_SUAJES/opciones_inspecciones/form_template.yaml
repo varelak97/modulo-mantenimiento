@@ -18,7 +18,8 @@ components:
   name: button_dimensional_editar
   properties: {icon: 'fa:edit', icon_align: top, text: ''}
   type: Button
-- layout_properties: {grid_position: 'XFOZNW,KVGDHS NJNATF,DCLSIX'}
+- event_bindings: {click: button_ciclo_click}
+  layout_properties: {grid_position: 'XFOZNW,KVGDHS NJNATF,DCLSIX'}
   name: button_ciclo
   properties: {icon: 'fa:edit', icon_align: top, text: '', visible: false}
   type: Button
