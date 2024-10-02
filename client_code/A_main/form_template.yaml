@@ -26,6 +26,10 @@ components:
     name: link_mantenimiento
     properties: {bold: true, icon: 'fa:wrench', text: MANTENIMIENTO}
     type: Link
+  - layout_properties: {grid_position: 'BTJJJC,ZUSTPO'}
+    name: link_sistemas
+    properties: {bold: true, icon: 'fa:desktop', text: SISTEMAS}
+    type: Link
   - data_bindings: []
     event_bindings: {click: link_herramentales_click}
     layout_properties: {grid_position: 'WNSACP,UMYSVC'}
