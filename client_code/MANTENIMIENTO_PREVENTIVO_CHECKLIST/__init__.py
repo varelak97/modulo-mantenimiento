@@ -52,6 +52,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       self.date_picker_fecha_hora_termino.date = self.registro_equipo['fecha_hora_final']
       self.repeating_panel_comentarios.items = eval(self.registro_equipo['comentarios_mantenimiento'])#self.get_comentarios(self.registro_equipo['comentarios_mantenimiento'])
       if datos['modo'] == "ver_checklist":
+        self.button_exportar.visible = True
         self.disable_componentes_form()
     else:
       self.text_box_nombre.text = self.datos['nombre_usuario']
