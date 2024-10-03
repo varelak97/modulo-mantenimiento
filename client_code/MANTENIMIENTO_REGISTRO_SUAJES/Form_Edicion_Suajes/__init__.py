@@ -123,7 +123,7 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     if self.drop_down_numeros_parte.selected_value is not None:
       lista_suajes = []
       for herramental in self.vista_herramentales:
-        if int(herramental['id_herramental']) in eval(self.drop_down_numeros_parte.selected_value[1]):
+        if int(herramental['id_herramental']) in eval(self.drop_down_numeros_parte.selected_value[1]): #### prueba borrar
           lista_suajes.append((herramental['tipo_suaje'], (herramental['tipo_suaje'], herramental['id_herramental'])))
       self.drop_down_tipo_suaje.items = lista_suajes
 
