@@ -106,7 +106,7 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
     if self.datos['modo'] == 'nuevo':
-      dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if self.datos['modo'] == 'nuevo' else 0
+      dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if len(self.reporte_suajes) > 0 else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
     dicc_nuevo_registro['nombre_usuario'] = self.datos['nombre_usuario']
     dicc_nuevo_registro['status_medidas'] = int(self.status_botones[0]['valor'])
@@ -127,12 +127,8 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
           text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
           text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
           text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
-          text += "\nREVISIÓN DE FILO EN PLECAS:\n"
-          text += f"{self.text_area_filo.text}\n"
-          text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
-          text += f"{self.text_area_union.text}\n"
-          text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
-          text += f"{self.text_area_estado.text}\n"
+          text += "\nCORROBORAR MEDIDAS CON PLANOS DE DIBUJO DE DISEÑO:\n"
+          text += f"{self.text_area_medidas.text}\n"
           anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
 

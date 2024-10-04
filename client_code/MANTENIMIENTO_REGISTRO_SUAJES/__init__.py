@@ -69,7 +69,7 @@ class MANTENIMIENTO_REGISTRO_SUAJES(MANTENIMIENTO_REGISTRO_SUAJESTemplate):
     if suma >= int(herramental['vida_util']):
       herramental['activo'] = 0 ##########probar si funciona
       titulo = f"REVISIÓN DE SUAJE para el NP: {datos['numero_parte']}"
-      datos_ciclos = f"Vida útil estimada:{herramental['vida_util']}\nCiclos de corte acumulados:{herramental['contador']}"
+      datos_ciclos = f"Vida útil estimada:{herramental['vida_util']}\nCiclos de corte acumulados:{suma}"
       texto = f"El suaje del NP: {datos['numero_parte']} ({datos['tipo_suaje']}) ha llegado a su vida útil estimada y requiere de su revisión.\n{datos_ciclos}"
       texto_alerta = f"El suaje del NP: {datos['numero_parte']} ({datos['tipo_suaje']}) ha llegado a su vida útil estimada, por favor entreguelo al Jefe de Mantenimiento para su revisión"
       alert(texto_alerta, title=titulo, buttons=[("ACEPTAR",True)])

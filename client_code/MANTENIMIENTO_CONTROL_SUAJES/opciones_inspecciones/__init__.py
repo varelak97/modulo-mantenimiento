@@ -99,6 +99,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       else:
         datos = {
           "id_herramental" : self.datos['id_herramental'],
+          "id_inspeccion" : self.datos['id_inspeccion'],
           "nuevo_ciclo" : input_ciclo.text
         }
         self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)

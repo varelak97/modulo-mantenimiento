@@ -22,6 +22,8 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   vista_clientes = None
   ss_vista_reportes = None
   vista_reportes = None
+  ss_reportes = None
+  reportes = None
   
   def __init__(self, datos, **properties):
     self.init_components(**properties)
@@ -39,6 +41,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
     self.ss_herramentales = self.ws_herramentales['HERRAMENTALES']
     self.ss_vista_clientes = self.ws_herramentales['VISTA_CLIENTES']
     self.ss_vista_reportes = self.ws_herramentales['VISTA_REVISION_SUAJES']
+    self.ss_reportes = self.ws_herramentales['REVISION_SUAJES']
 
   def get_datos(self):
     self.vista_herramentales = self.ss_vista_herramentales.rows
@@ -110,6 +113,11 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
   def actualizar_ciclo(self, datos, **event_args):
     with Notification("Actualizando próximo ciclo de revisión...", title="ACTUALIZANDO.", style="notification"):
       self.herramentales = self.ss_herramentales.rows
+      self.reportes = self.ss_reportes.rows
+      for reporte in self.reportes:
+        if reporte['id_inspeccion'] == datos['id_inspeccion'] and reporte['registro_principal'] == '1':
+          reporte['registro_principal'] = 0
+          break
       for herramental in self.herramentales:
         if herramental['id_herramental'] == datos['id_herramental']:
           nueva_alerta = (int(datos['nuevo_ciclo']) - int(herramental['vida_util'])) * 0.9 + int(herramental['vida_util'])
