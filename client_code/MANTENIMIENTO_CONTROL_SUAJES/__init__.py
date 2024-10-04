@@ -115,6 +115,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
           nueva_alerta = (int(datos['nuevo_ciclo']) - int(herramental['vida_util'])) * 0.9 + int(herramental['vida_util'])
           herramental['vida_util'] = datos['nuevo_ciclo']
           herramental['alerta'] = nueva_alerta
+          herramental['activo'] = 1 #################probar si funciona
           break
     Notification("Próximo ciclo de revisión actualizado correctamente!", title="ÉXITO!", style="success").show(3)
     self.button_actualizar_click()
