@@ -3,6 +3,9 @@ dependencies:
 - dep_id: dep_a100g45byf4vh
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {dev: false}
+- dep_id: dep_06zvkw4q1h6sx
+  resolution_hints: {app_id: SPUISWQO3UUBMUWJ, name: Módulo_Sistemas, package_name: M_dulo_Sistemas}
+  version: {branch: master}
 name: Modulo_Mantenimiento
 package_name: Modulo_Mantenimiento
 renamed: true
