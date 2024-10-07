@@ -3,7 +3,7 @@ dependencies:
 - dep_id: dep_a100g45byf4vh
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {dev: false}
-- dep_id: dep_41smg4up872xao
+- dep_id: dep_527jy7hioyvvamg
   resolution_hints: {app_id: IOGR3PPEYVHOBM6W, name: Modulo_Sistemas, package_name: Modulo_Sistemas}
   version: {branch: master}
 name: Modulo_Mantenimiento
