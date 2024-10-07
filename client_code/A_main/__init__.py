@@ -13,6 +13,7 @@ from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_REPORTE import MANTENIMIENTO_PREVENTI
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS
 from ..MANTENIMIENTO_MENU_HERRAMENTALES import MANTENIMIENTO_MENU_HERRAMENTALES
+from Modulo_Sistemas.Sistemas_Solicitudes_Soporte import Sistemas_Solicitudes_Soporte
 
 class A_main(A_mainTemplate):
   form_activo = None
@@ -60,6 +61,8 @@ class A_main(A_mainTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_MENU_HERRAMENTALES':
       self.abrir_form(MANTENIMIENTO_MENU_HERRAMENTALES(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_SISTEMAS':
+      self.abrir_form(Sistemas_Solicitudes_Soporte())
 
   def abrir_form(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
@@ -103,4 +106,8 @@ class A_main(A_mainTemplate):
 
   def link_herramentales_click(self, **event_args):
     self.datos['clave_form'] = 'MANTENIMIENTO_MENU_HERRAMENTALES'
+    self.actualizar_form_activo(self.datos)
+
+  def link_sistemas_click(self, **event_args):
+    self.datos['clave_form'] = 'MANTENIMIENTO_SISTEMAS'
     self.actualizar_form_activo(self.datos)
