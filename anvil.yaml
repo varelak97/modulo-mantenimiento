@@ -409,6 +409,104 @@ services:
       userPermission: {etag: '"GbHb1vk1VwwMIh782EHHi2Q9VqI"', id: me, kind: drive#permission, pendingOwner: false, role: owner, selfLink: 'https://www.googleapis.com/drive/v2/files/1dTBd6Lo5xNJYZrFRg5QF5h3jMGesqldubwhfN0O3M_4/permissions/me', type: user}
       version: '64'
       writersCanShare: true
+    - alternateLink: https://docs.google.com/spreadsheets/d/1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk/edit?usp=drivesdk
+      appDataContents: false
+      capabilities: {canCopy: true, canEdit: true}
+      copyRequiresWriterPermission: false
+      copyable: true
+      createdDate: '2024-10-07T18:31:19.570Z'
+      editable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk/htmlembed?ouid=111452219040835203177
+      etag: '"MTcyODQwNDI2MjM3NA"'
+      explicitlyTrashed: false
+      exportLinks: {application/pdf: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=pdf', application/vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=ods', application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=xlsx', application/x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=ods', application/zip: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=zip', text/csv: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=csv', text/tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk&exportFormat=tsv'}
+      fileSize: '3121'
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      id: 1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk
+      kind: drive#file
+      labels: {hidden: false, restricted: false, starred: false, trashed: false, viewed: true}
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        emailAddress: erp@ensel.org
+        isAuthenticatedUser: true
+        kind: drive#user
+        permissionId: '06466331473864975350'
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIzVjfOLg7L9jNP-PsaTZo4D_mGJGwRt_PxHvtY6tSpex_7=s64'}
+      lastModifyingUserName: ERP ENSEL
+      lastViewedByMeDate: '2024-10-08T16:25:38.073Z'
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedByMeDate: '2024-10-08T16:17:42.374Z'
+      modifiedDate: '2024-10-08T16:17:42.374Z'
+      ownerNames: [ERP ENSEL]
+      owners:
+      - displayName: ERP ENSEL
+        emailAddress: erp@ensel.org
+        isAuthenticatedUser: true
+        kind: drive#user
+        permissionId: '06466331473864975350'
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIzVjfOLg7L9jNP-PsaTZo4D_mGJGwRt_PxHvtY6tSpex_7=s64'}
+      parents:
+      - {id: 1GXd4sUEnlpKPMxLfxJ_lUDAyNRmwrwHk, isRoot: false, kind: drive#parentReference, parentLink: 'https://www.googleapis.com/drive/v2/files/1GXd4sUEnlpKPMxLfxJ_lUDAyNRmwrwHk', selfLink: 'https://www.googleapis.com/drive/v2/files/1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk/parents/1GXd4sUEnlpKPMxLfxJ_lUDAyNRmwrwHk'}
+      python_name: sistemas_lista_equipos
+      quotaBytesUsed: '3121'
+      selfLink: https://www.googleapis.com/drive/v2/files/1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk
+      shared: true
+      spaces: [drive]
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBP-FgqoAdVjZTq5eLg05l7o30lUCNxmdhCouu2qqi62cFBoPhOmEYiB4AP5YxGvcxuipeqpkapBj-v43omYrZGK3jpQ58elzBea2QccSlfqtk8jN6pWmukkMhA=s220
+      title: SISTEMAS_LISTA_EQUIPOS
+      userPermission: {etag: '"6asEJOtWAZHVyfVyJzf4adupKVk"', id: me, kind: drive#permission, pendingOwner: false, role: owner, selfLink: 'https://www.googleapis.com/drive/v2/files/1owAmHQSC3GDaiUAJHrBJelymqDU5crxJLT1I5rVIBvk/permissions/me', type: user}
+      version: '41'
+      writersCanShare: true
+    - alternateLink: https://docs.google.com/spreadsheets/d/1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ/edit?usp=drivesdk
+      appDataContents: false
+      capabilities: {canCopy: true, canEdit: true}
+      copyRequiresWriterPermission: false
+      copyable: true
+      createdDate: '2024-10-02T18:50:38.043Z'
+      editable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ/htmlembed?ouid=111452219040835203177
+      etag: '"MTcyODMyNzI4MzA4MQ"'
+      explicitlyTrashed: false
+      exportLinks: {application/pdf: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=pdf', application/vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=ods', application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=xlsx', application/x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=ods', application/zip: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=zip', text/csv: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=csv', text/tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ&exportFormat=tsv'}
+      fileSize: '1024'
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      id: 1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ
+      kind: drive#file
+      labels: {hidden: false, restricted: false, starred: false, trashed: false, viewed: true}
+      lastModifyingUser:
+        displayName: ERP ENSEL
+        emailAddress: erp@ensel.org
+        isAuthenticatedUser: true
+        kind: drive#user
+        permissionId: '06466331473864975350'
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIzVjfOLg7L9jNP-PsaTZo4D_mGJGwRt_PxHvtY6tSpex_7=s64'}
+      lastModifyingUserName: ERP ENSEL
+      lastViewedByMeDate: '2024-10-08T16:25:26.699Z'
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedByMeDate: '2024-10-07T18:54:43.081Z'
+      modifiedDate: '2024-10-07T18:54:43.081Z'
+      ownerNames: [ERP ENSEL]
+      owners:
+      - displayName: ERP ENSEL
+        emailAddress: erp@ensel.org
+        isAuthenticatedUser: true
+        kind: drive#user
+        permissionId: '06466331473864975350'
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocIzVjfOLg7L9jNP-PsaTZo4D_mGJGwRt_PxHvtY6tSpex_7=s64'}
+      parents:
+      - {id: 1GXd4sUEnlpKPMxLfxJ_lUDAyNRmwrwHk, isRoot: false, kind: drive#parentReference, parentLink: 'https://www.googleapis.com/drive/v2/files/1GXd4sUEnlpKPMxLfxJ_lUDAyNRmwrwHk', selfLink: 'https://www.googleapis.com/drive/v2/files/1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ/parents/1GXd4sUEnlpKPMxLfxJ_lUDAyNRmwrwHk'}
+      python_name: sistemas_solicitudes_soporte
+      quotaBytesUsed: '1024'
+      selfLink: https://www.googleapis.com/drive/v2/files/1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ
+      shared: true
+      spaces: [drive]
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBNBumkLHPtJQ5IrlXYT9tgMrVMAv4jTuAhy7k507SZw5QvfiKniVFmNuBxERsaSbY5nfwlks7mIcwpwzV8jzBi9TFPGF_cw2XxJMCNuH6IQLxpciunsfiH7IrtA=s220
+      title: SISTEMAS_SOLICITUDES_SOPORTE
+      userPermission: {etag: '"F_pqkCbzw8BYFMpvL_Z75fZm4Vw"', id: me, kind: drive#permission, pendingOwner: false, role: owner, selfLink: 'https://www.googleapis.com/drive/v2/files/1vW-aP7NyTxQSRs4bY_fg7sSSldyvevEjIILtXRshLXQ/permissions/me', type: user}
+      version: '31'
+      writersCanShare: true
   server_config: {enc_delegation_refresh_token: ocyIDempVJ+TJIPVHos41Q399KmROSaMVEt8+/pbN1M3jm/+epRc6Y9cMUuD7VSInXpOW/n5CZXZJAhhjs3UpjrcfypAnEApBTws/qGHWYfbyqwyEWWWu/xVG0gi2c9UFcG4EfqhdtD04XdBC8ymwi65Z5emKVpLxin+jDBWAre/QyZWM/95EHTuAAvPXshV4mkSYjjvdiRlCuIGDggAAGsnJaNKZTnUSSoVzTJK1IWjvAUDVX1Vq3YKd0KcGLv7acDNI1QXAdXO07nGHtzNauXH1rG/XaSZmi4cCUy2YvHzYQbtL597ypIx6UN3}
   source: /runtime/services/google.yml
 - client_config: {}
