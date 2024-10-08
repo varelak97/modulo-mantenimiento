@@ -62,7 +62,7 @@ class A_main(A_mainTemplate):
     elif datos['clave_form'] == 'MANTENIMIENTO_MENU_HERRAMENTALES':
       self.abrir_form(MANTENIMIENTO_MENU_HERRAMENTALES(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_SISTEMAS':
-      self.abrir_form(Sistemas_Solicitudes_Soporte())
+      self.abrir_form(Sistemas_Solicitudes_Soporte(datos))
 
   def abrir_form(self, form_de_interes):
     try: #Se utiliza un try porque la primera vez que se abre el form RECUERSOS_HUMANOS no tiene ningún form hijo cargado, entonces levantará un error.
