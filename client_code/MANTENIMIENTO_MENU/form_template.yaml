@@ -10,15 +10,11 @@ components:
     properties: {role: elevated-card}
     type: ColumnPanel
   - components:
-    - layout_properties: {grid_position: 'AJCPWS,AJMQMX'}
-      name: spacer_1
-      properties: {height: 32}
-      type: Spacer
     - components:
       - components:
         - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-          name: image_nueva_solicitud
-          properties: {height: '100', source: _/theme/iconos/llenar_solicitud.png}
+          name: image_mantenimiento
+          properties: {height: '100', source: _/theme/iconos/mtto_autonomo.png}
           type: Image
         - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
           name: label_nueva_solicitud
@@ -36,7 +32,7 @@ components:
     - components:
       - components:
         - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-          name: image_solicitudes_mtto_copy
+          name: image_sistemas
           properties: {display_mode: shrink_to_fit, height: '100', source: _/theme/iconos/SISTEMAS.png}
           type: Image
         - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
@@ -52,13 +48,28 @@ components:
       name: link_sistemas
       properties: {}
       type: Link
-    - layout_properties: {grid_position: 'AJCPWS,QDCTNN'}
-      name: spacer_2
-      properties: {height: 32}
-      type: Spacer
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
+          name: image_herramentales
+          properties: {height: '100', source: _/theme/iconos/llenar_solicitud.png}
+          type: Image
+        - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
+          name: label_nueva_solicitud_copy
+          properties: {align: center, bold: true, text: HERRAMENTALES}
+          type: Label
+        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
+        name: outlined_card_herramentales
+        properties: {role: elevated-card}
+        type: ColumnPanel
+      event_bindings: {click: link_herramentales_click}
+      layout_properties: {grid_position: 'AJCPWS,RVKKOK'}
+      name: link_herramentales
+      properties: {}
+      type: Link
     layout_properties: {grid_position: 'IMZOWB,XWYAYF'}
     name: outlined_card_general
-    properties: {role: elevated-card}
+    properties: {col_widths: '{"ELPAJE":20,"IJEDOQ":18,"RVKKOK":17,"GBBKTH":8}', role: elevated-card}
     type: ColumnPanel
   layout_properties: {grid_position: 'QRYNTM,YEWQMF'}
   name: content_panel_general
