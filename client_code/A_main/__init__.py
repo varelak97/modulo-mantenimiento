@@ -113,5 +113,5 @@ class A_main(A_mainTemplate):
     self.actualizar_form_activo(self.datos)
 
   def link_sistemas_click(self, **event_args):
-    self.datos['clave_form'] = 'MANTENIMIENTO_SISTEMAS'
+    self.datos['clave_form'] = 'MANTENIMIENTO_SISTEMAS_MENU'
     self.actualizar_form_activo(self.datos)
