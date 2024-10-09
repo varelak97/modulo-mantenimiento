@@ -37,5 +37,5 @@ class MANTENIMIENTO_MENU(MANTENIMIENTO_MENUTemplate):
     self.link_herramentales.parent.parent.parent.parent.raise_event("x-actualizar_form_activo", datos = self.datos)
 
   def link_sistemas_click(self, **event_args):
-    self.datos['clave_form'] = "MANTENIMIENTO_SISTEMAS_SOLICITUDES"
+    self.datos['clave_form'] = "MANTENIMIENTO_SISTEMAS_MENU"
     self.link_herramentales.parent.parent.parent.parent.raise_event("x-actualizar_form_activo", datos = self.datos)

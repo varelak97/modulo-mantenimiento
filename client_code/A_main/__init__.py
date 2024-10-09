@@ -15,7 +15,7 @@ from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS import MANTENIM
 from ..MANTENIMIENTO_MENU import MANTENIMIENTO_MENU
 from ..MANTENIMIENTO_MENU_HERRAMENTALES import MANTENIMIENTO_MENU_HERRAMENTALES
 from Modulo_Sistemas.Sistemas_Solicitudes_Soporte import Sistemas_Solicitudes_Soporte
-from Modulo_Sistemas.Sistemas_Solicitudes_Soporte import Sistemas_Solicitudes_Soporte
+from Modulo_Sistemas.Sistemas_Menu import Sistemas_Menu
 
 class A_main(A_mainTemplate):
   form_activo = None
@@ -63,8 +63,8 @@ class A_main(A_mainTemplate):
       self.abrir_form(MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_MENU_HERRAMENTALES':
       self.abrir_form(MANTENIMIENTO_MENU_HERRAMENTALES(datos))
-    elif datos['clave_form'] == 'MANTENIMIENTO_SISTEMAS_SOLICITUDES':
-      self.abrir_form(Sistemas_Solicitudes_Soporte(datos))
+    elif datos['clave_form'] == 'MANTENIMIENTO_SISTEMAS_MENU':
+      self.abrir_form(Sistemas_Menu(datos))
     elif datos['clave_form'] == 'MANTENIMIENTO_MENU':
       self.abrir_form(MANTENIMIENTO_MENU(datos))
 
