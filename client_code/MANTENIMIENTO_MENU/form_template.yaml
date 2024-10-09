@@ -43,7 +43,7 @@ components:
         name: outlined_card_sistemas
         properties: {role: elevated-card}
         type: ColumnPanel
-      event_bindings: {click: link_solicitudes_mtto_click}
+      event_bindings: {click: link_sistemas_click}
       layout_properties: {grid_position: 'AJCPWS,IJEDOQ'}
       name: link_sistemas
       properties: {}

@@ -6,9 +6,12 @@ from anvil.google.drive import app_files
 from anvil_extras import augment
 
 class MANTENIMIENTO_MENU(MANTENIMIENTO_MENUTemplate):
+  datos = None
   def __init__(self, datos, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+    self.datos = datos
 
     augment.set_event_handler(self.outlined_card_mantenimiento,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_mantenimiento,'mouseleave',self.set_color)
@@ -26,10 +29,13 @@ class MANTENIMIENTO_MENU(MANTENIMIENTO_MENUTemplate):
       card.background = app.theme_colors['Background']
 
   def link_mantenimiento_click(self, **event_args):
-    print(self.link_herramentales.parent)
-
-  def link_solicitudes_mtto_click(self, **event_args):
-    print(self.link_herramentales.parent.parent)
+    self.datos['clave_form'] = "MANTENIMIENTO_LISTA_EQUIPOS"
+    self.link_herramentales.parent.parent.parent.parent.raise_event("x-actualizar_form_activo", datos = self.datos)
 
   def link_herramentales_click(self, **event_args):
-    print(self.link_herramentales.parent.parent.parent)
+    self.datos['clave_form'] = "MANTENIMIENTO_MENU_HERRAMENTALES"
+    self.link_herramentales.parent.parent.parent.parent.raise_event("x-actualizar_form_activo", datos = self.datos)
+
+  def link_sistemas_click(self, **event_args):
+    self.datos['clave_form'] = "MANTENIMIENTO_SISTEMAS_SOLICITUDES"
+    self.link_herramentales.parent.parent.parent.parent.raise_event("x-actualizar_form_activo", datos = self.datos)
