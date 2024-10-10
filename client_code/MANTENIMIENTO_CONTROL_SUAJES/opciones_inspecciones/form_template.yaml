@@ -17,9 +17,10 @@ components:
   name: label_visual
   properties: {bold: true, text: INSPECCIÓN VISUAL}
   type: Label
-- layout_properties: {grid_position: 'XMYDIZ,SXXHQK'}
+- event_bindings: {click: button_visual_check_click}
+  layout_properties: {grid_position: 'XMYDIZ,SXXHQK'}
   name: button_visual_check
-  properties: {text: ''}
+  properties: {bold: true, font_size: 20, foreground: '', icon: 'fa:check', icon_align: top, text: '', visible: false}
   type: Button
 - event_bindings: {click: button_dimensional_editar_click}
   layout_properties: {grid_position: 'XFOZNW,KVGDHS UFWWLC,IFXRCS'}
@@ -44,9 +45,10 @@ components:
   name: label_ciclo
   properties: {bold: true, text: PRÓXIMO CICLO DE REVISIÓN, visible: false}
   type: Label
-- layout_properties: {grid_position: 'XFOZNW,OMGCFF'}
+- event_bindings: {click: button_dimensional_check_click}
+  layout_properties: {grid_position: 'XFOZNW,OMGCFF'}
   name: button_dimensional_check
-  properties: {text: ''}
+  properties: {font_size: 20, icon: 'fa:check', icon_align: top, text: '', visible: false}
   type: Button
 container:
   properties: {col_widths: '{"FSZKEM":15,"RDZOVJ":15,"KVGDHS":15,"PMUQWL":15,"TNXPWA":50,"SRVHKX":50,"BAKJWY":10}'}

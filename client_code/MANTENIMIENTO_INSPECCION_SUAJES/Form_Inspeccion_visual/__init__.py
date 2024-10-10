@@ -141,7 +141,9 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
-      if not confirmacion_uso:
+      if confirmacion_uso:
+        dicc_nuevo_registro['status_visual'] = 2
+      else:
         with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
           text = f"CLIENTE: {self.text_box_cliente.text}\n"
           text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"

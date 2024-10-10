@@ -121,7 +121,9 @@ class Form_Inspeccion_Dimensional(Form_Inspeccion_DimensionalTemplate):
       self.registro_actual['registro_principal'] = 0
     if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN DIMENSIONAL", buttons=[("SI", True), ("NO", False)])
-      if not confirmacion_uso:
+      if confirmacion_uso:
+        dicc_nuevo_registro['status_dimensional'] = 2
+      else:
         with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
           text = f"CLIENTE: {self.text_box_cliente.text}\n"
           text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"

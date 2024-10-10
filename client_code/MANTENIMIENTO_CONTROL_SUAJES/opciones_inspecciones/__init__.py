@@ -23,9 +23,29 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
       if self.datos['status_visual'] == '0':
         self.button_visual_ver.foreground = app.theme_colors['LightGray']
         config_ciclo = False
+      elif self.datos['status_visual'] == '1':
+        self.button_visual_check.visible = True
+        self.button_visual_check.icon = "fa:times"
+        self.button_visual_check.foreground = app.theme_colors['Red']
+        config_ciclo = False
+      elif self.datos['status_visual'] == '2':
+        self.button_visual_check.visible = True
+        self.button_visual_check.icon = "fa:check"
+        self.button_visual_check.foreground = app.theme_colors['Primary']
+        
       if self.datos['status_dimensional'] == '0':
         self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
-        config_ciclo = False 
+        config_ciclo = False
+      elif self.datos['status_dimensional'] == '1':
+        self.button_dimensional_check.visible = True
+        self.button_dimensional_check.icon = "fa:times"
+        self.button_dimensional_check.foreground = app.theme_colors['Red']
+        config_ciclo = False
+      elif self.datos['status_dimensional'] == '2':
+        self.button_dimensional_check.visible = True
+        self.button_dimensional_check.icon = "fa:check"
+        self.button_dimensional_check.foreground = app.theme_colors['Primary']
+      
       if config_ciclo:
         self.button_ciclo.visible = True
         self.label_ciclo.visible = True
@@ -65,7 +85,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.abrir_form('edicion', 'FORM_INSPECCION_VISUAL')
 
   def button_visual_ver_click(self, **event_args):
-    if self.datos['status_visual'] == '1':
+    if self.datos['status_visual'] == '1' or self.datos['status_visual'] == '2':
       self.abrir_form('visor', 'FORM_INSPECCION_VISUAL')
 
   def button_dimensional_editar_click(self, **event_args):
@@ -81,7 +101,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.abrir_form('edicion', 'FORM_INSPECCION_DIMENSIONAL')
 
   def button_dimensional_ver_click(self, **event_args):
-    if self.datos['status_dimensional'] == '1':
+    if self.datos['status_dimensional'] == '1' or self.datos['status_dimensional'] == '2':
       self.abrir_form('visor', 'FORM_INSPECCION_DIMENSIONAL')
     
   def button_ciclo_click(self, **event_args):
@@ -103,4 +123,14 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
           "nuevo_ciclo" : input_ciclo.text
         }
         self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
+
+  def button_visual_check_click(self, **event_args):
+    if self.datos['status_visual'] == '1':
+      confirmacion = alert(f"¿Confirma que el suaje: {self.datos['codigo_herramental']} ha sido reparado,ajustado o reemplazado?", title="INSPECCIÓN VISUAL", buttons=[("SI", True),("NO", False)])
+      #self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
+
+  def button_dimensional_check_click(self, **event_args):
+    if self.datos['status_dimensional'] == '1':
+      confirmacion = alert(f"¿Confirma que el suaje: {self.datos['codigo_herramental']} ha sido reparado,ajustado o reemplazado?", title="INSPECCIÓN DIMENSIONAL", buttons=[("SI", True),("NO", False)])
+      #self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
 
