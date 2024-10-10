@@ -30,6 +30,7 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
     self.set_ini_config(datos)
     self.set_event_handler('x-abrir_form', self.abrir_popup_form)
     self.set_event_handler('x-validar_reporte', self.validar_reporte)
+    self.set_event_handler('x-actualizar_reporte', self.actualizar_reporte)
     self.set_event_handler('x-actualizar_ciclo', self.actualizar_ciclo)
     self.button_actualizar_click()
 
@@ -126,6 +127,21 @@ class MANTENIMIENTO_CONTROL_SUAJES(MANTENIMIENTO_CONTROL_SUAJESTemplate):
           herramental['activo'] = 1 #################probar si funciona
           break
     Notification("Próximo ciclo de revisión actualizado correctamente!", title="ÉXITO!", style="success").show(3)
+    self.button_actualizar_click()
+
+  def actualizar_reporte(self, datos, **event_args):
+    msg = "Actualizando reporte visual..." if datos['reporte'] == "visual" else "Actualizando reporte dimensional..."
+    with Notification(msg, title="ACTUALIZANDO REPORTE...", style="notification"):
+      self.reportes = self.ss_reportes.rows
+      for reporte in self.reportes:
+        if reporte['id_inspeccion'] == datos['id_inspeccion'] and reporte['registro_principal'] == '1':
+          if datos['reporte'] == 'visual':
+            reporte['status_visual'] = 2
+          elif datos['reporte'] == 'dimensional':
+            reporte['status_dimensional'] = 2
+          break
+    notificacion = "Reporte visual actualizado correctamente!" if datos['reporte'] == "visual" else "Reporte dimensional actualizado correctamente!"      
+    Notification(notificacion, title="ÉXITO!", style="success").show(3)
     self.button_actualizar_click()
   ###################################################### EVENTOS ######################################################
   def button_actualizar_click(self, **event_args):

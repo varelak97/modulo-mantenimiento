@@ -47,6 +47,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.button_dimensional_check.foreground = app.theme_colors['Primary']
       
       if config_ciclo:
+        self.label_notificacion.visible = False
         self.button_ciclo.visible = True
         self.label_ciclo.visible = True
       
@@ -127,10 +128,20 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   def button_visual_check_click(self, **event_args):
     if self.datos['status_visual'] == '1':
       confirmacion = alert(f"¿Confirma que el suaje: {self.datos['codigo_herramental']} ha sido reparado,ajustado o reemplazado?", title="INSPECCIÓN VISUAL", buttons=[("SI", True),("NO", False)])
-      #self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
+      if confirmacion:
+        datos = {
+          'id_inspeccion': self.datos['id_inspeccion'],
+          'reporte': 'visual'
+        }
+        self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_reporte', datos=datos)
 
   def button_dimensional_check_click(self, **event_args):
     if self.datos['status_dimensional'] == '1':
       confirmacion = alert(f"¿Confirma que el suaje: {self.datos['codigo_herramental']} ha sido reparado,ajustado o reemplazado?", title="INSPECCIÓN DIMENSIONAL", buttons=[("SI", True),("NO", False)])
-      #self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_ciclo', datos=datos)
+      if confirmacion:
+        datos = {
+          'id_inspeccion': self.datos['id_inspeccion'],
+          'reporte': 'dimensional'
+        }
+        self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_reporte', datos=datos)
 
