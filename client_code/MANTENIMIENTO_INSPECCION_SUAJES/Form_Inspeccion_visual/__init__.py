@@ -142,11 +142,11 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
           notificar = True
     
     if self.datos['modo'] in ["nuevo", "nuevo_insp"]: #antes validacion
-      if dicc_nuevo_registro['status_filo'] == 1:
+      if dicc_nuevo_registro['status_filo'] == 0:
         notificar = True
-      if dicc_nuevo_registro['status_union'] == 1:
+      if dicc_nuevo_registro['status_union'] == 0:
           notificar = True
-      if dicc_nuevo_registro['status_estado'] == 1:
+      if dicc_nuevo_registro['status_estado'] == 0:
           notificar = True
       
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
