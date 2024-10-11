@@ -119,10 +119,12 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     """self.status_botones[0]['valor'] = True if dicc_registro_actual['status_filo'] == '1' else False
     self.status_botones[1]['valor'] = True if dicc_registro_actual['status_union'] == '1' else False
     self.status_botones[2]['valor'] = True if dicc_registro_actual['status_estado'] == '1' else False"""
+    notificar = False
     
     datos_form = Funciones_Globales.genera_diccionario(self.lista_componentes_validacion, None)
     dicc_nuevo_registro = dict(self.registro_actual)
     dicc_nuevo_registro.update(datos_form)
+    
     if self.datos['modo'] == 'nuevo':
       dicc_nuevo_registro['id_inspeccion'] = max([int(item['id_inspeccion']) for item in self.reporte_suajes]) + 1 if len(self.reporte_suajes) > 0 else 0
     dicc_nuevo_registro['id_usuario_registrador'] = self.datos['id_usuario_erp']
@@ -130,8 +132,23 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
     dicc_nuevo_registro['status_filo'] = int(self.status_botones[0]['valor'])
     dicc_nuevo_registro['status_union'] = int(self.status_botones[1]['valor'])
     dicc_nuevo_registro['status_estado'] = int(self.status_botones[2]['valor'])
+
+    if self.datos['modo'] == 'edicion':
+      if self.registro_actual['status_filo'] == '0' and dicc_nuevo_registro['status_filo'] == 1:
+          notificar = True
+      if self.registro_actual['status_union'] == '0' and dicc_nuevo_registro['status_union'] == 1:
+          notificar = True
+      if self.registro_actual['status_estado'] == '0' and dicc_nuevo_registro['status_estado'] == 1:
+          notificar = True
     
     if self.datos['modo'] in ["nuevo", "nuevo_insp"]: #antes validacion
+      if dicc_nuevo_registro['status_filo'] == 1:
+        notificar = True
+      if dicc_nuevo_registro['status_union'] == 1:
+          notificar = True
+      if dicc_nuevo_registro['status_estado'] == 1:
+          notificar = True
+      
       dicc_nuevo_registro['id_herramental'] = self.datos['id_herramental']
       dicc_nuevo_registro['status_visual'] = 1
       if self.datos['modo'] == 'nuevo':
@@ -139,7 +156,22 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
       dicc_nuevo_registro['registro_principal'] = 1
     if self.datos['modo'] != "nuevo":
       self.registro_actual['registro_principal'] = 0
-    if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
+    if notificar:
+      with Notification("Enviando notificación al jefe de Diseño", title="NOTIFICACIÓN DE CAMBIO DE SUAJE", style="notification"):
+          text = f"CLIENTE: {self.text_box_cliente.text}\n"
+          text += f"CODIGO DE SUAJE: {self.text_box_codigo_suaje.text}\n"
+          text += f"TIPO DE SUAJE: {self.text_box_tipo_suaje.text}\n"
+          text += f"DESCRIPCIÓN: {self.text_area_descripcion.text}\n"
+          text += "\nREVISIÓN DE FILO EN PLECAS:\n"
+          text += f"{self.text_area_filo.text}\n"
+          text += "\nREVISIÓN DE UNIÓN EN PLECAS:\n"
+          text += f"{self.text_area_union.text}\n"
+          text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
+          text += f"{self.text_area_estado.text}\n"
+          anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
+    else:
+      dicc_nuevo_registro['status_visual'] = 2
+    """if self.datos['modo'] in ['nuevo', 'nuevo_insp']:
       confirmacion_uso = alert("¿Se puede seguir utilizando este suaje?", title="INSPECCIÓN VISUAL", buttons=[("SI", True), ("NO", False)])
       if confirmacion_uso:
         dicc_nuevo_registro['status_visual'] = 2
@@ -155,7 +187,7 @@ class Form_Inspeccion_visual(Form_Inspeccion_visualTemplate):
           text += f"{self.text_area_union.text}\n"
           text += "\nREVISIÓN DE BUEN ESTADO DE PLECAS:\n"
           text += f"{self.text_area_estado.text}\n"
-          anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)
+          anvil.server.call('enviar_mail', "a.varela@ensel.org", f"SOLICITUD DE CAMBIO DE SUAJE, CLIENTE: {self.text_box_cliente.text}", text)"""
     self.ss_reporte_suajes.add_row(**dicc_nuevo_registro)
   ###################################################### EVENTOS #####################################################
   def button_guardar_click(self, **event_args):
