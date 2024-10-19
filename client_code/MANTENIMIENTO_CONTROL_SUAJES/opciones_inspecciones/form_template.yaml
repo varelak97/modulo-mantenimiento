@@ -44,21 +44,18 @@ components:
     type: Button
   layout_properties: {grid_position: 'DJPZJQ,STSKXU'}
   name: column_panel_inspecciones
-  properties: {col_widths: '{"ODMCRA":10,"QAJAOT":10,"QTDBKB":40}'}
+  properties: {col_widths: '{"ODMCRA":10,"QAJAOT":10,"QTDBKB":40}', visible: false}
   type: ColumnPanel
-- layout_properties: {grid_position: 'XFOZNW,SRVHKX FSQQMT,NRNWLG'}
-  name: label_entrega
-  properties: {bold: true, text: CONFIRMAR ENTREGA DE SUAJE A MTTO}
-  type: Label
-- layout_properties: {grid_position: 'XFOZNW,SRVHKX GJSBGD,QMWLTL'}
-  name: label_ciclo
-  properties: {bold: true, text: PRÓXIMO CICLO DE REVISIÓN, visible: false}
-  type: Label
-- layout_properties: {grid_position: 'XFOZNW,OMGCFF'}
-  name: button_entrega
-  properties: {icon: 'fa:clock-o', icon_align: top, text: ''}
+- event_bindings: {click: button_confirmar_click}
+  layout_properties: {grid_position: 'WLHZMD,ZRGAQR'}
+  name: button_confirmar
+  properties: {background: 'theme:Primary', bold: true, foreground: 'theme:Yellow', icon: 'fa:check', text: CONFIRMAR ENTREGA DE SUAJE}
+  type: Button
+- layout_properties: {grid_position: 'DLWBEH,SJROHK'}
+  name: button_ciclo
+  properties: {background: 'theme:Primary', bold: true, foreground: 'theme:On Primary', icon: 'fa:edit', text: PROXIMO CICLO DE REVISIÓN, visible: false}
   type: Button
 container:
-  properties: {col_widths: '{"KVGDHS":15,"SRVHKX":50}'}
+  properties: {col_widths: '{"SRVHKX":65}'}
   type: ColumnPanel
 is_package: true

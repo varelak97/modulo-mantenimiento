@@ -16,8 +16,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_config(self):
     if self.datos['id_inspeccion'] is None:
-      self.label_notificacion.text = "SUAJE PENDIENTE DE ENTREGA A JEFE DE MANTENIMIENTO."
-      self.column_panel_inspecciones.visible = False
+      self.label_notificacion.text = "* SUAJE PENDIENTE DE ENTREGA A JEFE DE MANTENIMIENTO."
       #self.button_visual_ver.foreground = app.theme_colors['LightGray']
       #self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
     else:
@@ -146,4 +145,8 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
           'reporte': 'dimensional'
         }
         self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_reporte', datos=datos)
+
+  def button_confirmar_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
 
