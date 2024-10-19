@@ -16,8 +16,10 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_config(self):
     if self.datos['id_inspeccion'] is None:
-      self.button_visual_ver.foreground = app.theme_colors['LightGray']
-      self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
+      self.label_notificacion.text = "SUAJE PENDIENTE DE ENTREGA A JEFE DE MANTENIMIENTO."
+      self.column_panel_inspecciones.visible = False
+      #self.button_visual_ver.foreground = app.theme_colors['LightGray']
+      #self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
     else:
       config_ciclo = True
       if self.datos['status_visual'] == '0':
