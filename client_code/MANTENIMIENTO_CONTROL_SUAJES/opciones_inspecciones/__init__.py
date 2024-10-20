@@ -147,6 +147,5 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_reporte', datos=datos)
 
   def button_confirmar_click(self, **event_args):
-    """This method is called when the button is clicked"""
     pass
 
