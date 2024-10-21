@@ -147,5 +147,5 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
         self.popper.parent.parent.parent.parent.parent.parent.raise_event('x-actualizar_reporte', datos=datos)
 
   def button_confirmar_click(self, **event_args):
-    pass
+    confirnmacion = alert("¿Confirma que ha preparado el suaje y lo ha entregado al jefe de mantenimiento para su revisión?", title="CONFIRMACION DE ENTREGA DE HERRAMENTAL", buttons=[("ACEPTAR",True),("CANCELAR",False)])
 
