@@ -16,7 +16,7 @@ class opciones_inspecciones(opciones_inspeccionesTemplate):
   ################################################# FUNCIONES PERSONALIZADAS #################################################
   def set_config(self):
     if self.datos['id_inspeccion'] is None:
-      self.label_notificacion.text = "* SUAJE PENDIENTE DE ENTREGA A JEFE DE MANTENIMIENTO."
+      self.label_notificacion.text = "* SUAJE PENDIENTE DE ENTREGA A JEFE DE MANTENIMIENTO.\n(Para llevar el suaje a revisión hay que quitar botadores y realizar limpieza de plecas)"
       #self.button_visual_ver.foreground = app.theme_colors['LightGray']
       #self.button_dimensional_ver.foreground = app.theme_colors['LightGray']
     else:

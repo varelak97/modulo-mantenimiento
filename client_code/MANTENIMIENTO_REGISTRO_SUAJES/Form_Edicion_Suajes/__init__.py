@@ -88,6 +88,16 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     dicc_modos = [{'tag':'id_numero_parte', 'index': 0}, {'tag':'tipo_suaje', 'index': 0}, {'tag':'id_cliente', 'index': 0}]
     status = Funciones_Globales.validar_campos(self.lista_input_components, self.registro_actual, self.campos_no_obligatorios, self.datos['modo'], dicc_modos, None)
     if status == 1:
+      respuesta = True
+      if self.datos['modo'] == "nuevo":
+        panel = ColumnPanel()
+        label = Label(text="Ingrese el nombre de la persona que autoriza su uso:")
+        input = TextBox(role="outlined")
+        panel.add_component(panel)
+        panel.add_component(input)
+        respuesta = alert(panel, title="CONFIRMACION DE AUTORIZACIÓN", buttons=[("CONFIRMAR", True),("SALIR", False)])
+      if respuesta:
+        if 
       mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
       title = "ACTUALIZANDO." if self.datos['modo'] == "edicion" else "GUARDANDO."
       with Notification(mensaje, title=title):
@@ -143,10 +153,12 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
     else:
       self.drop_down_tipo_suaje.selected_value = None
       self.drop_down_tipo_suaje.enabled = False
+      self.drop_down_tipo_suaje_change()
 
   def drop_down_cliente_change(self, **event_args):
     self.drop_down_cliente.role = "outlined"
     if self.drop_down_cliente.selected_value is not None:
+      self.drop_down_numeros_parte.enabled = True
       lista_numeros_parte = []
       for numero_parte in self.vista_numeros_parte:
         if self.drop_down_cliente.selected_value[0] == numero_parte['id_cliente']:
@@ -158,14 +170,32 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
       for numero_parte in self.vista_numeros_parte:
         lista_numeros_parte.append((numero_parte['numero_parte'], (numero_parte['id_numero_parte'], numero_parte['id_herramentales'])))
       self.drop_down_numeros_parte.items = lista_numeros_parte
+      self.drop_down_numeros_parte.enabled = False
       self.drop_down_numeros_parte.selected_value = None
       self.drop_down_numeros_parte_change()
+      self.drop_down_tipo_suaje.selected_value = None
+      self.drop_down_tipo_suaje_change()
 
   def date_picker_fecha_programada_change(self, **event_args):
     self.date_picker_fecha_programada.role = "outlined"
 
   def drop_down_tipo_suaje_change(self, **event_args):
     self.drop_down_tipo_suaje.role = "outlined"
+    if self.drop_down_tipo_suaje.selected_value is not None:
+      self.column_panel_codigo_suaje.visible = True
+      herramental_seleccionado = None
+      for herramental in self.vista_herramentales:
+        if herramental['id_herramental'] == self.drop_down_tipo_suaje.selected_value[1]:
+          herramental_seleccionado = herramental
+          break
+      self.label_codigo_suaje.text = f"CODIGO DEL SUAJE: {herramental_seleccionado['codigo_herramental']}"
+      if int(herramental_seleccionado['contador']) >= int(herramental_seleccionado['vida_util']):
+        self.label_notificacion.visible = True
+      else:
+        self.label_notificacion.visible = False
+    else:
+      self.column_panel_codigo_suaje.visible = False
+      self.label_notificacion.visible = False
 
   def text_box_suajes_programados_change(self, **event_args):
     self.text_box_suajes_programados.role = "outlined"
