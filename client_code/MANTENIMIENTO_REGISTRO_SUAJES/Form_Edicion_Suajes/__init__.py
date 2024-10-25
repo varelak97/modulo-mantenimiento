@@ -97,7 +97,8 @@ class Form_Edicion_Suajes(Form_Edicion_SuajesTemplate):
         panel.add_component(input)
         respuesta = alert(panel, title="CONFIRMACION DE AUTORIZACIÓN", buttons=[("CONFIRMAR", True),("SALIR", False)])
       if respuesta:
-        if 
+        pass
+        #SEGUIR AQUI PARA MOSTRAR INGRESO DE VALIDADOR DE USO DE SUAJE
       mensaje = "Actualizando registro en la base de datos..." if self.datos['modo'] == "edicion" else "Guardando registro en la base de datos..."
       title = "ACTUALIZANDO." if self.datos['modo'] == "edicion" else "GUARDANDO."
       with Notification(mensaje, title=title):
