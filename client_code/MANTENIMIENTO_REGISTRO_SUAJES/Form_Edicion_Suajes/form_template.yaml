@@ -58,6 +58,10 @@ components:
         name: label_notificacion
         properties: {bold: true, foreground: 'theme:Red', icon: 'fa:warning', text: 'ATENCIÓN: El suaje seleccionado está en revisión, al programarlo deberá ingresar el nombre de la persona que autoriza su uso.', visible: false}
         type: Label
+      - layout_properties: {grid_position: 'IHDUKM,LKUQDE'}
+        name: label_autorizacion
+        properties: {text: 'NOMBRE DE PERSONA QUE AUTORIZA USO:'}
+        type: Label
       layout_properties: {grid_position: 'FKJFAT,ZQAOJI'}
       name: column_panel_codigo_suaje
       properties: {visible: false}
