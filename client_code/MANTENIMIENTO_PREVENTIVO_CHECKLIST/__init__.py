@@ -1,6 +1,7 @@
 from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate
 from anvil import *
 import anvil.server
+import anvil.media
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from datetime import date,datetime
@@ -213,6 +214,10 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     datos['tipo'] = "reporte_luz_resistencia"
     datos['formularios'] = [("FOR-MAN-028 y 029 Reporte de Medición de Intensidad de Luz UV y Resistencias (Respuestas)","reporte_luz_resistencia")]
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
+
+  def button_exportar_click(self, **event_args):
+    media_object = anvil.server.call('crear_pdf')
+    anvil.media.download(media_object)
 
   
     
