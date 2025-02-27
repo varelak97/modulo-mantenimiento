@@ -216,8 +216,9 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def button_exportar_click(self, **event_args):
-    media_object = anvil.server.call('crear_pdf')
-    anvil.media.download(media_object)
+    pass
+    #media_object = anvil.server.call('crear_pdf', self.datos)
+    #anvil.media.download(media_object)
 
   
     

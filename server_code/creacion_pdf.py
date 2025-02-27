@@ -6,6 +6,6 @@ import anvil.server
 import anvil.pdf
 
 @anvil.server.callable
-def crear_pdf():
-  media_object = anvil.pdf.render_form('MANTENIMIENTO_PREVENTIVO_CHECKLIST', 42, name="CHECLIKST_MTTO")
+def crear_pdf(datos):
+  media_object = anvil.pdf.render_form('MANTENIMIENTO_PREVENTIVO_CHECKLIST', datos)
   return media_object
