@@ -15,8 +15,8 @@ class MANTENIMIENTO_MENU(MANTENIMIENTO_MENUTemplate):
 
     augment.set_event_handler(self.outlined_card_mantenimiento,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_mantenimiento,'mouseleave',self.set_color)
-    augment.set_event_handler(self.outlined_card_sistemas,'mouseenter',self.set_color)
-    augment.set_event_handler(self.outlined_card_sistemas,'mouseleave',self.set_color)
+    #augment.set_event_handler(self.outlined_card_sistemas,'mouseenter',self.set_color)
+    #augment.set_event_handler(self.outlined_card_sistemas,'mouseleave',self.set_color)
     augment.set_event_handler(self.outlined_card_herramentales,'mouseenter',self.set_color)
     augment.set_event_handler(self.outlined_card_herramentales,'mouseleave',self.set_color)
 
