@@ -32,25 +32,6 @@ components:
     - components:
       - components:
         - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
-          name: image_sistemas
-          properties: {display_mode: shrink_to_fit, height: '100', source: _/theme/iconos/SISTEMAS.png}
-          type: Image
-        - layout_properties: {grid_position: 'FXVIML,KCAEXH'}
-          name: label_solicitudes_mtto_copy
-          properties: {align: center, bold: true, text: SISTEMAS}
-          type: Label
-        layout_properties: {grid_position: 'VCSTKT,SLYQJM'}
-        name: outlined_card_sistemas
-        properties: {role: elevated-card}
-        type: ColumnPanel
-      event_bindings: {click: link_sistemas_click}
-      layout_properties: {grid_position: 'AJCPWS,IJEDOQ'}
-      name: link_sistemas
-      properties: {}
-      type: Link
-    - components:
-      - components:
-        - layout_properties: {grid_position: 'BFWXHA,FNARLB'}
           name: image_herramentales
           properties: {height: '100', source: _/theme/iconos/llenar_solicitud.png}
           type: Image
@@ -69,7 +50,7 @@ components:
       type: Link
     layout_properties: {grid_position: 'IMZOWB,XWYAYF'}
     name: outlined_card_general
-    properties: {col_widths: '{"ELPAJE":20,"IJEDOQ":18,"RVKKOK":17,"GBBKTH":8}', role: elevated-card}
+    properties: {col_widths: '{"ELPAJE":20,"IJEDOQ":18,"RVKKOK":17}', role: elevated-card}
     type: ColumnPanel
   layout_properties: {grid_position: 'QRYNTM,YEWQMF'}
   name: content_panel_general
