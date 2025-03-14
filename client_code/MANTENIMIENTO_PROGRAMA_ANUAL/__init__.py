@@ -10,6 +10,7 @@ from datetime import datetime, date
 from ..MANTENIMIENTO_PREVENTIVO_REGISTROS import MANTENIMIENTO_PREVENTIVO_REGISTROS
 from ..MANTENIMIENTO_PREVENTIVO_CHECKLIST import MANTENIMIENTO_PREVENTIVO_CHECKLIST
 from ..MANTENIMIENTO_PREVENTIVO_PROGRAMACION import MANTENIMIENTO_PREVENTIVO_PROGRAMACION
+from .Indicadores_prorroga import Indicadores_prorroga
 
 class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -75,6 +76,9 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.ws_consulta_mttos = self.libro_mttos['Consulta']
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.llenar_calendario()
+
+    self.button_prorrogas.popover(content=Indicadores_prorroga(), title="DESCRIPCIÓN DE CLAVES DE MANTENIMIENTO", trigger="click",max_width="600px", placement = "auto")
+    
     
     self.init_components(**properties)
     ######################## CARGA DE DATOS E INICIALIZACION DE VARIABLES #########################
@@ -377,6 +381,8 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     print(datos)""""
 
     #print(anvil.js.call('prueba',lista))
+
+  
 
     
 

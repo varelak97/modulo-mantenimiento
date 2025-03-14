@@ -1,0 +1,7 @@
+components:
+- layout_properties: {full_width_row: true, grid_position: 'MGSCQM,UNNOWN'}
+  name: image_1
+  properties: {display_mode: original_size, source: _/theme/recursos/PRORROGAS.png}
+  type: Image
+container: {type: ColumnPanel}
+is_package: true
