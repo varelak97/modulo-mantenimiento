@@ -77,7 +77,7 @@ class MANTENIMIENTO_PROGRAMA_ANUAL(MANTENIMIENTO_PROGRAMA_ANUALTemplate):
     self.ws_registros_totales = self.libro_mttos['Registros']
     self.llenar_calendario()
 
-    self.button_prorrogas.popover(content=Indicadores_prorroga(), title="DESCRIPCIÓN DE CLAVES DE MANTENIMIENTO", trigger="click",max_width="600px", placement = "auto")
+    self.button_prorrogas.popover(content=Indicadores_prorroga(), trigger="click",max_width="600px", placement = "auto")
     
     
     self.init_components(**properties)
