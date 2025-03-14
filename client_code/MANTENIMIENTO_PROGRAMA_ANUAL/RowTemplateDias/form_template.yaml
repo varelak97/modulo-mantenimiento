@@ -17,7 +17,7 @@ components:
       type: Link
     - data_bindings:
       - {code: 'self.item[''lunes''][''M'']', property: text, writeback: false}
-      event_bindings: {click: link_lunes_m_click}
+      event_bindings: {}
       layout_properties: {grid_position: 'WFFQIT,MRLIJF'}
       name: link_lunes_m
       properties: {align: center, bold: true, font_size: 11, spacing_below: none}

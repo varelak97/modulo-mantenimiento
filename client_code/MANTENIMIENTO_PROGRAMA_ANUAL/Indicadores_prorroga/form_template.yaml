@@ -1,8 +1,4 @@
 components:
-- layout_properties: {grid_position: 'PFPOMO,KACEZM'}
-  name: label_1
-  properties: {align: center, bold: true, font_size: 35, text: Descripción de Claves de Mantenimiento}
-  type: Label
 - layout_properties: {full_width_row: true, grid_position: 'MGSCQM,UNNOWN'}
   name: image_1
   properties: {display_mode: original_size, source: _/theme/recursos/PRORROGAS.png}
