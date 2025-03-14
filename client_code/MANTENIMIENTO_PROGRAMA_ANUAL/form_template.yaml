@@ -15,6 +15,10 @@ components:
       name: button_programar
       properties: {bold: true, icon: 'fa:calendar', role: filled-button, text: PROGRAMAR MANTENIMIENTOS}
       type: Button
+    - layout_properties: {grid_position: 'ZEWKMM,HTBFML'}
+      name: button_1
+      properties: {background: 'theme:Blue', bold: true, foreground: 'theme:Yellow', icon: 'fa:info-circle', role: filled-button, text: DESCRIPCIÓN DE CLAVES DE MANTENIMIENTO}
+      type: Button
     - components:
       - layout_properties: {grid_position: 'GGLLJE,VNRYTO'}
         name: label_calendario_mantenimiento
