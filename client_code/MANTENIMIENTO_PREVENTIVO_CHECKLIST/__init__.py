@@ -2,6 +2,8 @@ from ._anvil_designer import MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate
 from anvil import *
 import anvil.server
 import anvil.media
+import json
+import anvil.http
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from datetime import date,datetime
@@ -216,9 +218,20 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     respuesta = alert(content = MANTENIMIENTO_FORMS_REPORTES(datos), large=True, dismissible=False, buttons=[("SALIR",True)], role="wide-modal-content-bigger")
 
   def button_exportar_click(self, **event_args):
-    pass
     #media_object = anvil.server.call('crear_pdf', self.datos)
     #anvil.media.download(media_object)
+    url_google_script = "https://script.google.com/macros/s/AKfycbzni6s-XfhMZl0QrAFQX1tAZ8vZDxVT4TsgNkuRMUIOy6Xug6qsL7vPY9YdQguTStc/exec"
+    tabla_actividades = self.repeating_panel_registros.items
+    tabla_comentarios = self.repeating_panel_comentarios.items
+    datos = {
+      "nombre":self.text_box_nombre,
+      "fecha_inicio":self.date_picker_fecha_hora_inicio.date,
+      "fecha_fin":self.date_picker_fecha_hora_termino.date,
+      "actividades":tabla_actividades,
+      "comentarios":tabla_comentarios
+    }
+    respuesta = anvil.http.request(url_google_script, data=datos, method="POST", json=True, headers=None, username=None, password=None)
+    print(respuesta['respuesta'])
 
   
     
