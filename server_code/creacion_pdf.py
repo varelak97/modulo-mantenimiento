@@ -7,7 +7,7 @@ import anvil.pdf
 import requests
 import json
 
-url_google_script = "https://script.google.com/macros/s/AKfycbw9uCyUsr_dJYHuVacLI5F6dO2q9bvnT16Hux4kqEsVd54yIFLTVMpBdpjKmDUuQTI/exec"
+url_google_script = "https://script.google.com/macros/s/AKfycby7I-YoZiKYZ9tBJlFiDtqke6q5Pt5KK2VCx870Du629ye0RiecKBlgR5hHgtzl3Dc/exec"
 
 @anvil.server.callable
 def crear_pdf(datos):

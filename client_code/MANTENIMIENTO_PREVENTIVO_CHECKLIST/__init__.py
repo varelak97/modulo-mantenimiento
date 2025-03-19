@@ -224,13 +224,13 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     tabla_comentarios = self.repeating_panel_comentarios.items
     datos = {
       "nombre":self.text_box_nombre.text,
-      """"fecha_inicio":self.date_picker_fecha_hora_inicio.date,
-      "fecha_fin":self.date_picker_fecha_hora_termino.date,"""
       "actividades":tabla_actividades,
       "comentarios":tabla_comentarios
     }
+    """"fecha_inicio":self.date_picker_fecha_hora_inicio.date,
+      "fecha_fin":self.date_picker_fecha_hora_termino.date,"""
     print(f"lo que se envia:{datos}")
-    respuesta = anvil.server.call('crear_pdf',datos)
+    respuesta = anvil.server.call('crear_pdf',json.dumps(datos))
     print(F"LO QUE RECIBE:{respuesta}")
 
   
