@@ -8,6 +8,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 from datetime import date,datetime
 from ..MANTENIMIENTO_FORMS_REPORTES import MANTENIMIENTO_FORMS_REPORTES
+from anvil.js import window
 
 class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTemplate):
   #################################### DEFINICION DE VARIABLES ####################################
@@ -230,9 +231,9 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     """"fecha_inicio":self.date_picker_fecha_hora_inicio.date,
       "fecha_fin":self.date_picker_fecha_hora_termino.date,"""
     print(f"lo que se envia:{datos}")
-    respuesta = anvil.server.call('crear_pdf',json.dumps(datos))
-    print(F"LO QUE RECIBE:{respuesta}")
-
+    #respuesta = anvil.server.call('crear_pdf',json.dumps(datos))
+    #print(F"LO QUE RECIBE:{respuesta}")
+    window.generar_pdf(datos)
   
     
     
