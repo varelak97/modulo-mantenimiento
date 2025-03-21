@@ -225,6 +225,9 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     tabla_actividades = self.repeating_panel_registros.items
     tabla_comentarios = self.repeating_panel_comentarios.items
     datos = {
+      "label_formato":"FOR-MAN-037 CHECKLIST DE VERIFICACIÓN DE MANTENIMIENTO PREVENTIVO",
+      "label_nombre":"Nombre del personal que realizó el mantenimiento:",
+      "equipo":self.registro_equipo['equipo'],
       "nombre":self.text_box_nombre.text,
       "actividades":tabla_actividades,
       "comentarios":tabla_comentarios,
