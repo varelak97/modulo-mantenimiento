@@ -227,10 +227,10 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     datos = {
       "nombre":self.text_box_nombre.text,
       "actividades":tabla_actividades,
-      "comentarios":tabla_comentarios
+      "comentarios":tabla_comentarios,
+      "fecha_inicio":str(self.date_picker_fecha_hora_inicio.date),
+      "fecha_fin":str(self.date_picker_fecha_hora_termino.date)
     }
-    """"fecha_inicio":self.date_picker_fecha_hora_inicio.date,
-      "fecha_fin":self.date_picker_fecha_hora_termino.date,"""
     print(f"lo que se envia:{datos}")
     #respuesta = anvil.server.call('crear_pdf',json.dumps(datos))
     #print(F"LO QUE RECIBE:{respuesta}")

@@ -1,3 +1,4 @@
+<meta charset="iso-8859-1">
 <script src="_/theme/superSQL.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">
@@ -150,22 +151,37 @@
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
-    const encabezados_actividades = [["#", "Actividad", "Si", "No"]];
-    console.log(datos.actividades)
-    const cuerpo_actividades = datos.actividades.map(elemento => (elemento.id, elemento.actividad, elemento.si, elemento.no));//[["alfredo_new","22","ingeniero"],["jorge","33","licenciado"]];
-
     doc.setFontSize(10);
-  
-    doc.text("Nombre del personal que realizó el mantenimiento:",10,10);
-    doc.text(datos['nombre'],10,15);
+    doc.setFont("arial", "bold");
+    doc.text("FOR-MAN-037 CHECKLIST DE VERIFICACIÓN DE MANTENIMIENTO PREVENTIVO",10,10);
+    doc.text("Nombre del personal que realizó el mantenimiento:",10,15);
+    doc.setFont("arial", "normal");
+    doc.text(datos['nombre'],10,20);
+    doc.setFont("arial", "bold");
+    doc.text("Fecha de inicio:",10,25);
+    doc.setFont("arial", "normal");
+    doc.text(datos['fecha_inicio'],37,25);
 
+    doc.text("Actividades:",10,30)
+    const encabezados_actividades = [["#", "Actividad", "Si", "No"]];
+    const cuerpo_actividades = datos.actividades.map(elemento => ([elemento.id, elemento.actividad, elemento.si==true?"X":"", elemento.no==true?"X":""]));
     doc.autoTable({
         head: encabezados_actividades,
         body: cuerpo_actividades,
-        startY: 20,
+        startY: 35,
     });
 
-    doc.save("test2.pdf");
+    const encabezados_comentarios = [["#", "Comentario"]];
+    if(datos.comentarios!=null){
+      const cuerpo_comentarios = datos.comentarios.map(elemento => ([elemento.id, elemento.comentario]));
+      doc.autoTable({
+          head: encabezados_actividades,
+          body: cuerpo_actividades,
+          startY: 120,
+      });
+    }
+
+    doc.save("test.pdf");
   }
  
 </script>
