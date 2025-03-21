@@ -145,5 +145,27 @@
   
   addMarginToContent()
   window.addEventListener('resize', addMarginToContent);
+
+  function  generar_pdf(datos){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    const encabezados_actividades = [["#", "Actividad", "Si", "No"]];
+    console.log(datos.actividades)
+    const cuerpo_actividades = datos.actividades.map(elemento => (elemento.id, elemento.actividad, elemento.si, elemento.no));//[["alfredo_new","22","ingeniero"],["jorge","33","licenciado"]];
+
+    doc.setFontSize(10);
+  
+    doc.text("Nombre del personal que realizó el mantenimiento:",10,10);
+    doc.text(datos['nombre'],10,15);
+
+    doc.autoTable({
+        head: encabezados_actividades,
+        body: cuerpo_actividades,
+        startY: 20,
+    });
+
+    doc.save("test2.pdf");
+  }
  
 </script>
