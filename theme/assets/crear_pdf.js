@@ -5,6 +5,9 @@ function  generar_pdf(datos){
   const encabezados = [["Nombre", "Edad", "Profesión"]];
   const cuerpo = [["alfredo","22","ingeniero"],["jorge","33","licenciado"]];
 
+  doc.text("Nombre del personal que realizó el mantenimiento:",10,10);
+  /*doc.text(datos['nombre'],20,40);*/
+
   // Generar tabla
   doc.autoTable({
       head: encabezados,
