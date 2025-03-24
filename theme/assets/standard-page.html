@@ -156,22 +156,22 @@
     
     doc.setFontSize(10);
     doc.setFont("arial", "bold");
-    doc.text(datos['label_formato'],10,10);
-    doc.text("Equipo:",10,15);
+    doc.text(datos['label_formato'],13,10);
+    doc.text("Equipo:",13,15);
     doc.setFont("arial", "normal");
-    doc.text(datos['equipo'],23,15);
+    doc.text(datos['equipo'],26,15);
     doc.setFont("arial", "bold");
-    doc.text(datos['label_nombre'],10,20);
+    doc.text(datos['label_nombre'],13,20);
     doc.setFont("arial", "normal");
-    doc.text(datos['nombre'],88,20);
+    doc.text(datos['nombre'],91,20);
     doc.setFont("arial", "bold");
-    doc.text("Fecha de inicio:",10,25);
+    doc.text("Fecha de inicio:",13,25);
     doc.setFont("arial", "normal");
-    doc.text(datos['fecha_inicio'],38,25);
+    doc.text(datos['fecha_inicio'],41,25);
     doc.setFont("arial", "bold");
-    doc.text("Fecha de termino:",10,30);
+    doc.text("Fecha de termino:",13,30);
     doc.setFont("arial", "normal");
-    doc.text(datos['fecha_fin'],38,30);
+    doc.text(datos['fecha_fin'],41,30);
 
     const encabezados_actividades = [["#", "Actividades", "Si", "No"]];
     const cuerpo_actividades = datos.actividades.map(elemento => ([elemento.id, elemento.actividad, elemento.si==true?"X":"", elemento.no==true?"X":""]));
@@ -189,8 +189,8 @@
           body: cuerpo_comentarios
       });
     }
-
-    doc.save("test.pdf");
+    const nombre_documento = datos['equipo']  + "-" +  datos['frecuencia'];
+    doc.save(nombre_documento);
   }
  
 </script>

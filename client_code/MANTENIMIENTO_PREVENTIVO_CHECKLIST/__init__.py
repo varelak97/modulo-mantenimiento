@@ -228,6 +228,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
       "label_formato":"FOR-MAN-037 CHECKLIST DE VERIFICACIÓN DE MANTENIMIENTO PREVENTIVO",
       "label_nombre":"Nombre del personal que realizó el mantenimiento:",
       "equipo":self.registro_equipo['equipo'],
+      "frecuencia":self.registro_equipo['frecuencia'],
       "nombre":self.text_box_nombre.text,
       "actividades":tabla_actividades,
       "comentarios":tabla_comentarios,
