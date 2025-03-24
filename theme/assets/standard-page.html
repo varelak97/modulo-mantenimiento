@@ -189,7 +189,7 @@
           body: cuerpo_comentarios
       });
     }
-    const nombre_documento = datos['equipo']  + "-" +  datos['frecuencia'];
+    const nombre_documento = datos['equipo']  + "-" +  datos['frecuencia'] + "-" + datos['fecha_inicio'];
     doc.save(nombre_documento);
   }
  
