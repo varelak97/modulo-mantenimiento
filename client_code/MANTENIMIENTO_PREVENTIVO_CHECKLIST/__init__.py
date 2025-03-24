@@ -26,6 +26,7 @@ class MANTENIMIENTO_PREVENTIVO_CHECKLIST(MANTENIMIENTO_PREVENTIVO_CHECKLISTTempl
     self.set_event_handler('x-eliminar_comentario', self.eliminar_comentario)
     self.set_event_handler('x-editar_comentario', self.editar_comentario)
     #self.set_event_handler('x-deshabilitar_botones_grid', self.deshabilitar_botones_grid)
+    print(f"dtos recibidos:{datos}")
     
     self.datos = datos
     

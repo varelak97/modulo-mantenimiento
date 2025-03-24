@@ -155,23 +155,23 @@
     const x = (anchoPagina - anchoTexto) / 2; // Centrar horizontalmente
     
     doc.setFontSize(10);
-    doc.setFont("arial", "bold");
-    doc.text(datos['label_formato'],13,10);
-    doc.text("Equipo:",13,15);
-    doc.setFont("arial", "normal");
-    doc.text(datos['equipo'],26,15);
-    doc.setFont("arial", "bold");
-    doc.text(datos['label_nombre'],13,20);
-    doc.setFont("arial", "normal");
-    doc.text(datos['nombre'],91,20);
-    doc.setFont("arial", "bold");
-    doc.text("Fecha de inicio:",13,25);
-    doc.setFont("arial", "normal");
-    doc.text(datos['fecha_inicio'],41,25);
-    doc.setFont("arial", "bold");
-    doc.text("Fecha de termino:",13,30);
-    doc.setFont("arial", "normal");
-    doc.text(datos['fecha_fin'],41,30);
+    doc.setFont("calibri", "bold");
+    doc.text(datos['label_formato'],14,10);
+    doc.text("Equipo:",14,15);
+    doc.setFont("calibri", "normal");
+    doc.text(datos['equipo'],27,15);
+    doc.setFont("calibri", "bold");
+    doc.text(datos['label_nombre'],14,20);
+    doc.setFont("calibri", "normal");
+    doc.text(datos['nombre'],92,20);
+    doc.setFont("calibri", "bold");
+    doc.text("Fecha de inicio:",14,25);
+    doc.setFont("calibri", "normal");
+    doc.text(datos['fecha_inicio'],42,25);
+    doc.setFont("calibri", "bold");
+    doc.text("Fecha de termino:",14,30);
+    doc.setFont("calibri", "normal");
+    doc.text(datos['fecha_fin'],42,30);
 
     const encabezados_actividades = [["#", "Actividades", "Si", "No"]];
     const cuerpo_actividades = datos.actividades.map(elemento => ([elemento.id, elemento.actividad, elemento.si==true?"X":"", elemento.no==true?"X":""]));
@@ -190,8 +190,8 @@
       });
     }
     var fecha_inicio = datos['fecha_inicio'].split(" ");
-    var str_fecha_inicio = fecha_inicio[0].replace(/ /g, "_");
-    const nombre_documento = datos['equipo']  + "-" +  datos['frecuencia'] + "-" + str_fecha_inicio;
+    var str_equipo = datos['equipo'].replace(/ /g, "_");
+    const nombre_documento = str_equipo + "-" +  datos['frecuencia'] + "-" + fecha_inicio[0];
     doc.save(nombre_documento);
   }
  
