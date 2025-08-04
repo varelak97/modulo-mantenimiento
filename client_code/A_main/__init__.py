@@ -14,8 +14,8 @@ from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES import MANTENIMIENTO_PREV
 from ..MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS import MANTENIMIENTO_PREVENTIVO_CORRECTIVO_SOLICITUDES_REGISTROS
 from ..MANTENIMIENTO_MENU import MANTENIMIENTO_MENU
 from ..MANTENIMIENTO_MENU_HERRAMENTALES import MANTENIMIENTO_MENU_HERRAMENTALES
-from Modulo_Sistemas.Sistemas_Solicitudes_Soporte import Sistemas_Solicitudes_Soporte
-from Modulo_Sistemas.Sistemas_Menu import Sistemas_Menu
+#from Modulo_Sistemas.Sistemas_Solicitudes_Soporte import Sistemas_Solicitudes_Soporte
+#from Modulo_Sistemas.Sistemas_Menu import Sistemas_Menu
 
 class A_main(A_mainTemplate):
   form_activo = None

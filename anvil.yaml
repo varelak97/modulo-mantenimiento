@@ -3,9 +3,6 @@ dependencies:
 - dep_id: dep_a100g45byf4vh
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {dev: false}
-- dep_id: dep_527jy7hioyvvamg
-  resolution_hints: {app_id: IOGR3PPEYVHOBM6W, name: Modulo_Sistemas, package_name: Modulo_Sistemas}
-  version: {branch: master}
 name: Modulo_Mantenimiento
 native_deps:
   head_html: "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js\"></script>\n<script>\n  function  generar_pdf(datos){\n    const { jsPDF } = window.jspdf;\n    const doc = new jsPDF();\n    \n    const encabezados = [[\"Nombre\", \"Edad\", \"Profesión\"]];\n    const cuerpo = [[\"alfredo\",\"22\",\"ingeniero\"],[\"jorge\",\"33\",\"licenciado\"]];\n  \n    // Generar tabla\n    doc.autoTable({\n        head: encabezados,\n        body: cuerpo,\n        startY: 20,\n    });\n  \n    // Descargar el PDF\n    doc.save(\"test.pdf\");\n  \n  }\n</script>"
